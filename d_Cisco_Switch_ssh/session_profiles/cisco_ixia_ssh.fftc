@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="cisco_ixia_ssh.ffsp"/>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="main"/>
+        <item name="change_vlans" isPublic="true">
+            <steps>
+                <item guid="f4663803-e308-4c42-8008-1af2eadb10b0" action="command" session="[session]" estimatedStepExecutionTime="0.017">
+                    <command>
+                        <body>config t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b655b2af-d45c-4d41-998d-1a6b9f47e5e5" action="command" session="[session]" normalOffset="8.907" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>int [interface]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="26b9a2df-aeba-4676-8c68-aee5e44d30a2" action="command" session="[session]" normalOffset="8.002" estimatedStepExecutionTime="0.014">
+                    <command>
+                        <body>switchport access vlan [vlan_id]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9b20c692-4ebf-47c4-9166-b64ab92d8048" action="command" session="[session]" normalOffset="17.315" estimatedStepExecutionTime="0.013">
+                    <command>
+                        <body>switchport mode access</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="4fbd3df8-eb28-4f01-a487-5f52b4a6368f" action="command" session="[session]" normalOffset="2.328" estimatedStepExecutionTime="0.011">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="085c1719-c7bf-468b-b274-d65826b62d21" action="command" session="[session]" normalOffset="1.333" estimatedStepExecutionTime="0.013">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="cec8b576-a497-4664-bb00-d4f6934f2ff6" action="sleep">
+                    <command>
+                        <body>5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="interface">
+                    <description>gi 0/7 = Ixia port 1:3:3</description>
+                    <defaultValue>gi 0/7</defaultValue>
+                </item>
+                <item name="vlan_id">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

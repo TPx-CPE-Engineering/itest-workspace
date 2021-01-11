@@ -1,0 +1,3543 @@
+[GotoActions__T:3-way Conference_2in_Dhangup_Toggle1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[Second Call for CCSS]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:AFT On Hook and wait ? sec [1]
+7=B:@:AFT On Hook and wait ? sec [1]
+2=A:@:Do hook flash, and wait for dial tone
+4=D:@:AFT On Hook and wait ? sec [1]
+6=A:@:AFT On hook wait for incoming call
+8=End of script
+
+[GotoActions__Second call R+0]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__T:3-way Conference_2in_Ahangup_Toggle2]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+20=0
+15=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[GotoActions__Call Transfer Disable]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT:3-way Call_2out_Bhangup]
+1=A calls B, DTMF, confirms once
+3=A:D:A calls B, DTMF, confirms once
+5=B:@:AFT On Hook and wait ? sec [1]
+7=A:@:AFT On Hook and wait ? sec [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=;B hook on
+6=A:D:AFT Do Path Confirmation Once
+8=End of script
+
+[Second call R+1]
+3=A:D:A calls B, DTMF, confirms once
+7=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time [1]
+6=A:@:Wait for time in seconds [10]
+8=B:A:Do path confirmation for ? s [10]
+1=A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [1]
+9=End of script
+
+[T:3-way Conference_2out_Dhangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+17=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;D hook on
+3=A:D:A calls B, DTMF, confirms once
+16=D:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Dial Interval - ring]
+1=A:@:Off hook - DTMF - Dial number [324201]
+2=B:@:Wait for ring
+3=A:@:AFT On Hook and wait ? sec [1]
+4=End of script
+
+[GotoActions__Call Retrun_Sweden_busy]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[T:3-way Conference_1in1out_Bhangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+17=A:D:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;B hook on
+3=A:D:A calls B, DTMF, confirms once
+16=B:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__Test]
+1=0
+2=0
+3=0
+4=0
+
+[AFT:3-way Call_1in1out_Bhangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=A:@:Wait for time in seconds [90]
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=A:@:AFT Do Hook Flash wait time [5]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;B hook on
+10=B:@:AFT On Hook and wait ? sec [3]
+14=D:A:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for busy
+15=End of script
+
+[GotoActions__A dial #43#]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__T:3-way Conference_2out_Dhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Actions]
+File=Abacus.ACT
+
+[AFT:3-way Call_2out_Dhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:AFT Do Hook Flash wait time [3]
+2=A:@:Do hook flash, and wait for dial tone
+4=;D hook on
+6=A:@:Wait for busy
+8=B:A:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=D:@:AFT On Hook and wait ? sec [3]
+9=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[T:3-way Conference_2in_Dhangup]
+7=;R+3
+12=B:A:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=D:B:AFT Do Path Confirmation Once
+17=End of script
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [3]
+10=A:@:Wait for time in seconds [3]
+14=;D hook on
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=A:D:AFT Do Path Confirmation Once
+15=D:@:AFT On Hook and wait ? sec [1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+16=AFT Do Path Confirmation Once
+
+[Call Retrun_Sweden_busy]
+1=B:@:AFT Off hook wait for dial tone
+3=D:A:AFT A calls B, DTMF
+5=End of script
+2=A:@:Off hook - DTMF - Dial number [*69#]
+4=A:@:Wait for busy
+
+[GotoActions__T:3-way Conference_2out_Dhangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Call Transfer WN Recovery]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls #31# +B]
+1=0
+2=0
+3=0
+
+[GotoActions__AFT:3-way Call_1in1out_Bhangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Call Waiting QuickFlash]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Test]
+1=A:@:Off hook - DTMF - Dial number [*43#]
+2=A:@:Wait for time in seconds [5]
+3=AFT On Hook and wait 1 sec
+4=End of script
+
+[GotoActions__Call Waiting R+0]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Call Transfer Attend]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls x31x +B]
+1=0
+2=0
+3=0
+
+[GotoActions__A call B no path confirm]
+1=0
+2=0
+3=0
+4=0
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[T:3-way Conference_2in_Bhangup_Toggle2]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+25=End of script
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+20=B:A:AFT Do Path Confirmation Once
+15=;R+3
+24=A:D:AFT Do Path Confirmation Once
+19=A:D:AFT Do Path Confirmation Once
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=D:B:AFT Do Path Confirmation Once
+16=A:@:AFT Do Hook Flash wait time [1]
+4=A:@:AFT Do Hook Flash wait time [1]
+22=;B hook on
+17=A:@:Send string in DTMF [3]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=B:@:AFT On Hook and wait ? sec [1]
+18=A:@:Wait for time in seconds [3]
+
+[AFT: 4-way Conference]
+7=A:C:AFT Do Path Confirmation Once
+12=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+14=A:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=A:D:A calls B, DTMF, confirms once
+20=B:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+24=End of script
+19=B:C:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=B:D:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=C:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__BusyTone]
+1=0
+2=0
+3=0
+4=0
+
+[Call Waiting R+0]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=D:@:Wait for busy
+12=D:@:Wait for busy
+4=A:@:AFT Do Hook Flash wait time [1]
+8=D:@:AFT On Hook and wait ? sec [3]
+13=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [0]
+9=B:A:Do path confirmation for ? s [10]
+10=D:A:AFT A calls B, DTMF
+2=D:A:AFT A calls B, DTMF
+6=A:@:Wait for time in seconds [10]
+11=A:@:Wait for silence [5]
+
+[B calls A, hookon immediately]
+1=B:@:Off hook - DTMF - Dial number [324200#]
+2=B:@:AFT On Hook and wait ? sec [1]
+3=End of script
+
+[DialPlan_112]
+1=A:@:Off hook - DTMF - Dial number [112]
+2=A:@:Wait for busy
+3=End of script
+
+[GotoActions__T:3-way Conference_2in_Bhangup_Toggle2]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Call hold and recovery]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__T:3-way Conference_1in1out_Dhangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[AFT: Call Forwarding]
+3=AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__AFT:3-way Call_2in_Ahangup_Toggle]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Wait for ring]
+1=B:@:Off hook - DTMF - Dial number [324200]
+3=A:@:Wait for ring
+5=End of script
+2=B:@:Wait for time in seconds [10]
+4=B:@:AFT On Hook and wait ? sec [1]
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[GotoActions__A calls invaild number]
+1=0
+3=0
+2=0
+4=0
+
+[AFT: Automatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=C:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[T:3-way Conference_2out_Bhangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+17=A:D:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;B hook on
+3=A:D:A calls B, DTMF, confirms once
+16=B:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__AFT:3-way Call_2in_Ahangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Call Waiting Enable_phone2]
+1=B:A:A calls B, DTMF, confirms once
+3=B:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+5=C:@:AFT On Hook and wait ? sec [1]
+7=End of script
+2=C:B:AFT A calls B, DTMF
+4=C:@:Wait for time in seconds [5]
+6=Do path confirmation for ? s [10]
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[T:3-way Conference_2in_Ahangup_Toggle3]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+26=;A hook on
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+27=A:@:AFT On Hook and wait ? sec [1]
+2=D:A:AFT A calls B, DTMF
+20=A:@:AFT Do Hook Flash wait time [1]
+15=;toggle3
+28=B:@:Wait for busy
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=A:@:Send string in DTMF [3]
+16=A:@:AFT Do Hook Flash wait time [1]
+29=D:@:Wait for busy
+4=A:@:AFT Do Hook Flash wait time [1]
+22=A:@:Wait for time in seconds [3]
+17=A:@:Send string in DTMF [2]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=A:D:AFT Do Path Confirmation Once
+18=B:A:AFT Do Path Confirmation Once
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+24=B:A:AFT Do Path Confirmation Once
+19=;R+3
+30=End of script
+25=D:B:AFT Do Path Confirmation Once
+
+[T:3-way Conference_2in_Dhangup_Toggle3]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+25=D:B:AFT Do Path Confirmation Once
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+26=;D hook on
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+27=D:@:AFT On Hook and wait ? sec [1]
+2=D:A:AFT A calls B, DTMF
+20=A:@:AFT Do Hook Flash wait time [1]
+15=;toggle3
+28=AFT Do Path Confirmation Once
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=A:@:Send string in DTMF [3]
+16=A:@:AFT Do Hook Flash wait time [1]
+29=End of script
+4=A:@:AFT Do Hook Flash wait time [1]
+22=A:@:Wait for time in seconds [3]
+17=A:@:Send string in DTMF [2]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=A:D:AFT Do Path Confirmation Once
+18=B:A:AFT Do Path Confirmation Once
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+24=B:A:AFT Do Path Confirmation Once
+19=;R+3
+
+[GotoActions__AFT:3-way Call_2in_Bhangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[BusyTone]
+1=A:@:Send string in DTMF [1234000]
+2=A:@:Wait for time in seconds [1]
+3=A:@:Wait for busy
+4=End of script
+
+[Call Transfer Attend]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:Send string in DTMF [*98#]
+7=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time [0.5]
+6=D:B:AFT Do Path Confirmation Once
+
+[T:3-way Conference_2out_Ahangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [3]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:@:AFT On Hook and wait ? sec [3]
+15=A:@:Wait for time in seconds [3]
+19=;A hook on
+3=A:D:A calls B, DTMF, confirms once
+21=B:@:Wait for busy
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=D:@:Wait for busy
+17=B:A:AFT Do Path Confirmation Once
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=End of script
+18=D:B:AFT Do Path Confirmation Once
+
+[GotoActions__Call Waiting CCSS_1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+
+[T:3-way Conference_1in1out_Ahangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=B:@:Wait for busy
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=D:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+27=End of script
+2=A:@:Do hook flash, and wait for dial tone
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;A hook on
+18=A:@:Send string in DTMF [3]
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+24=A:@:AFT On Hook and wait ? sec [1]
+19=A:@:Wait for time in seconds [3]
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Waiting]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__T:3-way Conference_2out_Ahangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[GotoActions__AFT:3-way Call_1in1out_Ahangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__T:3-way Conference_2out_Dhangup_Toggle1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT:3-way Call_2in_Bhangup]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=;B hook on
+2=D:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time [1]
+6=D:A:AFT Do Path Confirmation Once
+8=B:@:AFT On Hook and wait ? sec [3]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=D:A:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__Call Retrun_Norway_phone2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__T:3-way Conference_1in1out_Bhangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[Internal Call]
+1=A:@:Off hook - DTMF - Dial number [####]
+2=Do path confirmation for ? s [10]
+3=End of script
+
+[A calls B (no dial tone, DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=A calls B, no dial tone, DTMF, confirm for CL
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__T:3-way Conference_2out_Bhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__T:3-way Conference_2in_Dhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[T:3-way Conference_1in1out_Dhangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=AFT Do Path Confirmation Once
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=End of script
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+24=D:@:AFT On Hook and wait ? sec [1]
+19=A:@:Wait for time in seconds [3]
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;D hook on
+18=A:@:Send string in DTMF [3]
+
+[A dial #43#]
+1=A:@:Off hook - DTMF - Dial number [#43#]
+2=A:@:Wait for time in seconds [5]
+3=A:@:AFT On Hook and wait ? sec [1]
+4=End of script
+
+[T:3-way Conference_2out_Dhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=D:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;D hook on
+
+[GotoActions__DialPlan_112]
+1=0
+2=0
+3=0
+
+[GotoActions__Call Retrun_Norway_busy_phone2]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Call Waiting CCSS]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=D:A:Do path confirmation for ? s [10]
+2=D:A:AFT A calls B, DTMF
+4=A:@:AFT On Hook and wait ? sec [3]
+6=A:@:Wait for time in seconds [5]
+8=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Off Hook
+
+[AFT:3-way Call_2out_Ahangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=B:@:Wait for busy
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=D:A:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;A hook on
+10=A:@:AFT On Hook and wait ? sec [3]
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:AFT Off Hook
+
+[A calls B (ISDN) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[Call Retrun_Sweden_busy_phone2]
+1=A:@:AFT Off hook wait for dial tone
+3=C:B:AFT A calls B, DTMF
+5=End of script
+2=B:@:Off hook - DTMF - Dial number [*69#]
+4=B:@:Wait for busy
+
+[GotoActions__AFT:3-way Call_2out_Bhangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__T:3-way Conference_1in1out_Ahangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__Call Retrun_Sweden_busy_phone2]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Call Retrun_Sweden]
+1=0
+2=0
+3=0
+4=0
+
+[T:3-way Conference_1in1out_Bhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=B:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=A:D:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;B hook on
+
+[GotoActions__Wait for ring]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Second call R+1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Call Retrun_Norway_Fail]
+1=A:@:Off hook - DTMF - Dial number [*92#]
+2=A:@:Wait for busy
+3=End of script
+
+[Second call dial D and recovery]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [5]
+2=A:@:Do hook flash, and wait for dial tone
+4=D:@:AFT On Hook and wait ? sec [1]
+6=A:@:AFT Off Hook
+8=B:A:Do path confirmation for ? s [10]
+1=A calls B, DTMF, confirms for Call Length
+5=A:@:AFT On Hook and wait ? sec [2]
+9=End of script
+
+[T:3-way Conference_1in1out_Dhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=D:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;D hook on
+
+[GotoActions__T:3-way Conference_2in_Ahangup_Toggle3]
+7=0
+12=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[T:3-way Conference_2in_Ahangup_Toggle1]
+7=A:@:AFT Do Hook Flash wait time [1]
+12=A:@:Send string in DTMF [3]
+8=A:@:Send string in DTMF [2]
+13=A:@:Wait for time in seconds [3]
+1=B:A:A calls B, DTMF, confirms once
+9=B:A:AFT Do Path Confirmation Once
+14=A:D:AFT Do Path Confirmation Once
+2=D:A:AFT A calls B, DTMF
+6=;toggle1
+11=A:@:AFT Do Hook Flash wait time [1]
+20=D:@:Wait for busy
+15=B:A:AFT Do Path Confirmation Once
+19=B:@:Wait for busy
+3=A:@:AFT Do Hook Flash wait time [1]
+21=End of script
+16=D:B:AFT Do Path Confirmation Once
+4=A:@:Send string in DTMF [2]
+17=;A hook on
+5=D:A:AFT Do Path Confirmation Once
+10=;R+3
+18=A:@:AFT On Hook and wait ? sec [1]
+
+[T:3-way Conference_2out_Dhangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+14=A:@:Send string in DTMF [3]
+18=D:B:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=D:@:AFT On Hook and wait ? sec [1]
+15=A:@:Wait for time in seconds [3]
+19=;D hook on
+3=A:D:A calls B, DTMF, confirms once
+21=AFT Do Path Confirmation Once
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=End of script
+17=B:A:AFT Do Path Confirmation Once
+
+[T:3-way Conference_2in_Dhangup_Toggle1]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [3]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [3]
+18=;D hook on
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=;R+3
+20=AFT Do Path Confirmation Once
+15=A:D:AFT Do Path Confirmation Once
+19=D:@:AFT On Hook and wait ? sec [1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=End of script
+16=B:A:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time [1]
+17=D:B:AFT Do Path Confirmation Once
+
+[GotoActions__Call Retrun_Sweden_Fail]
+1=0
+2=0
+3=0
+
+[GotoActions__AFT:3-way Call_2out_Ahangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[speed dial]
+1=A calls B, string, confirms once [#01]
+2=End of script
+
+[T:3-way Conference_1in1out_Bhangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+14=A:@:Send string in DTMF [3]
+18=D:B:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=B:@:AFT On Hook and wait ? sec [1]
+15=A:@:Wait for time in seconds [3]
+19=;B hook on
+3=A:D:A calls B, DTMF, confirms once
+21=A:D:AFT Do Path Confirmation Once
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=End of script
+17=B:A:AFT Do Path Confirmation Once
+
+[GotoActions__Call hold dial wrong number and recovery]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A dial x43#]
+1=0
+2=0
+3=0
+4=0
+
+[A calls busy B]
+1=B:@:AFT Off Hook
+2=A:@:Off hook - DTMF - Dial number [324201#]
+3=A:@:Wait for busy
+4=End of script
+
+[GotoActions__A calls B (no dial tone, DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Call Retrun_Norway_phone2]
+1=B:A:A calls B, string, confirms once [*92#]
+2=B:@:AFT On Hook and wait ? sec [1]
+3=C:B:AFT A calls B, DTMF
+4=End of script
+
+[GotoActions__C Wait for ring]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__T:3-way Conference_1in1out_Bhangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Call Waiting Enable]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Second call dial D and B onhook]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:D:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=B:@:AFT On Hook and wait ? sec [1]
+6=End of script
+
+[T:3-way Conference_1in1out_Ahangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;A hook on
+19=End of script
+3=A:D:A calls B, DTMF, confirms once
+16=A:@:AFT On Hook and wait ? sec [1]
+4=;toggle1
+17=B:@:Wait for busy
+
+[GotoActions__AFT:3-way Call_2out_Dhangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[AFT:3-way Call_1in1out_Ahangup]
+3=A:D:A calls B, DTMF, confirms once
+7=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=;A hook on
+6=A:@:AFT Off Hook
+8=B:A:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT On Hook and wait ? sec [3]
+9=End of script
+
+[DTMF-string]
+1=A calls B, DTMF, confirms for Call Length
+2=A:@:Send string in DTMF [0123456789*#]
+3=A:@:Wait for time in seconds [3]
+4=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__Call Waiting Enable_phone2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__T:3-way Conference_2out_Ahangup_Toggle1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+4=0
+17=0
+
+[AFT:3-way Call_1in1out_Bhangup]
+1=B:A:A calls B, DTMF, confirms once
+3=A:D:A calls B, DTMF, confirms once
+5=B:@:AFT On Hook and wait ? sec [1]
+7=A:@:AFT On Hook and wait ? sec [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=;B hook on
+6=A:D:AFT Do Path Confirmation Once
+8=End of script
+
+[GotoActions__Call Waiting R+1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Call Transfer WN Recovery]
+1=B:A:A calls B, DTMF, confirms once
+3=A:@:Off hook - DTMF - Dial number [*98#4321#]
+5=A:@:AFT Do Hook Flash wait time [3]
+7=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:Wait for time in seconds [5]
+6=B:A:AFT Do Path Confirmation Once
+
+[GotoActions__T:3-way Conference_2in_Dhangup]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT:3-way Call_2out_Ahangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__T:3-way Conference_2out_Bhangup_Toggle1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[T:3-way Conference_2in_Bhangup_Toggle3]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+25=D:B:AFT Do Path Confirmation Once
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+26=;B hook on
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+27=B:@:AFT On Hook and wait ? sec [1]
+2=D:A:AFT A calls B, DTMF
+20=A:@:AFT Do Hook Flash wait time [1]
+15=;toggle3
+28=A:D:AFT Do Path Confirmation Once
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=A:@:Send string in DTMF [3]
+16=A:@:AFT Do Hook Flash wait time [1]
+29=End of script
+4=A:@:AFT Do Hook Flash wait time [1]
+22=A:@:Wait for time in seconds [3]
+17=A:@:Send string in DTMF [2]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=A:D:AFT Do Path Confirmation Once
+18=B:A:AFT Do Path Confirmation Once
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+24=B:A:AFT Do Path Confirmation Once
+19=;R+3
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AFT:3-way Call_2out_Ahangup]
+3=A:D:A calls B, DTMF, confirms once
+7=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=;A hook on
+6=A:@:AFT Off Hook
+8=B:A:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT On Hook and wait ? sec [3]
+9=End of script
+
+[T:3-way Conference_2in_Ahangup]
+7=;R+3
+12=B:A:AFT Do Path Confirmation Once
+8=A:@:AFT Do Hook Flash wait time [1]
+13=D:B:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [3]
+10=A:@:Wait for time in seconds [3]
+14=;A hook on
+18=End of script
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=A:D:AFT Do Path Confirmation Once
+15=A:@:AFT On Hook and wait ? sec [1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+16=B:@:Wait for busy
+4=A:@:AFT Do Hook Flash wait time [1]
+17=D:@:Wait for busy
+
+[GotoActions__T:3-way Conference_2out_Bhangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[AFT:3-way Call_2in_Dhangup_Toggle]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=;toggle
+12=;D hook on
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=D:@:AFT On Hook and wait ? sec [3]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [2]
+10=A:@:Wait for time in seconds [3]
+14=B:A:AFT Do Path Confirmation Once
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=B:A:Do path confirmation for ? s [10]
+15=End of script
+
+[AFT:3-way Call_1in1out_Dhangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT On Hook and wait ? sec [10]
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=End of script
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;D hook on
+10=D:@:AFT On Hook and wait ? sec [1]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=AFT Do Path Confirmation Once
+
+[T:3-way Conference_1in1out_Dhangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+17=AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;D hook on
+3=A:D:A calls B, DTMF, confirms once
+16=D:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__AFT:3-way Call_1in1out_Ahangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[T:3-way Conference_2in_Bhangup]
+7=;R+3
+12=B:A:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=D:B:AFT Do Path Confirmation Once
+17=End of script
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [3]
+10=A:@:Wait for time in seconds [3]
+14=;B hook on
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=A:D:AFT Do Path Confirmation Once
+15=B:@:AFT On Hook and wait ? sec [1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+16=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__A calls busy B]
+1=0
+2=0
+3=0
+4=0
+
+[Call Waiting R+1]
+3=A:@:Wait for time in seconds [3]
+7=A:@:Wait for time in seconds [10]
+2=D:A:AFT A calls B, DTMF
+4=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+6=A:@:Send string in DTMF [1]
+8=B:@:Wait for busy
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=D:A:Do path confirmation for ? s [10]
+10=End of script
+
+[Call Waiting Enable]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+5=D:@:AFT On Hook and wait ? sec [1]
+7=End of script
+2=D:A:AFT A calls B, DTMF
+4=D:@:Wait for time in seconds [5]
+6=Do path confirmation for ? s [10]
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[GotoActions__T:3-way Conference_2in_Bhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[GotoActions__Call Retrun_Sweden_D]
+1=0
+2=0
+
+[GotoActions__Call Retrun_Norway]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__AFT:3-way Call_2out_Dhangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Second Call for CCSS]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__T:3-way Conference_1in1out_Dhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[T:3-way Conference_2out_Bhangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+14=A:@:Send string in DTMF [3]
+18=D:B:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=B:@:AFT On Hook and wait ? sec [1]
+15=A:@:Wait for time in seconds [3]
+19=;B hook on
+3=A:D:A calls B, DTMF, confirms once
+21=A:D:AFT Do Path Confirmation Once
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=End of script
+17=B:A:AFT Do Path Confirmation Once
+
+[GotoActions__Dial Interval - busy tone]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Call hold dial wrong number and recovery]
+1=A calls B, DTMF, confirms for Call Length
+3=A:@:Off hook - DTMF - Dial number [4433]
+5=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time [5]
+6=End of script
+
+[T:3-way Conference_2out_Ahangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=B:@:Wait for busy
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=D:@:Wait for busy
+1=A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+27=End of script
+2=A:@:Do hook flash, and wait for dial tone
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;A hook on
+18=A:@:Send string in DTMF [3]
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+24=A:@:AFT On Hook and wait ? sec [3]
+19=A:@:Wait for time in seconds [3]
+
+[AFT: Call Waiting]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.5]
+7=A:@:AFT Do Hook Flash wait time
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:C:AFT Do Path Confirmation Once
+8=A:@:Send string in DTMF [2]
+1=A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__Call Retrun_Norway_busy]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Call Retrun_Sweden_phone2]
+1=B:A:A calls B, string, confirms once [*69#]
+2=B:@:AFT On Hook and wait ? sec [1]
+3=C:B:AFT A calls B, DTMF
+4=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__T:3-way Conference_2in_Ahangup_Toggle1]
+7=0
+12=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+5=0
+10=0
+18=0
+
+[GotoActions__B calls A, hookon immediately]
+1=0
+2=0
+3=0
+
+[A calls #31# +B]
+1=A:@:Off hook - DTMF - Dial number [#31#]
+2=A calls B, DTMF, no dial tone, confirms once
+3=End of script
+
+[Call Waiting Disable]
+1=A calls B, DTMF, confirms once
+3=A:@:Wait for time in seconds [3]
+5=Do path confirmation for ? s [10]
+2=C:A:AFT A calls B, DTMF
+4=C:@:Wait for busy
+6=End of script
+
+[Second call R+0]
+3=A:D:A calls B, DTMF, confirms once
+7=B:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time [1]
+6=A:@:Wait for time in seconds [10]
+8=D:A:Do path confirmation for ? s [10]
+1=A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [0]
+9=End of script
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[Call Transfer Disable]
+1=B:A:A calls B, DTMF, confirms once
+3=A:@:Off hook - DTMF - Dial number [*98#]
+5=A:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=A:C:AFT A calls B, no dial tone, DTMF
+6=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__T:3-way Conference_2out_Dhangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[GotoActions__T:3-way Conference_1in1out_Bhangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Internal Call]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__Call Waiting CCSS]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+
+[A calls B (DTMF) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Call Retrun_Norway_busy_phone2]
+1=A:@:AFT Off hook wait for dial tone
+3=C:B:AFT A calls B, DTMF
+5=End of script
+2=B:@:Off hook - DTMF - Dial number [*92#]
+4=B:@:Wait for busy
+
+[A dial x43#]
+1=A:@:Off hook - DTMF - Dial number [*43#]
+2=A:@:Wait for time in seconds [5]
+3=A:@:AFT On Hook and wait ? sec [1]
+4=End of script
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Call Retrun_Sweden]
+1=A calls B, string, confirms once [*69#]
+2=A:@:AFT On Hook and wait ? sec [1]
+3=D:A:AFT A calls B, DTMF
+4=End of script
+
+[GotoActions__AFT: Automatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[A call B no path confirm]
+1=AFT A calls B, DTMF
+2=A:@:Wait for time in seconds [20]
+3=B:@:Wait for time in seconds [15]
+4=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[T:3-way Conference_2in_Bhangup_Toggle1]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [3]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [3]
+18=;B hook on
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=;R+3
+20=A:D:AFT Do Path Confirmation Once
+15=A:D:AFT Do Path Confirmation Once
+19=B:@:AFT On Hook and wait ? sec [1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=End of script
+16=B:A:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time [1]
+17=D:B:AFT Do Path Confirmation Once
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[GotoActions__Call Retrun_Sweden_phone2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Call Waiting Disable]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT:3-way Call_2in_Dhangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Dial Interval - ring]
+1=0
+2=0
+3=0
+4=0
+
+[AFT:3-way Call_2in_Ahangup]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=;A hook on
+12=B:A:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT On Hook and wait ? sec [3]
+13=End of script
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=D:@:Wait for busy
+10=D:@:AFT On Hook and wait ? sec [3]
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=A:@:AFT Off Hook
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__T:3-way Conference_2in_Bhangup_Toggle1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__Call Retrun_Norway_D]
+1=0
+2=0
+
+[GotoActions__T:3-way Conference_1in1out_Ahangup_Toggle3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[T:3-way Conference_2out_Ahangup]
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=B:@:Wait for busy
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;A hook on
+15=End of script
+3=A:D:A calls B, DTMF, confirms once
+
+[T:3-way Conference_2out_Bhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=B:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=A:D:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;B hook on
+
+[GotoActions__T:3-way Conference_1in1out_Dhangup_Toggle1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT:3-way Call_1in1out_Ahangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT Off Hook
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;A hook on
+10=A:@:AFT On Hook and wait ? sec [3]
+14=D:A:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=B:@:AFT On Hook and wait ? sec [3]
+15=End of script
+
+[GotoActions__AFT:3-way Call_1in1out_Bhangup]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[AFT:3-way Call_2in_Dhangup]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=;D hook on
+12=End of script
+4=A:@:AFT Do Hook Flash wait time [1]
+8=D:@:AFT On Hook and wait ? sec [3]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Wait for busy
+10=A:@:AFT Do Hook Flash wait time [3]
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=B:A:AFT Do Path Confirmation Once
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[Call Waiting CCSS_1]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+7=B:@:Wait for busy
+2=D:A:AFT A calls B, DTMF
+4=A:@:AFT On Hook and wait ? sec [1]
+6=A:@:AFT Off Hook
+8=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:AFT On hook wait for incoming call
+
+[GotoActions__AFT:3-way Call_1in1out_Dhangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[T:3-way Conference_2in_Ahangup_Toggle2]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+25=D:@:Wait for busy
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+26=End of script
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+2=D:A:AFT A calls B, DTMF
+20=B:A:AFT Do Path Confirmation Once
+15=;R+3
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=D:B:AFT Do Path Confirmation Once
+16=A:@:AFT Do Hook Flash wait time [1]
+4=A:@:AFT Do Hook Flash wait time [1]
+22=;A hook on
+17=A:@:Send string in DTMF [3]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=A:@:AFT On Hook and wait ? sec [1]
+18=A:@:Wait for time in seconds [3]
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+24=B:@:Wait for busy
+19=A:D:AFT Do Path Confirmation Once
+
+[T:3-way Conference_2out_Dhangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=AFT Do Path Confirmation Once
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=End of script
+1=A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+24=D:@:AFT On Hook and wait ? sec [1]
+19=A:@:Wait for time in seconds [3]
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;D hook on
+18=A:@:Send string in DTMF [3]
+
+[T:3-way Conference_2in_Dhangup_Toggle2]
+7=;toggle1
+12=A:@:AFT Do Hook Flash wait time [1]
+25=End of script
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:Send string in DTMF [2]
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:Send string in DTMF [2]
+14=D:A:AFT Do Path Confirmation Once
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=;toggle2
+20=B:A:AFT Do Path Confirmation Once
+15=;R+3
+24=AFT Do Path Confirmation Once
+19=A:D:AFT Do Path Confirmation Once
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+21=D:B:AFT Do Path Confirmation Once
+16=A:@:AFT Do Hook Flash wait time [1]
+4=A:@:AFT Do Hook Flash wait time [1]
+22=;D hook on
+17=A:@:Send string in DTMF [3]
+5=A:@:Send string in DTMF [2]
+10=B:A:AFT Do Path Confirmation Once
+23=D:@:AFT On Hook and wait ? sec [1]
+18=A:@:Wait for time in seconds [3]
+
+[AFT: Call Transfer]
+1=B:A:A calls B, DTMF, confirms once
+3=A:@:Off hook - DTMF - Dial number [*98#]
+5=B:@:Wait for time in seconds [5]
+7=End of script
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:C:AFT A calls B, no dial tone, DTMF
+6=B:C:AFT Do Path Confirmation Once
+
+[T:3-way Conference_1in1out_Bhangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=A:D:AFT Do Path Confirmation Once
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=End of script
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+24=B:@:AFT On Hook and wait ? sec [1]
+19=A:@:Wait for time in seconds [3]
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;B hook on
+18=A:@:Send string in DTMF [3]
+
+[T:3-way Conference_2out_Ahangup_Toggle1]
+7=B:A:AFT Do Path Confirmation Once
+12=A:D:AFT Do Path Confirmation Once
+8=;R+3
+13=B:A:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [3]
+14=D:B:AFT Do Path Confirmation Once
+18=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=;A hook on
+19=End of script
+3=A:D:A calls B, DTMF, confirms once
+16=A:@:AFT On Hook and wait ? sec [3]
+4=;toggle1
+17=B:@:Wait for busy
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[A calls invaild number]
+1=A:@:Off hook - DTMF - Dial number [1234567890123456789012345678901]
+3=A:@:Wait for busy
+2=A:@:Wait for time in seconds [10]
+4=End of script
+
+[C Wait for ring]
+1=A:@:Off hook - DTMF - Dial number [324202]
+3=B:@:Wait for ring
+5=End of script
+2=A:@:Wait for time in seconds [10]
+4=A:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__AFT:3-way Call_2in_Dhangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Dial Interval - busy tone]
+1=A:@:Off hook - DTMF - Dial number [324255]
+3=A:@:Wait for busy
+5=End of script
+2=A:@:Wait for time in seconds [15]
+4=AFT On Hook and wait 1 sec
+
+[T:3-way Conference_1in1out_Ahangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=B:A:A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [3]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:@:AFT On Hook and wait ? sec [1]
+15=A:@:Wait for time in seconds [3]
+19=;A hook on
+3=A:D:A calls B, DTMF, confirms once
+21=B:@:Wait for busy
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=D:@:Wait for busy
+17=B:A:AFT Do Path Confirmation Once
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=End of script
+18=D:B:AFT Do Path Confirmation Once
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT:3-way Call_1in1out_Dhangup_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Call Retrun_Norway]
+1=A calls B, string, confirms once [*92#]
+2=A:@:AFT On Hook and wait ? sec [1]
+3=D:A:AFT A calls B, DTMF
+4=End of script
+
+[GotoActions__T:3-way Conference_2out_Ahangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Call Waiting R+2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Second call dial D and B onhook]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[T:3-way Conference_1in1out_Ahangup]
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT On Hook and wait ? sec [1]
+4=;R+3
+8=A:D:AFT Do Path Confirmation Once
+13=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=B:A:AFT Do Path Confirmation Once
+10=D:B:AFT Do Path Confirmation Once
+14=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [3]
+11=;A hook on
+15=End of script
+3=A:D:A calls B, DTMF, confirms once
+
+[Call Retrun_Norway_D]
+1=A:D:A calls B, string, confirms once [*92#]
+2=End of script
+
+[GotoActions__T:3-way Conference_1in1out_Bhangup_Toggle1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__T:3-way Conference_2out_Bhangup_Toggle2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__Second call dial D and recovery]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__AFT:3-way Call_2in_Bhangup_Toggle]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT:3-way Call_2out_Dhangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT On Hook and wait ? sec [10]
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;D hook on
+10=D:@:AFT On Hook and wait ? sec [1]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=AFT Do Path Confirmation Once
+
+[GotoActions__T:3-way Conference_2in_Dhangup_Toggle2]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Call hold and recovery]
+1=A calls B, DTMF, confirms for Call Length
+3=A:@:AFT Do Hook Flash wait time [5]
+5=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=B:A:Do path confirmation for ? s [10]
+
+[T:3-way Conference_1in1out_Dhangup_Toggle2]
+7=B:A:AFT Do Path Confirmation Once
+12=;R+3
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+14=A:@:Send string in DTMF [3]
+18=D:B:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=D:@:AFT On Hook and wait ? sec [1]
+15=A:@:Wait for time in seconds [3]
+19=;D hook on
+3=A:D:A calls B, DTMF, confirms once
+21=AFT Do Path Confirmation Once
+16=A:D:AFT Do Path Confirmation Once
+4=;toggle1
+22=End of script
+17=B:A:AFT Do Path Confirmation Once
+
+[AFT:3-way Call_2out_Bhangup_Toggle]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:Wait for time in seconds [3]
+12=A:@:Wait for time in seconds [90]
+4=;toggle
+8=B:A:Do path confirmation for ? s [10]
+13=A:@:AFT Do Hook Flash wait time [5]
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=;B hook on
+10=B:@:AFT On Hook and wait ? sec [3]
+14=D:A:AFT Do Path Confirmation Once
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for busy
+15=End of script
+
+[Call Waiting QuickFlash]
+3=A:@:Wait for time in seconds [3]
+7=B:@:Wait for busy
+2=D:A:AFT A calls B, DTMF
+4=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+6=A:@:Wait for time in seconds [10]
+8=D:A:Do path confirmation for ? s [10]
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=End of script
+
+[Call Waiting R+2]
+3=A:@:Wait for time in seconds [3]
+7=A:@:Wait for time in seconds [10]
+12=B:A:Do path confirmation for ? s [10]
+4=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+8=D:A:Do path confirmation for ? s [10]
+13=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time [1]
+9=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+2=D:A:AFT A calls B, DTMF
+6=A:@:Send string in DTMF [2]
+11=A:@:Wait for time in seconds [10]
+
+[Call Retrun_Sweden_D]
+1=A:D:A calls B, string, confirms once [*69#]
+2=End of script
+
+[AFT:3-way Call_2in_Bhangup_Toggle]
+7=;toggle
+12=;B hook on
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=B:@:AFT On Hook and wait ? sec [3]
+17=End of script
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [2]
+10=A:@:Wait for time in seconds [3]
+14=A:@:Wait for busy
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=B:A:Do path confirmation for ? s [10]
+15=A:@:AFT Do Hook Flash wait time [3]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+16=D:A:AFT Do Path Confirmation Once
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[A calls x31x +B]
+1=A:@:Off hook - DTMF - Dial number [*31*]
+2=A calls B, DTMF, no dial tone, confirms once
+3=End of script
+
+[GotoActions__T:3-way Conference_2in_Ahangup]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+4=0
+17=0
+
+[GotoActions__T:3-way Conference_1in1out_Ahangup]
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+
+[Call Retrun_Sweden_Fail]
+1=A:@:Off hook - DTMF - Dial number [*69#]
+2=A:@:Wait for busy
+3=End of script
+
+[GotoActions__speed dial]
+1=0
+2=0
+
+[GotoActions__T:3-way Conference_2in_Bhangup]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[T:3-way Conference_2out_Bhangup_Toggle3]
+7=B:A:AFT Do Path Confirmation Once
+12=;toggle3
+25=A:D:AFT Do Path Confirmation Once
+8=;toggle2
+13=A:@:AFT Do Hook Flash wait time [1]
+26=End of script
+1=A calls B, DTMF, confirms once
+9=A:@:AFT Do Hook Flash wait time [1]
+14=A:@:Send string in DTMF [2]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:Send string in DTMF [2]
+11=D:A:AFT Do Path Confirmation Once
+20=A:D:AFT Do Path Confirmation Once
+15=B:A:AFT Do Path Confirmation Once
+24=B:@:AFT On Hook and wait ? sec [1]
+19=A:@:Wait for time in seconds [3]
+3=A:D:A calls B, DTMF, confirms once
+21=B:A:AFT Do Path Confirmation Once
+16=;R+3
+4=;toggle1
+22=D:B:AFT Do Path Confirmation Once
+17=A:@:AFT Do Hook Flash wait time [1]
+5=A:@:AFT Do Hook Flash wait time [1]
+10=A:@:Send string in DTMF [2]
+23=;B hook on
+18=A:@:Send string in DTMF [3]
+
+[GotoActions__DTMF-string]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__T:3-way Conference_1in1out_Dhangup]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__T:3-way Conference_1in1out_Ahangup_Toggle1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+4=0
+17=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[AFT:3-way Call_2in_Ahangup_Toggle]
+7=;toggle
+12=;A hook on
+4=A:@:AFT Do Hook Flash wait time [1]
+8=A:@:AFT Do Hook Flash wait time [1]
+13=A:@:AFT On Hook and wait ? sec [3]
+17=D:A:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=A:@:Send string in DTMF [2]
+9=A:@:Send string in DTMF [2]
+10=A:@:Wait for time in seconds [3]
+14=B:@:Wait for busy
+18=End of script
+2=D:A:AFT A calls B, DTMF
+6=D:A:AFT Do Path Confirmation Once
+11=B:A:Do path confirmation for ? s [10]
+15=B:@:AFT On Hook and wait ? sec [3]
+3=A:@:AFT Wait for Call Waiting Tone [425,0,0.2]
+16=A:@:AFT Off Hook
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[GotoActions__T:3-way Conference_2out_Ahangup]
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+
+[GotoActions__Call Retrun_Norway_Fail]
+1=0
+2=0
+3=0
+
+[AFT:3-way Call_1in1out_Dhangup]
+3=A:D:A calls B, DTMF, confirms once
+7=A:@:AFT Do Hook Flash wait time [3]
+2=A:@:Do hook flash, and wait for dial tone
+4=;D hook on
+6=A:@:Wait for busy
+8=B:A:AFT Do Path Confirmation Once
+1=B:A:A calls B, DTMF, confirms once
+5=D:@:AFT On Hook and wait ? sec [3]
+9=End of script
+
+[GotoActions__AFT:3-way Call_2out_Bhangup]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Call Retrun_Norway_busy]
+1=B:@:AFT Off hook wait for dial tone
+3=D:A:AFT A calls B, DTMF
+5=End of script
+2=A:@:Off hook - DTMF - Dial number [*92#]
+4=A:@:Wait for busy
+

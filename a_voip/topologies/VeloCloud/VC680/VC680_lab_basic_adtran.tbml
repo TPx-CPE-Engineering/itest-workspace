@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="author">alex</property>
+    <property name="dateCreated">2015-03-17T13:01:16.705-04:00</property>
+    <property name="dateModified">2020-10-28T16:14:07.374-07:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">8.1.0.201911080855</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="58de134a-19af-4294-8fd8-f0b72fa7bffa" id="resource_0" type="server">
+        <boundary height="100" width="100" x="168" y="192"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">BroadWorks</property>
+        <property name="inventoryName" vendor="zz">Lab</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="Selenium" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+              <sessionProperties transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
+              <baseProfile>project://d_Broadsoft_selenium/session_profiles/Broadsoft_selenium_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <prompts merge="true"/>
+                </TerminalProperties>
+                <ipAddress inherit="false">10.255.10.160</ipAddress>
+                <user inherit="false">itest</user>
+                <password inherit="false">q4LF48cUxD2bGjwwg74RUg==</password>
+              </sessionProperties>
+              <baseProfile>project://d_Broadsoft_ssh/session_profiles/broadsoft_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Python_API" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+              <baseProfile>project://d_Broadsoft_api/session_profiles/itest_broadsoft_python_api.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="ed09f115-bbe9-4e70-a7a9-1b1447162040" id="resource_0_0" type="port">
+          <property name="name">-</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="0dc9c10d-c6c2-4c6e-9d3d-ad835c3cb696" id="resource_0_1" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="65def11e-34c3-4739-a2ca-920e5e3ea510" id="resource_0_2" type="port">
+          <property name="name">Lab VPN</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="a06e26cc-4347-4550-b678-054971b65bd5" id="resource_3" type="trafficgen">
+        <boundary height="100" width="100" x="840" y="96"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Traffic-Generator_32.gif</property>
+        <property name="name">Abacus100</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="tclsh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+              <baseProfile>project://d_Abacus_tclsh/session_profiles/Abacus_tclsh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="3c3d9071-fd34-413b-a686-4474fb5a97a6" id="resource_3_0" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="1c1d46ba-7968-4ba9-95eb-ecb379f81ecf" id="resource_3_1" type="port">
+          <property name="name">Ch 51-75</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="db2aa741-11aa-4a27-892a-eb5b157ef8de" id="resource_3_2" type="port">
+          <property name="name">Ch 1-25</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="2e4ccf88-beb9-4721-aa9f-b77e95b6b321" id="resource_3_3" type="port">
+          <property name="name">Ch 76-100</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="5b6ddc88-70a6-4d6d-88d7-947616429a5e" id="resource_4" type="modem">
+        <boundary height="100" width="100" x="492" y="192"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
+        <property name="name">CPE</property>
+        <property name="inventoryName" vendor="Adtran">D.U.T.</property>
+        <property name="itest_switch_interface" vendor=" ">0/16</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <scrollBackLines inherit="false">3000</scrollBackLines>
+                </TerminalProperties>
+                <ipAddress inherit="false">66.17.13.188</ipAddress>
+                <port inherit="false">2201</port>
+                <user inherit="false">itestautomation</user>
+                <version inherit="false">SSHv2</version>
+                <password inherit="false">n6mQyZSyEZgJor6ZZIWzzg==</password>
+              </sessionProperties>
+              <baseProfile>project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="ea8dfa7c-2717-45d6-b475-07403845e9f2" id="resource_4_0" type="port">
+          <property name="name">SIP (Ethernet)</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="1703c315-31cd-4017-b5c5-b32ac4c69457" id="resource_4_1" type="port">
+          <property name="name">PRI CAS (T1)</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="d5ee218b-72bf-434c-a740-6d1632cd6f57" id="resource_4_2" type="port">
+          <property name="name">FXS</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="34d739d5-9d70-425a-a3e8-d9b5967ce184" id="resource_4_3" type="port">
+          <property name="name">Lab</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="ec2f5a20-3b04-4c19-a80b-bf7e9850d7d7" id="resource_5" type="pc">
+        <boundary height="100" width="100" x="840" y="324"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/pc_32.gif</property>
+        <property name="name">local_pc</property>
+        <property name="inventoryName" vendor="Spirent">iTest</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="cmd" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="mail" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+                <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+              </sessionProperties>
+              <baseProfile>project://d_Mail_smtp/session_profiles/mail_smtp_ssh.ffsp</baseProfile>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="ff6aa90c-1dff-4add-9f70-433ea3a57ffe" id="resource_5_0" type="port">
+          <property name="name">Lab VPN</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="c808a1ef-d198-4d37-ab7a-257a9df06982" id="resource_5_1" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="35662eb6-5276-4d32-96fe-5901dfb5f39a" id="resource_5_2" type="port">
+          <property name="name">-</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="86dcff1e-2e47-4897-a14f-1c6bef72d1ff" id="resource_6" type="server">
+        <boundary height="100" width="100" x="312" y="324"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">Sniffer</property>
+        <property name="inventoryName" vendor="Wireshark">Lab</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <ipAddress inherit="false">10.255.20.112</ipAddress>
+                <user inherit="false">dataeng</user>
+                <password inherit="false">A8sqD9Ilamc7xvlfdGH3qF1uPKCGZW9D</password>
+              </sessionProperties>
+              <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="ssh_to_lab_wireshark" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <stepDefaults>
+                    <completionProperties>
+                      <maxIdleTimeAddition inherit="false">45.0</maxIdleTimeAddition>
+                    </completionProperties>
+                  </stepDefaults>
+                </TerminalProperties>
+                <ipAddress inherit="false">10.255.224.196</ipAddress>
+                <user inherit="false">itest</user>
+                <password inherit="false">Y+bpS9cQBd/M1nCtOXvC3A==</password>
+                <connectTimeout inherit="false">120</connectTimeout>
+              </sessionProperties>
+              <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="d63300f4-e135-4ff8-b640-e91c9dede711" id="resource_6_0" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="3e96bdb8-e318-4359-8473-78799a834c49" id="resource_6_1" type="port">
+          <property name="name">Lab VPN</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="70e4e689-f5cb-45e1-841a-d9ca8b5df428" id="resource_7" type="modem">
+        <boundary height="100" width="100" x="684" y="192"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
+        <property name="name">converter</property>
+        <property name="inventoryName">Lab</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <ipAddress inherit="false">10.255.20.106</ipAddress>
+                <user inherit="false">itestautomation</user>
+                <password inherit="false">n6mQyZSyEZgJor6ZZIWzzg==</password>
+              </sessionProperties>
+              <baseProfile>project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="f89e7bd2-8c95-490c-9e36-a123e4381243" id="resource_7_0" type="port">
+          <property name="name">FXS</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="776e5a9e-68b5-4063-a58c-569c59eb00af" id="resource_7_1" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="8169ae44-fe72-49a3-8ecb-cd44fb13a104" id="resource_7_2" type="port">
+          <property name="name">..</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="b55a3046-afbb-426f-8119-eff5b2c51dc6" id="resource_8" type="network">
+        <boundary height="100" width="100" x="24" y="108"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/cloud_32.gif</property>
+        <property name="name">PSTN</property>
+        <property name="inventoryName">TPAC Net</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="136aeb4d-5cec-40b8-9a9c-d4169e01854a" id="resource_8_0" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="a2f0fdca-523e-48c1-9233-9f95de566d38" id="resource_8_1" type="port">
+          <property name="name">-</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="15f2d0d0-ca27-41fa-bd7a-7ab7ce13a450" id="resource_9" type="router">
+        <boundary height="100" width="100" x="480" y="24"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
+        <property name="name">CPE2</property>
+        <property name="inventoryName">Production</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="1637532c-a6cf-4b0d-9a8d-f46a72985e7e" id="resource_9_0" type="port">
+          <property name="name">FXS</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="99637db4-3a78-4729-864e-8c4550a2be50" id="resource_9_1" type="port">
+          <property name="name">Lab</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="3e4ca451-3fcb-4d69-a3be-23106c037d29" id="resource_9_2" type="port">
+          <property name="name">Prod</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="5fc710fb-e224-4606-9271-0afd8dc9e95c" id="resource_10" type="firewall">
+        <boundary height="100" width="100" x="312" y="24"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/firewall_32.gif</property>
+        <property name="name">SBC2</property>
+        <property name="inventoryName">Production</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="b0656c94-d267-4c18-b5b1-ef65f16fc6f5" id="resource_10_0" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="f5bbe019-cea7-479b-af59-9fa1f61fc30d" id="resource_10_1" type="port">
+          <property name="name">SIP</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="75ea98ab-ba21-4726-b112-c6f5e7f905de" id="resource_11" type="firewall">
+        <boundary height="100" width="100" x="312" y="192"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/firewall_32.gif</property>
+        <property name="name">SBC</property>
+        <property name="inventoryName">Lab</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="f34bc9e4-9659-4f30-9274-c073ae0d33c0" id="resource_11_0" type="port">
+          <property name="name">-</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="0ef1b70c-b7e1-4801-aac3-d7fbbf1cc059" id="resource_11_1" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="87e1d9ab-fbe2-4289-8274-b008b196fe38" id="resource_11_2" type="port">
+          <property name="name">..</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="919b014c-c558-43b5-8182-4d507227adcd" id="resource_11_3" type="port">
+          <property name="name">SIP</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="b06c8a4c-db41-46fc-8990-b68acdce7092" id="resource_12" type="server">
+        <boundary height="100" width="100" x="168" y="24"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">BroadWorks2</property>
+        <property name="inventoryName">Production</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="09fdc995-3862-470d-929c-1b24505077f6" id="resource_12_0" type="port">
+          <property name="name">.</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="6a749b57-a16a-43f6-8beb-d921c320f2db" id="resource_12_1" type="port">
+          <property name="name">-</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="399efa5c-e59e-4b39-aecd-3047c6a13b1e" id="resource_13" type="">
+        <boundary height="100" width="193" x="468" y="504"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Device_generic_32.gif</property>
+        <property name="name">SD-WAN</property>
+        <property name="inventoryName">Single VCE680</property>
+        <property name="edgeId" vendor="com.fnfr">249</property>
+        <property name="enterpriseId" vendor="com.fnfr">1</property>
+        <property name="sshPort" vendor="zz">2201</property>
+        <property name="vlan_id_global" vendor=" ">1684</property>
+        <property name="vlan_id_voice" vendor=" ">1683</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="python" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+              <baseProfile>project://d_Velocloud/session_profiles/velocloud_python_base.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="92f46f8b-99ea-49ba-811b-949b2a4736c8" id="resource_13_0" type="port">
+          <property name="name">..</property>
+          <property name="inventoryName"/>
+        </resource>
+        <resource guid="80f544b6-eb83-4d4d-81e5-fb76fefe8da0" id="resource_13_1" type="port">
+          <property name="name">...</property>
+          <property name="inventoryName"/>
+        </resource>
+      </resource>
+      <resource guid="1af5e5c6-65ee-453e-96b1-c8573cc4a27c" id="resource_15" type="switch">
+        <boundary height="100" width="100" x="192" y="504"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
+        <property name="name">Switch</property>
+        <property name="inventoryName">CPE-2960G-24</property>
+        <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+              <baseProfile>project://d_Cisco_Switch_ssh/session_profiles/cisco_ixia_ssh.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="bcb2e56d-5664-4e4c-8523-7fd770718ab0" id="resource_15_0" type="port">
+          <property name="name">Global VLAN</property>
+          <property name="inventoryName">840_Single_Global</property>
+          <property name="vlan" vendor="zz">1844</property>
+        </resource>
+        <resource guid="873f8bb7-243e-4373-87a4-3ead58956cf6" id="resource_15_1" type="port">
+          <property name="name">Voice VLAN</property>
+          <property name="inventoryName">840_Single_Voice</property>
+          <property name="vlan" vendor="zz">1843</property>
+        </resource>
+      </resource>
+      <resource guid="0eb6b252-dd2a-440b-aca8-3c77da69e7bb" id="resource_16" type="switch">
+        <boundary height="100" width="100" x="788" y="524"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
+        <property name="name">iTest Switch</property>
+        <property name="inventoryName">iTest_NV1234</property>
+        <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+              <baseProfile>project://d_Adtran_Switch_ssh/session_profiles/itest_nv1234_ssh.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan1</property>
+        <endpoint id="resource_5_0"/>
+        <endpoint id="resource_3_0"/>
+      </link>
+      <link id="link_1">
+        <property name="linkRoutingType">curve</property>
+        <property name="name">link1</property>
+        <endpoint id="resource_7_0"/>
+        <endpoint id="resource_3_1"/>
+      </link>
+      <link id="link_2">
+        <property name="linkRoutingType">curve</property>
+        <property name="name">link2</property>
+        <endpoint id="resource_4_0"/>
+        <endpoint id="resource_7_1"/>
+      </link>
+      <link id="link_3">
+        <property name="name">link3</property>
+        <endpoint id="resource_4_1"/>
+        <endpoint id="resource_7_2"/>
+      </link>
+      <link id="link_4">
+        <property name="name">link4</property>
+        <endpoint id="resource_4_2"/>
+        <endpoint id="resource_3_2"/>
+      </link>
+      <link id="link_5">
+        <property name="name">link5</property>
+        <endpoint id="resource_3_3"/>
+        <endpoint id="resource_9_0"/>
+      </link>
+      <link id="link_6">
+        <property name="name">link6</property>
+        <endpoint id="resource_10_0"/>
+        <endpoint id="resource_12_0"/>
+      </link>
+      <link id="link_7">
+        <property name="name">link7</property>
+        <endpoint id="resource_8_0"/>
+        <endpoint id="resource_12_1"/>
+      </link>
+      <link id="link_8">
+        <property name="name">link8</property>
+        <endpoint direction="bidirectional" id="resource_8_1"/>
+        <endpoint direction="bidirectional" id="resource_0_0"/>
+      </link>
+      <link id="link_9">
+        <property name="name">link9</property>
+        <endpoint id="resource_0_1"/>
+        <endpoint id="resource_11_0"/>
+      </link>
+      <link id="link_10">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan2</property>
+        <property name="target_anchor">(0.23,0.95)</property>
+        <endpoint id="resource_11_1"/>
+        <endpoint id="resource_9_1"/>
+      </link>
+      <link id="link_11">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan3</property>
+        <endpoint id="resource_10_1"/>
+        <endpoint id="resource_9_2"/>
+      </link>
+      <link id="link_12">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan4</property>
+        <endpoint id="resource_11_2"/>
+        <endpoint id="resource_6_0"/>
+      </link>
+      <link id="link_13">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan5</property>
+        <endpoint id="resource_11_3"/>
+        <endpoint id="resource_4_3"/>
+      </link>
+      <link id="link_14">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan6</property>
+        <endpoint id="resource_6_1"/>
+        <endpoint id="resource_5_1"/>
+      </link>
+      <link id="link_15">
+        <property name="type">vlan</property>
+        <property name="linkRoutingType">curve</property>
+        <property name="name">vlan7</property>
+        <endpoint id="resource_5_2"/>
+        <endpoint id="resource_0_2"/>
+      </link>
+      <link id="link_16">
+        <property name="name">link10</property>
+        <endpoint id="resource_15_0"/>
+        <endpoint id="resource_13_0"/>
+      </link>
+      <link id="link_17">
+        <property name="name">link11</property>
+        <endpoint id="resource_15_1"/>
+        <endpoint id="resource_13_1"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

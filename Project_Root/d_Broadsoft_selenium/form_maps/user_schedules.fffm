@@ -1,0 +1,1390 @@
+<?xml version="1.0"?>
+<FormMap version="5.1.0.77511">
+    <samplesList>
+        <item name="formsample1">
+            <structure escape="true">
+                <WebDocument>
+                    <Document doctype="BaseDocument" id="BaseWebDocument" parent="" target="" url="http://10.255.224.62/User/Schedules/">
+                        <HTML>
+                            <HEAD>
+                                <LINK href="/Common/styles.css" rel="stylesheet" type="text/css"/>
+                                <LINK href="/Graphics/Tropical/styles.css" rel="stylesheet" type="text/css"/>
+                                <SCRIPT language="JavaScript" src="/Scripts/graphics.js"/>
+                                <SCRIPT language="JavaScript">
+        &amp;lt;!--  Copyright 2000-2012, BroadSoft, Inc. All rights reserved. Proprietary Property of BroadSoft, Inc. Gaithersburg, MD. --&amp;gt;
+
+&amp;lt;!--  Copyright 2000-2012, BroadSoft, Inc. All rights reserved. Proprietary Property of BroadSoft, Inc. Gaithersburg, MD. --&amp;gt;
+&amp;lt;!-- General Text Messages --&amp;gt;
+
+
+// Define standard error strings.
+//
+// This method is not normally invoked outside this file.
+//
+// Values &amp;lt;n&amp;gt; are replaced by argument #n in the errorText() function call.
+// For example, &amp;lt;1&amp;gt; is replaced by the first argument, &amp;lt;2&amp;gt; by the second, etc.
+//
+function lookUpError(index)
+{
+  switch(index)
+  {
+    //---------------------------------------------
+    // Page-specific errors
+    //---------------------------------------------
+
+    case 2: return &quot;This device was added at either system or service provider level and may not be configured by a service provider or group administrator.&quot;;
+    case 3: return &quot;&amp;lt;1&amp;gt; : &quot; + &quot;Must specify a phone number&quot;;
+    case 7: return &quot;The end date/time must be after the start/time date.&quot;;
+    case 9: return &quot;Invalid character&quot; + &quot; ( &amp;lt;1&amp;gt; ):\\n&quot; + &quot;Please enter the time as HH:MM (example: 10:30)&quot;;
+    case 10: return &quot;The holiday name, start date and start time are all required.&quot;;
+    case 11: return &quot;The holiday name, start date and end date are all required.&quot;;
+    case 12: return &quot;The start day and time and the end day and time cannot be the same.&quot;;
+    case 13: return &quot;The end time must be later than the start time.  For the time range to span midnight, you must save two settings.&quot;;
+    case 14: return &quot;The end date must be after the start date.&quot;;
+    case 15: return &quot;The holiday name and start date are both required.&quot;;
+    case 16: return &quot;The start day, start time, end day and end time are all required fields.&quot;;
+    case 17: return &quot;The start date and time are required.&quot;;
+    case 18: return &quot;The end date and time are required.&quot;;
+    case 19: return &quot;Host Name/IP Address is required to configure the device.&quot;;
+    case 21: return &quot;Passwords do not match&quot;;
+    case 23: return &quot;Please select a phone number to be used for the Calling Line ID.&quot;;
+    case 24: return &quot;Start Date is required to get status and statistics.&quot;;
+    case 25: return &quot;End Date is required to get status and statistics.&quot;;
+    case 26: return &quot;End Date/Time can not be earlier than Start Date/Time.&quot;;
+    case 27: return &quot;Changing the number of digits will remove all the existing account/authorization codes. Do you want to continue?&quot;;
+    case 32: return &quot;You must upload a configuration file&quot;;
+    case 37: return &quot;You must upload a custom configuration file&quot;;
+    case 38: return &quot;Priority is required for Call Center :&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 39: return &quot;Please enter a positive float or integer as priority for Call Center :&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 40: return &quot;Number of rings is required.&quot;;
+    case 41: return &quot;Number of rings should be integer between 1 and 20.&quot;;
+    case 42: return &quot;Schedule Date&quot;;
+    case 43: return &quot;Schedule Time&quot;;
+    case 44: return &quot;Report Start Date&quot;;
+    case 47: return &quot;Report Start Time&quot;;
+    case 48: return &quot;Report End Date&quot;;
+    case 49: return &quot;Report End Time&quot;;
+    case 50: return &quot;If you change from a System Provider Mail Server to a Group Mail Server, you cannot switch back to System Provider Mail Server system later. Only the System Provider can perform that function. Do you want to continue?&quot;;
+    case 52: return &quot;Voice Portal Password can only contain numeric digits&quot;;
+    case 64: return &quot;Start Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;HH&amp;lt;=12 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 65: return &quot;End Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;HH&amp;lt;=12 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 66: return &quot;Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;HH&amp;lt;=12 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 67: return &quot;Start Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;=HH&amp;lt;24 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 68: return &quot;End Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;=HH&amp;lt;24 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 69: return &quot;Time is not valid. Please enter the time as HH:MM (example: 10:30) 0&amp;lt;=HH&amp;lt;24 00&amp;lt;=MM&amp;lt;=59&quot;;
+    case 75: return &quot;Please enter a starting phone number to add a phone number range in the phone number range start field&quot;;
+    case 76: return &quot;Please enter a ending phone number to add a phone number range in the phone number range end field&quot;;
+    case 77: return &quot;Please enter a starting extension to add a extension range in the extension range start field&quot;;
+    case 78: return &quot;Please enter a ending extension to add a extension range in the extension range end field&quot;;
+    case 81: return &quot;The starting phone number can not be greater than ending phone number.&quot;;
+    case 82: return &quot;The starting extension can not be greater than ending extension.&quot;;
+    case 84: return &quot;Extension is not valid, extension minimum length is&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 85: return &quot;Starting extension is not valid, extension minimum length is&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 86: return &quot;Ending extension is not valid, extension minimum length is&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 94: return &quot;When you selected to have your voice messages forwarded the e-mail address is required.&quot;;
+    case 95: return &quot;When you selected to receive a voice message notification the e-mail address is required.&quot;;
+    case 96: return &quot;When you selected to transfer on 0 the phone number is required.&quot;;
+    case 97: return &quot;When you selected to use external routing an external routing address is required.&quot;;
+    case 99: return &quot;When you selected to send a carbon copy of the voice message the e-mail address is required.&quot;;
+    case 100: return &quot;Warning:  Advanced Settings are required when voice messaging is enabled and unified voice messaging is used.  Please configure your Advanced Settings as soon as possible.&quot;;
+    case 101: return &quot;The default domain cannot be unassigned.&quot;;
+    case 104: return &quot;Must specify a name for the New IP Phone.&quot;;
+    case 107: return &quot;Invalid Public Identity: Can not have &apos;@&apos; in Public Identity&quot;;
+    case 108: return &quot;Invalid Line/Port: Can not have &apos;@&apos; in Line/Port&quot;;
+    case 111: return &quot;Must have a IP phone type to add a new IP Phone.&quot;;
+    case 112: return &quot;At least one email address should be specified.&quot;;
+    case 113: return &quot;Call Completion Parameter&quot;;
+    case 114: return &quot;Short Duration Parameter&quot;;
+    case 115: return &quot;Service Level Parameter&quot;;
+    case 116: return &quot;Abandoned Calls except in interval&quot;;
+    case 117: return &quot;Service Level Objective&quot;;
+    case 118: return &quot;Abandoned Call&quot;;
+    case 119: return &quot;Agent list is required for this report template.&quot;;
+    case 120: return &quot;Call Center or DNIS list is required for this report template.&quot;;
+    case 121: return &quot;One Call Center need to be selected to include all DNIS.&quot;;
+    case 122: return &quot;Number of time unit is required for report timeframe.&quot;;
+    case 123: return &quot;Call Center list is required for this report template.&quot;;
+    case 124: return &quot;Calling Line ID Group Name has not been filled out under Group Profile.&quot;;
+    case 129: return &quot;The service pack quantity exceeds the maximum quantity allowed.&quot;;
+    case 131: return &quot;The service pack quantity cannot be zero and must be a valid number.&quot;;
+    case 132: return &quot;The service pack must contain at least one service.&quot;;
+    case 137: return &quot;Must specify the Public Identity for using a identity profile.&quot;;
+    case 138: return &quot;Must specify the Line/Port for using a device profile.&quot;;
+    case 139: return &quot;Must specify a device, or set the category of device to &apos;None&apos;.&quot;;
+    case 140: return &quot;Must specify a user part in the identity.&quot;;
+    case 141: return &quot;Prefix is required when Trunk Group prefix is enabled.&quot;;
+    case 142: return &quot;Prefix can only contain numeric digit string characters.&quot;;
+    case 143: return &quot;Continuous options message sending interval&quot;;
+    case 144: return &quot;Failure options message sending interval&quot;;
+    case 145: return &quot;Failure threshold counter&quot;;
+    case 146: return &quot;Success threshold counter&quot;;
+    case 147: return &quot;Invite failure threshold counter&quot;;
+    case 148: return &quot;Invite failure threshold window&quot;;    
+    case 149: return &quot;Authentication user name and password must both be filled in when authentication is enabled.&quot;;
+    case 150: return &quot;Authentication user name and password must both be filled in.&quot;;
+    case 314: return &quot;Minimum password length should not be less than the sum of all the required numbers, uppercase, lowercase and non-alphanumeric characters which is &amp;lt;1&amp;gt;.&quot;;
+    case 315: return &quot;Password must be at least&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;characters&quot;;
+    case 316: return &quot;digits&quot;;
+    case 380: return &quot;No value entered&quot;;
+    case 381: return &quot;Invalid character&quot; + &quot;: &amp;lt;1&amp;gt;&quot;;
+    case 382: return &quot;Value must be &amp;gt;=&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 383: return &quot;Value must be &amp;lt;=&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 386: return &quot;&amp;lt;1&amp;gt;: &quot; + &quot;Value must be &amp;gt;=&quot; + &quot; &amp;lt;2&amp;gt; &quot; + &quot;and &amp;lt;=&quot; + &quot; &amp;lt;3&amp;gt;&quot;;
+    case 608: return &quot;This user is unable to make calls because there is no phone number or group calling line ID (CLID) configured. Click OK to continue or CANCEL to return to the configuration screen to make changes.&quot;;
+    case 610: return &quot;Must specify at least one simultaneous ring number to turn the service on.&quot;;
+    case 613: return &quot;Once an extension length has been increased, it can not be decreased if any users have extensions. It is possible that extensions and the existing feature access codes if numeric and of the same length may be identical so that extension dialing may not work for those extensions.  Feature access codes can be viewed and modified on the Feature Access Codes screen.  Click OK to increase the extension length or CANCEL to return to the configuration screen.&quot;;
+    case 620: return &quot;The inventory report is about to be sent to&quot; + &quot; &amp;lt;1&amp;gt;&quot; + &quot;. This can be a resource intensive operation. Click OK to continue or CANCEL to return to the screen.&quot;;
+
+    //error messges for CommPilot_Express - left separate for CPE usability reasons
+    case 700: return &quot;Available - In the office: The busy forward to phone number is required.&quot;;
+    case 701: return &quot;Available - In the office: The no answer forward to phone number is required.&quot;;
+    case 702: return &quot;Available - Out of the office: The forward to number is required.&quot;;
+    case 703: return &quot;Available - Out of the office: The e-mail address is required.&quot;;
+    case 704: return &quot;Busy: The e-mail address is required.&quot;;
+    case 705: return &quot;Busy: The forward to number is required.&quot;;
+    case 706: return &quot;Busy: The send all calls to Voice Messaging except calls from these Phone numbers must provide at least one restricted number.&quot;;
+    case 707: return &quot;Unavailable: Send all calls to Voice Messaging except calls from these Phone numbers must provide at least one restricted number&quot;;
+    case 708: return &quot;Unavailable: The forward to number is required.&quot;;
+
+    //voice vpn messages
+    case 720: return &quot;Location Code can only contain digits.&quot;;
+    case 721: return &quot;Min Extension Length cannot be greater than Max Extension Length.&quot;;
+    case 722: return &quot;Group must be specified when the selector is route.&quot;;
+    case 723: return &quot;Treatment must be specified when the selector is treatment.&quot;;
+
+    // custom ringback
+    case 724: return &quot;URL cannot be selected if no URL is filled in.&quot;;
+    case 725: return &quot;Personal Ringback cannot be selected if no file is selected.&quot;;
+
+    // DTN
+    case 726: return &quot;At least one specific phone number must be specified.&quot;;
+
+    // Answer Confirmation
+    case 727: return &quot;Custom Announcement cannot be selected if no file is selected.&quot;;
+           
+    // Pre Alerting Announcement
+    case 728: return &quot;Interrupt with digit sequence cannot be selected if no digits are specified.&quot;;
+    
+    // Call Center Agent Unavailable Codes
+    case 730: return &quot;Code must be specified.&quot;;
+
+    // Authorize service
+    case 901: return &quot;Services that have been allocated cannot be unauthorized. To unauthorize these services, first remove them from the group.&quot;;
+    case 902: return &quot;Invalid character in limit for service&quot; + &quot; : &amp;lt;1&amp;gt;.&quot;;
+    case 903: return &quot;The new&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;limit exceeds the services that are available for allocation.&quot;;
+    case 904: return &quot;The number of&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;services in use exceeds the new limit.&quot;;
+    case 905: return &quot;Limit for service&quot; + &quot; &amp;lt;1&amp;gt; : &quot; + &quot;0 is an invalid value.&quot;;
+    case 906: return &quot;The number of&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;services allocated exceeds the new limit.&quot;;
+
+    //remove these
+    case 1: return &quot;At least one key should transfer to the operator&quot;;
+    case 45: return &quot;The selected No Answer Extended Away Greeting must have a selected greeting announcement&quot;;
+    case 46: return &quot;A valid Alternate No Answer Greeting must have both, a name and a selected greeting announcement or neither of them&quot;;
+    case 55: return &quot;Date is invalid&quot;;
+    case 56: return &quot;Time is invalid&quot;;
+
+    //cleanup to belong below
+    case 300: return &quot;Page cannot be submitted&quot;;
+    case 1000: return &quot;&amp;lt;1&amp;gt; &quot; + &quot;is a required field&quot;;
+    case 1001: return &quot;&amp;lt;1&amp;gt; &quot; + &quot;must be an integer&quot;;
+    case 1002: return &quot;A&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;file must be uploaded for the&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    case 1003: return &quot;&amp;lt;1&amp;gt; &quot; + &quot;cannot be the same&quot;;
+    case 1004: return &quot;&amp;lt;1&amp;gt; &quot; + &quot;must contain a value when selected as the Search Attribute&quot;;
+    case 1005: return &quot;&amp;lt;1&amp;gt; &quot; + &quot;must be an integer &amp;gt;=&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    case 1006: return &quot;must contain&quot;;
+    case 1007: return &quot;Submenu ID is required&quot;;
+    case 1008: return &quot;A phone number is required for the actions Transfer with prompt and Transfer without prompt.&quot;;
+    case 1009: return &quot;A submenu is required to be selected for the action Transfer to submenu.&quot;;
+
+    // Field names
+    case 2000: return &quot;User Limit&quot;;
+    case 2001: return &quot;Department&quot;;
+    case 2002: return &quot;Digit String&quot;;
+    case 2003: return &quot;Queue Length&quot;;
+    case 2004: return &quot;Time between messages&quot;;
+    case 2005: return &quot;Password expiration days&quot;;
+    case 2006: return &quot;Quantity&quot;;
+    case 2008: return &quot;Phone Number&quot;;
+    case 2009: return &quot;Play new Phone Number&quot;;
+    case 2010: return &quot;Transfer on &apos;0&apos; to Phone Number&quot;;
+    case 2011: return &quot;First Name&quot;;
+    case 2012: return &quot;Last Name&quot;;
+    case 2013: return &quot;Calling Line ID First Name&quot;;
+    case 2014: return &quot;Calling Line ID Last Name&quot;;
+    case 2015: return &quot;Hiragana First Name&quot;;
+    case 2016: return &quot;Hiragana Last Name&quot;;
+    case 2017: return &quot;User ID&quot;;
+    case 2018: return &quot;Name&quot;;
+    case 2019: return &quot;Administrator ID&quot;;
+    case 2020: return &quot;E-mail Address&quot;;
+    case 2021: return &quot;Password&quot;;
+    case 2022: return &quot;Mail Server ID&quot;;
+    case 2023: return &quot;Voice Mail Delivery Default from E-mail Address&quot;;
+    case 2024: return &quot;Voice Message Notification Default from E-mail Address&quot;;
+    case 2025: return &quot;Default From E-mail Address&quot;;
+    case 2026: return &quot;Device Name&quot;;
+    case 2027: return &quot;Host Name/IP Address&quot;;
+    case 2028: return &quot;Maximum Number of Ports&quot;;
+    case 2029: return &quot;Allocated Ports to This Group&quot;;
+    case 2030: return &quot;Allocated Ports to This Bridge&quot;;
+    case 2031: return &quot;Bridge Name&quot;;
+    case 2032: return &quot;Service Provider ID&quot;;
+    case 2033: return &quot;Group ID&quot;;
+    case 2034: return &quot;Main Feature Access Code&quot;;
+    case 2035: return &quot;Extension&quot;;
+    case 2036: return &quot;Service Pack Name&quot;;
+    case 2037: return &quot;IP Address/Range&quot;;
+    case 2038: return &quot;Description&quot;;
+    case 2039: return &quot;Contact&quot;;
+    case 2040: return &quot;Domain&quot;;
+    case 2041: return &quot;SIP-URI&quot;;
+    case 2042: return &quot;Maximum task duration&quot;;
+    case 2043: return &quot;Error threshold&quot;;
+    case 2044: return &quot;Holiday Schedule Name&quot;;
+    case 2045: return &quot;Start Date&quot;;
+    case 2046: return &quot;Time Schedule Name&quot;;
+    case 2047: return &quot;End Date&quot;;
+    case 2048: return &quot;Leader Phone Number&quot;;
+    case 2049: return &quot;Participant Phone Number&quot;;
+    case 2050: return &quot;Title&quot;;
+    case 2051: return &quot;You must select a file to upload&quot;;
+    case 2052: return &quot;Day of the month&quot;;
+    case 2053: return &quot;Daily Interval&quot;;
+    case 2054: return &quot;Weekly Interval&quot;;
+    case 2055: return &quot;Monthly Interval&quot;;
+    case 2056: return &quot;Day(s) of the week&quot;;
+    case 2057: return &quot;User Specific Voice Mail Server&quot;;
+    case 2058: return &quot;Notify E-mail Address&quot;;
+    case 2059: return &quot;Voice Portal Lockout Default from E-mail Address&quot;;
+    case 2060: return &quot;Association Limit&quot;;
+    case 2061: return &quot;Association Timeout&quot;;
+    case 2062: return &quot;Only one host can be associated with a guest&quot;;
+    case 2063: return &quot;Voice Messaging MWI sending delay&quot;;
+    case 2064: return &quot;Maximum Number of Trunking Simultaneous Calls&quot;;
+    case 2065: return &quot;Conference-URI for Service Provider&quot;;
+    case 2066: return &quot;Line/Port&quot;;
+    case 2067: return &quot;Maximum Call Time Minutes&quot;;
+    case 2068: return &quot;Percentage weight must total 100&quot;;
+    case 2069: return &quot;Percentage value&quot;;
+    case 2070: return &quot;Identity/Device Profile Type&quot;;
+    case 2071: return &quot;CPE System File Name&quot;;
+    case 2072: return &quot;Device File Format&quot;;
+    case 2073: return &quot;Reset Event&quot;;
+    case 2074: return &quot;Configuration Type&quot;;
+    case 2075: return &quot;Task Name&quot;;
+    case 2076: return &quot;Extension Range&quot;;
+    case 2077: return &quot;Cannot create a task. Trunk group does not have a device configured&quot;;
+    case 2078: return &quot;Clicking OK will start the user creation task&quot;;
+    case 2079: return &quot;Unreachable Destination Forward Phone Number / SIP-URI&quot;;
+    case 2080: return &quot;Unreachable Destination Reroute Trunk Group&quot;;
+    case 2081: return &quot;Capacity Exceeded Forward Phone Number / SIP-URI&quot;;
+    case 2082: return &quot;Capacity Exceeded Reroute Trunk Group&quot;;
+    case 2083: return &quot;Invitation Timeout&quot;;
+    case 2084: return &quot;Bursting Maximum Number of Trunking Simultaneous Calls&quot;;
+    case 2088: return &quot;Bursting Maximum Incoming Calls should be equal or less than Bursting Maximum Total Calls&quot;;
+    case 2089: return &quot;Bursting Maximum Outgoing Calls should be equal or less than Bursting Maximum Total Calls&quot;;
+    case 2090: return &quot;Cannot configure Bursting Maximum Incoming Calls without configuring Maximum Incoming Calls&quot;;
+    case 2091: return &quot;Cannot configure Bursting Maximum Outgoing Calls without configuring Maximum Outgoing Calls&quot;;
+    case 2092: return &quot;Bursting Maximum Active Calls&quot;;
+    case 2093: return &quot;Bursting Maximum Active Incoming Calls&quot;;
+    case 2094: return &quot;Bursting Maximum Active Outgoing Calls&quot;;
+    case 2095: return &quot;Capacity Exceeded Initial Value&quot;;
+    case 2096: return &quot;Capacity Exceeded Offset Value&quot;;
+    case 2097: return &quot;Unreachable Destination Exceeded Initial Value&quot;;
+    case 2098: return &quot;Unreachable Destination Exceeded Offset Value&quot;;
+    case 2100: return &quot;Call Pickup Group Name&quot;;
+    case 2101: return &quot;LDAP Directory Address&quot;;
+    case 2102: return &quot;LDAP Directory Search Base&quot;;
+    case 2103: return &quot;LDAP Authenticated DN&quot;;
+    case 2104: return &quot;LDAP Authenticated Password&quot;;
+    case 2105: return &quot;Hunt Group ID&quot;;
+    case 2106: return &quot;Call Center ID&quot;;
+    case 2107: return &quot;Call Capacity Group Name&quot;;
+    case 2108: return &quot;Maximum Active Calls&quot;;
+    case 2109: return &quot;Series Completion Group Name&quot;;
+    case 2110: return &quot;Speed Dial 100 Prefix&quot;;
+    case 2111: return &quot;Account/Authorization Code&quot;;
+    case 2112: return &quot;Authorization Code&quot;;
+    case 2113: return &quot;Report Generation Criteria&quot;;
+    case 2114: return &quot;Maximum Active Incoming Calls&quot;;
+    case 2115: return &quot;Maximum Active Outgoing Calls&quot;;
+    case 2116: return &quot;Maximum Active Incoming Calls can not be greater than Maximum Active Calls&quot;;
+    case 2117: return &quot;Maximum Active Outgoing Calls can not be greater than Maximum Active Calls&quot;;
+    case 2118: return &quot;New User ID&quot;;
+    case 2119: return &quot;LDAP Column 1 Attribute Name&quot;;
+    case 2120: return &quot;LDAP Column 2 Attribute Name&quot;;
+    case 2121: return &quot;LDAP Column 3 Attribute Name&quot;;
+    case 2122: return &quot;LDAP Column 4 Attribute Name&quot;;
+    case 2123: return &quot;LDAP Directory Port&quot;;
+    case 2124: return &quot;Trunk Group Name&quot;;
+    case 2125: return &quot;Call Park Group Name&quot;;
+    case 2126: return &quot;Escape Digit&quot;;
+    case 2127: return &quot;Office Zone&quot;;
+    case 2128: return &quot;Primary Zone&quot;;
+    case 2131: return &quot;Schedule Name&quot;;
+    case 2132: return &quot;Schedule&apos;s Event Name&quot;;
+    case 2141: return &quot;Start Time&quot;;
+    case 2142: return &quot;End Time&quot;;
+    case 2143: return &quot;Yearly Interval&quot;;
+    case 2144: return &quot;At least one day should be chosen for weekly recurrence&quot;;
+    case 2145: return &quot;End Occurrence&quot;;
+    case 2146: return &quot;Recurrence End Date&quot;;
+    case 2147: return &quot;The end date can not be before the recurrence end date.&quot;;
+    case 2148: return &quot;The recurrence is invalid. The duration must be shorter than how frequently it occurs. Shorten the duration or change the recurrence.&quot;;
+    case 2149: return &quot;Some months have less than 29, 30 or 31 days. For these months, the occurrence will fall on the last day of the month.&quot;;
+    case 2150: return &quot;Some years have lesser than 29 days in February. For these years, the occurrence will fall on the last day of February.&quot;;
+    case 2200: return &quot;Remote Phone Number&quot;;
+    case 2201: return &quot;Call Forward Phone Number&quot;;
+    case 2202: return &quot;Authentication User Name&quot;;
+    case 2203: return &quot;Call Forwarding Selective can not be set to On unless there is at least 1 active criteria.&quot;;
+    case 2204: return &quot;Pre-alerting Announcement can not be set to On unless there is at least 1 active criteria.&quot;;
+    case 2210: return &quot;Message Desk Number&quot;;
+    case 2211: return &quot;Name&quot;;
+    case 2212: return &quot;Address&quot;;
+    case 2213: return &quot;Port&quot;;
+    case 2220: return &quot;Maximum Number of concurrent sessions&quot;;
+    case 2221: return &quot;Maximum Number of concurrent user originating sessions&quot;;
+    case 2222: return &quot;Maximum Number of concurrent user terminating sessions&quot;;
+    case 2223: return &quot;Reserved Number of concurrent sessions&quot;;
+    case 2224: return &quot;Reserved Number of concurrent user originating sessions&quot;;
+    case 2225: return &quot;Reserved Number of concurrent user terminating sessions&quot;;
+    case 2226: return &quot;The sum of the reserved originating sessions and the reserved terminating sessions can not exceed the reserved sessions.&quot;;
+    case 2227: return &quot;The reserved originating sessions cannot be set if the maximum originating sessions are not set.&quot;;
+    case 2228: return &quot;The reserved terminating sessions cannot be set if the maximum terminating sessions are not set.&quot;;
+    case 2230: return &quot;Exchange URL&quot;;
+    case 2231: return &quot;Exchange User Name&quot;;
+    case 2232: return &quot;Exchange User Password&quot;;
+    case 2233: return &quot;Exchange User Name and Password should be entered at the same time.&quot;;
+    case 2250: return &quot;Location Code&quot;;
+    case 2251: return &quot;Forward to&quot;;
+    case 2252: return &quot;Forward to another number field can not be empty&quot;;
+    case 2253: return &quot;Carrier&quot;;
+    case 2254: return &quot;Carrier Identification Code&quot;;
+    case 2255: return &quot;Treatment&quot;;
+    case 2256: return &quot;Transfer Number&quot;;
+    case 2257: return &quot;Mobile Phone Number&quot;;
+    case 2258: return &quot;Mobility Manager Provisioning URL&quot;;
+    case 2259: return &quot;Mobility Manager Provisioning UserName&quot;;
+    case 2260: return &quot;Mobility Manager Provisioning Password&quot;;
+    case 2261: return &quot;Mobility Manager Provisioning Re-Type Password&quot;;
+    case 2262: return &quot;Password should be between 6 and 8 characters&quot;;
+    case 2263: return &quot;Mobility Manager Default Originating Service Key&quot;;
+    case 2264: return &quot;Mobility Manager Default Terminating Service Key&quot;;
+    case 2265: return &quot;Dual-Mode VCC Subscriber Password&quot;;
+    case 2266: return &quot;Dual-Mode VCC Re-Type Password&quot;;
+    case 2267: return &quot;Originating Service Key&quot;;
+    case 2268: return &quot;Terminating Service Key&quot;;
+    case 2269: return &quot;Association limit is enforced by Hoteling Host therefore it must be enabled&quot;;
+    case 2270: return &quot;Busy Camp On Timer&quot;;
+    case 2271: return &quot;Recall Timer&quot;;
+    case 2272: return &quot;Directory Name&quot;;
+    case 2273: return &quot;Tag Set Name&quot;;
+    case 2274: return &quot;Tag Name&quot;;
+    case 2275: return &quot;Device Access User Name&quot;;
+    case 2276: return &quot;Device Access Password&quot;;
+    case 2277: return &quot;Enterprise Trunk Name&quot;;
+    case 2278: return &quot;Cannot configure Bursting Maximum Incoming Calls without configuring Bursting Maximum Total Calls&quot;;
+    case 2279: return &quot;Cannot configure Bursting Maximum Outgoing Calls without configuring Bursting Maximum Total Calls&quot;;
+    case 2280: return &quot;Authorization code must be at least 2 digits&quot;;
+    case 2281: return &quot;Non numerical value in time fields&quot;;
+    case 2282: return &quot;Maximum Duration is out of range. The value must be between 60 seconds and 24 hours.&quot;;
+    case 2283: return &quot;Route to Phone Number&quot;;
+    case 2284: return &quot;Default Guard Timer&quot;;
+    case 2285: return &quot;Number of Consecutive Bounced Calls to Force Agent Unavailable&quot;;
+    case 2286: return &quot;Lockout Duration&quot;;
+    case 2287: return &quot;Current pin code is a required field if changing the pin code&quot;;
+    case 2288: return &quot;Pin codes do not match&quot;;
+    case 2289: return &quot;Pin code can only contain numeric digits&quot;;
+    case 2290: return &quot;Alert Agent Timer&quot;;
+    case 2291: return &quot;Bounce Call Timer&quot;;
+    case 2292: return &quot;Automatically answer calls after waiting: &quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 2293: return &quot;Maximum Number of Target Users must be an integer between 1 and 1000&quot;;
+    case 2294: return &quot;Maximum Number of Target Users per Paging Group for this Group must be an integer between 1 and&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 2295: return &quot;Alert Alternate Recall User Wait Time&quot;;
+    case 2296: return &quot;Changing the Routing Type from Skill Based to Priority Based will cause the loss of the Skill Level information for all the agents,if any are assigned to this Call Center.&quot;;
+    case 2297: return &quot;When Skill Based routing is enabled, the Group Policy for the call center can only be Circular, Regular or Uniform.  The selected Group Policy is not a supported Policy.&quot;;
+    case 2298: return &quot;Custom Greeting&quot;;
+    case 2299: return &quot;Either both or neither Name Dialing fields should be occupied&quot;;
+    case 2300: return &quot;Transfer to the operator after N seconds of inactivity&quot;;
+    case 2301: return &quot;Repeat Record Call Warrning Tone Timer&quot;;
+    case 2302: return &quot;Association limit is enforced by the host therefore it must be enabled&quot;;
+    case 2303: return &quot;Unlock Phone PIN code must be an integer with atleast 4 digits and upto 10 digits&quot;;
+    case 2305: return &quot;Announcement Name&quot;;
+    case 2306: return &quot;Announcement File&quot;;
+    case 2307: return &quot;Invalid announcement file. Valid audio media types are WAV and WMA. Valid video media types are MOV and 3GP&quot;;
+    case 2308: return &quot;Can only upload a WAV or WMA file for this audio announcement&quot;;
+    case 2309: return &quot;Can only upload a MOV or 3GP file for this video announcement&quot;;
+    
+    // File Names
+    case 2400: return &quot;WAV or WMA&quot;;
+    case 2401: return &quot;CSV&quot;;
+    case 2403: return &quot;MOV or 3GP&quot;;
+    case 2404: return &quot;WAV, WMA, MOV or 3GP&quot;;
+    case 2410: return &quot;Personal Greeting&quot;;
+    case 2411: return &quot;Personalized Name&quot;;
+    case 2412: return &quot;The selected Personal Busy Greeting must have a selected greeting announcement&quot;;
+    case 2413: return &quot;The selected No Answer Unavailable Greeting must have a selected greeting announcement&quot;;
+    case 2414: return &quot;phone list import&quot;;
+    case 2415: return &quot;Personal Voice Portal Greeting&quot;;
+    case 2416: return &quot;Personal Voice Message Greeting&quot;;
+    case 2417: return &quot;Custom Music File&quot;;
+    case 2418: return &quot;Personal Intercept Announcement&quot;;
+
+    case 2419: return &quot;Duration must be greater than 0&quot;;
+
+    case 2424: return &quot;Prefix Digits must contain only digits&quot;;
+    case 2425: return &quot;Server Port must be an integer between 1025 and 65535&quot;;
+    case 2426: return &quot;Custom Music/Video File&quot;;
+    case 2427: return &quot;Custom announcement cannot be selected if no file is selected&quot;;
+    case 2428: return &quot;A Video file must be selected&quot;;
+    
+    case 2429: return &quot;Starting extension &quot;;
+    case 2430: return &quot;Ending extension &quot;;
+    case 2431: return &quot;The selected Alternate No Answer Greeting must have a name and a selected greeting announcement&quot;;
+    case 2432: return &quot;An Alternate No Answer Greeting must have name if it has a selected greeting announcement&quot;;
+    
+    // IM &amp;amp; P
+    case 2435: return &quot;IM&amp;amp;P Service Domain&quot;;
+    case 2436: return &quot;IM&amp;amp;P ID&quot;;
+    case 2437: return &quot;IM&amp;amp;P passwords do not match&quot;;
+    case 2438: return &quot;IM&amp;amp;P password&quot;;
+    case 2439: return &quot;IM&amp;amp;P password is not valid, minimum length is&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+
+    // Call Processing Policy
+    case 2500: return &quot;Maximum Number of simultaneous calls&quot;;
+    case 2501: return &quot;Maximum call time for answered calls&quot;;
+    case 2502: return &quot;Maximum call time for unanswered calls&quot;;
+    case 2503: return &quot;Maximum number of simultaneous video calls&quot;;
+    case 2504: return &quot;Maximum number of concurrent redirected calls&quot;;
+    case 2505: return &quot;Maximum number of find me/follow me depth&quot;;
+    case 2506: return &quot;Maximum number of redirection depth&quot;;
+    case 2507: return &quot;Maximum number of concurrent find me/follow me invocations&quot;;
+    
+    case 2510: return &quot;The maximum number of concurrent calls&quot;;
+    case 2511: return &quot;The maximum number of concurrent video calls&quot;;
+    case 2512: return &quot;The maximum number of concurrent redirected calls&quot;;
+    case 2513: return &quot;The maximum number of minutes of duration for answered calls&quot;;
+
+    // Authorization Code
+    case 2550: return &quot;Invalid Account/Authorization Code length&quot;;
+    // Enhanced Call Log
+    case 2551: return &quot;Maximum number of call logs per call type&quot;;
+    case 2552: return &quot;Call logs expiry period&quot;;
+
+    // Delete Confirmation
+    case 2560: return &quot;You are about to delete this user. This will result in losing all associated configuration. This action cannot be undone. Are you sure you want to delete this user?&quot;;
+    case 2561: return &quot;You are about to delete this group. This will result in losing all associated configuration. This action cannot be undone. Are you sure you want to delete this group?&quot;;
+    case 2562: return &quot;You are about to delete this enterprise trunk. This will result in losing all associated configuration. This action cannot be undone. Are you sure you want to delete this enterprise trunk?&quot;;
+    
+    // Warning for cancelling Service Pack Migration Add wizard
+    case 2565: return &quot;Warning! This partially defined service pack migration task will remain scheduled unless it is explicitly deleted.&quot;;
+    
+    // Dial Plan Policy
+    case 2570: return &quot;Private Digit Map is required because one of more policy access codes have &apos;Secondary Dial Tone&apos; flag enabled.&quot;;
+    case 2571: return &quot;Public Digit Map is required because group&apos;s policy setting is selected.&quot;;
+    case 2572: return &quot;The access code can only contain one of the following characters: 0 through 9, * or #.&quot;;
+    case 2573: return &quot;Access Code&quot;;
+    case 2574: return &quot;Number of Trunk Groups assigned to an Ordered Routing Enterprise Trunk cannot exceed 10&quot;;
+    case 2575: return &quot;Number of Trunk Groups assigned to a Weighted Routing Enterprise Trunk cannot exceed 100&quot;;
+    
+     // Network Class of Service
+    case 2580: return &quot;Select a different Network Class of Service as Default, before unassigning the current default.&quot;;
+    case 2581: return &quot;Missing default Network Class of Service, please select one.&quot;;
+
+    // Virtual On-Net
+    case 2590: return &quot;Virtual On-Net Call Type&quot;;
+
+     // Office Zones
+    case 2600: return &quot;Select a different Office Zone as Default, before unassigning the current default.&quot;;
+    case 2601: return &quot;Missing default Office Zone, please select one.&quot;;    
+
+    //Calendar Element
+    case 3000: return &quot;Invalid date format:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Format accepted is&quot; + &quot; &amp;lt;2&amp;gt; &quot; +
+    &quot;.&quot;;
+    case 3001: return &quot;Invalid date format:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;No day of month value can be found.&quot;;
+    case 3002: return &quot;Invalid day of month value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Allowed values are unsigned integers.&quot;;
+    case 3003: return &quot;Invalid date format:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;No month value can be found.&quot;;
+    case 3004: return &quot;Invalid month value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Allowed values are unsigned integers.&quot;;
+    case 3005: return &quot;Invalid date format&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;No year value can be found.&quot;;
+    case 3006: return &quot;Invalid year value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Allowed values are unsigned integers.&quot;;
+    case 3007: return &quot;Invalid month value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Allowed range is 01-12.&quot;;
+    case 3008: return &quot;Invalid day of month value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Allowed range is 01-&quot; + &quot; &amp;lt;2&amp;gt; &quot; +
+    &quot;.&quot;;
+    case 3009: return &quot;Invalid year value:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+    &quot;Year must be two or four digits.&quot;;
+    case 3010: return &quot;Mail server ID is required when third party voicemail is on&quot;;
+    case 3011: return &quot;Number of Ports is a required field when &apos;Limited To&apos; option is selected&quot;;
+    case 3012: return &quot;Limit for number of ports field must contain only digits&quot;;
+    case 3013: return &quot;Limit for number of ports field: 0 is an invalid value&quot;;
+    case 3100: return &quot;File Type&quot;;
+    case 3101: return &quot;Device Access File Format&quot;;
+    case 3102: return &quot;Repository File Format&quot;;
+    case 3103: return &quot;HTTP Header with Following Format&quot;;
+    case 3110: return &quot;Maximum reroute attempts within a priority must be less than or equal to maximum reroute attempts for an enterprise trunk.&quot;;
+    case 3111: return &quot;Trunk Group Weight must be an Integer between 1 and 65536&quot;;
+    case 3112: return &quot;Invalid date format:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+                      &quot;Format accepted is &quot; + 
+                      &quot;dd-mm-yyyy&quot; +
+                      &quot;.&quot;;
+    case 3113: return &quot;Invalid date format:&quot; + &quot; &amp;lt;1&amp;gt; &quot; +
+                      &quot;Format accepted is &quot; + 
+                      &quot;mm/dd/yyyy&quot; +
+                      &quot;.&quot;;
+    
+    case 3200: return &quot;A deactivation reason is required to deactivate the BroadWorks Mobile Manager.&quot;;
+    case 3201: return &quot;An email address is required to send the email.&quot;;
+    case 3202: return &quot;Maximum number of SS7 transactions&quot;;
+    case 3203: return &quot;The certificate file and information file are required when updating the BroadWorks Mobile Manager files.&quot;;
+    case 3204: return &quot;Are you sure you want to clear all the BroadWorks Mobile Manager configuration?&quot;;
+    case 3205: return &quot;To clear the BroadWorks Mobile Manager, it needs to be deactivated first.&quot;;
+    case 3206: return &quot;The certificate file and information file are both required when configuring the BroadWorks Mobile Manager.&quot;;
+    
+    case 4001: return &quot;Flash Activation DTMF Digits&quot;;
+    case 4002: return &quot;Call Transfer Activation DTMF Digits&quot;;
+    case 4010: return &quot;Allowed range is 2-30.&quot;;
+    case 4020: return &quot;Valid escape digits are: 0-9,*,#.&quot;;
+    case 4050: return &quot;Time between Comfort Messages&quot;;
+    case 4051: return &quot;Overflow timeout seconds&quot;;
+    case 4052: return &quot;Bypass comfort message estimated wait time&quot;;
+    case 4053: return &quot;Play announcement ring time &quot;;
+    case 4059: return &quot;Phone number / SIP-URI is required. &quot;;
+    case 4060: return &quot;Phone number / SIP-URI is required when action is set to Transfer.&quot;;
+    case 4061: return &quot;DNIS Name&quot;;
+    case 4062: return &quot;Promote Priority 1 to 0 seconds&quot;;
+    case 4063: return &quot;Promote Priority 2 to 1 seconds&quot;;
+    case 4064: return &quot;Promote Priority 3 to 2 seconds&quot;;
+    case 4070: return &quot;Outgoing Call Center is required when make outgoing call as call center is enabled.&quot;;
+    case 4071: return &quot;Callers in queue position&quot;;
+    case 4072: return &quot;Callers wait time&quot;;
+    case 4073: return &quot;Default handling time&quot;;
+    case 4074: return &quot;Handling Sampling Period&quot;;
+    case 4075: return &quot;Minimum Sampling Size&quot;;
+    case 4076: return &quot;Number of calls in queue&quot;;
+    case 4077: return &quot;Longest waiting time&quot;;
+    case 4078: return &quot;The time (seconds) between wait messages&quot;;
+    case 4079: return &quot;The time (seconds) between wait messages is required when Play updated wait message is enabled.&quot;;
+    case 4080: return &quot;At least one assigned zone is required when adding an Office Zone.&quot;;
+    case 4081: return &quot;A primary zone must be selected from the list of assigned zones.&quot;;
+    case 4082: return &quot;A maximum of 10 zones can be assigned to an office zone.&quot;;
+    case 4100: return &quot;A default disposition code is required when the use of codes is forced.&quot;;
+    case 4101: return &quot;Switching to use group codes in addition to call center codes will delete any call center codes that exist in the group already. Do you want to continue?&quot;;
+    case 4102: return &quot;Switching to use enterprise codes in addition to call center codes will delete any call center codes that exist in the enterprise already. Do you want to continue?&quot;;
+    case 4103: return &quot;Supervisor should be selected in order to Assign Agents&quot;;
+    case 4104: return &quot;Switching to use group codes in addition to route point codes will delete any route point codes that exist in the group already. Do you want to continue?&quot;;
+    case 4105: return &quot;Switching to use enterprise codes in addition to route point codes will delete any route point codes that exist in the enterprise already. Do you want to continue?&quot;;
+    case 4106: return &quot;No unavailable code was selected for the agent when automatically changing the agent state to unavailable, therefore a default code might be used, Would you like to proceed?&quot;;
+    case 4107: return &quot;A default unavailable code is required when the use of codes is forced.&quot;;
+    case 4110: return &quot;Wrap-up timer is required when Route Point wrap-up is enabled. &quot;;
+    case 4111: return &quot;Automatic answer timer is requred when automatic answer is enabled.&quot;;
+    case 4112: return &quot;Route Point External System is required when failover support is enabled.&quot;;
+    case 4113: return &quot;Failover phone number/SIP-URI is required when failover support is enabled.&quot;;
+    case 4114: return &quot;Per-Call Failover phone number/SIP-URI is required when per-call failover support is enabled.&quot;;
+    case 4115: return &quot;Call failure timeout&quot;;
+    case 4116: return &quot;Outbound call failure timeout&quot;;
+    case 4117: return &quot;Automatic answer timer&quot;;
+    case 4118: return &quot;Route Point wrap-up timer minutes&quot;;
+    case 4119: return &quot;Route Point wrap-up timer seconds&quot;;
+    case 4120: return &quot;Route Point wrap-up timer&quot;;
+    case 4121: return &quot;Route Point ID&quot;;
+    case 4130: return &quot;Wrap-up timer is required when ACD wrap-up is enabled.&quot;;
+    case 4131: return &quot;ACD wrap-up timer minutes&quot;;
+    case 4132: return &quot;ACD wrap-up timer seconds&quot;;
+    case 4133: return &quot;ACD wrap-up timer&quot;;
+    case 4140: return &quot;Calling Line ID Last Name and First Name are required when Use custom Calling Line name settings is enabled. &quot;;
+    case 4150: return &quot;Filter Number&quot;;
+    case 4151: return &quot;Style Template&quot;;
+    case 4152: return &quot;Custom branding cannot be selected if no file is selected.&quot;;
+    
+    case 4160: return &quot;Digit Pattern&quot;;
+    case 4161: return &quot;Name&quot;;
+
+    case 4170: return &quot;Priority is required&quot;;
+    case 4171: return &quot; &amp;lt;1&amp;gt; &quot; + &quot;is invalid, please enter a positive number as the priority, lower or equal to&quot; + &quot; &amp;lt;2&amp;gt;.&quot;;
+    case 4172: return &quot;Transfer Number is required&quot;;
+    case 4173: return &quot;Must select a profile if not using the default Service Provider Communication Barring Profile&quot;;
+    case 4174: return &quot;Must select a profile if not using the default Communication Barring Profile&quot;;
+    
+    case 4180: return &quot;Mobile Country Code&quot;;
+    case 4181: return &quot;Mobile Network Code&quot;;
+    case 4182: return &quot;Location Area Code&quot;;
+    case 4183: return &quot;Cell Identity&quot;;
+    case 4184: return &quot;The Mobile Country Code can only contain one of the following characters: 0 through 9, *.&quot;;
+    case 4185: return &quot;Invalid Mobile Country Code length&quot;;
+    case 4186: return &quot;The Mobile Network Code can only contain one of the following characters: 0 through 9, *.&quot;;
+    case 4187: return &quot;Invalid Mobile Network Code length&quot;;
+    case 4188: return &quot;The Location Area Code must be an integer between 0 through 65535 or *.&quot;;
+    case 4189: return &quot;Cell Identity must be an integer between 0 through 65535 or *.&quot;;
+    
+    case 4200: return &quot;End date restriction cannot be less than 1 month.&quot;;
+    case 4201: return &quot;End date restriction should be a valid number.&quot;;
+    case 4202: return &quot;Warning!!! All conferences in the deactivated bridge will be deactivated. Continue?&quot;;
+    case 4203: return &quot;Name&quot;;
+    case 4204: return &quot;Conference Bridge ID&quot;;
+    case 4205: return &quot;Recurring End is required.&quot;;
+    case 4206: return &quot;End Occurrences&quot;;
+    case 4207: return &quot;Yearly Interval&quot;;
+    case 4208: return &quot;Estimated Participants&quot;;
+    case 4209: return &quot;Restrict Participants&quot;;
+    case 4210: return &quot;End time should be later than current time.&quot;;
+    case 4211: return &quot;End time should be later than Start time.&quot;;
+    
+    case 4220: return &quot;Priority is required for criteria:&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 4221: return &quot;Please enter a positive float or integer as the priority for criteria:&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    
+    case 4230: return &quot;Forwarding phone number is required when selecting forward call after greeting.&quot;;
+    
+    case 4240: return &quot;the number of agents&quot;;
+    case 4241: return &quot;An unavailable code is required when the policy is conditioned to have a minumum number of agents with a specific unavailabe code.&quot;;
+    case 4242: return &quot;Alerting Group Order&quot;;
+    case 4243: return &quot;Order is required for alerting group:&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 4244: return &quot;Invalid order for alerting group:&quot; + &quot; &amp;lt;1&amp;gt;&quot;;
+    case 4245: return &quot;Alerting Group Name&quot;;
+    case 4246: return &quot;Cannot configure more than a combination of up to 10 Phone Number/SIP-URI or Users for each alerting group. &quot;;
+    case 4247: return &quot;Cannot configure the same order for multiple alerting groups.&quot;;
+
+    case 4250: return &quot;Current Call State Idle Time&quot;;
+    case 4251: return &quot;Current Call State On-Call Time&quot;;
+    case 4252: return &quot;Current Agent State Unavailable Time&quot;;
+    case 4253: return &quot;Average Busy In&quot;;
+    case 4254: return &quot;Average Busy Out&quot;;
+    case 4255: return &quot;Average Wrap-Up&quot;;
+    case 4256: return &quot;Notification Email cannot be enabled without at least one email address.&quot;;
+    case 4257: return &quot;Email Address not valid:&quot;;
+    case 4258: return &quot;The total number of seconds for the threshold must not be greater than 24 hours (1440 minutes): &quot;;
+    case 4259: return &quot;yellow mm&quot;;
+    case 4260: return &quot;yellow ss&quot;;
+    case 4261: return &quot;red mm&quot;;
+    case 4262: return &quot;red ss&quot;;
+    case 4263: return &quot;The red threshold value must be greater than the yellow threshold:&quot;;
+    case 4264: return &quot;Call Center Thresholds cannot be enabled without at least one threshold value set.&quot;;
+    case 4265: return &quot;Current Calls In Queue&quot;;
+    case 4266: return &quot;Current Longest Waiting Call&quot;;
+    case 4267: return &quot;Estimated Wait Time&quot;;
+    case 4268: return &quot;Average Handling Time&quot;;
+    case 4269: return &quot;Average Speed Of Answer&quot;;
+    case 4270: return &quot;Threshold Crossing Notification Email Guard Timer&quot;;
+    case 4271: return &quot;To use a threshold the total number of seconds cannot be zero. To stop using a threshold, clear the value of the statistic by leaving empty the minutes and seconds for it: &quot;;
+    case 4272: return &quot;yellow &quot;;
+    case 4273: return &quot;red&quot;;
+    case 4274: return &quot;If you want to stop using a threshold, clear the value of the statistic by leaving it empty. &quot;;
+    
+    case 4280: return &quot;Play Announcement&quot;;
+    case 4281: return &quot;Forward to phone number/SIP-URI is required when Group Night Forwarding is On or Automatic On.&quot;;
+    
+    case 4290: return &quot;The recurrence end date must be after the event start date.&quot;;
+    
+    case 4300: return &quot;System Voice Portal ID&quot;;
+    case 4301: return &quot;Name&quot;;
+    case 4302: return &quot;Calling Line ID Name&quot;;
+    case 4303: return &quot;Voice Portal Branded Greeting&quot;;
+    case 4304: return &quot;Voice Messaging Branded Greeting&quot;;
+    case 4305: return &quot;The default System Voice Portal cannot be deleted. It can be deleted only if it is the last one.&quot;;
+    case 4306: return &quot;Maximum Number of Concurrent Calls&quot;;
+    case 4307: return &quot;Maximum Number of Concurrent Video Calls&quot;;
+    case 4308: return &quot;Maximum Number of Concurrent Redirected Calls&quot;;
+    case 4309: return &quot;Maximum Duration for Anwered Calls&quot;;
+    case 4310: return &quot;At least one phone number must be provided for the system voice portal&quot;;
+    case 4311: return &quot;The system phone number is required for the system voice portal&quot;;
+    
+    // executive/executive-assistant
+    case 4320: return &quot;Alerting Custom Calling Line ID Name is required when Custom Alerting Calling Line ID Name is selected.&quot;;
+    case 4321: return &quot;Alerting Custom Number is required when Custom Calling Line ID Number is selected.&quot;;
+    case 4322: return &quot;Forward to Phone Number/SIP-URI is required when Forward to Phone Number/SIP-URI is selected for rollover action.&quot;;
+    case 4323: return &quot;Rollover wait time is required when rollover is enabled.&quot;;
+    case 4324: return &quot;Rollover wait time&quot;;
+    case 4325: return &quot;Divert to Phone Number/SIP-URI is required when divert is enabled.&quot;;
+    
+    //VTR messages
+    case 4330: return &quot;Origination of specified type must contain &apos;@&apos; and be an appropriate URI.&quot;;
+    case 4331: return &quot;Origination of specified type must contain a valid phone number (only digits, #, * and + are supported).&quot;;
+    case 4332: return &quot;Origination cannot be empty.&quot;;
+    case 4333: return &quot;Origination character length must be between&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;and&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    case 4334: return &quot;Destination cannot be empty.&quot;;
+    case 4335: return &quot;Destination character length must be between&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;and&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    case 4336: return &quot;Diversion/Contact must contain either a URI with a &apos;@&apos;, an IP address or a phone number.&quot;;
+    case 4337: return &quot;SIP message must be longer than 20 characters.&quot;;
+    case 4338: return &quot;Contact character length must be between&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;and&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    case 4339: return &quot;Diversion character length must be between&quot; + &quot; &amp;lt;1&amp;gt; &quot; + &quot;and&quot; + &quot; &amp;lt;2&amp;gt;&quot;;
+    
+    case 4350:  return &quot;Security Classification Name&quot;;
+    case 4351:  return &quot;Security Classification Announcement is required.&quot;;
+  }
+
+  return null;  // code not found
+}
+
+// Standard entry point for other script files
+// that need to access error text.
+//
+// Usage: errorText(&amp;lt;index&amp;gt; [, arg ]* )
+//
+//   Supply as many arguments as required for the particular
+//   text message you are looking up.
+//
+function errorText(index)
+{
+  var s = lookUpError(index);
+  if (s == null) return &quot;Error #&quot; + index;
+
+  var i;
+  var expr;
+
+  for (i=1; i&amp;lt;arguments.length; i++)
+  {
+    expr = new RegExp(&quot;&amp;lt;&quot;+i+&quot;&amp;gt;&quot;, &quot;g&quot;);
+    s = s.replace(expr, arguments[i]);
+  }
+
+  return s;
+}
+
+// Returns a string that combines multiple error
+// messages for display in a single dialog.
+//
+// Parameter: list (an Array)
+//
+//   Each element in the list is a string obtained
+// by calling errorText(n).
+//
+function errorTextList(list)
+{
+  if (list.length &amp;lt;= 0) return &quot;&quot;;
+  if (list.length == 1) return list[0];
+
+  var s = lookUpError(300)+&quot;:\\n&quot;; // heading for list of errors
+  var i;
+
+  for (i=0; i&amp;lt;list.length; i++)
+  {
+    s = s.concat(&quot;  &quot;, list[i], &quot;\\n&quot;);
+  }
+
+  return s;
+}
+
+
+</SCRIPT>
+                                <SCRIPT language="JavaScript" src="/Scripts/validate.js"/>
+                                <TITLE>Schedules</TITLE>
+                            </HEAD>
+                            <BODY bgproperties="fixed" leftmargin="30" marginheight="10" marginwidth="30" onload="initSelection();doThisOnLoad();" topmargin="10">
+                                <SCRIPT src="/Scripts/deployJava.js"/>
+                                <EMBED hidden="true" id="deployJavaPlugin" type="application/java-deployment-toolkit"/>
+                                <SCRIPT language="JavaScript">
+var commpilot = null;
+var ac = null;
+var revisedCallManager = null;
+var onlineHelp = null;
+var helpFile = &quot;/Help/en_US/User/User_Schedule_List17sp1.htm&quot;;
+
+// Launch the combined Call Manager / Attendant Console client
+function launchCallManagerClient()
+{
+  var uniqueId = &apos;&apos;;
+  var spId = &apos;null&apos;;
+
+  if ((revisedCallManager) &amp;amp;&amp;amp; !(revisedCallManager.closed))
+  {
+    revisedCallManager.focus();
+  }
+  else
+  {
+    revisedCallManager=window.open(&quot;/CallManager/CallManagerDownload.jsp?serviceProvID=&quot; + spId, uniqueId,
+                                   &quot;width=505,height=360,resizable=1,status=0,scrollbars=no&quot;);
+    revisedCallManager.focus();
+  }
+}
+
+function launchHelp()
+{
+   help = window.open(helpFile,&quot;onLineHelp&quot;);
+   help.focus();
+}
+
+function launchClientApplication(url)
+{
+  window.open(url);
+}
+
+function launchClientApplicationJWS(url)
+{
+  if(!deployJava.isWebStartInstalled(&quot;1.6.0_19&quot;))
+  {
+  \tif(deployJava.installJRE(&quot;1.6.0_19&quot;))
+    {
+      deployJava.launch(url);
+    }
+  }
+  else
+  {
+    deployJava.launch(url);
+  }
+}
+
+function selectedLinkChanged(selectedLink, ccUsesJWS, recUsesJWS) 
+{
+  var choice = selectedLink.options[selectedLink.selectedIndex].value;
+
+  if (choice == &quot;callmanager&quot;)
+  {
+    launchCallManagerClient();
+  }
+  else if(choice == &quot;callcenter&quot;)
+  {
+    if (ccUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/callcenter/callcenter.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=callcenter&quot;);
+    }
+  }
+  else if(choice == &quot;receptionist&quot;)
+  {
+    if (recUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/receptionist/receptionist.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=receptionist&quot;);
+    }
+  }
+
+  selectedLink.selectedIndex = 0;
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD align="center" colspan="3" valign="middle" width="100%"/>
+                                        </TR>
+                                        <TR>
+                                            <TD colspan="3" width="100%">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="2">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD align="left" class="headerBar" valign="middle">
+                                                                <IMG src="/conf/clientLogo.gif"/>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar" valign="middle">
+                                                                <A class="headerLink" href="javascript:launchHelp()">Help</A>
+
+
+
+
+
+
+       -                                                                                                                                                                                                                                                                                                                 <A class="headerLink" href="/Common/folder_contents.jsp?menuId=4">Home</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="5" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=4">System</A>
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=2">BuisnessLines</A>
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=1">BrianLAB-SV</A>
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Group/Members/">Users</A>
+
+
+
+
+
+        :                                                                                                                                                                                                                                                                                                                <SPAN class="headerAuthLevel" dir="ltr">
+                9498351960@lab-sv.telepacific.com</SPAN>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar">
+                                                                <SPAN class="headerBarWelcome">Welcome   </SPAN>
+                                                                <A class="headerLink" href="/servlet/Logout">[Logout]</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                                <SCRIPT language="JavaScript">
+// Try to close the window.  If we can&apos;t, logout.
+// Scripts aren&apos;t legally allowed to close a window that was not opened by a script,
+// but IE seems to allow it.  Firefox (Mozilla) doesn&apos;t.
+function userLogout ()
+{
+  window.close();   // IE will return here if user opts not to close window,
+  if (document.all) // and Mozilla browsers will return here because you can&apos;t close the window.
+    return;         // If we&apos;re running an IE browser.
+  top.location.replace(&quot;/servlet/Logout&quot;);
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD class="headandfoot" colspan="4" height="12"/>
+                                        </TR>
+                                        <TR>
+                                            <TD class="headandfoot" valign="top" width="18%">
+                                                <FORM method="post" name="leftNavForm">
+                                                    <B>
+                                                        <SCRIPT language="JavaScript">function addAltText(img, altText) {  img.alt = altText;}</SCRIPT>
+                                                        <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <TBODY>
+                                                                <TR>
+                                                                    <TD class="navOptions">Options:</TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolderopen" nowrap="nowrap">
+                                                                        <IMG alt="" border="0" src="/Graphics/Tropical/ar.gif"/>
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                          <A class="leftnavfolderopen" href="/Common/folder_contents.jsp?folder=U0&amp;menuId=0">Profile</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U2&amp;menuId=0">Incoming Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U3&amp;menuId=0">Outgoing Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U4&amp;menuId=0">Call Control</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U35&amp;menuId=0">Calling Plans</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U5&amp;menuId=0">Messaging</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U7&amp;menuId=0">Utilities</A>
+                                                                    </TD>
+                                                                </TR>
+                                                            </TBODY>
+                                                        </TABLE>
+                                                    </B>
+                                                </FORM>
+                                            </TD>
+                                            <TD class="headandfoot">
+                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="10"/>
+                                            </TD>
+                                            <TD valign="top">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD class="headandfoot">
+                                                                <IMG height="5" src="/Graphics/round-corner.gif" width="5"/>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                            <TD valign="top" width="82%">
+                                                <SCRIPT language="JavaScript">
+          //This variable is reset when the page is refreshed.
+          var deleteCount = 0;
+          function validateForm(form)
+          {
+            if (form.buttonClicked[0].value == &quot;delete&quot;){
+              deleteCount += 1;
+              //This code prevents the form from being submitted if the user clicks delete multiple times
+              if (deleteCount &amp;gt; 1){
+                // returning false will prevent the form submission.
+               return false;
+              }
+              if(form.allowValidateOnDelete &amp;amp;&amp;amp; form.allowValidateOnDelete.value == &quot;true&quot;)
+              {
+                deleteCount = 0;
+                return validate(form);
+              }
+              else
+              {
+                return true;
+              }
+            }
+            else{
+              return validate(form);
+            }
+          }
+        </SCRIPT>
+                                                <FORM id="mainForm" method="post" name="mainForm" onsubmit="return validateForm(this);">
+                                                    <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <TBODY>
+                                                            <TR>
+                                                                <TD height="10"/>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD class="screenName">Schedules</TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD height="5"/>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD class="tip">Add a new schedule or manage existing schedules.</TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD height="5"/>
+                                                            </TR>
+                                                            <TR/>
+                                                            <TR>
+                                                                <TD height="5"/>
+                                                            </TR>
+                                                            <TR id="buttonbartop">
+                                                                <TD class="buttonbar">  
+
+
+
+
+                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    <INPUT name="buttonClicked" type="hidden" value=""/>
+                                                                    <INPUT class="bwbutton" name="ok" type="submit" value="OK"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="apply" type="submit" value="Apply"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="add" onclick="javascript:top.location.replace(&quot;Add/index.jsp&quot;)" type="button" value="Add"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="cancel" onclick="top.location.replace(&quot;/Common/folder_contents.jsp?folder=U0&amp;menuId=0&quot;);" type="button" value="Cancel"/>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD class="enduserbody">
+                                                                    <SCRIPT language="JavaScript" src="/Scripts/validateNone.js"/>
+                                                                    <SCRIPT language="JavaScript">
+function doFind()
+{
+  var form = document.mainForm;
+  top.location.replace(&apos;/Common/find.jsp?returnPage=/User/Schedules/&amp;amp;tableName=userSchedules&amp;amp;key=&apos; + form.findKey.value + &apos;&amp;amp;op=&apos; + form.findOp.value + &apos;&amp;amp;value=&apos; + escape(form.findValue.value) );
+}
+function doFindAll()
+{
+  top.location.replace(&apos;/Common/findAll.jsp?returnPage=/User/Schedules/&amp;amp;tableName=userSchedules&apos;);
+}
+function doSort(index)
+{
+  top.location.replace(&apos;/Common/sort.jsp?returnPage=/User/Schedules/&amp;amp;tableName=userSchedules&amp;amp;value=&apos; + index);
+}
+function toggleSort()
+{
+  top.location.replace(&apos;/Common/sort.jsp?returnPage=/User/Schedules/&amp;amp;tableName=userSchedules&amp;amp;value=toggle&apos;);
+}
+function mouseOverTR(rowId, isOver)
+{
+  var tr = document.getElementById(rowId);
+  if (isOver)
+    tr.className=&quot;hilite&quot;;
+  else
+    tr.className=&quot;unselected&quot;;
+}
+function mouseOverA(rowId, isOver)
+{
+  var className = isOver ? &quot;tableLinkHover&quot; : &quot;tableLink&quot;;
+  var tr = document.getElementById(rowId);
+  for (var i = 0; i &amp;lt; tr.cells.length - 1; i++)
+  {
+    var cellId = rowId + &quot;Col&quot; + i;
+    var cell = document.getElementById(cellId);
+    if (cell)
+      if(cell.className!=&quot;headerLink&quot;)
+        cell.className=className;
+  }
+}
+</SCRIPT>
+                                                                    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+                                                                        <TBODY>
+                                                                            <TR>
+                                                                                <TD class="listHeader">
+                                                                                    <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="20"/>
+                                                                                </TD>
+                                                                                <TD class="listHeader">Delete</TD>
+                                                                                <TD class="listHeader">
+                                                                                    <A class="listSortHeader" href="javascript:toggleSort()">Schedule Name 
+                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        <IMG align="bottom" border="0" src="/Graphics/uparrow.gif"/>
+                                                                                    </A>
+                                                                                </TD>
+                                                                                <TD class="listHeader">
+                                                                                    <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="0"/>
+                                                                                </TD>
+                                                                                <TD class="listHeader">
+                                                                                    <A class="listSortHeader" href="javascript:doSort(&apos;1&apos;)">Type </A>
+                                                                                </TD>
+                                                                                <TD class="listHeader">
+                                                                                    <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="0"/>
+                                                                                </TD>
+                                                                                <TD class="listHeader">
+                                                                                    <A class="listSortHeader" href="javascript:doSort(&apos;2&apos;)">Level </A>
+                                                                                </TD>
+                                                                                <TD class="listHeader">
+                                                                                    <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="0"/>
+                                                                                </TD>
+                                                                                <TD class="listHeader"> Edit</TD>
+                                                                            </TR>
+                                                                            <TR class="unselected" id="Row1">
+                                                                                <TD valign="top" width="20"> </TD>
+                                                                                <TD valign="top">
+                                                                                    <INPUT disabled="disabled" name="checkbox_alex_test__DELIMITER__Time" type="CHECKBOX"/>
+                                                                                </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test&amp;name=Time&amp;level=Group" id="Row1Col0" onmouseout="mouseOverA(&apos;Row1&apos;,false)" onmouseover="mouseOverA(&apos;Row1&apos;,true)">alex_test</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test&amp;name=Time&amp;level=Group" id="Row1Col1" onmouseout="mouseOverA(&apos;Row1&apos;,false)" onmouseover="mouseOverA(&apos;Row1&apos;,true)">Time</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test&amp;name=Time&amp;level=Group" id="Row1Col2" onmouseout="mouseOverA(&apos;Row1&apos;,false)" onmouseover="mouseOverA(&apos;Row1&apos;,true)">Group</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD class="unselected">
+                                                                                    <A class="headerLink" href="/User/Schedules/Modify/index.jsp?key=alex_test&amp;name=Time&amp;level=Group" onmouseout="mouseOverA(&apos;Row1&apos;,false)" onmouseover="mouseOverA(&apos;Row1&apos;,true)">View</A>
+                                                                                </TD>
+                                                                            </TR>
+                                                                            <TR class="unselected" id="Row2">
+                                                                                <TD valign="top" width="20"> </TD>
+                                                                                <TD valign="top">
+                                                                                    <INPUT name="checkbox_alex_test_user__DELIMITER__Time" type="CHECKBOX"/>
+                                                                                </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test_user&amp;name=Time&amp;level=User" id="Row2Col0" onmouseout="mouseOverA(&apos;Row2&apos;,false)" onmouseover="mouseOverA(&apos;Row2&apos;,true)">alex_test_user</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test_user&amp;name=Time&amp;level=User" id="Row2Col1" onmouseout="mouseOverA(&apos;Row2&apos;,false)" onmouseover="mouseOverA(&apos;Row2&apos;,true)">Time</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=alex_test_user&amp;name=Time&amp;level=User" id="Row2Col2" onmouseout="mouseOverA(&apos;Row2&apos;,false)" onmouseover="mouseOverA(&apos;Row2&apos;,true)">Personal</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD class="unselected">
+                                                                                    <A class="headerLink" href="/User/Schedules/Modify/index.jsp?key=alex_test_user&amp;name=Time&amp;level=User" onmouseout="mouseOverA(&apos;Row2&apos;,false)" onmouseover="mouseOverA(&apos;Row2&apos;,true)">Edit</A>
+                                                                                </TD>
+                                                                            </TR>
+                                                                            <TR class="unselected" id="Row3">
+                                                                                <TD valign="top" width="20"> </TD>
+                                                                                <TD valign="top">
+                                                                                    <INPUT disabled="disabled" name="checkbox_itest_auto_schedule__DELIMITER__Time" type="CHECKBOX"/>
+                                                                                </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=itest_auto_schedule&amp;name=Time&amp;level=Group" id="Row3Col0" onmouseout="mouseOverA(&apos;Row3&apos;,false)" onmouseover="mouseOverA(&apos;Row3&apos;,true)">itest_auto_schedule</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=itest_auto_schedule&amp;name=Time&amp;level=Group" id="Row3Col1" onmouseout="mouseOverA(&apos;Row3&apos;,false)" onmouseover="mouseOverA(&apos;Row3&apos;,true)">Time</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=itest_auto_schedule&amp;name=Time&amp;level=Group" id="Row3Col2" onmouseout="mouseOverA(&apos;Row3&apos;,false)" onmouseover="mouseOverA(&apos;Row3&apos;,true)">Group</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD class="unselected">
+                                                                                    <A class="headerLink" href="/User/Schedules/Modify/index.jsp?key=itest_auto_schedule&amp;name=Time&amp;level=Group" onmouseout="mouseOverA(&apos;Row3&apos;,false)" onmouseover="mouseOverA(&apos;Row3&apos;,true)">View</A>
+                                                                                </TD>
+                                                                            </TR>
+                                                                            <TR class="unselected" id="Row4">
+                                                                                <TD valign="top" width="20"> </TD>
+                                                                                <TD valign="top">
+                                                                                    <INPUT disabled="disabled" name="checkbox_TEST__DELIMITER__Time" type="CHECKBOX"/>
+                                                                                </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=TEST&amp;name=Time&amp;level=Group" id="Row4Col0" onmouseout="mouseOverA(&apos;Row4&apos;,false)" onmouseover="mouseOverA(&apos;Row4&apos;,true)">TEST</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=TEST&amp;name=Time&amp;level=Group" id="Row4Col1" onmouseout="mouseOverA(&apos;Row4&apos;,false)" onmouseover="mouseOverA(&apos;Row4&apos;,true)">Time</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD>
+                                                                                    <A class="tableLink" href="/User/Schedules/Modify/index.jsp?key=TEST&amp;name=Time&amp;level=Group" id="Row4Col2" onmouseout="mouseOverA(&apos;Row4&apos;,false)" onmouseover="mouseOverA(&apos;Row4&apos;,true)">Group</A>
+                                                                                </TD>
+                                                                                <TD valign="top" width="0"> </TD>
+                                                                                <TD class="unselected">
+                                                                                    <A class="headerLink" href="/User/Schedules/Modify/index.jsp?key=TEST&amp;name=Time&amp;level=Group" onmouseout="mouseOverA(&apos;Row4&apos;,false)" onmouseover="mouseOverA(&apos;Row4&apos;,true)">View</A>
+                                                                                </TD>
+                                                                            </TR>
+                                                                        </TBODY>
+                                                                    </TABLE>
+                                                                    <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                        <TBODY>
+                                                                            <TR>
+                                                                                <TD class="listHeader">
+                                                                                    <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="1"/>
+                                                                                </TD>
+                                                                            </TR>
+                                                                        </TBODY>
+                                                                    </TABLE>
+                                                                    <TABLE border="0" cellpadding="0" cellspacing="0" class="enduserbody" width="100%">
+                                                                        <TBODY>
+                                                                            <TR>
+                                                                                <TD align="center">
+                                                                                    <SELECT name="findKey" size="1">
+                                                                                        <OPTION selected="selected" value="0">Schedule Name
+</OPTION>
+                                                                                        <OPTION value="1">Type
+</OPTION>
+                                                                                        <OPTION value="2">Level
+</OPTION>
+                                                                                    </SELECT>
+                                                                                </TD>
+                                                                                <TD align="center">
+                                                                                    <SELECT name="findOp" size="1">
+                                                                                        <OPTION value="1">Starts With
+    </OPTION>
+                                                                                        <OPTION value="2">Contains
+    </OPTION>
+                                                                                        <OPTION value="4">Equal To
+  </OPTION>
+                                                                                    </SELECT>
+                                                                                </TD>
+                                                                                <TD align="center">
+                                                                                    <INPUT name="findValue" size="30" type="text" value=""/>
+                                                                                </TD>
+                                                                                <TD align="center">
+                                                                                    <A class="headerLink" href="javascript:doFind();">Find</A>
+                                                                                </TD>
+                                                                                <TD align="center">
+                                                                                    <A class="headerLink" href="javascript:doFindAll();">Find All</A>
+                                                                                </TD>
+                                                                            </TR>
+                                                                            <TR>
+                                                                                <TD colspan="5">
+                                                                                    <IMG alt="" border="0" height="3" src="/Graphics/onepx.gif" width="1"/>
+                                                                                </TD>
+                                                                            </TR>
+                                                                        </TBODY>
+                                                                    </TABLE>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR id="buttonbarbottom">
+                                                                <TD class="buttonbar">  
+
+
+
+
+                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    <INPUT name="buttonClicked" type="hidden" value=""/>
+                                                                    <INPUT class="bwbutton" name="ok" type="submit" value="OK"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="apply" type="submit" value="Apply"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="add" onclick="javascript:top.location.replace(&quot;Add/index.jsp&quot;)" type="button" value="Add"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                       <INPUT class="bwbutton" name="cancel" onclick="top.location.replace(&quot;/Common/folder_contents.jsp?folder=U0&amp;menuId=0&quot;);" type="button" value="Cancel"/>
+                                                                </TD>
+                                                            </TR>
+                                                        </TBODY>
+                                                    </TABLE>
+                                                </FORM>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                            </BODY>
+                        </HTML>
+                    </Document>
+                </WebDocument>
+            </structure>
+        </item>
+    </samplesList>
+    <targets>
+        <item name="edit_sched">
+            <description>Edit Link for specified schedule name</description>
+            <queryFormatString>//A[contains(@href,&apos;key={sched_name}&apos;)]</queryFormatString>
+            <arguments>
+                <item name="sched_name"/>
+            </arguments>
+            <source>Mapping</source>
+        </item>
+    </targets>
+</FormMap>

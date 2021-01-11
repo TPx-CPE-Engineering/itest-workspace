@@ -1,0 +1,1016 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <testbed>project://a_voip/topologies/Adtran/lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="edd3361a-3ece-440b-abe5-5ead8915acd9" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Multiple IPs on Eth Interface</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>----- Multiple IPs on Eth Interface -----</message>
+                                        <tag sub="false" defaultValue=""/>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <nestedSteps>
+                        <item guid="d2a5489a-fe76-4adb-bf25-449349d8c026" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Open CPE and login</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="833dcac7-72e7-482a-bc2e-4388abc71f7e" action="open" session="CPE" useFieldsInCommand="false">
+                                    <command>
+                                        <body>device:CPE#ssh</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="bf9bb4d0-9230-46d8-b1b6-bfb9e637eae0" action="Login" session="CPE" normalOffset="17.645" estimatedStepExecutionTime="0.145" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="91bcf3d5-9875-4d05-8d24-c1beace002de" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Go into config mode and select primary interface</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="57c0a90c-090d-4dc5-be83-67d379ecfd55" action="command" session="CPE" normalOffset="29.211" estimatedStepExecutionTime="0.003">
+                                    <command>
+                                        <body>conf t</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.425" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="897b2392-a89c-4cb1-bccd-cab45abfad2c" action="command" session="CPE" normalOffset="20.275" estimatedStepExecutionTime="0.004">
+                                    <command>
+                                        <body>int [param prim_int]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.35" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4cc5181a-98d4-4aef-b1eb-8ad36d9590fd" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Add ip address &apos;10.20.20.10 255.255.255.252 secondary&apos;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="62e6517d-56ba-4061-911b-eacd63b61d0c" action="command" session="CPE" normalOffset="96.744" estimatedStepExecutionTime="0.008">
+                                    <command>
+                                        <body>ip addr 10.20.20.10 255.255.255.252 secondary</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="none">
+                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Adding secondary IP address &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="71.715" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="cd51083b-2aa7-405c-9de8-c1e0c391d35b" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify ip address exists</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="179e5d6e-4d37-4d51-b189-c65a59daec44" action="command" session="CPE" normalOffset="15.601" estimatedStepExecutionTime="0.027">
+                                    <command>
+                                        <body>do sh run int [param prim_int]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>10.20.20.10</searchString>
+                                                        <matchType>CaseInsensitive</matchType>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Verifying config. &apos;show run int&apos; response contains &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>Verifying config. &apos;show run int&apos; response does not contain &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="3.473" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="56e04c00-8677-4370-8674-ac0797fed7bc" action="command" session="CPE" normalOffset="48.773" estimatedStepExecutionTime="0.014">
+                                    <command>
+                                        <body>do ping 10.20.20.10</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>Success_rate()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 100</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Verifying ping. Ping success rate: &quot;100&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>Verifying ping. Ping success rate is not equal to &quot;100&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.504" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fa3cfe5c-5a95-4dca-bbe9-7c8b0e89a21b" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Remove ip address</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="795c06f0-85b0-44e8-8b36-3b23fc47a7fb" action="command" session="CPE" normalOffset="26.203" estimatedStepExecutionTime="0.007">
+                                    <command>
+                                        <body>no ip addr 10.20.20.10 255.255.255.252 secondary</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="none">
+                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Removing secondary IP address &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="2.464" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e0bef0e8-34b5-4664-a25f-066259b076aa" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify ip address was removed</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="55c1f866-29b6-4560-9c36-0bdae3e8a6a5" action="command" session="CPE" normalOffset="21.553" estimatedStepExecutionTime="0.021">
+                                    <command>
+                                        <body>do sh run int [param prim_int]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>10.20.20.10</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 0</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Verifying config. &apos;show run int&apos; response does not contain &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>Verifying config. &apos;show run int contains &quot;10.20.20.10 255.255.255.252 secondary&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="4.961" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="b713be5d-a30a-42a0-9561-d26a4c80cde0" action="command" session="CPE" normalOffset="20.259" estimatedStepExecutionTime="10.008">
+                                    <command>
+                                        <body>do ping 10.20.20.10</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>Success_rate()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 0</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Verifying ping. Ping success is &quot;0&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>Verifying ping. Ping success is not &quot;0&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="2.432" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="373077f3-4326-4062-845c-1ecc521f9840" action="if" useFieldsInCommand="false">
+                                    <command>
+                                        <body>[info status ] == &quot;Pass&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="be06458c-88b5-42e8-a804-798c77c70701" action="then" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="50df7d48-d5ca-4b02-980c-9a69d1ef81e3" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Multiple IPs on Eth Interface Pass</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="none">
+                                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="message">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="OK">
+                                                                        <message>----- Multiple IPs on Eth Interface Pass -----</message>
+                                                                        <tag sub="false" defaultValue=""/>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="779bafc3-9f54-460c-a153-f73689c234ef" action="else" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="08bb12f7-80b8-42fe-a6a2-994003f4964a" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Multiple IPs on Eth Interface Failed</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="none">
+                                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="message">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup">
+                                                                        <message>----- Multiple IPs on Eth Interface Failed -----</message>
+                                                                        <tag sub="false" defaultValue=""/>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a3688a30-39f1-43b3-910b-bd1204fc5488" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Exit CPE</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="3925188b-8db9-4856-9e17-2f47abb72540" action="command" session="CPE" normalOffset="8.576" estimatedStepExecutionTime="0.006">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="1.182" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="aa816bf2-4f73-4f1a-9755-91f9d6d4dcc0" action="command" session="CPE" normalOffset="3.65" estimatedStepExecutionTime="0.003">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.216" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="2f777cde-2e15-4a7d-9bb1-0691a28c2dc3" action="command" session="CPE" normalOffset="2.461" estimatedStepExecutionTime="0.002">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="7fa50ab7-b87c-4b77-9150-cafa183f3c01" action="close" session="CPE" normalOffset="0.109">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ee360802-03c1-49c7-9041-8cdce13f1572" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Verify SSH login with no RADIUS </body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>----- Verify SSH login with no RADIUS -----</message>
+                                        <tag sub="false" defaultValue=""/>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <nestedSteps>
+                        <item guid="173778a1-b44f-48fe-aca9-c29bccfa31ef" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Open CPE</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="ed9d03b1-c37b-4fef-bc8b-207fc736f3a3" action="open" session="CPE.1">
+                                    <command>
+                                        <body>device:CPE#ssh</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="ca1d3085-9692-4e55-801f-0f16d2e4792f" action="Login" session="CPE.1" normalOffset="6.755" estimatedStepExecutionTime="0.159" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="476c8874-43a2-43a7-978a-e2d3fa71d5ce" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Add ip route configuration to block the RADIUS traffic</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Adding ip routes to running config to block RADIUS traffic</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="625e99b9-9582-4b61-be72-eb98fb1e396e" action="command" session="CPE.1" normalOffset="4.93">
+                                    <command>
+                                        <body>config t</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.327" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="c51a0532-9e29-4321-8985-790cca58b670" action="command" session="CPE.1" normalOffset="36.022" estimatedStepExecutionTime="0.015">
+                                    <command>
+                                        <body>ip route 64.60.0.248 255.255.255.255 null 0</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.671" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="abffbf96-1f8a-4e06-a09c-3f3b0a80d60e" action="command" session="CPE.1" normalOffset="31.341">
+                                    <command>
+                                        <body>ip route 64.60.16.48 255.255.255.255 null 0</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="1.311" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="3222d29c-b6d1-4183-87b3-2e38d7571319" action="command" session="CPE.1" normalOffset="109.873">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="2.949" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5b2f4cdb-58b3-4acc-9735-9071370925bd" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify the blocking ip routes are part of running config</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="7bf87c8b-4a33-4110-a304-af16407e737e" action="command" session="CPE.1" normalOffset="17.798" estimatedStepExecutionTime="0.32">
+                                    <command>
+                                        <body>sh run | inc ip route</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>64.60.0.248</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Added ip route &quot;64.60.0.248 255.255.255.255&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>IP route &quot;$value&quot; to block RADIUS traffic was not added to running config</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>64.60.16.48</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Added ip route &quot;64.60.16.48 255.255.255.255&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>IP route &quot;$value&quot; to block RADIUS traffic was not added to running config</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.577" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6c39a53d-6883-440a-ba7b-3a8b42cf5908" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify no SSH access through RADIUS normal login</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Verifying no SSH access through RADIUS normal login ...</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="05b462ee-aaa5-4219-b5e3-d7e2d465a4ef" action="open" session="CPE.2">
+                                    <command>
+                                        <body>device:CPE#ssh</body>
+                                    </command>
+                                    <eventHandlers>
+                                        <item name="OnTerminalOpenConnectionFail">
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>No SSH access</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </item>
+                                    </eventHandlers>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                    <emulation>
+                                        <behavior>
+                                            <responseType>text</responseType>
+                                            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;true&lt;/isEmpty&gt;
+    &lt;retries&gt;0&lt;/retries&gt;
+    &lt;connectStatus&gt;false&lt;/connectStatus&gt;
+    &lt;connectInfo&gt;Unable to connect to 10.255.20.102.
+Reason:SSH Authentication failed.&lt;/connectInfo&gt;
+    &lt;port&gt;22&lt;/port&gt;
+    &lt;ipAddress&gt;10.255.20.102&lt;/ipAddress&gt;
+    &lt;connectError&gt;Unable to connect to 10.255.20.102.
+Reason:SSH Authentication failed.&lt;/connectError&gt;
+    &lt;banner&gt;CC**** TelePacific Communications ****
+Restricted Network
+Authorized User Access Only
+&lt;/banner&gt;
+&lt;/structure&gt;
+</structuredData>
+                                            <aliases>
+                                                <item name="isEmpty">
+                                                    <queryFormatString>.//isEmpty</queryFormatString>
+                                                </item>
+                                                <item name="retries">
+                                                    <queryFormatString>.//retries</queryFormatString>
+                                                </item>
+                                                <item name="connectStatus">
+                                                    <queryFormatString>.//connectStatus</queryFormatString>
+                                                </item>
+                                                <item name="connectInfo">
+                                                    <queryFormatString>.//connectInfo</queryFormatString>
+                                                </item>
+                                                <item name="port">
+                                                    <queryFormatString>.//port</queryFormatString>
+                                                </item>
+                                                <item name="ipAddress">
+                                                    <queryFormatString>.//ipAddress</queryFormatString>
+                                                </item>
+                                                <item name="connectError">
+                                                    <queryFormatString>.//connectError</queryFormatString>
+                                                </item>
+                                                <item name="banner">
+                                                    <queryFormatString>.//banner</queryFormatString>
+                                                </item>
+                                            </aliases>
+                                            <duration>13.0</duration>
+                                        </behavior>
+                                    </emulation>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="8661477a-e4d7-4b02-a35e-9bc03f5c5278" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify SSH access through RADIUS recovery loging</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Verifying SSH access through RADIUS recovery login ...</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="c000e443-d093-4d46-a0b6-2bd2bb1e254c" action="open" session="CPE.3">
+                                    <command>
+                                        <body>device:CPE#ssh-recovery</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="c7dc6708-c807-4722-932b-727f8015c7e6" action="Login" session="CPE.3" useFieldsInCommand="false">
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="none">
+                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Login successful through RADIUS recovery</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="dd81d3b2-ef17-4c72-b71f-19975c4ebd8d" action="close" session="CPE.3" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="00e86877-5e6b-4b27-baf3-3aef2bce9643" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Delete the the blocking ip routes from running config</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Deleting ip routes from running config to unblock RADIUS traffic</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="c043bd1c-79d2-46c5-ac7c-5635a037e11e" action="command" session="CPE.1">
+                                    <command>
+                                        <body>config t</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="f3f1c1c8-f7ac-405c-91e5-a348a6517ba3" action="command" session="CPE.1">
+                                    <command>
+                                        <body>no ip route 64.60.0.248 255.255.255.255 null 0</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="d98bed48-8b97-4219-b884-51714bee246d" action="command" session="CPE.1">
+                                    <command>
+                                        <body>no ip route 64.60.16.48 255.255.255.255 null 0</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="c1e2f7f0-c923-4f86-861b-680c778d5b2a" action="command" session="CPE.1">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1977bd11-2ef9-4d7b-995e-7d82d0c09651" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify the blocking ip routes are gone from running config</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9d3e8a68-e985-417c-bd68-b98245c92e20" action="command" session="CPE.1">
+                                    <command>
+                                        <body>sh run | inc ip route</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>64.60.0.248</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 0</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Deleted ip route &quot;64.60.0.248 255.255.255.255&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>IP route &quot;64.60.0.248 255.255.255.255&quot; is still present in running config</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>64.60.16.48</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 0</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                    <message>Deleted ip route &quot;64.60.0.248 255.255.255.255&quot;</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                    <message>IP route &quot;64.60.16.48 255.255.255.255&quot; is still present in running config</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="49fc3f6b-ab82-4957-b174-47fac55bc3f6" action="close" session="CPE.1" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fbe026cc-628c-411c-99d3-2cdbe204c01a" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Verify SSH access through RADIUS normal login is back</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Verifying SSH access through RADIUS normal login is back ...</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="63c6f173-3150-4383-bee0-816b5ff50efa" action="open" session="CPE.4">
+                                    <command>
+                                        <body>device:CPE#ssh</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="a245fccf-695b-41c9-8344-cc348c5b8dc1" action="Login" session="CPE.4" useFieldsInCommand="false">
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="none">
+                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Login successful through RADIUS normal login</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="3f47b3e8-5a48-4274-8ce8-c55d6fc7e7cf" action="close" session="CPE.4" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1a5c9625-2edc-4dfd-96ff-a0de812f7231" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output pass or fail message</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9a398270-797d-44bc-99d3-1ec3fcf7e234" action="if" useFieldsInCommand="false">
+                                    <command>
+                                        <body>[info status ] == &quot;Pass&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="3d373dec-34f6-45c8-9e2c-d3d6498147dd" action="then" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="39785d4f-acfc-42a6-8a9e-fabe08d5c758" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Verify SSH login with no RADIUS pass</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="none">
+                                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="message">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="OK">
+                                                                        <message>----- Verify SSH login with no RADIUS passed -----</message>
+                                                                        <tag sub="false" defaultValue=""/>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="5bc36b67-4fc6-4e56-b3d1-c6de248950f5" action="else" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="f21bd774-b17a-4665-83b4-eb1a041526f6" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Verify SSH login with no RADIUS fail</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="none">
+                                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="message">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup">
+                                                                        <message>----- Verify SSH login with no RADIUS failed -----</message>
+                                                                        <tag sub="false" defaultValue=""/>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

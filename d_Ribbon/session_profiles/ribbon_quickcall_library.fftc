@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="ribbon_session_profile.ffsp"/>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="f39e5016-05a3-4da0-8689-75099ffe1312" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="GetActiveCalls" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="abcbe5d2-5b62-44c5-8727-7a6a52609cc5" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Returns the number of active calls on a Cisco CPE device</multilineDescription>
+            <response>{&quot;active_calls&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="Ping" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="159e63a4-2947-461f-a686-00ba87f91d56" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Ping a host or IP</multilineDescription>
+            <arguments>
+                <item name="host">
+                    <description>Host or IP address you wish to ping</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;resolved&quot;:&quot;value&quot;,&quot;resolved_to&quot;:&quot;value&quot;,&quot;success_rate&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="ClearName-Servers" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="3c96b70d-37f9-4e0d-bba1-3d372cf5e5dd" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{&quot;name_server_ips_removed&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="AddName-Servers" isPublic="true">
+            <steps>
+                <item guid="234479f9-aab1-46c0-8dbd-06e84061613f" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="name_servers">
+                    <description>IPs of the name-servers you wish to add</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{}</response>
+        </item>
+        <item name="ChangeConfig" isPublic="true">
+            <description>Change Config</description>
+            <steps>
+                <item guid="28a4cdcf-f8b3-4b22-a500-fd081e656fa0" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>0.1</version>
+            <multilineDescription>Change the startup config file on the CPE and reload.</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>Name of file to load into startup-config</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="CheckRunningConfig" isPublic="true">
+            <description>Check Running Config</description>
+            <steps>
+                <item guid="3f903474-af47-48e4-accc-4d588ecf3fcd" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>0.1</version>
+            <multilineDescription>Compares the running config to a file stored on the device. Returns &quot;MATCH&quot; if the files match, returns the first different lines otherwise.</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>Name of the desired config file on the CPE device. </description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="DisableDebug" isPublic="true">
+            <steps>
+                <item guid="14e2ece3-1c24-40a2-baa1-2d309435ff33" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="EnableCCSIPMessages" isPublic="true">
+            <steps>
+                <item guid="b42ef424-3951-47c3-8155-169082ceafbf" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+        <item name="ForceCodec" isPublic="true">
+            <description>Use Fax Codec</description>
+            <steps>
+                <item guid="39c814af-f240-4785-80b6-f244d278f6c4" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <multilineDescription>Set the codec to FAXMODEM on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+2. codec_name\t\t\t|   M   |   Name of codec to apply</multilineDescription>
+            <arguments>
+                <item name="voice_class">
+                    <description>Voice class to change. Defaults to 5.</description>
+                    <defaultValue>5</defaultValue>
+                </item>
+                <item name="codec_name">
+                    <description>Name of fax codec to apply</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="GetIntStatus" isPublic="true" isVBlock="true">
+            <description>Get Interface Status</description>
+            <steps>
+                <item guid="f623272d-e17b-4dce-a094-f7da84ff29aa" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Returns the status of the desired interface </multilineDescription>
+            <arguments>
+                <item name="interface">
+                    <description>Interface to check</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;int_status&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="GetLastCodecUsed" isPublic="true">
+            <steps>
+                <item guid="63d93b7e-e5d3-4d60-93ef-5001ec064e30" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{&quot;codec_list&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="GetRegStatus" isPublic="true" isVBlock="true">
+            <description>Get Reg Status</description>
+            <steps>
+                <item guid="66d371bd-bf2d-41a9-934f-aebf42e6a50f" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Returns registration status of the CPE. Will return OK if all lines are registered or NR (not registered) if one or more lines aren&apos;t.</multilineDescription>
+            <response>{&quot;reg_status&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="GetRegStatusNeutral" isPublic="true" isVBlock="true">
+            <description>Get Reg Status</description>
+            <steps>
+                <item guid="4c81e1a7-caeb-4227-b5f2-c2a8ceda365a" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Returns registration status of the CPE. Will return OK if all lines are registered or NR (not registered) if one or more lines aren&apos;t.</multilineDescription>
+            <response>{&quot;reg_status&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="GetVoiceClass" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="50bf5e5b-aad4-4a04-a4a6-de43316324be" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="dial_plan">
+                    <description>number used in config to represent dial-plan</description>
+                    <defaultValue>100</defaultValue>
+                </item>
+            </arguments>
+            <response>{&quot;voice_class&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="SetCodecPriority" isPublic="true">
+            <description>Set Codec Priority</description>
+            <steps>
+                <item guid="fe592a9a-053c-4b91-b131-7697ad2a4c8d" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <arguments>
+                <item name="first_codec">
+                    <description>Codec to set as first priority</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="second_codec">
+                    <description>codec to set as second priority</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="voice_class">
+                    <description>Voice class to change. Defaults to 5.</description>
+                    <defaultValue>5</defaultValue>
+                </item>
+                <item name="is_sip">
+                    <description> Set to &apos;true&apos; if using a SIP config</description>
+                    <defaultValue>false</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="SetDigitTerminator" isPublic="true">
+            <description>Set Digit Terminator</description>
+            <steps>
+                <item guid="4e8a92f6-be94-41b7-800f-0f15ea9a99fc" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Change the digit terminator to  # on Cisco CPE</multilineDescription>
+        </item>
+        <item name="SetFaxModemForceCodec" isPublic="true">
+            <description>Set Codec Priority</description>
+            <steps>
+                <item guid="f8b14fe3-fd11-475b-8672-8d91bdf8f5da" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <arguments>
+                <item name="voice_class">
+                    <defaultValue>5</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="codec1">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="codec2">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="SetVoiceForceCodec" isPublic="true">
+            <description>Set Codec Priority</description>
+            <steps>
+                <item guid="4ecf6660-38b1-4104-b811-7b03f4c159d4" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <arguments>
+                <item name="voice_class">
+                    <defaultValue>5</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="codec1">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="codec2">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="ShutdownInterface" isPublic="true">
+            <description>Shutdown Interface on CPE</description>
+            <steps>
+                <item guid="c1a64b0d-7f7b-4bfd-be61-58f9847a3272" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Shutdown an interface on a Cisco device
+
+</multilineDescription>
+            <arguments>
+                <item name="interface">
+                    <description>Name of interface to shutdown
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="UnsetDigitTerminator" isPublic="true">
+            <description>Set Digit Terminator to Default</description>
+            <steps>
+                <item guid="03b41ff0-afa3-4c69-baed-a6930eaeeffe" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <arguments>
+                <item name="interface">
+                    <description>Name of interface to shutdown
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="EraseFile" isPublic="true" isVBlock="true">
+            <description>Erase a file</description>
+            <steps>
+                <item guid="86223b38-bfd9-4557-9793-58cd281c2887" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Juan Brena</author>
+            <version>1.0</version>
+            <multilineDescription>Simple procedure to erase a specifc file and returns with a 1 for success or 0 for failure/error.
+Required Arguments: name (string) of the file which you want to delete.</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>String of filename to be erased</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;success&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="Login" isPublic="true">
+            <steps>
+                <item guid="4b21d951-44a0-4d06-bb2e-1d80577693aa" action="command" session="[session]" estimatedStepExecutionTime="0.303" useFieldsInCommand="false">
+                    <command>
+                        <body>[char BS]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="5b8996fa-e0cb-4d6e-9d84-1d50d4f6116c" action="command" session="[session]" estimatedStepExecutionTime="0.068">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="dd94e862-52bf-490a-831d-43ad85752a0e" action="command" session="[session]" estimatedStepExecutionTime="0.109">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

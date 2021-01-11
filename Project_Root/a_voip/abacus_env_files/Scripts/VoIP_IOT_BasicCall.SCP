@@ -1,0 +1,501 @@
+[Basic_Call_19]
+7=>A:@:Wait for busy
+12=>B:@:Wait for congestion tone
+25=>B:D:A calls B, DTMF, confirms once
+8=>B:@:Wait for busy
+13=>A:@:Wait for time in seconds [60]
+26=End of script
+1=;To Test the case when both the users are trying to call each other simultaneously
+9=>A:@:Wait for time in seconds [10]
+14=>B:@:Wait for time in seconds [60]
+2=>A:@:AFT Off hook wait for dial tone
+6=>B:@:Send string in DTMF [1231241#]
+11=>A:@:Wait for congestion tone
+20=>B:@:Wait for silence
+15=>A:@:Wait for howler tone
+24=>A:C:A calls B, DTMF, confirms once
+19=>A:@:Wait for silence
+3=>B:@:AFT Off hook wait for dial tone
+21=>A:@:Go OnHook
+16=>B:@:Wait for howler tone
+4=;A is calling B and B is calling A
+22=>B:@:Go OnHook
+17=>A:@:Wait for time in seconds [60]
+5=>A:@:Send string in DTMF [1231242#]
+10=>B:@:Wait for time in seconds [10]
+23=;To check whether A and B are able to make call or not. 
+18=>B:@:Wait for time in seconds [60]
+
+[GotoActions__Basic_Call_13]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Basic_Call_12]
+1=;To Test the case when the user calls himself
+3=>A:A:AFT A calls B, DTMF
+5=>A:@:Go OnHook
+7=>A calls B, DTMF, confirms once
+2=;A is calling itself
+4=>A:@:Wait for busy
+6=;The next time A is able to call successfully
+8=End of script
+
+[GotoActions__Basic_Call_9]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Basic_Call_9]
+3=;calling a random number
+7=;To check that A is able to make a call next time it goes off-hook
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [1231231#]
+6=>A:@:Go OnHook
+8=>A calls B, DTMF, confirms once
+1=;User A dials a random number which is not there in the dial plan
+5=>A:@:Wait for congestion tone
+9=End of script
+
+[GotoActions__Basic_Call_2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Basic_Call_2]
+3=;For this script to work change the number of rings to before terminating side picks up the call to 8
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>AFT A calls B, DTMF
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;To test callee No answer scenario within a board
+5=>A:@:Wait for time in seconds [32]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=>A:@:AFT Off hook wait for dial tone
+2=;Abnormal disconnect error message will come-ignore that...all tones can be detected
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+15=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__Basic_Call_20]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_15]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_14]
+3=;For this script to work change the number of rings to before terminating side picks up the call to 8
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>AFT A calls B, DTMF
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;To test callee No answer scenario between two boards
+5=>A:@:Wait for time in seconds [32]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=>A:@:AFT Off hook wait for dial tone
+2=;Abnormal disconnect error message will come-ignore that...all tones can be detected
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+15=End of script
+
+[GotoActions__Basic_Call_3]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_3]
+3=>B:@:AFT Off Hook
+7=>A:@:Wait for congestion tone
+12=End of script
+2=;within a board
+4=>AFT A calls B, DTMF
+6=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:Wait for silence
+1=;To test Callee busy scenario
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+
+[GotoActions__Basic_Call_21]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_16]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Basic_Call_20]
+1=;To test the case when both the user go on-hook simultaneously
+3=>A:@:Go OnHook
+5=;To test whether A and B gets dialtone next time they go off-hook
+7=>B:@:AFT Off hook wait for dial tone
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=>A:@:AFT Off hook wait for dial tone
+8=End of script
+
+[Basic_Call_15]
+3=>AFT A calls B, DTMF
+7=>A:@:Wait for time in seconds [60]
+2=>B:@:AFT Off Hook
+4=>A:@:Wait for busy
+6=>A:@:Wait for congestion tone
+8=>A:@:Wait for howler tone
+11=End of script
+1=;To test Callee busy scenario between two boards
+5=>A:@:Wait for time in seconds [10]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for silence
+
+[GotoActions__Basic_Call_4]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_4]
+3=;We should make sure that B(1231242#) is configured in switch but not registered
+7=>A:@:Wait for congestion tone
+12=End of script
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [1231242#]
+6=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:Wait for silence
+1=;To test the case when the user dials the vacant number
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+
+[GotoActions__Basic_Call_22]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_17]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Basic_Call_21]
+1=;To test the case when callee hangs up and caller makes another call immediately.
+3=>B:@:Go OnHook
+5=>A:@:Wait for time in seconds in onhook [10]
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Go OnHook
+6=>A calls B, DTMF, confirms once
+
+[Basic_Call_16]
+1=;To test call abandon scenario after dialing digits but before answer between two ont's
+3=;Abnormal Disconnect error should be ignored
+5=>A:@:Wait for time in seconds [3]
+7=>A calls B, DTMF, confirms once
+2=;Change the number of rings for terminating subs in channel config to 2
+4=>AFT A calls B, DTMF
+6=>A:@:Go OnHook
+8=End of script
+
+[GotoActions__Basic_Call_5]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Basic_Call_5]
+3=;Inter digit timer expires after 16 sec
+7=>A:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Wait for time in seconds [18]
+6=>A:@:Wait for congestion tone
+8=>A calls B, DTMF, confirms once
+1=;To Test Call abandon scenario before dialing digits
+5=;If no digit is dialed,congestion tone is played after the timer expires
+9=End of script
+
+[GotoActions__Basic_Call_10]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Basic_Call_18]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Basic_Call_22]
+1=;To test the case when callee hangs up and callee makes another call immediately.
+3=>B:@:Go OnHook
+5=>B:@:Wait for time in seconds in onhook [10]
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Go OnHook
+6=>B:A:A calls B, DTMF, confirms once
+
+[Basic_Call_17]
+1=;To test caller release scenario- successful call between two boards.
+3=>A:@:Go OnHook
+5=;If A rings and takes up the call, then call with B is terminated on going on-hook
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=;To check that the call between A and B is terminated
+6=>C:A:A calls B, DTMF, confirms once
+
+[GotoActions__Basic_Call_6]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Basic_Call_6]
+1=;To test call abandon scenario after dialing digits but before answer
+3=;Abnormal Disconnect error should be ignored
+5=>A:@:Wait for time in seconds [3]
+7=>A calls B, DTMF, confirms once
+2=;Change the number of rings for terminating subs in channel config to 2
+4=>AFT A calls B, DTMF
+6=>A:@:Go OnHook
+8=End of script
+
+[GotoActions__Basic_Call_11]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_19]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Basic_Call_10]
+3=>A:@:Send string in DTMF [1231242#]
+7=;If A rings and takes up the call, then call with B is terminated on going on-hook
+2=>A:@:AFT Off hook wait for dial tone
+4=>AFT Do Path Confirmation Once
+6=;To check that the call between A and B is terminated
+8=>C:A:A calls B, DTMF, confirms once
+1=;To test caller release scenario- successful call in a single board.
+5=>A:@:Go OnHook
+9=End of script
+
+[Basic_Call_18]
+1=;To test callee release scenario- successful call between two boards.
+3=>B:@:Go OnHook
+5=;To check that the call between A and B is terminated
+7=>C:B:A calls B, DTMF, confirms once
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [15]
+6=;If B rings and takes up the call, then call with A is terminated on going on-hook
+8=End of script
+
+[GotoActions__Basic_Call_12]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Basic_Call_11]
+1=;To test callee release scenario- successful call in a single board.
+3=>B:@:Go OnHook
+5=;To check that the call between A and B is terminated
+7=>C:B:A calls B, DTMF, confirms once
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [15]
+6=;If B rings and takes up the call, then call with A is terminated on going on-hook
+8=End of script
+
+[GotoActions__Basic_Call_8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_8]
+3=>A:@:Send string in DTMF [12]
+7=>A:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+4=;Inter digit timer expires after 16 sec
+6=>A:@:Wait for congestion tone
+8=;>A:@:AFT on hook and wait for 5 seconds
+1=;To Test the expiry of Interdigit Timer
+5=>A:@:Wait for time in seconds [18]
+9=>A calls B, DTMF, confirms once
+10=End of script
+
+[GotoActions__Basic_Call_1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Basic_Call_1]
+1=;To test Successful Call Scenario
+3=>A calls B, DTMF, confirms for Call Length
+5=End of script
+2=;within a board
+4=;Confirms for call length so as to see that the voice path is there for entire call duration
+
+[GotoActions__Basic_Call_14]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Basic_Call_13]
+1=;To test Successful Call Scenario
+3=>A calls B, DTMF, confirms for Call Length
+5=End of script
+2=;between two boards
+4=;Confirms for call length so as to see that the voice path is there for entire call duration
+

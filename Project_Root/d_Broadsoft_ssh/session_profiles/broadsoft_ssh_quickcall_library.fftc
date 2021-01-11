@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<testCase version="5.4.0.4f90e5a">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="broadsoft_ssh_base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="9322031a-199e-431c-a55f-1b406235d20c" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="GetTime" isPublic="true" isVBlock="true">
+            <description>Get Current Time of Broadsoft System</description>
+            <steps>
+                <item guid="4965ee55-109b-4287-8c7e-edf3f84847f9" action="command" session="$session" estimatedStepExecutionTime="0.093">
+                    <command>
+                        <body>date +&quot;%m/%d/%Y&quot;</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                        <regex>.*[^\\n]</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return date]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="440fadab-74d5-4e87-b4a1-e499650278cf" action="command" session="$session">
+                    <command>
+                        <body>date +&quot;%r&quot;</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                        <regex>.*[^\\n]</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return time]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="29dc4453-d63b-4780-ab95-8c6c93fe338f" action="command" session="$session">
+                    <command>
+                        <body>date +&quot;%s&quot;</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                        <regex>.*[^\\n]</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return epoch]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Objective:  Get current time of broadsoft system.
+
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+none
+
+______________________________________________________
+Response            
+______________________________________________________
+1. date\t\t|\t\tCurrent date
+2. time\t\t|\t\tCurrent time
+3. epoch\t|\t\tCurrent date and time in seconds since epoch
+</multilineDescription>
+            <response>{&quot;date&quot;:&quot;value&quot;,&quot;time&quot;:&quot;value&quot;,&quot;epoch&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="CheckAcctCode" isPublic="true">
+            <steps>
+                <item guid="6a6bff1e-13aa-4fd4-ae22-6398fa5f23b5" action="command" session="$session" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>cd /var/broadworks/billing/</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="CheckTrace" isPublic="true" isVBlock="true">
+            <description>Check Trace Log</description>
+            <steps>
+                <item guid="884c2f4c-1961-487d-b5fa-bd96b061e0ed" action="command" session="$session" estimatedStepExecutionTime="16.338" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>tac /var/broadworks/logs/appserver/snmptraps.log | grep -B6 -A4 -m1 &quot;originated trace&quot; | tac</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>trace_originator()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>trace_originator</storageLocation>
+                                        <query>[return trace_originator]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>calling_number()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>calling_number</storageLocation>
+                                        <query>[return calling_number]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>LastIncomingCallTime()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>timestamp</storageLocation>
+                                        <query>[return timestamp]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                        <storeResponseAt>response</storeResponseAt>
+                    </postProcessing>
+                    <eventHandlers>
+                        <item name="OnMappingFail"/>
+                        <item name="OnResponseMappingIssue"/>
+                    </eventHandlers>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <responseMap>project://d_Broadsoft_ssh/response_maps/trace_log.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                    <emulation emulate="ALWAYS" useExternalSource="false">
+                        <behavior>
+                            <response>{&lt;
+2698432,1450215343416,&quot;Informational&quot;,0,
+&quot;bwCustomerOriginatedTrace&quot;,
+&quot;as1&quot;,
+&quot;Applicationserver&quot;,
+&quot;Unspecified&quot;,
+&quot; The following user is initiating a customer originated trace for the last incoming call:
+       UserNumber: +19498351960
+       LastIncomingCallTime: 12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)
+       Caller: Line 2(+19498351961)
+       ApplicationServer: BS-LAB-QA-AS1
+       LastIncomingCallId: 22140023:0
+       &quot;,
+&quot;&quot;
+&quot;npUserNumber=+19498351960&quot;
+&quot;npLastIncomingCallTime=12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)&quot;
+&quot;npCaller=Line 2(+19498351961)&quot;
+&quot;npHost=BS-LAB-QA-AS1&quot;
+&quot;npCallId=22140023:0&quot;
+&gt;
+} {&lt;
+2698432,1450215343416,&quot;Informational&quot;,0,
+&quot;bwCustomerOriginatedTrace&quot;,
+&quot;as1&quot;,
+&quot;Applicationserver&quot;,
+&quot;Unspecified&quot;,
+&quot; The following user is initiating a customer originated trace for the last incoming call:
+       UserNumber: +19498351960
+       LastIncomingCallTime: 12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)
+       Caller: Line 2(+19498351961)
+       ApplicationServer: BS-LAB-QA-AS1
+       LastIncomingCallId: 22140023:0
+       &quot;,
+&quot;&quot;
+&quot;npUserNumber=+19498351960&quot;
+&quot;npLastIncomingCallTime=12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)&quot;
+&quot;npCaller=Line 2(+19498351961)&quot;
+&quot;npHost=BS-LAB-QA-AS1&quot;
+&quot;npCallId=22140023:0&quot;
+&gt;
+} {{{[itest@as1 ~]$ } {tail -n 20 /var/broadworks/logs/appserver/snmptraps.log} linux_prompt {d_Broadsoft_ssh {}} {{{{} {{2698432 1450215343416 Informational 0}} {} {} {} {} {} +19498351960 {{{12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)}}} {{{Line 2(+19498351961)}}} BS-LAB-QA-AS1 22140023:0 {} {} {{+19498351960\\&quot;}} {{{12/15/15 1:35:34 PM ((GMT-08:00) US/Pacific)&quot;}}} {{{Line 2(+19498351961)&quot;}}} {{BS-LAB-QA-AS1\\&quot;}} {{22140023:0\\&quot;}} {} {}}}}}} {.//prompt .//echo .//promptName {.//UserNumber Mapping} {.//LastIncomingCallTime Mapping} {.//Caller Mapping} {.//ApplicationServer Mapping} {.//LastIncomingCallId Mapping} {.//npUserNumber Mapping} {.//npLastIncomingCallTime Mapping} {.//npCaller Mapping} {.//npHost Mapping} {.//npCallId Mapping} {.//group1 Mapping} {.//group2 Mapping} {.//group3 Mapping} {.//group4 Mapping}}</response>
+                        </behavior>
+                    </emulation>
+                </item>
+                <item guid="3b8ff6bc-aedb-4d9f-94e6-3f7049c07322" action="command" session="$session">
+                    <command>
+                        <body>date --date=&quot;$timestamp&quot; +%s</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>group1()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return epoch]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties>
+                            <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                        </completionProperties>
+                    </applicationProperties>
+                </item>
+            </steps>
+            <multilineDescription>Objective:  Check trace log file
+
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+none
+
+______________________________________________________
+Response            
+______________________________________________________
+
+1. trace_found \t\t\t|\t\t1 if trace found in log, 0 if not found 
+2. trace_originator\t\t|\t\tPhone number originating trace
+3. calling_number\t\t|\t\tNumber originating call being traced
+4. timestamp\t\t\t|\t\tTimestamp of trace
+5. epoch\t\t\t\t|\t\tTime of trace in seconds since epoch
+</multilineDescription>
+            <response>{&quot;trace_found&quot;:&quot;value&quot;,&quot;trace_originator&quot;:&quot;value&quot;,&quot;calling_number&quot;:&quot;value&quot;,&quot;timestamp&quot;:&quot;value&quot;,&quot;epoch&quot;:&quot;value&quot;}</response>
+        </item>
+    </procedures>
+</testCase>

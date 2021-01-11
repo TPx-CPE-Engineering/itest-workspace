@@ -1,0 +1,292 @@
+{
+  "report": {
+    "testName": "hello.fftc",
+    "testPath": "main/preview/hello.fftc",
+    "owner": "testuser",
+    "reportId": "e5777b3a-e614-4573-b004-096097765274",
+    "detailLevel": "ALL_ISSUES_ALL_STEPS",
+    "topologyId": null,
+    "topologyName": null,
+    "startTime": "2017-04-11T02:55:00",
+    "endTime": "2017-04-11T02:55:03",
+    "duration": "00:00:03",
+    "result": "PASS",
+    "status": "COMPLETED",
+    "failureReason": null,
+    "agentName": "test-agent",
+    "agentHost": "127.0.0.1",
+    "parameterFilePath": null,
+    "totalItems": "2",
+    "totalIssues": "4",
+    "totalPass": "2",
+    "totalFail": "0",
+    "totalError": "0",
+    "totalWarning": "0",
+    "totalInfo": "2"
+  },
+  "issues": [
+    {
+      "fileUri": "project://preview/hello.fftc",
+      "issueIndex": 0,
+      "location": "/result/response/issues/0",
+      "message": "Execution started",
+      "originator": "execution",
+      "procedureName": "main",
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sessionId": "",
+      "severity": "INFORMATION",
+      "stepId": "",
+      "testCaseStepId": "",
+      "line": 0,
+      "startCol": 0,
+      "endCol": 0,
+      "lineCount": 1,
+      "sequenceNum": 2,
+      "issueTime": 1491897304707
+    },
+    {
+      "fileUri": "project://preview/hello.fftc",
+      "issueIndex": 1,
+      "location": "/result/response/issues/0",
+      "message": "Response contains \"hello\"",
+      "originator": "analysis",
+      "procedureName": "main",
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sessionId": "",
+      "severity": "PASS",
+      "stepId": "1",
+      "testCaseStepId": "1",
+      "line": 0,
+      "startCol": 0,
+      "endCol": 5,
+      "lineCount": 1,
+      "sequenceNum": 4,
+      "issueTime": 1491897304757
+    },
+    {
+      "fileUri": "project://preview/hello.fftc",
+      "issueIndex": 2,
+      "location": "/result/response/issues/1",
+      "message": "Test case hello has passed.",
+      "originator": "execution",
+      "procedureName": "main",
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sessionId": "",
+      "severity": "PASS",
+      "stepId": "1",
+      "testCaseStepId": "1",
+      "line": 0,
+      "startCol": 0,
+      "endCol": 0,
+      "lineCount": 1,
+      "sequenceNum": 5,
+      "issueTime": 1491897304863
+    },
+    {
+      "fileUri": "project://preview/hello.fftc",
+      "issueIndex": 3,
+      "location": "/result/response/issues/1",
+      "message": "Execution completed (0s)",
+      "originator": "execution",
+      "procedureName": "",
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sessionId": "",
+      "severity": "INFORMATION",
+      "stepId": "",
+      "testCaseStepId": "",
+      "line": 0,
+      "startCol": 0,
+      "endCol": 0,
+      "lineCount": 1,
+      "sequenceNum": 6,
+      "issueTime": 1491897304876
+    }
+  ],
+  "extracts": [
+    {
+      "foo.num": "1.0",
+      "bar.str": "val"
+    }
+  ],
+  "steps": [
+    {
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sequenceNum": 1,
+      "stepId": "",
+      "stepResult": "SUCCESS",
+      "sessionId": "",
+      "command": "main",
+      "target": "",
+      "threadId": 1,
+      "duration": 0.191,
+      "startOffset": 0.041,
+      "emulated": false,
+      "context": "",
+      "sessionType": "",
+      "action": "call",
+      "details": {
+        "postProcessing": [
+          {
+            "action": "event",
+            "description": "OnProcedureEnter"
+          },
+          {
+            "action": "event",
+            "description": "OnThreadEnter"
+          },
+          {
+            "action": "event",
+            "description": "OnExecutionStarted",
+            "actions": [
+              {
+                "action": "action",
+                "description": "DeclareExecutionIssue Information:Execution started"
+              }
+            ]
+          },
+          {
+            "action": "event",
+            "description": "OnProcedureExit"
+          },
+          {
+            "action": "event",
+            "description": "OnThreadExit"
+          },
+          {
+            "action": "event",
+            "description": "OnPreExecutionCompleted"
+          },
+          {
+            "action": "event",
+            "description": "OnExecutionCompleted",
+            "actions": [
+              {
+                "action": "action",
+                "description": "DeclareExecutionIssue Information:Execution completed (0s)"
+              }
+            ]
+          }
+        ],
+        "aliases": [
+          {
+            "name": "isEmpty",
+            "queryFormat": ".//isEmpty"
+          }
+        ],
+        "isAutoMapped": false
+      },
+      "properties": "\n<EmptyPropertyGroup/>\n",
+      "testCaseStepId": ""
+    },
+    {
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "sequenceNum": 3,
+      "stepId": "1",
+      "stepResult": "SUCCESS",
+      "sessionId": "",
+      "command": "puts hello",
+      "target": "",
+      "threadId": 1,
+      "duration": 0.014,
+      "startOffset": 0.118,
+      "emulated": false,
+      "context": "",
+      "sessionType": "",
+      "action": "eval",
+      "details": {
+        "postProcessing": [
+          {
+            "action": "analyze",
+            "description": "contains hello: assert $value == 1",
+            "actions": [
+              {
+                "action": "assert",
+                "description": "value: 1; assertion: true",
+                "actions": [
+                  {
+                    "action": "action",
+                    "description": "DeclareExecutionIssue OK:Response contains \"hello\""
+                  },
+                  {
+                    "action": "action",
+                    "description": "PassTestIfNotAlreadyFailed",
+                    "actions": [
+                      {
+                        "action": "event",
+                        "description": "OnTestResultChange"
+                      },
+                      {
+                        "action": "event",
+                        "description": "OnPassIfNotAlreadyFailedAction"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "action": "event",
+            "description": "OnPassTestResult",
+            "actions": [
+              {
+                "action": "action",
+                "description": "DeclareExecutionIssue OK:Test case hello has passed."
+              }
+            ]
+          }
+        ],
+        "aliases": [
+          {
+            "name": "isEmpty",
+            "queryFormat": ".//isEmpty"
+          }
+        ],
+        "analysisRules": [
+          {
+            "extractor": "contains"
+          }
+        ],
+        "isAutoMapped": false
+      },
+      "properties": "\n<EmptyPropertyGroup/>\n",
+      "testCaseStepId": "1"
+    },
+    {
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "stepId": "1",
+      "testCaseStepId": "1",
+      "action": "artifactLink",
+      "command": "\"http://127.0.0.1\" \"Artifact Link #1\"",
+      "context": "",
+      "duration": 0.008,
+      "emulated": false,
+      "properties": " <EmptyPropertyGroup/> ",
+      "sequenceNum": 3,
+      "sessionId": "",
+      "sessionType": "",
+      "startOffset": 1.223,
+      "stepResult": "SUCCESS",
+      "target": "",
+      "threadId": 1
+    },
+    {
+      "reportId": "e5777b3a-e614-4573-b004-096097765274",
+      "stepId": "1",
+      "testCaseStepId": "1",
+      "action": "artifactLink",
+      "command": "\"http://127.0.0.1\" \"Artifact Link #2\"",
+      "context": "",
+      "duration": 0.007,
+      "emulated": false,
+      "properties": " <EmptyPropertyGroup/> ",
+      "sequenceNum": 3,
+      "sessionId": "",
+      "sessionType": "",
+      "startOffset": 1.217,
+      "stepResult": "SUCCESS",
+      "target": "",
+      "threadId": 1
+    }
+  ]
+}

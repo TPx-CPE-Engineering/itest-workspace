@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name>VVX_601</name>
+    <description></description>
+    <property name="author">dataeng</property>
+    <property name="dateCreated">2020-06-15T08:45:24.625-07:00</property>
+    <property name="notes"/>
+    <property name="dateModified">2020-06-22T10:56:45.508-07:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">8.1.0.201911080855</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="553c4c7b-f1f5-4f07-a3cb-cd4a8e8faea9" id="resource_0" type="handset">
+        <boundary height="100" width="100" x="768" y="348"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/handset_32.gif</property>
+        <property name="name">PolyPhone</property>
+        <property name="inventoryName">VVX 250</property>
+        <property name="ipAddressV4">10.255.20.163</property>
+        <property name="model">VVX 250</property>
+        <property name="isRegistered" vendor="com.fnfr">True</property>
+        <property name="sipAddress" vendor="com.fnfr">9782895856</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="python" provider="com.fnfr">
+            <sessionProfile version="8.1.3.0">
+              <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+              <baseProfile>project://d_Polycom/session_profiles/polycom_python_base.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity/>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

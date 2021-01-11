@@ -1,0 +1,694 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>Downgrade Upgrade Edge</documentation>
+        <notes>This Test Case combines 2 Test Cases in one.
+
+Test Case #1
+Test Case: Downgrade edge/customer
+Expected Results: Downgrade successful
+Usage: Downgrade edge using VCO (Configure &gt; Select Device &gt; Actions &gt; Assign Operator Profile).
+Monitor progress in Even log (Monitor &gt; Events).
+
+Test Case #2
+Test Case: Upgrade edge/customer
+Expected Results: Upgrade successful
+Usage: Upgrade edge using VCO (Configure &gt; Select Device &gt; Actions &gt; Assign Operator Profile).
+Monitor progress in Event log (Monitor &gt; Events).</notes>
+        <owner>Juan Brena</owner>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC520/VC520_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="dcc54192-321c-4ab9-b28b-b9d39b9f322b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5262f3d8-5282-4a80-a9b9-add352749b55" action="open" session="EDGE">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="11ea30bc-acdc-4b98-a210-283365e38660" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1399ff6e-763c-474f-8c18-6907b76a342f" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>from upgrade_process.downgrade_upgrade_edge import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="25f83107-caa7-4ff0-93d2-4fd422da671f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initialize variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e476ec6f-2956-4fa7-b748-bc785deabe21" action="command" session="EDGE">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="0a0f4497-71af-499d-8932-f9976e8fa9f2" action="command" session="EDGE">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e6e03fed-f3a3-48ac-9c1d-4560a2d400e7" action="command" session="EDGE">
+                            <command>
+                                <body>ssh_port = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;sshPort&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="58e59847-921d-4a0e-807e-ed1f66ee4c87" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, ssh_port=ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b9fde2d0-4318-4525-812a-b9f4fb613215" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4961e956-cd3f-4939-ab75-94f4814c057e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Getting current software version...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="aba13743-de7b-47f8-8804-663a277962d4" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>print_edge_software_version()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;Edge software version&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>EDGE: Current software version: &quot;{value}&quot;</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="cdc3d58b-5c8d-4ac9-82ed-cf07fa72e134" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>print_available_cpe_operator_profiles()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="79fe4ace-f2ef-4dbc-a424-8d5a94dc0c0a" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f17b80f9-8bf4-49a0-8558-6b783548fcb4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Downgrading edge...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="71f67de3-9b88-4868-a541-fb4df1c01baf" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>downgrade_edge()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE: Downgrade call successful.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Error downgrading edge. [value]. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;Downgrading Edge to&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>EDGE: Downgrading edge to &quot;{value}&quot;</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3fb6d57a-2fa4-4477-af0c-eb026a3e07a2" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping for 4 minutes to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5741ee04-04a9-43f9-bd0d-16696d242981" action="sleep">
+                            <command>
+                                <body>360</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fab95ce8-e597-45eb-b9d2-4c8392c8b9cc" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Checking event messages. Expecting proper downgrade event messages to appear...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c5e130c0-b8e3-4b66-80c1-1e71e9578a39" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>check_for_edge_downgrade_upgrade_events()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;Edge Upgrade Events Status&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>EDGE: Proper downgrade event messages appeared.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Not all downgrade messages appeared. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="CallProcedure">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                            <command>clean_up()</command>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="0bff94be-9a62-4e18-bc26-e7150d29cf0a" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>print_firmware_relevant_edge_events()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Python/item/item/item</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>events</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="2ba58a3c-3f92-480d-9f0d-5143114bb7bd" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>events = events.split(&apos;$&apos;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d6f740b9-758a-471f-9505-a3a256914daa" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Event messages:</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3ea72e5c-0811-407e-8a8a-034ca8fbcb95" action="for" useFieldsInCommand="false">
+                            <command>
+                                <body>event in events:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e65dde8b-fc3d-4b95-a700-04c64c0faa77" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>print(event)</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>responseLine()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>{value}</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8290727d-fc52-4aaf-9473-7826e9ec1814" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="21234c88-e851-4a09-9d8b-73d403011c76" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Upgrading edge...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="389f6ca6-a1ce-48a0-9d05-d82ec7185cf9" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>upgrade_edge()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE: Upgrade call successful.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Error upgrading edge. [value]. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;Upgrading Edge to&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>EDGE: Upgrading edge to &quot;{value}&quot;</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ee357b50-eba7-464a-8d0c-6505469b0969" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping for 4 minutes to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="27fe372f-ad03-44cf-a6c8-a71395ac4a96" action="sleep">
+                            <command>
+                                <body>360</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9e1b7c3a-1345-4b6a-a8ef-fa16a00cd91b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Checking event messages. Expecting proper upgrade event messages to appear...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f5b27bb6-cefa-4d71-a0cb-4e2465ed82fc" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>check_for_edge_downgrade_upgrade_events()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;Edge Upgrade Events Status&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>EDGE: Proper upgrade event messages appeared.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Not all upgrade messages appeared. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="de7820c0-2e75-4938-8072-d4750bcdbc9c" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>print_firmware_relevant_edge_events()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Python/item/item/item</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>events</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="36f9252b-e407-43ae-b4d2-ec99b83a3454" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>events = events.split(&apos;$&apos;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5f6fd192-6cfd-4e6f-a77b-8ee2a3608b3d" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Event messages:</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4be00836-9fbf-45b6-b5bb-ffab1ac1c52d" action="for" useFieldsInCommand="false">
+                            <command>
+                                <body>event in events:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="ac0188dd-46eb-4714-ac82-df345a997f8c" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>print(event)</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>responseLine()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>{value}</message>
+                                                        <tag sub="false" defaultValue=""/>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d2b00b27-eb65-40bb-b350-fe658c031dc4" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="clean_up" isPublic="true">
+            <steps>
+                <item guid="990cec16-6b71-4e17-9c4e-b537921b8f02" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b0d796f6-731d-4638-ba02-80507643062e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup: Sleeping for 1 minute to make sure downgrade/upgrade has fully finished</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="97a3e8ae-c544-4d1a-99d1-da15505c1da5" action="sleep">
+                    <command>
+                        <body>60</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="93a8c290-da2a-4aa5-adf2-6f37437c3557" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>restore_edge_to_original_firmware()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;error&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>value == &quot;None&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>EDGE Cleanup: Restore call successful</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>EDGE Cleanup: Error restoring edge. [value]. Exiting execution. </message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="SkipRemainingRules">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="ExitExecution">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;Restoring Edge to&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>EDGE Cleanup: Restoring edge to &quot;{value}&quot;</message>
+                                        <tag sub="false" defaultValue=""/>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c2c7a4b0-6abb-4a06-9cf0-edf06efb7d11" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup: Sleeping for 4 minutes to let change take effect...</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="774021c0-d7ed-4c6e-a771-d59463003824" action="sleep">
+                    <command>
+                        <body>265</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="251fd2f9-da18-4378-ab6d-7c5e02e61409" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>check_for_edge_downgrade_upgrade_events()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;Edge Upgrade Events Status&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>value == &quot;Passed&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>EDGE Cleanup: Proper restore event messages appeared.</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>EDGE Cleanup: Not all restore messages appeared. Exiting execution.</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="ExitExecution">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+    </procedures>
+</testCase>

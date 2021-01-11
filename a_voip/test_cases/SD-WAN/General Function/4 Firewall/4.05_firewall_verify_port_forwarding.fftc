@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>Firewall - Verify Port Forwarding</documentation>
+        <tags>sd-wan, firewall, velocloud, silverpeak, port forwarding</tags>
+        <notes>Test Case: Verify port forwarding
+Expected Results: Able to access CPE via SSH using public IP and specified port number
+Usage: Configure port forwarding rule to allow port 2201 to CPE ssh port 22. Acess CPE using the VeloCloud public IP and port 2201.
+
+Details:
+An CPE SSH session is already configured with the correct IP and port within each SD-WAN topology. The SD-WAN should have the CPE SSH port forwarding rule. First, this test case will verify the CPE SSH session works as should. CPE SSH port forwarding rule will then be removed (from the SD-WAN) and test if the CPE SSH session does not work. The CPE SSH port forwarding rule will be added back and test one last time if the CPE SSH session works. 
+</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true">
+        <parameters version="8.4.0.202012071239">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <cpe_username>itestautomation</cpe_username>
+                    <cpe_password pt:mask="true">n6mQyZSyEZgJor6ZZIWzzg==</cpe_password>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_voip/topologies/VeloCloud/VC510/VC510_lab_basic_cisco.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="5ed7ec2d-0289-4abb-9ec6-a87f2eecc8c0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b5ea8b30-b7e4-4f1f-a848-94cd04a8b8c4" action="open" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="963a34d4-e298-4b53-9c70-db1e02cd3c9d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Import modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4577d155-34af-467d-83a7-7aa90c61b043" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>from firewall.firewall_4_05_verify_port_forwarding import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="82a48943-7c83-4d98-8991-ede7a941df52" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e052a213-ade8-4183-87e3-c1fabeeb5819" action="command" session="SD-WAN">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fc6ab2d6-368f-4fd9-b767-5d239c3b4dfe" action="command" session="SD-WAN">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e09b5798-065e-4b4f-8bdd-30979acc4fea" action="command" session="SD-WAN">
+                            <command>
+                                <body>ssh_port = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;sshPort&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="469ea186-87ba-401d-8080-b2027144b092" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, ssh_port=ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ffbf550d-4ac1-47b1-a33f-ebccf523f192" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cbf172c8-9a68-448f-9371-787e91aacd9c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Removing SSH to CPE port fowarding rule...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a7d05ebb-9e11-4c29-9120-0794ff1225c5" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_ssh_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5c58f804-4cb1-425a-adb8-cbf3dbcb2c02" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping 60 seconds to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="31edf780-5f03-4277-81e7-edef4f17ecd9" action="sleep">
+                            <command>
+                                <body>60</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="548a9696-4d17-40be-838c-7ee7cb4b0239" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>iTest: Testing Edge&apos;s SSH to CPE port fowarding rule. Expecting no connection...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="badad634-c915-4f3f-a6e4-bcd43851d182" action="open" session="CPE2" useFieldsInCommand="false">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>connectStatus()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;false&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>iTest: Edge&apos;s SSH to CPE did not connect, as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>iTest: Edge&apos;s SSH to CPE connected successfully, when SSH to CPE port fowarding rule is not present. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <eventHandlers>
+                                <item name="OnTerminalOpenConnectionFail"/>
+                            </eventHandlers>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ee781d8c-fd10-4762-9e22-337dba64d41e" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4a6c07f9-0c9a-4a88-b964-5d515d9902f0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Adding SSH to CPE port forwarding rule back...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0f4e07f4-e3ba-4da5-a95c-4327fed82e21" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>add_ssh_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8057dd6d-7365-4419-81d1-99976d0a968c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping 60 seconds to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fc5c01fe-7cfe-4cbe-8a0e-563a369b4bf7" action="sleep">
+                            <command>
+                                <body>60</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="79f285f2-6a4b-42a4-8f95-2d86ab29537b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>iTest: Testing Edge&apos;s CPE SSH port fowarding rule. Expecting successful connection...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e9504256-3033-4630-b788-dbda5f468f3c" action="open" session="CPE3" useFieldsInCommand="false">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>connectStatus()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;true&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>iTest: Edge&apos;s SSH to CPE connected successfully, as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>iTest: Edges&apos;s SSH to CPE did not connect. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>ipAddress()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>edge_ip</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                    <completionProperties>
+                                        <idleChannel inherit="false">10</idleChannel>
+                                    </completionProperties>
+                                </stepProperties>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="5a61ea26-30f0-4f3a-8b06-b83ea40a567e" action="close" session="CPE3">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="37604922-1152-4af4-b160-703730ce57bc" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4d112367-75f4-4455-863b-dc56163d9ab3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>iTest: Testing Edge SSH on a non open port. Expecting timeout error...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2033dc5b-7f16-4f11-b8ae-10c3b052966b" action="command" session="SD-WAN">
+                            <command>
+                                <body>ssh_connect(host=&apos;[edge_ip]&apos;, port=2234, username=&apos;[param(&apos;cpe_username&apos;)]&apos;, password=&apos;[param(&apos;cpe_password&apos;)]&apos;)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>responseLine()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Timeout Error&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SSH on non-open port timedout as expected.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>SSH on non-open port did not timedout as expected.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="17b239c0-0f85-41f7-bce1-4b6ac9b1064d" action="close" session="SD-WAN" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

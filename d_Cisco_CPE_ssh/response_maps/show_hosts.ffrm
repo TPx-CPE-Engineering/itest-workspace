@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<ResponseMap version="7.0.1.201802131446">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show hosts</body>
+                </command>
+            </action>
+            <responseBody>Default domain is lab-sv.telepacific.com
+Name/address lookup uses domain service
+Name servers are 10.255.224.175, 10.255.224.176
+
+Codes: UN - unknown, EX - expired, OK - OK, ?? - revalidate
+       temp - temporary, perm - permanent
+       NA - Not Applicable None - Not defined
+
+Host                      Port  Flags      Age Type   Address(es)
+Host                      Port  Flags      Age Type   Address(es)
+ns2.lab-sv.telepacific.co None  (temp, OK)  0   IP    10.255.224.176
+                                               IPv6   2607:2C00:0:1D::100
+ns1.lab-sv.telepacific.co None  (temp, OK)  0   IP    10.255.224.175
+                                               IPv6   2607:2C00:0:1D::50
+testdnsrecord.lab-sv.tele None  (temp, OK)  0   IP    208.57.21.181
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;promptName&gt;priv&lt;/promptName&gt;
+    &lt;echo&gt;show hosts&lt;/echo&gt;
+    &lt;prompt&gt;C2900_iTest_FXS#&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.1</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container"/>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="Hosts">
+                    <removeEmptyKeyRows>true</removeEmptyKeyRows>
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <startingLineNumber>10</startingLineNumber>
+                    <banner>Host                      Port  Flags      Age Type   Address(es)</banner>
+                    <bannerStructure>CaseSensitive</bannerStructure>
+                    <footerStructure>End</footerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <columns>
+                        <item name="Host">
+                            <width>26</width>
+                            <lastFullCell></lastFullCell>
+                            <uid>61ddb9e9-f3ec-47a0-945d-62cb35bae403</uid>
+                        </item>
+                        <item name="Port">
+                            <width>6</width>
+                            <lastFullCell></lastFullCell>
+                            <uid>3dd2789c-8269-4a19-9daf-53006a66d812</uid>
+                        </item>
+                        <item name="Flags">
+                            <width>11</width>
+                            <lastFullCell></lastFullCell>
+                            <keys>
+                                <item name="key1">
+                                    <columnUIDs>[b788fe35-b635-40f5-a8b1-29d541b792ba]</columnUIDs>
+                                </item>
+                            </keys>
+                            <uid>1f6999e3-0b5b-4405-8951-5f0b48bb95be</uid>
+                        </item>
+                        <item name="Age">
+                            <width>4</width>
+                            <lastFullCell></lastFullCell>
+                            <uid>f891f81f-828f-46fb-a1b0-2fa49326ee4b</uid>
+                        </item>
+                        <item name="Type">
+                            <width>7</width>
+                            <lastFullCell></lastFullCell>
+                            <uid>87c44f09-7eb0-49bf-a2f7-52c678873f23</uid>
+                        </item>
+                        <item name="Addresses">
+                            <width>19</width>
+                            <spillover>Extend</spillover>
+                            <lastFullCell></lastFullCell>
+                            <uid>b788fe35-b635-40f5-a8b1-29d541b792ba</uid>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show hosts">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

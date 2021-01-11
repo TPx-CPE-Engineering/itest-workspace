@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.1.0.201912080816">
+    <sampleDictionary>
+        <item name="adtran_cpe">
+            <action actionType="command">
+                <command>
+                    <body>snmpwalk -v2c -c tp@c1n0c 216.241.61.7 | head</body>
+                </command>
+            </action>
+            <responseBody>SNMPv2-MIB::sysDescr.0 = STRING: Total Access 924e (2nd Gen), Version: R13.5.1.E, Date: Mon Apr  8 03:17:09 2019
+SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.664.1.997
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (113072382) 13 days, 2:05:23.82
+SNMPv2-MIB::sysContact.0 = STRING: TPx Communications
+SNMPv2-MIB::sysName.0 = STRING: iTest_FXS_VC
+SNMPv2-MIB::sysLocation.0 = STRING: LV
+SNMPv2-MIB::sysServices.0 = INTEGER: 68
+IF-MIB::ifNumber.0 = INTEGER: 31
+IF-MIB::ifIndex.1 = INTEGER: 1
+IF-MIB::ifIndex.2 = INTEGER: 2
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;SNMPv2-MIB::sysDescr.0 = STRING: Total Access 924e (2nd Gen), Version: R13.5.1.E, Date: Mon Apr  8 03:17:09 2019&lt;/responseLine&gt;
+    &lt;promptName&gt;linux_unpriv&lt;/promptName&gt;
+    &lt;echo&gt;snmpwalk -v2c -c tp@c1n0c 216.241.61.7 | head&lt;/echo&gt;
+    &lt;prompt&gt;[dataeng@iTestWireshark ~]$ &lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>4.5</duration>
+        </item>
+        <item name="timeout">
+            <action actionType="command">
+                <command>
+                    <body>snmpwalk -v2c -ctp@c1n0c 216.241.61.7 | head</body>
+                </command>
+            </action>
+            <responseBody>Timeout: No Response from 216.241.61.7
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Timeout: No Response from 216.241.61.7&lt;/responseLine&gt;
+    &lt;promptName&gt;linux_unpriv&lt;/promptName&gt;
+    &lt;echo&gt;snmpwalk -v2c -ctp@c1n0c 216.241.61.7 | head&lt;/echo&gt;
+    &lt;prompt&gt;[dataeng@iTestWireshark ~]$ &lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>6.2</duration>
+        </item>
+        <item name="cisco_cpe">
+            <action actionType="command">
+                <command>
+                    <body>snmpwalk -v2c -ctp@c1n0c 216.241.61.7 | head</body>
+                </command>
+            </action>
+            <responseBody>SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 21:47 by prod_rel_team
+SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.9.1.1045
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (12981057) 1 day, 12:03:30.57
+SNMPv2-MIB::sysContact.0 = STRING: TelePacific Engineering &lt;broadsoft@telepacific.com&gt;
+SNMPv2-MIB::sysName.0 = STRING: C2900_iTest_SIP.lab-sv.telepacific.com
+SNMPv2-MIB::sysLocation.0 = STRING: Lab
+SNMPv2-MIB::sysServices.0 = INTEGER: 78
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)&lt;/responseLine&gt;
+    &lt;promptName&gt;linux_unpriv&lt;/promptName&gt;
+    &lt;echo&gt;snmpwalk -v2c -ctp@c1n0c 216.241.61.7 | head&lt;/echo&gt;
+    &lt;prompt&gt;[dataeng@iTestWireshark ~]$ &lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.4</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="Descr">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>SNMPv\\d+-MIB::sysDescr\\.\\d+\\s+= STRING:</regex>
+                            <start>0</start>
+                            <end>32</end>
+                        </item>
+                        <item name="sysDescr">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>32</start>
+                            <end>112</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>SNMPv2-MIB::sysDescr.0 = STRING: Total Access 924e (2nd Gen), Version: R13.5.1.E, Date: Mon Apr  8 03:17:09 2019</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="Name">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>SNMPv\\d+-MIB::sysName\\.\\d+\\s+= STRING:</regex>
+                            <start>0</start>
+                            <end>31</end>
+                        </item>
+                        <item name="sysName">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>31</start>
+                            <end>44</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>SNMPv2-MIB::sysName.0 = STRING: iTest_FXS_VC</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="Timeout_prompt">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Timeout:\\s+</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="Timeout">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>38</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Timeout: No Response from 216.241.61.7</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="snmpwalk *">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.1.3.0">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <captureProperties>
+                <learnPrompts inherit="false">false</learnPrompts>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>iTest_NV1234#</Content>
+                </item>
+                <item name="prompt5" MatchMethod="WILDCARD">
+                    <Content>*</Content>
+                </item>
+                <item name="prompt2">
+                    <Content>iTest_NV1234(config)#</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>iTest_NV1234(config-swx 0/16)#</Content>
+                </item>
+                <item name="prompt4">
+                    <Content>iTest_NV1234(config-swx 0/17)#</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <ipAddress inherit="false">10.255.20.100</ipAddress>
+        <user inherit="false">juan.brena</user>
+        <password inherit="false">rlmgH8rKNDUIS9JxpNB6VQ==</password>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Adtran_Switch_ssh/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Adtran_Switch_ssh/</formMapLibrary>
+    <sessionClassTestCase inherit="false">itest_nv1234_quickcall_library.fftc</sessionClassTestCase>
+    <nickName>iTest_Switch</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

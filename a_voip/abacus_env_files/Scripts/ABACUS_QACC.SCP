@@ -1,0 +1,127 @@
+[SCR ShortCalls_PC A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, confirms for Call Length
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR ShortCalls_PC B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, confirms for Call Length
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR ShortCalls_PC C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, confirms for Call Length
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR ShortCalls_PC D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, confirms for Call Length
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR ShortCalls_PC_tone A SS1]
+1=>A:@:ACT ##############################
+3=;>A:@:ACT O calls T, CPD, confirms for Call Length
+5=End of script
+2=>A:A:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.3]
+4=>A:@:ACT @@@@ END @@@@
+
+
+[SCR ShortCalls_PC_dialtone A SS1]
+1=>A:@:ACT ##############################
+3=;>A:@:ACT O calls T, CPD, confirms for Call Length
+5=End of script
+2=>A:A:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.1]
+4=>A:@:ACT @@@@ END @@@@
+
+
+[SCR ShortCalls_PC_dialtone A SS1, uniform]
+1=>A:@:ACT ##############################
+3=;>A:A:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.1]
+5=>A:@:ACT @@@@ END @@@@
+2=>A:A:ACT O calls T, CPD, LB2, confirms for Call Length, uniform [440,0,0.1,50]
+4=;>A:@:ACT O calls T, CPD, confirms for Call Length
+6=End of script
+
+[SCR ShortCalls_PC_dialtone A SS1  UK LB1]
+1=>A:@:ACT ##############################
+3=;>A:A:ACT O calls T, CPD, LB2, confirms for Call Length [350,440,0.1]
+5=>A:@:ACT @@@@ END @@@@
+2=>A:A:ACT O calls T, CPD, LB2, confirms for Call Length, no tone
+4=;>A:@:ACT O calls T, CPD, confirms for Call Length
+6=End of script
+
+
+
+
+[SCR LongCalls_PC A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, confirms for Call Length
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR LongCalls_PC B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, confirms for Call Length
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR LongCalls_PC C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, confirms for Call Length
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR LongCalls_PC D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, confirms for Call Length
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+
+
+[GotoActions__SCR ShortCalls_PC_dialtone A SS1, uniform]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+
+[GotoActions__SCR ShortCalls_PC_dialtone A SS1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+
+[GotoActions__SCR ShortCalls_PC_tone A SS1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__SCR ShortCalls_PC A SS1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__SCR ShortCalls_PC_dialtone A SS1  UK LB1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+
+
+[Actions]
+File=Abacus.ACT

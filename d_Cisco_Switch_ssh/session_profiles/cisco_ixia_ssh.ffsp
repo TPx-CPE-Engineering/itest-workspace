@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.1.3.0">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>CPE-2960G-24#</Content>
+                </item>
+                <item name="prompt2">
+                    <Content>CPE-2960G-24(config)#</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>CPE-2960G-24(config-if)#</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <ipAddress inherit="false">10.255.20.10</ipAddress>
+        <user inherit="false">juan.brena</user>
+        <auth_type inherit="false" defaultValue=""/>
+        <password inherit="false">rlmgH8rKNDUIS9JxpNB6VQ==</password>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Cisco_Switch_ssh/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Cisco_Switch_ssh/</formMapLibrary>
+    <sessionClassTestCase inherit="false">cisco_ixia_ssh.fftc</sessionClassTestCase>
+    <nickName>Cisco_Switch</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

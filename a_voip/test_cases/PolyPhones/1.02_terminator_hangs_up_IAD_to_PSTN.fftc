@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/Polycom/VVX_150.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="084679a3-a5d8-4afa-ae6d-a443972a101d" action="open" session="POLY" useFieldsInCommand="false">
+                    <command>
+                        <body>device:PolyPhone#python</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="a082d0a1-8aa6-4b03-9f30-306db20352b1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="acd29520-1b73-4c16-b562-ac8192d2584b" action="command" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>from calling_test_plan.poly_1_00_originator_hangs_up_IAD_to_PSTN import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c122c4cc-afeb-4c73-8519-e70936998544" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Create DUT Poly Object</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="92ebced6-fdb0-44d9-9c81-b5c174e1dd9c" action="command" session="POLY">
+                            <command>
+                                <body>DUT_POLYCOM = BasePolycom(ipv4_address=&apos;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;PolyPhone&apos;, &apos;ipAddressV4&apos;)]&apos;, model_number=&apos;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;PolyPhone&apos;, &apos;model&apos;)]&apos;, sip_address=&apos;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;PolyPhone&apos;, &apos;sipAddress&apos;)]&apos;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b9c7c151-0570-42f2-b82f-03343b7f1edd" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Create TESTER Poly Object</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9bc4720c-f6c1-4fa1-b404-f4143c4d667e" action="command" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>TESTER_POLYCOM = BasePolycom(ipv4_address=DEFAULT_TESTER_POLYCOM[&apos;ipv4 address&apos;], model_number=DEFAULT_TESTER_POLYCOM[&apos;model number&apos;], sip_address=DEFAULT_TESTER_POLYCOM[&apos;sip address&apos;])</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7ed6c3e8-9da1-4225-9d8f-7f4e2ce223a6" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Pre-Check - Ending any active calls if present.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9e32051f-bb42-4e6e-ba26-34e8b1a8c7be" action="end_any_active_calls" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                <query>mapped/Json/success</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Error ending all calls on phone.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fe0ec59a-11b1-44b9-8085-76fee4f2cee8" action="end_any_active_calls" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                <query>mapped/Json/success</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Error ending all calls on phone.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e4458415-ea16-4d52-8b4b-40ef48d89c34" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1860b2d0-34e9-4544-a335-2d1b48f80007" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Calling from DUT Polycom to TESTER Polycom.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="84855471-a9eb-4fd2-ab8f-e2ea16c0ab09" action="post_dial" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-dial_from DUT_POLYCOM -destination TESTER_POLYCOM.sip_address</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a010a78e-0d87-486c-ba24-2b604cc9fe51" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2ad9a9bd-f34d-44b3-a071-3d709fc98821" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c36b08c6-f559-4442-9650-b96dc6c26e7a" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting call state from TESTER Polycom. Expecting call state to be &quot;Offering&quot;.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="62973fa8-16b2-43cb-ae4e-69cc0ca4fa31" action="get_call_state_expecting_offering" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="199804be-147f-4130-821e-db4d591d5309" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting call state from DUT Polycom. Expecting call state to be &quot;RingBack&quot;.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bf8765c3-46c5-4fa0-8cdd-a042b3feea63" action="get_call_state_expecting_ringback" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1f784547-d450-4674-8aaf-a920facd8551" action="sleep">
+                            <command>
+                                <body>2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="31413364-6f08-4253-a9b2-249c47126b2f" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b7ecd44e-f738-4c92-8882-9997fce5817f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Answering call on TESTER Polycom.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2ad694ee-6dc6-43c0-833b-580a8188e548" action="post_answer_call" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1eeed8ac-a17b-490f-94f1-3aef45c88e57" action="sleep">
+                            <command>
+                                <body>2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9188a5df-9f44-487b-9d3a-1dca89377fa2" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ae3faea6-7d7f-47c3-867c-682b18f3e6eb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting call state and storing call handle from TESTER Polycom. Expecting call state to be &quot;Connected&quot;. </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ab66569a-47fc-4380-ade8-094a6dba659d" action="get_call_state_expecting_connected" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Json/data/CallHandle</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>tester_call_handle</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7ee8fc91-b7a0-45d6-bbcf-d69c2cb209c4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting call state and storing call handle from DUT Polycom. Expecting call state to be &quot;Connected&quot;.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3d7f67c9-a5e7-4007-99b3-931d22fc05b8" action="get_call_state_expecting_connected" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Json/data/CallHandle</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>dut_call_handle</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5685f02a-773d-455b-9299-e69b36d0dd03" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cf8be265-db6f-45be-b992-f451b1d0c0c1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Validating MOS Score from DUT Polycom.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c86246f9-59c2-4f27-924b-351ac5b0bbfd" action="sleep">
+                            <command>
+                                <body>15</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a85aa83a-557b-4f8a-8fcd-6490d0fdba90" action="validate_voice_mos_scores" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM -call_handle [dut_call_handle] -mos_score_threshold 3.6</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4ec6c274-80c5-455c-a062-a34db18495ce" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bdd95199-95f9-4401-81fe-b8637b9777ef" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Ending call from TESTER Polycom side. Expecting status code &quot;2000&quot;.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="278ca3a0-4200-496f-9244-58a27393c010" action="post_end_call" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM -call_handle [tester_call_handle]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="589461e8-b6c1-412c-b970-59767d3144a3" action="sleep">
+                            <command>
+                                <body>3</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fc88a7ca-4c24-4fb9-83c1-242f49adc2da" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="813e459a-7f2b-428c-b08c-c652bcbf09f4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting call status from DUT Polycom side. Expecting status to be &quot;Call Does Not Exist&quot;.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b394eab1-d815-40e3-80d5-c92b0564ac39" action="get_call_status_expecting_call_does_not_exist" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="clean_up" isPublic="true">
+            <steps>
+                <item guid="fb61a357-10a4-4de0-bc92-b8a3e6a18508" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Clean up - Ending any active calls if present.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b2d83e7c-b1cb-4c7a-9e57-aa140d43a8eb" action="end_any_active_calls" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone DUT_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ba17fb2a-f650-4926-8b04-45772ff791c0" action="end_any_active_calls" session="POLY" useFieldsInCommand="false">
+                            <command>
+                                <body>-phone TESTER_POLYCOM</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

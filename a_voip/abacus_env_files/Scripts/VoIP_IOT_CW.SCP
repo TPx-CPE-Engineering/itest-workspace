@@ -1,0 +1,411 @@
+[CW_013]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook and then A presses flash which will terminate the call between A and C and the call between A and B will be resumed
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=End of script
+1=;Handling timed release wait timer when the active call terminates and the controller flashes when the other remote party is on hold
+5=>A:@:Do Hook Flash
+9=>A:@:Do Hook Flash
+10=>AFT Do Path Confirmation Once
+
+[CW_008]
+7=>A calls B, DTMF, confirms once
+12=>A:C:AFT Do Path Confirmation Once
+4=;A is alerted with call waiting tone
+8=>C:@:AFT Off hook wait for dial tone
+13=>A:@:Wait for time in seconds [5]
+17=>B:@:Go OnHook
+1=;Handling of Flash-hook after the waiting call has been accepted
+5=;A presses flash-hook
+9=>C:A:A Calls B,DTMF,No Dial Tone
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>A:@:Do Hook Flash
+18=>A:@:Do Hook Flash
+2=;A and B are in call
+6=;After sometime A presses flash-hook again
+11=>A:@:Do Hook Flash
+20=End of script
+15=>AFT Do Path Confirmation Once
+19=>A:C:AFT Do Path Confirmation Once
+3=;C calls A
+16=;Next action is to check that C is on hold
+
+[GotoActions__CW_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CW_001]
+3=;C calls A
+7=>C:@:AFT Off hook wait for dial tone
+12=;Next two actions are to check that B was on hold 
+16=End of script
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=>C:@:Go OnHook
+1=;User receives an incoming call while already the part of a call
+5=;A presses flash-hook so as to keep B on hold and establish call with C
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>A:@:Do Hook Flash
+14=>A:@:Do Hook Flash
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>A:C:AFT Do Path Confirmation Once
+15=>AFT Do Path Confirmation Once
+
+[CW_014]
+3=>C:A:AFT A calls B, DTMF
+7=>B:@:Go OnHook
+12=>A:@:Wait for time in seconds [60]
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>A:@:Wait for time in seconds [18]
+13=>A:@:Wait for silence
+1=;Handling timed release wait timer when the active terminates and the held also terminates immediately
+5=>A:@:Do Hook Flash
+9=>A:@:Wait for congestion tone
+10=>A:@:Wait for time in seconds [60]
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>C:@:Go OnHook
+11=>A:@:Wait for howler tone
+
+[CW_009]
+3=>C:A:AFT A calls B, DTMF
+7=;Controller goes on-hook...this will terminate call with C but A will be alerted for the held call with B
+12=>C:@:Wait for congestion tone
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>A:@:Go OnHook
+13=End of script
+1=;Handling of onhook at the controller after the waiting call has been accepted
+5=>A:@:Do Hook Flash
+9=;A will ring and pickup the phone
+10=>B:A:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>A:C:AFT Do Path Confirmation Once
+11=;The next action will check that C is no longer in call
+
+[GotoActions__CW_003]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[CW_002]
+3=>C:@:AFT Off hook wait for dial tone
+7=;A will start ringing and will go off-hook due to abacus settings
+2=>A calls B, DTMF, confirms once
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Go OnHook
+8=>A:C:AFT Do Path Confirmation Once
+1=;User goes onhook on receiving the call waiting tone
+5=>A:@:AFT Wait for Call Waiting Tone
+9=End of script
+
+[GotoActions__CW_004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CW_003]
+3=;C calls A
+7=>C:@:AFT Off hook wait for dial tone
+12=;Next action is to check that call with C was terminated
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=>C:@:AFT Off hook wait for dial tone
+1=;Remote User goes on-hook while call waiting tone is played
+5=;C goes on-hook 
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>C:@:Go OnHook
+14=End of script
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>AFT Do Path Confirmation Once
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__CW_010]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_005]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CW_004]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Wait for time in seconds [18]
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;A and C will get connected 
+1=;Remote (original) user goes onhook while call waiting tone is played
+5=>B:@:Go OnHook
+9=>A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CW_011]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CW_010]
+3=>C:A:AFT A calls B, DTMF
+7=;B goes on-hook...this will terminate between B and A.
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>B:@:Go OnHook
+11=>A:C:AFT Do Path Confirmation Once
+1=;Handling held party termination after the waiting call has been accpeted by the controller
+5=>A:@:Do Hook Flash
+9=>B:@:Wait for time in seconds [12]
+10=;Next action checks that call between A and C is still there
+
+[CW_005]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Go OnHook
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;Call between A nad B is terminated
+11=>C:A:AFT Do Path Confirmation Once
+1=;To test the timed wait release timer behavior when user goes onhook
+5=>B:@:Go OnHook
+9=;Now A will be alerted and then A and C will get connected 
+10=>C:@:Wait for Ring back tone
+
+[GotoActions__CW_012]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_007]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CW_011]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook which will terminate the call between A and C after 16 sec and the held call between A and B will be resumed
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=End of script
+1=;Handling active party termination after the waiting call has been accpeted by the controller
+5=>A:@:Do Hook Flash
+9=>C:@:Wait for time in seconds [18]
+10=>AFT Do Path Confirmation Once
+
+[CW_006]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Do Hook Flash
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;A and C will get connected 
+1=;Time release timer handling when user flashes after the remote party terminates
+5=>B:@:Go OnHook
+9=>A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CW_013]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[CW_012]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook and then A goes on-hook which will terminate the call between A and C but A will be alerted for the held call from B
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=>B:A:AFT Do Path Confirmation Once
+1=;Handling timed release wait timer when the active call terminates and the other remote party is on hold
+5=>A:@:Do Hook Flash
+9=>A:@:Go OnHook
+10=;A will ring and pickup the phone
+
+[CW_007]
+3=>C:A:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=>B:@:Go OffHook
+11=>AFT Do Path Confirmation Once
+1=;Time release timer handling when both the remote parties go onhook while call waiting tone is being played
+5=>B:@:Go OnHook
+9=;i.e,B goes off-hook before 16 seconds and after C has gone on-hook
+10=;This is done to see that call between A and B is still there as the timed released timer has not expired
+
+[GotoActions__CW_001]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__CW_014]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CW_009]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+

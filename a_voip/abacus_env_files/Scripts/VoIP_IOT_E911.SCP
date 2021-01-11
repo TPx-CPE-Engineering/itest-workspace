@@ -1,0 +1,985 @@
+[GotoActions__E911_SC_FH_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_FC_NFH_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[trial_terminate]
+1=>B:@:Wait for time in seconds in onhook [15]
+2=End of script
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__E911_FC_FH_005]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__test2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__E911_SC_NFH_007]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[E911_SC_NFH_006]
+3=>B:@:AFT Off Hook
+7=>A:@:Do Hook Flash
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Send string in DTMF [911]
+6=>B:@:Go OnHook
+8=>A:C:AFT Do Path Confirmation Once
+11=End of script
+1=>A:C:A calls B, DTMF, confirms once
+5=>A:@:Wait for busy
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=>AFT A calls B, no dial tone, DTMF, confirms once
+
+[trial_originate]
+3=>A:@:Wait for time in seconds [10]
+7=>A:@:Wait for time in seconds [60]
+2=>A:@:Wait for busy
+4=>A:@:Wait for congestion tone
+6=>A:@:Wait for howler tone
+8=>A:@:Wait for silence
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for time in seconds [60]
+9=End of script
+
+[GotoActions__E911_FC_FH_014]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_FC_FH_009]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[E911_FC_FH_001_terminate]
+1=>A:@:Go OffHook
+3=>A:@:Send 2 tones for ?? seconds [440,550,3]
+2=>A:@:Send 2 tones for ?? seconds [440,550,3]
+4=End of script
+
+[E911_SC_FH_008]
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+7=>A:@:AFT Off hook wait for dial tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>C:@:Wait for time in seconds in onhook [12]
+8=>A:@:Wait for time in seconds [3]
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=End of script
+
+[AFT: Call Waiting]
+1=>A calls B, DTMF, confirms once
+3=>A:@:AFT Wait for Call Waiting Tone
+5=>A:C:AFT Do Path Confirmation Once
+7=>AFT Do Path Confirmation Once
+2=>C:A:AFT A calls B, DTMF
+4=>A:@:AFT Do Hook Flash wait time
+6=>A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[GotoActions__E911_FC_FH_001_terminate]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__E911_FC_FH_013_terminate]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__E911_Basic call]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT: 4-way Conference]
+7=A:C:AFT Do Path Confirmation Once
+12=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+14=A:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=A:D:A calls B, DTMF, confirms once
+20=B:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+24=End of script
+19=B:C:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=B:D:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=C:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__E911_FC_NFH_005]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[E911_SC_NFH_001]
+1=>A:C:A calls B, DTMF, confirms once
+3=>A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Do Hook Flash
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [12]
+6=>A:C:AFT Do Path Confirmation Once
+
+[E911_FC_FH_013_terminate]
+1=>A:@:Go OffHook
+3=>A:@:Wait for time in seconds [1]
+5=End of script
+2=>A:@:Send 2 tones for ?? seconds [440,550,3]
+4=>A:@:Send 2 tones for ?? seconds [440,550,3]
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__E911_SC_NFH_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[E911_FC_NFH_006]
+3=>A:@:Wait for busy
+7=>A:@:Wait for howler tone
+2=>A:@:A calls B(911), DTMF
+4=>A:@:Wait for time in seconds [10]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Go OnHook
+11=End of script
+1=>B:@:AFT Off Hook
+5=>A:@:Wait for congestion tone
+9=>B:@:Go OnHook
+10=>A calls B(911), DTMF, confirms once
+
+[GotoActions__trial_terminate]
+1=0
+2=0
+
+[test4]
+1=;To test Successful Call Scenario
+2=;within a board
+3=>AFT A calls B, DTMF
+4=End of script
+
+[GO OFFHOOK]
+1=A:@:Go OffHook
+2=A:@:Wait for time in seconds [10]
+3=End of script
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[GotoActions__E911_SC_FH_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[E911_FC_FH_013]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=>C:@:Go OnHook
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>C:@:Wait for time in seconds in onhook [12]
+6=End of script
+
+[E911_SC_FH_003]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Wait for time in seconds in onhook [5]
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__E911_FC_FH_013_originate]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[E911_SC_NFH_003]
+1=>A:C:A calls B, DTMF, confirms once
+3=>A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Go OffHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=>A:C:AFT Do Path Confirmation Once
+
+[E911_FC_FH_001]
+1=;Neagtive Script -checks media path in held call-It returns FAIL
+3=>A:@:Go OnHook
+5=>A:C:AFT Do Path Confirmation Once
+2=>A:C:A calls B(911), DTMF, confirms once
+4=;Since the call is on hold, path confirmation fails.need to replace this action with actual solution
+6=End of script
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__E911_SC_NFH_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[E911_SC_NFH_005]
+3=>A calls B(911), DTMF, no dial tone, confirms once
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>C:@:Wait for time in seconds in onhook [12]
+6=>A:C:A calls B, DTMF, confirms once
+1=>A:C:A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+
+[GotoActions__trial_originate]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[test 1]
+1=>A calls B, DTMF, confirms once
+3=>B:@:Wait for silence
+5=;>A:@:Go OnHook
+7=End of script
+2=>A:@:Send 2 tones for ?? seconds [100,300,2]
+4=;>A:@:Do hook flash, and wait for recall dial tone
+6=;>A:@:Wait for time in seconds [5]
+
+[GotoActions__GO OFFHOOK]
+1=0
+2=0
+3=0
+
+[GotoActions__test3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__E911_FC_FH_001_originate]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__E911_FC_NFH_002]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__E911_SC_NFH_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__E911_FC_FH_013]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[E911_FC_FH_001_originate]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [7]
+5=>A:@:Wait for time in seconds in onhook [1]
+7=End of script
+2=>A:@:Send string in DTMF [911]
+4=>A:@:Wait for 2 tones for ?? seconds [440,550,3]
+6=>A:@:Wait for silence
+
+[E911_FC_FH_013_originate]
+1=;>A:C:A calls B(911), DTMF, confirms once
+3=>A:@:Send string in DTMF [911]
+5=>A:@:Wait for 2 tones for ?? seconds [450,600,1]
+7=;>A:C:A calls B, DTMF, confirms once
+2=>A:@:AFT Off hook wait for dial tone
+4=A:@:Wait for time in seconds [4]
+6=>A:@:Wait for time in seconds in onhook [15]
+8=End of script
+
+[GotoActions__E911_SC_NFH_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[E911_FC_NFH_003]
+3=;establish a non emrg call
+7=>A:@:Wait for howler tone
+12=End of script
+2=>B:@:Go OnHook
+4=>A:@:Wait for time in seconds [20]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Wait for time in seconds [60]
+11=>A:C:A calls B, DTMF, confirms once
+1=>A calls B(911), DTMF, confirms once
+5=>A:@:Wait for congestion tone
+9=>A:@:Wait for silence
+10=>A:@:Go OnHook
+
+[E911_SC_NFH_007]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A Calls B,DTMF,No Dial Tone
+5=>A:@:Go OnHook
+7=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for Ring back tone
+6=>A:@:Go OffHook
+8=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__E911_FC_FH_001]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[E911_FC_FH_005]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=;wait for the 45 minutes emergency timer to expire
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>A:@:AFT On hook and wait for 45 min emergency timer to expire
+6=End of script
+
+[E911_Basic call]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:C:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=End of script
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[GotoActions__Go OnHook]
+1=0
+2=0
+3=0
+
+[GotoActions__E911_SC_FH_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E911_SC_NFH_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[E911_FC_NFH_005]
+1=>A:@:A calls B(911), DTMF
+3=>A:@:Wait for time in seconds [2]
+5=End of script
+2=>A:@:Go OnHook
+4=>A calls B(911), DTMF, confirms once
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[test3]
+7=>C:@:AFT Off hook wait for dial tone
+12=>A:C:AFT Do Path Confirmation Once
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=;Next two actions are to check that B was on hold 
+17=End of script
+1=;User receives an incoming call while already the part of a call
+5=;A presses flash-hook so as to keep B on hold and establish call with C
+9=>A:@:Wait for Energy
+10=;>A:@:AFT Wait for Call Waiting Tone
+14=>C:@:Go OnHook
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>A:@:Do Hook Flash
+15=>A:@:Do Hook Flash
+3=;C calls A
+16=>AFT Do Path Confirmation Once
+
+[Go OnHook]
+1=A:@:Go OnHook
+2=B:@:Go OnHook
+3=End of script
+
+[E911_SC_FH_002]
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+7=>B:@:AFT Off hook wait for dial tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>A:@:AFT Off hook wait for dial tone
+8=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:AFT On hook and wait for 45 min emergency timer to expire
+9=>C:@:AFT Off hook wait for dial tone
+10=End of script
+
+[GotoActions__test 1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_SC_NFH_005]
+3=0
+7=0
+2=0
+4=0
+6=0
+1=0
+5=0
+
+[GotoActions__E911_SC_FH_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[E911_FC_FH_014]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=>C:@:Go OnHook
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>A:@:Wait for time in seconds in onhook [12]
+6=End of script
+
+[E911_FC_FH_009]
+3=>A:@:Go OnHook
+7=;>C:@:Wait for time in seconds [5]
+2=>A:C:AFT Do Path Confirmation Once
+4=;Dummy actions at B for using All Originate Config
+6=>B:@:Go OnHook
+8=>A:@:Go OffHook
+1=>A:C:A calls B(911), DTMF, confirms once
+5=>B:@:Go OffHook
+9=>A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[E911_SC_NFH_004]
+3=>A calls B(911), DTMF, no dial tone, confirms once
+7=>A:@:Wait for congestion tone
+12=>A:@:Go OnHook
+4=>C:@:Wait for time in seconds in onhook [10]
+8=>A:@:Wait for time in seconds [60]
+13=>A:C:A calls B, DTMF, confirms once
+1=>A:C:A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds in onhook [10]
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [10]
+11=>A:@:Wait for silence
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[E911_FC_NFH_002]
+1=>A calls B(911), DTMF, confirms once
+3=;>B:@:Go OnHook
+5=End of script
+2=>A:@:Go OnHook
+4=>A:C:A calls B, DTMF, confirms once
+
+[GotoActions__test4]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__E911_FC_NFH_003]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[E911_SC_NFH_008]
+3=>B:@:Go OffHook
+7=>C:@:Go OnHook
+2=;Dummy actions at B for using ALL ORIGINATE
+4=>B:@:Go OnHook
+6=>A:@:Send string in DTMF [911]
+8=>A:@:Go OnHook
+11=End of script
+1=>A:C:A calls B, DTMF, confirms once
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>C:@:Wait for time in seconds in onhook [10]
+10=>A calls B(911), DTMF, confirms once
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[test2]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [1231243#]
+5=;>A:@:Go OnHook
+7=>B:C:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:AFT On Hook and wait 1 sec
+6=>B:@:Wait for time in seconds [5]
+8=End of script
+
+[E911_SC_FH_001]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Go OffHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds in onhook [5]
+6=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+

@@ -1,0 +1,660 @@
+<?xml version="1.0"?>
+<testCase version="7.0.0.bc91e6c">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="Sniffer_ssh_base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="1cc0f7d1-975f-4157-ad98-2713431a1be2" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="StartCapture" isPublic="true" isVBlock="true">
+            <description>Start Wireshark Capture</description>
+            <steps>
+                <item guid="e86b0808-2165-433c-955c-6299e99c55fc" action="comment">
+                    <command>
+                        <body>Create datestamped filename</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9678af6b-61bd-44b6-a229-1f57ba7b048a" action="eval">
+                            <command>
+                                <body>set timestamp [clock format [clock seconds] -format %m%d%Y_%H%M%S]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="57f70790-2953-486e-b9db-cf6ef420e835" action="eval">
+                            <command>
+                                <body>set report_id [info testReportID]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="d1fae005-76f3-4e56-9adc-36ae5c8a343f" action="eval">
+                            <command>
+                                <body>set filename ${report_id}_${filename}_$timestamp.pcap</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>group1()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return filename]</query>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fb3a10e4-c4ba-4725-b013-9777467ea4fe" action="comment" skip="true">
+                    <command>
+                        <body>Build filter lilsts </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="83ad3004-e9b5-44c2-ad98-4915f475a8eb" action="if">
+                            <command>
+                                <body>$dest_phone != &quot; &quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="4d2713d4-fb48-4f13-8581-8f96add8f94b" action="then">
+                                    <nestedSteps>
+                                        <item guid="141e1731-a3e8-44bb-8e20-5950c5a52dcf" action="eval">
+                                            <command>
+                                                <body>set to_filter (</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="8edc379f-fbd0-4fee-bf5c-6d2574735e44" action="foreach">
+                                            <command>
+                                                <body>number $dest_phone</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="11857571-6fc3-4f5d-97b2-b7a9f9e22155" action="eval">
+                                                    <command>
+                                                        <body>set to_filter &quot;$to_filter sip.To contains $number&quot; </body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="d65ecad8-4104-4611-8c07-5cb77a288beb" action="comment">
+                                                    <command>
+                                                        <body>If the current number is not the last element, add an &quot;or&quot; to the end of the filter</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="47e6bc94-4010-45d0-99d8-4ea577e306b2" action="if">
+                                                            <command>
+                                                                <body>[lindex $dest_phone end] != $number</body>
+                                                            </command>
+                                                            <nestedSteps>
+                                                                <item guid="ff6eeea1-dc68-4e75-9c60-fd1a55b47480" action="then">
+                                                                    <nestedSteps>
+                                                                        <item guid="d687f7c8-feac-4ac2-8007-eee1883d5655" action="eval">
+                                                                            <command>
+                                                                                <body>set to_filter &quot;$to_filter or&quot; </body>
+                                                                            </command>
+                                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                                        </item>
+                                                                    </nestedSteps>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                                </item>
+                                                            </nestedSteps>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="6d6cd3c7-7a98-444b-93da-2c1f00eb628a" action="eval">
+                                            <command>
+                                                <body>set to_filter &quot;$to_filter) or&quot;</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="026053db-df71-4be2-8e59-624ffbe7439c" action="else">
+                                    <nestedSteps>
+                                        <item guid="60f8fad2-993a-45ca-9395-be05a40f63de" action="eval">
+                                            <command>
+                                                <body>set to_filter &quot;&quot;</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="e9136769-e739-44d0-a1a3-fbd401ec8f4d" action="eval">
+                            <command>
+                                <body>set from_filter (</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="eff68850-9374-48cc-8a6a-47ade825ea20" action="foreach">
+                            <command>
+                                <body>number $orig_phone</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="8caf6c04-1b27-464b-a1d5-e762428cbad5" action="eval">
+                                    <command>
+                                        <body>set from_filter &quot;$from_filter sip.From contains $number&quot; </body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="86a3a5d6-2b39-4a5e-97dc-e241fe42d505" action="comment">
+                                    <command>
+                                        <body>If the current number is not the last element, add an &quot;or&quot; to the end of the filter</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="9f2185fd-12d0-4609-bc38-9c9befd99f8a" action="if">
+                                            <command>
+                                                <body>[lindex $orig_phone end] != $number</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="6e7c24a4-cc20-47ed-8ba5-9210e5398995" action="then">
+                                                    <nestedSteps>
+                                                        <item guid="c2de2fb1-dad3-43d4-b914-eb5a5dacf359" action="eval">
+                                                            <command>
+                                                                <body>set from_filter &quot;$from_filter or&quot; </body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="b0b37ad0-d0ff-4922-b70f-0d91bd25ddd4" action="eval">
+                            <command>
+                                <body>set from_filter &quot;$from_filter)&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c782fa73-ee16-4d2a-91d6-339563bb9172" action="command" session="$session" skip="true" estimatedStepExecutionTime="0.384">
+                    <command>
+                        <body>sudo /usr/local/bin/tshark -i bond0.16 -nn -R &apos;($to_filter $from_filter &amp;&amp; !(sip.CSeq contains \\&quot;REGISTER\\&quot;)) or rtcp or rtp.marker == 1&apos; -w [param pcap_path]/$filename -q &amp;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="eca269fc-9966-4574-82d8-5ded69217a74" action="command" session="$session" estimatedStepExecutionTime="0.384">
+                    <command>
+                        <body>sudo /usr/local/bin/tshark -i bond0.16 -nn -w [param pcap_path]/temp_$filename -q &amp;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Objective:  Start Empirix Capture
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. dest_phone\t\t\t|   O   |  List of phone numbers recieving the calls to be captured.
+2. orig_phone\t\t\t|   M   |  List of phone numbers originating the calls to be captured.
+3. filename\t\t\t\t|   M   |  Descriptive filename. Actual filename used will be &lt;testcase ID&gt;_&lt;this argument&gt;_&lt;timestamp&gt;.pcap
+
+______________________________________________________
+Response Structure\t\t|\tDescription    
+______________________________________________________
+1. filename\t\t\t|\tFilename and path on Emipirix server.</multilineDescription>
+            <arguments>
+                <item name="orig_phone">
+                    <description>List of phone numbers originating calls to be captured</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="dest_phone">
+                    <description>List of phone number recieving the call to be captured.</description>
+                    <defaultValue> </defaultValue>
+                </item>
+                <item name="filename">
+                    <description>Descriptive filename. Actual filename used will be &lt;this argument&gt;_&lt;timestamp&gt;.pcap</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;filename&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="StopCapture" isPublic="true" isVBlock="true">
+            <description>Stop tshark Capture</description>
+            <steps>
+                <item guid="28984e7b-0f3c-49cb-b22e-96593a75ed0b" action="comment">
+                    <command>
+                        <body>Stop capture</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ec115c9a-9151-4a01-8546-433e81a3d4e1" action="command" session="$session">
+                            <command>
+                                <body> </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0504d66b-3bd5-4a0b-88d6-f92fca30a5d3" action="command" session="$session">
+                            <command>
+                                <body>sudo /usr/bin/pkill tshark</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties>
+                                    <completeWhen inherit="false">TIMED</completeWhen>
+                                    <completionTime inherit="false">1</completionTime>
+                                </completionProperties>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d873ad44-2146-45ce-875e-a355481dfe47" action="comment">
+                    <command>
+                        <body>Get number of packets captured (if filename is specified)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9e7d2b5e-f0e5-474c-89fd-9b03706cbc15" action="if">
+                            <command>
+                                <body>$filename != &quot;&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9230163b-7888-4b15-8ed8-5875969034f5" action="then">
+                                    <nestedSteps>
+                                        <item guid="8c477145-22da-4e78-b7a0-a79af4a69882" action="command" session="$session">
+                                            <command>
+                                                <body> </body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="0fed48cc-dad0-467d-a21f-765f3f9ec3ec" action="command" session="$session" estimatedStepExecutionTime="30" timeout="120" useProcTimeout="false">
+                                            <command>
+                                                <body>sudo /usr/local/bin/tshark -r [param pcap_path]/temp_$filename -R &apos;sip or rtp or rtcp or icmp&apos; -w [param pcap_path]/$filename -q</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="a877b0e7-39b4-4401-ba8d-9559f060eafd" action="command" session="$session">
+                                            <command>
+                                                <body>rm -rf [param pcap_path]/temp_$filename</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="db9c46ff-27b1-4395-9711-17763abe5ec0" action="command" session="$session" estimatedStepExecutionTime="0.463">
+                                            <command>
+                                                <body>sudo /usr/local/bin/tshark -r [param pcap_path]/$filename -R &apos;sip or rtcp or rtp.marker == 1&apos;  | wc -l</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>num_packets()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>num_packets</storageLocation>
+                                                                <query>[return packets]</query>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="5a544901-3639-4938-8ebf-4010da2409c8" action="else">
+                                    <nestedSteps>
+                                        <item guid="97cf28a7-f46b-4dc6-afe3-50cdf1359f5c" action="comment">
+                                            <command>
+                                                <body>Insert steps here for when the expression evaluates to false</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Objective:  Stop tshark capture and return number of SIP packets captured
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. filename\t\t|   M   |   Name of the pcap file being generated
+
+______________________________________________________
+Response Structure: 
+1. packets\t\t|   Number of SIP packets captured
+
+1. packets\t|   Number of packets captured.</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>Name of pcap file being generated. If argument is supplied, QC will return number of packets captured in this file. </description>
+                </item>
+            </arguments>
+            <response>{&quot;packets&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="StopCaptureAndFilter" isPublic="true" isVBlock="true">
+            <description>Stop tshark Capture</description>
+            <steps>
+                <item guid="da628a84-ec6f-4a11-81a5-be634be1cc5b" action="comment">
+                    <command>
+                        <body>Stop capture</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="90b3cb6f-a1f0-4497-a92c-8c45ebf0e13e" action="command" session="$session">
+                            <command>
+                                <body> </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="832c6b3e-ebef-43b6-a93f-cc695e6fcfaf" action="command" session="$session" estimatedStepExecutionTime="0.02">
+                            <command>
+                                <body>sudo /usr/bin/pkill tshark</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6a238e44-32bc-4cac-95bb-b4f37d363ac0" action="comment">
+                    <command>
+                        <body>Build filter lilsts </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fa9e17f2-fa0c-4128-bab5-f4fae59e3b91" action="eval">
+                            <command>
+                                <body>set to_filter (</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="c3cedc57-1c7a-4178-ad2f-172c71c4577d" action="foreach">
+                            <command>
+                                <body>number $dest_phone</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="ae92d92f-1a19-41d9-a5d9-239f95178baf" action="eval">
+                                    <command>
+                                        <body>set to_filter &quot;$to_filter sip.To contains $number&quot; </body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="a3bdec6a-f6e9-4ba0-a3f0-c0ec8c36bc9e" action="comment">
+                                    <command>
+                                        <body>If the current number is not the last element, add an &quot;or&quot; to the end of the filter</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="97f7f858-9e78-42b5-bb38-4502314448ec" action="if">
+                                            <command>
+                                                <body>[lindex $dest_phone end] != $number</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="efb652a6-96c7-43a7-8fb1-fad296134bac" action="then">
+                                                    <nestedSteps>
+                                                        <item guid="4780a1bb-5f80-41aa-892d-9889beb4fc4e" action="eval">
+                                                            <command>
+                                                                <body>set to_filter &quot;$to_filter or&quot; </body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="b876b825-106e-447d-ae1c-c045904ab331" action="eval">
+                            <command>
+                                <body>set to_filter &quot;$to_filter)&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="fe2dcf58-56b3-47ef-88bc-87cef11e02ff" action="eval">
+                            <command>
+                                <body>set from_filter (</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="7a8732a0-b914-43d9-ada0-41ff9f560de7" action="foreach">
+                            <command>
+                                <body>number $orig_phone</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="ccc6eea2-c24c-4fe8-b66a-df24031830d5" action="eval">
+                                    <command>
+                                        <body>set from_filter &quot;$from_filter sip.From contains $number&quot; </body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="6a6aead5-61c0-4c8f-81af-94365658afe1" action="comment">
+                                    <command>
+                                        <body>If the current number is not the last element, add an &quot;or&quot; to the end of the filter</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="6985b5d8-aa1f-48b0-8148-4f88a1368093" action="if">
+                                            <command>
+                                                <body>[lindex $orig_phone end] != $number</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="428f7a1a-8988-482a-a74b-99c72ccd71d2" action="then">
+                                                    <nestedSteps>
+                                                        <item guid="1248aa82-4ff6-421b-9934-8f3b94f5db5b" action="eval">
+                                                            <command>
+                                                                <body>set from_filter &quot;$from_filter or&quot; </body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="ee238c6d-be94-4551-9fe4-3c8f255fb94a" action="eval">
+                            <command>
+                                <body>set from_filter &quot;$from_filter)&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a1398cc1-f457-48a6-9373-3df661931f01" action="comment">
+                    <command>
+                        <body>Filter the temp file and write to permanent file</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="789f4998-bdaf-48aa-861e-d5c5aabd93d4" action="command" session="$session">
+                            <command>
+                                <body>sudo /usr/sbin/tshark -r /tmp/$filename -R &apos;($to_filter or $from_filter &amp;&amp; !(sip.CSeq contains \\&quot;REGISTER\\&quot;)) or rtcp or rtp.marker == 1&apos; -w /export/backup/iTestCaps/$filename -q &amp;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8deecf81-0c01-42f4-b4ed-06cfe6a2b382" action="comment">
+                    <command>
+                        <body>Get number of packets captured (if filename is specified)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1d0e2ba7-7314-4423-b575-99e02c2042af" action="if">
+                            <command>
+                                <body>$filename != &quot;&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="591c8f3e-4599-4bf3-8619-31ae79d65a97" action="then">
+                                    <nestedSteps>
+                                        <item guid="4cfc2b46-fe4a-47ed-bd1a-6af8669cbba0" action="command" session="$session">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="a5753ec0-aa82-40c6-97c0-cd447db66b06" action="command" session="$session" estimatedStepExecutionTime="0.463">
+                                            <command>
+                                                <body>sudo /usr/sbin/tshark -r /export/backup/iTestCaps/$filename -R &apos;sip or rtcp or rtp.marker == 1&apos;  | wc -l</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>num_packets()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>num_packets</storageLocation>
+                                                                <query>[return packets]</query>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="35da7c74-31be-4812-aca8-9d6a111f169c" action="else">
+                                    <nestedSteps>
+                                        <item guid="b49ed7b9-236d-4c2c-b11a-3e8a288f2110" action="comment">
+                                            <command>
+                                                <body>Insert steps here for when the expression evaluates to false</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Objective:  Stop tshark capture and return number of SIP packets captured
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. filename\t\t\t\t|   M   |   Name of the pcap file being generated
+2. orig_phone\t\t\t|   M   |  List of phone numbers originating the calls to be captured.
+3. dest_phone\t\t\t|   M   |  List of phone numbers recieving the calls to be captured.
+
+______________________________________________________
+Response Structure: 
+1. packets\t\t|   Number of SIP packets captured
+
+1. packets\t|   Number of packets captured.</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>Name of pcap file being generated. If argument is supplied, QC will return number of packets captured in this file. </description>
+                </item>
+                <item name="orig_phone">
+                    <description>List of phone numbers originating calls to be captured</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="dest_phone">
+                    <description>List of phone number recieving the call to be captured.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;packets&quot;:&quot;value&quot;}</response>
+        </item>
+    </procedures>
+</testCase>

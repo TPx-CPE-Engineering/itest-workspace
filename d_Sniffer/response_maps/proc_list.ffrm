@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.1.0.77511">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>ps -ef | grep tshark </body>
+                </command>
+            </action>
+            <responseBody>root     11276 11247  2 10:14 pts/1    00:00:00 tshark -i bond0.16 -nn -R (sip.To contains 9498351960 &amp;&amp; !(sip.CSeq contains &quot;REGISTER&quot;)) or rtcp or rtp.marker == 1 -w /iTestCaps/tmp.cap -q
+root     11286 11247  0 10:15 pts/1    00:00:00 grep tshark</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+        &lt;prompt&gt;[root@fs-1 ~]# &lt;/prompt&gt;
+        &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+        &lt;echo&gt;ps -ef | grep tshark&lt;/echo&gt;
+        &lt;idleTime&gt;0.078&lt;/idleTime&gt;
+        &lt;contentType&gt;text&lt;/contentType&gt;
+        &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+    &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <columns>
+                        <item name="user">
+                            <width>9</width>
+                        </item>
+                        <item name="pid">
+                            <width>6</width>
+                        </item>
+                        <item name="ppid">
+                            <width>7</width>
+                        </item>
+                        <item name="c">
+                            <width>2</width>
+                        </item>
+                        <item name="start_time">
+                            <width>6</width>
+                        </item>
+                        <item name="tty">
+                            <width>9</width>
+                        </item>
+                        <item name="time">
+                            <width>9</width>
+                        </item>
+                        <item name="proc_name">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="ps -ef *">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

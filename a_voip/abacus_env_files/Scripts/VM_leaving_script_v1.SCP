@@ -1,0 +1,843 @@
+[GotoActions__A calls B {Voice Matching}]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+
+[GotoActions__NV7100 AA Test Analog]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[VM_Leaving script v .1]
+1=A:@:Send string in DTMF [#]
+2=A:@:Send VM Audio File
+3=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[NV7100 AA Test Analog]
+1=Go Off Hook 
+3=A:@:Wait for time in seconds [1]
+5=A:@:Wait for string in DTMF [1]
+7=End of script
+2=A:@:Send string in DTMF [7800]
+4=A:@:Send string in DTMF [1]
+6=A calls B, DTMF, no dial tone, confirm for CL
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[NV7100 AA Test E&M]
+1=A:@:Go Off Hook, Wait for Dialtone
+3=A:@:Wait for time in seconds [2]
+5=A:@:Wait for time in seconds [2]
+7=End of script
+2=A:@:Send string in DTMF [7800]
+4=A:@:Send string in DTMF [1]
+6=A calls B, DTMF, no dial tone, confirms once
+
+[NV7100 AA Test SIP]
+7=A:@:Send string in DTMF [3]
+12=A:@:Wait for AA prompt(PESQ)
+25=End of script
+8=A:@:Wait for AA prompt(PESQ)
+13=A:@:Send string in DTMF [6]
+1=A:@:Wait for AA prompt(PESQ)
+9=A:@:Send string in DTMF [4]
+14=A:@:Wait for AA prompt(PESQ)
+2=A:@:Wait for time in seconds [.5]
+6=A:@:Wait for AA prompt(PESQ)
+11=A:@:Send string in DTMF [5]
+20=A:@:Wait for AA prompt(PESQ)
+15=A:@:Send string in DTMF [7]
+24=A:@:Wait for time in seconds [5]
+19=A:@:Send string in DTMF [9]
+3=A:@:Send string in DTMF [1]
+21=A:@:Send string in DTMF, w PC [2565545109]
+16=A:@:Wait for AA prompt(PESQ)
+4=A:@:Wait for AA prompt(PESQ)
+22=A:@:Wait for time in seconds [2]
+17=A:@:Send string in DTMF [8]
+5=A:@:Send string in DTMF [2]
+10=A:@:Wait for AA prompt(PESQ)
+23=Do path confirmation for CL 
+18=A:@:Wait for AA prompt(PESQ)
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__VM_CLEAR script v.1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__Wait for Voice {Voice Matching}]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[B calls A (SIP)  and confirms Call Lenth]
+1=B:A:A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[A calls B {Voice Matching}]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=A:@:Wait for time in seconds [8]
+15=A:@:A calls B {Voice Matching}
+16=End of script
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__NV7100 AA Test SIP TERM]
+1=0
+2=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[NV7100 AA Test PRI]
+1=A:@:Go Off Hook, Wait for Dialtone
+3=A:@:Wait for time in seconds [2]
+5=A:@:Wait for time in seconds [2]
+7=End of script
+2=A:@:Send string in DTMF [7800]
+4=A:@:Send string in DTMF [9]
+6=A calls B, DTMF, no dial tone, confirms once
+
+[GotoActions__VM_Del script v.1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A calls B (ISDN) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[AFT: 3-way Calling]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: Caller ID Blocking]
+1=AFT Off Hook and send VSC Caller ID Blocking
+3=AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=AFT On Hook and wait 1 sec
+6=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[GotoActions__NV7100 AA Test E&M]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__NV7100 AA Test SIP]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[Wait for Voice {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=Wait for Voice {Voice Matching}
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__NV7100 AA Test PRI]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__VM_Leaving script v .1]
+1=0
+2=0
+3=0
+
+[GotoActions__B calls A (SIP)  and confirms Call Lenth]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__AFT: 3-way Calling]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[VM_CLEAR script v.1]
+1=A:@:Send DTMF from a File [7100]
+3=A:@:Send string in DTMF [1234#]
+5=A:@:Send string in DTMF [1]
+7=End of script
+2=A:@:Send string in DTMF [#]
+4=A:@:Send string in DTMF [1]
+6=A:@:10*Send string in DTMF FOREVER!!!!!!1!
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, DTMF, no dial tone, confirm for CL
+
+[VM_Del script v.1]
+1=A:@:Send DTMF from a File [7100]
+3=A:@:Send string in DTMF [1234#]
+5=A:@:Send string in DTMF [1]
+7=A:@:Send string in DTMF [7]
+2=A:@:Send string in DTMF [#]
+4=A:@:Send string in DTMF [1]
+6=A:@:QoM Speech Matching
+8=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[GotoActions__VM_Automated script v .1]
+1=0
+2=0
+3=0
+4=0
+
+[NV7100 AA Test SIP TERM]
+1=Wait for Inc Call, Term, PC
+2=End of script
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[VM_Automated script v .1]
+1=VM_Leaving script v .1()
+2=A:@:Send string in DTMF [8500]
+3=VM_Del script v.1()
+4=End of script
+

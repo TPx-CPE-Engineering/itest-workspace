@@ -1,0 +1,823 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>DNS - Verify Private DNS from CPE behind Edge</documentation>
+        <tags>sd-wan, edge, dns,</tags>
+        <notes>Test Case: Verify private DNS from CPE behind Edge
+Expected Results: CPE is able to query an inside FQDN and get IP
+Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummydns.test.net) pointed to 8.8.8.8. Restart the DNS service on the Edge. Test if you can ping dummydns.test.net on CPE.</notes>
+        <owner>Juan Brena</owner>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC520/VC520_lab_basic_cisco.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="04a2efc1-e5aa-4a00-9ce6-0ad4eb94d6b4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2b5b7e69-331a-418f-8303-02a48a6d7e87" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>port()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>ssh_port</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="aac7cf8b-b0a9-40c1-81e7-fa9d770193c3" action="Login" session="CPE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="342632a9-83d9-43ac-8a19-f9f9769c537f" action="open" session="EDGE">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fff2509a-c184-4453-933b-b3e45d3d3d12" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2902eece-4bac-478a-8c71-cced0d7da0c9" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>from dns.dns_5_00_verify_public_private_dns import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0da4d80e-d10a-4063-8c79-5696d87f0c87" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initialize variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="40c326ad-fbcf-42f0-a1a5-c0a572125062" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>private_dns_test_1 = &quot;lookup.test.lan&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="99464e00-be54-40a3-be99-27f569c99fa0" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>private_dns_test_2 = &quot;lookup510.test.lan&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a04bba56-7982-4599-8c7e-faf14ac4291f" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>public_dns_test = &quot;tpx.com&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="c6674865-f24b-4472-9a3c-3e2e65f3e054" action="command" session="EDGE">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="c76c0b7c-0aaa-414c-bde4-6dcd2f51120d" action="command" session="EDGE">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1dc0f458-02e5-4ad0-8ff3-f305f42ec6a3" action="command" session="EDGE">
+                            <command>
+                                <body>ssh_port = &quot;[ssh_port]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4bf7556f-1871-4752-b3c8-384141d1ad48" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, ssh_port=ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c96b9c2b-1347-49ac-8cb3-11eb52135c8e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Setup: Checking if DNS &gt; Conditional DNS Forwarding is set to &quot;Lab DNS&quot;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="14c7977f-d907-4d68-bd4b-1ed0d8784b2c" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>set_up()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="687e290a-d7e9-4341-94f8-70cd24143bdd" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a9216d60-6205-4b39-96d9-896fc890f4e0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Clearing name-servers IPs...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="87085678-f523-4d74-bfee-c9dad86a941f" action="ClearName-Servers" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>name_server_ips_removed()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>name_servers_removed</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="758ef284-d18f-4dc1-a094-525e186cae7b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Clearing hosts...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f34d134b-c7a3-461b-bd5c-fc7de1adf448" action="command" session="CPE">
+                            <command>
+                                <body>clear host *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ce83ac11-c519-44a8-a93f-09e022ba76d3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing Private DNS Test 1. Expecting host resolution...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f71654cd-cf93-47f2-b020-4fdfed5c6733" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host [private_dns_test_1]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>resolved()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Host was resolved as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="31588fcc-1ca0-476f-b783-49811b67b491" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing Private DNS Test 2. Expecting host resolution...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b2f7aa2b-053a-42d9-87bb-3207daae4b1e" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host [private_dns_test_2]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>resolved()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Host was resolved as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1b98014d-d890-49a7-b9ba-bdab04d99f86" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing Public DNS Test. Expecting host resolution...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="81762c5f-ac92-43d6-a4b3-1475fe40ea71" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host [public_dns_test]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>resolved()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Host was resolved as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d95bed94-ba8b-4aad-b80b-49ac57a00cd3" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="01591706-6543-4241-8838-4594efdd7618" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Setting Conditonal DNS Forwarding to None...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0018d4ef-8dd3-49e3-8bc5-88ea18b31394" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>set_conditional_dns_forwarding_to_none()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE: DNS change set successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Error changing DNS. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f7c23d57-8f5d-4735-8c38-3b9006e51204" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleep for 30 seconds to let changes take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="da1d2853-fe77-4c0a-a81e-390f5799676f" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b5d8023c-0544-4940-b18e-3633c1553523" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="205fca01-5ad3-44e8-93f5-5db70623d40c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Clearing hosts...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2407023c-9dfb-4dbe-b0da-1cb512c21967" action="command" session="CPE">
+                            <command>
+                                <body>clear host *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="687d77dd-c90e-42a1-9a81-c01c2346e74f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing Private DNS Test 1. Expecting no host resolution...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="aa305ce7-8d30-4bbf-89c6-3897bdf8ff17" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host [private_dns_test_1]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>resolved()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Host was not resolved as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: Host was resolved. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9e112819-c6d3-4e36-b9f5-c308ece869aa" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing Private DNS Test 2. Expecting no host resolution...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0d2a7d4c-f3c9-4ce6-af0d-a6e9031d8347" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host [private_dns_test_2]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>resolved()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Host was not resolved as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: Host was resolved. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="90b0c754-b0a5-44b6-98ad-21578dc6c341" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8b07926b-eeeb-48ba-9141-2e8d75422b86" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Adding name-servers IPs back...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="88b9977e-2812-496c-92e3-15242aa7dbbf" action="AddName-Servers" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-name_servers [name_servers_removed]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="166ac536-c6f5-435e-9b35-9833a7d3b78b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup: Checking if DNS &gt; Conditional DNS Forwarding is set to &quot;Lab DNS&quot;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6d68b06e-444c-4f60-9e97-d95fbf1ae464" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>clean_up()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="df70b466-fd2b-4f42-9b37-dd978a1e3eea" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Closing devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b492a230-39e2-48f6-843d-77068bf69849" action="close" session="CPE">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="eb45db22-31f0-429e-a3e4-76b0b3b88882" action="close" session="EDGE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+        <item name="set_up">
+            <steps>
+                <item guid="be2b4e3d-ab49-425f-aca8-aae3c9391736" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>is_conditional_dns_forwarding_set_to_lab_dns()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;is_conditional_dns_forwarding_set_to_lab_dns&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>is_conditional_dns_forwarding_set_to_lab_dns</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6d56dde6-8045-4d1e-bb66-65934c11ffe0" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>is_conditional_dns_forwarding_set_to_lab_dns == &apos;no&apos;:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1748fa06-a6ff-4579-885e-8b4653c37934" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Setup: Setting DNS &gt; Conditional DNS Forwarding to &quot;Lab DNS&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="221757ce-2025-42c3-8581-305175729aeb" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>set_conditional_dns_forwarding_to_lab_dns()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE Setup: DNS change set successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE Setup: Error changing DNS. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="0dc091ff-26b6-4334-be60-254ffd8f58d5" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Setup: Sleeping for 20 seconds to let change take effect...</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="8d00fac9-1cbc-4b11-b53e-d1175e31f846" action="sleep">
+                                    <command>
+                                        <body>20</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b579323b-6558-45bd-bd4e-c82226606baf" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Setup... Done</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+        <item name="clean_up">
+            <steps>
+                <item guid="90dda019-0892-45a6-ac99-712dd2d9912b" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>is_conditional_dns_forwarding_set_to_lab_dns()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;is_conditional_dns_forwarding_set_to_lab_dns&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>is_conditional_dns_forwarding_set_to_lab_dns123</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5506368e-109b-408f-a3ee-941c89f85831" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>is_conditional_dns_forwarding_set_to_lab_dns123 == &apos;no&apos;:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8fb70e5c-9b64-4b05-aa5d-87e311ab9d8d" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Cleanup: Setting DNS &gt; Conditional DNS Forwarding to &quot;Lab DNS&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="08ca7323-b19c-4207-a945-370feb854aeb" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>set_conditional_dns_forwarding_to_lab_dns()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE Cleanup: DNS change set successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE Cleanup: Error changing DNS. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ed8882e7-4496-4ce2-9c17-403ed2ea6963" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Cleanup: Sleeping for 20 seconds to let change take effect...</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="10a13a0f-3f88-411f-b4dc-566c6321f150" action="sleep">
+                                    <command>
+                                        <body>20</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ce67199f-dad7-4127-9a13-675593df2cd3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup... Done</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+    </procedures>
+    <eventHandlers>
+        <item name="OnFailTestAction">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message></message>
+                </actionProperties>
+            </item>
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>EDGE Cleanup...</message>
+                </actionProperties>
+            </item>
+            <item actionId="CallProcedure">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                    <command>clean_up()</command>
+                </actionProperties>
+            </item>
+        </item>
+    </eventHandlers>
+</testCase>

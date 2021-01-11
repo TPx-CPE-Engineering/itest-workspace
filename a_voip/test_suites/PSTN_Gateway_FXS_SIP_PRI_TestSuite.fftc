@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<testCase version="8.1.0.201912080816">
+    <execution estimatedExecutionTime="1383"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="2ba02809-e6ab-428b-ad21-0781ab40c739" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.01 IAD to PSTN Originator Hangs up</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="80750ffe-89e5-4c35-b17b-e72c3ce6ba72" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.01-IAD_to_PSTN_Originator_Hangs_Up.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="95d740e4-9ee5-48d1-9257-1dab3936ad05" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.02 IAD to PSTN Call Cancel</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b84056e7-9e14-444c-a62d-c76994b2c4ec" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.02-IAD_to_PSTN_Call_Cancel.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="da551da8-ebfb-4cff-b627-70e298e846b8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.03 IAD to PSTN Terminator Hangs up</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="277db4b3-dc00-4b62-8e2e-1beb3da60193" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.03-IAD_to_PSTN_Terminator_Hangs_Up.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="47a0262a-126b-4d89-9a74-277438d2cdd7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.04 PSTN to IAD Originator Hangs up</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a4ecae94-894f-4d84-b762-3f109d1f9f0d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.04-PSTN_to_IAD_Originator_Hangs_Up.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="53706fbb-9059-472a-9b38-45b20d8f55a5" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.05 PSTN to IAD Call Cancel</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="05d1c560-66d6-405f-8ae3-4aedb1d9098f" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.05-PSTN_to_IAD_Call_Cancel.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9f90b336-6c60-4dcb-a656-efafa879ac1b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.06 PSTN to IAD Terminator Hangs up</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="795c4a07-0f73-4f17-9c68-f3062264343c" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.06-PSTN_to_IAD_Terminator_Hangs_Up.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5b07b12c-f6df-4d10-80aa-cf816d3b74fb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.07 Call Routing Validation</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6085f07d-afbd-4cb7-8806-28f05114866d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.07-Call_Routing_Validation.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c2722253-a1c8-4617-90ab-065c0bb52239" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>1.08 Non-super G3 Fax</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="da8420c1-a4a6-4d6b-b30a-c1e334f7a650" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="02beb91b-8a62-4bef-873c-d99ac6e9e928" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.01 Calling Number Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0a6b7e0c-68db-4637-b762-90b7dace5dd8" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.01-Calling_Number_Delivery.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="42bbfeff-0c26-4b31-a665-295555c78a12" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.02 - Calling Name Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ff62ed65-a565-474c-aae6-d60e4bce7c9c" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.02-Calling_Name_Delivery.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0a0212e6-9c18-4e46-89b3-eb4e2c70ac69" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.04 - Caller ID on Call Waiting</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bdf419f6-aa3e-489e-ac17-5e0b5ff26a57" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.04-Caller_ID_On_Call_Waiting.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a7d5cf47-6f5e-4465-b07b-fe5fe9544463" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.06 - Call Forward Always</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1c2a9a43-cc6d-4598-aedd-85d9fc4f43ef" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.06-Call_Forward_Always.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a349b219-6434-48b9-8596-d49744473f62" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.14 - Last Number Redial</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cd3c6846-57ed-4399-8545-d90ac7622202" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.14-Last_Number_Redial.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f2d74a7e-6e02-48a1-aa57-78faf4eefbe1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.15 - Call Return</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="148ea789-2c8c-4620-9cf3-a3a0e1a97664" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P2.15-Call_Return.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="23c6a143-20fd-41b0-9058-0f49e013f79b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.01 3rd Party VM Test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="43dafe98-c7a9-4026-b283-54b29aff225b" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P4.01-Third_Party_VM.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d44cc009-d11c-4e46-854a-9b5b0c6c2337" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.02 3rd Party VM Fax Test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c822dcba-ab05-4928-bbee-8bf6f70aab8a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PSTN_Gateway/P4.02-Third_Party_VM_Fax.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

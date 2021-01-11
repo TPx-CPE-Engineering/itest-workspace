@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="iTestTestReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="reportSummary"/>
+        <xs:element ref="issues"/>
+        <xs:element ref="steps"/>
+        <xs:any minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reportSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="startTime"/>
+        <xs:element ref="endTime"/>
+        <xs:element ref="duration"/>
+        <xs:element ref="description"/>
+        <xs:element ref="testcase"/>
+        <xs:element ref="testbed"/>
+        <xs:element ref="parameterFile"/>
+        <xs:element ref="result"/>
+        <xs:element ref="executionIssueCount"/>
+        <xs:element ref="totalReportItemCount"/>
+        <xs:element ref="reportId"/>
+        <xs:element ref="host"/>
+        <xs:element ref="group"/>
+        <xs:element ref="subGroup"/>
+        <xs:element ref="parameters"/>
+        <xs:element ref="testCaseDetails"/>
+        <xs:element ref="extractedData"/>
+        <xs:any minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startTime" type="xs:string"/>
+  <xs:element name="endTime" type="xs:string"/>
+  <xs:element name="duration" type="xs:decimal"/>
+  <xs:element name="description">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="testcase" type="xs:anyURI"/>
+  <xs:element name="testbed" type="xs:anyURI"/>
+  <xs:element name="parameterFile" type="xs:anyURI"/>
+  <xs:element name="reportId" type="xs:string"/>
+  <xs:element name="host" type="xs:string"/>
+  <xs:element name="group" type="xs:string"/>
+  <xs:element name="subGroup" type="xs:string"/>
+  <xs:element name="result">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="emulation" type="xs:boolean" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="executionIssueCount" type="xs:integer"/>
+  <xs:element name="totalReportItemCount" type="xs:integer"/>
+  <xs:element name="parameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="session" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="global"/>
+        <xs:any minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="session">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Session parameters are user defined, not validated here -->
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="lax"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="global">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Global parameters are user defined, not validated here -->
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="lax"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="testCaseDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rendering"/>
+        <xs:element ref="referencedTestCases"/>
+        <xs:element ref="documentation"/>
+        <xs:element ref="notes"/>
+        <xs:element ref="owner"/>
+        <xs:element ref="execution"/>
+        <xs:any minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="entryPoint" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extractedData">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="testCase" type="xs:string"/>
+              <xs:element name="procedure" type="xs:string"/>
+              <xs:element name="id" type="xs:string"/>
+              <xs:element name="step" type="xs:string"/>
+              <xs:element name="time" type="xs:double"/>
+              <xs:element name="tag" type="xs:string"/>
+              <xs:element name="data">
+                <xs:complexType>
+                  <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="item" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:any minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rendering">
+    <xs:complexType>
+      <xs:attribute name="tclNamespace" use="required"/>
+      <xs:attribute name="testCaseId" use="required"/>
+      <xs:attribute name="testCaseName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="referencedTestCases" type="xs:string"/>
+  <xs:element name="documentation" type="xs:string"/>  
+  <xs:element name="notes" type="xs:string"/>
+  <xs:element name="owner" type="xs:string"/>
+  <xs:element name="execution">
+    <xs:complexType>
+      <xs:attribute name="defaultStepTimeout" use="required" type="xs:integer"/>
+      <xs:attribute name="executionTimeout" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="issues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="steps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ExecutedStep"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecutedStep">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="executedStepId"/>
+        <xs:element ref="testCaseURL"/>
+        <xs:element ref="procedure"/>
+        <xs:element ref="baseApplication"/>
+        <xs:element ref="executableStep"/>
+        <xs:element ref="interpretedCommand"/>
+        <xs:element ref="response" minOccurs="0"/>
+        <xs:element ref="startOffset"/>
+        <xs:element ref="executionDuration"/>
+        <xs:element ref="totalDuration"/>
+        <xs:element ref="executionState"/>
+        <xs:any minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="emulated" type="xs:boolean" use="optional"/>
+      <xs:attribute name="manual" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="executedStepId" type="xs:string"/>
+  <xs:element name="testCaseURL" type="xs:anyURI"/>
+  <xs:element name="procedure">
+    <xs:complexType>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="step" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseApplication" type="xs:string"/>
+  <xs:element name="executableStep">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rawCommand"/>
+      </xs:sequence>
+      <xs:attribute name="action" use="required" type="xs:string"/>
+      <xs:attribute name="session" use="optional" type="xs:string"/>
+      <xs:attribute name="context" use="optional" type="xs:string"/>
+      <xs:attribute name="target" use="optional" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rawCommand" type="xs:string"/>
+  <xs:element name="interpretedCommand" type="xs:string"/>
+  <xs:element name="response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="body"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="item"/>
+        <xs:element minOccurs="0" maxOccurs="1" ref="images"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="body">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="issue"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="issue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">          
+          <xs:attribute name="severity" use="optional" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="images">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="image" maxOccurs="unbounded" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startOffset" type="xs:decimal"/>
+  <xs:element name="executionDuration" type="xs:string"/>
+  <xs:element name="totalDuration" type="xs:string"/>
+  <xs:element name="executionState" type="xs:string"/>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="message"/>
+        <xs:element ref="bodyLocation" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="file" use="required" type="xs:anyURI"/>
+      <xs:attribute name="issueIndex" use="required" type="xs:integer"/>
+      <xs:attribute name="originator" use="required" type="xs:string"/>
+      <xs:attribute name="severity" use="required" type="xs:integer"/>
+      <xs:attribute name="documentLocation" use="optional" type="xs:string"/>
+      <xs:attribute name="executableStepId" use="optional" type="xs:string"/>
+      <xs:attribute name="executedStepId" use="optional" type="xs:string"/>
+      <xs:attribute name="procedureName" use="optional" type="xs:string"/>
+      <xs:attribute name="sessionId" use="optional" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="message" type="xs:string"/>
+  <xs:element name="bodyLocation">
+    <xs:complexType>
+      <xs:attribute name="line" use="optional" type="xs:integer"/>
+      <xs:attribute name="lineCount" use="optional" type="xs:integer"/>
+      <xs:attribute name="startCol" use="optional" type="xs:integer"/>
+      <xs:attribute name="endCol" use="optional" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

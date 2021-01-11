@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ParameterTree version="8.1.3.0">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <prim_int pt:description="CPE Interface used by the current protocol">controller t1 0/1/0</prim_int>
+            <cpe_config_file>C2900_iTest_CAS.txt</cpe_config_file>
+            <conv_config_file>iTest_Conv_1CAS_Cisco.cfg</conv_config_file>
+            <conv_prim_int>t1 0/3</conv_prim_int>
+            <voice_class pt:description="voice-class used for codec config">5</voice_class>
+        </parameters>
+    </parameters>
+    <includeParameters>
+        <item>project://a_voip/parameters/_VOIP/voip_parameters_SIP_PRI_CAS.ffpt</item>
+        <item>project://a_voip/parameters/_Environment_File/Environment_File_CAS.ffpt</item>
+        <item>project://a_voip/parameters/Cisco/Cisco_common_parameters.ffpt</item>
+    </includeParameters>
+</ParameterTree>

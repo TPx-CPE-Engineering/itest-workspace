@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<testCase version="7.0.1.201802131446">
+    <testbed>project://a_voip/topologies/lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="4fb77463-59fc-40de-ac5d-2e0931612952" action="open" session="sel">
+                    <command>
+                        <body>device:BroadWorks#Selenium</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties">
+                            <replay transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionReplayProperties">
+                                <browser transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionBrowserProperties" browserType="Chrome" browserType.inherit="false" browserPath="file:/C:/Program%20Files%20(x86)/Google/Chrome/Application/chrome.exe" browserPath.inherit="false"/>
+                            </replay>
+                        </sessionProperties>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7f3ffcee-4ffb-423a-a1f0-a8559c32cf3c" action="Login" session="sel">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="35436303-34c6-47b9-9cc5-73b3c24e986e" action="GetCallWaitingStatus" session="sel">
+                    <command>
+                        <body> -number 7025634890</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

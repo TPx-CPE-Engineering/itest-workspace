@@ -1,0 +1,556 @@
+[A calls B]
+1=A calls B
+2=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=; 
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=; 
+9=; You normally set the channel configuration (in
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=; 
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=; 
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=; 
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=; 
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=; 
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[B1 dials]
+1=B1 sends QOM
+10=B1 press recall
+11=B1 dials 
+12=B1 receives COT announcement
+13=B1 sends QOM
+14=B1 releases the call
+15=End of script
+2=B1 releases the call
+3=B1 dials 
+4=B1 receives COT announcement
+5=B1 sends QOM
+6=B1 press recall
+7=B1 dials 
+8=B1 receives COT announcement
+9=B1 sends QOM
+
+[C calls B1]
+1=C calls B1
+10=C receives QOM
+11=End of script
+2=Wait for ringback tone [0.4]
+3=C receives QOM
+4=C calls B1
+5=Wait for ringback tone [0.4]
+6=C receives QOM
+7=C receives call holding announcement
+8=C receives QOM
+9=C receives call holding announcement
+
+[GotoActions__A calls B]
+1=0
+2=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+10=0
+11=0
+12=0
+13=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__B1 dials]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__C calls B1]
+1=0
+10=0
+11=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+1=;C makes a call to B1
+2=;C waits for ringback
+3=;C receives a file
+4=;Call is released at C
+5=;C makes a call to B1
+6=;C waits for ringback
+7=;C receives a file
+8=;C receives call holding announcement
+9=;C receives a file
+10=;C receives call holding announcement
+11=;C receives a file
+12=;
+13=C calls B1
+14=C waits for ringback
+15=C receives a file
+16=Release the call from C
+17=C calls B1
+18=C waits for ringback
+19=C receives a file
+20=C receives announcement
+21=C receives a file
+22=C receives announcement
+23=C receives a file
+24=End of Script
+[GotoActions_C calls B1]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+1=;Call is answered at B1
+2=;B1 dials 1477
+3=;COT announcement is played at B1
+4=;Call is answered at B1
+5=;Press recall from B1
+6=;B1 dials 1477
+7=;COT announcement is played at B1
+8=;B1 is reconnected to C
+9=;Press recall from B1
+10=;B1 dials 1477
+11=;COT announcement is played at B1
+12=;B1 is reconnected to C
+13=;Call is released at B1
+14=;
+15=B1 answers the call
+16=B1 dials
+17=B1 hears COT announcement
+18=B1 answers the call
+19=Press recall from B1
+20=B1 dials
+21=B1 hears COT announcement
+22=B1 answers the call
+23=Press recall from B1
+24=B1 dials
+25=B1 hears COT announcement
+26=B1 answers the call
+27=Release the call from B1
+28=End of Script
+[GotoActions_B1 dials]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+25=0
+26=0
+27=0
+28=0

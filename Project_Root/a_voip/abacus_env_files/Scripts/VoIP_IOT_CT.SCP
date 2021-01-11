@@ -1,0 +1,521 @@
+[CT_1]
+3=;A transfers the call to C
+7=>A:@:Go OnHook
+2=;Attended Call Transfer
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+1=;Test Case
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[CT_14]
+3=;Normal call termination
+7=>B:@:Go OnHook
+12=End of script
+2=;The target releases call
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>A:C:AFT Do Path Confirmation Once
+11=>A:@:Wait for congestion tone
+1=;Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferee releases call.
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>C:@:Go OnHook
+10=>A:@:Wait for time in seconds [18]
+
+[GotoActions__CT_18]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CT_28]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for busy
+12=>A:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>A:@:Wait for time in seconds [10]
+13=>A calls B, DTMF, confirms once
+1=;Variation of CT_25
+5=>C:@:Go OffHook
+9=>A:@:Wait for congestion tone
+10=>B:@:Go OnHook
+14=End of script
+2=;Variation_3: When treatment (BUSY/HOWLER/Permanent) is being played to Transferor, Transferee releases its call with Transferor. Transferor goes On-hook (to stop the Busy/Howler/Permanent Signalling) and then attempts a new call.
+6=>A:C:A Calls B,DTMF,No Dial Tone
+11=>A:@:Wait for time in seconds [11]
+
+[GotoActions__CT_11]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_3]
+3=;call-Variation 1
+7=>A:@:Send string in DTMF [1231243#]
+2=;Incomplete CT/Transferee ends 
+4=;For this script to be successful, the number of rings before a terminating channel picks up the call must be increased in abacus
+6=>A:@:Do hook flash, and wait for recall dial tone
+8=;B goes on-hook when C is ringing
+11=End of script
+1=;Test Case
+5=>A calls B, DTMF, confirms once
+9=>B:@:Go OnHook
+10=>A:C:AFT Do Path Confirmation Once
+
+[CT_21]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [18]
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>AFT Do Path Confirmation Once
+1=;Scenario 14: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor. Timed Release Timer expires for the Transfer Target call.
+5=;Now C will go on-hook before A 
+9=End of script
+
+[CT_16]
+3=>A calls B, DTMF, confirms once
+7=;A will now go on-hook and immediately off-hook...meanwhile C is ringing
+2=;For this script to be succesful, Increse the number of rings before terminating subs picks up the phone to 2
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for Ring back tone
+8=>A:@:Do Hook Flash
+11=End of script
+1=;Scenario 9: Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferor goes On-hook.
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=;A will still hear the ringback tone of C as C will still be ringing due to changed settings
+10=>A:@:Wait for Ring back tone
+
+[GotoActions__CT_25]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[CT_4]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;The next line checks that call between transferror and target is still in existense
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>B:@:Wait for time in seconds [18]
+8=>A:C:AFT Do Path Confirmation Once
+1=;Transferor gets BYE from transferee which is on hold and the call is established only between transferor and target.
+5=>B:@:Go OnHook
+9=End of script
+
+[CT_22]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;A goes on-hook before time release procedures for C expires...this will terminate the held call
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>A:@:Go OnHook
+11=End of script
+1=;To check that If the controller (Transferor) disconnects with a party on hold, held call should be removed without Timed Release procedures
+5=;Now C will go on-hook before A 
+9=;The above action will immediately terminate held call and hence will get a dial-tone next time it goes off-hook
+10=>A:@:AFT Off hook wait for dial tone
+
+[CT_17]
+3=>A calls B, DTMF, confirms once
+7=;>B:@:AFT Off hook wait for dial tone
+2=;Same as CT_13
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;The above action should immediately terminate the call at B
+8=;A and continue dialing C's number to establish a two party call
+1=;Scenario 10: Transferor establishes call with Transferee, puts Transferee on hold and initiates call to Target. Transferee releases the call before Transferor initiates Transfer.
+5=>B:@:Go OnHook
+9=>A:C:A calls B, DTMF, no dial tone, confirms once
+10=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__CT_13]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_31]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_26]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_18]
+3=;In abacus perspective CT_1 and CT_18 are same
+7=>A:@:Go OnHook
+2=;This script is exactly similar to CT_1 though here one should also use ethereal on the proxytool machine to see if A is sending a REFER or not
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+1=;Scenario 11: Transferor establishes call with Transferee, puts Transferee on hold and initiates call to Target. After Transfer Target answers the call, Transferor goes On-hook to initiate Call Transfer
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[GotoActions__CT_8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_14]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_11]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+4=;C goes off-hook to simulate the busy scenario
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Do Hook Flash
+11=End of script
+1=;Scenario-9, Attended call transfer feature,target is busy and sends back 486 to transferor then transferor goes flashhook and call gets established again with transferee
+5=>C:@:Go OffHook
+9=;After pressing hook-flash A and B should again get connected
+10=>AFT Do Path Confirmation Once
+
+[CT_19]
+3=>A calls B, DTMF, confirms once
+7=>C:@:Go OnHook
+2=;Same as CT_9
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;Now C will go on-hook before A and A should ideally hear silence
+8=>A:@:Wait for time in seconds [12]
+11=End of script
+1=;Scenario 12: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor.
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>A:@:Wait for silence
+10=>C:@:AFT Off hook wait for dial tone
+
+[GotoActions__CT_1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_9]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_20]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_28]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[CT_12]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+4=;C goes off-hook to simulate the busy scenario
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Go OnHook
+11=End of script
+1=;Scenario-10, Attended call transfer feature, target is busy and send 486 Busy to transferor. Transferor goes onhook and then offhook, call between tfr and tfe is re-established
+5=>C:@:Go OffHook
+9=;When A goes on-hook, it will be ringed and due to abacus setting it will go off-hook and call between A and B will get established
+10=>AFT Do Path Confirmation Once
+
+[CT_25]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>C:@:Go OffHook
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;Scenario 18: Transferor establishes call with Transferee, puts Transferee on hold and initiates call toTransfer Target. Target rejects the Call.
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+
+[GotoActions__CT_2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CT_21]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_16]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_8]
+3=;For this script to be successful, the number of rings before a terminating channel picks up the call must be increased in abacus
+7=;A goes on-hook when C is ringing
+2=;Basic Unattended Call Transfer
+4=>A calls B, DTMF, confirms once
+6=>A:@:Send string in DTMF [1231243#]
+8=>A:@:Go OnHook
+1=;Test Case
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[CT_13]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;A and continue dialing C's number to establish a two party call
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=;>B:@:AFT Off hook wait for dial tone
+8=>A:C:A calls B, DTMF, no dial tone, confirms once
+1=;Scenario 7 - Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferee releases call.
+5=;The above action should immediately terminate the call at B
+9=End of script
+
+[CT_31]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for Ring back tone
+2=>A calls B, DTMF, confirms once
+4=>A:C:A Calls B,DTMF,No Dial Tone
+6=>A:@:Go OnHook
+8=>B:C:AFT Do Path Confirmation Once
+1=;Change the number of rings before term subs pick up the phone to 2
+5=>A:@:Wait for Ring back tone
+9=End of script
+
+[CT_26]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for busy
+2=; Transferor presses Flash-hook when BusyTone is being played (Call with Transferee is resumed).
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Do Hook Flash
+1=;Variation of CT_25
+5=>C:@:Go OffHook
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CT_3]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_22]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_17]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_9]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [12]
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>A:@:Wait for silence
+1=;Scenario-6, Attended call transfer feature, target sends a BYE once the call is established with target
+5=;Now C will go on-hook before A and A should ideally hear silence
+9=End of script
+
+[GotoActions__CT_4]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CT_2]
+1=;Incomplete CT/Transferee ends call
+3=>A:@:Do hook flash, and wait for recall dial tone
+5=;B has to wait for 10sec to originate bye
+7=>A:C:A calls B, DTMF, no dial tone, confirms once
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=>B:@:Wait for time in seconds [10]
+8=End of script
+
+[CT_20]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Do Hook Flash
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=;This will immediately establish the held call
+1=;Scenario 13: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor. Transferor presses Flash-hook before the Timed Release BYE timer expires.
+5=;Now C will go on-hook before A 
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CT_19]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_12]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+

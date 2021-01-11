@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<FormMap version="6.0.0.18638fa">
+    <samplesList>
+        <item name="formsample1">
+            <structure escape="true">
+                <WebDocument>
+                    <Document doctype="BaseDocument" id="BaseWebDocument" parent="" target="" url="http://10.255.224.62/Common/folder_contents.jsp?folder=U2&amp;menuId=0">
+                        <HTML>
+                            <HEAD>
+                                <SCRIPT language="JavaScript" src="/Scripts/graphics.js"/>
+                                <LINK href="/Common/styles.css" rel="stylesheet" type="text/css"/>
+                                <LINK href="/Graphics/Tropical/styles.css" rel="stylesheet" type="text/css"/>
+                                <TITLE>Incoming Calls</TITLE>
+                            </HEAD>
+                            <BODY bgproperties="fixed" leftmargin="30" marginheight="10" marginwidth="30" onload="initSelection()" topmargin="10">
+                                <SCRIPT src="/Scripts/deployJava.js"/>
+                                <SCRIPT language="JavaScript">
+var commpilot = null;
+var ac = null;
+var revisedCallManager = null;
+var onlineHelp = null;
+var helpFile = &quot;/Help/en_US/User/User_IncomingCalls_Menu.htm&quot;;
+
+// Launch the combined Call Manager / Attendant Console client
+function launchCallManagerClient()
+{
+  var uniqueId = &apos;&apos;;
+  var spId = &apos;null&apos;;
+
+  if ((revisedCallManager) &amp;amp;&amp;amp; !(revisedCallManager.closed))
+  {
+    revisedCallManager.focus();
+  }
+  else
+  {
+    revisedCallManager=window.open(&quot;/CallManager/CallManagerDownload.jsp?serviceProvID=&quot; + spId, uniqueId,
+                                   &quot;width=505,height=360,resizable=1,status=0,scrollbars=no&quot;);
+    revisedCallManager.focus();
+  }
+}
+
+function launchHelp()
+{
+   help = window.open(helpFile,&quot;onLineHelp&quot;);
+   help.focus();
+}
+
+function launchClientApplication(url)
+{
+  window.open(url);
+}
+
+function launchClientApplicationJWS(url)
+{
+  if(!deployJava.isWebStartInstalled(&quot;1.6.0_19&quot;))
+  {
+  \tif(deployJava.installJRE(&quot;1.6.0_19&quot;))
+    {
+      deployJava.launch(url);
+    }
+  }
+  else
+  {
+    deployJava.launch(url);
+  }
+}
+
+function selectedLinkChanged(selectedLink, ccUsesJWS, recUsesJWS) 
+{
+  var choice = selectedLink.options[selectedLink.selectedIndex].value;
+
+  if (choice == &quot;callmanager&quot;)
+  {
+    launchCallManagerClient();
+  }
+  else if(choice == &quot;callcenter&quot;)
+  {
+    if (ccUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/callcenter/callcenter.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=callcenter&quot;);
+    }
+  }
+  else if(choice == &quot;receptionist&quot;)
+  {
+    if (recUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/receptionist/receptionist.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=receptionist&quot;);
+    }
+  }
+
+  selectedLink.selectedIndex = 0;
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD align="center" colspan="3" valign="middle" width="100%"/>
+                                        </TR>
+                                        <TR>
+                                            <TD colspan="3" width="100%">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="2">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD align="left" class="headerBar" valign="middle">
+                                                                <IMG src="/conf/clientLogo.gif"/>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar" valign="middle">
+                                                                <A class="headerLink" href="javascript:launchHelp()">Help</A>
+
+
+
+
+
+
+
+
+
+       -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <A class="headerLink" href="/Common/folder_contents.jsp?menuId=4">Home</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="5" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=4">System</A>
+
+
+
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=2">TPAC-LabG6-2</A>
+
+
+
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=1">IAD-CAS-Test</A>
+
+
+
+
+
+
+
+
+        &gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Group/Members/">Users</A>
+
+
+
+
+
+
+
+
+        :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <SPAN class="headerAuthLevel" dir="ltr">
+                2076188912@lab-sv.telepacific.com</SPAN>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar">
+                                                                <SPAN class="headerBarWelcome">Welcome   </SPAN>
+                                                                <A class="headerLink" href="/servlet/Logout">[Logout]</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                                <SCRIPT language="JavaScript">
+// Try to close the window.  If we can&apos;t, logout.
+// Scripts aren&apos;t legally allowed to close a window that was not opened by a script,
+// but IE seems to allow it.  Firefox (Mozilla) doesn&apos;t.
+function userLogout ()
+{
+  window.close();   // IE will return here if user opts not to close window,
+  if (document.all) // and Mozilla browsers will return here because you can&apos;t close the window.
+    return;         // If we&apos;re running an IE browser.
+  top.location.replace(&quot;/servlet/Logout&quot;);
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD class="headandfoot" colspan="4" height="12"/>
+                                        </TR>
+
+
+
+
+
+
+
+
+
+\t                                                                                                                                                                                                                                                                                                                <TR>
+\t\t
+                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            <TD class="headandfoot" valign="top" width="18%">
+                                                <FORM method="post" name="leftNavForm">
+                                                    <B>
+                                                        <SCRIPT language="JavaScript">function addAltText(img, altText) {  img.alt = altText;}</SCRIPT>
+                                                        <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <TBODY>
+                                                                <TR>
+                                                                    <TD class="navOptions">Options:</TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U0&amp;menuId=0">Profile</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolderopen" nowrap="nowrap">
+                                                                        <IMG alt="" border="0" src="/Graphics/Tropical/ar.gif"/>
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <A class="leftnavfolderopen" href="/Common/folder_contents.jsp?folder=U2&amp;menuId=0">Incoming Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U3&amp;menuId=0">Outgoing Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U4&amp;menuId=0">Call Control</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U35&amp;menuId=0">Calling Plans</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U5&amp;menuId=0">Messaging</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U7&amp;menuId=0">Utilities</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U12&amp;menuId=0">Communication Barring</A>
+                                                                    </TD>
+                                                                </TR>
+                                                            </TBODY>
+                                                        </TABLE>
+                                                    </B>
+                                                </FORM>
+                                            </TD>
+                                            <TD class="headandfoot">
+                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="10"/>
+                                            </TD>
+                                            <TD valign="top">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0">
+                                                    <TBODY>
+                                                        <TR>
+\t\t\t
+                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <TD class="headandfoot">
+                                                                <IMG height="5" src="/Graphics/round-corner.gif" width="5"/>
+                                                            </TD>
+
+
+
+
+
+
+
+
+\t\t\t                                                                                                                                                                                                                                                                                                                                                                                                                                                </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                            <TD valign="top" width="82%">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD height="15"/>
+                                                        </TR>
+                                                        <SCRIPT language="JavaScript">
+         
+             helpFile = &quot;/Help/en_US/User/User_IncomingCalls_Menu.htm&quot;;
+         </SCRIPT>
+
+
+
+
+
+
+
+
+   \t\t                                                                                                                                                                                                                                                                                                                                                                                                                                                 <TR>
+                                                            <TD class="screenName">Incoming Calls</TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD height="5"/>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD>
+                                                                <SCRIPT language="JavaScript">function addAltText(img, altText) {  img.alt = altText;}</SCRIPT>
+                                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <TBODY>
+                                                                        <TR>
+                                                                            <TD align="LEFT" valign="TOP" width="50%">
+                                                                                <TABLE width="100%">
+                                                                                    <TBODY>
+                                                                                        <TR>
+                                                                                            <TD class="menuCategory">Basic</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/ExternalCLIDDelivery/" name="/User/ExternalCLIDDelivery/">External Calling Line ID Delivery - On</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Provides Calling Line ID information of an external caller.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/InternalCLIDDelivery/" name="/User/InternalCLIDDelivery/">Internal Calling Line ID Delivery - On</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Provide Calling Line ID information of group or enterprise member when called.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                    </TBODY>
+                                                                                </TABLE>
+                                                                            </TD>
+                                                                            <TD align="LEFT" valign="TOP" width="50%">
+                                                                                <TABLE width="100%">
+                                                                                    <TBODY>
+                                                                                        <TR>
+                                                                                            <TD class="menuCategory">Advanced</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD>None of the menu items in this category are enabled.</TD>
+                                                                                        </TR>
+                                                                                    </TBODY>
+                                                                                </TABLE>
+                                                                            </TD>
+                                                                        </TR>
+                                                                    </TBODY>
+                                                                </TABLE>
+                                                            </TD>
+                                                        </TR>
+
+
+
+
+
+
+
+
+         
+\t                                                                                                                                                                                                                                                                                                                                                                                                                   </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+
+
+
+
+
+
+
+
+\t                                                                                                                                                                                                                                                                                </TBODY>
+                                </TABLE>
+
+
+
+
+
+
+
+
+\t
+
+
+
+
+
+
+
+                                                                                                                                                                                                                </BODY>
+                        </HTML>
+                    </Document>
+                </WebDocument>
+            </structure>
+        </item>
+    </samplesList>
+    <targets>
+        <item name="link_CFNA">
+            <description>Link to the call forward no answer config page</description>
+            <queryFormatString>name=/User/CF/No_Answer/</queryFormatString>
+        </item>
+        <item name="link_SelectiveCallAcceptance">
+            <description>Link to the Selective Call Acceptance page</description>
+            <queryFormatString>name=/User/SCA/</queryFormatString>
+        </item>
+        <item name="link_SimultaneousRingPersonnel">
+            <description>Link to the Simultaneous RingPersonnel</description>
+            <queryFormatString>name=/User/SimRing/</queryFormatString>
+        </item>
+        <item name="link_SequentialRing">
+            <queryFormatString>name=/User/SeqRing/</queryFormatString>
+        </item>
+    </targets>
+</FormMap>

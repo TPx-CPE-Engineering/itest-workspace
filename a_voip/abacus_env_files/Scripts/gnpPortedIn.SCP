@@ -1,0 +1,143 @@
+[NTF_PF2n3_INODE_0170_B2]
+1=;Making a call to B1; Confirming RingBack; Doing Path Confirmation with B1;
+3=Make a call with CPD & Path Conf
+5=A:@:Release Call or Replace Handset [7]
+2=;Confirm B1 rings will be done through Line Monitor
+4=;Releasing the call after end of call Length
+6=End of script
+
+[NTF_PF2n3_INODE_0169_B1_b]
+1=;Answer the call and confirm that there is speech path between B1 and B2.
+3=;replace the handset at B1.
+5=End of script
+2=Path Confirmation for CL
+4=A:@:Release Call or Replace Handset [1]
+
+[NTF_PF2n3_INODE_0169_B2_a]
+1=;Check: Any wait required whether works or not
+2=;Do not answr the call at B2
+3=B:@:Wait for time on hook [20]
+4=End of script
+
+[NTF_PF2n3_INODE_0169_B2_b]
+3=;Confirm details of the last call are those made above
+7=;Check: Test does not stop due to simultaneous on Hook
+12=;Release the call
+4=B:@:Wait for silence [.5]
+8=B:@:Hook Flash
+13=B:@:Release Call or Replace Handset [7]
+1=;From B2 dial 1471 
+5=B:@:Wait for announcement [ABC]
+9=;Press 3 to return the cal and check that B1 rings
+10=;Line Monitor to ensure that B2 rings
+14=End of script
+2=B:@:Send a string [1471]
+6=;Do Hook Flash
+11=B:A:Send a string with CPD & Path Conf [3]
+
+[GotoActions__NTF_PF2n3_INODE_0170_B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_PF2n3_INODE_0169_B2_b]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[NTF_PF2n3_INODE_0168_B1]
+1=;Making a call to B1; Confirming RingBack; Doing Path Confirmation with B1;
+3=>Make a call with CPD & Path Conf
+5=A:@:Release Call or Replace Handset [7]
+2=;Confirm B1 rings will be done through Line Monitor
+4=;Releasing the call after end of call Length
+6=End of script
+
+[Actions]
+File=gnpPortedIn.ACT
+
+[NTF_PF2n3_INODE_0170_B1]
+1=;Verify DN of B2 displayed at B1 is same as before Ported In
+3=;Do destination side path confirmation
+5=;Replace handset
+7=End of script
+2=;Manual Step/ Action Unclear
+4=B:A:Path Confirmation for CL
+6=B:@:Release Call or Replace Handset [1]
+
+[NTF_PF2n3_INODE_0168_B2]
+1=;Do destination side path confirmation
+3=;Replace handset
+5=End of script
+2=>B:A:Path Confirmation for CL
+4=>B:@:Release Call or Replace Handset [1]
+
+[NTF_PF2n3_INODE_0169_B1_a]
+1=;Make a normal 2 way call attempt from B1 to B2
+3=Make a call and wait for ringback 
+5=;Clear the call from B1
+7=End of script
+2=;Confirming that B2 rings through Line Monitor
+4=;Check: Any wait required whether works or not
+6=A:@:Release Call or Replace Handset [10]
+
+[GotoActions__NTF_PF2n3_INODE_0168_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_PF2n3_INODE_0169_B1_a]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_PF2n3_INODE_0170_B1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_PF2n3_INODE_0168_B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__NTF_PF2n3_INODE_0169_B1_b]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__NTF_PF2n3_INODE_0169_B2_a]
+1=0
+2=0
+3=0
+4=0
+

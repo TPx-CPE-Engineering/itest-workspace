@@ -1,0 +1,2295 @@
+[GotoActions__IPTC - Nuisance Call Trace]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__IPTC - Call Barring]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__b goes on hook]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[demo - Call Forwarding]
+12=>A:@:Send string in DTMF [167]
+74=;>A:@:IPTC_On hook and wait time [15]
+69=;>A:@:IPTC_Voice pattern matching [IPTC_CFVMActivate]
+31=>B:@:Send string in DTMF [077791240]
+26=>A:@:Send string in DTMF [166]
+88=End of script
+9=;Call Forwarding No Answer
+50=>A:@:IPTC_On hook and wait time [1]
+45=>A:@:IPTC_Voice pattern matching [IPTC_CFIActivate_077791543_NZ]
+64=>A:@:IPTC_On hook and wait time [1]
+59=>A:@:IPTC_On hook and wait time [1]
+21=>C:B:IPTC_Do path confirmation for 30s
+16=;B calls A, A forward to C
+83=;B calls A
+78=;A Deactivate CFVM
+4=;D calls A, A answer
+40=>A:@:IPTC_On hook and wait time [30]
+35=;Cal Forwarding Immediate
+23=>B:@:IPTC_On hook and wait time [1]
+18=>C:@:AFT On hook wait for incoming call
+54=>B:@:IPTC_On hook and wait time [1]
+49=>C:@:AFT On hook wait for incoming call
+85=;>C:A:A calls B, DTMF, no dial tone, confirm for CL
+6=;A deactivate CFB
+11=>A:@:Wait for dial tone
+42=>A:@:Wait for dial tone
+37=>B:@:Wait for dial tone
+73=;>C:@:Send string in DTMF [077791240]
+68=;>A:@:Send string in DTMF [171]
+30=>B:@:Wait for dial tone
+25=>A:@:Wait for dial tone
+61=>B:@:Wait for dial tone
+56=>A:@:Wait for dial tone
+87=;>A:@:IPTC_On hook and wait time [1]
+8=;B calls A
+13=>A:@:Send string in DTMF [077791543]
+44=>A:@:Send string in DTMF [077791543]
+39=>B:@:IPTC_On hook and wait time [1]
+80=;>A:@:Send string in DTMF [170]
+75=;>C:@:5*IPTC_Send wave file [F0]
+1=;Written by IPTC - Nguyen Thuy Quynh
+32=>B:A:IPTC_Do path confirmation for 30s
+27=>A:@:IPTC_Voice pattern matching [IPTC_CFNADeactivate_NZ]
+63=>B:@:IPTC_On hook and wait time [1]
+58=>A:@:IPTC_Voice pattern matching [IPTC_CFIDeactivate_NZ]
+20=>A:@:IPTC_On hook and wait time [30]
+15=>A:@:IPTC_On hook and wait time [1]
+51=>B:@:Send string in DTMF [077791240]
+46=>A:@:IPTC_On hook and wait time [15]
+82=;>A:@:IPTC_On hook and wait time [1]
+77=;>A:@:IPTC_On hook and wait time [1]
+3=;A = 2, B = 9, C = 14, D = 4
+34=>A:@:IPTC_On hook and wait time [1]
+29=;B calls A
+70=;>A:@:IPTC_On hook and wait time [5]
+65=;Call Forwarding Voice Mail
+22=>C:@:IPTC_On hook and wait time [1]
+17=>B:@:Wait for dial tone
+53=>C:@:IPTC_On hook and wait time [1]
+48=>B:@:Wait for dial tone
+84=;>C:@:Wait for dial tone
+79=;>A:@:Wait for dial tone
+5=;B calls A while A busy with D, A forward to C
+10=;A activate CFNA
+41=;Activate CFI
+36=;B calls A
+72=;>C:@:Wait for dial tone
+67=;>A:@:Wait for dial tone
+24=;Deactivate CFNA
+19=>B:@:Send string in DTMF [077791240]
+60=;B calls A
+55=;Deactivate CFI
+86=;>C:@:IPTC_On hook and wait time [1]
+7=;>A:@:IPTC_Voice pattern matching [IPTC_CFBDeactive_NZ]
+43=>A:@:Send string in DTMF [161]
+38=>B:A:A calls B, DTMF, no dial tone, confirm for CL
+62=>B:A:A calls B, DTMF, no dial tone, confirm for CL
+57=>A:@:Send string in DTMF [160]
+14=>A:@:IPTC_Voice pattern matching [IPTC_CFNAActivate_077791543_NZ]
+81=;>A:@:IPTC_Voice pattern matching [IPTC_CFVMDeactivate]
+76=;>C:@:IPTC_On hook and wait time [1]
+2=;PLV-PLV-PLV
+33=>B:@:IPTC_On hook and wait time [1]
+28=>A:@:IPTC_On hook and wait time [1]
+52=>C:B:IPTC_Do path confirmation for 30s
+47=;B calls A, A forward to C
+71=;B calls A, A not answer, B sends msg to VM
+66=;A activate CFVM
+
+[IPTC - Conference Calling]
+7=>C:@:IPTC_Do hook flash and wait [0]
+12=>C:@:IPTC_Do hook flash and wait [1]
+38=End of script
+31=;Step 8b: A sends subsequent flash to join all parties together
+26=>B:@:AFT On hook wait for incoming call
+1=;Written by IPTC Singapore - Nguyen Thuy Quynh
+9=>C:@:Send string in DTMF [042291140#]
+14=;Step 6: A does hook flash, dial number of BUSY C, A hears busy tone
+32=>C:@:IPTC_Do hook flash and wait [3]
+27=>C:@:IPTC_Do hook flash and wait [0]
+2=;Conference Calling
+20=>C:@:Wait for busy
+15=>B:@:AFT Off Hook
+33=>C:A:IPTC_Do path confirmation for CL
+28=>C:@:IPTC_Voice pattern matching [IPTC_Conf_TID300]
+3=;Step 3: A calls B, successful
+21=;Step 7: A does hook flash and reconnects to B
+16=>C:@:IPTC_Do hook flash and wait [0]
+34=>C:B:IPTC_Do path confirmation for CL
+29=>C:@:Send string in DTMF [042291140#]
+4=>C:@:Wait for dial tone
+22=>C:@:IPTC_Do hook flash and wait [1]
+17=>C:@:IPTC_Voice pattern matching [IPTC_Conf_TID300]
+35=>C:@:IPTC_On hook and wait time [1]
+5=>C:A:A calls B, DTMF, no dial tone, confirm for CL
+10=;Step 5: A does hook flash before answer from C, A reconnects to B
+23=>B:@:IPTC_On hook and wait time [1]
+18=>C:@:Send string in DTMF [042291140#]
+36=>B:@:IPTC_On hook and wait time [1]
+6=;Step 4: A does hook flash, hears announcement and dial number of C
+11=>B:@:IPTC_On hook and wait time [10]
+24=>C:A:IPTC_Do path confirmation for CL
+19=>C:@:Wait for time in seconds [2]
+37=>A:@:IPTC_On hook and wait time [1]
+30=>B:C:IPTC_Do path confirmation for CL
+25=;Step 8a: A does hook flash, dial number of C, A&C successful
+8=>C:@:IPTC_Voice pattern matching [IPTC_Conf_TID300]
+13=>C:A:IPTC_Do path confirmation for CL
+
+[call to not answering subscriber]
+3=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+7=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+2=>B:@:on hook wait 50 sec
+4=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+11=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+9=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+10=>A:@:Wait for time in seconds [1]
+
+[IPTC - Changed number service]
+3=;>B:@:Send string in DTMF [077791990]
+7=>A:@:Wait for dial tone
+12=End of script
+2=;>B:@:Wait for dial tone
+4=;>B:@:IPTC_Voice pattern matching [123]
+6=;PLV call to CSN number, hear announcement
+8=>A:@:Send string in DTMF [077791990]
+11=>A:@:AFT On Hook and wait 1 sec
+1=;PSTN call to CSN number, hear announcement
+5=;>B:@:On hook
+9=;>A:@:Wait for time in seconds [25]
+10=>A:@:IPTC_Voice pattern matching [IPTC_CNS]
+
+[last caller return]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>B:@:Send string in DTMF [1]
+2=>A:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for time in seconds [20]
+8=>B:@:Wait for time in seconds [5]
+11=End of script
+1=>A calls B, DTMF, confirms for Call Length
+5=>A:@:Send string in DTMF [*81#]
+9=>A:@:AFT Off Hook
+10=>B:A:do path confirm for 30 sec
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[GotoActions__A calls B, send wave file]
+1=0
+2=0
+3=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__do path , wait for disconnect]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[IPTC - Call Barring National]
+1=;Written by IPTC - Nguyen Thuy Quynh
+3=>A:@:Wait for dial tone
+5=;>A:@:Wait for time in seconds [14]
+7=>A:@:IPTC_On hook and wait time [1]
+2=;M - Bar National - Call to National number
+4=>A:@:Send string in DTMF [042291142]
+6=>A:@:IPTC_Voice pattern matching [IPTC_BarNational]
+8=End of script
+
+[GotoActions__last caller return]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[GotoActions__IPTC - Simultaneous Ringing]
+7=0
+12=0
+43=0
+38=0
+31=0
+26=0
+9=0
+14=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+40=0
+35=0
+5=0
+10=0
+23=0
+18=0
+41=0
+36=0
+6=0
+11=0
+24=0
+19=0
+42=0
+37=0
+30=0
+25=0
+8=0
+13=0
+44=0
+39=0
+1=0
+32=0
+27=0
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[AFT: 3-way Calling]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__IPTC - Changed number service]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[do path , wait for disconnect]
+1=A calls B, SIP, confirms for Call Length
+2=A:@:wait for disconnect
+3=End of script
+
+[GotoActions__IPTC - Call Barring All Except Emergency]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__IPTC - Basic calls]
+12=0
+74=0
+69=0
+31=0
+26=0
+88=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+4=0
+40=0
+35=0
+23=0
+18=0
+54=0
+49=0
+85=0
+6=0
+11=0
+42=0
+37=0
+73=0
+68=0
+30=0
+25=0
+61=0
+56=0
+87=0
+8=0
+13=0
+44=0
+39=0
+80=0
+75=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+3=0
+34=0
+29=0
+70=0
+65=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+86=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+2=0
+33=0
+28=0
+52=0
+47=0
+71=0
+66=0
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__ACR]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__AFT: 3-way Calling]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__ICB/OCB]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__terminating script]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__IPTC - Call Barring National]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[IPTC - Basic calls]
+12=>A calls B, no dial tone, confirm for CL
+74=>A:@:Wait for time in seconds [8]
+69=>C:@:IPTC_On hook and wait time [1]
+31=;>B:@:Send string in DTMF [042201203]
+26=>C:@:Wait for time in seconds [8]
+88=End of script
+9=;POTS2POTS, A to B, Local, B releases
+50=;>D:@:on hookk
+45=;POTS2MOBILE, B releases
+64=;POTS2POTS, B to A, National, B releases
+59=>B:@:Send string in DTMF [2291140]
+21=>A:@:IPTC_On hook and wait time [1]
+16=;POTS2POTS, A to B, National,  A releases
+83=;>D:@:Wait for dial tone
+78=;>D:@:Wait for dial tone
+4=>A:@:Wait for dial tone
+40=;POTS2MOBILE,  A releases
+35=;>B:@:Wait for dial tone
+23=>C:@:Wait for dial tone
+18=>C:@:Send string in DTMF [042291140]
+54=>B:A:A calls B, no dial tone, confirm for CL
+49=;>B:@:Wait for time in seconds [8]
+85=;>D:B:A calls B, no dial tone, confirm for CL
+6=>A calls B, no dial tone, confirm for CL
+11=>A:@:Send string in DTMF [2291390]
+42=;>B:@:Send string in DTMF [099121008]
+37=;>B:D:A calls B, no dial tone, confirm for CL
+73=>A:C:A calls B, no dial tone, confirm for CL
+68=>A:@:IPTC_On hook and wait time [1]
+30=;>B:@:Wait for dial tone
+25=>C:A:A calls B, no dial tone, confirm for CL
+61=>B:@:Wait for time in seconds [8]
+56=>A:@:IPTC_On hook and wait time [1]
+87=;>B:@:on hookk
+8=>B:@:IPTC_On hook and wait time [1]
+13=>A:@:Wait for time in seconds [8]
+44=;>B:@:on hookk
+39=;>D:@:on hookk
+80=;>D:B:A calls B, no dial tone, confirm for CL
+75=>C:@:IPTC_On hook and wait time [1]
+1=;Written by Nguyen Thuy Quynh
+32=;>B:D:A calls B, no dial tone, confirm for CL
+27=>A:@:IPTC_On hook and wait time [1]
+63=>B:@:IPTC_On hook and wait time [1]
+58=>B:@:Wait for dial tone
+20=>C:@:IPTC_On hook and wait time [1]
+15=>A:@:IPTC_On hook and wait time [1]
+51=;POTS2POTS, B to A, Local, B releases
+46=;>B:@:Wait for dial tone
+82=;PSTN2POTS, B releases
+77=;PSTN2POTS, A releases
+3=;POTS2POTS, A to B, Local, A releases
+34=;POTS2PSTN, B releases
+29=;POTS2PSTN,  A releases
+70=;POTS2POTS, B to A, National, A releases
+65=>A:@:Wait for dial tone
+22=;POTS2POTS, A to B, National, B releases
+17=>C:@:Wait for dial tone
+53=>B:@:Send string in DTMF [2291140]
+48=;>B:D:A calls B, no dial tone, confirm for CL
+84=;>D:@:Send string in DTMF [042291490]
+79=;>D:@:Send string in DTMF [042291490]
+5=>A:@:Send string in DTMF [2291390]
+10=>A:@:Wait for dial tone
+41=;>B:@:Wait for dial tone
+36=;>B:@:Send string in DTMF [042291203]
+72=>A:@:Send string in DTMF [042291540]
+67=>A:C:A calls B, no dial tone, confirm for CL
+24=>C:@:Send string in DTMF [042291140]
+19=>C:A:A calls B, no dial tone, confirm for CL
+60=>B:A:A calls B, no dial tone, confirm for CL
+55=>B:@:IPTC_On hook and wait time [1]
+86=;>D:@:Wait for time in seconds [8]
+7=>A:@:IPTC_On hook and wait time [1]
+43=;>B:D:A calls B, no dial tone, confirm for CL
+38=;>B:@:Wait for time in seconds [8]
+62=>A:@:IPTC_On hook and wait time [1]
+57=;POTS2POTS, B to A, Local, A releases
+14=>B:@:IPTC_On hook and wait time [1]
+81=;>D:@:on hookk
+76=>A:@:IPTC_On hook and wait time [1]
+2=;IPTC Singapore
+33=;>B:@:on hookk
+28=>C:@:IPTC_On hook and wait time [1]
+52=>B:@:Wait for dial tone
+47=;>B:@:Send string in DTMF [099121008]
+71=>A:@:Wait for dial tone
+66=>A:@:Send string in DTMF [042291540]
+
+[IPTC - Call Forwarding]
+12=>B:@:Wait for dial tone
+74=>C:@:Send string in DTMF [077791240]
+69=>A:@:IPTC_On hook and wait time [15]
+31=>C:@:IPTC_On hook and wait time [1]
+26=;>A:@:IPTC_Voice pattern matching [IPTC_CFBDeactive_NZ]
+93=;>A:@:IPTC_On hook and wait time [5]
+88=;Call Forwarding Voice Mail
+107=;>C:@:Wait for dial tone
+9=;>A:@:IPTC_Voice pattern matching [IPTC_CFBActivate_077791543_NZ]
+50=>A:@:Send string in DTMF [166]
+45=>D:C:IPTC_Do path confirmation for 30s
+64=;Activate CFI
+59=;B calls A
+21=>A:@:IPTC_On hook and wait time [1]
+16=>D:@:AFT On hook wait for incoming call
+83=;B calls A
+78=;Deactivate CFI
+102=;>A:@:Wait for dial tone
+4=;Call Forwarding Busy
+40=;B calls A, A forward to C
+35=>A:@:Wait for dial tone
+97=;>A:@:IPTC_On hook and wait time [15]
+54=>C:@:Wait for dial tone
+49=>A:@:Wait for dial tone
+11=;D calls A, A answer
+73=>A:@:IPTC_On hook and wait time [1]
+68=;>A:@:IPTC_Voice pattern matching [IPTC_CFIActivate_077791543_NZ]
+30=>C:A:A calls B, DTMF, no dial tone, confirm for CL
+25=>A:@:Send string in DTMF [162]
+92=;>A:@:IPTC_Voice pattern matching [IPTC_CFVMActivate]
+87=>A:@:IPTC_On hook and wait time [1]
+111=End of script
+106=;B calls A
+8=>A:@:Send string in DTMF [077791543]
+44=>A:@:IPTC_On hook and wait time [90]
+39=>A:@:IPTC_On hook and wait time [1]
+63=>A:@:IPTC_On hook and wait time [30]
+58=;Cal Forwarding Immediate
+20=>C:@:IPTC_On hook and wait time [1]
+15=>C:@:Wait for dial tone
+82=>A:@:IPTC_On hook and wait time [1]
+77=>C:@:IPTC_On hook and wait time [1]
+101=;A Deactivate CFVM
+3=;A = 2, B = 9, C = 14, D = 4
+34=;A activate CFNA
+29=>C:@:Wait for dial tone
+70=;B calls A, A forward to C
+65=>A:@:Wait for dial tone
+96=;>C:@:Send string in DTMF [077791240]
+22=>B:@:IPTC_On hook and wait time [1]
+17=>C:@:Send string in DTMF [077791240]
+53=;B calls A
+48=;Deactivate CFNA
+84=>C:@:Wait for dial tone
+79=>A:@:Wait for dial tone
+103=;>A:@:Send string in DTMF [170]
+5=;A activate CFB
+10=>A:@:IPTC_On hook and wait time [1]
+41=>C:@:Wait for dial tone
+36=>A:@:Send string in DTMF [167]
+72=>D:@:AFT On hook wait for incoming call
+67=>A:@:Send string in DTMF [077791543]
+98=;>C:@:5*IPTC_Send wave file [F0]
+24=>A:@:Wait for dial tone
+19=>D:@:IPTC_On hook and wait time [1]
+60=>C:@:Wait for dial tone
+55=>C:A:A calls B, DTMF, no dial tone, confirm for CL
+91=;>A:@:Send string in DTMF [171]
+86=>C:@:IPTC_On hook and wait time [1]
+110=;>A:@:IPTC_On hook and wait time [1]
+105=;>A:@:IPTC_On hook and wait time [1]
+7=>A:@:Send string in DTMF [163]
+43=>C:@:Send string in DTMF [077791240]
+38=;>A:@:IPTC_Voice pattern matching [IPTC_CFNAActivate_077791543_NZ]
+62=>C:@:IPTC_On hook and wait time [1]
+57=>A:@:IPTC_On hook and wait time [1]
+14=;B calls A while A busy with D, A forward to C
+81=;>A:@:IPTC_Voice pattern matching [IPTC_CFIDeactivate_NZ]
+76=>D:@:IPTC_On hook and wait time [1]
+100=;>A:@:IPTC_On hook and wait time [1]
+2=;PLV-PLV-PLV
+33=;Call Forwarding No Answer
+28=;B calls A
+95=;>C:@:Wait for dial tone
+109=;>C:@:IPTC_On hook and wait time [1]
+52=>A:@:IPTC_On hook and wait time [1]
+47=>C:@:IPTC_On hook and wait time [1]
+71=>C:@:Wait for dial tone
+66=>A:@:Send string in DTMF [161]
+23=;A deactivate CFB
+18=>D:C:IPTC_Do path confirmation for 30s
+90=;>A:@:Wait for dial tone
+85=>C:A:A calls B, DTMF, no dial tone, confirm for CL
+104=;>A:@:IPTC_Voice pattern matching [IPTC_CFVMDeactivate]
+6=>A:@:Wait for dial tone
+42=>D:@:AFT On hook wait for incoming call
+37=>A:@:Send string in DTMF [077791543]
+99=;>C:@:IPTC_On hook and wait time [1]
+61=>C:A:A calls B, DTMF, no dial tone, confirm for CL
+56=>C:@:IPTC_On hook and wait time [1]
+13=>B:A:A calls B, DTMF, no dial tone, confirm for CL
+80=>A:@:Send string in DTMF [160]
+75=>D:C:IPTC_Do path confirmation for 30s
+1=;Written by IPTC - Nguyen Thuy Quynh
+32=>A:@:IPTC_On hook and wait time [1]
+27=>A:@:IPTC_On hook and wait time [1]
+94=;B calls A, A not answer, B sends msg to VM
+89=;A activate CFVM
+108=;>C:A:A calls B, DTMF, no dial tone, confirm for CL
+51=;>A:@:IPTC_Voice pattern matching [IPTC_CFNADeactivate_NZ]
+46=>D:@:IPTC_On hook and wait time [1]
+
+[A calls B (no dial tone, DTMF) for Call Length]
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, DTMF, no dial tone, confirm for CL
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__IPTC - Call Blocking]
+12=0
+31=0
+26=0
+62=0
+57=0
+9=0
+14=0
+50=0
+45=0
+2=0
+33=0
+28=0
+64=0
+59=0
+21=0
+16=0
+52=0
+47=0
+4=0
+40=0
+35=0
+66=0
+23=0
+18=0
+54=0
+49=0
+6=0
+11=0
+42=0
+37=0
+30=0
+25=0
+61=0
+56=0
+8=0
+13=0
+44=0
+39=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=0
+15=0
+51=0
+46=0
+3=0
+34=0
+29=0
+65=0
+22=0
+17=0
+53=0
+48=0
+5=0
+10=0
+41=0
+36=0
+67=0
+24=0
+19=0
+60=0
+55=0
+7=0
+43=0
+38=0
+
+[IPTC - Call Barring]
+3=>B:@:Wait for dial tone
+7=;V - Bar Mobile - Call to National number
+12=End of script
+2=;U- Bar Mobile - Call to Mobile
+4=>B:@:Send string in DTMF [0274022003]
+6=>B:@:On hook
+8=>B:@:Wait for dial tone
+11=>A:@:On hook
+1=;Written by IPTC - Nguyen Thuy Quynh
+5=>B:@:IPTC_Voice pattern matching [123]
+9=>B:A:A calls B, DTMF, no dial tone, confirm for CL
+10=>B:@:On hook
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[A calls B do path confirms and wait]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=A:@:Wait for time in seconds [10]
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+15=End of script
+
+[GotoActions__IPTC - Call Forwarding]
+12=0
+74=0
+69=0
+31=0
+26=0
+93=0
+88=0
+107=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+102=0
+4=0
+40=0
+35=0
+97=0
+54=0
+49=0
+11=0
+73=0
+68=0
+30=0
+25=0
+92=0
+87=0
+111=0
+106=0
+8=0
+44=0
+39=0
+63=0
+58=0
+20=0
+15=0
+82=0
+77=0
+101=0
+3=0
+34=0
+29=0
+70=0
+65=0
+96=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+103=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+98=0
+24=0
+19=0
+60=0
+55=0
+91=0
+86=0
+110=0
+105=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+100=0
+2=0
+33=0
+28=0
+95=0
+109=0
+52=0
+47=0
+71=0
+66=0
+23=0
+18=0
+90=0
+85=0
+104=0
+6=0
+42=0
+37=0
+99=0
+61=0
+56=0
+13=0
+80=0
+75=0
+1=0
+32=0
+27=0
+94=0
+89=0
+108=0
+51=0
+46=0
+
+[IPTC - test A calls B - terminate]
+1=>A:@:AFT On hook wait for incoming call
+2=>A:@:AFT B is off hook and sends QoM wav file [0,F0]
+3=>A:@:IPTC_On hook and wait time [1]
+4=End of script
+
+[GotoActions__IPTC - Automatic Recall]
+12=0
+74=0
+69=0
+31=0
+26=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+78=0
+4=0
+40=0
+35=0
+71=0
+66=0
+23=0
+18=0
+54=0
+49=0
+6=0
+11=0
+42=0
+37=0
+73=0
+68=0
+30=0
+25=0
+61=0
+56=0
+8=0
+13=0
+44=0
+39=0
+80=0
+75=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+3=0
+34=0
+29=0
+70=0
+65=0
+22=0
+17=0
+53=0
+48=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+2=0
+33=0
+28=0
+52=0
+47=0
+
+[IPTC - Number Migration/Porting]
+7=;B - PLV to Migrated
+12=;C - Migrated to PSTN
+43=;>C:@:Wait for dial tone
+38=>A:@:Wait for dial tone
+31=;>C:@:On hook
+26=>A:@:AFT On Hook and wait 1 sec
+9=>D:A:A calls B, DTMF, no dial tone, confirm for CL
+14=;>A:E:A calls B, DTMF, no dial tone, confirm for CL
+50=>C:@:AFT On Hook and wait 1 sec
+45=;>C:@:On hook
+2=;A - PSTN to migrated
+33=>D:@:Wait for dial tone
+28=;>E:@:Wait for dial tone
+21=>D:@:AFT On Hook and wait 1 sec
+16=;>E:@:On hook
+52=End of script
+47=;J - Ported to PLV
+4=;>E:A:A calls B, DTMF, no dial tone, confirm for CL
+22=;E - Migrated to Migrated
+17=;D - Migrated to PLV
+40=>A:@:AFT On Hook and wait 1 sec
+35=>D:@:AFT On Hook and wait 1 sec
+48=>C:@:Wait for dial tone
+5=;>E:@:On hook
+10=>D:@:AFT On Hook and wait 1 sec
+23=>B:@:Wait for dial tone
+18=>A:@:Wait for dial tone
+41=>C:@:AFT On Hook and wait 1 sec
+36=>C:@:AFT On Hook and wait 1 sec
+49=>C:D:A calls B, DTMF, no dial tone, confirm for CL
+6=;>A:@:On hook
+11=>A:@:AFT On Hook and wait 1 sec
+24=>B:A:A calls B, DTMF, no dial tone, confirm for CL
+19=>A:D:A calls B, DTMF, no dial tone, confirm for CL
+42=;I - Ported to PSTN
+37=;H - Migrated to Ported
+30=;>E:@:On hook
+25=>B:@:AFT On Hook and wait 1 sec
+8=>D:@:Wait for dial tone
+13=;>A:@:Wait for dial tone
+44=;>C:E:A calls B, DTMF, no dial tone, confirm for CL
+39=>A:C:A calls B, DTMF, no dial tone, confirm for CL
+1=;Written by IPTC - Nguyen Thuy Quynh
+32=;G - PLV to Ported
+27=;F - PSTN to Ported
+20=>A:@:AFT On Hook and wait 1 sec
+15=;>A:@:On hook
+51=>D:@:AFT On Hook and wait 1 sec
+46=;>E:@:On hook
+3=;>E:@:Wait for dial tone
+34=>D:C:A calls B, DTMF, no dial tone, confirm for CL
+29=;>E:C:A calls B, DTMF, no dial tone, confirm for CL
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[b goes on hook]
+1=>A calls B, DTMF, confirms for Call Length
+3=>B:@:B goes on hook
+5=>B:@:on hook wait 90 sec
+2=>A:@:B goes on hook
+4=>A calls B, DTMF, confirms for Call Length
+6=End of script
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[originating script]
+1=>A:@:A calls B, SIP
+3=>A:@:Wait for time in seconds [3]
+5=End of script
+2=>Do path confirmation for ? s
+4=>A:@:A waits for disconnect
+
+[GotoActions__IPTC - test A calls B - originate]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[IPTC - Nuisance Call Trace]
+1=;Written by IPTC Singapore - Nguyen Thuy Quynh
+3=>A:@:Wait for dial tone
+5=>A:@:IPTC_On hook and wait time [1]
+7=End of script
+2=;Nuisance Call Trace
+4=>A calls B, DTMF, no dial tone, confirm for CL
+6=>B:@:IPTC_On hook and wait time [1]
+
+[GotoActions__Confirm for Call Length]
+1=0
+2=0
+3=0
+
+[GotoActions__call to unreachable subscriber]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[call to busy subscriber]
+1=>B:C:A calls B, DTMF, confirms once
+2=>A:C:AFT A calls B, DTMF
+3=>A:@:Wait for busy
+4=End of script
+
+[GotoActions__IPTC - Conference Calling]
+7=0
+12=0
+38=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+35=0
+5=0
+10=0
+23=0
+18=0
+36=0
+6=0
+11=0
+24=0
+19=0
+37=0
+30=0
+25=0
+8=0
+13=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[IPTC - Call Barring Mobile]
+3=>A:@:Wait for dial tone
+7=;V - Bar Mobile - Call to PSTN National number
+12=End of script
+2=;U- Bar Mobile - Call to Mobile
+4=>A:@:Send string in DTMF [0274022003]
+6=>A:@:IPTC_On hook and wait time [3]
+8=;>A:@:Wait for dial tone
+11=;>B:@:IPTC_On hook and wait time [1]
+1=;Written by IPTC - Nguyen Thuy Quynh
+5=>A:@:IPTC_Voice pattern matching [iPTC_BarMobile]
+9=;>A calls B, DTMF, no dial tone, confirm for CL
+10=;>A:@:IPTC_On hook and wait time [1]
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[GotoActions__call to not answering subscriber]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[IPTC - Call Blocking]
+12=>C:@:IPTC_On hook and wait time [3]
+31=>D:@:Wait for dial tone
+26=>A:@:Wait for dial tone
+62=;Deactivate SCA
+57=>A:@:Wait for dial tone
+9=>C:@:Wait for dial tone
+14=;>A:@:Wait for dial tone
+50=>D:@:IPTC_On hook and wait time [5]
+45=>A:@:IPTC_On hook and wait time [5]
+2=;IPTC Singapore
+33=>D:A:A calls B, no dial tone, confirm for CL
+28=>A:@:IPTC_Voice pattern matching [IPTC_SCRActive]
+64=>D:@:Send string in DTMF [1841]
+59=>A:D:A calls B, no dial tone, confirm for CL
+21=>C:@:Send string in DTMF [077791543]
+16=;>A:E:A calls B, no dial tone, confirm for CL
+52=>B:@:Wait for dial tone
+47=>D:@:Wait for dial tone
+4=>A:@:Wait for dial tone
+40=>B:@:IPTC_On hook and wait time [5]
+35=>A:@:IPTC_On hook and wait time [5]
+66=>D:@:IPTC_On hook and wait time [1]
+23=>C:@:IPTC_On hook and wait time [1]
+18=;>E:@:IPTC_On hook and wait time [1]
+54=>B:@:IPTC_Voice pattern matching [IPTC_Blocked]
+49=>D:@:IPTC_Voice pattern matching [IPTC_SCAActive]
+6=>A:@:IPTC_Voice pattern matching [IPTC_Blocked]
+11=>C:@:IPTC_Voice pattern matching [IPTC_Blocked]
+42=>A:@:Wait for dial tone
+37=>B:@:Wait for dial tone
+30=;SCR, Subscriber not listed
+25=;Activate SCR
+61=>D:@:IPTC_On hook and wait time [5]
+56=;SCA, Subscriber listed
+8=;B - Block All, National call
+13=;E - Block International,  PSTN Local 7 digits
+44=>A:@:IPTC_Voice pattern matching [IPTC_SCRDeactivate]
+39=>B:@:IPTC_Voice pattern matching [IPTC_Blocked]
+1=;Written by Nguyen Thuy Quynh
+32=>D:@:Send string in DTMF [077791040]
+27=>A:@:Send string in DTMF [1842]
+63=>D:@:Wait for dial tone
+58=>A:@:Send string in DTMF [077791540]
+20=>C:@:Wait for dial tone
+15=;>A:@:Send string in DTMF [7791543]
+51=;SCA, Subscriber not listed
+46=;Activate SCA
+3=;A - Block All, Local 7 digits
+34=>D:@:IPTC_On hook and wait time [1]
+29=>A:@:IPTC_On hook and wait time [5]
+65=>D:@:IPTC_Voice pattern matching [IPTC_SCADeactivate]
+22=>C:E:A calls B, no dial tone, confirm for CL
+17=;>A:@:IPTC_On hook and wait time [1]
+53=>B:@:Send string in DTMF [077791540]
+48=>D:@:Send string in DTMF [1840]
+5=>A:@:Send string in DTMF [7791542]
+10=>C:@:Send string in DTMF [077791542]
+41=;Deactivate SCR
+36=;SCR, Subscriber listed
+67=End of script
+24=>E:@:IPTC_On hook and wait time [1]
+19=;F - Block International, National call
+60=>A:@:IPTC_On hook and wait time [1]
+55=>B:@:IPTC_On hook and wait time [5]
+7=>A:@:IPTC_On hook and wait time [3]
+43=>A:@:Send string in DTMF [1843]
+38=>B:@:Send string in DTMF [077791040]
+
+[GotoActions__IPTC - Call Barring Mobile]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[IPTC - test A calls B - originate]
+1=>A:@:Wait for dial tone
+3=>A:@:Wait for time in seconds [2]
+5=>A:@:IPTC_On hook and wait time [1]
+2=>A:@:Send string in DTMF [077791240]
+4=>A:@:A is off hook and waits for QoM wav file [F0]
+6=End of script
+
+[GotoActions__IPTC - Number Migration/Porting]
+7=0
+12=0
+43=0
+38=0
+31=0
+26=0
+9=0
+14=0
+50=0
+45=0
+2=0
+33=0
+28=0
+21=0
+16=0
+52=0
+47=0
+4=0
+22=0
+17=0
+40=0
+35=0
+48=0
+5=0
+10=0
+23=0
+18=0
+41=0
+36=0
+49=0
+6=0
+11=0
+24=0
+19=0
+42=0
+37=0
+30=0
+25=0
+8=0
+13=0
+44=0
+39=0
+1=0
+32=0
+27=0
+20=0
+15=0
+51=0
+46=0
+3=0
+34=0
+29=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[IPTC - Automatic Recall]
+12=>A:C:A calls B, no dial tone, confirm for CL
+74=>C:@:IPTC_On hook and wait time [1]
+69=;Step 16: B calls A, answer, B releases
+31=;Step 10-12: A dial 1888, B answer, B releases
+26=>A:@:Send string in DTMF [042291540]
+9=;Step 4-5: B calls A, release
+50=>C:@:IPTC_On hook and wait time [1]
+45=>C:@:IPTC_On hook and wait time [1]
+64=>C:@:Send string in DTMF [1]
+59=>A:@:Send string in DTMF [042291142]
+21=>A:C:IPTC_Do path confirmation for 30s
+16=>C:@:Wait for dial tone
+78=>C:@:IPTC_Voice pattern matching [IPTC_AR_Accept_TID704_NZ]
+4=>C:@:Wait for dial tone
+40=;Step 13: C calls A, release
+35=>C:@:IPTC_Voice pattern matching [IPTC_AR_Accept_TID704_NZ]
+71=>A:@:Send string in DTMF [042291540]
+66=>C:@:IPTC_On hook and wait time [1]
+23=>C:@:IPTC_On hook and wait time [1]
+18=>C:@:Send string in DTMF [1888]
+54=>A:C:A calls B, no dial tone, confirm for CL
+49=>C:@:IPTC_Voice pattern matching [IPTC_AR_NotAccept_TID706_NZ]
+6=>C:A:A calls B, no dial tone, confirm for CL
+11=>A:@:Send string in DTMF [042291540]
+42=>B:@:Send string in DTMF [042291540]
+37=>A:C:IPTC_Do path confirmation for 30s
+73=>A:@:IPTC_On hook and wait time [1]
+68=>B:@:IPTC_On hook and wait time [3]
+30=>C:@:IPTC_On hook and wait time [1]
+25=>A:@:Wait for dial tone
+61=>C:@:Wait for dial tone
+56=>C:@:IPTC_On hook and wait time [1]
+8=>A:@:IPTC_On hook and wait time [1]
+13=>A:@:IPTC_On hook and wait time [1]
+44=>B:@:IPTC_On hook and wait time [1]
+39=>C:@:IPTC_On hook and wait time [1]
+80=>A:@:IPTC_On hook and wait time [190]
+75=;Step 21-23: A dial 1888, 1, B no answer until timeout, A clear
+1=;Written by Nguyen Thuy Quynh
+32=>C:@:Wait for dial tone
+27=>C:@:IPTC_On hook and wait time [10]
+63=>C:@:IPTC_Voice pattern matching [IPTC_AR_Accept_TID704_NZ]
+58=>A:@:Wait for dial tone
+20=>C:@:Send string in DTMF [1]
+15=;Step 6-8: A dial 1888, B answer, A release
+51=;Step 16: B calls A, answer, B releases
+46=;Step 14-15: A dial 1888, hangup
+82=End of script
+77=>C:@:Send string in DTMF [1888]
+3=;Step 2-3: A calls B, release
+34=>C:@:Send string in DTMF [1888]
+29=>A:@:IPTC_On hook and wait time [1]
+70=>A:@:Wait for dial tone
+65=>C:@:Wait for busy
+22=>A:@:IPTC_On hook and wait time [1]
+17=>A:@:AFT On hook wait for incoming call
+53=>A:@:Send string in DTMF [042291540]
+48=>C:@:Send string in DTMF [1888]
+79=>C:@:Send string in DTMF [1]
+5=>C:@:Send string in DTMF [042291140]
+10=>A:@:Wait for dial tone
+41=>B:@:Wait for dial tone
+36=>C:@:Send string in DTMF [1]
+72=>A:C:A calls B, no dial tone, confirm for CL
+67=>A:@:IPTC_On hook and wait time [3]
+24=;Step 9: B calls A, B abandon
+19=>C:@:IPTC_Voice pattern matching [IPTC_AR_Accept_TID704_NZ]
+60=>A calls B, no dial tone, confirm for CL
+55=>A:@:IPTC_On hook and wait time [1]
+7=>C:@:IPTC_On hook and wait time [1]
+43=>B:C:A calls B, no dial tone, confirm for CL
+38=>A:@:IPTC_On hook and wait time [1]
+62=>C:@:Send string in DTMF [1888]
+57=;--> temp cmt - Step 17-20: A dial 1888 while B busy, hear busy tone
+14=>C:@:IPTC_On hook and wait time [1]
+81=>C:@:IPTC_On hook and wait time [1]
+76=>C:@:Wait for dial tone
+2=;IPTC Singapore
+33=>A:@:AFT On hook wait for incoming call
+28=>A:@:Wait for time in seconds [5]
+52=>A:@:Wait for dial tone
+47=>C:@:Wait for dial tone
+
+[IPTC - Call Barring All Except Emergency & Call Barring Local]
+7=;B - Bar All- Call to National number
+12=;C - Bar All - Call to Mobile
+8=>A:@:Wait for dial tone
+13=>A:@:Wait for dial tone
+1=;Written by IPTC - Nguyen Thuy Quynh
+5=>A:@:IPTC_Voice pattern matching [IPTC_BarOutbound]
+9=>A:@:Send string in DTMF [042291140]
+10=>A:@:IPTC_Voice pattern matching [IPTC_BarOutbound]
+14=>A:@:Send string in DTMF [0274022003]
+18=>B:@:Wait for dial tone
+2=;A - Bar All - Call Local 7 digit - Announcement
+6=>A:@:IPTC_On hook and wait time [3]
+11=>A:@:IPTC_On hook and wait time [3]
+20=>B:@:IPTC_Voice pattern matching [IPTC_BarLocal]
+15=>A:@:IPTC_Voice pattern matching [IPTC_BarOutbound]
+19=>B:@:Send string in DTMF [7791240]
+3=>A:@:Wait for dial tone
+21=>B:@:On hook
+16=>A:@:IPTC_On hook and wait time [1]
+4=>A:@:Send string in DTMF [7791040]
+22=End of script
+17=;I - Bar Local - Call to Local 7 digit
+
+[A calls B, send wave file]
+1=A calls B
+2=A:@:20*Send wave file
+3=End of script
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[IPTC - Simultaneous Ringing]
+7=>D:@:IPTC_On hook and wait time [3]
+12=>A:@:Wait for dial tone
+43=>D:@:IPTC_On hook and wait time [3]
+38=>C:@:Wait for dial tone
+31=>B:@:AFT On hook wait for incoming call
+26=>A:@:IPTC_On hook and wait time [3]
+9=>A:@:IPTC_On hook and wait time [3]
+14=>C:@:IPTC_On hook and wait time [5]
+2=;Simultaneous Ringing
+20=;A3 - PLV RGW 4 calls to A, C answer
+15=>A:@:Send string in DTMF [077791541]
+33=>B:C:IPTC_Do path confirmation for CL
+28=>B:@:IPTC_On hook and wait time [3]
+3=;A1 - PLV RGW 4 calls to A, A answer
+21=>A:@:Wait for dial tone
+16=>B:A:IPTC_Do path confirmation for CL
+34=>C:@:IPTC_On hook and wait time [3]
+29=;C - A calls to LA, B answer
+4=>A:@:Wait for dial tone
+22=>D:@:AFT On hook wait for incoming call
+17=>A:@:IPTC_On hook and wait time [3]
+40=>C:@:Send string in DTMF [7791545]
+35=>B:@:IPTC_On hook and wait time [3]
+5=>A:@:Send string in DTMF [077791541]
+10=>C:@:IPTC_On hook and wait time [3]
+23=>C:@:IPTC_On hook and wait time [5]
+18=>B:@:IPTC_On hook and wait time [3]
+41=>D:C:IPTC_Do path confirmation for CL
+36=>D:@:IPTC_On hook and wait time [3]
+6=>B:@:IPTC_On hook and wait time [3]
+11=;A2 - PLV RGW 4 calls to A, B answer
+24=>A:@:Send string in DTMF [077791541]
+19=>D:@:IPTC_On hook and wait time [3]
+42=>C:@:IPTC_On hook and wait time [3]
+37=;C - A calls to LA, C answer
+30=>C:@:Wait for dial tone
+25=>D:A:IPTC_Do path confirmation for CL
+8=>C:A:IPTC_Do path confirmation for CL
+13=>B:@:AFT On hook wait for incoming call
+44=End of script
+39=>D:@:AFT On hook wait for incoming call
+1=;Written by IPTC - Nguyen Thuy Quynh
+32=>C:@:Send string in DTMF [7791545]
+27=>D:@:IPTC_On hook and wait time [3]
+
+[GotoActions__IPTC - Call Barring Local]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[GotoActions__IPTC - Call Barring All Except Emergency & Call Barring Local]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[A calls B (DTMF) and confirms for Call Length]
+7=; Configure the phone numbers for the channels in
+12=A:@:AFT Off hook wait for dial tone
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=AFT A calls B, DTMF
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=do path confirm for 30 sec
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+15=A:@:AFT Off Hook
+3=; is determined by the parameter you specify
+16=B:@:AFT Off Hook
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[terminating script]
+1=;>B goes offhook
+3=>A:@:Wait for time in seconds [5]
+5=End of script
+2=>Do path confirmation for ? s
+4=>A:@:B goes on hook
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[GotoActions__send noise for 40 sec]
+1=0
+2=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__originating script]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[IPTC - Call Barring All Except Emergency]
+7=;B - Bar All- Call to National number
+12=;C - Bar All - Call to Mobile
+8=>A:@:Wait for dial tone
+13=>A:@:Wait for dial tone
+1=;Written by IPTC - Nguyen Thuy Quynh
+5=>A:@:IPTC_Voice pattern matching [BarOutbound]
+9=>A:@:Send string in DTMF [042291140]
+10=>A:@:IPTC_Voice pattern matching [barOutbound]
+14=>A:@:Send string in DTMF [0274022003]
+18=>B:@:Wait for dial tone
+2=;A - Bar All - Call Local 7 digit - Announcement
+6=>A:@:IPTC_On hook and wait time [3]
+11=>A:@:IPTC_On hook and wait time [3]
+20=;>B:@:IPTC_Voice pattern matching [123]
+15=>A:@:IPTC_Voice pattern matching [barOutbound]
+19=>B:@:Send string in DTMF [7791240]
+3=>A:@:Wait for dial tone
+21=>B:@:On hook
+16=>A:@:IPTC_On hook and wait time [1]
+4=>A:@:Send string in DTMF [7791040]
+22=End of script
+17=;I - Bar Local - Call to Local 7 digit
+
+[Confirm for Call Length]
+1=Do path confirm for 40 sec
+2=A:@:B goes on hook
+3=End of script
+
+[IPTC - Call Barring Local]
+1=;Written by IPTC - Nguyen Thuy Quynh
+3=>A:@:Wait for dial tone
+5=;>A:@:Wait for time in seconds [15]
+7=>A:@:IPTC_On hook and wait time [1]
+2=;I - Bar Local - Call to Local 7 digit
+4=>A:@:Send string in DTMF [7791240]
+6=>A:@:IPTC_Voice pattern matching [IPTC_BarLocal]
+8=End of script
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__IPTC - test A calls B - terminate]
+1=0
+2=0
+3=0
+4=0
+
+[send noise for 40 sec]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[ACR]
+3=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+7=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+2=>A:@:Wait for time in seconds [15]
+4=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+11=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+9=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+10=>A:@:Wait for time in seconds [1]
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__call to busy subscriber]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[ICB/OCB]
+3=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+7=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+12=>B:A:AFT A calls B, DTMF
+4=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+8=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+13=>A:@:wait on hook 10 sec
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+9=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+10=>A:@:on hookk
+14=>B:@:Wait for time in seconds [10]
+2=>B:@:wait on hook 10 sec
+6=>A:@:Wait for time in seconds [1]
+11=>B:@:on hookk
+15=End of script
+
+[call to unreachable subscriber]
+3=>A:@:Wait for time in seconds [15]
+7=>A:@:Wait for time in seconds [1]
+12=End of script
+2=>A:@:Send string in DTMF [053999999]
+4=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+6=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+8=>A:@:Wait for 2 tones for ?? seconds [950,0,0.33]
+11=>A:@:Wait for time in seconds [1]
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+9=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.33]
+10=>A:@:Wait for 2 tones for ?? seconds [1800,0,0.33]
+
+[GotoActions__demo - Call Forwarding]
+12=0
+74=0
+69=0
+31=0
+26=0
+88=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+4=0
+40=0
+35=0
+23=0
+18=0
+54=0
+49=0
+85=0
+6=0
+11=0
+42=0
+37=0
+73=0
+68=0
+30=0
+25=0
+61=0
+56=0
+87=0
+8=0
+13=0
+44=0
+39=0
+80=0
+75=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+3=0
+34=0
+29=0
+70=0
+65=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+86=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+2=0
+33=0
+28=0
+52=0
+47=0
+71=0
+66=0
+
+[GotoActions__A calls B do path confirms and wait]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+

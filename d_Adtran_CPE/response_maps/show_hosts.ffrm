@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.1.0.201912080816">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show hosts</body>
+                </command>
+            </action>
+            <responseBody>Name/address lookup uses domain name service
+DNS Proxy is disabled
+Default domain is lab-sv.telepacific.com
+Domain list domains are lab-sv.telepacific.com
+Current DNS client server is 3.3.3.3
+Current DNS proxy server is 3.3.3.3
+Name servers are 3.3.3.3, 10.255.224.175, 10.255.224.176
+There are currently no hosts
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Name/address lookup uses domain name service&lt;/responseLine&gt;
+    &lt;promptName&gt;priv&lt;/promptName&gt;
+    &lt;echo&gt;show hosts&lt;/echo&gt;
+    &lt;prompt&gt;iTest_FXS_VC#&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.3</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Name servers are\\s+</regex>
+                            <start>0</start>
+                            <end>17</end>
+                        </item>
+                        <item name="Name_servers_are">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>17</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>,\\s+</regex>
+                            <start>24</start>
+                            <end>26</end>
+                        </item>
+                        <item name="group1">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>40</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>,\\s+</regex>
+                            <start>40</start>
+                            <end>42</end>
+                        </item>
+                        <item name="group2">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>42</start>
+                            <end>56</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Name servers are 3.3.3.3, 10.255.224.175, 10.255.224.176</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Default domain is\\s+</regex>
+                            <start>0</start>
+                            <end>18</end>
+                        </item>
+                        <item name="Default_domain">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>18</start>
+                            <end>40</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Default domain is lab-sv.telepacific.com</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="pattern3">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Domain list domains are\\s+</regex>
+                            <start>0</start>
+                            <end>24</end>
+                        </item>
+                        <item name="Domain_list_domains_are">
+                            <regex>.+</regex>
+                            <named>true</named>
+                            <start>24</start>
+                            <end>46</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Domain list domains are lab-sv.telepacific.com</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show hosts">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

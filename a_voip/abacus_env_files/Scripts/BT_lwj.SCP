@@ -1,0 +1,2190 @@
+[SCR PESQ CFU Config 1 A SS1]
+1=>A:@:ACT ##############################
+3=>A:@:ACT A calls phone [**21*001234567]
+5=>A:@:ACT @@@@ END @@@@
+2=>A:@:ACT ###### START ######
+4=>A:@:ACT Wait for time [61]
+6=End of script
+
+[SCR ShortCalls_PC C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, confirms for Call Length
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ BasicCall1 A SS1_r831_2]
+7=;>A:@:ACT A calls phone LB2 [5906#]
+12=>A:@:ACT Wait for time [2]
+25=>A:@:ACT Wait for time [2]
+8=;>A:@:ACT A calls phone r831 [5902#]
+13=>A:@:ACT Send PESQ [123_SS1]
+26=>A:@:ACT @@@@ END @@@@
+1=>A:@:ACT ##############################
+9=>A:@:ACT A calls phone [5906#]
+14=>A:@:ACT Wait for time [2.5]
+27=End of script
+2=;A calls B, A goes onhook,
+6=>A:@:ACT Wait for time [1]
+11=>A:@:ACT Wait for PESQ [123]
+20=>A:@:ACT Send PESQ [123]
+15=>A:@:ACT OnHook + wait [2]
+24=;>A:@:ACT Wait for tone [400,400,0.4]
+19=>A:@:ACT Wait for time [2]
+3=;B checks for congestion tone.
+21=>A:@:ACT Wait for PESQ [123_SS1]
+16=>A:@:ACT @@@@ END @@@@
+4=>A:@:ACT ###### START ######
+22=>A:@:ACT Wait for time [0.5]
+17=>A:@:ACT OnHook + wait [3]
+5=;>A:@:ACT A calls phone_lwj [602#]
+10=>A:@:ACT Wait for time [3]
+23=>A:@:ACT Wait for tone [1400,1400,0.4]
+18=>A:@:ACT ###### START ######
+
+[SCR PESQ CCBS Step 3 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M6,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M7,123_SS1]
+4=>B:@:ACT Wait for time [1]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR PESQ CFU Step 1 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*21*602#]
+4=>A:@:ACT Wait for time [10]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ BasicCall1 B SS1_r831]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT @@@@ END @@@@
+25=End of script
+8=>B:@:ACT Wait for time [0.5]
+13=>B:@:ACT ###### START ######
+1=>B:@:ACT ###### START On-Hook ######
+9=;>B:@:ACT Wait for tone [400,400,0.4]
+14=;>B:@:ACT A calls phone LB2 [601#]
+2=>B:@:ACT OnHook + wait [5]
+6=;>B:@:ACT Wait for time [4]
+11=;>B:@:ACT Wait for time [4]
+20=>B:@:ACT Wait for time [2]
+15=;>B:@:ACT A calls phone_lwj [601#]
+24=>B:@:ACT @@@@ END @@@@
+19=>B:@:ACT Wait for PESQ [123]
+3=>B:@:ACT ###### START ######
+21=>B:@:ACT Send PESQ [123_SS1]
+16=;>A:@:ACT A calls phone r831 [5901#]
+4=>B:@:ACT Wait for time [3]
+22=>B:@:ACT Wait for time [3]
+17=>B:@:ACT A calls phone [5901#]
+5=>B:@:ACT Send PESQ [123]
+10=>B:@:ACT Wait for tone [1400,1400,0.4]
+23=>B:@:ACT OnHook + wait [5]
+18=>B:@:ACT Wait for time [0.5]
+
+[SCR PESQ CCBS Step 2 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT A calls phone [602#]
+4=>B:@:ACT Wait for 2xPESQ [M0,123_SS1]
+5=>B:@:ACT Send 2xPESQ [M1,123_SS1]
+6=>B:@:ACT Wait for time [25]
+7=>B:@:ACT Wait for 2xPESQ [M2,123_SS1]
+8=>B:@:ACT Send 2xPESQ [M3,123_SS1]
+9=>B:@:ACT Wait for time [1]
+10=>B:@:ACT OnHook + wait [16]
+11=>B:@:ACT Send 2xPESQ [M4,123_SS1]
+12=>B:@:ACT Wait for 2xPESQ [M5,123_SS1]
+13=>B:@:ACT @@@@ END @@@@
+14=End of script
+
+[SCR LongCalls_PC D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, confirms for Call Length
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+
+[GotoActions__SCR PESQ Short Call A SS1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[SCR PESQ CFU Step 2 A SS1]
+1=>A:@:ACT ###### START ######
+2=>A:@:ACT Wait for 2xPESQ [F0,123_SS1]
+3=>A:@:ACT Wait for time [10]
+4=>A:@:ACT @@@@ END @@@@
+5=End of script
+
+[SCR PESQ TRIVIAL DIALTONE B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:Wait for dial tone
+3=>B:@:ACT Wait for time [2]
+4=>B:@:Wait for dial tone
+5=>B:@:ACT Wait for time [2]
+6=>B:@:ACT OnHook + wait [0.10]
+7=>B:@:ACT Wait for time [2]
+8=>B:@:ACT @@@@ END @@@@
+9=End of script
+
+[Actions]
+File=Abacus.ACT
+[SCR PESQ CFU Config 2 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*21*001234567]
+4=>A:@:ACT Wait for time [61]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CR Step 3 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M2,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M3,123_SS1]
+4=>C:@:ACT Wait for time [37]
+5=>C:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CallTransfer C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send PESQ [M2]
+3=>C:@:ACT Wait for PESQ [M3]
+4=>C:@:ACT Wait for time [4]
+5=;
+6=>C:@:ACT Wait for PESQ [M4]
+7=>C:@:ACT Send PESQ [M5]
+8=;
+9=>C:@:ACT Wait for PESQ [M6]
+10=>C:@:ACT Send PESQ [M7]
+11=>C:@:ACT Wait for time [20]
+12=>C:@:ACT @@@@ END @@@@
+13=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Dial-tone test scripts]
+1=End of script
+
+[SCR PESQ CFU Config 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*21]
+4=>A:@:ACT Wait for time [61]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CR Step 7 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*69]
+4=>A:@:ACT Wait for 2xPESQ [M6,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M7,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+
+[SCR PESQ AN Step 2 C SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M2,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M3,123_SS1]
+4=>B:@:ACT Wait for time [37]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Call-Waiting scripts]
+1=End of script
+
+[SCR PESQ CallWaiting A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for PESQ [M0]
+5=>A:@:ACT Send PESQ [M1]
+6=>A:@:ACT Wait for time [3]
+7=;
+8=>A:@:ACT Wait for tone [425,425,0.14]
+9=>A:@:ACT Wait for time [1]
+10=>A:@:ACT OnHook + wait [0.15]
+11=>A:@:ACT OffHook + W + Digit [0]
+12=>A:@:ACT Wait for time [2]
+13=>A:@:ACT Send PESQ [M2]
+14=>A:@:ACT Wait for PESQ [M3]
+15=>A:@:ACT Wait for time [3]
+16=;
+17=>A:@:ACT Wait for tone [425,425,0.14]
+18=>A:@:ACT Wait for time [1]
+19=>A:@:ACT OnHook + wait [0.15]
+20=>A:@:ACT OffHook + W + Digit [2]
+21=>A:@:ACT Wait for time [2]
+22=>A:@:ACT Send PESQ [M4]
+23=>A:@:ACT Wait for PESQ [M5]
+24=>A:@:ACT Wait for time [3]
+25=;
+26=>A:@:ACT OnHook + wait [0.15]
+27=>A:@:ACT OffHook + W + Digit [1]
+28=>A:@:ACT Wait for time [2]
+29=>A:@:ACT Send PESQ [M6]
+30=>A:@:ACT Wait for PESQ [M7]
+31=>A:@:ACT Wait for time [5]
+32=;
+33=>A:@:ACT Wait for tone [425,425,0.14]
+34=>A:@:ACT Wait for time [1]
+35=>A:@:ACT OnHook + wait [0.15]
+36=>A:@:ACT OffHook + W + Digit [1]
+37=>A:@:ACT Wait for time [2]
+38=>A:@:ACT Send PESQ [M8]
+39=>A:@:ACT Wait for PESQ [M9]
+40=>A:@:ACT Wait for time [3]
+41=>A:@:ACT @@@@ END @@@@
+42=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Voice quality scripts short]
+1=End of script
+
+[SCR PESQ CFU Config 6 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#21]
+4=>A:@:ACT Wait for time [61]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR PESQ CallHold B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [M0]
+3=>B:@:ACT Wait for PESQ [M1]
+4=>B:@:ACT Wait for time [5]
+5=;
+6=>B:@:ACT Wait for silence [12]
+7=>B:@:ACT Wait for time [4]
+8=;
+9=>B:@:ACT Wait for PESQ [M4]
+10=>B:@:ACT Send PESQ [M5]
+11=>B:@:ACT Wait for time [6]
+12=;
+13=>B:@:ACT Wait for silence [13]
+14=>B:@:ACT Wait for time [2]
+15=;
+16=>B:@:ACT Wait for tone [1400,1400,0.4]
+17=>B:@:ACT OffHook + Wait [2]
+18=>B:@:ACT OnHook + wait [9]
+19=>B:@:ACT @@@@ END @@@@
+20=End of script
+
+[SCR LongCalls_PC A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, confirms for Call Length
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ CFU Step 6 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#21#]
+4=>A:@:ACT Wait for time [10]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for PESQ [123_BA_SS1]
+5=>A:@:ACT Send PESQ [123_AB_SS1]
+6=>A:@:ACT Wait for time [3]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR Calls_PC C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, confirms for Call Length
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[GotoActions__SCR PESQ BasicCall1 A SS1_r831_2]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[SCR PESQ CFU Step 7 A SS1]
+1=>A:@:ACT ###### START ######
+2=>A:@:ACT Send 2xPESQ [M6,123_SS1]
+3=>A:@:ACT Wait for 2xPESQ [M7,123_SS1]
+4=>A:@:ACT Wait for time [3]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Call-Transfer scripts]
+1=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Very short call scripts]
+1=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  3-Party Test scripts]
+1=End of script
+
+[SCR PESQ CCBS Step 1 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT A calls phone [#43#]
+3=>C:@:ACT Wait for time [2]
+4=>C:@:ACT @@@@ END @@@@
+5=End of script
+
+[SCR PESQ CFB Config 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*67]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[GotoActions__SCR PESQ BasicCall1 A SS1_sl]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[SCR PESQ Multiwav B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [123_1st_BA_SS1]
+3=>B:@:ACT Wait for time [1]
+4=>B:@:ACT Send PESQ [123_2nd_BA_SS1]
+5=>B:@:ACT Wait for PESQ [123_1st_AB_SS1]
+6=>B:@:ACT Wait for PESQ [123_2nd_AB_SS1]
+7=>B:@:ACT Wait for time [1]
+8=>B:@:ACT @@@@ END @@@@
+9=End of script
+
+
+[SCR PESQ CCBS Step 2 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M0,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M1,123_SS1]
+4=>C:@:ACT Wait for time [30]
+5=>C:@:ACT Send 2xPESQ [M2,123_SS1]
+6=>C:@:ACT Wait for 2xPESQ [M3,123_SS1]
+7=>C:@:ACT Wait for time [20]
+8=>C:@:ACT @@@@ END @@@@
+9=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  call completion busy subscriber scripts]
+1=End of script
+
+[GotoActions__Call_Test_FXO]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[SCR PESQ CFB Config 4 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [**67*153943]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ BasicCall1 B SS1_sl]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT @@@@ END @@@@
+8=>B:@:ACT Wait for time [0.5]
+13=>B:@:ACT ###### START ######
+1=>B:@:ACT ###### START On-Hook ######
+5=>B:@:ACT Send PESQ [123]
+9=;>B:@:ACT Wait for tone [400,400,0.4]
+10=>B:@:ACT Wait for tone [1400,1400,0.4]
+14=;>B:@:ACT A calls phone LB2 [601#]
+23=>B:@:ACT @@@@ END @@@@
+18=>B:@:ACT Wait for PESQ [123]
+2=>B:@:ACT OnHook + wait [5]
+6=;>B:@:ACT Wait for time [4]
+11=;>B:@:ACT Wait for time [4]
+20=>B:@:ACT Send PESQ [123_SS1]
+15=;>B:@:ACT A calls phone_lwj [601#]
+24=End of script
+19=>B:@:ACT Wait for time [2]
+3=>B:@:ACT ###### START ######
+21=>B:@:ACT Wait for time [3]
+16=>B:@:ACT A calls phone [78702#]
+4=>B:@:ACT Wait for time [3]
+22=>B:@:ACT OnHook + wait [5]
+17=>B:@:ACT Wait for time [0.5]
+
+[SCR PESQ BasicCall1 B SS1_r831_2]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT @@@@ END @@@@
+25=End of script
+8=>B:@:ACT Wait for time [0.5]
+13=>B:@:ACT ###### START ######
+1=>B:@:ACT ###### START On-Hook ######
+9=;>B:@:ACT Wait for tone [400,400,0.4]
+14=;>B:@:ACT A calls phone LB2 [601#]
+2=>B:@:ACT OnHook + wait [5]
+6=;>B:@:ACT Wait for time [4]
+11=;>B:@:ACT Wait for time [4]
+20=>B:@:ACT Wait for time [2]
+15=;>B:@:ACT A calls phone_lwj [601#]
+24=>B:@:ACT @@@@ END @@@@
+19=>B:@:ACT Wait for PESQ [123]
+3=>B:@:ACT ###### START ######
+21=>B:@:ACT Send PESQ [123_SS1]
+16=;>A:@:ACT A calls phone r831 [5901#]
+4=>B:@:ACT Wait for time [3]
+22=>B:@:ACT Wait for time [3]
+17=>B:@:ACT A calls phone [5903#]
+5=>B:@:ACT Send PESQ [123]
+10=>B:@:ACT Wait for tone [1400,1400,0.4]
+23=>B:@:ACT OnHook + wait [5]
+18=>B:@:ACT Wait for time [0.5]
+
+[BT_shortcall_a]
+1=>A:@:ACT ###### START ######
+2=>lwj_shortcall_confirmation
+3=End of script
+
+[SCR LongCalls_PC_LB2 D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.8]
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+
+[SCR PESQ CFB Config 5 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#67]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CFB D SS1]
+1=>D:@:ACT ###### START ######
+2=;>ACT D answers B
+3=>D:@:ACT Send 2xPESQ [M1,123_SS1]
+4=>D:@:ACT Wait for 2xPESQ [M3,123_SS1]
+5=>D:@:ACT Wait for time [1]
+6=>D:@:ACT @@@@ END @@@@
+7=End of script
+
+
+[SCR PESQ CallWaiting B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [M0]
+3=>B:@:ACT Wait for PESQ [M1]
+4=>B:@:ACT Wait for time [5]
+5=;
+6=>B:@:ACT Wait for time [2]
+7=>B:@:ACT Wait for PESQ [M2]
+8=>B:@:ACT Send PESQ [M3]
+9=>B:@:ACT Wait for time [9]
+10=;
+11=>B:@:ACT Wait for silence [4]
+12=>B:@:ACT Wait for time [3]
+13=;
+14=>B:@:ACT Wait for time [2]
+15=>B:@:ACT Wait for PESQ [M6]
+16=>B:@:ACT Send PESQ [M7]
+17=>B:@:ACT Wait for time [12]
+18=;
+19=>B:@:ACT Wait for tone [1400,1400,0.4]
+20=>B:@:ACT Wait for time [5]
+21=>B:@:ACT @@@@ END @@@@
+22=End of script
+
+[SCR ShortCalls_PC A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, confirms for Call Length
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[GotoActions__SCR PESQ BasicCall1 B SS1_sl]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[HookFlash old]
+1=>A:@:ACT OnHook + wait [0.15]
+2=>A:@:ACT OffHook + W + Digit [2]
+3=End of script
+
+
+[SCR PESQ CFU Step 4 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M2,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M3,123_SS1]
+4=>B:@:ACT Wait for time [10]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CFU Step 5 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M4,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M5,123_SS1]
+4=>B:@:ACT Wait for time [10]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[GotoActions__SCR PESQ BasicCall1 A SS1 lb1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Reusable Calls PC scripts]
+1=End of script
+
+[SCR PESQ Very Short Call D]
+1=>D:@:ACT ###### START ######
+2=>D:@:ACT Send PESQ [F2_BA_SS1]
+3=>D:@:ACT Wait for time [0.1]
+4=>D:@:ACT @@@@ END @@@@
+5=End of script
+
+
+[SCR PESQ CFB Config 6 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#67]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR PESQ CallHold C SS1]
+1=>C:@:ACT ###### START On-Hook ######
+2=>C:@:ACT OnHook + wait [23]
+3=>C:@:ACT Wait for time [1]
+4=>C:@:ACT Send PESQ [M2]
+5=>C:@:ACT Wait for PESQ [M3]
+6=>C:@:ACT Wait for time [3]
+7=;
+8=>C:@:ACT Wait for tone [1400,1400,0.4]
+9=>C:@:ACT OffHook + Wait [2]
+10=>C:@:ACT OnHook + wait [15]
+11=;
+12=>C:@:ACT Wait for time [1]
+13=>C:@:ACT Send PESQ [M6]
+14=>C:@:ACT Wait for PESQ [M7]
+15=>C:@:ACT Wait for time [6]
+16=;
+17=>C:@:ACT Wait for PESQ [M8]
+18=>C:@:ACT Send PESQ [M9]
+19=>C:@:ACT Wait for time [3]
+20=;
+21=>C:@:ACT @@@@ END @@@@
+22=End of script
+
+
+[SCR PESQ BasicCall1 B SS1_lwj]
+7=;>B:@:ACT Wait for time [4]
+12=>B:@:ACT @@@@ END @@@@
+8=>B:@:ACT Wait for PESQ [123_SS1]
+13=>B:@:ACT ###### START ######
+1=>B:@:ACT ###### START On-Hook ######
+5=>B:@:ACT Wait for time [2]
+9=;>B:@:ACT Wait for time [5]
+10=>B:@:ACT Wait for tone [400,400,0.4]
+14=>B:@:ACT A calls phone_lwj [601#]
+23=>B:@:ACT @@@@ END @@@@
+18=>B:@:ACT Wait for PESQ [123]
+2=>B:@:ACT OnHook + wait [5]
+6=>B:@:ACT Send PESQ [123]
+11=>B:@:ACT Wait for time [2]
+20=>B:@:ACT Send PESQ [123_SS1]
+15=;>B:@:ACT A calls phone LB2 [601#]
+24=End of script
+19=>B:@:ACT Wait for time [2]
+3=;>B:@:ACT Wait for incoming call
+21=>B:@:ACT Wait for time [2]
+16=;>B:@:ACT A calls phone [7301]
+4=>B:@:ACT ###### START ######
+22=>B:@:ACT OnHook + wait [5]
+17=;>B:@:ACT Wait for time [5]
+
+[SCR LongCalls_PC B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, confirms for Call Length
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR Missed_Calls_AB A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT @@@@ END @@@@
+5=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  on/offhook scripts]
+1=End of script
+
+[SCR PESQ B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [123_BA_SS1]
+3=>B:@:ACT Wait for PESQ [123_AB_SS1]
+4=>B:@:ACT Wait for time [3]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR Calls_PC D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, confirms for Call Length
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+
+[SCR PESQ 3Pty C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M2,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M3,123_SS1]
+4=>C:@:ACT Wait for time [4]
+5=;
+6=>C:@:ACT Wait for 2xPESQ [M4,123_SS1]
+7=>C:@:ACT Send 2xPESQ [M5,123_SS1]
+8=>C:@:ACT Wait for 2xPESQ [M6,123_SS1]
+9=;
+10=>C:@:ACT Wait for time [3]
+11=>C:@:ACT Wait for silence [5]
+12=>C:@:ACT Wait for time [2]
+13=;
+14=>C:@:ACT Wait for 2xPESQ [M7,123_SS1]
+15=>C:@:ACT Send 2xPESQ [M8,123_SS1]
+16=>C:@:ACT Wait for 2xPESQ [M9,123_SS1]
+17=>C:@:ACT Wait for time [1]
+18=>C:@:ACT @@@@ END @@@@
+19=End of script
+
+
+[SCR PESQ AN Step 1 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [5#]
+4=>A:@:ACT Wait for 2xPESQ [M0,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M1,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[GotoActions__SCR PESQ BasicCall1 B SS1_r831_3]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SCR PESQ BasicCall1 A SS1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[SCR PESQ CFU Step 7 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT A calls phone [501#]
+4=>B:@:ACT Wait for 2xPESQ [M6,123_SS1]
+5=>B:@:ACT Send 2xPESQ [M7,123_SS1]
+6=>B:@:ACT Wait for time [10]
+7=>B:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ BasicCall1 A SS1]
+7=>A:@:ACT Wait for time [7]
+12=>A:@:ACT @@@@ END @@@@
+8=>A:@:ACT Wait for PESQ [123]
+13=>A:@:ACT OnHook + wait [11]
+1=>A:@:ACT ##############################
+5=>A:@:ACT A calls phone LB2 [777]
+9=>A:@:ACT Send PESQ [123_SS1]
+10=>A:@:ACT Wait for time [1]
+14=>A:@:ACT ###### START ######
+18=>A:@:ACT Wait for tone [440,440,0.4]
+2=;A calls B, A goes onhook,
+6=;>A:@:ACT A calls phone [7331]
+11=>A:@:ACT OnHook + wait [4]
+20=>A:@:ACT @@@@ END @@@@
+15=>A:@:ACT Wait for time [1]
+19=>A:@:ACT Wait for time [10]
+3=;B checks for congestion tone.
+21=End of script
+16=>A:@:ACT Send PESQ [123]
+4=>A:@:ACT ###### START ######
+17=>A:@:ACT Wait for PESQ [123_SS1]
+
+[SCR PESQ CR Step 2 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*69]
+4=>A:@:ACT Wait for 2xPESQ [M0,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M1,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+
+[SCR PESQ CallTransfer A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for PESQ [M0]
+5=>A:@:ACT Send PESQ [M1]
+6=>A:@:ACT Wait for time [3]
+7=;
+8=>A:@:ACT OnHook + wait [0.15]
+9=>A:@:ACT OffHook + W + Digit [2]
+10=>A:@:ACT A calls phone [602#]
+11=;
+12=>A:@:ACT Wait for time [3]
+13=>A:@:ACT Wait for PESQ [M2]
+14=>A:@:ACT Send PESQ [M3]
+15=;
+16=>A:@:ACT Wait for time [1]
+17=>A:@:ACT OnHook + wait [0.15]
+18=>A:@:ACT OffHook + W + Digit [4]
+19=>A:@:ACT Wait for time [2]
+20=;>A:@:ACT Wait for tone [425,425,0.4]
+21=>A:@:ACT OffHook + Wait [6]
+22=>A:@:ACT OnHook + wait [25]
+23=>A:@:ACT @@@@ END @@@@
+24=End of script
+
+[SCR LB2 timer test B SS1]
+1=>B:@:ACT Start timer
+2=>B:@:ACT Wait for energy [0.1]
+3=>B:@:ACT Stop timer
+4=>B:@:ACT Wait for time [12]
+5=>B:@:ACT Send PESQ [M0]
+6=>B:@:ACT Wait for PESQ [M1]
+7=>B:@:ACT Wait for time [1]
+8=>B:@:ACT @@@@ END @@@@
+9=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Voice multiwav test scripts]
+1=End of script
+
+[SCR PESQ BasicCall2 A SS1]
+1=>A:@:ACT ##############################
+2=;A calls B, B goes on-hook,
+3=;A checks for congestion-tone.
+4=>A:@:ACT ###### START ######
+5=>A:@:ACT A calls phone [601#]
+6=>A:@:ACT Wait for PESQ [M0]
+7=>A:@:ACT Send PESQ [M1]
+8=>A:@:ACT Wait for tone [425,425,0.4]
+9=>A:@:ACT Wait for time [6]
+10=>A:@:ACT @@@@ END @@@@
+11=End of script
+
+[SCR PESQ CR Step 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [602]
+4=>A:@:ACT Wait for 2xPESQ [M2,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M3,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+
+[SCR PESQ CR Step 4 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*69]
+4=>A:@:ACT Wait for 2xPESQ [M4,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M5,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ AN Step 2 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [678457872#]
+4=>A:@:ACT Wait for 2xPESQ [M2,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M3,123_SS1]
+6=>A:@:ACT Wait for time [37]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ AN Step 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [5#]
+4=>A:@:ACT Wait for time [59]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ BasicCall1 B SS1 lb1]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT A calls phone LB2 [7331]
+4=>B:@:ACT Wait for time [3]
+8=>B:@:ACT Wait for tone [440,440,0.4]
+13=;>B:@:ACT A calls phone [7334]
+17=>B:@:ACT Wait for time [1]
+1=>B:@:ACT ###### START On-Hook ######
+5=>B:@:ACT Send PESQ [123]
+9=>B:@:ACT Wait for time [4]
+10=>B:@:ACT @@@@ END @@@@
+14=>B:@:ACT Wait for time [5]
+18=>B:@:ACT OnHook + wait [13]
+2=>B:@:ACT OnHook + wait [8]
+6=;>B:@:ACT Wait for time [4]
+11=>B:@:ACT ###### START ######
+20=End of script
+15=>B:@:ACT Wait for PESQ [123]
+19=>B:@:ACT @@@@ END @@@@
+3=>B:@:ACT ###### START ######
+16=>B:@:ACT Send PESQ [123_SS1]
+
+[SCR LongCalls_PC_LB2 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.8]
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ HookFlash A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=;
+4=>A:@:ACT A calls phone [601#]
+5=>A:@:ACT Wait for PESQ [F2_BA_SS1]
+6=>A:@:ACT Wait for time [1]
+7=;
+8=>A:@:ACT OnHook + wait [0.100]
+9=>A:@:ACT Wait for time [4]
+10=>A:@:ACT OnHook + wait [0.200]
+11=>A:@:ACT Wait for time [4]
+12=>A:@:ACT OnHook + wait [0.300]
+13=>A:@:ACT Wait for time [4]
+14=>A:@:ACT OnHook + wait [0.400]
+15=>A:@:ACT Wait for time [4]
+16=>A:@:ACT OnHook + wait [0.500]
+17=>A:@:ACT Wait for time [4]
+18=>A:@:ACT OnHook + wait [0.600]
+19=>A:@:ACT Wait for time [4]
+20=>A:@:ACT OnHook + wait [0.700]
+21=>A:@:ACT Wait for time [4]
+22=>A:@:ACT OffHook + W + Digit [2]
+23=;
+24=>A:@:ACT @@@@ END @@@@
+25=End of script
+
+[SCR PESQ CFU Step 9 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT A calls phone [501#]
+4=>B:@:ACT Wait for 2xPESQ [M8,123_SS1]
+5=>B:@:ACT Send 2xPESQ [M9,123_SS1]
+6=>B:@:ACT Wait for time [10]
+7=>B:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ CFB A SS1]
+1=>A:@:ACT ###### START ######
+2=>A:@:ACT Wait for time [7]
+3=;>ACT A calls B
+4=>A:@:ACT A calls phone [601#]
+5=>A:@:ACT Wait for 2xPESQ [M1,123_SS1]
+6=>A:@:ACT Send 2xPESQ [M3,123_SS1]
+7=>A:@:ACT Wait for time [2]
+8=>A:@:ACT @@@@ END @@@@
+9=End of script
+
+[SCR PESQ AN Step 4 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [678457872#]
+4=>A:@:ACT Wait for time [59]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Voice quality and endurance scripts]
+1=End of script
+
+[SCR PESQ CFU Step 2 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M0,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M1,123_SS1]
+4=>C:@:ACT Wait for time [10]
+5=>C:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ Short Call B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [F2]
+3=>B:@:ACT Wait for PESQ [F2]
+4=>B:@:ACT Wait for time [1]
+5=>B:@:ACT Send PESQ [F2]
+6=>B:@:ACT Wait for PESQ [F2]
+7=>B:@:ACT Wait for time [1]
+8=>B:@:ACT Send PESQ [F2]
+9=>B:@:ACT Wait for PESQ [F2]
+10=>B:@:ACT Wait for time [1]
+11=>B:@:ACT @@@@ END @@@@
+12=End of script
+
+
+[SCR PESQ CR Step 6 C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT ###### START ######
+3=>C:@:ACT Wait for time [5]
+4=>C:@:ACT A calls phone [501#]
+5=>C:@:ACT Wait for time [56]
+6=>C:@:ACT @@@@ END @@@@
+7=End of script
+
+[GotoActions__SCR PESQ CFU Config 1 A SS1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  call return scripts]
+1=End of script
+
+[GotoActions__SCR PESQ BasicCall1 B SS1_lwj]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[SCR PESQ BasicCall3 A SS1]
+1=>A:@:ACT ##############################
+2=;B is off-hook, A calls B.
+3=>A:@:ACT ###### START ######
+4=>A:@:ACT A calls phone [601#]
+5=>A:@:ACT Wait for time [25]
+6=>A:@:ACT @@@@ END @@@@
+7=End of script
+
+[SCR Calls_PC A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT O calls T, CPD, confirms for Call Length
+3=>A:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ CR Step 7 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M6,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M7,123_SS1]
+4=>C:@:ACT Wait for time [37]
+5=>C:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR PESQ TRIVIAL CALL A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=;
+4=>A:@:ACT A calls phone [601#]
+5=>A:@:ACT Wait for PESQ [123_BA_SS1]
+6=>A:@:ACT Send PESQ [123_AB_SS1]
+7=>A:@:ACT Wait for time [5]
+8=;
+9=>A:@:ACT @@@@ END @@@@
+10=End of script
+
+[SCR PESQ Very Short Call C]
+1=>C:@:ACT ##############################
+2=>C:@:ACT ###### START ######
+3=>C:@:ACT A calls phone [502#]
+4=>C:@:ACT Wait for PESQ [F2_BA_SS1]
+5=>C:@:ACT @@@@ END @@@@
+6=End of script
+
+[GotoActions__BT_shortcall_a]
+1=0
+2=0
+3=0
+
+[SCR PESQ CallWaiting C SS1]
+1=>C:@:ACT ###### START ######
+2=;>C:@:ACT OnHook + wait [13]
+3=>C:@:ACT Wait for time [13]
+4=>C:@:ACT A calls phone [501#]
+5=>C:@:ACT Wait for time [3]
+6=>C:@:ACT Wait for tone [425,425,0.4]
+7=;
+8=>C:@:ACT OffHook + Wait [2]
+9=>C:@:ACT OnHook + wait [5]
+10=>C:@:ACT A calls phone [501#]
+11=>C:@:ACT Wait for time [3]
+12=>C:@:ACT Wait for PESQ [M4]
+13=>C:@:ACT Send PESQ [M5]
+14=>C:@:ACT Wait for time [3]
+15=;
+16=>C:@:ACT Wait for tone [1400,1400,0.4]
+17=>C:@:ACT OffHook + Wait [2]
+18=>C:@:ACT OnHook + wait [8]
+19=;
+20=>C:@:ACT A calls phone [501#]
+21=>C:@:ACT Wait for time [3]
+22=>C:@:ACT Wait for PESQ [M8]
+23=>C:@:ACT Send PESQ [M9]
+24=>C:@:ACT Wait for time [3]
+25=>C:@:ACT @@@@ END @@@@
+26=End of script
+
+
+[GotoActions__SCR PESQ BasicCall1 B SS1_r831_2]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[SCR ShortCalls_PC B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, confirms for Call Length
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ BasicCall1 A SS1_r831]
+7=;>A:@:ACT A calls phone LB2 [5902#]
+12=>A:@:ACT Wait for time [2]
+25=>A:@:ACT Wait for time [2]
+8=;>A:@:ACT A calls phone r831 [5902#]
+13=>A:@:ACT Send PESQ [123_SS1]
+26=>A:@:ACT @@@@ END @@@@
+1=>A:@:ACT ##############################
+9=>A:@:ACT A calls phone [5902#]
+14=>A:@:ACT Wait for time [2.5]
+27=End of script
+2=;A calls B, A goes onhook,
+6=>A:@:ACT Wait for time [1]
+11=>A:@:ACT Wait for PESQ [123]
+20=>A:@:ACT Send PESQ [123]
+15=>A:@:ACT OnHook + wait [2]
+24=;>A:@:ACT Wait for tone [400,400,0.4]
+19=>A:@:ACT Wait for time [2]
+3=;B checks for congestion tone.
+21=>A:@:ACT Wait for PESQ [123_SS1]
+16=>A:@:ACT @@@@ END @@@@
+4=>A:@:ACT ###### START ######
+22=>A:@:ACT Wait for time [0.5]
+17=>A:@:ACT OnHook + wait [3]
+5=;>A:@:ACT A calls phone_lwj [602#]
+10=>A:@:ACT Wait for time [3]
+23=>A:@:ACT Wait for tone [1400,1400,0.4]
+18=>A:@:ACT ###### START ######
+
+[SCR PESQ CCBS Step 1 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*37#]
+4=>A:@:ACT Wait for time [1]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CCBS Step 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601]
+4=>A:@:ACT Wait for 2xPESQ [M6,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M7,123_SS1]
+6=>A:@:ACT Wait for time [1]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+
+[SCR PESQ BasicCall1 A SS1_lwj]
+7=>A:@:ACT A calls phone_lwj [602#]
+12=>A:@:ACT Wait for time [2]
+25=End of script
+8=;>A:@:ACT Wait for time [5]
+13=>A:@:ACT OnHook + wait [4]
+1=>A:@:ACT ##############################
+9=>A:@:ACT Wait for PESQ [123]
+14=>A:@:ACT @@@@ END @@@@
+2=;A calls B, A goes onhook,
+6=;>A:@:ACT A calls phone [2408881424#]
+11=>A:@:ACT Send PESQ [123_SS1]
+20=>A:@:ACT Wait for PESQ [123_SS1]
+15=>A:@:ACT OnHook + wait [5]
+24=>A:@:ACT @@@@ END @@@@
+19=>A:@:ACT Send PESQ [123]
+3=;B checks for congestion tone.
+21=;>A:@:ACT Wait for time [15]
+16=;>A:@:ACT Wait for incoming call
+4=>A:@:ACT ###### START ######
+22=>A:@:ACT Wait for tone [400,400,0.4]
+17=>A:@:ACT ###### START ######
+5=;>A:@:ACT A calls phone LB2 [2408881424#]
+10=;>A:@:ACT Wait for time [2]
+23=>A:@:ACT Wait for time [5]
+18=>A:@:ACT Wait for time [2]
+
+[SCR PESQ CFU Step 4 C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT ###### START ######
+3=>C:@:ACT A calls phone [501#]
+4=>C:@:ACT Wait for 2xPESQ [M2,123_SS1]
+5=>C:@:ACT Send 2xPESQ [M3,123_SS1]
+6=>C:@:ACT Wait for time [10]
+7=>C:@:ACT @@@@ END @@@@
+8=End of script
+
+[GotoActions__SCR PESQ BasicCall1 B SS1 lb1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Voice quality after 30 minutes scripts]
+1=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Call-Hold scripts]
+1=End of script
+
+[SCR PESQ CCBS Step 2 A SS1]
+1=>A:@:ACT ###### START ######
+2=>A:@:ACT Wait for time [25]
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for time [5]
+5=>A:@:ACT OffHook + W + Digit [5]
+6=>A:@:ACT Wait for time [30]
+7=>A:@:ACT OnHook + wait [15]
+8=>A:@:ACT OnHook + wait [12]
+9=>A:@:ACT Wait for time [2]
+10=>A:@:ACT Wait for 2xPESQ [M4,123_SS1]
+11=>A:@:ACT Send 2xPESQ [M5,123_SS1]
+12=>A:@:ACT @@@@ END @@@@
+13=End of script
+
+[SCR LongCalls_PC C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, confirms for Call Length
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ CR Step 1 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT Wait for time [5]
+4=>B:@:ACT A calls phone [501#]
+5=>B:@:ACT Wait for time [56]
+6=>B:@:ACT @@@@ END @@@@
+7=End of script
+
+[SCR PESQ AN Step 1 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M0,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M1,123_SS1]
+4=>B:@:ACT Wait for time [37]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ TRIVIAL DIALTONE A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:Wait for dial tone
+4=>A:@:ACT Wait for time [2]
+5=>A:@:Wait for dial tone
+6=>A:@:ACT Wait for time [2]
+7=>A:@:ACT OnHook + wait [0.10]
+8=>A:@:ACT Wait for time [2]
+9=>A:@:ACT @@@@ END @@@@
+10=End of script
+
+[SCR PESQ BasicCall1 A SS1_r831_3]
+7=;>A:@:ACT A calls phone LB2 [5906#]
+12=>A:@:ACT Wait for time [2]
+25=>A:@:ACT Wait for time [2]
+8=;>A:@:ACT A calls phone r831 [5902#]
+13=>A:@:ACT Send PESQ [123_SS1]
+26=>A:@:ACT @@@@ END @@@@
+1=>A:@:ACT ##############################
+9=>A:@:ACT A calls phone [5904#]
+14=>A:@:ACT Wait for time [2.5]
+27=End of script
+2=;A calls B, A goes onhook,
+6=>A:@:ACT Wait for time [1]
+11=>A:@:ACT Wait for PESQ [123]
+20=>A:@:ACT Send PESQ [123]
+15=>A:@:ACT OnHook + wait [2]
+24=;>A:@:ACT Wait for tone [400,400,0.4]
+19=>A:@:ACT Wait for time [2]
+3=;B checks for congestion tone.
+21=>A:@:ACT Wait for PESQ [123_SS1]
+16=>A:@:ACT @@@@ END @@@@
+4=>A:@:ACT ###### START ######
+22=>A:@:ACT Wait for time [0.5]
+17=>A:@:ACT OnHook + wait [3]
+5=;>A:@:ACT A calls phone_lwj [602#]
+10=>A:@:ACT Wait for time [3]
+23=>A:@:ACT Wait for tone [1400,1400,0.4]
+18=>A:@:ACT ###### START ######
+
+[SCR PESQ BasicCall1 B SS1]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT A calls phone LB2 [998]
+4=>B:@:ACT Wait for time [3]
+8=>B:@:ACT Wait for tone [440,440,0.4]
+13=;>B:@:ACT A calls phone [7334]
+17=>B:@:ACT Wait for time [1]
+1=>B:@:ACT ###### START On-Hook ######
+5=>B:@:ACT Send PESQ [123]
+9=>B:@:ACT Wait for time [4]
+10=>B:@:ACT @@@@ END @@@@
+14=>B:@:ACT Wait for time [5]
+18=>B:@:ACT OnHook + wait [13]
+2=>B:@:ACT OnHook + wait [8]
+6=;>B:@:ACT Wait for time [4]
+11=>B:@:ACT ###### START ######
+20=End of script
+15=>B:@:ACT Wait for PESQ [123]
+19=>B:@:ACT @@@@ END @@@@
+3=>B:@:ACT ###### START ######
+16=>B:@:ACT Send PESQ [123_SS1]
+
+[SCR PESQ CR Step 2 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M0,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M1,123_SS1]
+4=>B:@:ACT Wait for time [37]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CallTransfer B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [M0]
+3=>B:@:ACT Wait for PESQ [M1]
+4=>B:@:ACT Wait for time [5]
+5=;
+6=>B:@:ACT Wait for silence [4]
+7=;
+8=>B:@:ACT Wait for time [10]
+9=>B:@:ACT Send PESQ [M4]
+10=>B:@:ACT Wait for PESQ [M5]
+11=;
+12=>B:@:ACT Wait for time [1]
+13=>B:@:ACT Send PESQ [M6]
+14=>B:@:ACT Wait for PESQ [M7]
+15=>B:@:ACT Wait for time [20]
+16=>B:@:ACT @@@@ END @@@@
+17=End of script
+
+[SCR PESQ BasicCall1 A SS1 lb1]
+7=>A:@:ACT Wait for time [7]
+12=>A:@:ACT @@@@ END @@@@
+8=>A:@:ACT Wait for PESQ [123]
+13=>A:@:ACT OnHook + wait [11]
+1=>A:@:ACT ##############################
+5=>A:@:ACT A calls phone LB2 [7334]
+9=>A:@:ACT Send PESQ [123_SS1]
+10=>A:@:ACT Wait for time [1]
+14=>A:@:ACT ###### START ######
+18=>A:@:ACT Wait for tone [440,440,0.4]
+2=;A calls B, A goes onhook,
+6=;>A:@:ACT A calls phone [7331]
+11=>A:@:ACT OnHook + wait [4]
+20=>A:@:ACT @@@@ END @@@@
+15=>A:@:ACT Wait for time [1]
+19=>A:@:ACT Wait for time [10]
+3=;B checks for congestion tone.
+21=End of script
+16=>A:@:ACT Send PESQ [123]
+4=>A:@:ACT ###### START ######
+17=>A:@:ACT Wait for PESQ [123_SS1]
+
+[GotoActions__SCR PESQ BasicCall1 B SS1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[SCR PESQ CFU Step 10 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#21#]
+4=>A:@:ACT Wait for time [10]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+
+[SCR PESQ BasicCall2 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send PESQ [M0]
+3=>B:@:ACT Wait for PESQ [M1]
+4=>B:@:ACT Wait for time [1]
+5=>B:@:ACT OnHook + wait [5]
+6=>B:@:ACT @@@@ END @@@@
+7=End of script
+
+
+[SCR PESQ CR Step 4 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M4,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M5,123_SS1]
+4=>B:@:ACT Wait for time [37]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ AN Step 3 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Wait for 2xPESQ [M9,123_SS1]
+3=>B:@:ACT Wait for time [51]
+4=>B:@:ACT @@@@ END @@@@
+5=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  HookFlash test scripts]
+1=End of script
+
+[SCR LongCalls_PC_LB2 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.8]
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Short calls PC scripts]
+1=End of script
+
+[SCR PESQ HookFlash B SS1]
+1=>B:@:ACT ###### START ######
+2=;
+3=>B:@:ACT Send PESQ [F2_BA_SS1]
+4=>B:@:ACT Wait for time [40]
+5=;
+6=>B:@:ACT @@@@ END @@@@
+7=End of script
+
+
+[SCR PESQ CFU Step 9 C SS1]
+1=>C:@:ACT ###### START ######
+2=>C:@:ACT Send 2xPESQ [M8,123_SS1]
+3=>C:@:ACT Wait for 2xPESQ [M9,123_SS1]
+4=>C:@:ACT Wait for time [10]
+5=>C:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CFB B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=;>ACT B calls C
+4=>B:@:ACT A calls phone [602#]
+5=>B:@:ACT Wait for 2xPESQ [M0,123_SS1]
+6=>B:@:ACT Send 2xPESQ [M2,123_SS1]
+7=>B:@:ACT Wait for time [9]
+8=>B:@:ACT @@@@ END @@@@
+9=End of script
+
+[SCR PESQ CR Step 5 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT Wait for time [5]
+4=>B:@:ACT A calls phone [501#]
+5=>B:@:ACT Wait for time [56]
+6=>B:@:ACT @@@@ END @@@@
+7=End of script
+
+[GotoActions__SCR PESQ BasicCall1 A SS1_r831]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Missed Calls scripts]
+1=End of script
+
+[OffOnHook_Test]
+1=>Wait for 2 tones for ?? seconds [440,440,0.6]
+2=Wait for time in seconds [5]
+3=End of script
+
+
+[SCR PESQ Very Short Call B]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Wait for time [0.012]
+3=>B:@:ACT Send PESQ [F2_BA_SS1]
+4=>B:@:ACT Wait for time [0.1]
+5=>B:@:ACT @@@@ END @@@@
+6=End of script
+
+[Call_Test_FXO]
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=>A:@:Wait for dial tone
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=>A:@:Send string in DTMF [5]
+2=; to circuit B. The length of the conversation
+6=; 
+11=; the Partition and Timing window) to be OT.
+15=;>A:@:Wait for time in seconds [2]
+3=; is determined by the parameter you specify
+16=>A calls B, DTMF, confirms for Call Length
+
+[SCR PESQ CallHold A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for PESQ [M0]
+5=>A:@:ACT Send PESQ [M1]
+6=>A:@:ACT Wait for time [3]
+7=;
+8=>A:@:ACT OnHook + wait [0.15]
+9=>A:@:ACT OffHook + W + Digit [2]
+10=>A:@:ACT Wait for time [1]
+11=>A:@:ACT A calls phone [602#]
+12=>A:@:ACT Wait for time [4]
+13=>A:@:ACT Wait for PESQ [M2]
+14=>A:@:ACT Send PESQ [M3]
+15=>A:@:ACT Wait for time [3]
+16=;
+17=>A:@:ACT OnHook + wait [0.15]
+18=>A:@:ACT OffHook + W + Digit [1]
+19=>A:@:ACT Wait for time [2]
+20=>A:@:ACT Send PESQ [M4]
+21=>A:@:ACT Wait for PESQ [M5]
+22=>A:@:ACT Wait for time [3]
+23=;
+24=>A:@:ACT OnHook + wait [0.15]
+25=>A:@:ACT OffHook + W + Digit [2]
+26=>A:@:ACT Wait for time [1]
+27=>A:@:ACT A calls phone [602#]
+28=>A:@:ACT Wait for time [4]
+29=>A:@:ACT Wait for PESQ [M6]
+30=>A:@:ACT Send PESQ [M7]
+31=>A:@:ACT Wait for time [5]
+32=;
+33=>A:@:ACT OnHook + wait [0.15]
+34=>A:@:ACT OffHook + W + Digit [0]
+35=>A:@:ACT Wait for time [2]
+36=>A:@:ACT Send PESQ [M8]
+37=>A:@:ACT Wait for PESQ [M9]
+38=>A:@:ACT Wait for time [3]
+39=;
+40=>A:@:ACT @@@@ END @@@@
+41=End of script
+
+[SCR PESQ_30min B]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Wait for time [1800]
+3=>B:@:ACT Send PESQ [123_BA_SS1]
+4=>B:@:ACT Wait for PESQ [123_AB_SS1]
+5=>B:@:ACT Wait for time [1]
+6=>B:@:ACT Send PESQ [123_BA_SS1]
+7=>B:@:ACT Wait for PESQ [123_AB_SS1]
+8=>B:@:ACT Wait for time [1]
+9=>B:@:ACT Send PESQ [123_BA_SS1]
+10=>B:@:ACT Wait for PESQ [123_AB_SS1]
+11=>B:@:ACT Wait for time [1]
+12=>B:@:ACT Send PESQ [123_BA_SS1]
+13=>B:@:ACT Wait for PESQ [123_AB_SS1]
+14=>B:@:ACT Wait for time [1]
+15=>B:@:ACT Send PESQ [123_BA_SS1]
+16=>B:@:ACT Wait for PESQ [123_AB_SS1]
+17=>B:@:ACT Wait for time [3]
+18=>B:@:ACT @@@@ END @@@@
+19=End of script
+
+
+[SCR PESQ BasicCall3 B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT OffHook + Wait [26]
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+
+[SCR Calls_PC B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT O calls T, CPD, confirms for Call Length
+3=>B:@:ACT @@@@ END @@@@
+4=End of script
+
+[SCR PESQ 3Pty A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=;>ACT A calls B
+4=>A:@:ACT A calls phone [601#]
+5=>A:@:ACT Wait for 2xPESQ [M0,123_SS1]
+6=>A:@:ACT Send 2xPESQ [M1,123_SS1]
+7=>A:@:ACT Wait for time [1]
+8=;
+9=>A:@:ACT OnHook + wait [0.10]
+10=>A:@:ACT OffHook + W + Digit [2]
+11=>A:@:ACT Wait for time [1]
+12=>A:@:ACT A calls phone [602#]
+13=>A:@:ACT Wait for 2xPESQ [M2,123_SS1]
+14=>A:@:ACT Send 2xPESQ [M3,123_SS1]
+15=>A:@:ACT Wait for time [3]
+16=;
+17=>A:@:ACT OnHook + wait [0.10]
+18=>A:@:ACT OffHook + W + Digit [3]
+19=>A:@:ACT Wait for time [2]
+20=>A:@:ACT Send 2xPESQ [M4,123_SS1]
+21=>A:@:ACT Wait for 2xPESQ [M5,123_SS1]
+22=>A:@:ACT Wait for 2xPESQ [M6,123_SS1]
+23=;
+24=>A:@:ACT OnHook + wait [0.10]
+25=>A:@:ACT OffHook + W + Digit [2]
+26=>A:@:ACT Wait for time [2]
+27=>A:@:ACT Wait for silence [5]
+28=>A:@:ACT Wait for time [1]
+29=;
+30=>A:@:ACT OnHook + wait [0.10]
+31=>A:@:ACT OffHook + W + Digit [3]
+32=>A:@:ACT Wait for time [2]
+33=>A:@:ACT Send 2xPESQ [M7,123_SS1]
+34=>A:@:ACT Wait for 2xPESQ [M8,123_SS1]
+35=>A:@:ACT Wait for 2xPESQ [M9,123_SS1]
+36=>A:@:ACT Wait for time [3]
+37=>A:@:ACT @@@@ END @@@@
+38=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Old scripts]
+1=End of script
+
+[SCR PESQ TRIVIAL CALL B SS1]
+1=>B:@:ACT ###### START ######
+2=;
+3=>B:@:ACT Send PESQ [123_BA_SS1]
+4=>B:@:ACT Wait for PESQ [123_AB_SS1]
+5=>B:@:ACT Wait for time [5]
+6=;
+7=>B:@:ACT @@@@ END @@@@
+8=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  CFU scripts]
+1=End of script
+
+[GotoActions__SCR PESQ BasicCall1 A SS1_r831_3]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  CFU Config scripts]
+1=End of script
+
+[SCR PESQ Multiwav A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for PESQ [123_1st_BA_SS1]
+5=>A:@:ACT Wait for PESQ [123_2nd_BA_SS1]
+6=>A:@:ACT Send PESQ [123_1st_AB_SS1]
+7=>A:@:ACT Wait for time [1]
+8=>A:@:ACT Send PESQ [123_2nd_AB_SS1]
+9=>A:@:ACT Wait for time [1]
+10=>A:@:ACT @@@@ END @@@@
+11=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  abbreviated number scripts]
+1=End of script
+
+[SCR HOOK A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:Wait for dial tone
+4=>A:@:ACT Wait for time [2]
+5=>A:@:Wait for dial tone
+6=>A:@:ACT Wait for time [2]
+7=>A:@:ACT OnHook + wait [0.10]
+8=>A:@:ACT Wait for time [2]
+9=>A:@:ACT @@@@ END @@@@
+10=End of script
+
+
+[SCR PESQ CFU Step 3 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [**21*601#]
+4=>A:@:ACT Wait for time [10]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ Very Short Call A]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT Wait for time [0.011]
+4=>A:@:ACT Wait for time [0.5]
+5=>A:@:ACT A calls phone [601#]
+6=>A:@:ACT Wait for PESQ [F2_BA_SS1]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR LongCalls_PC_LB2 C SS1]
+1=>C:@:ACT ##############################
+2=>C:@:ACT O calls T, CPD, LB2, confirms for Call Length [440,0,0.8]
+3=>C:@:ACT @@@@ END @@@@
+4=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Long calls PC scripts]
+1=End of script
+
+[SCR PESQ_30min A]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [%B#]
+4=>A:@:ACT Wait for time [1800]
+5=>A:@:ACT Wait for PESQ [123_BA_SS1]
+6=>A:@:ACT Send PESQ [123_AB_SS1]
+7=>A:@:ACT Wait for time [1]
+8=>A:@:ACT Wait for PESQ [123_BA_SS1]
+9=>A:@:ACT Send PESQ [123_AB_SS1]
+10=>A:@:ACT Wait for time [1]
+11=>A:@:ACT Wait for PESQ [123_BA_SS1]
+12=>A:@:ACT Send PESQ [123_AB_SS1]
+13=>A:@:ACT Wait for time [1]
+14=>A:@:ACT Wait for PESQ [123_BA_SS1]
+15=>A:@:ACT Send PESQ [123_AB_SS1]
+16=>A:@:ACT Wait for time [1]
+17=>A:@:ACT Wait for PESQ [123_BA_SS1]
+18=>A:@:ACT Send PESQ [123_AB_SS1]
+19=>A:@:ACT Wait for time [3]
+20=>A:@:ACT @@@@ END @@@@
+21=End of script
+
+[SCR PESQ CFU Config 4 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [**21*153943]
+4=>A:@:ACT Wait for time [61]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CFB C SS1]
+1=>C:@:ACT ###### START ######
+2=;>ACT C answers B
+3=>C:@:ACT Send 2xPESQ [M0,123_SS1]
+4=>C:@:ACT Wait for 2xPESQ [M2,123_SS1]
+5=>C:@:ACT Wait for time [8]
+6=>C:@:ACT @@@@ END @@@@
+7=End of script
+
+[SCR PESQ AN Step 4 C SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Wait for 2xPESQ [M9,123_SS1]
+3=>B:@:ACT Wait for time [51]
+4=>B:@:ACT @@@@ END @@@@
+5=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  trivial scripts]
+1=End of script
+
+[SCR DialTone A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:Wait for dial tone
+4=>A:@:ACT @@@@ END @@@@
+5=End of script
+
+
+[SCR PESQ CFU Step 5 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [601#]
+4=>A:@:ACT Wait for 2xPESQ [M4,123_SS1]
+5=>A:@:ACT Send 2xPESQ [M5,123_SS1]
+6=>A:@:ACT Wait for time [10]
+7=>A:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ CFU Config 5 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [#21]
+4=>A:@:ACT Wait for time [61]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ BasicCall1 B SS1_r831_3]
+7=>B:@:ACT Wait for PESQ [123_SS1]
+12=>B:@:ACT @@@@ END @@@@
+25=End of script
+8=>B:@:ACT Wait for time [0.5]
+13=>B:@:ACT ###### START ######
+1=>B:@:ACT ###### START On-Hook ######
+9=;>B:@:ACT Wait for tone [400,400,0.4]
+14=;>B:@:ACT A calls phone LB2 [601#]
+2=>B:@:ACT OnHook + wait [5]
+6=;>B:@:ACT Wait for time [4]
+11=;>B:@:ACT Wait for time [4]
+20=>B:@:ACT Wait for time [2]
+15=;>B:@:ACT A calls phone_lwj [601#]
+24=>B:@:ACT @@@@ END @@@@
+19=>B:@:ACT Wait for PESQ [123]
+3=>B:@:ACT ###### START ######
+21=>B:@:ACT Send PESQ [123_SS1]
+16=;>A:@:ACT A calls phone r831 [5901#]
+4=>B:@:ACT Wait for time [3]
+22=>B:@:ACT Wait for time [3]
+17=>B:@:ACT A calls phone [5905#]
+5=>B:@:ACT Send PESQ [123]
+10=>B:@:ACT Wait for tone [1400,1400,0.4]
+23=>B:@:ACT OnHook + wait [5]
+18=>B:@:ACT Wait for time [0.5]
+
+[SCR PESQ 3Pty B SS1]
+1=>B:@:ACT ###### START ######
+2=>B:@:ACT Send 2xPESQ [M0,123_SS1]
+3=>B:@:ACT Wait for 2xPESQ [M1,123_SS1]
+4=>B:@:ACT Wait for time [2]
+5=>B:@:ACT Wait for silence [28]
+6=>B:@:ACT Wait for time [3]
+7=;
+8=>B:@:ACT Wait for 2xPESQ [M4,123_SS1]
+9=>B:@:ACT Wait for 2xPESQ [M5,123_SS1]
+10=>B:@:ACT Send 2xPESQ [M6,123_SS1]
+11=;
+12=>B:@:ACT Wait for time [3]
+13=>B:@:ACT Wait for silence [5]
+14=>B:@:ACT Wait for time [2]
+15=;
+16=>B:@:ACT Wait for 2xPESQ [M7,123_SS1]
+17=>B:@:ACT Wait for 2xPESQ [M8,123_SS1]
+18=>B:@:ACT Send 2xPESQ [M9,123_SS1]
+19=>B:@:ACT Wait for time [1]
+20=>B:@:ACT @@@@ END @@@@
+21=End of script
+
+[SCR PESQ BasicCall1 A SS1_sl]
+7=>A:@:ACT A calls phone [78701#]
+12=>A:@:ACT Wait for time [2.5]
+25=End of script
+8=>A:@:ACT Wait for time [3]
+13=>A:@:ACT OnHook + wait [2]
+1=>A:@:ACT ##############################
+9=>A:@:ACT Wait for PESQ [123]
+14=>A:@:ACT @@@@ END @@@@
+2=;A calls B, A goes onhook,
+6=;>A:@:ACT A calls phone LB2 [602#]
+11=>A:@:ACT Send PESQ [123_SS1]
+20=>A:@:ACT Wait for time [0.5]
+15=>A:@:ACT OnHook + wait [3]
+24=>A:@:ACT @@@@ END @@@@
+19=>A:@:ACT Wait for PESQ [123_SS1]
+3=;B checks for congestion tone.
+21=>A:@:ACT Wait for tone [1400,1400,0.4]
+16=>A:@:ACT ###### START ######
+4=>A:@:ACT ###### START ######
+22=;>A:@:ACT Wait for tone [400,400,0.4]
+17=>A:@:ACT Wait for time [2]
+5=;>A:@:ACT A calls phone_lwj [602#]
+10=>A:@:ACT Wait for time [2]
+23=>A:@:ACT Wait for time [2]
+18=>A:@:ACT Send PESQ [123]
+
+[SCR PESQ CFB Config 1 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [**67*001234567]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[GotoActions__SCR Calls_PC A SS1]
+1=0
+2=0
+3=0
+4=0
+
+[SCR LB2 timer test A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone LB2 [0971246101]
+4=>A:@:ACT Send tone [500,500,15]
+5=>A:@:ACT Wait for time [1]
+6=>A:@:ACT Wait for PESQ [M0]
+7=>A:@:ACT Send PESQ [M1]
+8=>A:@:ACT Wait for time [1]
+9=>A:@:ACT @@@@ END @@@@
+10=End of script
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  CFB scripts]
+1=End of script
+
+[SCR PESQ CFU Step 8 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*21*602#]
+4=>A:@:ACT Wait for time [10]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR PESQ CFB Config 2 A SS1]
+1=>A:@:ACT ##############################
+2=>A:@:ACT ###### START ######
+3=>A:@:ACT A calls phone [*67*001234567]
+4=>A:@:ACT Wait for time [7]
+5=>A:@:ACT @@@@ END @@@@
+6=End of script
+
+[SCR ShortCalls_PC D SS1]
+1=>D:@:ACT ##############################
+2=>D:@:ACT O calls T, CPD, confirms for Call Length
+3=>D:@:ACT @@@@ END @@@@
+4=End of script
+
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  Long calls PC LB2 scripts]
+1=End of script
+
+[GotoActions__SCR ShortCalls_PC A SS1]
+1=0
+2=0
+3=0
+4=0
+
+[COMMENT COMMENT COMMENT COMMENT COMMENT LINE  CFBS Config scripts]
+1=End of script
+
+[SCR PESQ CFU Step 2 B SS1]
+1=>B:@:ACT ##############################
+2=>B:@:ACT ###### START ######
+3=>B:@:ACT A calls phone [501#]
+4=>B:@:ACT Wait for 2xPESQ [M0,123_SS1]
+5=>B:@:ACT Send 2xPESQ [M1,123_SS1]
+6=>B:@:ACT Wait for time [10]
+7=>B:@:ACT @@@@ END @@@@
+8=End of script
+
+[SCR PESQ Short Call A SS1]
+3=>A:@:ACT A calls phone [601#]
+7=>A:@:ACT Wait for PESQ [F2]
+12=>A:@:ACT Wait for time [1]
+4=>A:@:ACT Wait for PESQ [F2]
+8=>A:@:ACT Send PESQ [F2]
+13=>A:@:ACT @@@@ END @@@@
+1=>A:@:ACT ##############################
+5=>A:@:ACT Send PESQ [F2]
+9=>A:@:ACT Wait for time [1]
+10=>A:@:ACT Wait for PESQ [F2]
+14=End of script
+2=>A:@:ACT ###### START ######
+6=>A:@:ACT Wait for time [1]
+11=>A:@:ACT Send PESQ [F2]
+
+[GotoActions__SCR PESQ BasicCall1 A SS1_lwj]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SCR PESQ BasicCall1 B SS1_r831]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+

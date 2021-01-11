@@ -1,0 +1,907 @@
+[GotoActions__CallTree7]
+1=0
+2=0
+3=0
+
+[CallTree1]
+1=A calls B, SIP [8,1]
+2=Wait for time in seconds [5]
+3=End of script
+
+[GotoActions__listen/delete-90 (tdm)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[GotoActions__leave-0 (tdm)]
+1=0
+2=0
+3=0
+
+[GotoActions__CallTreeManyNumbers]
+1=0
+10=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__CallTree2]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[CallTree5]
+1=A calls B, SIP [8,5]
+2=Wait for time in seconds [3]
+3=Send string in DTMF [28#]
+4=Wait for time in seconds [5]
+5=End of script
+
+[CallTree7-8]
+1=A calls B, SIP [8,7]
+2=Wait for time in seconds [15]
+3=Send string in DTMF [8]
+4=Wait for time in seconds [3]
+5=End of script
+
+[GotoActions__leaveFax (tdm)]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[leave-30 (tdm)]
+1=A:@:A calls B, ISDN, leave [3]
+2=A:@:Wait for time in seconds [2]
+3=A:@:sendfile-30
+4=End of script
+
+[listen/delete-90 (tdm)]
+1=A:@:A calls B, ISDN, listen [3]
+3=A:@:Wait time and then Send string in DTMF [7,1]
+5=A:@:Wait time and then Send string in DTMF [20,1]
+7=A:@:Wait time and then Send string in DTMF [20,3]
+2=A:@:Wait time and then Send string in DTMF [8,1]
+4=A:@:Wait time and then Send string in DTMF [15,3]
+6=A:@:Wait time and then Send string in DTMF [15,2]
+8=End of script
+
+[GotoActions__CallTree6]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[listen/delete-90 (sip-113123)]
+3=A:@:Wait time and then Send string in DTMF [8,1]
+7=;Listen  to message (1)
+12=A:@:Wait time and then Send string in DTMF [20,3]
+4=A:@:Wait time and then Send string in DTMF [7,1]
+8=A:@:Wait time and then Send string in DTMF [20,1]
+13=End of script
+1=A:@:A calls B, SIP [7,123456#]
+5=;Erase message (3)
+9=;Save message (2)
+10=A:@:Wait time and then Send string in DTMF [15,2]
+2=;Get voice mail (1)
+6=A:@:Wait time and then Send string in DTMF [15,3]
+11=;Erase message (3)
+
+[GotoActions__leave-30 (tdm)]
+1=0
+2=0
+3=0
+4=0
+
+[james]
+1=A calls B, SIP [5,123456#]
+2=A calls B, SIP [3,1]
+3=A calls B, SIP [3,1]
+4=Wait for time in seconds [15]
+5=End of script
+
+[james2]
+1=A calls B, SIP [10,#]
+2=sendfile
+3=End of script
+
+[CallTree9]
+1=A calls B, SIP [8,9]
+2=End of script
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=; 
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=; 
+9=; You normally set the channel configuration (in
+
+[listen/delete-90 (tdm-113123)]
+1=A:@:A calls B, ISDN, listen [3]
+3=A:@:Wait time and then Send string in DTMF [7,1]
+5=A:@:Wait time and then Send string in DTMF [20,1]
+7=A:@:Wait time and then Send string in DTMF [20,3]
+2=A:@:Wait time and then Send string in DTMF [8,1]
+4=A:@:Wait time and then Send string in DTMF [15,3]
+6=A:@:Wait time and then Send string in DTMF [15,2]
+8=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__listen/delete-90 (sip-113123)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[CallTree2]
+1=A calls B, SIP [8,2]
+2=Wait for time in seconds [5]
+3=End of script
+
+[GotoActions__listen_to_broadcast]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__CallTree1]
+1=0
+2=0
+3=0
+
+[listen/delete-90 (tdm-13123)]
+1=A:@:A calls B, ISDN, listen [3]
+3=A:@:Wait time and then Send string in DTMF [15,3]
+5=A:@:Wait time and then Send string in DTMF [15,2]
+7=End of script
+2=A:@:Wait time and then Send string in DTMF [15,1]
+4=A:@:Wait time and then Send string in DTMF [20,1]
+6=A:@:Wait time and then Send string in DTMF [20,3]
+
+[GotoActions__listen/delete (tdm)]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__CallTree7-8-9]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[mikedep]
+1=>A calls B, SIP [3,#]
+2=Wait for time in seconds [2]
+3=;Wait for silence [1]
+4=sendfile
+5=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[GotoActions__leave (sip)]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__CallTree7-8-2]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__CallTree3TTS]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+
+[CallTree4]
+1=A calls B, SIP [8,4]
+2=Wait for time in seconds [3]
+3=Send string in DTMF [2180]
+4=Wait for time in seconds [5]
+5=End of script
+
+[GotoActions__CallTree3]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__listen/delete-90 (tdm-13123)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CallTree7-8-9]
+1=A calls B, SIP [8,7]
+2=Wait for time in seconds [15]
+3=Send string in DTMF [8]
+4=Wait for time in seconds [3]
+5=Send string in DTMF [9]
+6=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[listen/delete-90 (tdm-1131883)]
+3=A:@:Wait time and then Send string in DTMF [4,1]
+7=A:@:Wait time and then Send string in DTMF [10,8]
+2=A:@:Wait time and then Send string in DTMF [8,1]
+4=A:@:Wait time and then Send string in DTMF [15,3]
+6=A:@:Wait time and then Send string in DTMF [9,8]
+8=A:@:Wait time and then Send string in DTMF [10,3]
+1=A:@:A calls B, ISDN, listen [7]
+5=A:@:Wait time and then Send string in DTMF [15,1]
+9=A:@:Wait for time in seconds [9]
+10=End of script
+
+[leave-30 (sip)]
+1=A:@:A calls B, SIP [3,#]
+2=A:@:Wait for time in seconds [2]
+3=A:@:sendfile-30
+4=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=; 
+
+[CallTree7-8-2]
+1=A calls B, SIP [8,7]
+2=Wait for time in seconds [5]
+3=Send string in DTMF [8]
+4=Wait for time in seconds [3]
+5=Send string in DTMF [2]
+6=Wait for time in seconds [5]
+7=End of script
+
+[listen/delete-90 (sip)]
+3=A:@:Wait time and then Send string in DTMF [15,1]
+7=A:@:Wait time and then Send string in DTMF [20,1]
+12=End of script
+2=;Get voice mail (1)
+4=;Erase message (3)
+6=;Listen  to message (1)
+8=;Save message (2)
+11=A:@:Wait time and then Send string in DTMF [20,3]
+1=A:@:A calls B, SIP [7,123456#]
+5=A:@:Wait time and then Send string in DTMF [15,3]
+9=A:@:Wait time and then Send string in DTMF [15,2]
+10=;Erase message (3)
+
+[CallTree6]
+1=A calls B, SIP [8,6]
+2=Wait for time in seconds [3]
+3=Send string in DTMF [2180]
+4=Wait for time in seconds [5]
+5=End of script
+
+[leave (sip)]
+1=>A:@:A calls B, SIP [3,#]
+3=A:@:sendfile
+2=A:@:Wait for time in seconds [2]
+4=End of script
+
+[GotoActions__CallTree5]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[CallTree7-8-2 with DTMF]
+1=A calls B, SIP [8,7]
+2=Wait for time in seconds [2]
+3=Wait for tone [852,1336,.2]
+4=Send string in DTMF [8]
+5=Wait for time in seconds [3]
+6=Send string in DTMF [2]
+7=Wait for time in seconds [5]
+8=End of script
+
+[listen/delete (tdm)]
+1=A calls B, ISDN, listen [3]
+2=Wait time and then Send string in DTMF [5,1]
+3=Wait time and then Send string in DTMF [5,1]
+4=Wait time and then Send string in DTMF [2,9]
+5=Wait for time in seconds [5]
+6=;delete last message
+7=Wait time and then Send string in DTMF [5,3]
+8=Wait for time in seconds [3]
+9=End of script
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[CallTree3TTS]
+1=A calls B, SIP [8,3]
+2=Wait for time in seconds [3]
+3=Send string in DTMF [25]
+4=Wait for time in seconds [31]
+5=Send string in DTMF [1]
+6=Wait for time in seconds [2]
+7=End of script
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=; 
+
+[listen_to_broadcast]
+1=A calls B, SIP [3,123456#]
+2=Wait time and then Send string in DTMF [20,#]
+3=Wait time and then Send string in DTMF [3,1]
+4=Wait time and then Send string in DTMF [3,1]
+5=Wait time and then Send string in DTMF [5,#]
+6=;delete last message
+7=Wait time and then Send string in DTMF [5,3]
+8=End of script
+
+[GotoActions__leave-30 (sip)]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__CallTree7-8-2 with DTMF]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[GotoActions__james2]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+10=0
+11=0
+12=0
+13=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[CallTreeManyNumbers]
+1=A calls B, SIP [5,1]
+10=End of script
+2=Wait for time in seconds [2]
+3=Wait for string in DTMF [#]
+4=Wait for time in seconds [2]
+5=Send string in DTMF [2]
+6=Wait for time in seconds [2]
+7=Wait for string in DTMF [#]
+8=Wait for time in seconds [2]
+9=Send string in DTMF [3]
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=; 
+
+[CallTree8]
+1=A calls B, SIP [8,8]
+2=Wait for time in seconds [5]
+3=End of script
+
+[GotoActions__listen/delete-90 (tdm-1131883)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[leave-0 (tdm)]
+1=A:@:A calls B, ISDN, leave [1]
+2=A:@:sendfile-0
+3=End of script
+
+[leaveFax (tdm)]
+1=>A:@:A calls B, ISDN, leave [3]
+3=;A:@:Wait for silence [1]
+5=End of script
+2=A:@:Wait for time in seconds [2]
+4=A:@:sendFax [1]
+
+[GotoActions__listen/delete (sip)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CallTree9]
+1=0
+2=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=; 
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[CallTree3]
+1=A calls B, SIP [8,3]
+2=Wait for time in seconds [3]
+3=Send string in DTMF [28#]
+4=Wait for time in seconds [5]
+5=End of script
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__CallTree7-8]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[GotoActions__leave (tdm)]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[GotoActions__CallTree4]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[GotoActions__james]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[A calls B (DTMF) and confirms for Call Length]
+1=; This script makes a call from circuit A
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=End of script
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=; 
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+
+[listen/delete (sip)]
+3=A:@:Wait time and then Send string in DTMF [5,1]
+7=A:@:Wait time and then Send string in DTMF [5,3]
+2=A:@:Wait time and then Send string in DTMF [5,1]
+4=A:@:Wait time and then Send string in DTMF [2,9]
+6=;delete last message
+8=A:@:Wait for time in seconds [3]
+1=>A:@:A calls B, SIP [7,123456#]
+5=A:@:Wait for time in seconds [5]
+9=End of script
+
+[GotoActions__leaveFax-60 (tdm)]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B (ISDN) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=; 
+11=; the Partition and Timing window) to be OT.
+
+[CallTree7]
+1=A calls B, SIP [8,7]
+2=Wait for time in seconds [15]
+3=End of script
+
+[leave (tdm)]
+1=A:@:A calls B, ISDN, leave [3]
+2=A:@:Wait for time in seconds [2]
+3=A:@:sendfile
+4=End of script
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[leaveFax-60 (tdm)]
+1=A:@:A calls B, ISDN, leave [3]
+3=;A:@:Wait for silence [1]
+5=A:@:Wait for time in seconds [5]
+2=;A:@:Wait for time in seconds [2]
+4=>A:@:sendFax-60 [3]
+6=End of script
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__listen/delete-90 (sip)]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CallTree8]
+1=0
+2=0
+3=0
+
+[GotoActions__listen/delete-90 (tdm-113123)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__mikedep]
+1=0
+2=0
+3=0
+4=0
+5=0
+

@@ -1,0 +1,55 @@
+[NTF_PF2n3_INODE_0191_E_b]
+1=;Make a call attempt from E
+3=B:A:Call attempt with CPD and PathConf
+5=B:@:Clear the call [7]
+2=;Make sure that the call sets up and speech path exists between E and B2
+4=;B:@:Clear the call
+6=End of script
+
+[GotoActions__NTF_PF2n3_INODE_0191_E_b]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_PF2n3_INODE_0191_B2_b]
+1=0
+2=0
+3=0
+
+[Actions]
+File=custodialLineTag.ACT
+
+[NTF_PF2n3_INODE_0191_B2_b]
+1=;speech path exists 
+2=Path Confirmation for CL
+3=End of script
+
+[GotoActions__NTF_PF2n3_INODE_0191_terminate_a]
+1=0
+2=0
+3=0
+
+[NTF_PF2n3_INODE_0191_terminate_a]
+1=;speech path exists 
+2=C:A:Path Confirmation for CL
+3=End of script
+
+[GotoActions__NTF_PF2n3_INODE_0191_B2_a]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[NTF_PF2n3_INODE_0191_B2_a]
+1=;Make a call attempt from B2 
+3=A:C:Call attempt with CPD and PathConf
+5=A:@:Clear the call [7]
+2=;Make sure that the call sets up and speech path exists between B2 and destination
+4=;A:@:Clear the call
+6=End of script
+

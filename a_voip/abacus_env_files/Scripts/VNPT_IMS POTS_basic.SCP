@@ -1,0 +1,119 @@
+[VNPT_IMS - SIP - Basic call - B on hook]
+1=;Written by  Nguyen Binh Minh
+3=;VNPT IMS Project
+5=IPTC - Confirm for seconds
+7=A:@:IPTC - A waits for disconnect
+2=;Basic call from SIP, B on hook
+4=A:@:IPTC - A calls B, SIP, no confirm
+6=A:@:Wait for time in seconds [3]
+8=End of script
+
+[VNPT_IMS - POTS -  Basic call - B on hook]
+1=;Written by Nguyen Binh Minh
+3=;VNPT IMS Project
+5=IPTC - Confirm for seconds
+7=A:@:AFT On Hook and wait 1 sec
+2=;POTS to POTS or POTS to SIP, B on hook
+4=AFT A calls B, DTMF
+6=A:@:Wait for time in seconds [10]
+8=End of script
+
+[VNPT_IMS - POTS -  Basic call - Call to busy]
+1=;Written by Nguyen Binh Minh
+3=;VNPT IMS project
+5=A:@:Wait for time in seconds [15]
+7=A:@:AFT On Hook and wait 1 sec
+2=;Basic call, POTS call to busy number
+4=AFT A calls B, DTMF
+6=A:@:Wait for busy
+8=End of script
+
+[A calls B (SIP) no confirm]
+1=A:@:IPTC - A calls B, SIP, no confirm
+2=A:@:IPTC - A waits for disconnect
+3=End of script
+
+[VNPT_IMS - POTS - Basic call - Called party doesnt answer]
+1=;Written by Nguyen Binh Minh
+3=VNPT_IPTC - A calls B, DTMF, no confirm
+5=A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=;POTS - POTS, basic call, Called party doesnt answer
+4=B:@:VNPT_IPTC -  On Hook and wait for sec [120]
+6=B:@:AFT On Hook and wait 1 sec
+
+[VNPT_IMS - POTS -  A calls B (DTMF) no confirm]
+1=;Written by Nguyen Binh Minh
+3=;VNPT project
+5=A:@:Wait for time in seconds [120]
+7=End of script
+2=;POTS, A calls B no confirm
+4=AFT A calls B, DTMF
+6=A:@:AFT On Hook and wait 1 sec
+
+[VNPT_IMS - POTS -  Called party doesnt answer - Cd]
+1=;Written by Nguyen Binh Minh
+3=;VNPT IMS Project
+5=End of script
+2=;POTS - Called party doesnt answer
+4=>A:@:VNPT_IPTC -  On Hook and wait for sec [600]
+
+[VNPT_IMS - POTS - Basic call - Callee release when ring]
+3=;VNPT IMS project
+7=>A:@:AFT On Hook and wait 1 sec
+2=;POTS to POTS, callee release when ringing
+4=>B:@:AFT On hook wait for incoming call
+6=>A:@:Wait for time in seconds [15]
+8=>B:@:AFT On Hook and wait 1 sec
+1=;Written by Nguyen Binh Minh
+5=>VNPT_IPTC - A calls B, DTMF, no confirm
+9=End of script
+
+[VNPT_IMS - POTS2SIP - Basic call - Callee release when ring - Cg]
+1=;Written by Nguyen Binh Minh
+3=;VNPT IMS project
+5=>A:@:Send string in DTMF [84432200012]
+7=>A:@:AFT On Hook and wait 1 sec
+2=;POTS to SIP, callee releases when ringing, POTS side
+4=>A:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for time in seconds [15]
+8=End of script
+
+[VNPT_IMS - POTS -  Called party release when ring - Cg]
+1=;Written by Nguyen Binh Minh
+3=;VNPT IMS project
+5=>A:@:Wait for time in seconds [30]
+7=End of script
+2=;POTS 2 SIP, called releases when ringing, POTS side
+4=>VNPT_IPTC - A calls B, DTMF, no confirm
+6=>A:@:AFT On Hook and wait 1 sec
+
+[VNPT_IMS - POTS -  Call to invalid number]
+3=;VNPT IMS project
+7=>A:@:IPTC - Wait for announcement [F0]
+2=;POTS to invalid
+4=>A:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for time in seconds [3]
+8=>A:@:AFT On Hook and wait 1 sec
+1=;Written by Nguyen Binh Minh
+5=>A:@:Send string in DTMF [84439999999]
+9=End of script
+
+[VNPT_IMS - POTS -  Call to inter digit timeout number]
+3=;VNPT IMS project
+7=>A:@:Wait for time in seconds [3]
+12=>A:@:Send string in DTMF [8443220000]
+16=End of script
+4=;POTS to POTS
+8=>A:@:IPTC - Wait for announcement [F0]
+13=>A:@:Wait for time in seconds [3]
+1=;Written by Nguyen Binh Minh
+5=>A:@:AFT Off hook wait for dial tone
+9=>A:@:AFT On Hook and wait 1 sec
+10=;POTS to SIP
+14=>A:@:IPTC - Wait for announcement [F0]
+2=;POTS to inter digit timeout
+6=>A:@:Send string in DTMF [8443120000]
+11=>A:@:AFT Off hook wait for dial tone
+15=>A:@:AFT On Hook and wait 1 sec
+

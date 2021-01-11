@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<FormMap version="8.1.0.201912080816">
+    <targets>
+        <item name="button_add">
+            <queryFormatString>name=add</queryFormatString>
+        </item>
+        <item name="button_apply">
+            <queryFormatString>name=apply</queryFormatString>
+        </item>
+        <item name="button_delete">
+            <queryFormatString>name=delete</queryFormatString>
+        </item>
+        <item name="button_ok">
+            <queryFormatString>name=ok</queryFormatString>
+        </item>
+        <item name="checkbox_BaseLocation">
+            <queryFormatString>name=useBaseLocation</queryFormatString>
+        </item>
+        <item name="checkbox_answerConfirm">
+            <queryFormatString>name=answerconfirmationrequired{0}</queryFormatString>
+            <arguments>
+                <item name="locationNum"/>
+            </arguments>
+        </item>
+        <item name="checkbox_continueSearch">
+            <queryFormatString>name=continueIfBusy</queryFormatString>
+        </item>
+        <item name="checkbox_skipSearch">
+            <queryFormatString>name=allowSkip</queryFormatString>
+        </item>
+        <item name="dropdown_numRings">
+            <queryFormatString>id=numberOfRings</queryFormatString>
+        </item>
+        <item name="dropdown_numRingsPerLocation">
+            <queryFormatString>id=numrings{0}</queryFormatString>
+            <arguments>
+                <item name="locationNum"/>
+            </arguments>
+        </item>
+        <item name="dropdown_timeSchedule">
+            <queryFormatString>id=timeSchedule</queryFormatString>
+        </item>
+        <item name="link_schedule">
+            <queryFormatString>//A[contains(@href,&apos;key={0}&apos;)]</queryFormatString>
+            <arguments>
+                <item name="sched_name"/>
+            </arguments>
+        </item>
+        <item name="radio_anyNumber">
+            <queryFormatString>//input[@name=&apos;isFromAnyNumber&apos;]</queryFormatString>
+        </item>
+        <item name="radio_specificNumber">
+            <queryFormatString>xpath=(//input[@name=&apos;isFromAnyNumber&apos;])[2]</queryFormatString>
+        </item>
+        <item name="textbox_description">
+            <queryFormatString>name=description</queryFormatString>
+        </item>
+        <item name="textbox_phoneNum">
+            <queryFormatString>name=location{0}</queryFormatString>
+            <arguments>
+                <item name="locationNum"/>
+            </arguments>
+        </item>
+        <item name="textbox_specNum">
+            <queryFormatString>name=number{0}</queryFormatString>
+            <arguments>
+                <item name="locationNum"/>
+            </arguments>
+        </item>
+    </targets>
+</FormMap>

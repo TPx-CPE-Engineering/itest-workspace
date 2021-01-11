@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.1.0.77511">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="linux_prompt" MatchMethod="WILDCARD">
+                    <Content>[*]$</Content>
+                </item>
+                <item name="prompt1" TypeOfPrompt="MORE">
+                    <Content>:</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Broadsoft_ssh/</responseLibrary>
+    <sessionClassTestCase inherit="false">broadsoft_ssh_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

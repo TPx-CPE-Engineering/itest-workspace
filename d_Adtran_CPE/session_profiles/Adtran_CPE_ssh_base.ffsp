@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.1.0.201912080816">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <captureProperties>
+                <learnPrompts inherit="false">false</learnPrompts>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-A]</item>
+                    <item>[char Ctrl-Z]</item>
+                </commandBreakChars>
+                <commandCompletionchars inherit="false">
+                    <item>[char TAB]</item>
+                    <item>?</item>
+                    <item>[char BS]</item>
+                    <item>n</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="unpriv" MatchMethod="WILDCARD">
+                    <Content>*&gt;</Content>
+                </item>
+                <item name="confirm" MatchMethod="WILDCARD">
+                    <Content>*[y*n]</Content>
+                </item>
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="priv" MatchMethod="WILDCARD">
+                    <Content>*#</Content>
+                </item>
+                <item name="more" TypeOfPrompt="MORE">
+                    <Content>--MORE--</Content>
+                </item>
+                <item name="httpError" MatchMethod="WILDCARD">
+                    <Content>*HTTP_CLIENT*</Content>
+                    <MoreNextCommand>\\r</MoreNextCommand>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <user inherit="false">itest</user>
+        <password inherit="false">rnE1J8PHb1ExtapWxurAkQ==</password>
+        <connectTimeout inherit="false">15</connectTimeout>
+    </sessionProperties>
+    <eventHandlers>
+        <item name="OnTerminalOpenConnectionFail">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                    <message>Error attempting to open connection to server: {0}</message>
+                </actionProperties>
+            </item>
+            <item actionId="FailTest">
+                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+            </item>
+            <item actionId="AppendToProcedureResponse">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.AppendResponsePropertyGroup">
+                    <content sub="true">$value</content>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnPromptNotFoundTimeout">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                    <message>Step timed out waiting for the prompt</message>
+                </actionProperties>
+            </item>
+        </item>
+    </eventHandlers>
+    <responseLibrary inherit="false">project://d_Adtran_CPE/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Adtran_CPE/</formMapLibrary>
+    <sessionClassTestCase inherit="false">Adtran_cpe_ssh_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

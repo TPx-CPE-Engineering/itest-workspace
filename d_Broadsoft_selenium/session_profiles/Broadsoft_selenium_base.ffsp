@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.4.0.202012071239">
+    <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" browserURL="https://10.255.10.163" browserURL.inherit="false">
+        <capture transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionCaptureProperties">
+            <browser transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionCaptureBrowserProperties" browserType="Chrome" browserType.inherit="false" browserPath="file:/C:/Program%20Files/Google/Chrome/Application/chrome.exe" browserPath.inherit="false"/>
+        </capture>
+        <replay transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionReplayProperties">
+            <browser transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionBrowserProperties" browserType="Chrome" browserType.inherit="false" browserPath="file:/C:/Program%20Files/Google%20Chrome%20v64/chrome.exe" browserPath.inherit="false"/>
+        </replay>
+    </sessionProperties>
+    <eventHandlers>
+        <item name="OnWebOpenExternalBrowserFail">
+            <item actionId="RepeatStep">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="5.0"/>
+            </item>
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                    <message>Error attempting to open connection to external browser: {0}</message>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnToolOpenSessionError">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                    <message>Unable to open session : {error}</message>
+                </actionProperties>
+            </item>
+        </item>
+    </eventHandlers>
+    <responseLibrary inherit="false">project://d_Broadsoft_selenium/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Broadsoft_selenium/</formMapLibrary>
+    <sessionClassTestCase inherit="false">project://d_Broadsoft_selenium/session_profiles/Broadsoft_selenium_quickcall_library.fftc</sessionClassTestCase>
+    <Overview>Broadsoft Selenium Base Session Profile</Overview>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

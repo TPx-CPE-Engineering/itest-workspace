@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ParameterTree version="8.1.3.0">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <group_name pt:description="Name of Broadsoft group">iTest_Trunk</group_name>
+            <group_cid_name pt:description="Expected group caller ID name">iTest_Trunk</group_cid_name>
+            <group_cid_number pt:description="Expected group caller ID number">7753931443</group_cid_number>
+            <hunt_group_name pt:description="Full name of hunt group">iTest_Trunk_HG</hunt_group_name>
+            <hunt_group_user_id pt:description="User ID of hunt group (found in HG profile page)">iTest_Trunk_HG@lab-sv.telepacific.com</hunt_group_user_id>
+            <iad_lines pt:description="10 digit phone numbers used by on-net IAD">
+                <iad_1>17028534880</iad_1>
+                <iad_2>17028534881</iad_2>
+                <iad_3>17028534882</iad_3>
+                <iad_4>17028534883</iad_4>
+                <iad_5>17028534884</iad_5>
+                <iad_6>17028534885</iad_6>
+            </iad_lines>
+            <hg_lines>
+                <hg_1>17028534888</hg_1>
+            </hg_lines>
+            <iad_channels>
+                <iad_1>51</iad_1>
+                <iad_2>52</iad_2>
+                <iad_3>53</iad_3>
+                <iad_4>54</iad_4>
+                <iad_5>55</iad_5>
+                <iad_6>56</iad_6>
+            </iad_channels>
+            <voice_portal_number pt:description="Number used to access voice portal">17028534889</voice_portal_number>
+            <iad1_cid_name pt:description="External CID name for 1st IAD - Max 15 chars">SV LAB</iad1_cid_name>
+            <IMM_enabled_line pt:description="name of line used for IMM">iad_6</IMM_enabled_line>
+        </parameters>
+    </parameters>
+    <includeParameters>
+        <item>voip_parameters.ffpt</item>
+    </includeParameters>
+</ParameterTree>

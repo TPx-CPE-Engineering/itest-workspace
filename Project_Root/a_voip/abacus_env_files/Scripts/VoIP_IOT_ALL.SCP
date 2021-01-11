@@ -1,0 +1,7296 @@
+[GotoActions__E911_FC_NFH_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_11]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Flow_031]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CCW_032]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CCW_027]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[Actions]
+File=Abacus.ACT
+
+[RHD_002]
+3=;2. A puts B on Hold
+7=;A and B should be connected
+12=>AFT Do Path Confirmation Once
+4=;3. A tries to resume the call with B
+8=>A calls B, DTMF, confirms once
+13=;To ensure B is not going onHook while path confirmation check is on
+1=;Test case
+5=;
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=;>A:@:Wait for time in seconds [2]
+14=>B:@:Wait for time in seconds [2]
+2=;1. A and B are in Active Call
+6=;Expected OutCome
+11=>A:@:Do Hook Flash
+15=End of script
+
+[GotoActions__Flow_050]
+1=0
+3=0
+2=0
+
+[GotoActions__E911_SC_NFH_007]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CH_14]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Go OnHook
+16=End of script
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>A:@:Wait for time in seconds [1]
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Wait For InterDigit TimeOut [16]
+14=>A:@:Go OffHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for silence
+15=>AFT Do Path Confirmation Once
+
+[GotoActions__CCW_003]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_020]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Send string in DTMF [7]
+2=>A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*70]
+6=>A:@:Wait for CCW confirmation tone
+8=>A:@:Wait for time in seconds [2]
+11=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>B:A:AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[CCW_015]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for time in seconds [2]
+2=>A calls B, DTMF, confirms once
+4=>B:@:Send string in DTMF [*70]
+6=>B:@:Wait for CCW confirmation tone
+8=>B:A:AFT Do Path Confirmation Once
+11=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+
+[DPU_011_var2]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*52]
+8=>C:A:AFT A calls B, DTMF
+13=>B:@:Go OnHook
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=>D:@:Go OnHook
+14=End of script
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>D:@:Wait for time in seconds in onhook [12]
+
+[GotoActions__DPU_035]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CT_2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E911_FC_FH_014]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_FC_FH_009]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Basic_Call_6]
+1=>AFT A calls B, DTMF
+3=>Go OnHook
+5=End of script
+2=>A:@:Wait for time in seconds [3]
+4=>A calls B, DTMF, confirms once
+
+[GotoActions__Basic_Call_19]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[E911_SC_NFH_001]
+1=>A:C:A calls B, DTMF, confirms once
+3=>A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Do Hook Flash
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [12]
+6=>A:C:AFT Do Path Confirmation Once
+
+[Basic_Call_18]
+1=;To test callee release scenario- successful call between two boards.
+3=>B:@:Go OnHook
+5=;To check that the call between A and B is terminated
+7=>C:B:A calls B, DTMF, confirms once
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [15]
+6=;If B rings and takes up the call, then call with A is terminated on going on-hook
+8=End of script
+
+[GotoActions__CW_014]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CW_009]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[AFT3WC_049]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:C:AFT Do Path Confirmation Once
+12=>AFT Do Path Confirmation Once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>AFT Do Path Confirmation Once
+13=End of script
+1=;To test the session timer with 3WC
+5=>A:@:Do Hook Flash
+9=>A:@:Wait for time in seconds [2400]
+10=>B:C:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>B:C:AFT Do Path Confirmation Once
+11=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__Detect congestion tone]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__trial_terminate]
+1=0
+2=0
+
+[test4]
+1=;To test Successful Call Scenario
+2=;within a board
+3=>AFT A calls B, DTMF
+4=End of script
+
+[CCW_024]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>B:@:Send string in DTMF [*70]
+6=>B:@:Wait for CCW confirmation tone
+8=>B:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=End of script
+
+[CCW_019]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Send string in DTMF [*70]
+2=>B:@:Wait for time in seconds [3]
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Wait for CCW confirmation tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Send string in DTMF [*70]
+9=>AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[AFT3WC_006]
+3=>A calls B, DTMF, confirms once
+7=>B:C:AFT Do Path Confirmation Once
+12=>C:@:Wait for congestion tone
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>A:C:AFT Do Path Confirmation Once
+13=>AFT Do Path Confirmation Once
+1=;Test Case
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>AFT Do Path Confirmation Once
+10=>A:@:Do Hook Flash
+14=End of script
+2=;To Test the removal of party C
+6=>A:@:Do Hook Flash
+11=>A:@:Wait for time in seconds [10]
+
+[GO OFFHOOK]
+1=A:@:Go OffHook
+2=A:@:Wait for time in seconds [10]
+3=End of script
+
+[GotoActions__CH_9]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_044]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_039]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_056]
+7=>A:@:Send string in DTMF [*70]
+12=>C:@:Wait for time in seconds [1]
+4=;Agoes offhook nd wait for dialtone
+8=;>A:@:Wait for CCW confirmation tone
+13=>C:A:AFT Do Path Confirmation Once
+17=>A:@:Go OnHook
+1=>B:@:Go OffHook
+5=;Activating CCW
+9=>C:A:AFT A calls B, DTMF
+10=;C waits for busy response
+14=>A:C:AFT Do Path Confirmation Once
+18=>B:@:Go OnHook
+2=>B:@:Go OnHook
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>A:@:AFT Wait for Call Waiting Tone
+20=End of script
+15=;>B:@:Wait for time in seconds [1]
+19=>C:@:Go OnHook
+3=>A calls B, DTMF, confirms once
+16=>B:C:AFT Do Path Confirmation Once
+
+[Flow_040]
+1=>AFT A calls B, DTMF
+3=>A:@:Wait for Ringback Tone
+5=;Verify that A can still call B
+7=End of script
+2=;Have A Go OnHook
+4=>A:@:AFT On Hook and wait 1 sec
+6=>B:A:A calls B, DTMF, confirms once with CPD
+
+[AFT3WC_030]
+3=;B is in different ONT
+7=>A:@:Wait for Ring back tone
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+4=>A calls B, DTMF, confirms once
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Do Hook Flash
+11=End of script
+1=;To Test the basic early 3WC functionality
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=;Party B can now hear the ringback of party C
+10=>B:@:Wait for Ring back tone
+
+[GotoActions__DPU_001]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_22]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;A goes on-hook before time release procedures for C expires...this will terminate the held call
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>A:@:Go OnHook
+11=End of script
+1=;To check that If the controller (Transferor) disconnects with a party on hold, held call should be removed without Timed Release procedures
+5=;Now C will go on-hook before A 
+9=;The above action will immediately terminate held call and hence will get a dial-tone next time it goes off-hook
+10=>A:@:AFT Off hook wait for dial tone
+
+[CT_17]
+3=>A calls B, DTMF, confirms once
+7=;>B:@:AFT Off hook wait for dial tone
+2=;Same as CT_13
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;The above action should immediately terminate the call at B
+8=;A and continue dialing C's number to establish a two party call
+1=;Scenario 10: Transferor establishes call with Transferee, puts Transferee on hold and initiates call to Target. Transferee releases the call before Transferor initiates Transfer.
+5=>B:@:Go OnHook
+9=>A:C:A calls B, DTMF, no dial tone, confirms once
+10=End of script
+
+[E911_SC_NFH_005]
+1=>A:C:A calls B, DTMF, confirms once
+3=>A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Go OnHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>C:@:Wait for time in seconds in onhook [10]
+6=>A:C:A calls B, DTMF, confirms once
+
+[GotoActions__DPU_020]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_015]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[DPU_032]
+7=>C:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+8=>A:@:Wait for time in seconds [2]
+13=>A:@:Wait for time in seconds [2]
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=>B:C:AFT Do Path Confirmation Once
+10=>A:C:AFT Do Path Confirmation Once
+14=;Checking whether C & B are in a call
+18=>C:@:Wait for time in seconds [10]
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=;A goes onhook, no transfer happens
+20=>C:@:Wait for congestion tone
+15=>B:@:Wait for silence
+19=>B:@:Wait for congestion tone
+3=>A:@:Wait for time in seconds [1]
+21=End of script
+16=>C:@:Wait for silence
+4=;C barges in to A-B
+17=>B:@:Wait for time in seconds [10]
+
+[DPU_027]
+3=>B:@:Go OffHook
+7=;A transfers the call to D
+12=>C:@:Wait for busy
+4=>AFT Do Path Confirmation Once
+8=>A:@:Do Hook Flash
+13=;>A:@:Wait for time in seconds [10]
+1=>AFT A calls B, DTMF
+5=>B:@:Wait for time in seconds [3]
+9=>A:@:Wait for recall dial tone
+10=>A:D:A Calls B,DTMF,No Dial Tone
+14=End of script
+2=>B:@:Wait for time in seconds [2]
+6=;>A calls B, DTMF, confirms once
+11=>C:A:AFT A calls B, DTMF
+
+[GotoActions__CT_14]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_005_termin]
+1=0
+2=0
+3=0
+
+[E911_FC_NFH_003]
+3=;establish a non emrg call
+7=>A:@:Wait for howler tone
+12=End of script
+2=>B:@:Go OnHook
+4=>A:@:Wait for time in seconds [20]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Wait for time in seconds [60]
+11=>A:C:A calls B, DTMF, confirms once
+1=>A calls B(911), DTMF, confirms once
+5=>A:@:Wait for congestion tone
+9=>A:@:Wait for silence
+10=>A:@:Go OnHook
+
+[GotoActions__CCW_035]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[RHD_010]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [1]
+12=>A:@:Wait for time in seconds [1]
+4=>B:@:Do hook flash, and wait for recall dial tone
+8=;re-ringing is tested by going offhook again and checking for the voice path
+13=>B:@:Go OffHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OffHook
+10=>A:@:Wait for time in seconds [2]
+14=>B:A:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+11=>B:@:Go OnHook
+15=End of script
+
+[RHD_005]
+1=;To test long duration RHD state for a terminal
+3=>A:@:Do hook flash, and wait for recall dial tone
+5=>A:@:Do Hook Flash
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [3600]
+6=>AFT Do Path Confirmation Once
+
+[CH_17]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*5]
+5=>B:@:Wait for time in seconds [1]
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=>AFT Do Path Confirmation Once
+
+[GotoActions__Go OnHook]
+1=0
+2=0
+3=0
+
+[GotoActions__CCW_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CCW_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__RHD_021]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_016]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[DPU_036]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=>C:B:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:Wait for time in seconds in onhook [8]
+6=>C:@:Wait for busy
+8=End of script
+
+[GotoActions__CH_14]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_043]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_038]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Basic_Call_9]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Basic_Call_9]
+3=;calling a random number
+7=;To check that A is able to make a call next time it goes off-hook
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [1231231#]
+6=>A:@:Go OnHook
+8=>A calls B, DTMF, confirms once
+1=;User A dials a random number which is not there in the dial plan
+5=>A:@:Wait for congestion tone
+9=End of script
+
+[CW_002]
+3=>C:@:AFT Off hook wait for dial tone
+7=;A will start ringing and will go off-hook due to abacus settings
+2=>A calls B, DTMF, confirms once
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Go OnHook
+8=>A:C:AFT Do Path Confirmation Once
+1=;User goes onhook on receiving the call waiting tone
+5=>A:@:AFT Wait for Call Waiting Tone
+9=End of script
+
+[DPU_012]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds [10]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Wait for time in seconds in onhook [13]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>B:D:AFT Do Path Confirmation Once
+10=>C:A:A calls B, DTMF, confirms once
+
+[DPU_007]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:D:A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*52]
+6=;D is held
+8=;C tries to barges
+11=End of script
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>C:A:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+
+[E911_FC_FH_014]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=>C:@:Go OnHook
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>A:@:Wait for time in seconds in onhook [12]
+6=End of script
+
+[E911_FC_FH_009]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=>A:@:Go OffHook
+5=;>C:@:Go OffHook
+7=End of script
+2=>A:@:Go OnHook
+4=>A:@:AFT Do Hook Flash wait time
+6=>A:C:AFT Do Path Confirmation Once
+
+[E911_SC_NFH_004]
+3=>A calls B(911), DTMF, no dial tone, confirms once
+7=>A:@:Wait for congestion tone
+12=>A:@:Go OnHook
+4=>C:@:Wait for time in seconds in onhook [10]
+8=>A:@:Wait for time in seconds [60]
+13=>A:C:A calls B, DTMF, confirms once
+1=>A:C:A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds in onhook [10]
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [10]
+11=>A:@:Wait for silence
+
+[CH_8]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Send string in DTMF [*52]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Do hook flash, and wait for recall dial tone
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=End of script
+
+[CCW_032]
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=;c gets busy since A and B are in a call
+13=>C:@:Go OnHook
+17=>A:@:AFT Wait for Call Waiting Tone
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=;A and B go Onhook
+14=;A calls B without service code *70
+18=>A:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+6=>AFT A calls B, no dial tone, DTMF, confirms once
+11=>A:@:Go OnHook
+20=End of script
+15=>A calls B, DTMF, confirms once
+19=>C:@:Go OnHook
+3=;Activating CCW
+16=>C:A:AFT A calls B, DTMF
+
+[CCW_027]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>B:@:Go OnHook
+13=>C:@:Go OnHook
+17=;A rings
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;C calls A ,gets busy 
+10=>C:A:AFT A calls B, DTMF
+14=>C:@:Wait for time in seconds [2]
+18=;>A:@:AFT On hook wait for incoming call
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>C:@:Wait for busy
+15=>C:A:A calls B, DTMF, confirms once
+19=End of script
+3=;Activating CCW
+16=;>C:A:AFT A calls B, DTMF
+
+[AFT3WC_014]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+4=>Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for Ringback Tone
+8=;Party B can now hear the ringback of party C
+1=;To Test the basic early 3WC functionality
+5=>A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ringback Tone
+10=End of script
+
+[GotoActions__DPU_052]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_011_var1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__test4]
+1=0
+2=0
+3=0
+4=0
+
+[CT_25]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>C:@:Go OffHook
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;Scenario 18: Transferor establishes call with Transferee, puts Transferee on hold and initiates call toTransfer Target. Target rejects the Call.
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+
+[CCW_003]
+3=;Activating CCW
+7=;>A:@:Wait for time in seconds [1]
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [*70]
+6=;Use the following wait if it is not continuing
+8=>B:A:AFT A calls B, DTMF
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>B:@:Wait for busy
+10=End of script
+
+[GotoActions__AFT3WC_012]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[E911_SC_NFH_008]
+3=>B:@:Go OffHook
+7=>C:@:Go OnHook
+2=;Dummy actions at B for using ALL ORIGINATE
+4=>B:@:Go OnHook
+6=>A:@:Send string in DTMF [911]
+8=>A:@:Go OnHook
+11=End of script
+1=>A:C:A calls B, DTMF, confirms once
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>C:@:Wait for time in seconds in onhook [10]
+10=>A calls B(911), DTMF, confirms once
+
+[GotoActions__DPU_023]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_018]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Baisc_Call_3]
+3=>B:@:AFT Off Hook
+7=>A:@:Wait for congestion tone
+12=End of script
+2=;within a board
+4=>AFT A calls B, DTMF
+6=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:Wait for silence
+1=;To test Callee busy scenario
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+
+[AFTCall Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__CT_22]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CT_17]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[E911_FC_FH_013_terminate]
+1=>A:@:Go OffHook
+3=>A:@:Wait for time in seconds [1]
+5=End of script
+2=>A:@:Send 2 tones for ?? seconds [440,550,3]
+4=>A:@:Send 2 tones for ?? seconds [440,550,3]
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[Basic_Call_11]
+1=;To test callee release scenario- successful call in a single board.
+3=>B:@:Go OnHook
+5=;To check that the call between A and B is terminated
+7=>C:B:A calls B, DTMF, confirms once
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [15]
+6=;If B rings and takes up the call, then call with A is terminated on going on-hook
+8=End of script
+
+[GotoActions__CW_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[RHD_008]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [2]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>B:@:Do Hook Flash
+8=>A:@:Do Hook Flash
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>B:A:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__CH_2]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_014]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_019]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_044]
+3=>C:A:AFT A calls B, DTMF
+7=>C:A:AFT Do Path Confirmation Once
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>B:@:Wait for time in seconds in onhook [5]
+8=>A:C:AFT Do Path Confirmation Once
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OnHook
+9=>A:@:Go OnHook
+10=>C:@:Go OnHook
+
+[DPU_039]
+3=>D:@:Wait for time in seconds [2]
+7=>E:D:AFT A calls B, DTMF
+12=>B:@:Go OnHook
+16=End of script
+4=>A:@:Go OffHook
+8=>E:@:Wait for busy
+13=>E:@:Go OnHook
+1=>D:@:AFT Off hook wait for dial tone
+5=>A:D:AFT Do Path Confirmation Once
+9=>C:@:Go OffHook
+10=>C:@:Go OnHook
+14=>D:@:Go OnHook
+2=>D:@:Send string in DTMF [911]
+6=>A:@:Go OnHook
+11=>B:@:Go OffHook
+15=>A:@:Go OnHook
+
+[GotoActions__CH_17]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_3]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_001]
+3=>A:@:Wait for time in seconds [1]
+7=>A:@:Wait for time in seconds [1]
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=;C barges in to A-B
+6=>A:@:AFT Wait for Call Waiting Tone
+8=>C:A:AFT Do Path Confirmation Once
+11=>B:C:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>AFT Do Path Confirmation Once
+
+[GotoActions__CT_8]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__E911_FC_NFH_002]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[CH_2]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for silence
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Wait for time in seconds [2]
+8=>A:@:Do Hook Flash
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait For InterDigit TimeOut [16]
+9=>A:@:Wait for recall dial tone
+10=>A:@:Send string in DTMF [*52]
+
+[CW_010]
+3=>C:A:AFT A calls B, DTMF
+7=;B goes on-hook...this will terminate between B and A.
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>B:@:Go OnHook
+11=>A:C:AFT Do Path Confirmation Once
+1=;Handling held party termination after the waiting call has been accpeted by the controller
+5=>A:@:Do Hook Flash
+9=>B:@:Wait for time in seconds [12]
+10=;Next action checks that call between A and C is still there
+
+[CW_005]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Go OnHook
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;Call between A nad B is terminated
+11=>C:A:AFT Do Path Confirmation Once
+1=;To test the timed wait release timer behavior when user goes onhook
+5=>B:@:Go OnHook
+9=;Now A will be alerted and then A and C will get connected 
+10=>C:@:Wait for Ring back tone
+
+[DPU_020]
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+7=>C:A:AFT A calls B, DTMF
+12=>D:@:Go OnHook
+4=>A:@:Do Hook Flash
+8=>C:@:Wait for busy
+13=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>C:@:Go OnHook
+
+[DPU_015]
+7=>B:@:Go OnHook
+12=>C:A:AFT A calls B, DTMF
+4=>B:@:Wait for recall dial tone
+8=>B:@:Wait for time in seconds in onhook [10]
+13=;>A:@:Wait for time in seconds [1]
+17=;>A:C:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=;>A:@:Wait for time in seconds [10]
+10=>D:@:Wait for time in seconds [5]
+14=>A:@:AFT Wait for Call Waiting Tone
+18=>D:@:Wait for time in seconds [3]
+2=;A transfers the call to D
+6=>A:@:Wait for time in seconds [5]
+11=>A:D:AFT Do Path Confirmation Once
+20=End of script
+15=>A:@:Wait for time in seconds [2]
+19=>C:D:AFT Do Path Confirmation Once
+3=>B:@:Do Hook Flash
+16=>A:C:AFT Do Path Confirmation Once
+
+[E911_FC_FH_013_originate]
+1=;>A:C:A calls B(911), DTMF, confirms once
+3=>A:@:Send string in DTMF [911]
+5=>A:@:Wait for 2 tones for ?? seconds [450,600,1]
+7=;>A:C:A calls B, DTMF, confirms once
+2=>A:@:AFT Off hook wait for dial tone
+4=A:@:Wait for time in seconds [4]
+6=>A:@:Wait for time in seconds in onhook [15]
+8=End of script
+
+[AFTCaller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[CCW_035]
+7=>B:@:Wait for time in seconds [2]
+12=>B:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+17=>C:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+14=>A:@:Wait for time in seconds [5]
+18=End of script
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>C:@:Go OnHook
+15=>A calls B, DTMF, confirms once
+3=>B:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[GotoActions__AFT3WC_039]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Flow_041]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Basic_Call_11]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__E911_SC_NFH_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_055]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[CH_10]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Do Hook Flash
+4=>A:@:Wait for recall dial tone
+8=;10 sec for timerelease bye timer at C and 10 sec at A
+13=>A:@:Send string in DTMF [*52]
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for time in seconds [20]
+10=>A:@:Wait for recall dial tone
+14=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:D:A calls B, DTMF, no dial tone, confirms once
+15=End of script
+
+[Flow_051]
+1=;Long term call - check SSW session timer msg 
+2=>AFT A calls B, DTMF, confirms for CL with CPD
+3=End of script
+
+[GotoActions__E911_SC_FH_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_012]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[trial_terminate]
+1=>B:@:Wait for time in seconds in onhook [15]
+2=End of script
+
+[CH_19]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>B:@:Go OnHook
+7=>A:C:A calls B, DTMF, no dial tone, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [12]
+8=End of script
+
+[CW_014]
+3=>C:A:AFT A calls B, DTMF
+7=>B:@:Go OnHook
+12=>A:@:Wait for time in seconds [60]
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>A:@:Wait for time in seconds [18]
+13=>A:@:Wait for silence
+1=;Handling timed release wait timer when the active terminates and the held also terminates immediately
+5=>A:@:Do Hook Flash
+9=>A:@:Wait for congestion tone
+10=>A:@:Wait for time in seconds [60]
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>C:@:Go OnHook
+11=>A:@:Wait for howler tone
+
+[CW_009]
+3=>C:A:AFT A calls B, DTMF
+7=;Controller goes on-hook...this will terminate call with C but A will be alerted for the held call with B
+12=>C:@:Wait for congestion tone
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>A:@:Go OnHook
+13=End of script
+1=;Handling of onhook at the controller after the waiting call has been accepted
+5=>A:@:Do Hook Flash
+9=;A will ring and pickup the phone
+10=>B:A:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>A:C:AFT Do Path Confirmation Once
+11=;The next action will check that C is no longer in call
+
+[CCW_011]
+7=>B:@:Wait for time in seconds in onhook [9]
+12=>A:@:Wait for Ring back tone
+4=>A:@:Send string in DTMF [*70]
+8=;Before B answers the call A goes onhook
+13=>B:@:Go OffHook
+17=>A:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>A:@:Go OnHook
+10=>A:@:Wait for time in seconds in onhook [9]
+14=>AFT Do Path Confirmation Once
+18=>B:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+6=>A Calls B,DTMF,No Dial Tone
+11=>AFT A calls B, DTMF
+20=End of script
+15=>C:A:AFT A calls B, DTMF
+19=>C:@:Go OnHook
+3=;Activating CCW
+16=>A:@:AFT Wait for Call Waiting Tone
+
+[CCW_006]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for congestion tone
+5=>B:@:Wait for busy
+7=End of script
+2=>A:@:Send string in DTMF [2341192#]
+4=>B:A:AFT A calls B, DTMF
+6=>A:@:Go OnHook
+
+[CT_3_Orig]
+3=;call-Variation 1
+7=>A:@:Wait for congestion tone
+12=;>B:@:Go OnHook
+4=>AFT A calls B, DTMF
+8=;>AFT Do Path Confirmation Once
+13=;>A:D:AFT Do Path Confirmation Once
+1=;Originating side script for CT_3
+5=>A:@:Wait for Ring back tone
+9=;>A calls B, DTMF, confirms once
+10=;>A:@:Do hook flash, and wait for recall dial tone
+14=End of script
+2=;Incomplete CT/Transferee ends 
+6=>A:@:Wait for time in seconds [30]
+11=;>A:D:A Calls B,DTMF,No Dial Tone
+
+[GotoActions__AFT3WC_015]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_031]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_026]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_3]
+3=;call-Variation 1
+7=>B:@:AFT Off Hook
+2=;Incomplete CT/Transferee ends 
+4=>A calls B, DTMF, confirms once
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:C:AFT Do Path Confirmation Once
+1=;Test Case
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[GotoActions__E911_FC_FH_005]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__CT_25]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Basic_Call_20]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_15]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_14]
+3=>A:@:Wait for busy
+7=>A:@:Wait for howler tone
+12=End of script
+2=>A:@:Wait for time in seconds [32]
+4=>A:@:Wait for time in seconds [10]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:AFT Off hook wait for dial tone
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for congestion tone
+9=>A:@:Wait for silence
+10=>A:@:Go OnHook
+
+[GotoActions__CW_010]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_005]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_021]
+3=>A:@:Wait for time in seconds [1]
+7=>B:@:Go OffHook
+12=End of script
+2=>B:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Do Hook Flash
+8=>A:@:Wait for time in seconds [1]
+11=>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [1]
+9=>B:A:AFT Do Path Confirmation Once
+10=>B:@:Do hook flash, and wait for recall dial tone
+
+[RHD_016]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>B:@:Wait for howler tone
+8=>B:C:A Calls B,DTMF,No Dial Tone
+13=>B:@:Wait for time in seconds [60]
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=;Below steps are for permanent treatment
+10=>B:@:Wait for congestion tone
+14=>B:@:Wait for silence
+23=End of script
+18=>A:@:Wait for time in seconds [1]
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=>B:@:Wait for time in seconds [60]
+20=>B:@:Go OffHook
+15=;Following steps will ensure both the lines will come back to idle onhook state
+19=>A:@:Go OffHook
+3=>A:@:Wait for time in seconds [5]
+21=>A:@:Go OnHook
+16=>A:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=>B:@:Go OnHook
+17=>B:@:Go OnHook
+
+[AFT3WC_002]
+3=;tearing down in Party A
+7=>Do Hook Flash
+12=>B:C:AFT Do Path Confirmation Once
+4=>A calls B, DTMF, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+13=>A:@:AFT Off hook wait for dial tone
+1=;Test Case
+5=>Do hook flash, and wait for recall dial tone
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=End of script
+2=;To Test the basic 3WC 
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+11=>Go OnHook
+
+[GotoActions__CH_5]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CCW_022]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_017]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_006_set3]
+1=0
+2=0
+
+[GotoActions__DPU_11_var_4]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_052]
+7=>C:@:Wait for time in seconds [1]
+12=>B:@:Do Hook Flash
+4=;C barges in to A-B
+8=>C:A:AFT Do Path Confirmation Once
+13=>C:@:Do Hook Flash
+17=End of script
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>A:C:AFT Do Path Confirmation Once
+14=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>B:C:AFT Do Path Confirmation Once
+15=>B:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+16=>C:@:Go OnHook
+
+[DPU_031_var2]
+3=;C barges in to A-B
+7=>A:C:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+4=>C:A:AFT A calls B, DTMF
+6=>B:@:Go OnHook
+8=>C:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>A:@:Go OnHook
+10=End of script
+
+[E911_SC_FH_008]
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+7=>A:@:AFT Off hook wait for dial tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>C:@:Wait for time in seconds in onhook [12]
+8=>A:@:Wait for time in seconds [3]
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=End of script
+
+[GotoActions__CH_30]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_25]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Basic_Call_6]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[CT_13]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;A and continue dialing C's number to establish a two party call
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=;>B:@:AFT Off hook wait for dial tone
+8=>A:C:A calls B, DTMF, no dial tone, confirms once
+1=;Scenario 7 - Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferee releases call.
+5=;The above action should immediately terminate the call at B
+9=End of script
+
+[GotoActions__E911_FC_NFH_005]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[CH_5]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>B:@:Go OnHook
+7=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [10]
+8=End of script
+
+[DPU_023]
+7=>D:@:Go OnHook
+12=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>D:@:Wait for time in seconds in onhook [10]
+13=>AFT Do Path Confirmation Once
+17=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=;>C:A:AFT Do Path Confirmation Once
+18=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>A:@:Wait for time in seconds [3]
+15=>A:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>B:@:Go OnHook
+
+[DPU_018]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=>C:@:Wait for time in seconds [5]
+4=;D is on wait
+8=;C tries to barges into D
+13=>B:C:AFT Do Path Confirmation Once
+17=End of script
+1=;A nad B are in an actice call
+5=>B:@:Wait for time in seconds [5]
+9=>B:A:AFT Do Path Confirmation Once
+10=>C:B:AFT A calls B, DTMF
+14=>A:C:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=>B:@:AFT Wait for Call Waiting Tone
+15=>A:@:Go OnHook
+3=>A:@:Wait for time in seconds [5]
+16=>C:@:Go OnHook
+
+[CT_3_Term]
+1=;Terminating side script for CT_3
+3=;call-Variation 1
+5=;>B:@:Go OffHook
+7=End of script
+2=;Incomplete CT/Transferee ends 
+4=>B:@:Wait for time in seconds in onhook [60]
+6=;>C:@:Wait for time in seconds in onhook [5]
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[GotoActions__Flow_030]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__E911_FC_FH_013_originate]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CCW_031]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_026]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[Basic_Call_1]
+1=;To test Successful Call Scenario
+2=;within a board
+3=>A calls B, DTMF, confirms for Call Length
+4=End of script
+
+[RHD_001]
+7=;BYE should be sent from B to A and the call leg between A and B should be terminated
+12=;Wait for congestion tone at A to detect BYE is received from B
+4=;3. B goes OnHook
+8=>A calls B, DTMF, confirms once
+13=>A:@:Wait for congestion tone
+17=End of script
+1=;Test Case
+5=;
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=>B:@:Go OnHook
+14=>A:@:Go OnHook
+2=;1. A and B are in Active Call
+6=;Expected OutCome
+11=>A:@:Wait for time in seconds [20]
+15=>A:@:Wait for time ? in onHook [2]
+3=;2. A puts B on hold
+16=>A calls B, DTMF, confirms once
+[GotoActions__E911_SC_NFH_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_13]
+7=>C:@:Go OnHook
+12=>A:@:Do Hook Flash
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Wait For InterDigit TimeOut [16]
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for silence
+3=>A:@:Send string in DTMF [*52]
+
+[AFT3WC_039]
+3=>A:C:A calls B, DTMF, confirms once
+7=;To check that C is still on hold,A will go on-hook...Ideally A should ring and call between A and C will get connected which can be checked by checking the media path between them...
+2=;To test this script select the channel for which 3WC is disabled
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Do Hook Flash
+8=;When A goes on-hook call with B will get terminated instantly
+11=End of script
+1=;To test the disabled 3WC configuration
+5=>A calls B, DTMF, no dial tone, confirms once
+9=>A:@:Go OnHook
+10=>A:C:AFT Do Path Confirmation Once
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__CCW_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__RHD_012]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CH_27]
+1=>A calls B, DTMF, confirms once
+3=>B:@:Do hook flash, and wait for recall dial tone
+5=>B:@:Wait for recall dial tone
+7=End of script
+2=>B:@:Wait for time in seconds [2]
+4=>B:@:Send string in DTMF [*52]
+6=>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+
+[test 1]
+1=>A calls B, DTMF, confirms once
+3=>B:@:Wait for silence
+5=;>A:@:Go OnHook
+7=End of script
+2=>A:@:Send 2 tones for ?? seconds [100,300,2]
+4=;>A:@:Do hook flash, and wait for recall dial tone
+6=;>A:@:Wait for time in seconds [5]
+
+[CCW_014]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*7]
+5=>A:@:Wait for congestion tone
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds [15]
+6=>A:@:Go OnHook
+
+[CCW_009]
+7=>C:A:AFT A calls B, DTMF
+12=;A calls B without service code *70
+4=;Activating CCW
+8=>C:@:Wait for busy
+13=>A calls B, DTMF, confirms once
+17=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+14=>C:A:AFT A calls B, DTMF
+18=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for recall dial tone
+11=>C:@:Go OnHook
+15=>A:@:AFT Wait for Call Waiting Tone
+3=>A:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[DPU_011_var1]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+8=>B:@:Go OnHook
+13=>A:@:Wait for recall dial tone
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>B:@:Wait for time in seconds in onhook [12]
+10=>A:@:Wait for silence
+14=>A:@:Wait for time in seconds [16]
+18=>A:@:Do Hook Flash
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>A:@:Wait for time in seconds [5]
+20=>A:@:Go OnHook
+15=>C:A:AFT A calls B, DTMF
+19=>A:D:AFT Do Path Confirmation Once
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=>D:@:Go OnHook
+16=>C:@:Wait for busy
+4=>A:@:Send string in DTMF [*52]
+22=End of script
+17=>A:@:Wait for silence
+
+[GotoActions__CH_10]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_034]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__DPU_029]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Flow_030]
+3=;Have B go on hook
+7=>A:@:AFT Off hook wait for silence
+12=End of script
+2=>A:@:Wait for time in seconds [3]
+4=>B:@:AFT On Hook and wait 1 sec
+6=;Have A go on hook
+8=>A:@:Do hook flash, and wait for dial tone
+11=>AFT Do Path Confirmation Once
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for time in seconds [3]
+9=;Verify that A can still call B
+10=>Dial DTMF
+
+[GotoActions__CT_1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E911_FC_FH_013]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[E911_FC_FH_001_originate]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [7]
+5=>A:@:Wait for time in seconds in onhook [1]
+7=End of script
+2=>A:@:Send string in DTMF [911]
+4=>A:@:Wait for 2 tones for ?? seconds [440,550,3]
+6=>A:@:Wait for silence
+
+[GotoActions__CT_28]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[Basic_Call_5]
+3=;Inter digit timer expires after 16 sec
+7=>A:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Wait for time in seconds [18]
+6=>A:@:Wait for congestion tone
+8=>A calls B, DTMF, confirms once
+1=;To Test Call abandon scenario before dialing digits
+5=;If no digit is dialed,congestion tone is played after the timer expires
+9=End of script
+
+[E911_FC_FH_005]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=;wait for the 45 minutes emergency timer to expire
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>A:@:AFT On hook and wait for 45 min emergency timer to expire
+6=End of script
+
+[GotoActions__Basic_Call_18]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Basic_Call_22]
+1=;To test the case when callee hangs up and callee makes another call immediately.
+3=>B:@:Go OnHook
+5=>B:@:Wait for time in seconds in onhook [10]
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Go OnHook
+6=>B:A:A calls B, DTMF, confirms once
+
+[Basic_Call_17]
+1=;To test caller release scenario- successful call between two boards.
+3=>A:@:Go OnHook
+5=;If A rings and takes up the call, then call with B is terminated on going on-hook
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=;To check that the call between A and B is terminated
+6=>C:A:A calls B, DTMF, confirms once
+
+[GotoActions__CW_013]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[RHD_019]
+3=>B:@:Go OnHook
+7=>A:@:Wait for time in seconds [1]
+12=;terminate B otherwise when A goes onHook (end of script), A start ringing for B
+4=>A:@:Wait for time in seconds [5]
+8=>AFT Do Path Confirmation Once
+13=>B:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=>B:@:Do hook flash, and wait for recall dial tone
+10=>B:C:A Calls B,DTMF,No Dial Tone
+14=>A:@:Wait for time in seconds [10]
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>B:@:Go OffHook
+11=>B:@:Wait for Ring back tone
+15=End of script
+
+[GotoActions__E911_SC_FH_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Flow_010]
+1=0
+2=0
+3=0
+4=0
+
+[test3]
+7=>C:@:AFT Off hook wait for dial tone
+12=>A:C:AFT Do Path Confirmation Once
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=;Next two actions are to check that B was on hold 
+17=End of script
+1=;User receives an incoming call while already the part of a call
+5=;A presses flash-hook so as to keep B on hold and establish call with C
+9=>A:@:Wait for Energy
+10=;>A:@:AFT Wait for Call Waiting Tone
+14=>C:@:Go OnHook
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>A:@:Do Hook Flash
+15=>A:@:Do Hook Flash
+3=;C calls A
+16=>AFT Do Path Confirmation Once
+
+[CCW_023]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*70]
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=End of script
+
+[CCW_018]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>B:@:Send string in DTMF [*70]
+6=>B:@:Wait for CCW confirmation tone
+8=>C:B:AFT A calls B, DTMF
+11=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:@:Wait for busy
+10=>C:@:Go OnHook
+
+[GotoActions__CH_8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[E911_SC_FH_002]
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+7=>B:@:AFT Off hook wait for dial tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>A:@:AFT Off hook wait for dial tone
+8=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:AFT On hook and wait for 45 min emergency timer to expire
+9=>C:@:AFT Off hook wait for dial tone
+10=End of script
+
+[GotoActions__CCW_030]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__CCW_025]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_055]
+7=>A:@:Send string in DTMF [*70]
+12=;C waits for busy response
+8=>A:@:Wait for CCW confirmation tone
+13=>A:@:AFT Wait for Call Waiting Tone
+1=;>B:@:Go OffHook
+5=;Activating CCW
+9=>A:@:Wait for time in seconds [2]
+10=>AFT Do Path Confirmation Once
+14=>C:@:Wait for time in seconds [1]
+18=>B:C:AFT Do Path Confirmation Once
+2=;>B:@:Go OnHook
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>C:A:AFT A calls B, DTMF
+20=>B:@:Go OnHook
+15=>C:A:AFT Do Path Confirmation Once
+19=>A:@:Go OnHook
+3=>A calls B, DTMF, confirms once
+21=>C:@:Go OnHook
+16=>A:C:AFT Do Path Confirmation Once
+4=;Agoes offhook nd wait for dialtone
+22=End of script
+17=;>B:@:Wait for time in seconds [1]
+
+[DPU_11_var_4]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+16=End of script
+4=>A:@:Send string in DTMF [*52]
+8=>B:@:Wait for time in seconds [1]
+13=>C:A:AFT A calls B, DTMF
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=;B goes on hook
+10=>B:@:Go OnHook
+14=>C:@:Wait for busy
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>A:@:Go OnHook
+15=>A:D:AFT Do Path Confirmation Once
+
+[AFTAutomatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=C:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[CT_21]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [18]
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>AFT Do Path Confirmation Once
+1=;Scenario 14: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor. Timed Release Timer expires for the Transfer Target call.
+5=;Now C will go on-hook before A 
+9=End of script
+
+[CT_16]
+3=>A calls B, DTMF, confirms once
+7=;A will now go on-hook and immediately off-hook...meanwhile C is ringing
+2=;For this script to be succesful, Increse the number of rings before terminating subs picks up the phone to 2
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for Ring back tone
+8=>A:@:Do Hook Flash
+11=End of script
+1=;Scenario 9: Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferor goes On-hook.
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=;A will still hear the ringback tone of C as C will still be ringing due to changed settings
+10=>A:@:Wait for Ring back tone
+
+[GotoActions__AFT3WC_003]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_014]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_009]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW013]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[DPU_031]
+3=;C barges in to A-B
+7=>B:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+4=>C:A:AFT A calls B, DTMF
+8=>B:@:Wait for time in seconds [2]
+13=>C:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;3WC estd.
+10=>B:@:Go OnHook
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for time in seconds [1]
+11=>A:C:AFT Do Path Confirmation Once
+
+[DPU_026]
+3=>A:@:Do Hook Flash
+7=>A:@:Send string in DTMF [12]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=;>A:@:Go OnHook
+8=>C:A:AFT A calls B, DTMF
+1=>A calls B, DTMF, confirms once
+5=;>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>C:@:Wait for busy
+10=End of script
+
+[Flow_010]
+1=;To test Successful Call Scenario
+2=;normal call within the same device
+3=>A calls B, DTMF, confirms once with CPD
+4=End of script
+
+[GotoActions__CT_13]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[E911_FC_NFH_002]
+1=>A calls B(911), DTMF, confirms once
+3=;>B:@:Go OnHook
+5=End of script
+2=>A:@:Go OnHook
+4=>A:C:A calls B, DTMF, confirms once
+
+[GotoActions__CCW_034]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_029]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+28=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[DPU_005_origin]
+1=;A nad B are in an actice call
+3=>A:@:Wait for Ring back tone
+5=>C:A:AFT A calls B, DTMF
+7=>AFT Do Path Confirmation Once
+2=>AFT A calls B, DTMF
+4=;C tries to barge in
+6=>C:@:Wait for busy
+8=End of script
+
+[GotoActions__Flow_052]
+1=0
+2=0
+3=0
+
+[CH_16]
+1=>A calls B, DTMF, confirms once
+3=>B:@:Go OnHook
+5=>A:@:Wait for congestion tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds [12]
+6=End of script
+
+[GotoActions__CCW_010]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_005]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__RHD_020]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_015]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[DPU_035]
+3=>C:A:AFT A calls B, DTMF
+7=>B:@:Go OnHook
+12=>C:@:Go OnHook
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>B:@:Wait for time in seconds in onhook [8]
+13=>D:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds [2]
+9=>D:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=End of script
+2=>B:@:Wait for time in seconds [3]
+6=>C:A:AFT Do Path Confirmation Once
+11=>A:@:Go OnHook
+
+[GotoActions__CH_13]
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+3=0
+
+[GotoActions__DPU_042]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_037]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CT_9]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for time in seconds [12]
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=>A:@:Wait for silence
+1=;Scenario-6, Attended call transfer feature, target sends a BYE once the call is established with target
+5=;Now C will go on-hook before A and A should ideally hear silence
+9=End of script
+
+[GotoActions__CT_4]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[E911_FC_NFH_006]
+3=>A:@:Wait for busy
+7=>A:@:Wait for howler tone
+2=>A:@:A calls B(911), DTMF
+4=>A:@:Wait for time in seconds [10]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Go OnHook
+11=End of script
+1=>B:@:AFT Off Hook
+5=>A:@:Wait for congestion tone
+9=>B:@:Go OnHook
+10=>A calls B(911), DTMF, confirms once
+
+[GotoActions__Basic_Call_8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Basic_Call_8]
+3=>A:@:Send string in DTMF [12]
+7=;>A:@:AFT on hook and wait for 5 seconds
+2=>A:@:AFT Off hook wait for dial tone
+4=;Inter digit timer expires after 16 sec
+6=>A:@:Go OnHook
+8=>A calls B, DTMF, confirms once
+1=;To Test the expiry of Interdigit Timer
+5=>A:@:Wait for time in seconds [18]
+9=End of script
+
+[AFTCall Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[CW_001]
+3=;C calls A
+7=>C:@:AFT Off hook wait for dial tone
+12=;Next two actions are to check that B was on hold 
+16=End of script
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=>C:@:Go OnHook
+1=;User receives an incoming call while already the part of a call
+5=;A presses flash-hook so as to keep B on hold and establish call with C
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>A:@:Do Hook Flash
+14=>A:@:Do Hook Flash
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>A:C:AFT Do Path Confirmation Once
+15=>AFT Do Path Confirmation Once
+
+[DPU_011]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+25=End of script
+8=>D:@:Go OnHook
+13=;>AFT Do Path Confirmation Once
+1=;A,B and D are in a CH scenario
+9=>D:@:Wait for time in seconds in onhook [12]
+14=;>A:@:Wait for time in seconds [2]
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>C:A:AFT A calls B, DTMF
+20=>B:C:AFT Do Path Confirmation Once
+15=;>A:@:Wait for time in seconds [1.5]
+24=>C:@:Go OnHook
+19=>C:A:AFT Do Path Confirmation Once
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=>AFT Do Path Confirmation Once
+16=;>A:@:AFT Wait for Call Waiting Tone
+4=>A:@:Send string in DTMF [*52]
+22=>A:@:Go OnHook
+17=>A:@:AFT Wait for Call Waiting Tone
+5=>A:@:Wait for recall dial tone
+10=>AFT Do Path Confirmation Once
+23=>B:@:Go OnHook
+18=>C:@:Wait for time in seconds [3]
+
+[DPU_006]
+1=;A goes offhook and dials B no.
+3=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+7=End of script
+2=;>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [12]
+6=;>A:@:Go OnHook
+
+[E911_FC_FH_013]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=>C:@:Go OnHook
+5=>A calls B, DTMF, confirms once
+2=>A:@:Go OnHook
+4=>C:@:Wait for time in seconds in onhook [12]
+6=End of script
+
+[E911_SC_NFH_003]
+1=>A:C:A calls B, DTMF, confirms once
+3=>A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Go OffHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__Baisc_Call_3]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_7]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for time in seconds [2]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Go OffHook
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[CCW_031]
+3=>A:@:Send string in DTMF [*70]
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for CCW confirmation tone
+6=>AFT Do Path Confirmation Once
+8=>C:@:Wait for busy
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OnHook
+10=>C:@:Go OnHook
+
+[CCW_026]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>B:@:Wait for time in seconds [2]
+8=>B:@:Do hook flash, and wait for recall dial tone
+13=;C calls A gets busy and then calls B gets busy
+1=;Agoes offhook nd wait for dialtone
+5=;>A:@:Wait for recall dial tone
+9=;Mid call CCW in the same call
+10=>B:@:Send string in DTMF [*70]
+14=>B:A:AFT Do Path Confirmation Once
+18=>A:@:Wait for time in seconds [2]
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>B:@:Wait for CCW confirmation tone
+20=>C:@:Wait for busy
+15=>C:A:AFT A calls B, DTMF
+19=>C:B:AFT A calls B, DTMF
+3=;Activating CCW
+21=End of script
+16=>C:@:Wait for busy
+4=>A:@:Send string in DTMF [*70]
+17=>C:@:Go OnHook
+
+[GotoActions__AFT3WC_040]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_051]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__test3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[CT_19]
+3=>A calls B, DTMF, confirms once
+7=>C:@:Go OnHook
+2=;Same as CT_9
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;Now C will go on-hook before A and A should ideally hear silence
+8=>A:@:Wait for time in seconds [12]
+11=End of script
+1=;Scenario 12: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor.
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>A:@:Wait for silence
+10=>C:@:AFT Off hook wait for dial tone
+
+[CCW_002]
+3=>A:@:Send string in DTMF [*70]
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for CCW confirmation tone
+6=>AFT Do Path Confirmation Once
+8=>C:@:Wait for busy
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=End of script
+
+[DPU_006_set3]
+1=B:@:Wait for time in seconds [16]
+2=End of script
+
+[GotoActions__AFT3WC_006]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[E911_SC_NFH_007]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A Calls B,DTMF,No Dial Tone
+5=>A:@:Go OnHook
+7=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for Ring back tone
+6=>A:@:Go OffHook
+8=End of script
+
+[GotoActions__DPU_022]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_017]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_034]
+3=>C:A:AFT A calls B, DTMF
+7=>D:A:AFT A calls B, DTMF
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:A:AFT Do Path Confirmation Once
+8=>D:@:Wait for busy
+1=>A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds [2]
+9=End of script
+
+[DPU_029]
+3=>A:@:Wait for time in seconds [1]
+7=>A:D:A calls B, DTMF, no dial tone, confirms once
+12=>B:@:AFT Wait for Call Waiting Tone
+16=End of script
+4=;A ties to transfer the call to D
+8=>A:@:Go OnHook
+13=>C:B:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>B:D:AFT Do Path Confirmation Once
+10=;C tries to barges
+14=>C:D:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>C:B:AFT A calls B, DTMF
+15=>B:D:AFT Do Path Confirmation Once
+
+[GotoActions__DPU_005_origin]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CT_21]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_16]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[AFTCall Waiting]
+1=>A calls B, DTMF, confirms once
+3=>A:@:AFT Wait for Call Waiting Tone
+5=>A:C:AFT Do Path Confirmation Once
+7=>AFT Do Path Confirmation Once
+2=>C:A:AFT A calls B, DTMF
+4=>A:@:AFT Do Hook Flash wait time
+6=>A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[E911_FC_NFH_005]
+1=>A:@:A Calls B(911),DTMF
+3=>A:@:Wait for time in seconds [2]
+5=End of script
+2=>A:@:Go OnHook
+4=>A Calls B(911),DTMF,Confirm Once
+
+[Basic_Call_10]
+3=>A:@:Send string in DTMF [1231242#]
+7=;If A rings and takes up the call, then call with B is terminated on going on-hook
+2=>A:@:AFT Off hook wait for dial tone
+4=>AFT Do Path Confirmation Once
+6=;To check that the call between A and B is terminated
+8=>C:A:A calls B, DTMF, confirms once
+1=;To test caller release scenario- successful call in a single board.
+5=>A:@:Go OnHook
+9=End of script
+
+[GotoActions__CW_001]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Flow_040 _Pat]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_012]
+3=>A:@:Wait for time in seconds [2]
+7=>B:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Go OffHook
+11=>B:A:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Wait for time in seconds [1]
+10=>B:@:Go OffHook
+
+[RHD_007]
+3=>A:@:Wait for time in seconds [2]
+7=>B:@:Do Hook Flash
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [2]
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=End of script
+
+[GotoActions__Basic_Call_2_Orig]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Flow_055]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CH_1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CCW_013]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_018]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[DPU_043]
+3=>C:A:AFT A calls B, DTMF
+7=>C:@:Wait for congestion tone
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:@:Wait for time in seconds in onhook [5]
+8=>B:@:Wait for silence
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=>B:@:Go OnHook
+10=>C:@:Go OnHook
+
+[DPU_038]
+3=>D:@:Wait for time in seconds [2]
+7=>E:@:Wait for busy
+12=>E:@:Go OnHook
+4=>A:@:Go OffHook
+8=>C:@:Go OffHook
+13=>D:@:Go OnHook
+1=>D:@:AFT Off hook wait for dial tone
+5=>A:D:AFT Do Path Confirmation Once
+9=>C:@:Go OnHook
+10=>B:@:Go OffHook
+14=>A:@:Go OnHook
+2=>D:@:Send string in DTMF [911]
+6=>E:D:AFT A calls B, DTMF
+11=>B:@:Go OnHook
+15=End of script
+
+[GotoActions__CH_16]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__AFTCall Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[CH_1]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Go OffHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Wait for time in seconds [2]
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=End of script
+
+[CW_004]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Wait for time in seconds [18]
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;A and C will get connected 
+1=;Remote (original) user goes onhook while call waiting tone is played
+5=>B:@:Go OnHook
+9=>A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[DPU_014]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds [10]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=;>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+8=>C:D:AFT A calls B, DTMF
+1=>A calls B, DTMF, confirms once
+5=>A:D:A Calls B,DTMF,No Dial Tone
+9=>C:@:Wait for busy
+10=End of script
+
+[DPU_009]
+3=>A:@:Wait for time in seconds [1]
+7=>C:A:AFT A calls B, DTMF
+2=>A calls B, DTMF, confirms once
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;C calls A
+8=>C:@:Wait for time in seconds [1]
+1=;A nad B are in an actice call
+5=;>A:@:Do Hook Flash
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__basic_test]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__Flow_021]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_034]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for time in seconds [2]
+12=>C:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>B:A:AFT Do Path Confirmation Once
+13=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>A:@:Go OnHook
+
+[CCW_029]
+7=>A:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Do Hook Flash
+25=>A:C:AFT Do Path Confirmation Once
+8=>A:@:Send string in DTMF [*70]
+13=>A:@:Wait for recall dial tone
+26=>A:@:Go OnHook
+1=;>B:@:Go OffHook
+9=>A:@:Wait for CCW confirmation tone
+14=>A:@:Send string in DTMF [*52]
+27=>C:@:Go OnHook
+2=;>B:@:Go OnHook
+6=;Activating CCW
+11=;A puts B on hold and dials C
+20=>B:@:Go OnHook
+15=;>A:@:Wait for time in seconds [1]
+24=>D:@:Wait for busy
+19=;B goes on hook
+28=End of script
+3=;Agoes offhook nd wait for dialtone
+21=>B:@:Wait for time in seconds [9]
+16=>A:@:Wait for recall dial tone
+4=>A calls B, DTMF, confirms once
+22=;D dials A and gets busy
+17=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+5=>B:@:Wait for time in seconds [5]
+10=>B:A:AFT Do Path Confirmation Once
+23=>D:A:AFT A calls B, DTMF
+18=>A:@:Wait for time in seconds [6]
+
+[AFT3WC_016]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+12=;B will get a BYE and C a CANCEL and all call context are removed in A 
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;Party B can now hear the ringback of party C
+13=;Hence A will get a dial-tone,next time it goes off-hook
+1=;To Test the basic early 3WC tearing down at Party A
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ring back tone
+10=;Before conference is established A goes on-hook
+14=>A:@:AFT Off hook wait for dial tone
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+6=>A:@:Wait for Ring back tone
+11=>A:@:Go OnHook
+15=End of script
+
+[E911_FC_FH_001_terminate]
+1=>A:@:Go OffHook
+3=>A:@:Send 2 tones for ?? seconds [440,550,3]
+2=>A:@:Send 2 tones for ?? seconds [440,550,3]
+4=End of script
+
+[GotoActions__E911_FC_FH_001_terminate]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__E911_FC_FH_013_terminate]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Basic_Call_10]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E911_Basic call]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_054]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_011_var3]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Flow_050]
+1=;Long term call - check SSW session timer msg 
+3=End of script
+2=>AFT A calls B, DTMF, confirms for CL with CPD
+
+[GotoActions__Basic_Call_2_Term]
+1=0
+2=0
+3=0
+
+[AFT3WC_040]
+3=;To test this script select the channel for which 3WC is disabled
+7=>A:@:Wait for Ring back tone
+12=;To check that B is still on hold,A will go on-hook...Ideally A should ring and call between A and B will get connected which can be checked by checking the media path between them...
+4=>A calls B, DTMF, confirms once
+8=>A:@:Do Hook Flash
+13=;When A goes on-hook call with C will get terminated instantly
+1=;To test the disabled early 3WC configuration
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=;The above hook-flash will be ignored as 3WC is disabled
+10=;Hence B will remain on hold
+14=>AFT Do Path Confirmation Once
+2=;For this script to work increase the number of rings before terminating subs picks up the phone under channel config to 2
+6=>A:C:A Calls B,DTMF,No Dial Tone
+11=>A:C:AFT Do Path Confirmation Once
+15=End of script
+
+[GotoActions__DPU_011]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__DPU_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CW_013]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook and then A presses flash which will terminate the call between A and C and the call between A and B will be resumed
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=End of script
+1=;Handling timed release wait timer when the active call terminates and the controller flashes when the other remote party is on hold
+5=>A:@:Do Hook Flash
+9=>A:@:Do Hook Flash
+10=>AFT Do Path Confirmation Once
+
+[CW_008]
+7=>A calls B, DTMF, confirms once
+12=>A:C:AFT Do Path Confirmation Once
+4=;A is alerted with call waiting tone
+8=>C:@:AFT Off hook wait for dial tone
+13=>A:@:Wait for time in seconds [5]
+17=>B:@:Go OnHook
+1=;Handling of Flash-hook after the waiting call has been accepted
+5=;A presses flash-hook
+9=>C:A:A Calls B,DTMF,No Dial Tone
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>A:@:Do Hook Flash
+18=>A:@:Do Hook Flash
+2=;A and B are in call
+6=;After sometime A presses flash-hook again
+11=>A:@:Do Hook Flash
+20=End of script
+15=>AFT Do Path Confirmation Once
+19=>A:C:AFT Do Path Confirmation Once
+3=;C calls A
+16=;Next action is to check that C is on hold
+
+[CCW_010]
+3=>A:@:AFT Off hook wait for dial tone
+7=>B:A:A calls B, DTMF, confirms once
+12=>C:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=End of script
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>A:@:Go OnHook
+2=;Activating CCW
+6=>A:@:Go OnHook
+11=>B:@:Go OnHook
+
+[CCW_005]
+3=;A and B are in a call
+7=>C:A:AFT A calls B, DTMF
+12=>A:@:Wait for time in seconds [2]
+16=End of script
+4=>A:@:Do Hook Flash
+8=>C:@:Wait for busy
+13=>A:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Go OnHook
+10=>A:@:Send string in DTMF [*70]
+14=>B:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=;At the moment A hears recall C calls A
+11=>A:@:Wait for CCW confirmation tone
+15=>C:@:Go OnHook
+
+[GotoActions__AFT3WC_014]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_030]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_025]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_2]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;>A:@:Send string in DTMF [1231243#]
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=>B:@:Wait for time in seconds [10]
+8=>A:C:A calls B, DTMF, no dial tone, confirms once
+1=;Incomplete CT/Transferee ends call
+5=;B has to wait for 10sec to originate bye
+9=End of script
+
+[Flow_021]
+3=;Leave B off hook and check for proper tones
+7=>B:@:AFT On Hook and wait 1 sec
+2=;Have A go on hook
+4=>A:@:AFT On Hook and wait 1 sec
+6=;Have B go on hook
+8=;Verify that A can still call B
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Off hook wait for congestion tone
+9=>A calls B, DTMF, confirms once with CPD
+10=End of script
+
+[GotoActions__CT_19]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[E911_FC_FH_001]
+1=>A:C:A calls B(911), DTMF, confirms once
+3=;Since the call is on hold, path confirmation fails.need to replace this action with actual solution
+5=End of script
+2=>A:@:Go OnHook
+4=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__Basic_Call_14]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Basic_Call_13]
+1=;To test Successful Call Scenario
+3=>A calls B, DTMF, confirms for Call Length
+5=End of script
+2=;between two boards
+4=;Confirms for call length so as to see that the voice path is there for entire call duration
+
+[GotoActions__CW_004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_020]
+7=>A:@:Wait for time in seconds [1]
+12=>B:@:Send string in DTMF [*52]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:@:Go OffHook
+13=>B:@:Wait for recall dial tone
+17=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [1]
+9=>A:@:Wait for time in seconds [1]
+10=>B:A:AFT Do Path Confirmation Once
+14=>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+18=End of script
+2=>B:@:Go OnHook
+6=>A:@:Do Hook Flash
+11=>B:@:Do hook flash, and wait for recall dial tone
+15=>A:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+16=>B:@:Go OnHook
+
+[RHD_015]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Wait for time in seconds [60]
+8=>A:@:Send string in DTMF [*52]
+13=>A:@:Wait for howler tone
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=;>A:C:A Calls B,DTMF,No Dial Tone
+10=;Below steps are for permanent treatment
+14=>A:@:Wait for time in seconds [60]
+18=>B:@:Go OnHook
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for congestion tone
+20=>A:@:Go OffHook
+15=>A:@:Wait for silence
+19=>A:@:Wait for time in seconds [1]
+3=>A:@:Wait for time in seconds [5]
+21=>B:@:Go OffHook
+16=;Following steps will ensure both the lines will come back to idle onhook state
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=End of script
+17=>A:@:Go OnHook
+
+[GotoActions__CH_4]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_021]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_016]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[DPU_051]
+3=>A:@:Wait for time in seconds [1]
+7=>A:@:Wait for time in seconds [1]
+12=>B:C:AFT Do Path Confirmation Once
+4=;C barges in to A-B
+8=;>C:@:Wait for time in seconds [1]
+13=End of script
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=>C:A:AFT Do Path Confirmation Once
+10=;3WC estd.
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>A:C:AFT Do Path Confirmation Once
+
+[DPU_031_var1]
+3=;C barges in to A-B
+7=>C:@:Wait for time in seconds in onhook [3]
+12=;>AFT Do Path Confirmation Once
+4=>C:A:AFT A calls B, DTMF
+8=>B:A:AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;>C:@:Wait for time in seconds [2]
+10=;3WC estd.
+14=>B:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>C:@:Go OnHook
+11=;>C:@:Go OnHook
+15=End of script
+
+[GotoActions__CH_19]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_5]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CT_12]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+4=;C goes off-hook to simulate the busy scenario
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Go OnHook
+11=End of script
+1=;Scenario-10, Attended call transfer feature, target is busy and send 486 Busy to transferor. Transferor goes onhook and then offhook, call between tfr and tfe is re-established
+5=>C:@:Go OffHook
+9=;When A goes on-hook, it will be ringed and due to abacus setting it will go off-hook and call between A and B will get established
+10=>AFT Do Path Confirmation Once
+
+[GotoActions__RHD_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_031_var2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_4]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=End of script
+
+[DPU_022]
+7=>C:D:AFT A calls B, DTMF
+12=>A:C:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>D:@:AFT Wait for Call Waiting Tone
+13=>A:@:Go OnHook
+17=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>D:@:Wait for time in seconds [3]
+10=>C:D:AFT Do Path Confirmation Once
+14=>B:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>D:A:AFT Do Path Confirmation Once
+15=>C:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>D:@:Go OnHook
+
+[DPU_017]
+3=>A:@:Wait for time in seconds [1]
+7=;C tries to barges into D
+2=>A calls B, DTMF, confirms once
+4=;D is on wait
+6=>A:@:AFT Wait for Call Waiting Tone
+8=>C:D:AFT A calls B, DTMF
+1=;A nad B are in an actice call
+5=>D:A:AFT A calls B, DTMF
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Go OnHook]
+1=A:@:Go OnHook
+2=B:@:Go OnHook
+3=End of script
+
+[basic_test]
+7=;>C:@:Go OffHook
+12=;>E:@:Go OnHook
+4=;>B:@:Go OnHook
+8=;>C:@:Go OnHook
+13=;>F:@:Go OffHook
+17=;>H:@:Go OffHook
+1=;>A:@:Go OffHook
+5=;>B:@:Wait for time in seconds [3]
+9=;>D:@:Go OffHook
+10=;>D:@:Go OnHook
+14=;>F:@:Go OnHook
+18=;>H:@:Go OnHook
+2=;>A:@:Go OnHook
+6=>A calls B, DTMF, confirms once
+11=;>E:@:Go OffHook
+15=;>G:@:Go OffHook
+19=End of script
+3=;>B:@:Go OffHook
+16=;>G:@:Go OnHook
+
+[GotoActions__E911_SC_NFH_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CH_12]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Go OffHook
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Go OnHook
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for time in seconds [1]
+
+[GotoActions__E911_SC_FH_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CH_31]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Do Hook Flash
+8=>A:@:Send string in DTMF [*52]
+1=>A calls B, DTMF, confirms once
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[CH_26]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Do Hook Flash
+5=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds [2]
+6=End of script
+
+[CCW_013]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [16]
+5=>A:@:Go OnHook
+7=End of script
+2=>A:@:Send string in DTMF [*7]
+4=>A:@:Wait for congestion tone
+6=;A:@:Wait for time in seconds in onhook [8]
+
+[CCW_008]
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=;c gets busy since A and B are in a call
+13=>C:@:Go OnHook
+17=>A:@:AFT Wait for Call Waiting Tone
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=;A and B go Onhook
+14=;A calls B without service code *70
+18=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=>AFT A calls B, no dial tone, DTMF, confirms once
+11=>A:@:Go OnHook
+15=>A calls B, DTMF, confirms once
+3=;Activating CCW
+16=>C:A:AFT A calls B, DTMF
+
+[GotoActions__DPU_033]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__DPU_028]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Basic_Call_4]
+3=;We should make sure that B(1231242#) is configured in switch but not registered
+7=>A:@:Wait for congestion tone
+12=End of script
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [1231242#]
+6=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:Wait for silence
+1=;To test the case when the user dials the vacant number
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+
+[GotoActions__AFTAutomatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Basic_Call_22]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_17]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Basic_Call_21]
+1=;To test the case when callee hangs up and caller makes another call immediately.
+3=>B:@:Go OnHook
+5=>A:@:Wait for time in seconds in onhook [10]
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Go OnHook
+6=>A calls B, DTMF, confirms once
+
+[Basic_Call_16]
+1=>AFT A calls B, DTMF
+3=>A:@:Go OnHook
+5=End of script
+2=>A:@:Wait for time in seconds [3]
+4=>A calls B, DTMF, confirms once
+
+[GotoActions__CW_012]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_007]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_018]
+7=;6. User B presses HF, dials *52 and C's number
+12=>A:@:Do hook flash, and wait for recall dial tone
+8=;
+13=>B:@:Go OnHook
+1=;Test Case
+5=;4. User A presses HF again
+9=;Expected OutCome
+10=;C rings
+14=>A:@:Do Hook Flash
+18=>B:@:Send string in DTMF [*52]
+2=;1. A and B are in Active Call
+6=;5. User B goes OffHook and Timed Release timer is stopped
+11=>A calls B, DTMF, confirms once
+20=>B:C:A calls B, DTMF, no dial tone, confirms once
+15=>B:@:Go OffHook
+19=>B:@:Wait for recall dial tone
+3=;2. User A presses HF and puts B on hold
+21=End of script
+16=>AFT Do Path Confirmation Once
+4=;3. B goes OnHook and 10 sec TIMED RELEASE TIMER is started at B
+17=>B:@:Do hook flash, and wait for recall dial tone
+
+[test2]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [1231243#]
+5=;>A:@:Go OnHook
+7=>B:C:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:AFT On Hook and wait 1 sec
+6=>B:@:Wait for time in seconds [5]
+8=End of script
+
+[CCW_022]
+3=>A:@:Do Hook Flash
+7=;A gets alerted for the held call
+2=>A calls B, DTMF, confirms once
+4=;After sending *70 A immediately goes onhook
+6=>A:@:Go OnHook
+8=>A:@:Wait for time in seconds [2]
+11=End of script
+1=;A abd B are in an Actice call
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OffHook
+10=>AFT Do Path Confirmation Once
+
+[CCW_017]
+7=>B:@:Wait for time in seconds [2]
+12=>B:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+17=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+14=>A:@:Wait for time in seconds [5]
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>C:@:Go OnHook
+15=>A calls B, DTMF, confirms once
+3=>B:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[GotoActions__CH_7]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[E911_SC_FH_001]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Go OffHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds in onhook [5]
+6=>A:C:AFT Do Path Confirmation Once
+
+[AFT4-way Conference]
+7=A:C:AFT Do Path Confirmation Once
+12=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+14=A:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=A:D:A calls B, DTMF, confirms once
+20=B:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+24=End of script
+19=B:C:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=B:D:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=C:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__CCW_024]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CCW_019]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_054]
+7=;>A Calls B,DTMF,No Dial Tone
+12=>C:A:AFT A calls B, DTMF
+8=>AFT A calls B, no dial tone, DTMF, confirms once
+13=;C waits for busy response
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;>B:@:Go OffHook
+10=;>AFT Do Path Confirmation Once
+14=>A:@:AFT Wait for Call Waiting Tone
+23=End of script
+18=;>B:@:Wait for time in seconds [1]
+2=>A:@:AFT Off hook wait for dial tone
+6=;A calls B and conform once
+11=;>B:@:Wait for time in seconds [1]
+20=>A:@:Go OnHook
+15=>C:@:Wait for time in seconds [1]
+19=>B:C:AFT Do Path Confirmation Once
+3=;Activating CCW
+21=>B:@:Go OnHook
+16=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Send string in DTMF [*70]
+22=>C:@:Go OnHook
+17=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__CH_27]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Basic_Call_2_Orig]
+3=>AFT A calls B, DTMF
+7=>A:@:Wait for congestion tone
+12=>A:@:Go OnHook
+4=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+13=;By next action we check that A gets the dial tone or not
+1=;Originating side script for Basic_Call_2
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+14=>A calls B, DTMF, confirms once
+2=;A calls B and B doesn't answer
+6=>A:@:Wait for time in seconds [10]
+11=>A:@:Wait for silence
+15=End of script
+
+[CT_20]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Do Hook Flash
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>C:@:Go OnHook
+8=;This will immediately establish the held call
+1=;Scenario 13: Transferor establishes call with Transferee, puts Transferee on hold and establishes call with Transfer Target. Target releases the call with Transferor. Transferor presses Flash-hook before the Timed Release BYE timer expires.
+5=;Now C will go on-hook before A 
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__AFT3WC_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_013]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[DPU_030]
+3=;C barges in to A-B
+7=>B:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+4=>C:A:AFT A calls B, DTMF
+8=>C:@:Wait for time in seconds [2]
+13=>B:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;3WC estd.
+10=>C:@:Go OnHook
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for time in seconds [1]
+11=>AFT Do Path Confirmation Once
+
+[DPU_025]
+3=>A:@:Wait for time in seconds [1]
+7=;C tries to barge
+2=>A calls B, DTMF, confirms once
+4=;A ties to transfer the call to D
+6=>A:@:Do hook flash, and wait for recall dial tone
+8=>C:A:AFT A calls B, DTMF
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__CT_12]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Flow_040 _Pat]
+3=;>A:@:Wait for Call progress
+7=;>A:@:Wait for time in seconds [1]
+2=;>B:@:Term Hangs up
+4=>A:@:Wait for time in seconds [3]
+6=;>B:A:AFT A calls B, DTMF
+8=>A:@:Do Hook Flash
+11=End of script
+1=>A calls B, DTMF, confirms once with CPD
+5=;Verify that A can still call B
+9=;>A:@:Wait for time in seconds [1]
+10=;>B:A:Do path confirmation once
+
+[GotoActions__CCW_033]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__CCW_028]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[Basic_Call_3]
+3=>B:@:AFT Off Hook
+7=>A:@:Wait for congestion tone
+12=End of script
+2=;within a board
+4=>AFT A calls B, DTMF
+6=>A:@:Wait for time in seconds [10]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:Wait for silence
+1=;To test Callee busy scenario
+5=>A:@:Wait for busy
+9=>A:@:Wait for howler tone
+10=>A:@:Wait for time in seconds [60]
+
+[GotoActions__AFT3WC_049]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Flow_051]
+1=0
+2=0
+3=0
+
+[GotoActions__E911_SC_NFH_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_20]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for congestion tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=;>A:@:Wait for busy
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>C:@:Go OffHook
+9=>A:@:Do Hook Flash
+10=>AFT Do Path Confirmation Once
+
+[CH_15]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=;A will automatically go offhook due to abacus settings
+7=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds [1]
+6=;>A:@:Go OffHook
+8=End of script
+
+[GotoActions__CCW_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__RHD_009]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_021]
+3=;Activating CCW
+7=>A calls B, DTMF, no dial tone, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>A:@:Wait for time in seconds [2]
+13=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=;>A:@:Wait for recall dial tone
+9=>C:A:AFT A calls B, DTMF
+10=;C waits for busy response
+14=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=;A calls B and conform once
+11=>C:@:Wait for busy
+
+[CCW_016]
+1=;Agoes offhook nd wait for dialtone
+3=>B:@:Do hook flash, and wait for recall dial tone
+5=>C:@:Wait for busy
+7=>C:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>C:B:AFT A calls B, DTMF
+6=>A:@:Go OnHook
+8=End of script
+
+[DPU_011_var3]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+16=End of script
+4=>A:@:Send string in DTMF [*52]
+8=>B:@:Wait for time in seconds [1]
+13=>C:A:AFT A calls B, DTMF
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=;B goes on hook
+10=>B:@:Go OnHook
+14=>C:@:Wait for busy
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>A:@:Go OnHook
+15=>A:D:AFT Do Path Confirmation Once
+
+[GotoActions__AFT3WC_030]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__E911_FC_FH_001]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__CH_12]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_036]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__AFTCall Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_8]
+1=;Test Case
+3=>A calls B, DTMF, confirms once
+5=>A:C:A Calls B,DTMF,No Dial Tone
+7=>B:C:AFT Do Path Confirmation Once
+2=;Basic Unattended Call Transfer
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[GotoActions__CT_3]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Basic_Call_2_Term]
+1=;Terminating side script for Basic_call_2
+2=>B:@:Wait for time in seconds in onhook [15]
+3=End of script
+
+[Basic_Call_7]
+1=>AFT A calls B, DTMF
+3=>A:@:Wait for busy
+5=>A:@:AFT Off hook wait for dial tone
+7=End of script
+2=>A:@:Wait for time in seconds [32]
+4=>A:@:Go OnHook
+6=>B:@:AFT Off hook wait for dial tone
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[DPU_010]
+7=>B:D:A Calls B,DTMF,No Dial Tone
+12=>C:@:Wait for dial tone
+8=;B:D:AFT A calls B, no dial tone, DTMF, confirms once
+13=>C:@:Send string in DTMF [1231245#]
+1=;A,B and D are in a CH scenario
+5=>B:@:Wait for recall dial tone
+9=;C tries to barges
+10=;C barges into A-B although A-B leg is inactive
+14=>A:@:AFT Wait for Call Waiting Tone
+18=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=;A is held
+11=;>C:A:AFT A calls B, DTMF
+20=>C:@:Go OnHook
+15=>C:@:Wait for time in seconds [3]
+19=>B:@:Go OnHook
+3=>B:@:Do hook flash, and wait for recall dial tone
+21=>D:@:Go OnHook
+16=>A:@:Wait for time in seconds [3]
+4=>B:@:Send string in DTMF [*52]
+22=End of script
+17=>C:A:AFT Do Path Confirmation Once
+
+[DPU_005]
+1=;A goes offhook and dials B no.
+3=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+7=End of script
+2=;>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [12]
+6=>A:@:Go OnHook
+
+[Basic_Call_19]
+7=>A:@:Wait for busy
+12=>B:@:Wait for congestion tone
+25=>B:D:A calls B, DTMF, confirms once
+8=>B:@:Wait for busy
+13=>A:@:Wait for time in seconds [60]
+26=End of script
+1=;To Test the case when both the users are trying to call each other simultaneously
+9=>A:@:Wait for time in seconds [10]
+14=>B:@:Wait for time in seconds [60]
+2=>A:@:AFT Off hook wait for dial tone
+6=>B:@:Send string in DTMF [1231241#]
+11=>A:@:Wait for congestion tone
+20=>B:@:Wait for silence
+15=>A:@:Wait for howler tone
+24=>A:C:A calls B, DTMF, confirms once
+19=>A:@:Wait for silence
+3=>B:@:AFT Off hook wait for dial tone
+21=>A:@:Go OnHook
+16=>B:@:Wait for howler tone
+4=;A is calling B and B is calling A
+22=>B:@:Go OnHook
+17=>A:@:Wait for time in seconds [60]
+5=>A:@:Send string in DTMF [1231242#]
+10=>B:@:Wait for time in seconds [10]
+23=;To check whether A and B are able to make call or not. 
+18=>B:@:Wait for time in seconds [60]
+
+[GotoActions__Flow_012]
+1=0
+2=0
+3=0
+4=0
+
+[CCW_030]
+7=;A calls B and conform once
+12=>C:A:AFT A calls B, DTMF
+4=;Activating CCW
+8=;>A Calls B,DTMF,No Dial Tone
+13=;C waits for busy response
+17=End of script
+1=;INTER ONT
+5=>A:@:Send string in DTMF [*70]
+9=;>B:@:Go OnHook
+10=;>AFT Do Path Confirmation Once
+14=>C:@:Wait for busy
+2=;Agoes offhook nd wait for dialtone
+6=>A:@:Wait for recall dial tone
+11=>AFT A calls B, no dial tone, DTMF, confirms once
+15=>A:@:Go OnHook
+3=>A:@:AFT Off hook wait for dial tone
+16=>C:@:Go OnHook
+
+[CCW_025]
+3=;Activating CCW
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Wait for time in seconds [2]
+16=End of script
+4=>A:@:Send string in DTMF [*70]
+8=>A:@:Do hook flash, and wait for recall dial tone
+13=>AFT Do Path Confirmation Once
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;Mid call CCW in the same call
+10=>A:@:Send string in DTMF [*70]
+14=>C:A:AFT A calls B, DTMF
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>A:@:Wait for CCW confirmation tone
+15=>C:@:Wait for busy
+
+[AFT3WC_012]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:C:AFT Do Path Confirmation Once
+12=>A:C:AFT Do Path Confirmation Once
+16=End of script
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>AFT Do Path Confirmation Once
+13=;B will get a dial-tone when it goes off-hook as it is no longer in conference but it should go off-hook after 10 seconds
+1=;Party B goes onhook when A, B and C are in conference. The controller A should send a re-invite to party C and A and C should continue with a two party call
+5=>A:@:Do Hook Flash
+9=;Now when the conference is established, B goes On-hook
+10=>B:@:Go OnHook
+14=>B:@:Wait for time in seconds in onhook [12]
+2=>A calls B, DTMF, confirms once
+6=>B:C:AFT Do Path Confirmation Once
+11=;A and C will continue with a two party call
+15=>B:@:AFT Off hook wait for dial tone
+
+[GotoActions__AFT3WC_029]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_045]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Flow_041]
+3=>AFT A calls B, DTMF
+7=>A:@:AFT On Hook and wait 1 sec
+2=>A:@:AFT Off hook wait for dial tone
+4=;Allow for multiple rings (30 seconds)
+6=;Have A go back on hook
+8=;Check that A can call B
+1=;To Test Call abandon scenario this should be run with ringing set to 8
+5=>A:@:Wait for time in seconds [30]
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__test2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_002]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_18]
+3=;In abacus perspective CT_1 and CT_18 are same
+7=>A:@:Go OnHook
+2=;This script is exactly similar to CT_1 though here one should also use ethereal on the proxytool machine to see if A is sending a REFER or not
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+1=;Scenario 11: Transferor establishes call with Transferee, puts Transferee on hold and initiates call to Target. After Transfer Target answers the call, Transferor goes On-hook to initiate Call Transfer
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[CCW_001]
+3=;Activating CCW
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Send string in DTMF [*70]
+6=;A calls B and conform once
+8=>C:A:AFT A calls B, DTMF
+11=End of script
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;C waits for busy response
+10=>C:@:Wait for busy
+
+[DPU_006_set2]
+3=>C:@:Send string in DTMF [1231246#]
+7=;>C:@:Go OnHook
+2=>C:@:Wait for dial tone
+4=;C tries to barge in
+6=>C:@:Wait for busy
+8=;>C:@:Wait for time in seconds in onhook [20]
+1=>C:@:Go OffHook
+5=;>C:B:AFT A calls B, DTMF
+9=End of script
+
+[DPU_005_termin]
+1=>B:@:Wait for time in seconds in onhook [60]
+2=>B:@:Go OffHook
+3=End of script
+
+[E911_SC_NFH_006]
+3=>B:@:AFT Off Hook
+7=>A:@:Do Hook Flash
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Send string in DTMF [911]
+6=>B:@:Go OnHook
+8=>A:C:AFT Do Path Confirmation Once
+11=End of script
+1=>A:C:A calls B, DTMF, confirms once
+5=>A:@:Wait for busy
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=>AFT A calls B, no dial tone, DTMF, confirms once
+
+[GotoActions__DPU_021]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_016]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_033]
+7=>C:@:Wait for time in seconds [3]
+12=>A:@:Do Hook Flash
+8=>C:A:AFT Do Path Confirmation Once
+13=>A:@:Wait for time in seconds [1]
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>A:C:AFT Do Path Confirmation Once
+14=>B:@:Wait for silence
+18=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>B:C:AFT Do Path Confirmation Once
+20=>B:@:Go OnHook
+15=>B:@:Wait for time in seconds [8]
+19=>C:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+21=End of script
+16=>B:@:Wait for congestion tone
+4=;C barges in to A-B
+17=>A:C:AFT Do Path Confirmation Once
+
+[DPU_028]
+3=>A:@:Wait for time in seconds [1]
+7=>A:D:A calls B, DTMF, no dial tone, confirms once
+12=>C:A:AFT A calls B, DTMF
+4=;A ties to transfer the call to D
+8=>A:@:Go OnHook
+13=>C:@:Wait for busy
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>A:@:Wait for time in seconds [2]
+10=>B:D:AFT Do Path Confirmation Once
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=;C tries to barges
+
+[Flow_012]
+1=;To test Successful Call Scenario
+2=;normal call between the same device types
+3=>A calls B, DTMF, confirms once with CPD
+4=End of script
+
+[GotoActions__CT_3_Orig]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CT_20]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT: Call Waiting]
+1=>A calls B, DTMF, confirms once
+3=>A:@:AFT Wait for Call Waiting Tone
+5=>A:C:AFT Do Path Confirmation Once
+7=>AFT Do Path Confirmation Once
+2=>C:A:AFT A calls B, DTMF
+4=>A:@:AFT Do Hook Flash wait time
+6=>A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[GotoActions__Flow_040]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_036]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_011]
+7=;Expected OutCome
+12=>A:@:Go OnHook
+4=;3. B presses HF
+8=;Both hear re-ringing
+13=>B:@:Go OnHook
+17=>AFT Do Path Confirmation Once
+1=;Test Case
+5=;4. A and B goes OnHook simultaneously
+9=>A calls B, DTMF, confirms once
+10=>A:@:Do hook flash, and wait for recall dial tone
+14=>A:@:Wait for time in seconds [1]
+18=End of script
+2=;1. A and B are in Active call
+6=;
+11=>B:@:Do hook flash, and wait for recall dial tone
+15=>A:@:Go OffHook
+3=;2. A puts B on Hold
+16=>B:@:Go OffHook
+
+[RHD_006]
+1=;Both way RHD
+3=>A:@:Do hook flash, and wait for recall dial tone
+5=>A:@:Wait for time in seconds [12]
+7=>B:@:Wait for silence
+2=>A calls B, DTMF, confirms once
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for silence
+8=End of script
+
+[CH_18]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*5]
+5=>A:@:Wait for time in seconds [12]
+7=>A calls B, DTMF, no dial tone, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Go OnHook
+6=>A:@:Send string in DTMF [2]
+8=End of script
+
+[GotoActions__CCW_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_017]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_042]
+3=>C:A:AFT A calls B, DTMF
+7=>C:A:AFT Do Path Confirmation Once
+12=End of script
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:@:Wait for time in seconds [2]
+8=>A:C:AFT Do Path Confirmation Once
+11=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+
+[DPU_037]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=>C:B:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:Wait for time in seconds in onhook [8]
+6=>C:@:Wait for busy
+8=End of script
+
+[E911_SC_FH_003]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:@:Wait for time in seconds in onhook [5]
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds in onhook [10]
+6=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__CH_20]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_15]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_1]
+1=0
+2=0
+3=0
+4=0
+
+[CW_003]
+3=;C calls A
+7=>C:@:AFT Off hook wait for dial tone
+12=;Next action is to check that call with C was terminated
+4=;A is alerted with call waiting tone
+8=>C:A:A Calls B,DTMF,No Dial Tone
+13=>C:@:AFT Off hook wait for dial tone
+1=;Remote User goes on-hook while call waiting tone is played
+5=;C goes on-hook 
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>C:@:Go OnHook
+14=End of script
+2=;A and B are in call
+6=>A calls B, DTMF, confirms once
+11=>AFT Do Path Confirmation Once
+
+[DPU_013]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds in onhook [5]
+12=>C:A:AFT A calls B, DTMF
+4=>A:@:Wait for recall dial tone
+8=;>D:@:Wait for time in seconds in onhook [6]
+13=>C:@:Wait for busy
+1=>A calls B, DTMF, confirms once
+5=>A:D:A calls B, DTMF, no dial tone, confirms once
+9=;>D:@:Go OffHook
+10=;>D:@:Wait for time in seconds [5]
+14=;>C:A:A calls B, DTMF, confirms once
+2=;A transfers the call to D
+6=;>A:@:Go OnHook
+11=;>B:D:AFT Do Path Confirmation Once
+15=End of script
+
+[DPU_008]
+3=>B:@:Go OffHook
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Wait for time in seconds [5]
+4=>AFT Do Path Confirmation Once
+6=>A:D:A Calls B,DTMF,No Dial Tone
+8=>C:@:Wait for busy
+1=>AFT A calls B, DTMF
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[GotoActions__trial_originate]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CH_9]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for time in seconds [20]
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Do Hook Flash
+
+[CCW013]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [16]
+5=End of script
+2=>A:@:Send string in DTMF [*7]
+4=>A:@:Wait for congestion tone
+
+[GotoActions__CT_3_Term]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_FC_FH_001_originate]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Flow_020]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Flow_015]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__DPU_006_set2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CCW_033]
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:Wait for time in seconds in onhook [9]
+8=>C:@:Wait for busy
+13=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OnHook
+10=>A:@:Wait for time in seconds in onhook [9]
+14=>C:@:Wait for time in seconds in onhook [9]
+18=>A:@:AFT Wait for Call Waiting Tone
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for recall dial tone
+11=>B:@:Go OnHook
+20=>C:@:Go OnHook
+15=;A calls B without service code *70
+19=>A:@:Go OnHook
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=End of script
+16=>A calls B, DTMF, confirms once
+4=;Activating CCW
+17=>C:A:AFT A calls B, DTMF
+
+[CCW_028]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;>A:@:Wait for time in seconds [1]
+8=;A puts B on hold and dials C
+13=>A:@:Wait for recall dial tone
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>A:@:Do Hook Flash
+10=>A:@:Wait for recall dial tone
+14=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+18=;D dials A and gets busy
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>A:@:Send string in DTMF [*52]
+20=>D:@:Wait for busy
+15=;B goes on hook
+19=>D:A:AFT A calls B, DTMF
+3=;Activating CCW
+21=>A:C:AFT Do Path Confirmation Once
+16=>B:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+22=End of script
+17=>B:@:Wait for time in seconds [10]
+
+[AFT3WC_015]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+12=>B:C:AFT Do Path Confirmation Once
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;Party B can now hear the ringback of party C
+13=>A:C:AFT Do Path Confirmation Once
+1=;To Test the basic early 3WC into 3WC functionality
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ring back tone
+10=;After 2 rings C will automatically go off-hook due to settings in abacus
+14=>AFT Do Path Confirmation Once
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+6=>A:@:Wait for Ring back tone
+11=;The conference between A, B, and C should get established which is checked by the three actions below
+15=End of script
+
+[GotoActions__E911_SC_NFH_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_011_var2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[AFT3WC_029]
+3=;party C is in different ONT
+7=>A:@:Do Hook Flash
+2=;To Test the basic 3WC 
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+11=End of script
+1=;Test Case
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+
+[E911_Basic call]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A calls B(911), DTMF, no dial tone, confirms once
+5=>A:C:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=End of script
+
+[GotoActions__DPU_010]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CT_31]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for Ring back tone
+2=>A calls B, DTMF, confirms once
+4=>A:C:A Calls B,DTMF,No Dial Tone
+6=>A:@:Go OnHook
+8=>B:C:AFT Do Path Confirmation Once
+1=;Change the number of rings before term subs pick up the phone to 2
+5=>A:@:Wait for Ring back tone
+9=End of script
+
+[CT_26]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for busy
+2=; Transferor presses Flash-hook when BusyTone is being played (Call with Transferee is resumed).
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Do Hook Flash
+1=;Variation of CT_25
+5=>C:@:Go OffHook
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[CW_012]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook and then A goes on-hook which will terminate the call between A and C but A will be alerted for the held call from B
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=>B:A:AFT Do Path Confirmation Once
+1=;Handling timed release wait timer when the active call terminates and the other remote party is on hold
+5=>A:@:Do Hook Flash
+9=>A:@:Go OnHook
+10=;A will ring and pickup the phone
+
+[CW_007]
+3=>C:A:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=>B:@:Go OffHook
+11=>AFT Do Path Confirmation Once
+1=;Time release timer handling when both the remote parties go onhook while call waiting tone is being played
+5=>B:@:Go OnHook
+9=;i.e,B goes off-hook before 16 seconds and after C has gone on-hook
+10=;This is done to see that call between A and B is still there as the timed released timer has not expired
+
+[CCW_004]
+3=;Activating CCW
+7=>A:@:Wait for Ring back tone
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=>C:@:Go OnHook
+1=;A goes offhooh and wait for dial tone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=>B:@:Go OffHook
+14=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=>A Calls B,DTMF,No Dial Tone
+11=>AFT Do Path Confirmation Once
+
+[GotoActions__DPU_024]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_019]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[CT_1]
+3=;A transfers the call to C
+7=>A:@:Go OnHook
+2=;Attended Call Transfer
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>B:C:AFT Do Path Confirmation Once
+1=;Test Case
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[Flow_020]
+3=;Have A go on hook
+7=;Verify that A can still call B
+2=>A:@:Wait for time in seconds [3]
+4=>A:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF, confirms once with CPD
+1=>AFT A calls B, DTMF
+5=;Have B go on hook
+9=End of script
+
+[Flow_015]
+1=;To test Successful Call Scenario
+2=;normal call between two different devices
+3=>A calls B, DTMF, confirms once with CPD
+4=End of script
+
+[GotoActions__CT_18]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__test 1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_13]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Basic_Call_12]
+1=;To Test the case when the user calls himself
+3=>A:A:AFT A calls B, DTMF
+5=>A:@:Go OnHook
+7=>A calls B, DTMF, confirms once
+2=;A is calling itself
+4=>A:@:Wait for busy
+6=;The next time A is able to call successfully
+8=End of script
+
+[GotoActions__CW_003]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[RHD_009]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [1]
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+8=;re-ringing is tested by going offhook again and checking for the voice path
+11=>B:A:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OffHook
+10=>B:@:Do Hook Flash
+
+[GotoActions__CH_3]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_020]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_015]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_045]
+3=>C:A:AFT A calls B, DTMF
+7=>B:A:AFT Do Path Confirmation Once
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:@:Wait for time in seconds in onhook [5]
+8=>AFT Do Path Confirmation Once
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>C:@:Go OnHook
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+
+[GotoActions__CH_18]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Basic_Call_4]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CT_11]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+4=;C goes off-hook to simulate the busy scenario
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:Do Hook Flash
+11=End of script
+1=;Scenario-9, Attended call transfer feature,target is busy and sends back 486 to transferor then transferor goes flashhook and call gets established again with transferee
+5=>C:@:Go OffHook
+9=;After pressing hook-flash A and B should again get connected
+10=>AFT Do Path Confirmation Once
+
+[DPU_002]
+3=>A:@:Wait for time in seconds [1]
+7=;>C:@:Wait for time in seconds [1]
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=;C barges in to A-B
+6=>B:@:AFT Wait for Call Waiting Tone
+8=>C:B:AFT Do Path Confirmation Once
+11=>A:C:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=>C:B:AFT A calls B, DTMF
+9=;3WC estd.
+10=>B:C:AFT Do Path Confirmation Once
+
+[GotoActions__CT_9]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E911_FC_NFH_003]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_001]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_031_var1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[CH_3]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for silence
+8=>B:@:Wait for time in seconds [2]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait For InterDigit TimeOut [16]
+9=>A:@:Go OffHook
+10=>AFT Do Path Confirmation Once
+
+[CW_011]
+3=>C:A:AFT A calls B, DTMF
+7=;Now C goes on-hook which will terminate the call between A and C after 16 sec and the held call between A and B will be resumed
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:C:AFT Do Path Confirmation Once
+8=>C:@:Go OnHook
+11=End of script
+1=;Handling active party termination after the waiting call has been accpeted by the controller
+5=>A:@:Do Hook Flash
+9=>C:@:Wait for time in seconds [18]
+10=>AFT Do Path Confirmation Once
+
+[CW_006]
+3=>C:A:AFT A calls B, DTMF
+7=>A:@:Do Hook Flash
+2=>A calls B, DTMF, confirms once
+4=>A:@:AFT Wait for Call Waiting Tone
+6=;timed released timer is started and will expire after 16 seconds
+8=;A and C will get connected 
+1=;Time release timer handling when user flashes after the remote party terminates
+5=>B:@:Go OnHook
+9=>A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[DPU_021]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for time in seconds [1]
+12=>B:@:AFT Wait for Call Waiting Tone
+16=End of script
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:D:AFT Do Path Confirmation Once
+13=>C:B:AFT Do Path Confirmation Once
+1=;A,B nd D in a 3WC
+5=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>AFT Do Path Confirmation Once
+10=;C tries to barge in to B
+14=>C:A:AFT Do Path Confirmation Once
+2=;A-B and A-D call legs exist
+6=>A:@:Do Hook Flash
+11=>C:B:AFT A calls B, DTMF
+15=>C:A:AFT Do Path Confirmation Once
+
+[DPU_016]
+3=>A:@:Wait for time in seconds [5]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=>C:@:Wait for time in seconds [2]
+4=;D is on wait
+8=;C tries to barges into D
+13=>A:@:Go OnHook
+1=;A nad B are in an actice call
+5=>B:@:Wait for time in seconds [5]
+9=>B:A:AFT Do Path Confirmation Once
+10=>C:A:AFT A calls B, DTMF
+14=>C:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=>C:@:Wait for busy
+15=End of script
+
+[CCW_036]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Send string in DTMF [*70]
+2=>B:@:Wait for time in seconds [3]
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Wait for CCW confirmation tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Send string in DTMF [*70]
+9=>AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[GotoActions__Basic_Call_12]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__E911_SC_NFH_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_056]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[CH_11]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for time in seconds [20]
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Do Hook Flash
+
+[Flow_052]
+1=;Long term call - check SSW session timer msg 
+2=>AFT A calls B, DTMF, confirms for CL with CPD
+3=End of script
+
+[GotoActions__E911_SC_FH_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_010]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__RHD_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CH_30]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Go OnHook
+8=>A:@:Wait for time in seconds [12]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>A:@:Go OnHook
+10=>A:@:AFT Off hook wait for dial tone
+
+[CH_25]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for time in seconds [20]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>C:@:Go OnHook
+8=>A:@:Wait for recall dial tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>B:@:Go OnHook
+10=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+
+[CCW_007]
+3=>A:@:Wait for congestion tone
+7=>B:@:Wait for busy
+2=>A:@:Send string in DTMF [2341192#]
+4=>A:@:Send string in DTMF [*70]
+6=>B:A:AFT A calls B, DTMF
+8=>A:@:Go OnHook
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:Wait for CCW confirmation tone
+9=>B:@:Go OnHook
+10=End of script
+
+[GotoActions__AFT3WC_016]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__AFT4-way Conference]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_032]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__DPU_027]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[CT_4]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=;The next line checks that call between transferror and target is still in existense
+2=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+6=>B:@:Wait for time in seconds [18]
+8=>A:C:AFT Do Path Confirmation Once
+1=;Transferor gets BYE from transferee which is on hold and the call is established only between transferor and target.
+5=>B:@:Go OnHook
+9=End of script
+
+[GotoActions__CT_31]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CT_26]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__GO OFFHOOK]
+1=0
+2=0
+3=0
+
+[GotoActions__Basic_Call_21]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_16]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Detect congestion tone]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Wait for time in seconds [20]
+5=End of script
+2=>B:@:Go OnHook
+4=>A:@:Wait for congestion tone
+
+[Basic_Call_20]
+1=;To test the case when both the user go on-hook simultaneously
+3=>A:@:Go OnHook
+5=;To test whether A and B gets dialtone next time they go off-hook
+7=>B:@:AFT Off hook wait for dial tone
+2=>A calls B, DTMF, confirms once
+4=>B:@:Go OnHook
+6=>A:@:AFT Off hook wait for dial tone
+8=End of script
+
+[Basic_Call_15]
+3=>AFT A calls B, DTMF
+7=>A:@:Wait for time in seconds [60]
+2=>B:@:AFT Off Hook
+4=>A:@:Wait for busy
+6=>A:@:Wait for congestion tone
+8=>A:@:Wait for howler tone
+11=End of script
+1=;To test Callee busy scenario between two boards
+5=>A:@:Wait for time in seconds [10]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for silence
+
+[GotoActions__CW_011]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CW_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_017]
+3=>A:@:Wait for time in seconds [5]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Do Hook Flash
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:@:Send string in DTMF [*70]
+13=>A:@:Wait for time in seconds [1]
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=>B:@:Wait for CCW confirmation tone
+10=>B:@:Wait for time in seconds [2]
+14=>AFT Do Path Confirmation Once
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=;Following steps are written to verify the path between A and B after A flashes
+15=End of script
+
+[GotoActions__AFTCaller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT3WC_003]
+7=>A:C:AFT Do Path Confirmation Once
+12=>A calls B, DTMF, confirms once
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>AFT Do Path Confirmation Once
+13=>A:@:Do hook flash, and wait for recall dial tone
+17=End of script
+1=;To Test the clearance of the 3WC SSM and Callcontext involved in the 3WC
+5=>A:@:Do Hook Flash
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+14=>A:C:A calls B, DTMF, no dial tone, confirms once
+2=>A calls B, DTMF, confirms once
+6=>B:C:AFT Do Path Confirmation Once
+11=>C:@:Go OnHook
+15=>A:@:Do Hook Flash
+3=>A:@:Do hook flash, and wait for recall dial tone
+16=>B:C:AFT Do Path Confirmation Once
+
+[GotoActions__CCW_023]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CCW_018]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[GotoActions__CH_31]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_26]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Basic_Call_7]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CT_14]
+3=;Normal call termination
+7=>B:@:Go OnHook
+12=End of script
+2=;The target releases call
+4=>A calls B, DTMF, confirms once
+6=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>A:C:AFT Do Path Confirmation Once
+11=>A:@:Wait for congestion tone
+1=;Transferor establishes call with Transferee, put Transferee on hold and initiates call to Target. Transferee releases call.
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=>C:@:Go OnHook
+10=>A:@:Wait for time in seconds [18]
+
+[CT_28]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for busy
+12=>A:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>A:@:Wait for time in seconds [10]
+13=>A calls B, DTMF, confirms once
+1=;Variation of CT_25
+5=>C:@:Go OffHook
+9=>A:@:Wait for congestion tone
+10=>B:@:Go OnHook
+14=End of script
+2=;Variation_3: When treatment (BUSY/HOWLER/Permanent) is being played to Transferor, Transferee releases its call with Transferor. Transferor goes On-hook (to stop the Busy/Howler/Permanent Signalling) and then attempts a new call.
+6=>A:C:A Calls B,DTMF,No Dial Tone
+11=>A:@:Wait for time in seconds [11]
+
+[DPU_024]
+7=>B:@:Go OnHook
+12=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>B:@:Wait for time in seconds in onhook [10]
+13=>A:D:AFT Do Path Confirmation Once
+17=>D:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>C:D:AFT Do Path Confirmation Once
+18=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>A:@:Wait for time in seconds [3]
+15=>A:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>B:@:Go OnHook
+
+[DPU_019]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=;>D:@:Wait for time in seconds [5]
+25=End of script
+8=>D:@:Wait for time in seconds [5]
+13=>A:@:Do Hook Flash
+1=;A nad B are in an actice call
+9=>A:@:Wait for time in seconds [3]
+14=>A:@:Wait for time in seconds [2]
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=;>B:@:Wait for time in seconds in onhook [3]
+20=>A:C:AFT Do Path Confirmation Once
+15=>D:@:Wait for time in seconds [2]
+24=>C:@:Go OnHook
+19=>C:@:Wait for time in seconds [5]
+3=>A:@:Wait for time in seconds [5]
+21=>A:D:AFT Do Path Confirmation Once
+16=>D:A:AFT Do Path Confirmation Once
+4=;D is on wait
+22=>D:C:AFT Do Path Confirmation Once
+17=>C:A:AFT A calls B, DTMF
+5=>B:@:Wait for time in seconds [5]
+10=>B:@:Go OnHook
+23=>A:@:Go OnHook
+18=>A:@:AFT Wait for Call Waiting Tone
+
+[Basic_Call_2]
+3=;For this script to work change the number of rings to before terminating side picks up the call to 8
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>AFT A calls B, DTMF
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;To test callee No answer scenario within a board
+5=>A:@:Wait for time in seconds [32]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=>A:@:AFT Off hook wait for dial tone
+2=;Abnormal disconnect error message will come-ignore that...all tones can be detected
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+15=End of script
+
+[Flow_055]
+7=>A:C:AFT Do Path Confirmation Once
+12=>A:@:Wait for time in seconds [3600]
+4=>A:C:A calls B, DTMF, no dial tone, confirms once
+8=>A:@:Do Hook Flash
+13=;Check call over the course of an hour
+17=>C:@:AFT On Hook and wait 1 sec
+1=;To test the session timer with 3WC
+5=>A:@:Wait for time in seconds [3600]
+9=>B:C:AFT Do Path Confirmation Once
+10=>A:C:AFT Do Path Confirmation Once
+14=>B:C:AFT Do Path Confirmation Once
+18=>B:@:AFT On Hook and wait 1 sec
+2=>A calls B, DTMF, confirms once with CPD
+6=;Check call path from a to c after 1 Hr with B still on Hold
+11=>AFT Do Path Confirmation Once
+20=End of script
+15=>A:C:AFT Do Path Confirmation Once
+19=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:Do hook flash, and wait for recall dial tone
+16=>AFT Do Path Confirmation Once
+
+[GotoActions__RHD_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFTCall Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CH_11]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[trial_originate]
+3=>A:@:Wait for time in seconds [10]
+7=>A:@:Wait for time in seconds [60]
+2=>A:@:Wait for busy
+4=>A:@:Wait for congestion tone
+6=>A:@:Wait for howler tone
+8=>A:@:Wait for silence
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for time in seconds [60]
+9=End of script
+
+[Flow_031]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+2=;Have B go on hook
+4=>A:@:AFT Off hook wait for congestion tone
+6=>A:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT On Hook and wait 1 sec
+11=End of script
+1=>AFT A calls B, DTMF
+5=;Have A Go OnHook
+9=;Verify that A can still call B
+10=>B:A:A calls B, DTMF, confirms once with CPD
+

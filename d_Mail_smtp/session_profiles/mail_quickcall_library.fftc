@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <general>
+        <documentation>Mail QuickCalls</documentation>
+        <notes>QuickCall Library mainly created to be able to email the results of a test suite to CPE Engineering</notes>
+        <owner>Juan Brena</owner>
+        <sessionClass includeTestCase="true" sessionType="mail_smtp_ssh.ffsp"/>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="38f53a84-6a24-402f-ae2c-6b0a2464eabb" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="Email_Results" isPublic="true">
+            <description>Email Test Suite Results</description>
+            <steps>
+                <item guid="943376f5-668e-4ba4-81d0-cde895fddef2" action="eval" responseMap="project://d_Mail_smtp/response_maps/test_results.ffrm" useResponseMapLibraryApplicability="false" useFieldsInCommand="false">
+                    <command>
+                        <body>print(results)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Test_Case()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>test_case</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Report_Id()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>report_id</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>Testcase_all()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>unexpected_test_cases</storageLocation>
+                                        <storeInAList>true</storeInAList>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Child_Test_Cases_Total()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>total_test_cases_count</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Child_Test_Cases_Unexpected()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>unexpected_test_cases_count</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <eventHandlers>
+                        <item name="OnQueryExtractorInvalidQuery"/>
+                    </eventHandlers>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                </item>
+                <item guid="507d0843-5eda-4bfc-8413-9faea31425e9" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Parse ParamFile</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f2f3e232-3fed-49e6-8723-b8ffbb279974" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>info(&apos;paramFile&apos;)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>param_file</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8f9241aa-992d-4d03-a0cc-3d9695b9b4ad" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>def parse_param_file(file):
+\tleft_index = file.rfind(&apos;/&apos;) + 1
+\tright_index = file.rfind(&apos;_parameters.ffpt&apos;)
+\treturn file[left_index:right_index]
+
+</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bc5709f1-c388-4c3d-a8ee-9731a7303df2" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>param_file = parse_param_file(param_file)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="91c44bb0-a057-42e5-ac20-85361c11c6a1" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Parse Testbed File</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="788e8427-88bf-48ba-9445-9e82a4ed7ecd" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>info(&apos;testbedFile&apos;)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>testbed_file</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="54bf2598-e751-4e95-bdf0-f7fec237daf6" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>def parse_testbed_file(file):
+\tleft_index = file.rfind(&apos;/&apos;) + 1
+\tright_index = file.rfind(&apos;.tbml&apos;)
+\treturn file[left_index:right_index]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6f209e15-9106-4fcc-b360-1305ba16c409" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>testbed_file = parse_testbed_file(testbed_file)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b201fbad-56b4-484c-ae65-7fc94fdf2c38" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Beging Email</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c1d815e8-cb7e-4217-885b-8289261088b9" action="to" session="[session]">
+                    <command>
+                        <body>juan.brena@tpx.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5cf2ea82-18a2-4a74-a6db-b6ec896a537a" action="cc" session="[session]">
+                    <command>
+                        <body>cpeengineering@tpx.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="00efadbe-c01d-4fed-ad25-937d4fa306d0" action="subject" session="[session]">
+                    <command>
+                        <body>[param_file] - [report_id]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5eab023e-dc63-469c-ae2f-06a7a1d8d638" action="writeLine" session="[session]">
+                    <command>
+                        <body>Test Suite: [test_case]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="df962f44-117c-4e9a-be3a-1a4eed54e9a2" action="writeLine" session="[session]">
+                    <command>
+                        <body>Topology: [testbed_file]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f370d822-40de-4f4a-9604-dd7daafd4f66" action="writeLine" session="[session]">
+                    <command>
+                        <body>Parameters: [param_file]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="62f2ec3c-5d12-4c40-911f-78fbba89ca36" action="writeLine" session="[session]">
+                    <command>
+                        <body>Number of test cases that Failed: [unexpected_test_cases_count] out of [total_test_cases_count]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="449910b3-4b8e-4277-91a9-0b87e40f5732" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7955df05-c446-496b-9c58-0f00aa493918" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>test in unexpected_test_cases:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cbbdd9b6-6872-40a9-a4cb-99a99bb1d1ed" action="writeLine" session="[session]">
+                            <command>
+                                <body>Failed: [test]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c3a6aec9-8dbb-4755-877b-487a162d93d0" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2c82bdb9-1902-4e40-a3f2-654223e239f3" action="writeLine" session="[session]">
+                    <command>
+                        <body>Complete Results Below</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="dc698bb1-5e3f-49cd-b60d-8f5f55f064dc" action="writeLine" session="[session]">
+                    <command>
+                        <body>------------------------------------------------------------------------------------------------------------------------------</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="667b4fa3-93c3-45a4-a99a-4204314f9a63" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c9e37777-5fd1-4ef2-a757-ad383582dd38" action="writeLine" session="[session]">
+                    <command>
+                        <body>[results]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d3e5cac5-0a09-49ca-b2ef-01ad126a9b4e" action="send" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Juan Brena</author>
+            <multilineDescription>Email the results of a Test Case or Test Suite
+</multilineDescription>
+            <arguments>
+                <item name="results">
+                    <description>Results to be emailed</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{}</response>
+        </item>
+        <item name="Emails_3_Attempt_Results" isPublic="true">
+            <steps>
+                <item guid="b6ea16ed-2c14-497f-8019-e0ba954159c2" action="eval" responseMap="project://d_Mail_smtp/response_maps/test_results.ffrm" useResponseMapLibraryApplicability="false" useFieldsInCommand="false">
+                    <command>
+                        <body>print(results)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Test_Case()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>test_case</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Report_Id()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>report_id</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>Testcase_all()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>unexpected_test_cases</storageLocation>
+                                        <storeInAList>true</storeInAList>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Child_Test_Cases_Total()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>total_test_cases_count</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Child_Test_Cases_Unexpected()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>unexpected_test_cases_count</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <eventHandlers>
+                        <item name="OnQueryExtractorInvalidQuery"/>
+                    </eventHandlers>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                </item>
+                <item guid="b8b534d7-8c97-4419-af0a-3d4825261809" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Parse ParamFile</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2f13ea19-1f12-4f16-b16a-44fccc17ada0" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>info(&apos;paramFile&apos;)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>param_file</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="91d2f173-817a-4630-a401-0287ca6e3eeb" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>def parse_param_file(file):
+\tleft_index = file.rfind(&apos;/&apos;) + 1
+\tright_index = file.rfind(&apos;_parameters.ffpt&apos;)
+\treturn file[left_index:right_index]
+
+</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ad77665f-8e7c-4544-b266-688788a4ed0a" action="eval" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>param_file = parse_param_file(param_file)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f24d41b8-f988-4277-809d-cef43c2111ae" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Parse Testbed File</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="74ee51c3-2c60-4208-83b4-62e832440dd6" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>info(&apos;testbedFile&apos;)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>testbed_file</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2f31696f-d31a-48fa-9faa-91d4202a661a" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>def parse_testbed_file(file):
+\tleft_index = file.rfind(&apos;/&apos;) + 1
+\tright_index = file.rfind(&apos;.tbml&apos;)
+\treturn file[left_index:right_index]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="272d7001-50d3-4e18-87f9-e125a5f8847c" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>testbed_file = parse_testbed_file(testbed_file)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="10659dff-e1f8-4ab4-8347-01b228167abf" action="to" session="[session]">
+                    <command>
+                        <body>cpeengineering@tpx.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3ed2f188-ae01-44b8-aea1-99e44eff81c8" action="cc" session="[session]">
+                    <command>
+                        <body>juan.brena@tpx.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1b1d5f7b-9ded-47cd-b813-c50ed6330acd" action="subject" session="[session]">
+                    <command>
+                        <body>[parse_param_file(param_file)] - [report_id]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4a1806f5-8d47-4c78-a211-e641bfa1c504" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>test_cases_that_failed_3_times = []</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6a40f646-e64e-417d-ae5b-518042f2a351" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>test in unexpected_test_cases:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7f9be867-943a-4cf3-843e-ce3e02458965" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>unexpected_test_cases.count(test) == 3 and test not in test_cases_that_failed_3_times:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="93e3d999-7e2f-4eac-ba73-947ced6cb72b" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>test_cases_that_failed_3_times.append(test)</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="59da25a5-cc6d-4cb0-9260-38b754ea3113" action="writeLine" session="[session]">
+                    <command>
+                        <body>Test Suite: [test_case]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="32cacb9a-15a0-4779-8f98-69cee40428d1" action="writeLine" session="[session]">
+                    <command>
+                        <body>Topology: [testbed_file]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fc3eae51-27d3-4b60-a6ba-de75a4d5d5fc" action="writeLine" session="[session]">
+                    <command>
+                        <body>Parameters: [param_file]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f5a10023-a408-44c2-acab-f2162f720d6d" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(total_test_cases_count)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="af59fb4f-75a0-4d99-9543-fd97160ad657" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(unexpected_test_cases_count)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="468101c1-c84d-4e5e-9663-d9a34e6050e8" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(test_cases_that_failed_3_times)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bcc08dad-83c7-4fa7-bf75-ade04e227645" action="writeLine" session="[session]">
+                    <command>
+                        <body>Number of test cases that Failed 3 times: [len(test_cases_that_failed_3_times)] out of [int(total_test_cases_count) - int(unexpected_test_cases_count) + len(test_cases_that_failed_3_times)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ae21bd9a-6c1c-4081-a11d-1a8986c0bd67" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="94fad8c9-a99e-438d-bf8b-6f4852d8610c" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>test in test_cases_that_failed_3_times:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="186a875e-3af6-42d8-a197-8d8934bd3005" action="writeLine" session="[session]">
+                            <command>
+                                <body>Failed: [test]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b5bb0ec4-9482-418e-93b7-9a4b7fc028f9" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9204009b-0835-4f26-975e-2bbb33687792" action="writeLine" session="[session]">
+                    <command>
+                        <body>Complete Results Below</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="10431a97-4301-4d4c-80d5-e3bce4b433b6" action="writeLine" session="[session]">
+                    <command>
+                        <body>------------------------------------------------------------------------------------------------------------------------------</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9f3185bb-b381-4805-bdf3-01fc69d8e637" action="writeLine" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="93536c2c-e9e3-4354-aa41-3eca6f2d33a7" action="writeLine" session="[session]">
+                    <command>
+                        <body>[results]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="44836e3c-2f1e-4aa8-8a80-cdd69b62ee6c" action="send" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

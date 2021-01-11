@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ParameterTree version="8.1.3.0">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <prim_int pt:description="CPE Interface used by the current protocol">N/A</prim_int>
+            <cpe_config_file>iTest_FXS_VC.cfg</cpe_config_file>
+            <conv_config_file>iTest_Conv_SIP.cfg</conv_config_file>
+            <conv_prim_int>t1 0/4</conv_prim_int>
+            <iad_channels>
+                <iad_1>1</iad_1>
+                <iad_2>2</iad_2>
+                <iad_3>3</iad_3>
+                <iad_4>4</iad_4>
+                <iad_5>5</iad_5>
+                <iad_6>6</iad_6>
+            </iad_channels>
+        </parameters>
+    </parameters>
+    <includeParameters>
+        <item>project://a_voip/parameters/_VOIP/voip_parameters_FXS.ffpt</item>
+        <item>project://a_voip/parameters/_Environment_File/Environment_File_FXS_SIP_PRI.ffpt</item>
+        <item>project://a_voip/parameters/Adtran/Adtran_Common_parameters.ffpt</item>
+    </includeParameters>
+</ParameterTree>

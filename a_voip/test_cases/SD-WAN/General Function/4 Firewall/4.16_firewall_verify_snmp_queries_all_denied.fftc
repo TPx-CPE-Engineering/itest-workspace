@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>Firewall - Verify SNMP queries are denied if SNMP deny all is configured</documentation>
+        <notes>Test Case: Verify SNMP queries are denied if SNMP deny all is configured
+Expected Results: All SNMP queries dropped
+Usage: Configure VCE to allow SNMP from Sniffer&apos;s IP, then use &quot;snmpwalk -v2c -c tp@c1n0c {Sniffer&apos;s IP + Port 1161}&quot;
+
+Details:
+A port forwarding rule will be configured to the Edge to forward traffic from port 1161 to 161. A test to validate if traffic is being forwarded will be executed. Then a Firewall outbound rule to block all snmp traffic will be configured. A test to validate if traffic is being forwarded will be executed.</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true">
+        <analysisRules>
+            <item>
+                <extractorInfo extractorType="contains">
+                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                        <searchString>Traceback</searchString>
+                    </extractorProperties>
+                </extractorInfo>
+                <processorInfo ruleType="assert">
+                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                        <expression>value == 1</expression>
+                        <actionsWhenTrue>
+                            <item actionId="DeclareExecutionIssue">
+                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                    <message>Python Traceback Error</message>
+                                </actionProperties>
+                            </item>
+                            <item actionId="FailTestIfPassing">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                            <item actionId="ExitExecution">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                        </actionsWhenTrue>
+                    </ruleProperties>
+                </processorInfo>
+            </item>
+        </analysisRules>
+    </execution>
+    <testbed>project://a_voip/topologies/VeloCloud/VC840/VC840_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="968b8831-e1e3-4cf9-b6a1-1c5f0184f844" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening sessions...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6eb9a4a5-f745-4f60-a18b-72c8b7b9bec5" action="open" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="cd6c2281-1c03-4fcb-9d9d-792998910f46" action="open" session="Sniffer">
+                            <command>
+                                <body>device:Sniffer#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="957f4161-aff5-45aa-88fa-30dee9a02097" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing module...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7c6d5f40-7db0-43ca-8129-d2dd58a3abaf" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>from firewall.firewall_4_16_verify_snmp_queries_deny_all import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fc31890d-8d3f-434c-951b-ffb914b0cdee" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="072b9790-644e-4311-8d13-69a7ac37437f" action="comment" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>CPE session is opened and closed quickly as we only want to obtain the pubic_ip and ssh_port</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="abf55919-49ef-431e-9c9a-ce1f6d72fc5c" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>connectStatus()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;true&quot;</expression>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Cannot SSH to CPE behind Edge. Please verify Port Forwarding Rule is present on Edge.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>ipAddress()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>public_ip</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>port()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>ssh_port</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="9bb9f59f-4b59-40dd-a4b8-54e9de0b38a7" action="close" session="CPE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a286ca7a-53a9-43a5-8f52-38e7022de846" action="command" session="SD-WAN">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="99269c12-8096-40f7-86e6-d9181e000b4d" action="command" session="SD-WAN">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="05fa1af1-8e7b-4dd0-9c81-985f405e7dc2" action="command" session="SD-WAN">
+                            <command>
+                                <body>ssh_port = &quot;[ssh_port]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ceb5847b-e183-42c7-9d70-98744a75ef41" action="command" session="SD-WAN">
+                            <command>
+                                <body>public_ip = &quot;[public_ip]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="aefaf02b-0120-4e0f-950a-7b46dbea0f90" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, ssh_port=ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0b71ac76-68a3-4604-acc9-58ff71c3e0a0" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a1a1a28a-8a38-4c3d-a8b2-dbd9e05f97e3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Setting Firewall SNMP Access to &apos;Deny All&apos;...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3f66894e-6df9-449c-b64e-2ad632180046" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>set_snmp_access_to_deny_all()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ccdffbdb-8bd4-4fb1-92d0-b788561397ba" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE: SNMP Access was set to &apos;Deny All&apos; successfully.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5aafacef-f168-4332-9cc5-a8f120940593" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping for 10 seconds to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0a670d53-1f18-4881-95ac-f16d3687c784" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="10d1902d-9ebe-428a-9fbe-c21b831b83bd" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="60fb5aa7-b5f3-49cb-91ae-6822ba1de139" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>SNMPWALK: Testing EDGE SNMP Access by SNMP querying the EDGE. Expecting no reply...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cf59b5b6-f20c-456b-95a1-160a14669c1c" action="command" session="Sniffer">
+                            <command>
+                                <body>snmpwalk -v 2c -c tpc1n0c [public_ip] | head</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>Timeout: No Response from</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMPWALK: No reply from EDGE. SNMP query is denied when SNMP Access is set to &apos;Deny All&apos; as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="10c77509-1191-48b9-bf74-36d6454734f1" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="037bfa23-5e48-414a-ae89-dc78f0928436" action="close" session="SD-WAN" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3b7ae623-62c8-450e-9845-d5870aa2da8a" action="close" session="Sniffer">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

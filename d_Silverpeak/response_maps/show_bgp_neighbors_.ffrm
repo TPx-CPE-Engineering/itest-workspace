@@ -1,0 +1,502 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.1.3.0">
+    <responseStructure>text/python</responseStructure>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show_bgp_neighbors()</body>
+                </command>
+            </action>
+            <responseBody>BGP Neighbor Table: 1 active BGP peers
+        Local IP :           Nbr IP :        Router ID :        ASN :        State
+   192.168.131.1     192.168.131.99     192.168.131.99        64514    Established 
+Up Time: 42s, Last Update Rcvd: 0s
+Nbr Type: Branch, Route Imports Permitted: Yes
+Route types permitted for export:  Lcl Shared BGP-Br BGP-Tr BGP-PE BGP-Rem BGP-Rem-Tr OSPF OSPF-Rem 
+Nbr MED: 0, Inbound MED: 0, Local Preference: 100, AS Prepend Count: 0
+Nbr Active/Cfg Keep Alive time: 30/30, Active/Cfg Hold time: 90/90
+Next Hop Self: Disabled
+Total Updates rcvd/sent: 4/4, Total Prefixes rcvd/sent: 200/14
+Last error code/subcode rcvd: None/None, Last error time: 0s
+Last error code/subcode sent: None/None, Last error time: 0
+</responseBody>
+            <contentType>text/python</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;BGP Neighbor Table: 1 active BGP peers&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+            <duration>2.3</duration>
+        </item>
+        <item name="sample2">
+            <action actionType="command">
+                <command>
+                    <body>show_bgp_neighbors()</body>
+                </command>
+            </action>
+            <responseBody>BGP Neighbor Table: 1 active BGP peers
+        Local IP :           Nbr IP :        Router ID :        ASN :        State
+   192.168.131.1     192.168.131.99     192.168.131.99        64514    Established 
+Up Time: 1m 1s, Last Update Rcvd: 0s
+Nbr Type: Branch, Route Imports Permitted: Yes
+Route types permitted for export:  Lcl Shared BGP-Br BGP-Tr BGP-PE BGP-Rem BGP-Rem-Tr OSPF OSPF-Rem 
+Nbr MED: 0, Inbound MED: 0, Local Preference: 100, AS Prepend Count: 0
+Nbr Active/Cfg Keep Alive time: 30/30, Active/Cfg Hold time: 90/90
+Next Hop Self: Disabled
+Total Updates rcvd/sent: 1/3, Total Prefixes rcvd/sent: 200/414
+Last error code/subcode rcvd: None/None, Last error time: 0s
+Last error code/subcode sent: None/None, Last error time: 0
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;BGP Neighbor Table: 1 active BGP peers&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+            <duration>2.6</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="up_time_last_update_rcvd">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Up Time:\\s+</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="Up_Time">
+                            <regex>[^,:]+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>11</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>s, Last Update Rcvd:\\s+</regex>
+                            <start>11</start>
+                            <end>32</end>
+                        </item>
+                        <item name="Last_Update_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>32</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>s</regex>
+                            <start>33</start>
+                            <end>34</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Up Time: 42s, Last Update Rcvd: 0s</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="nbr_type_route_imports_permitted">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Nbr Type:\\s+</regex>
+                            <start>0</start>
+                            <end>10</end>
+                        </item>
+                        <item name="Nbr_Type">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>10</start>
+                            <end>16</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>, Route Imports Permitted:\\s+</regex>
+                            <start>16</start>
+                            <end>43</end>
+                        </item>
+                        <item name="Route_Imports_Permitted">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>43</start>
+                            <end>46</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Nbr Type: Branch, Route Imports Permitted: Yes</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="route_types_permitted_for_export">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Route types permitted for export:\\s+</regex>
+                            <start>0</start>
+                            <end>35</end>
+                        </item>
+                        <item name="Route_types_permitted_for_export">
+                            <regex>[^0-9\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>99</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Route types permitted for export:  Lcl Shared BGP-Br BGP-Tr BGP-PE BGP-Rem BGP-Rem-Tr OSPF OSPF-Rem</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="nbr_med_inbound_med_local_preference_as_prepend_count">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Nbr MED:\\s+</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="Nbr_MED">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>10</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>, Inbound MED:\\s+</regex>
+                            <start>10</start>
+                            <end>25</end>
+                        </item>
+                        <item name="Inbound_MED">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>26</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>, Local Preference:\\s+</regex>
+                            <start>26</start>
+                            <end>46</end>
+                        </item>
+                        <item name="Local_Preference">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>46</start>
+                            <end>49</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, AS Prepend Count:\\s+</regex>
+                            <start>49</start>
+                            <end>69</end>
+                        </item>
+                        <item name="AS_Prepend_Count">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>69</start>
+                            <end>70</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Nbr MED: 0, Inbound MED: 0, Local Preference: 100, AS Prepend Count: 0</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="keep_alive_hold_time">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Nbr Active/Cfg Keep Alive time:\\s+</regex>
+                            <start>0</start>
+                            <end>32</end>
+                        </item>
+                        <item name="Active_Keep_Alive">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>32</start>
+                            <end>34</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>/</regex>
+                            <start>34</start>
+                            <end>35</end>
+                        </item>
+                        <item name="Cfg_Keep_Alive">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>37</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>, Active/Cfg Hold time:\\s+</regex>
+                            <start>37</start>
+                            <end>61</end>
+                        </item>
+                        <item name="Active_Hold_Time">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>61</start>
+                            <end>63</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>63</start>
+                            <end>64</end>
+                        </item>
+                        <item name="Cfg_Hold_Time">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>64</start>
+                            <end>66</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Nbr Active/Cfg Keep Alive time: 30/30, Active/Cfg Hold time: 90/90</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="next_hop_self_line">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Next Hop Self:\\s+</regex>
+                            <start>0</start>
+                            <end>15</end>
+                        </item>
+                        <item name="Next_Hop_Self">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>15</start>
+                            <end>23</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Next Hop Self: Disabled</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="total_updates_total_prefixes">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Total Updates rcvd/sent:\\s+</regex>
+                            <start>0</start>
+                            <end>25</end>
+                        </item>
+                        <item name="Total_Updates_rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>26</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>/</regex>
+                            <start>26</start>
+                            <end>27</end>
+                        </item>
+                        <item name="Total_Updates_sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>27</start>
+                            <end>28</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>, Total Prefixes rcvd/sent:\\s+</regex>
+                            <start>28</start>
+                            <end>56</end>
+                        </item>
+                        <item name="Total_Prefixes_rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>56</start>
+                            <end>59</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>59</start>
+                            <end>60</end>
+                        </item>
+                        <item name="Total_Prefixes_sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>60</start>
+                            <end>62</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Total Updates rcvd/sent: 4/4, Total Prefixes rcvd/sent: 200/14</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="BGP_Neighbor_Table">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>BGP Neighbor Table:\\s+</regex>
+                            <start>0</start>
+                            <end>20</end>
+                        </item>
+                        <item name="Active_BGP_Peers">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>21</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+active BGP peers</regex>
+                            <start>21</start>
+                            <end>38</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>BGP Neighbor Table: 1 active BGP peers</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show_bgp_neighbors()">
+        <application>
+            <item>com.fnfr.svt.applications.python</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

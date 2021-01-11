@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <testbed>project://a_voip/topologies/VeloCloud/VC620/VC620_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c6213401-d8ae-4aae-842f-95d5a6479a3a" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Connect CPE</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e23d5dca-ac92-4181-9564-068e7981ff52" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>connectStatus()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>cpe_connected</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <eventHandlers>
+                                <item name="OnTerminalOpenConnectionFail"/>
+                            </eventHandlers>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2994ca6b-4491-4e80-b96b-24873e1196ed" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>$cpe_connected == &quot;false&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="8ed1ebfa-822a-4e9c-8526-cc1f9261ddc1" action="then" useFieldsInCommand="false">
+                                    <nestedSteps>
+                                        <item guid="b0b84acc-57a1-4120-afb0-470f72d922a1" action="open" session="iTest_Switch">
+                                            <command>
+                                                <body>device:iTest%20Switch#ssh</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </applicationProperties>
+                                        </item>
+                                        <item guid="c1e79a02-d746-4522-bb96-7836ec04260d" action="config_interface_to_vlan_id" session="iTest_Switch" useFieldsInCommand="false">
+                                            <command>
+                                                <body>-interface [tbml property -name CPE itest_switch_interface] -vlan_id [tbml property -name SD-WAN vlan_id_voice]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="276102ae-df4e-4e60-988e-2af36be08400" action="open" session="CPE2" useFieldsInCommand="false">
+                                            <command>
+                                                <body>device:CPE#ssh</body>
+                                            </command>
+                                            <eventHandlers>
+                                                <item name="OnTerminalOpenConnectionFail">
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Cannot SSH into CPE</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </item>
+                                            </eventHandlers>
+                                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                                                    <retryCount inherit="false">6</retryCount>
+                                                </sessionProperties>
+                                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </applicationProperties>
+                                        </item>
+                                        <item guid="d0a92c77-7e1e-43a0-b95e-3dace2b82bc9" action="close" session="CPE2">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="17495652-7938-43fc-9d74-61f6159b864f" action="close" session="iTest_Switch" useFieldsInCommand="false">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="30c9cb06-d630-4594-8d28-6794900ff177" action="else" useFieldsInCommand="false">
+                                    <nestedSteps>
+                                        <item guid="5aeb1d9c-c392-44ee-a663-aa5c8a68f522" action="close" session="CPE">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e09f6e5d-2d51-44dc-a971-23e1d33383a5" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.00 - OSPF - Verify Neighbor Adjacency Advertised Received Routes</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e0870fd9-fa09-4801-bb7e-0675c522f28a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/2%20OSPF/2.00_ospf_verify_neighbor_adjacency_advertised_received_routes.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                        <item guid="13ab2634-6815-4773-90e6-614df49c3da6" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4661b7b2-72d9-4f89-a5c0-b0940f0e4326" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>2.01 - OSPF - Verify MD5 Authentication</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f36c1a36-1196-4404-a459-da91e2cfd9c0" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/2%20OSPF/2.01_ospf_verify_md5_authentication.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                        <item guid="4d78d937-28f1-4ffe-ba58-529d30ac8ace" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="be816db3-9efb-43c3-86e3-2423da9503d1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.00 - BGP - Verify Neighbor Adjacency Advertised Received Routes</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="938ef0ee-dd9d-45ba-a4c5-ca2fbc9cef16" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.00_bgp_verify_neighbor_adjacency_advertised_received_routes.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                        <item guid="088c3490-2458-430f-8ce0-be976588c682" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="75187c8c-48bc-4bda-af4b-b3ec77415025" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.01 - BGP - Verify MD5 Authentication</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0ae76da7-4b42-411f-99b3-9dde908de2e3" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.01_bgp_verify_md5_authentication.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="dc8ea772-fe3d-4591-94e2-a8a78c92428c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.00 - Firewall - Verify outbound application destination rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="72185e5d-342c-440d-acf6-0aac5faa369d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.00_firewall_verify_outbound_app_rules.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="755ba0c8-e824-4ce3-84f6-6900c17e07c8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.01 - Firewall - Verify outbound IPaddr source rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8615beac-3836-486d-b698-ee301a42ca33" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.01_firewall_verify_outbound_source_rules.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f274108e-d0f9-43f2-80dc-1b4328651945" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.02 - Firewall - Verify outbound IPaddr destination rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6d3ec0c1-462c-4189-9d79-8bf819919b49" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.02_firewall_verify_outbound_destination_rules.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="996bdea9-9018-43d5-8348-cbf274574509" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.05 - Firewall - Verify port forwarding</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e9e527db-3835-4adb-b12c-b6c1747b7a4b" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.05_firewall_verify_port_forwarding.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a670be0d-460d-4b21-81a6-d5a56bc93e8d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.15 - Firewall - Verify 1:1 NAT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b403a701-8481-4bec-ba1c-13cf61dd9df4" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.15_firewall_verify_one_to_one_nat.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9b2a6f27-0141-4d79-9a54-02d08e06abfb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.16 - Firewall - Verify SNMP Queries - Deny All</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3769d97e-bd36-42f2-b57a-372a32f36fe1" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.16_firewall_verify_snmp_queries_all_denied.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b4a74169-7b65-4b36-9dfd-bc7a0a6b262d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.18 - Firewall - Verify SNMP Queries - Allow the following IPs</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="af0f737f-be18-441f-bc5c-fd66becc1726" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.18_firewall_verify_snmp_queries_allow_certain_ips.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1231b69f-3b05-4382-8d02-ad536d0b6c0e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.00 - LAN Side NAT - Verify 1:1 in DNAT Outbound SNAT </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="85f2abb6-faef-4dfa-9dc6-91be6b076bef" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.00_lsn_verify_1_to_1_in_dnat_out_snat.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9494e519-803e-4a91-8dca-a4ecc5ff4c18" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.01 - LAN Side NAT - Verify 1:1 in DNAT Outbound SNAT with Port Forwarding</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2ae51f35-cc77-4c3d-9464-08d02a17c92d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.01_lsn_verify_1_to_1_in_dnat_out_snat_port_forwarding.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="604b8c2e-9691-4b01-967b-ba281858e168" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.02 - LAN Side NAT - Verify N:1 SNAT Outbound PAT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c4c42d8a-f2e0-40bf-b768-619c4f7a6d25" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.02_lsn_verify_n1_snat_outbound_pat.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="da09b157-6018-4b5c-91fd-2bdfb8f5632e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.03 - LAN Side NAT - Verify Outbound DNAT / Inbound SNAT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f370215b-331a-4eba-9989-6dc6328eb244" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.03_lsn_verify_outbound_dnat_inbound_snat.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c911c729-53cf-4dd6-a6c1-60744d2abe08" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.04 - LAN Side NAT - Verify Outbound DNAT / Inbound SNAT with Port Forwarding</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a22f29b7-b044-4791-9642-c5d19ad3321f" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.04_lsn_verify_outbound_dnat_inbound_snat_port_forwarding.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9f5e1542-f206-4cfd-915e-389d966b9019" action="comment" skip="true" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="de9b1020-1132-432a-8d84-f9ea85e3a8bf" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>6.00 - DHCP - Verify Option 66 (TFTP), Option 6 (DNS), Options 15 (Domain Name), Custom Options (160)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3e48134b-fb7f-4aaf-a863-2855987d9ea2" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/6%20DHCP/6.01_dhcp_verify_dhcp_settings.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="71748742-bb7b-4b3c-9da9-64935f12a003" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>7.01 - Verify Tagged Untagged Untagged Drop VLAN Access - Only use with VC520 and on Adtran</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="61079ff8-5383-431d-89a0-1b6ad2ab3797" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/DOT1Q_LAN_Interface/7.00_dot1q_verify_tagged_untagged_untagged_drop_vlan_access.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="88a19c88-e622-4007-bb8f-128468b99184" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>8.00 - DNS - Verify Private DNS &amp; Verify Public DNS from CPE behind VCE</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="447514d5-0767-403b-8139-cdf267c09164" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/8%20DNS/8.00_dns_verify_public_private_dns.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="11faf3b0-afd6-47b1-9a78-5de19bd27c3e" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>--Device Specific</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="70e08e54-dc75-4998-9939-2bbeee54e377" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>--Upgrade Process</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="004a3444-b1fe-4c00-abf6-8d590bc8341c" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/Device%20Specific/Downgrade-Upgrade%20Edge/downgrade-upgrade_edge.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3b99a402-8211-4945-a048-44e2a8c26cc5" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Email Results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="35a40076-b523-4e04-b1d6-6dc7a0c0be19" action="open" session="Mail">
+                            <command>
+                                <body>device:local_pc#mail</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+                                    <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </sessionProperties>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="b87f45a0-6b74-4932-8285-62746c39bb06" action="summarize" useFieldsInCommand="false">
+                            <postProcessing>
+                                <storeResponseAt>results</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecSummarizePropertyGroup"/>
+                        </item>
+                        <item guid="dc8d43ee-af58-437e-aad4-b058aa728aa2" action="Email_Results" session="Mail" useFieldsInCommand="false">
+                            <command>
+                                <body>-results $results</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3b8ad452-7057-4672-a2fc-73a04288caa2" action="close" session="Mail">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

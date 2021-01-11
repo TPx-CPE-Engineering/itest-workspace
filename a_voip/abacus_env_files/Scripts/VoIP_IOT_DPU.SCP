@@ -1,0 +1,1745 @@
+[DPU_010]
+7=>B:D:A Calls B,DTMF,No Dial Tone
+12=>C:@:Wait for dial tone
+8=;B:D:AFT A calls B, no dial tone, DTMF, confirms once
+13=>C:@:Send string in DTMF [1231245#]
+1=;A,B and D are in a CH scenario
+5=>B:@:Wait for recall dial tone
+9=;C tries to barges
+10=;C barges into A-B although A-B leg is inactive
+14=>A:@:AFT Wait for Call Waiting Tone
+18=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=;A is held
+11=;>C:A:AFT A calls B, DTMF
+20=>C:@:Go OnHook
+15=>C:@:Wait for time in seconds [3]
+19=>B:@:Go OnHook
+3=>B:@:Do hook flash, and wait for recall dial tone
+21=>D:@:Go OnHook
+16=>A:@:Wait for time in seconds [3]
+4=>B:@:Send string in DTMF [*52]
+22=End of script
+17=>C:A:AFT Do Path Confirmation Once
+
+[DPU_005]
+1=;A goes offhook and dials B no.
+3=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+7=End of script
+2=;>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [12]
+6=>A:@:Go OnHook
+
+[GotoActions__DPU_012]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_024]
+7=>B:@:Go OnHook
+12=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>B:@:Wait for time in seconds in onhook [10]
+13=>A:D:AFT Do Path Confirmation Once
+17=>D:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>C:D:AFT Do Path Confirmation Once
+18=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>A:@:Wait for time in seconds [3]
+15=>A:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>B:@:Go OnHook
+
+[DPU_019]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=;>D:@:Wait for time in seconds [5]
+25=End of script
+8=>D:@:Wait for time in seconds [5]
+13=>A:@:Do Hook Flash
+1=;A nad B are in an actice call
+9=>A:@:Wait for time in seconds [3]
+14=>A:@:Wait for time in seconds [2]
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=;>B:@:Wait for time in seconds in onhook [3]
+20=>A:C:AFT Do Path Confirmation Once
+15=>D:@:Wait for time in seconds [2]
+24=>C:@:Go OnHook
+19=>C:@:Wait for time in seconds [5]
+3=>A:@:Wait for time in seconds [5]
+21=>A:D:AFT Do Path Confirmation Once
+16=>D:A:AFT Do Path Confirmation Once
+4=;D is on wait
+22=>D:C:AFT Do Path Confirmation Once
+17=>C:A:AFT A calls B, DTMF
+5=>B:@:Wait for time in seconds [5]
+10=>B:@:Go OnHook
+23=>A:@:Go OnHook
+18=>A:@:AFT Wait for Call Waiting Tone
+
+[GotoActions__DPU_031]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_026]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_043]
+3=>C:A:AFT A calls B, DTMF
+7=>C:@:Wait for congestion tone
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>A:@:Wait for time in seconds in onhook [5]
+8=>B:@:Wait for silence
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=>B:@:Go OnHook
+10=>C:@:Go OnHook
+
+[DPU_038]
+3=>D:@:Wait for time in seconds [2]
+7=>E:@:Wait for busy
+12=>E:@:Go OnHook
+4=>A:@:Go OffHook
+8=>C:@:Go OffHook
+13=>D:@:Go OnHook
+1=>D:@:AFT Off hook wait for dial tone
+5=>A:D:AFT Do Path Confirmation Once
+9=>C:@:Go OnHook
+10=>B:@:Go OffHook
+14=>A:@:Go OnHook
+2=>D:@:Send string in DTMF [911]
+6=>E:D:AFT A calls B, DTMF
+11=>B:@:Go OnHook
+15=End of script
+
+[GotoActions__DPU_045]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__DPU_002]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_014]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds [10]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=;>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+8=>C:D:AFT A calls B, DTMF
+1=>A calls B, DTMF, confirms once
+5=>A:D:A Calls B,DTMF,No Dial Tone
+9=>C:@:Wait for busy
+10=End of script
+
+[DPU_009]
+3=>A:@:Wait for time in seconds [1]
+7=>C:A:AFT A calls B, DTMF
+2=>A calls B, DTMF, confirms once
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=;C calls A
+8=>C:@:Wait for time in seconds [1]
+1=;A nad B are in an actice call
+5=;>A:@:Do Hook Flash
+9=>C:@:Wait for busy
+10=End of script
+
+[DPU_006_set2]
+3=>C:@:Send string in DTMF [1231246#]
+7=;>C:@:Go OnHook
+2=>C:@:Wait for dial tone
+4=;C tries to barge in
+6=>C:@:Wait for busy
+8=;>C:@:Wait for time in seconds in onhook [20]
+1=>C:@:Go OffHook
+5=;>C:B:AFT A calls B, DTMF
+9=End of script
+
+[GotoActions__DPU_021]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_016]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_033]
+7=>C:@:Wait for time in seconds [3]
+12=>A:@:Do Hook Flash
+8=>C:A:AFT Do Path Confirmation Once
+13=>A:@:Wait for time in seconds [1]
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>A:C:AFT Do Path Confirmation Once
+14=>B:@:Wait for silence
+18=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>B:C:AFT Do Path Confirmation Once
+20=>B:@:Go OnHook
+15=>B:@:Wait for time in seconds [8]
+19=>C:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+21=End of script
+16=>B:@:Wait for congestion tone
+4=;C barges in to A-B
+17=>A:C:AFT Do Path Confirmation Once
+
+[DPU_028]
+3=>A:@:Wait for time in seconds [1]
+7=>A:D:A calls B, DTMF, no dial tone, confirms once
+12=>C:A:AFT A calls B, DTMF
+4=;A ties to transfer the call to D
+8=>A:@:Go OnHook
+13=>C:@:Wait for busy
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>A:@:Wait for time in seconds [2]
+10=>B:D:AFT Do Path Confirmation Once
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=;C tries to barges
+
+[DPU_011_var2]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*52]
+8=>C:A:AFT A calls B, DTMF
+13=>B:@:Go OnHook
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=>D:@:Go OnHook
+14=End of script
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>D:@:Wait for time in seconds in onhook [12]
+
+[GotoActions__DPU_035]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_006_set3]
+1=0
+2=0
+
+[DPU_052]
+7=>C:@:Wait for time in seconds [1]
+12=>B:@:Do Hook Flash
+4=;C barges in to A-B
+8=>C:A:AFT Do Path Confirmation Once
+13=>C:@:Do Hook Flash
+17=End of script
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>A:C:AFT Do Path Confirmation Once
+14=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>B:C:AFT Do Path Confirmation Once
+15=>B:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+16=>C:@:Go OnHook
+
+[DPU_031_var2]
+3=;C barges in to A-B
+7=>A:C:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+4=>C:A:AFT A calls B, DTMF
+6=>B:@:Go OnHook
+8=>C:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>A:@:Go OnHook
+10=End of script
+
+[GotoActions__DPU_054]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_011_var3]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_011]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__DPU_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[DPU_023]
+7=>D:@:Go OnHook
+12=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>D:@:Wait for time in seconds in onhook [10]
+13=>AFT Do Path Confirmation Once
+17=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=;>C:A:AFT Do Path Confirmation Once
+18=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>A:@:Wait for time in seconds [3]
+15=>A:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>B:@:Go OnHook
+
+[DPU_018]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=>C:@:Wait for time in seconds [5]
+4=;D is on wait
+8=;C tries to barges into D
+13=>B:C:AFT Do Path Confirmation Once
+17=End of script
+1=;A nad B are in an actice call
+5=>B:@:Wait for time in seconds [5]
+9=>B:A:AFT Do Path Confirmation Once
+10=>C:B:AFT A calls B, DTMF
+14=>A:C:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=>B:@:AFT Wait for Call Waiting Tone
+15=>A:@:Go OnHook
+3=>A:@:Wait for time in seconds [5]
+16=>C:@:Go OnHook
+
+[GotoActions__DPU_030]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_025]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_042]
+3=>C:A:AFT A calls B, DTMF
+7=>C:A:AFT Do Path Confirmation Once
+12=End of script
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:@:Wait for time in seconds [2]
+8=>A:C:AFT Do Path Confirmation Once
+11=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+
+[DPU_037]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=>C:B:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:Wait for time in seconds in onhook [8]
+6=>C:@:Wait for busy
+8=End of script
+
+[GotoActions__DPU_044]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_039]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_056]
+7=>A:@:Send string in DTMF [*70]
+12=>C:@:Wait for time in seconds [1]
+4=;Agoes offhook nd wait for dialtone
+8=;>A:@:Wait for CCW confirmation tone
+13=>C:A:AFT Do Path Confirmation Once
+17=>A:@:Go OnHook
+1=>B:@:Go OffHook
+5=;Activating CCW
+9=>C:A:AFT A calls B, DTMF
+10=;C waits for busy response
+14=>A:C:AFT Do Path Confirmation Once
+18=>B:@:Go OnHook
+2=>B:@:Go OnHook
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>A:@:AFT Wait for Call Waiting Tone
+20=End of script
+15=;>B:@:Wait for time in seconds [1]
+19=>C:@:Go OnHook
+3=>A calls B, DTMF, confirms once
+16=>B:C:AFT Do Path Confirmation Once
+
+[GotoActions__DPU_001]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_013]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds in onhook [5]
+12=>C:A:AFT A calls B, DTMF
+4=>A:@:Wait for recall dial tone
+8=;>D:@:Wait for time in seconds in onhook [6]
+13=>C:@:Wait for busy
+1=>A calls B, DTMF, confirms once
+5=>A:D:A calls B, DTMF, no dial tone, confirms once
+9=;>D:@:Go OffHook
+10=;>D:@:Wait for time in seconds [5]
+14=;>C:A:A calls B, DTMF, confirms once
+2=;A transfers the call to D
+6=;>A:@:Go OnHook
+11=;>B:D:AFT Do Path Confirmation Once
+15=End of script
+
+[DPU_008]
+3=>B:@:Go OffHook
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Wait for time in seconds [5]
+4=>AFT Do Path Confirmation Once
+6=>A:D:A Calls B,DTMF,No Dial Tone
+8=>C:@:Wait for busy
+1=>AFT A calls B, DTMF
+5=>A:@:Do hook flash, and wait for recall dial tone
+9=End of script
+
+[GotoActions__DPU_020]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DPU_015]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[DPU_001]
+3=>A:@:Wait for time in seconds [1]
+7=>A:@:Wait for time in seconds [1]
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=;C barges in to A-B
+6=>A:@:AFT Wait for Call Waiting Tone
+8=>C:A:AFT Do Path Confirmation Once
+11=>B:C:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=;3WC estd.
+10=>AFT Do Path Confirmation Once
+
+[DPU_032]
+7=>C:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+8=>A:@:Wait for time in seconds [2]
+13=;>A:@:Wait for time in seconds in onhook [15]
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=>B:C:AFT Do Path Confirmation Once
+10=>A:C:AFT Do Path Confirmation Once
+14=;>A:@:Wait for time in seconds [15]
+23=End of script
+18=;>B:@:Wait for congestion tone
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=;A goes onhook, no transfer happens
+20=;>B:@:Go OnHook
+15=;Checking whether C & B are in a call
+19=;>C:@:Wait for congestion tone
+3=>A:@:Wait for time in seconds [1]
+21=;>C:@:Go OnHook
+16=;>B:@:Wait for silence
+4=;C barges in to A-B
+22=>B:C:AFT Do Path Confirmation Once
+17=;>C:@:Wait for silence
+
+[DPU_027]
+3=>B:@:Go OffHook
+7=;A transfers the call to D
+12=>C:@:Wait for busy
+4=>AFT Do Path Confirmation Once
+8=>A:@:Do Hook Flash
+13=;>A:@:Wait for time in seconds [10]
+1=>AFT A calls B, DTMF
+5=>B:@:Wait for time in seconds [3]
+9=>A:@:Wait for recall dial tone
+10=>A:D:A Calls B,DTMF,No Dial Tone
+14=End of script
+2=>B:@:Wait for time in seconds [2]
+6=;>A calls B, DTMF, confirms once
+11=>C:A:AFT A calls B, DTMF
+
+[DPU_011_var1]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+8=>B:@:Go OnHook
+13=>A:@:Wait for recall dial tone
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>B:@:Wait for time in seconds in onhook [12]
+10=>A:@:Wait for silence
+14=>A:@:Wait for time in seconds [16]
+18=>A:@:Do Hook Flash
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>A:@:Wait for time in seconds [5]
+20=>A:@:Go OnHook
+15=>C:A:AFT A calls B, DTMF
+19=>A:D:AFT Do Path Confirmation Once
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=>D:@:Go OnHook
+16=>C:@:Wait for busy
+4=>A:@:Send string in DTMF [*52]
+22=End of script
+17=>A:@:Wait for silence
+
+[GotoActions__DPU_034]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__DPU_029]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_006_set2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[DPU_020]
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+7=>C:A:AFT A calls B, DTMF
+12=>D:@:Go OnHook
+4=>A:@:Do Hook Flash
+8=>C:@:Wait for busy
+13=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>C:@:Go OnHook
+
+[DPU_015]
+7=>B:@:Go OnHook
+12=>C:A:AFT A calls B, DTMF
+4=>B:@:Wait for recall dial tone
+8=>B:@:Wait for time in seconds in onhook [10]
+13=;>A:@:Wait for time in seconds [1]
+17=;>A:C:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=;>A:@:Wait for time in seconds [10]
+10=>D:@:Wait for time in seconds [5]
+14=>A:@:AFT Wait for Call Waiting Tone
+18=>D:@:Wait for time in seconds [3]
+2=;A transfers the call to D
+6=>A:@:Wait for time in seconds [5]
+11=>A:D:AFT Do Path Confirmation Once
+20=End of script
+15=>A:@:Wait for time in seconds [2]
+19=>C:D:AFT Do Path Confirmation Once
+3=>B:@:Do Hook Flash
+16=>A:C:AFT Do Path Confirmation Once
+
+[DPU_051]
+3=>A:@:Wait for time in seconds [1]
+7=>A:@:Wait for time in seconds [1]
+12=>B:C:AFT Do Path Confirmation Once
+4=;C barges in to A-B
+8=;>C:@:Wait for time in seconds [1]
+13=End of script
+1=;A nad B are in an actice call
+5=>C:A:AFT A calls B, DTMF
+9=>C:A:AFT Do Path Confirmation Once
+10=;3WC estd.
+2=>A calls B, DTMF, confirms once
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>A:C:AFT Do Path Confirmation Once
+
+[DPU_006_set3]
+1=B:@:Wait for time in seconds [16]
+2=End of script
+
+[DPU_031_var1]
+3=;C barges in to A-B
+7=>C:@:Wait for time in seconds in onhook [3]
+12=;>AFT Do Path Confirmation Once
+4=>C:A:AFT A calls B, DTMF
+8=>B:A:AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;>C:@:Wait for time in seconds [2]
+10=;3WC estd.
+14=>B:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>C:@:Go OnHook
+11=;>C:@:Go OnHook
+15=End of script
+
+[GotoActions__DPU_022]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_017]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_011_var2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DPU_034]
+3=>C:A:AFT A calls B, DTMF
+7=>D:A:AFT A calls B, DTMF
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:A:AFT Do Path Confirmation Once
+8=>D:@:Wait for busy
+1=>A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds [2]
+9=End of script
+
+[DPU_029]
+3=>A:@:Wait for time in seconds [1]
+7=>A:D:A calls B, DTMF, no dial tone, confirms once
+12=>B:@:AFT Wait for Call Waiting Tone
+16=End of script
+4=;A ties to transfer the call to D
+8=>A:@:Go OnHook
+13=>C:B:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>B:D:AFT Do Path Confirmation Once
+10=;C tries to barges
+14=>C:D:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>C:B:AFT A calls B, DTMF
+15=>B:D:AFT Do Path Confirmation Once
+
+[DPU_011_var3]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+16=End of script
+4=>A:@:Send string in DTMF [*52]
+8=>B:@:Wait for time in seconds [1]
+13=>C:A:AFT A calls B, DTMF
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=;B goes on hook
+10=>B:@:Go OnHook
+14=>C:@:Wait for busy
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>A:@:Go OnHook
+15=>A:D:AFT Do Path Confirmation Once
+
+[GotoActions__DPU_005_origin]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_010]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DPU_036]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__DPU_031_var2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_022]
+7=>C:D:AFT A calls B, DTMF
+12=>A:C:AFT Do Path Confirmation Once
+4=>A:@:Do Hook Flash
+8=>D:@:AFT Wait for Call Waiting Tone
+13=>A:@:Go OnHook
+17=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:D:AFT Do Path Confirmation Once
+9=>D:@:Wait for time in seconds [3]
+10=>C:D:AFT Do Path Confirmation Once
+14=>B:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>AFT Do Path Confirmation Once
+11=>D:A:AFT Do Path Confirmation Once
+15=>C:@:Go OnHook
+3=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+16=>D:@:Go OnHook
+
+[DPU_017]
+3=>A:@:Wait for time in seconds [1]
+7=;C tries to barges into D
+2=>A calls B, DTMF, confirms once
+4=;D is on wait
+6=>A:@:AFT Wait for Call Waiting Tone
+8=>C:D:AFT A calls B, DTMF
+1=;A nad B are in an actice call
+5=>D:A:AFT A calls B, DTMF
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__DPU_024]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_019]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__DPU_055]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[DPU_036]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=>C:B:AFT A calls B, DTMF
+7=>C:@:Go OnHook
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:Wait for time in seconds in onhook [8]
+6=>C:@:Wait for busy
+8=End of script
+
+[GotoActions__DPU_043]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_038]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_055]
+7=>A:@:Send string in DTMF [*70]
+12=;C waits for busy response
+8=>A:@:Wait for CCW confirmation tone
+13=>A:@:AFT Wait for Call Waiting Tone
+1=;>B:@:Go OffHook
+5=;Activating CCW
+9=>A:@:Wait for time in seconds [2]
+10=>AFT Do Path Confirmation Once
+14=>C:@:Wait for time in seconds [1]
+18=>B:C:AFT Do Path Confirmation Once
+2=;>B:@:Go OnHook
+6=>A:@:Do hook flash, and wait for recall dial tone
+11=>C:A:AFT A calls B, DTMF
+20=>B:@:Go OnHook
+15=>C:A:AFT Do Path Confirmation Once
+19=>A:@:Go OnHook
+3=>A calls B, DTMF, confirms once
+21=>C:@:Go OnHook
+16=>A:C:AFT Do Path Confirmation Once
+4=;Agoes offhook nd wait for dialtone
+22=End of script
+17=;>B:@:Wait for time in seconds [1]
+
+[DPU_012]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds [10]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Wait for time in seconds in onhook [13]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>B:D:AFT Do Path Confirmation Once
+10=>C:A:A calls B, DTMF, confirms once
+
+[DPU_007]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:D:A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*52]
+6=;D is held
+8=;C tries to barges
+11=End of script
+1=;A,B and D are in a CH scenario
+5=>A:@:Wait for recall dial tone
+9=>C:A:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+
+[GotoActions__DPU_014]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_009]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DPU_031]
+3=;C barges in to A-B
+7=>B:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+4=>C:A:AFT A calls B, DTMF
+8=>B:@:Wait for time in seconds [2]
+13=>C:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;3WC estd.
+10=>B:@:Go OnHook
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for time in seconds [1]
+11=>A:C:AFT Do Path Confirmation Once
+
+[DPU_026]
+3=>A:@:Do Hook Flash
+7=>A:@:Send string in DTMF [12]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=;>A:@:Go OnHook
+8=>C:A:AFT A calls B, DTMF
+1=>A calls B, DTMF, confirms once
+5=;>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__DPU_033]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__DPU_028]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DPU_045]
+3=>C:A:AFT A calls B, DTMF
+7=>B:A:AFT Do Path Confirmation Once
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>C:@:Wait for time in seconds in onhook [5]
+8=>AFT Do Path Confirmation Once
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>C:@:Go OnHook
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+
+[GotoActions__DPU_052]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_011_var1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[DPU_002]
+3=>A:@:Wait for time in seconds [1]
+7=>C:@:Wait for time in seconds [1]
+12=End of script
+2=>A calls B, DTMF, confirms once
+4=;C barges in to A-B
+6=>B:@:AFT Wait for Call Waiting Tone
+8=>C:B:AFT Do Path Confirmation Once
+11=>A:C:AFT Do Path Confirmation Once
+1=;A nad B are in an actice call
+5=>C:B:AFT A calls B, DTMF
+9=;3WC estd.
+10=>B:C:AFT Do Path Confirmation Once
+
+[DPU_005_origin]
+1=;C tries to barge in
+3=>C:@:Wait for dial tone
+5=;C tries to barge in
+7=End of script
+2=>C:@:Go OffHook
+4=>C:@:Send string in DTMF [1231245#]
+6=>C:@:Wait for busy
+
+[GotoActions__DPU_031_var1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DPU_021]
+7=>A:@:Wait for time in seconds [1]
+12=>B:@:AFT Wait for Call Waiting Tone
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:D:AFT Do Path Confirmation Once
+13=>C:B:AFT Do Path Confirmation Once
+17=>C:@:Go OnHook
+1=;A,B nd D in a 3WC
+5=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+9=>AFT Do Path Confirmation Once
+10=;C tries to barge in to B
+14=>C:A:AFT Do Path Confirmation Once
+18=End of script
+2=;A-B and A-D call legs exist
+6=>A:@:Do Hook Flash
+11=>C:B:AFT A calls B, DTMF
+15=>A:@:Go OnHook
+3=>A calls B, DTMF, confirms once
+16=>B:@:Go OnHook
+
+[DPU_016]
+3=>A:@:Wait for time in seconds [5]
+7=>A:@:AFT Wait for Call Waiting Tone
+12=>C:@:Wait for time in seconds [2]
+4=;D is on wait
+8=;C tries to barges into D
+13=>A:@:Go OnHook
+1=;A nad B are in an actice call
+5=>B:@:Wait for time in seconds [5]
+9=>B:A:AFT Do Path Confirmation Once
+10=>C:A:AFT A calls B, DTMF
+14=>C:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=>D:A:AFT A calls B, DTMF
+11=>C:@:Wait for busy
+15=End of script
+
+[GotoActions__DPU_023]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DPU_018]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[DPU_035]
+3=>C:A:AFT A calls B, DTMF
+7=>B:@:Go OnHook
+12=>C:@:Go OnHook
+4=>A:@:AFT Wait for Call Waiting Tone
+8=>B:@:Wait for time in seconds in onhook [8]
+13=>D:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:@:Wait for time in seconds [2]
+9=>D:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=End of script
+2=>B:@:Wait for time in seconds [3]
+6=>C:A:AFT Do Path Confirmation Once
+11=>A:@:Go OnHook
+
+[GotoActions__DPU_042]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_037]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[DPU_054]
+7=;>A Calls B,DTMF,No Dial Tone
+12=>C:A:AFT A calls B, DTMF
+8=>AFT A calls B, no dial tone, DTMF, confirms once
+13=;C waits for busy response
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;>B:@:Go OffHook
+10=;>AFT Do Path Confirmation Once
+14=>A:@:AFT Wait for Call Waiting Tone
+23=End of script
+18=;>B:@:Wait for time in seconds [1]
+2=>A:@:AFT Off hook wait for dial tone
+6=;A calls B and conform once
+11=;>B:@:Wait for time in seconds [1]
+20=>A:@:Go OnHook
+15=>C:@:Wait for time in seconds [1]
+19=>B:C:AFT Do Path Confirmation Once
+3=;Activating CCW
+21=>B:@:Go OnHook
+16=>C:A:AFT Do Path Confirmation Once
+4=>A:@:Send string in DTMF [*70]
+22=>C:@:Go OnHook
+17=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__DPU_056]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[DPU_011]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=;C tries to barges
+25=End of script
+8=>D:@:Go OnHook
+13=;>AFT Do Path Confirmation Once
+1=;A,B and D are in a CH scenario
+9=>D:@:Wait for time in seconds in onhook [12]
+14=;>A:@:Wait for time in seconds [2]
+2=>A:D:A calls B, DTMF, confirms once
+6=;D is held
+11=>C:A:AFT A calls B, DTMF
+20=>B:C:AFT Do Path Confirmation Once
+15=;>A:@:Wait for time in seconds [1.5]
+24=>C:@:Go OnHook
+19=>C:A:AFT Do Path Confirmation Once
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=>AFT Do Path Confirmation Once
+16=;>A:@:AFT Wait for Call Waiting Tone
+4=>A:@:Send string in DTMF [*52]
+22=>A:@:Go OnHook
+17=>A:@:AFT Wait for Call Waiting Tone
+5=>A:@:Wait for recall dial tone
+10=>AFT Do Path Confirmation Once
+23=>B:@:Go OnHook
+18=>C:@:Wait for time in seconds [3]
+
+[DPU_006]
+1=;A goes offhook and dials B no.
+3=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+7=End of script
+2=;>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [12]
+6=;>A:@:Go OnHook
+
+[GotoActions__DPU_013]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DPU_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[DPU_030]
+3=;C barges in to A-B
+7=>B:A:AFT Do Path Confirmation Once
+12=>A:@:Go OnHook
+4=>C:A:AFT A calls B, DTMF
+8=>C:@:Wait for time in seconds [2]
+13=>B:@:Go OnHook
+1=;A nad B are in an actice call
+5=>A:@:AFT Wait for Call Waiting Tone
+9=;3WC estd.
+10=>C:@:Go OnHook
+14=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for time in seconds [1]
+11=>AFT Do Path Confirmation Once
+
+[DPU_025]
+3=>A:@:Wait for time in seconds [1]
+7=;C tries to barge
+2=>A calls B, DTMF, confirms once
+4=;A ties to transfer the call to D
+6=>A:@:Do hook flash, and wait for recall dial tone
+8=>C:A:AFT A calls B, DTMF
+1=;A nad B are in an actice call
+5=;A puts B on hold
+9=>C:@:Wait for busy
+10=End of script
+
+[GotoActions__DPU_032]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DPU_027]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DPU_044]
+3=>C:A:AFT A calls B, DTMF
+7=>C:A:AFT Do Path Confirmation Once
+2=>B:@:Wait for time in seconds [3]
+4=>A:@:AFT Wait for Call Waiting Tone
+6=>B:@:Wait for time in seconds in onhook [5]
+8=>A:C:AFT Do Path Confirmation Once
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OnHook
+9=>A:@:Go OnHook
+10=>C:@:Go OnHook
+
+[DPU_039]
+3=>D:@:Wait for time in seconds [2]
+7=>E:D:AFT A calls B, DTMF
+12=>B:@:Go OnHook
+16=End of script
+4=>A:@:Go OffHook
+8=>E:@:Wait for busy
+13=>E:@:Go OnHook
+1=>D:@:AFT Off hook wait for dial tone
+5=>A:D:AFT Do Path Confirmation Once
+9=>C:@:Go OffHook
+10=>C:@:Go OnHook
+14=>D:@:Go OnHook
+2=>D:@:Send string in DTMF [911]
+6=>A:@:Go OnHook
+11=>B:@:Go OffHook
+15=>A:@:Go OnHook
+
+[GotoActions__DPU_051]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+

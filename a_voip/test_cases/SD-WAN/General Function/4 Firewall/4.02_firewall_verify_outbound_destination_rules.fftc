@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>Firewall - Verify Outbound Destination Rules</documentation>
+        <notes>Test case: Verify outbound destination rules
+Expected Results: Configured traffic not allowed through firewall
+Usage: Configure outbound rule to deny all traffic based on destination address
+
+Details:
+SD-WAN will be configured to block any traffic to destination ip 4.2.2.2. A ping to 4.2.2.2 will be executed from CPE to test whether or not traffic was blocked.</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true">
+        <parameters version="8.4.0.202012071239">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <destination_ip pt:description="IP address which a firewall outbound rule will be configured with to test destination IP blockage.">4.2.2.2</destination_ip>
+                    <destination_ip2 pt:description="IP address which will be used to test destination IP blockage.">8.8.8.8</destination_ip2>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_voip/topologies/VeloCloud/VC840/VC840_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e1b55e77-e38d-418d-9ab4-06b3539e6b1b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="347eb16c-4b9a-4144-8bb9-0d550a8525a4" action="open" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="029ebbe5-ad8a-46b3-86db-dc0b584c0323" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <eventHandlers>
+                                <item name="OnFailTestAction"/>
+                            </eventHandlers>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="0ec16c9c-f1b8-42a9-8d41-b6f610e4feab" action="Login" session="CPE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b17843d2-d1fc-4297-aa74-e5eb79d75499" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="60a58e01-91e8-48ed-aa35-1545e533a872" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>from firewall.firewall_4_02_verify_outbound_destination_rules import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5be92573-4897-4fe0-9508-d6eb12370489" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d1d42aeb-ba9d-48c8-84f9-b78d18a36ec6" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>destination_ip = param(&apos;destination_ip&apos;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4aeb6a23-ca7d-44bf-af8c-dbee6bcaca81" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>destination_ip2 = param(&apos;destination_ip2&apos;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d8e8c08e-3bb0-4c10-b491-f8f831213acb" action="command" session="SD-WAN">
+                            <command>
+                                <body>destination_ip = &quot;[param(&apos;destination_ip&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="9d027978-f996-4da7-aed7-52013f550fb0" action="command" session="SD-WAN">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <performResponseMapping>false</performResponseMapping>
+                        </item>
+                        <item guid="fc407384-93ae-4a2b-b81a-7a37090800db" action="command" session="SD-WAN">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <performResponseMapping>false</performResponseMapping>
+                        </item>
+                        <item guid="6fc8c0ce-5048-4d6e-a205-709ba0d8a78e" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a0994c85-cbd9-4b76-b30f-2757635d8a59" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b22ebc04-068a-4f22-892f-9fbe4f79c0dc" action="comment">
+                    <command>
+                        <body>EDGE: Adding firewall rule to block outbound traffic to destination IP: [destination_ip]</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c1242009-991e-47c9-9578-690a68a5377b" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>add_firewall_outbound_rule_with_destination_ip(destination_ip=destination_ip)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="10b57741-2ed8-4841-80dd-734e4b4d1bf7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Waiting for 10 seconds for change to take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7dfdd9c2-a784-4106-a22a-29fb89ceda08" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7e474fbd-4419-4f90-836a-b270779ddad4" action="comment">
+                    <command>
+                        <body>CPE: Testing ping to destination IP: [destination_ip]. Expecting failure ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c0a98e45-1f52-4993-bf2c-0f401539d875" action="command" session="CPE">
+                            <command>
+                                <body>ping [destination_ip]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping failed -- [value]% success rate. Outbound traffic to destination IP: [destination_ip] is being block as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="05e6a259-ac07-4a64-befc-ab475fdd8c1f" action="comment">
+                    <command>
+                        <body>CPE: Testing ping to different destination IP: [destination_ip2]. Expecting successful ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bb044dc5-b45f-4e81-a5d3-0fa2527d4221" action="command" session="CPE">
+                            <command>
+                                <body>ping [destination_ip2]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) &gt;= 90</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping successful -- [value]% success rate. Outbound traffic to different destination IP: [destination_ip2] is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b5663234-7ebe-4113-9e2c-4e0611db7aa7" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="23c527c6-f28e-4429-b6e5-9695953d2659" action="comment">
+                    <command>
+                        <body>EDGE: Removing firewall rule added earlier to now allow outbound traffic to destination IP: [destination_ip]</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e5dc0dd8-9c3e-488f-97d7-de7303593383" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_firewall_outbound_rule_with_destination_ip()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4e7f8407-94a3-4c13-bd2a-ea483dd381b0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Waiting for 10 seconds for change to take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="51e45405-48c4-4273-a74d-dd500898a065" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d7f6d017-2dda-408d-9c11-ddc53d07d1da" action="comment">
+                    <command>
+                        <body>CPE: Testing ping to destination IP: [destination_ip]. Expecting successful ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="20fac2dd-175e-458e-a6e1-0703b07b2b91" action="command" session="CPE">
+                            <command>
+                                <body>ping [destination_ip]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) &gt;= 90</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping successful -- [value]% success rate. Outbound traffic to destination IP: [destination_ip] is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b250383c-c22b-4fd3-a9e5-184134c2b0e3" action="comment">
+                    <command>
+                        <body>CPE: Testing ping to different destination IP: [destination_ip2]. Expecting successful ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ee44b275-efce-432f-bdae-e8126ad8000c" action="command" session="CPE">
+                            <command>
+                                <body>ping [destination_ip2]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) &gt;= 90</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping successful -- [value]% success rate. Outbound traffic to different destination IP: [destination_ip2] is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="690dde9e-dcea-4bf7-b3c5-96c7f19562f5" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="40a33b22-5cbb-426e-92ff-10c8c33d6718" action="close" session="SD-WAN" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="989547f4-ee25-479e-b1cb-f957a04490a5" action="close" session="CPE">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+    </procedures>
+</testCase>

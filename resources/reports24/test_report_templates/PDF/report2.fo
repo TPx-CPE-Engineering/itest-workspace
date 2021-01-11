@@ -1,0 +1,1034 @@
+<?xml version="1.1" encoding="utf-8"?>
+<xsl:stylesheet version="2.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:barcode="org.krysalis.barcode4j.xalan.BarcodeExt" xmlns:common="http://exslt.org/common"
+                xmlns:xalan="http://xml.apache.org" exclude-result-prefixes="barcode common xalan"
+                xmlns:pt="http://www.fnfr.com/schemas/parameterTree"
+                xmlns:dateFormatter="xalan://com.fnfr.foundation.xslt.DateFormatter"
+                xmlns:uriDecoder="xalan://java.net.URLDecoder"
+                extension-element-prefixes="dateFormatter uriDecoder">
+
+<xsl:attribute-set name="myBorder">
+	<xsl:attribute name="border">solid 0.1mm black</xsl:attribute>
+</xsl:attribute-set>
+<xsl:template match="report">
+	<fo:root>
+		<fo:layout-master-set>
+			<fo:simple-page-master master-name="A4-portrait" page-height="29.7cm" page-width="21.0cm" margin="1cm">
+				<fo:region-body/>
+			</fo:simple-page-master>
+		</fo:layout-master-set>
+		<fo:page-sequence master-reference="A4-portrait">
+			<fo:flow flow-name="xsl-region-body">
+				<fo:block wrap-option="wrap">
+					<fo:block font-family="Arial" line-height="15pt" font-size="15pt" text-align="center" font-weight="bold">
+						Test Report       		 
+					</fo:block>
+					<fo:block font-family="Arial" line-height="11pt" font-size="10" text-align="left">
+						File generated at: <xsl:value-of select="dateFormatter:getLocalDateTime()"/>
+					</fo:block>
+
+				<fo:block font-family="Arial" line-height="11pt" font-size="10" text-align="left">
+					<fo:table table-layout="fixed" width="100%">
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+									Test case				
+									</fo:block>    
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>
+									<xsl:value-of select="uriDecoder:decode(./TestReportDocument/testcase,'UTF-8')"/>
+								</fo:block>  
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">           
+									<fo:block color="navy">
+									Testbed      
+									</fo:block>    
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>
+										<xsl:value-of select="uriDecoder:decode(./TestReportDocument/testbed,'UTF-8')"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+									Parameters File  
+									</fo:block>    
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>
+										<xsl:value-of select="uriDecoder:decode(./TestReportDocument/parametersFile,'UTF-8')"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Owner
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>   
+										<xsl:value-of select="./TestReportDocument/testCaseOwner"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Tags
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>   
+										<xsl:value-of select="./TestReportDocument/summary/testCaseDetails/general/tags"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Test case ID 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>   
+                                       <xsl:value-of select="./TestReportDocument/summary/testCaseDetails/general/rendering/@testCaseId"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+                                       Test case name
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>      
+										<xsl:value-of select="./TestReportDocument//summary/testCaseDetails/general/rendering/@testCaseName"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Test case namespace   
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/summary/testCaseDetails/general/rendering/@tclNamespace"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Execution started  
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>      
+										<xsl:value-of select="dateFormatter:convertIsoDateToLocalDate(./TestReportDocument/startTime)"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Execution completed 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="dateFormatter:convertIsoDateToLocalDate(./TestReportDocument/endTime)"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Execution duration  
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:call-template name = "time" >
+											<xsl:with-param name = "time" select="./TestReportDocument/duration" />
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Report ID 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/reportId"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Host 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>     
+										<xsl:value-of select="./TestReportDocument/host"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Group  
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/group"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Sub Group 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/subGroup"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									 <fo:block color="navy">
+										Total Report Items  
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/totalReportItemCount"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Total Issues 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/executionIssueCount"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="6mm">
+									<fo:block color="navy">
+										- Pass/OK 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block> 
+										<xsl:value-of select="./TestReportDocument/issuesPassed"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="6mm">
+									<fo:block color="navy">
+										- Fail/Error 
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>
+										<xsl:value-of select="./TestReportDocument/issuesFailed"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="6mm">
+									<fo:block color="navy">
+										- Warning 
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>    
+										<xsl:value-of select="./TestReportDocument/issuesWarned"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="6mm">
+									<fo:block color="navy">
+										- Information 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>  
+										<xsl:value-of select="./TestReportDocument/issuesInfo"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="3mm">
+									<fo:block color="navy">
+										Result  
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="3mm">
+									<fo:block>
+										<xsl:if test="./TestReportDocument/result='Pass'">
+											<fo:block color="green">
+											<xsl:value-of select="./TestReportDocument/result"/>
+											</fo:block> 
+										</xsl:if>
+										<xsl:if test="./TestReportDocument/result='Fail'">
+											<fo:block color="red">
+											<xsl:value-of select="./TestReportDocument/result"/>
+											</fo:block> 
+										</xsl:if>
+										<xsl:if test="./TestReportDocument/result='Abort'">
+											<fo:block color="red">
+											<xsl:value-of select="./TestReportDocument/result"/>
+											</fo:block> 
+										</xsl:if>
+										<xsl:if test="./TestReportDocument/result='Indeterminate'">
+											<fo:block color="orange">
+											<xsl:value-of select="./TestReportDocument/result"/>
+											</fo:block> 
+										</xsl:if>                                                             
+									</fo:block> 
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+				</fo:block>
+												
+				<xsl:variable name="maxHeight" select="200"/>
+				<xsl:if test="./TestReportDocument/summary/topologyImages/item">
+					<fo:block>
+						<fo:leader />
+					</fo:block>
+					<fo:block font-family="Arial" line-height="12pt" font-size="12pt">
+						Topology
+					</fo:block>
+					<fo:block>
+						<fo:leader />
+					</fo:block>
+					
+					<fo:block font-family="Arial" line-height="11pt" font-size="10">
+						<fo:table xsl:use-attribute-sets="myBorder" table-layout="fixed" width="100%">
+							<fo:table-body>
+								<fo:table-row color="gray" xsl:use-attribute-sets="myBorder" background-color = "#ededf3">
+									<fo:table-cell padding-left="3mm">
+										<fo:block font-weight="bold">
+											<xsl:value-of select="./TestReportDocument/summary/topologyURI"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell padding-left="3mm">
+										<fo:block>
+											Image:
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								
+								<xsl:for-each select="./TestReportDocument/summary/topologyImages/item">
+									<fo:table-row>
+										<fo:table-cell padding-left="3mm">
+											<fo:block>
+												<xsl:choose>
+													<xsl:when test="@height > $maxHeight">
+														<xsl:call-template name="encodedImage" >
+															<xsl:with-param name="encodedImageBytes" select="current()" />
+															<xsl:with-param name="height" select="$maxHeight" />
+															<xsl:with-param name="width" select="floor(@width * $maxHeight div @height)" />
+														</xsl:call-template>
+													</xsl:when>
+													<xsl:otherwise>
+														<xsl:call-template name="encodedImage" >
+															<xsl:with-param name="encodedImageBytes" select="current()" />
+															<xsl:with-param name="height" select="@height" />
+															<xsl:with-param name="width" select="@width" />
+														</xsl:call-template>														
+													</xsl:otherwise>
+												</xsl:choose>
+											</fo:block>
+										</fo:table-cell>
+									</fo:table-row>
+								</xsl:for-each>
+							</fo:table-body>
+						</fo:table>
+					</fo:block>
+				</xsl:if>
+				
+				
+			    <fo:block>
+					<fo:leader />
+				</fo:block>
+                <fo:block>
+					<fo:leader />
+				</fo:block>
+			
+				<fo:block font-family="Arial" line-height="15pt" font-size="12pt">
+					Parameters
+				</fo:block>
+				<fo:block>
+					<fo:leader />
+				</fo:block>
+				<fo:block font-family="Arial" line-height="11pt" font-size="10">
+					<fo:table xsl:use-attribute-sets="myBorder" table-layout="fixed" width="100%">
+						<fo:table-body>
+							<fo:table-row color="gray" background-color = "#ededf3">
+								<fo:table-cell padding-left="1mm" width="1.3cm">
+									<fo:block font-weight="bold">
+										Session
+									</fo:block>
+								</fo:table-cell>			   
+								<fo:table-cell padding-left="1mm" width="3.5cm">
+									<fo:block font-weight="bold">
+										Parameter Name
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="1mm" width="3cm">
+									<fo:block font-weight="bold">
+										Description
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="1mm" width="auto">
+									<fo:block font-weight="bold">
+										Value
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="1mm" width="3.5cm">
+									<fo:block font-weight="bold">
+										Source
+									</fo:block>
+								</fo:table-cell>         
+							</fo:table-row>
+							
+							<xsl:for-each select="//finalParameters/parameters//*[@pt:source and count(child::*)=0 and count(ancestor::*[name()='profile']) = 0 and count(ancestor::*[name()='testbed']) = 0]">
+							<xsl:variable name="name">
+								<xsl:for-each select="ancestor::*">
+									<xsl:if test="./ancestor::*[name()='parameters'] and ./ancestor::*[name()='finalParameters']">              
+										<xsl:value-of select="concat(name(.), '/')"/>
+									</xsl:if>
+								</xsl:for-each>
+								<xsl:value-of select="name(current())"/>
+							</xsl:variable>
+							<fo:table-row>
+								<fo:table-cell padding-left="1mm"> 
+									<fo:block>
+										<xsl:value-of select="ancestor::*[name()='profile']/@id" />
+									</fo:block>
+								</fo:table-cell>   
+								<fo:table-cell padding-left="1mm"> 
+									<fo:block>
+										<xsl:call-template name="intersperse-with-zero-spaces">
+											<xsl:with-param name="str"        select="$name"/>
+											<xsl:with-param name="max_length" select="10"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell> 
+								<fo:table-cell padding-left="1mm"> 
+									<fo:block>
+										<xsl:value-of select="@pt:description"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="1mm"> 
+									<fo:block width="auto">
+										<xsl:call-template name="intersperse-with-zero-spaces">
+											<xsl:with-param name="str"        select="current()"/>
+											<xsl:with-param name="max_length" select="15"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="1mm"> 
+									<fo:block>
+										<xsl:call-template name="intersperse-with-zero-spaces">
+											<xsl:with-param name="str"        select="@pt:source"/>
+											<xsl:with-param name="max_length" select="10"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell> 
+							</fo:table-row> 
+						</xsl:for-each>                
+					</fo:table-body>
+				</fo:table>
+			
+				</fo:block>
+			    <fo:block>
+					<fo:leader />
+				</fo:block>
+
+				<fo:block font-family="Arial" line-height="15pt" font-size="12pt" >
+					Execution Issues
+				</fo:block>
+				<fo:block>
+					<fo:leader />
+				</fo:block>
+					<fo:block font-family="Arial" line-height="11pt" font-size="10" >
+						<fo:table xsl:use-attribute-sets="myBorder" inline-progression-dimension="auto" table-layout="fixed" width="100%">  
+							<fo:table-body>
+								<fo:table-row color="gray"  font-weight="bold" background-color = "#ededf3">
+									<fo:table-cell padding-left="3mm"  width="1.2cm">
+										<fo:block > 
+											Index                			
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell padding-left="3mm" width="2.5cm">
+										<fo:block >
+											Severity
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell padding-left="3mm" width="2.5cm">
+										<fo:block >
+											Originator
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell padding-left="3mm">
+										<fo:block >
+											Message 
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell padding-left="3mm" >
+										<fo:block >
+											Location
+										</fo:block>    
+									</fo:table-cell>
+								</fo:table-row>
+						
+								<xsl:for-each select="./issues/item">
+									<fo:table-row >
+										<fo:table-cell padding-left="3mm"  width="1cm">
+											<fo:block> 
+												<xsl:value-of select="./@executedStepId" />
+											</fo:block>    
+										</fo:table-cell>
+										<fo:table-cell padding-left="3mm" width="2.5cm">
+											<fo:block >  
+												<xsl:if test="./@severity=0">
+													<fo:block color="green">
+														pass
+													</fo:block> 
+												</xsl:if>
+												<xsl:if test="./@severity=1">
+													<fo:block color="blue" >
+														info
+													</fo:block> 
+												</xsl:if>                       												
+												<xsl:if test="./@severity=2">
+													<fo:block color="orange">
+														warning
+													</fo:block>
+												</xsl:if>
+												<xsl:if test="./@severity=4" >
+													<fo:block color="red">
+														fail
+													</fo:block> 
+												</xsl:if>                                 
+											</fo:block>                          
+										</fo:table-cell>
+										
+										<fo:table-cell padding-left="3mm" width="2.5cm">
+											<fo:block >
+												<xsl:call-template name="intersperse-with-zero-spaces">
+													<xsl:with-param name="str"><xsl:value-of select="./@originator"/></xsl:with-param>
+													<xsl:with-param name="max_length" select="15"/>
+												</xsl:call-template>
+											</fo:block>    
+										</fo:table-cell>
+										<fo:table-cell padding-left="3mm">
+											<fo:block>
+												<xsl:call-template name="intersperse-with-zero-spaces">
+													<xsl:with-param name="str"        select="./message"/>
+													<xsl:with-param name="max_length" select="23"/>
+												</xsl:call-template>
+											</fo:block>										 
+										</fo:table-cell>
+										<fo:table-cell padding-left="3mm">
+											<fo:block >
+												<xsl:value-of select="./@documentLocation" />
+											</fo:block>    
+										</fo:table-cell>
+									</fo:table-row>								
+								</xsl:for-each>                  
+							</fo:table-body>
+						</fo:table> 
+					</fo:block>                                   
+
+					<fo:block>
+						<fo:leader />
+					</fo:block>		  
+		  
+					<fo:block font-family="Arial" line-height="15pt" font-size="12pt" >
+						Steps
+					</fo:block>
+					<fo:block>
+						<fo:leader />
+					</fo:block>
+					
+					<fo:block font-family="Arial" line-height="11pt" font-size="10" >
+						<fo:table table-layout="fixed" width="100%">
+							<fo:table-body>
+								<fo:table-row color="gray" font-weight="bold" background-color = "#ededf3">
+									<fo:table-cell border-top-style="solid" border-top-width="0.1mm" border-top-color="gray"
+																			border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+																			border-left-style="solid" border-left-width="0.1mm" border-left-color="gray"
+																			border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+										<fo:block margin-left="3mm">
+											Index
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell border-top-style="solid" border-top-width="0.1mm" border-top-color="gray"
+													border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+													border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+										<fo:block margin-left="3mm">
+											Action
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell border-top-style="solid" border-top-width="0.1mm" border-top-color="gray"
+													border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+													border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+										<fo:block margin-left="3mm">
+											Session
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell border-top-style="solid" border-top-width="0.1mm" border-top-color="gray"
+													border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+													border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+										<fo:block margin-left="3mm">
+											Start Time	
+										</fo:block>    
+									</fo:table-cell>
+									<fo:table-cell border-top-style="solid" border-top-width="0.1mm" border-top-color="gray"
+													border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+													border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+										<fo:block margin-left="3mm">
+											Duration
+										</fo:block>    
+									</fo:table-cell>
+								</fo:table-row>
+															
+								<xsl:for-each select="./steps/ExecutedStep">
+									<xsl:value-of select="."/>   
+									<xsl:variable name="contentRowCells">
+										<fo:table-cell border-left-style="solid" border-left-width="0.1mm" border-left-color="gray"
+														border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+														border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+											<fo:block margin-left="3mm">
+												<xsl:value-of select="./id" />
+											</fo:block>    
+										</fo:table-cell>
+										<fo:table-cell number-columns-spanned="2" border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+																					border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+											<fo:block  margin-left="3mm">
+												<xsl:value-of select="./executableStep/@action"/>       
+											</fo:block>    
+										</fo:table-cell>
+										<fo:table-cell border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+														border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+											<fo:block margin-left="3mm">												
+												<xsl:call-template name = "time" >
+													<xsl:with-param name = "time" select="./startOffset" />
+												</xsl:call-template>
+											</fo:block>    
+										</fo:table-cell>
+										<fo:table-cell border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+														border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+											<fo:block margin-left="3mm">
+												<xsl:call-template name = "time" >
+													<xsl:with-param name = "time" select="./executionDuration" />
+												</xsl:call-template>
+											</fo:block>    
+										</fo:table-cell>
+									</xsl:variable>		
+																	
+																								
+									<fo:table-row color="gray" background-color = "#ededf3">	
+										<xsl:copy-of select="$contentRowCells">
+										</xsl:copy-of>
+									</fo:table-row>		
+							
+									<xsl:if test="./result/action/command">
+										<fo:table-row>
+											<fo:table-cell number-columns-spanned="5">
+												<fo:table border-left-style="solid" border-left-width="0.1mm" border-left-color="gray"
+															border-right-style="solid" border-right-width="0.1mm" border-right-color="gray">
+													<fo:table-body>
+														<fo:table-row>														
+															<fo:table-cell width="108px" border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+																<fo:block margin-left="1mm">
+																	Command :  
+																</fo:block>    
+															</fo:table-cell>
+															<fo:table-cell border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+																<fo:block margin-left="3mm" linefeed-treatment="preserve">
+																	<xsl:variable name="commandBody">
+																		<xsl:call-template name="intersperse-with-zero-spaces">
+																			<xsl:with-param name="str"        select="./result/action/command/body"/>
+																			<xsl:with-param name="max_length" select="30"/>
+																		</xsl:call-template>
+																	</xsl:variable>
+																	<xsl:value-of select="translate($commandBody, ' ', '&#160;')" />
+																</fo:block>																										
+															</fo:table-cell>
+														</fo:table-row>
+													</fo:table-body>
+												</fo:table>		
+											</fo:table-cell>							
+										</fo:table-row>
+									</xsl:if>
+				   									
+									<xsl:for-each select="./result/response">
+										
+										<xsl:for-each select="./images">
+											<fo:table-row color="gray" border-before-style="solid" border-before-width="0.1mm" border-before-color="gray">
+												<fo:table-cell number-columns-spanned="5">
+													<fo:block margin-left="1mm">
+														Image  :
+													</fo:block>    
+												</fo:table-cell>
+											</fo:table-row>											
+											<xsl:for-each select="./item">
+												<fo:table-row>
+													<fo:table-cell>
+														<fo:block margin-left="3mm">
+															<xsl:choose>
+																<xsl:when test="@height > $maxHeight">
+																	<xsl:call-template name="encodedImage" >
+																		<xsl:with-param name="encodedImageBytes" select="current()" />
+																		<xsl:with-param name="height" select="$maxHeight" />
+																		<xsl:with-param name="width" select="floor(@width * $maxHeight div @height)" />
+																	</xsl:call-template>
+																</xsl:when>
+																<xsl:otherwise>
+																	<xsl:call-template name="encodedImage" >
+																		<xsl:with-param name="encodedImageBytes" select="current()" />
+																		<xsl:with-param name="height" select="@height" />
+																		<xsl:with-param name="width" select="@width" />
+																	</xsl:call-template>														
+																</xsl:otherwise>
+															</xsl:choose>
+														</fo:block>
+													</fo:table-cell>
+												</fo:table-row>
+											</xsl:for-each>
+										</xsl:for-each>
+										
+										<xsl:for-each select="./issues">
+											<fo:table-row color="gray" border-right-width="0.1mm" border-right-style="solid" border-right-color="gray"
+																		border-left-width="0.1mm" border-left-style="solid" border-left-color="gray">
+												<fo:table-cell number-columns-spanned="5">
+													<fo:block color="black" margin-left="1mm">
+														Issues :
+													</fo:block>    
+												</fo:table-cell>
+											</fo:table-row>
+											<xsl:for-each select="./item">
+												<fo:table-row border-right-width="0.1mm" border-right-style="solid" border-right-color="gray"
+																border-left-width="0.1mm" border-left-style="solid" border-left-color="gray">
+													<fo:table-cell>
+														<fo:block margin-left="3mm">
+															<xsl:if test="./@severity=0">
+																<fo:block color="green">
+																	pass
+																</fo:block> 
+															</xsl:if>
+															<xsl:if test="./@severity=1">
+																<fo:block color="blue">
+																	info
+																</fo:block> 
+															</xsl:if>
+															<xsl:if test="./@severity=2">
+																<fo:block color="orange">
+																	warning
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=4">
+																<fo:block color="red">
+																	fail
+																</fo:block> 
+															</xsl:if>
+															<xsl:if test="./@severity=1000">
+																<fo:block color="orange">
+																	text added
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1001">
+																<fo:block color="orange">
+																	text removed
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1002">
+																<fo:block color="orange">
+																	text changed
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1010">
+																<fo:block color="orange">
+																	structure added
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1011">
+																<fo:block color="orange">
+																	structure removed
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1012">
+																<fo:block color="orange">
+																	structure changed
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1020">
+																<fo:block color="orange">
+																	query added
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1021">
+																<fo:block color="orange">
+																	query removed
+																</fo:block>
+															</xsl:if>
+															<xsl:if test="./@severity=1022">
+																<fo:block color="orange">
+																	query changed
+																</fo:block>
+															</xsl:if>
+														</fo:block>    
+													</fo:table-cell>
+													<fo:table-cell>
+														<fo:block margin-left="3mm">
+															<xsl:value-of select="./@originator"/> 
+														</fo:block>    
+													</fo:table-cell>
+													<fo:table-cell number-columns-spanned="2">
+														<fo:block margin-left="3mm">
+															<xsl:call-template name="intersperse-with-zero-spaces">
+																<xsl:with-param name="str"        select="./message"/>
+																<xsl:with-param name="max_length" select="30"/>
+															</xsl:call-template>
+														</fo:block>
+													</fo:table-cell>
+													<fo:table-cell>
+														<fo:block margin-left="3mm">
+															<xsl:value-of select="./@documentLocation"/> 
+														</fo:block>    
+													</fo:table-cell>									
+												</fo:table-row>
+											</xsl:for-each>
+										</xsl:for-each>
+								
+										<xsl:if test="./body">
+											<fo:table-row color="gray">
+												<fo:table-cell number-columns-spanned="5" border-right-width="0.1mm" border-right-style="solid" border-right-color="gray"
+																											 border-left-width="0.1mm" border-left-style="solid" border-left-color="gray">
+													<fo:block color="black" margin-left="1mm">
+														Response  :
+													</fo:block>
+												</fo:table-cell>             
+											</fo:table-row>
+											<fo:table-row>
+												<fo:table-cell number-columns-spanned="5">
+													<fo:table border-left-style="solid" border-left-width="0.1mm" border-left-color="gray"
+																border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+																border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+														<fo:table-body>
+															<fo:table-row>														
+																<fo:table-cell>
+																	<fo:block margin-left="3mm" linefeed-treatment="preserve">
+																		<xsl:for-each select="./body/issue">
+																			<xsl:choose>
+																				<xsl:when test="@severity=0">
+																					<fo:inline background-color="#b1ff45">
+																						<xsl:call-template name="intersperse-with-zero-spaces">
+																							<xsl:with-param name="str" select="translate(current(), ' ', '&#160;')"/>
+																							<xsl:with-param name="max_length" select="10"/>
+																						</xsl:call-template>
+																					</fo:inline>
+																				</xsl:when>
+																				<xsl:otherwise>
+																						<xsl:call-template name="intersperse-with-zero-spaces">
+																							<xsl:with-param name="str" select="translate(current(), ' ', '&#160;')"/>
+																							<xsl:with-param name="max_length" select="10"/>
+																						</xsl:call-template>
+																				</xsl:otherwise>
+																			</xsl:choose>
+																		</xsl:for-each>																																	 													
+																	</fo:block>
+																</fo:table-cell>
+															</fo:table-row>
+														</fo:table-body>
+													</fo:table>		
+												</fo:table-cell>								             
+											</fo:table-row>
+										</xsl:if>
+									</xsl:for-each>
+								
+									<xsl:if test="count(./postProcessingItems/item) > 0 and (./executableStep/@action != 'call' or ./executableStep/command/body != 'main')">
+										<fo:table-row color="gray">
+											<fo:table-cell width="4.0cm" border-left-style="solid" border-left-width="0.1mm" border-left-color="gray" >
+												<fo:block color="black" margin-left="1mm">
+													Post-Processing :
+												</fo:block>
+											</fo:table-cell>											
+											<fo:table-cell number-columns-spanned="4" border-right-style="solid" border-right-width="0.1mm" border-right-color="gray">
+												<fo:block margin-left="3mm">											
+												</fo:block>
+											</fo:table-cell>
+										</fo:table-row>
+										
+										<xsl:for-each select="./postProcessingItems/item">
+											<fo:table-row>
+												<fo:table-cell border-left-style="solid" border-left-width="0.1mm" border-left-color="gray" >
+													<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+														<xsl:value-of select="./@action"/> 
+													</fo:block>
+												</fo:table-cell>
+	             
+												<fo:table-cell number-columns-spanned="4" border-right-style="solid" border-right-width="0.1mm" border-right-color="gray" >
+													<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+														<xsl:call-template name="intersperse-with-zero-spaces">
+															<xsl:with-param name="str"        select="./description"/>
+															<xsl:with-param name="max_length" select="43"/>
+														</xsl:call-template>
+													</fo:block>		
+												</fo:table-cell>
+											</fo:table-row>
+											
+											<xsl:for-each select="./postProcessingItems/item">											
+												<fo:table-row>
+													<fo:table-cell border-left-style="solid" border-left-width="0.1mm" border-left-color="gray">
+														<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+															<xsl:value-of select="./@action"/> 
+														</fo:block>
+													</fo:table-cell>
+	             
+													<fo:table-cell number-columns-spanned="4"  border-right-style="solid" border-right-width="0.1mm" border-right-color="gray">
+														<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+															<xsl:call-template name="intersperse-with-zero-spaces">
+																<xsl:with-param name="str"        select="./description"/>
+																<xsl:with-param name="max_length" select="43"/>
+															</xsl:call-template>
+														</fo:block>	
+													</fo:table-cell>
+												</fo:table-row>
+												
+													<xsl:for-each select="./postProcessingItems/item">
+														<fo:table-row>
+															<fo:table-cell border-left-style="solid" border-left-width="0.1mm" border-left-color="gray">
+																<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+																	<xsl:value-of select="./@action"/> 
+																</fo:block>
+															</fo:table-cell>
+	             
+															<fo:table-cell number-columns-spanned="4" border-right-style="solid" border-right-width="0.1mm" border-right-color="gray">
+																<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+																	<xsl:call-template name="intersperse-with-zero-spaces">
+																		<xsl:with-param name="str"        select="./description"/>
+																		<xsl:with-param name="max_length" select="43"/>
+																	</xsl:call-template>
+																</fo:block>
+															</fo:table-cell>
+														</fo:table-row>
+														
+														<xsl:for-each select="./postProcessingItems/item">
+															<fo:table-row>
+																<fo:table-cell border-left-style="solid" border-left-width="0.1mm" border-left-color="gray">
+																	<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+																		<xsl:value-of select="./@action"/> 
+																	</fo:block>
+																</fo:table-cell>
+																          			
+																<fo:table-cell number-columns-spanned="4" border-right-width="0.1mm" border-right-color="gray" border-right-style="solid">
+																	<fo:block font-family="Arial" line-height="11pt" font-size="10" margin-left="3mm">
+																		<xsl:call-template name="intersperse-with-zero-spaces">
+																			<xsl:with-param name="str"        select="./description"/>
+																			<xsl:with-param name="max_length" select="43"/>
+																		</xsl:call-template>
+																	</fo:block>
+																</fo:table-cell>
+															</fo:table-row>	      
+														</xsl:for-each>
+													</xsl:for-each>																																
+											</xsl:for-each>
+										</xsl:for-each>
+										<fo:table-row>
+											<fo:table-cell number-columns-spanned="5" border-right-style="solid" border-right-width="0.1mm" border-right-color="gray"
+																							border-left-style="solid" border-left-width="0.1mm" border-left-color="gray"
+																							border-bottom-style="solid" border-bottom-width="0.1mm" border-bottom-color="gray">
+												<fo:block>
+												</fo:block>   
+											</fo:table-cell>
+										</fo:table-row>	
+									</xsl:if>
+								</xsl:for-each>
+							</fo:table-body>
+						</fo:table >                 
+					</fo:block>
+				</fo:block>
+			</fo:flow>
+		</fo:page-sequence>
+	</fo:root>
+</xsl:template>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ format ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<xsl:template name="time">
+		<xsl:param name="time"/>
+		<xsl:variable name="seconds" select="$time mod 60"/>
+		<xsl:variable name="minutes" select="(floor($time div 60)) mod 60"/>
+		<xsl:variable name="hours" select="floor($time div 3600)"/>
+		<xsl:value-of select="concat(format-number($hours,'#00'),':', format-number($minutes,'00'),':', format-number($seconds,'00.#'))"/>
+	</xsl:template>
+	
+	<xsl:template name="encodedImage">
+		<xsl:param name="encodedImageBytes"/>
+		<xsl:param name="height"/>
+		<xsl:param name="width" />
+		<fo:external-graphic content-height="scale-to-fit" height="{$height}" width="{$width}" scaling="non-uniform">
+			<xsl:attribute name="src">
+				<xsl:text>url('data:image/png;base64,</xsl:text>
+				<xsl:value-of select="$encodedImageBytes"/>
+				<xsl:text>')</xsl:text>
+			</xsl:attribute>
+		</fo:external-graphic>
+	</xsl:template>
+	
+	<xsl:template name="intersperse-with-zero-spaces">
+		<xsl:param name="str"/>
+		<xsl:param name="max_length"/>
+
+		<xsl:variable name="head" select="substring($str, 1, $max_length)" />
+		<xsl:variable name="tail" select="substring($str, $max_length + 1)" />
+
+		<xsl:value-of select="$head"/>
+
+		<xsl:if test="$tail">
+			<!-- there's no space present when translate() returns the same string and the $tail does not begin with a space, either  -->
+			<xsl:if test="not(contains($head,' ')) and not(substring($tail, 1, 1)=' ')">
+				<xsl:text>&#x200b;</xsl:text>
+			</xsl:if>
+			<xsl:call-template name="intersperse-with-zero-spaces">
+				<xsl:with-param name="str"        select="$tail"/>
+				<xsl:with-param name="max_length" select="$max_length"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	
+</xsl:stylesheet>

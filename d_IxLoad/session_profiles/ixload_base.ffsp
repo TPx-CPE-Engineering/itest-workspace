@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.1.0.201912080816">
+    <baseApplication>com.fnfr.svt.applications.ixia.ixload</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ixia.ixload.IxLoadSessionProperties">
+        <tclProperties>
+            <interpreterLocation inherit="false">C:/Program Files (x86)/Ixia/Tcl/8.5.17.0/bin/tclsh85.exe</interpreterLocation>
+            <interpreterLibraryPath inherit="false">C:/Program Files (x86)/Ixia/Tcl/8.5.17.0/lib
+</interpreterLibraryPath>
+        </tclProperties>
+        <serverIpAddress inherit="false">localhost</serverIpAddress>
+        <chassisIpAddress inherit="false">10.255.224.70</chassisIpAddress>
+        <serverSessionPorts inherit="false">3:3</serverSessionPorts>
+        <clientSessionPorts inherit="false">3:1</clientSessionPorts>
+        <configFile inherit="false">project://d_IxLoad/uCPEStressTestLV4.rxf</configFile>
+        <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_IxLoad/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_IxLoad/</formMapLibrary>
+    <sessionClassTestCase inherit="false">ixload_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

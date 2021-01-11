@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>LAN Side NAT - Verify Outbound DNAT / Inbound SNAT</documentation>
+        <notes>Usage:
+
+a.\tConfigure a Destination LAN-side NAT at site 1: inside 172.16.238.155/32, outside 192.168.138.155/32
+b.\tAdvertise VLAN 1 at site 1.
+c.\tVerify that host 1 can ping 172.16.238.155.
+
+Expected Results:
+Host 1 is able to ping 172.16.238.155</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC620/VC620_lab_basic_cisco.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="baff1b54-9c45-4c53-b55f-81a5975d1ed0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening sessions...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d32c146b-dccc-4856-a2b2-8c8225871b28" action="open" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="1bdf4b49-6add-4e75-9367-1b7934e06488" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="7229a1ea-935d-4849-bcf9-69032b5ddf0d" action="Login" session="CPE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a0178386-e044-4c1c-b749-c1a2a33c42e1" action="open" session="HOST2">
+                            <command>
+                                <body>device:CPE%20Small%20Ubuntu#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9c9dc76f-f635-46f3-9040-d32a9da6cb24" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing module...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a3aab5dd-8738-4a66-a7e4-0e7c78940444" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>from lan_side_nat.lsn_5_03_verify_outbound_dnat_inbound_snat import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b4183670-f3de-42cf-963c-f0f0eea4e341" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3b03b20b-2c1a-4b41-a563-db9268a43153" action="command" session="EDGE">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1556a54d-7e34-45d8-85ec-8192a90e2209" action="command" session="EDGE">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="98f570fc-8b85-4849-bcc6-c3e79bff4701" action="command" session="EDGE">
+                            <command>
+                                <body>cpe_ssh_port = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;sshPort&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3bd5722a-4af9-435c-900e-cdeb3a363bb1" action="command" session="EDGE">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, cpe_ssh_port=cpe_ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c817e94a-39e0-49af-a116-aa1929da209a" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1e93c9fb-2bc7-4d7e-94b4-f892393a990d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Adding LAN-Side NAT Rule...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f3aba2b2-9bc9-4232-a2de-85b45c5c68aa" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>add_lan_side_nat_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="bced2e16-9dc6-4747-a9a8-eeb307c5b548" action="sleep">
+                            <command>
+                                <body>25</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="690bf341-f4b3-44ce-8844-ca59e6da3d2d" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c7bd1377-4727-46bc-beb3-eced11ca5c87" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Verifying if Host 1 can ping Inside Address, expecting successful ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bde4384d-ab5b-4472-b9ce-459bffe33909" action="Ping" session="CPE" useFieldsInCommand="false">
+                            <command>
+                                <body>-host 172.16.223.21</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 100</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Ping was successful with a 100% success rate as expected.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Ping was unsuccessful with [value]% success rate. Expected 100% success rate.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="22d8d7f7-0710-4a65-abf9-26a54e265726" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7a8f3125-aef3-4dd0-abc3-ec4eb22a4b2f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Restoring Edge configuration...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9661bdd3-ca6c-4be7-8666-2a1b2ef31161" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>restore_configuration()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

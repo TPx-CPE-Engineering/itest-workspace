@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<ParameterTree version="7.0.1.201802131446">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <abacus_chassis_ip pt:description="IP address of the Abacus 100 Chassis">10.255.20.108</abacus_chassis_ip>
+            <abacus_version>6.22</abacus_version>
+            <abacus_automation_ip pt:description="IP address of the Abacus Automation Server">localhost</abacus_automation_ip>
+            <csv_report_filename pt:description="File name for CSV summary report ">alex_dev.csv</csv_report_filename>
+            <enterprise_name pt:description="Name of enterprise">TPAC-LabG6-2</enterprise_name>
+            <secondary_group_name pt:description="Group name of secondary group (BSNotGroup Numbers)">IAD-Test-7</secondary_group_name>
+            <pesq_warn pt:description="Threshold to consider minimum PESQ score as a warning">3.0</pesq_warn>
+            <pesq_fail pt:description="Threshold to consider minimum PESQ score as a failure">2.5</pesq_fail>
+            <iad2_cid_name pt:description="External CID name for 2nd IAD - max 15 chars">SV PROD</iad2_cid_name>
+            <pstn_lines pt:description="10 digit phone numbers used for &quot;PSTN&quot; lines">
+                <pstn_1>17027242946</pstn_1>
+                <pstn_2>17027242947</pstn_2>
+                <pstn_3>17027242948</pstn_3>
+            </pstn_lines>
+            <bs_not_group_lines pt:description="10 digit phone numbers used for out of group lines">
+                <bs_not_group_1>17028534897</bs_not_group_1>
+                <bs_not_group_2>17028534898</bs_not_group_2>
+                <bs_not_group_3>17028534899</bs_not_group_3>
+            </bs_not_group_lines>
+            <auth_codes>
+                <authcode_1>8888</authcode_1>
+                <authcode_2>9999</authcode_2>
+                <authcode_3>0000</authcode_3>
+            </auth_codes>
+            <toll_free_lines>
+                <toll_free_1>18775897589</toll_free_1>
+            </toll_free_lines>
+            <long_distance_lines>
+                <long_distance_1>19492963949</long_distance_1>
+            </long_distance_lines>
+            <international_lines>
+                <international_1>011447953966250</international_1>
+            </international_lines>
+            <directory_assisted_lines>
+                <directory_assisted_1>411</directory_assisted_1>
+            </directory_assisted_lines>
+            <casual_call_lines>
+                <casual_1>1010288</casual_1>
+            </casual_call_lines>
+            <iad_channels>
+                <iad_1>1</iad_1>
+                <iad_2>2</iad_2>
+                <iad_3>28</iad_3>
+                <iad_4>29</iad_4>
+                <iad_5>30</iad_5>
+                <iad_6>31</iad_6>
+            </iad_channels>
+            <iad_lines pt:description="10 digit phone numbers used by on-net IAD">
+                <iad_1>16173919619</iad_1>
+                <iad_2>16173919620</iad_2>
+                <iad_3>17028534882</iad_3>
+                <iad_4>17028534883</iad_4>
+                <iad_5>17028534884</iad_5>
+                <iad_6>17028534885</iad_6>
+            </iad_lines>
+            <pstn_channels>
+                <pstn_1>51</pstn_1>
+                <pstn_2>52</pstn_2>
+                <pstn_3>53</pstn_3>
+            </pstn_channels>
+            <bs_not_group_channels>
+                <bs_not_group_1>54</bs_not_group_1>
+                <bs_not_group_2>55</bs_not_group_2>
+                <bs_not_group_3>56</bs_not_group_3>
+            </bs_not_group_channels>
+            <long_distance_channel>57</long_distance_channel>
+            <vm_passcode pt:description="Passcode set for voicemail">4321</vm_passcode>
+            <tester_email pt:description="Email address to send VM notifications to">itest@lab-sv.telepacific.com</tester_email>
+            <broadsoft_pw pt:description="password used to login to broadsoft web UI" pt:mask="true">T9ReRvTu2jR8tzczCaMmaA==</broadsoft_pw>
+            <broadsoft_IP>10.255.10.163</broadsoft_IP>
+            <pcap_path pt:description="File path to PCAP storage directory">/export/home/iTestCaps</pcap_path>
+            <imm_mailbox pt:description="Number used to reach IMM mailbox">7024101010</imm_mailbox>
+            <imm_pin pt:description="PIN used to access IMM voicemail">123789</imm_pin>
+            <email_recipients pt:description="Confirm the emails of who to email the test results to">
+                <email_to pt:description="Email of recipient to email to">juan.brena@tpx.com</email_to>
+            </email_recipients>
+        </parameters>
+    </parameters>
+</ParameterTree>

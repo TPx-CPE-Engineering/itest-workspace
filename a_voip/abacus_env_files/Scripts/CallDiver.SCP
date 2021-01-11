@@ -1,0 +1,391 @@
+[GotoActions__Path_confirm_0045]
+1=0
+2=0
+
+[Activate Call Diversion immediate]
+1=>A:@:Dial String [*21*02052200078#]
+3=;>A:@:Dial String [*21*]
+5=;>A:@:Dial String Without Dial Tone [#]
+2=>A:@:Wait for time [10]
+4=;>A:@:Dial String Without Dial Tone [02052200078]
+6=End of script
+
+[Path_confirm_0045]
+1=>Path_confirm_CPD_forTime [22]
+2=End of script
+
+[GotoActions__Interrogate_Services_0038]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Deactivate Diversion Immediate]
+1=0
+2=0
+3=0
+
+[Interrogate_Services_0038]
+3=>A:@:Hear Announcement [0]
+7=>A:@:Release Call [2]
+12=>A:@:Hear Announcement [0047]
+4=>A:@:Hear Announcement [0]
+8=>A:@:Dial String [*#67#]
+13=End of script
+1=>A:@:Dial String [*#21#]
+5=>A:@:Hear Announcement [4]
+9=>A:@:Hear Announcement [0047]
+10=>A:@:Release Call [2]
+2=;>A:@:Hear Announcement [0047]
+6=>A:@:Hear Announcement [7]
+11=>A:@:Dial String [*#61#]
+
+[GotoActions__Check_NoReply_0041]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Path_Confirm_for_time]
+1=>Path Confirm for time [31]
+2=>A:@:Release Call [6]
+3=End of script
+
+[Deactivate Diversion Immediate]
+1=>A:@:Dial String [#21#]
+2=>A:@:Wait for time [15]
+3=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__Check_Special_Dial_Tone]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[PathConfirm_Re-Answer]
+1=>Path Confirm for time [5]
+3=>A:@:Release Call [3]
+5=>Path Confirm for time [12]
+2=;>A:@:Hook flash [2]
+4=;>A:@:Go_Off_Hook [8]
+6=End of script
+
+[GotoActions__User_calls_user2_hears_busy_tone]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__A_calls_B_Re-answer]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Check_Normal_Dial_Tone]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Interrogate_Diversion_Immediate]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[User1_calls_Script0048]
+1=User 1 calls no CPD
+3=;receive incoming calls
+5=End of script
+2=;This number does not 
+4=A:@:Hear Announcement [0012]
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Wait_On_Hook_0045]
+1=>A:@:Release Call [100]
+2=End of script
+
+[Go_on_hook]
+1=>A:@:Release Call [20]
+2=End of script
+
+[GotoActions__Wait_On_Hook]
+1=0
+2=0
+
+[User1_calls_User2]
+1=>User 1 calls User 2
+2=;>A:@:Release Call [1]
+3=End of script
+
+[GotoActions__Interrogate_Diversion_NoReply]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[User1_calls_path_confirm_for_time]
+1=>User 1 calls no CPD
+2=>Path Confirm for time [30]
+3=>A:@:Release Call [2]
+4=End of script
+
+[GotoActions__Interrogate_Diversion_Busy]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Interrogate_Diversion_NoReply]
+1=>A:@:Dial String [*#61# ]
+3=;>A:@:Hear Announcement [0]
+5=;>A:@:Hear Announcement [6]
+7=>A:@:Wait for time [10]
+2=>A:@:Hear Announcement [0161]
+4=;>A:@:Hear Announcement [1]
+6=;>A:@:Hear Announcement [1]
+8=End of script
+
+[Check_NoReply_0041]
+3=;>A:@:Hear Announcement [0030]
+7=>A:@:Hear Announcement [0]
+12=End of script
+2=>A:@:Wait for time [15]
+4=>A:@:Hear Announcement [0]
+6=>A:@:Hear Announcement [3]
+8=>A:@:Wait for time [7]
+11=>Path Confirm for time [04]
+1=>User 1 calls no CPD
+5=>A:@:Hear Announcement [0]
+9=>Path Confirm for time [4]
+10=>A:@:Wait for time [4]
+
+[Interrogate_Diversion_Immediate]
+3=>A:@:Hear Announcement [0]
+7=;>A:@:Hear Announcement [4]
+2=;>A:@:Hear Announcement [0047]
+4=>A:@:Hear Announcement [1]
+6=>A:@:Hear Announcement [9]
+8=;>A:@:Hear Announcement [7]
+1=>A:@:Dial String [*#21# ]
+5=>A:@:Hear Announcement [5]
+9=>A:@:Wait for time [8]
+10=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__Activate Call Diversion immediate]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Path_Confirm_no_Call_Release]
+1=>Do path confirmation
+2=End of script
+
+[GotoActions__User1_calls_User2_noreplyTimeout]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Path_Confirm_for_time]
+1=0
+2=0
+3=0
+
+[GotoActions__PathConfirm_Re-Answer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[User_calls_user2_hears_busy_tone]
+1=>User 1 calls no CPD
+2=>A:@:listen to busy tone
+3=;A:@:Release Call [5]
+4=End of script
+
+[Make_call_0045]
+1=>Dial Destination Channel
+3=>Path Confirm for time [21]
+5=End of script
+2=>A:@:Wait for time [30]
+4=;>Path_confirm_CPD_forTime [21]
+
+[Check_Special_Dial_Tone]
+1=>A:@:Wait for Tone [350,440,0.7]
+3=>A:@:Wait for Tone [350,440,0.7]
+5=;>A:@:Wait for time [4]
+7=End of script
+2=>A:@:Wait for Tone [440,0,0.7]
+4=>A:@:Wait for Tone [440,0,0.7]
+6=;>A:@:Release Call [1]
+
+[GotoActions__Go_on_hook]
+1=0
+2=0
+
+[GotoActions__Call_diverOn_no_reply]
+1=0
+2=0
+3=0
+4=0
+
+[User1_calls_User2_noreplyTimeout]
+1=User 1 calls User 2
+3=Do path confirmation
+5=End of script
+2=A:@:Wait for time [5]
+4=A:@:Release Call [1]
+
+[GotoActions__User1_calls_User2]
+1=0
+2=0
+3=0
+
+[Do_Path_Confirmation]
+1=>Do path confirmation
+2=End of script
+
+[GotoActions__User1_calls_path_confirm_for_time]
+1=0
+2=0
+3=0
+4=0
+
+[Interrogate_Diversion_Busy]
+1=>A:@:Dial String [*#67# ]
+3=>A:@:Hear Announcement [0]
+5=>A:@:Hear Announcement [6]
+7=>A:@:Wait for time [8]
+2=;>A:@:Hear Announcement [0049]
+4=>A:@:Hear Announcement [1]
+6=>A:@:Hear Announcement [3]
+8=End of script
+
+[GotoActions__Make_call_0045]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Wait_On_Hook]
+1=>A:@:Release Call [30]
+2=End of script
+
+[Call_diverOn_no_reply]
+1=>User 1 calls no CPD
+2=>A:@:Wait for time [20]
+3=>Path Confirm for time [10]
+4=End of script
+
+[GotoActions__Do_Path_Confirmation]
+1=0
+2=0
+
+[Check_Normal_Dial_Tone]
+1=>A:@:Wait for Dial Tone
+3=;A:@:Wait for Dial Tone
+5=End of script
+2=;A:@:Wait for Dial Tone
+4=>A:@:Release Call [2]
+
+[GotoActions__User1_calls_Script0048]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Wait_On_Hook_0045]
+1=0
+2=0
+
+[GotoActions__Path_Confirm_no_Call_Release]
+1=0
+2=0
+
+[A_calls_B_Re-answer]
+1=>User 1 calls no CPD
+3=>A:@:Wait for time [4]
+5=End of script
+2=>Path Confirm for time [4]
+4=>Path Confirm for time [04]
+

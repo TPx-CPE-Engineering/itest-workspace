@@ -1,0 +1,377 @@
+[GotoActions__B2 originat2e-141-prefix call]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__INODE_0082(c)_B2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__INODE_0082(d)_B1]
+1=0
+2=0
+
+[GotoActions__INODE_0084(a)_B2]
+1=0
+2=0
+3=0
+
+[GotoActions__INODE_0084(b)_B1]
+1=0
+2=0
+
+[B2 originat2e-141-prefix call]
+3=>A:@:Step 6-1471- 4.1.5->wait for announcement "You will hear.."
+7=>A:@:Step 6-1471- 4.1.5->wait for announcement "You will hear..5"
+2=>A:@:Step 6-141-4.1.5 -> Dial 1471 from B2
+4=>A:@:Step 6-1471- 4.1.5->wait for announcement "You will hear..2"
+6=>A:@:Step 6-1471- 4.1.5->wait for announcement "You will hear..4"
+8=>A:@:Step 6-4.1.5> Wait for QoM
+1=A:@:Wait onhook [3]
+5=>A:@:Step 6-1471- 4.1.5->wait for announcement "You will hear..3"
+9=>A:@:Wait onhook [2]
+10=End of script
+
+[GotoActions__INODE_0082(e)_B2]
+1=0
+2=0
+
+[GotoActions__INODE_0084(c)_B2]
+1=0
+2=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__INODE_0087(a)_B2]
+1=0
+2=0
+3=0
+
+[INODE_0082(a)_B2]
+1=>Step 1 - 4.13.1 -> Make a call from B2 to B1 
+2=>A:@:Step 3 -> Clear the call at B2
+3=End of script
+
+[INODE_0082(b)_B1]
+1=>A:@:Step 6 -> Dial 1471 from B1
+2=>A:@:Step 6 -> Wait for "You have no calls to return"
+3=A:@:Wait offhook [10]
+4=End of script
+
+[GotoActions__B1 originate-2141 prefix call]
+1=0
+2=0
+3=0
+4=0
+
+[B2 originate-141 prefix call]
+3=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called......"
+7=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....4"
+2=>A:@:Step 3-1471-4.1.5-> Dial 1471 from B2
+4=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....1"
+6=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....3"
+8=>A:@:Step 3 -> Wait for QoM
+1=A:@:Wait onhook [3]
+5=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....2"
+9=>A:@:Step 3-1471-4.1.5> Clear the call at B2
+10=End of script
+
+[GotoActions__B2 originate-141 prefix call]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__INODE_0082(a)_B1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[INODE_0083(a)_B2]
+1=>Step 1 - 4.13.2 -> Make a call from B2 to B1 
+2=A:@:Wait offhook [10]
+3=>A:@:Step 2 -> Release the call at B2
+4=End of script
+
+[INODE_0083(b)_B1]
+1=;A:@:Wait onhook [3]
+3=>A:@:Step 7 -> Wait for "You were..........withheld their number"
+5=>A:@:Step 8 -> Clear the call at B1
+2=>A:@:Step 7 -> Dial 1471 from B1
+4=>A:@:Step 7 -> Wait for QoM
+6=End of script
+
+[B1 originate2-141 prefix call]
+1=>Step 4-141-4.1.5> Make a call from B1 to B2 with prefix 141
+2=A:@:Wait offhook [10]
+3=>A:@:Step 5 -4.1.5 > Release the call at B1
+4=End of script
+
+[GotoActions__B2 originate-2-141 prefix call]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__B1 originate2-141 prefix call]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__INODE_0082(a)_B2]
+1=0
+2=0
+3=0
+
+[GotoActions__INODE_0082(b)_B1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__INODE_0083(a)_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[INODE_0082(c)_B2]
+1=>Step 7 -> Make a call from B2 to B1 
+2=A:@:Wait offhook [10]
+3=;A:@:Wait onhook [1.6]
+4=End of script
+
+[INODE_0082(d)_B1]
+1=>Step 10 -> Answer the call at B1
+2=End of script
+
+[INODE_0083(b)_B2]
+1=>Step 5 -> Make a call from B2 to B1 with prefix 141
+2=A:@:Wait offhook [10]
+3=>A:@:Step 6 -> Release the call at B2
+4=End of script
+
+[INODE_0084(a)_B2]
+1=>Step 1 - 4.13.3 -> Make a call from B2 to B1 
+2=>A:@:Step 3 -> Clear the call at B2
+3=End of script
+
+[INODE_0084(b)_B1]
+1=>Step 7 -> Answer the call at B1
+2=End of script
+
+[B1 originate-141 prefix call]
+1=>Step 1 - 4.1.5> Make a call from B1 to B2
+2=>A:@:Wait offhook [10]
+3=>A:@:Step 2 -> 4.1.5 Release the call at B1
+4=End of script
+
+[GotoActions__INODE_0082(c)_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__INODE_0083(a)_B2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__INODE_0083(b)_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__INODE_0084(a)_B1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+
+[INODE_0082(d)_B2]
+1=>Step 9 -> Make a call from B2 to B1 
+2=>A:@:Step 11 -> Clear the call at B2
+3=End of script
+
+[INODE_0082(e)_B1]
+1=>A:@:Step 12 -> Dial 1471 from B1
+3=>A:@:Step 12 -> Wait for QoM
+5=>Step 14 -> Confirm speech path between B1 and B2
+2=>A:@:Step 12 -> Wait for "Tel. num. (TN) called.....this service"
+4=>A:@:Step 13 -> Press 3 to return the call
+6=End of script
+
+[INODE_0084(b)_B2]
+1=>Step 6 -> Make a call from B2 to B1 with prefix 1470
+2=>A:@:Step 8 -> Clear the call at B2
+3=End of script
+
+[INODE_0084(c)_B1]
+1=>A:@:Step 9 -> Dial 1471 from B1
+3=>A:@:Step 9 -> Wait for QoM
+5=>A:@:Step 12 -> Clear the call at B1
+2=>A:@:Step 9 -> Wait for "Tel. num. (TN) called......this service"
+4=>Step 10 -> Press 3 to return the call
+6=End of script
+
+[INODE_0087(a)_B1]
+1=>Step 3 -> Answer the call at B1
+3=>A:@:Step 5 -> Dial 1471 from B1
+5=>A:@:Step 5 -> Wait for "Sorry, the service..............hang up"
+7=End of script
+2=>A:@:Step 4 -> Clear the call at B1
+4=A:@:Step 5 -> Wait for "Sorry, the service..............hang up
+6=>A:@:Step 6 -> Clear the call at B1
+
+[B2 originate-2-141 prefix call]
+3=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called......"
+7=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....4"
+2=>A:@:Step 3-1471-4.1.5-> Dial 1471 from B2
+4=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....1"
+6=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....3"
+8=>A:@:Step 3 -> Wait for QoM
+1=A:@:Wait onhook [3]
+5=>A:@:Step 3- 1471- 4.1.5->wait for announcement "TN called.....2"
+9=>A:@:Step 3-1471-4.1.5> Clear the call at B2
+10=End of script
+
+[GotoActions__INODE_0083(b)_B2]
+1=0
+2=0
+3=0
+4=0
+
+[INODE_0082(e)_B2]
+1=>Step 14 -> Answer the call at B2 & confirm speech path
+2=End of script
+
+[INODE_0084(c)_B2]
+1=>Step 11 -> Answer the call at B2
+2=End of script
+
+[INODE_0087(a)_B2]
+1=>Step 2 - 4.13.6 -> Make a call from B2 to B1 
+2=>A:@:Step 4 -> Clear the call at B2
+3=End of script
+
+[B1 originate-2141 prefix call]
+1=>Step 1 - 4.1.5> Make a call from B1 to B2
+2=A:@:Wait offhook [10]
+3=>A:@:Step 2 -> 4.1.5 Release the call at B1
+4=End of script
+
+[GotoActions__INODE_0082(d)_B2]
+1=0
+2=0
+3=0
+
+[GotoActions__INODE_0082(e)_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__INODE_0084(b)_B2]
+1=0
+2=0
+3=0
+
+[GotoActions__INODE_0084(c)_B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__INODE_0087(a)_B1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[INODE_0082(a)_B1]
+1=>Step 2 -> Answer the call at B1
+3=>A:@:Step 4 -> Dial 1471 from B1
+5=>A:@:Step 4 -> Wait for "Sorry, the service..............hang up"
+7=End of script
+2=>A:@:Step 3 -> Clear the call at B1
+4=A:@:Step 4 -> Wait for "Sorry, the service..............hang up [0]
+6=A:@:Wait onhook [1.6]
+
+[INODE_0083(a)_B1]
+1=A:@:Wait onhook [3]
+3=;>A:@:Step 3 -> Wait for "Tel. num. (TN) called......this service"
+5=>A:@:Step 4 -> Clear the call at B1
+2=>A:@:Step 3 -> Dial 1471 from B1
+4=>A:@:Step 3 -> Wait for QoM
+6=End of script
+
+[GotoActions__B1 originate-141 prefix call]
+1=0
+2=0
+3=0
+4=0
+
+[INODE_0082(c)_B1]
+1=A:@:Wait onhook [3]
+3=>A:@:Step 8 -> Wait for "Tel. num. (TN) called......this service"
+5=>A:@:Step 8 -> Clear the call at B1
+2=>A:@:Step 8 -> Dial 1471 from B1
+4=>A:@:Step 8 -> Wait for QoM
+6=End of script
+
+[INODE_0084(a)_B1]
+3=>A:@:Step 4 -> Dial 1471 from B1
+7=>A:@:Step 5 -> Wait for NU Tone
+2=>A:@:Step 3 -> Clear the call at B1
+4=>A:@:Step 4 -> Wait for "You were..........withheld their number"
+6=>A:@:Step 5 -> Press 3 to return the call
+8=End of script
+1=>Step 2 -> Answer the call at B1
+5=>A:@:Step 4 -> Wait for QoM
+

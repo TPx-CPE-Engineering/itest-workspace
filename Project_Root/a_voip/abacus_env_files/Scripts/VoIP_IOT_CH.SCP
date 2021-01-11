@@ -1,0 +1,597 @@
+[CH_10]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Do Hook Flash
+4=>A:@:Wait for recall dial tone
+8=;10 sec for timerelease bye timer at C and 10 sec at A
+13=>A:@:Send string in DTMF [*52]
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for time in seconds [20]
+10=>A:@:Wait for recall dial tone
+14=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:D:A calls B, DTMF, no dial tone, confirms once
+15=End of script
+
+[GotoActions__CH_8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CH_14]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[CH_19]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>B:@:Go OnHook
+7=>A:C:A calls B, DTMF, no dial tone, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [12]
+8=End of script
+
+[GotoActions__CH_1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[CH_12]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Go OffHook
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Go OnHook
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for time in seconds [1]
+
+[GotoActions__CH_16]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[CH_8]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Send string in DTMF [*52]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Do hook flash, and wait for recall dial tone
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=End of script
+
+[CH_31]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Do Hook Flash
+8=>A:@:Send string in DTMF [*52]
+1=>A calls B, DTMF, confirms once
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[CH_26]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Do Hook Flash
+5=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds [2]
+6=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__CH_3]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_1]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Go OffHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Wait for time in seconds [2]
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Go OnHook
+9=End of script
+
+[CH_14]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=>A:@:Go OnHook
+16=End of script
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>A:@:Wait for time in seconds [1]
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Wait For InterDigit TimeOut [16]
+14=>A:@:Go OffHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for silence
+15=>AFT Do Path Confirmation Once
+
+[GotoActions__CH_18]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CH_2]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for silence
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Wait for time in seconds [2]
+8=>A:@:Do Hook Flash
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait For InterDigit TimeOut [16]
+9=>A:@:Wait for recall dial tone
+10=>A:@:Send string in DTMF [*52]
+
+[CH_20]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for congestion tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=;>A:@:Wait for busy
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>C:@:Go OffHook
+9=>A:@:Do Hook Flash
+10=>AFT Do Path Confirmation Once
+
+[CH_15]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Go OnHook
+5=;A will automatically go offhook due to abacus settings
+7=>AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Wait for time in seconds [1]
+6=;>A:@:Go OffHook
+8=End of script
+
+[GotoActions__CH_5]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__CH_11]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_19]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CH_3]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for silence
+8=>B:@:Wait for time in seconds [2]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait For InterDigit TimeOut [16]
+9=>A:@:Go OffHook
+10=>AFT Do Path Confirmation Once
+
+[CH_16]
+1=>A calls B, DTMF, confirms once
+3=>B:@:Go OnHook
+5=>A:@:Wait for congestion tone
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds [12]
+6=End of script
+
+[GotoActions__CH_12]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CH_30]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_25]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_4]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=End of script
+
+[CH_17]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*5]
+5=>B:@:Wait for time in seconds [1]
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Go OnHook
+6=>AFT Do Path Confirmation Once
+
+[GotoActions__CH_7]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_13]
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+3=0
+
+[GotoActions__CH_31]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_26]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[CH_5]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*52]
+5=>B:@:Go OnHook
+7=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [10]
+8=End of script
+
+[CH_18]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*5]
+5=>A:@:Wait for time in seconds [12]
+7=>A calls B, DTMF, no dial tone, confirms once
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Go OnHook
+6=>A:@:Send string in DTMF [2]
+8=End of script
+
+[GotoActions__CH_27]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[CH_11]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for time in seconds [20]
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Do Hook Flash
+
+[GotoActions__CH_9]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_20]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CH_15]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CH_7]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for time in seconds [2]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Go OffHook
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[CH_30]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>B:@:Go OnHook
+8=>A:@:Wait for time in seconds [12]
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:C:A calls B, DTMF, no dial tone, confirms once
+9=>A:@:Go OnHook
+10=>A:@:AFT Off hook wait for dial tone
+
+[CH_25]
+3=>A:@:Send string in DTMF [*52]
+7=>A:@:Wait for time in seconds [20]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>C:@:Go OnHook
+8=>A:@:Wait for recall dial tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>B:@:Go OnHook
+10=>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+
+[GotoActions__CH_2]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CH_13]
+7=>C:@:Go OnHook
+12=>A:@:Do Hook Flash
+4=>A:@:Wait for recall dial tone
+8=>A:@:Wait for time in seconds [20]
+13=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Wait For InterDigit TimeOut [16]
+14=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for silence
+3=>A:@:Send string in DTMF [*52]
+
+[GotoActions__CH_17]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CH_9]
+3=>A:@:Send string in DTMF [*52]
+7=>C:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for recall dial tone
+6=>A:@:Wait for time in seconds [1]
+8=>A:@:Wait for time in seconds [20]
+11=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+9=>A:@:Wait for recall dial tone
+10=>A:@:Do Hook Flash
+
+[CH_27]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>B:C:A Calls B,DTMF,No Dial Tone
+12=>A:@:Wait for time in seconds in onhook [12]
+4=>B:@:Send string in DTMF [*52]
+8=>B:@:Wait for Ring back tone
+13=>B:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>B:@:Wait for recall dial tone
+9=>C:@:Go OffHook
+10=>B:C:AFT Do Path Confirmation Once
+14=>C:@:Go OnHook
+2=>B:@:Wait for time in seconds [4]
+6=;>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+11=>A:@:Go OnHook
+15=End of script
+
+[GotoActions__CH_4]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__CH_10]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+

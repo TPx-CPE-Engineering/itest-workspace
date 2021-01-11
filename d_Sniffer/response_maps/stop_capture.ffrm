@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.1.0.77511">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>sudo /usr/sbin/tshark -r /iTestCaps/alex_test_10262015_100950.pcap -R sip | wc -l</body>
+                </command>
+            </action>
+            <responseBody>Running as user &quot;root&quot; and group &quot;root&quot;. This could be dangerous.
+0
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;prompt&gt;[aorr@fs-1 ~]$ &lt;/prompt&gt;
+    &lt;echo&gt;sudo /usr/sbin/tshark -r /iTestCaps/alex_test_10262015_100950.pcap -R sip | wc -l&lt;/echo&gt;
+    &lt;promptName&gt;linux_unpriv&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.9</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Running as user &quot;</regex>
+                            <start>0</start>
+                            <end>17</end>
+                        </item>
+                        <item name="Running_as_user">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>17</start>
+                            <end>21</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>&quot; and group &quot;</regex>
+                            <start>21</start>
+                            <end>34</end>
+                        </item>
+                        <item name="and_group">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>34</start>
+                            <end>38</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>&quot;\\. This could be dangerous\\.</regex>
+                            <start>38</start>
+                            <end>65</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Running as user &quot;root&quot; and group &quot;root&quot;. This could be dangerous.</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="num_packets">
+                            <regex>\\d+(?!\\S)</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>0</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sudo *tshark -r * | wc -l"/>
+</ResponseMap>

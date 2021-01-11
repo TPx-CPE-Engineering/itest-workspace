@@ -1,0 +1,1734 @@
+[GotoActions__Allworx - A calls VM (DTMF) and confirms VM prompt]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B {Voice Matching}]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+
+[GotoActions__Allworx - A calls AA, Leave Msg, Call VM --NG--]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Allworx - A calls AA(SIP) and PESQ confirm VM - Ver2]
+12=0
+69=0
+31=0
+26=0
+9=0
+14=0
+50=0
+45=0
+2=0
+33=0
+28=0
+64=0
+59=0
+21=0
+16=0
+52=0
+47=0
+4=0
+40=0
+35=0
+66=0
+23=0
+18=0
+54=0
+49=0
+6=0
+11=0
+42=0
+37=0
+68=0
+30=0
+25=0
+61=0
+56=0
+8=0
+13=28
+44=0
+39=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=30
+15=0
+51=0
+46=0
+3=0
+34=0
+29=30
+65=0
+22=0
+17=0
+53=0
+48=0
+5=0
+10=0
+41=0
+36=0
+67=0
+24=0
+19=0
+60=0
+55=0
+7=0
+43=0
+38=0
+62=0
+57=0
+
+[GotoActions__A calls B (DTMF), confirm Call Progress for Call Length(CL) secs]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[GotoActions__Allworx - A calls B (SIP), wait for 2sec silence, play audio]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Allworx - A calls B (DTMF), do PESQ]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[AllworxTEST - Hangup]
+1=End of script
+
+[AllworxTEST - A calls Band Wait-Disconnect-Wait]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[Actions]
+File=Allworx-TEST.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[Allworx - A calls B, no dial tone, no dial, confirm for CL]
+1=AllworxAct - A calls B, no dial tone, no dial, confirm CL
+2=End of script
+
+[Allworx - A calls B (SIP), No path confirm]
+1=;Call Allworx extension(s)
+3=;
+5=>Allworx - A calls B, SIP, no path confirm
+7=>Allworx - Dial AA, SIP
+2=;This script confirms path for CL secs
+4=>Allworx - Dial AA, SIP
+6=>Allworx - Hangup, then Wait ??  [15]
+8=End of script
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__AllworxTEST - Dial-Disconnect-Dial]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Allworx - A calls B (ISDN)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Allworx - A calls AA(SIP) and leave VM]
+7=;
+12=>A:@:Allworx - Dial AA, SIP
+4=;Wait for prompt completion, then leave message
+8=;Wait for AA prompt to complete, then wait for silence
+13=>A:@:Allworx - Wait time [14]
+17=;
+1=;Call AA system
+5=;This script DOES NOT verify audio for destination prompt
+9=>A:@:Allworx - Wait time [14]
+10=>A:@:Allworx - Wait silence [1]
+14=;
+18=End of script
+2=;Verify AA prompt, then
+6=;Audio "message" file is 123.wav
+11=;Dial destination, then wait for destination prompt to complete
+15=;Send VM "message"
+3=;Dial destination extension (configured DND)
+16=>A:@:Allworx - Send "message" after silence [2]
+
+[Allworx - Wait 1sec, Answer Call, Hangup]
+1=A:@:Wait for time in seconds [1]
+2=A:@:Allworx - Answer Call, Hangup
+3=End of script
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[A calls B (SIP) and RTP replay_Send]
+1=A:@:A calls B, RTP,Send
+2=End of script
+
+[Allworx - A calls B (ISDN)]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A:@:Allworx - A calls B, ISDN, No confirm
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[Allworx - A calls B (SIP), wait 5sec, hang up]
+1=;Call Allworx extension(s) configured to connect to voice mail
+3=;This script DOES NOT explicitly check for errors
+5=A:@:Allworx - A calls B, SIP, wait 5sec, hang-up
+2=;Wait for 5sec silence, then hang up (before recording begins)
+4=;
+6=End of script
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__Allworx - A calls AA, Leave Msg for Self, Retrieve Msg - GOOD]
+12=0
+74=0
+69=0
+31=0
+26=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+78=0
+4=0
+40=0
+35=0
+23=0
+18=0
+54=0
+49=0
+6=0
+11=0
+42=0
+37=0
+73=0
+68=0
+30=0
+25=0
+61=0
+56=0
+8=0
+13=0
+44=0
+39=0
+80=0
+75=0
+1=0
+32=0
+27=0
+63=0
+58=0
+20=0
+15=0
+51=0
+46=0
+77=0
+3=0
+34=0
+29=0
+70=0
+65=0
+22=0
+17=0
+53=0
+48=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=32
+81=0
+76=0
+2=0
+33=0
+28=0
+52=0
+47=0
+71=0
+66=0
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[GotoActions__Allworx - A calls AA(SIP) and leave VM]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Allworx - A calls x431, Call Destination, Hangup]
+7=;This DOES NOT work:
+12=A:@:Wait for time in seconds [10]
+4=;Configure all destinations in Phones and Endpoints for Tel x431
+8=;Call is established between src and dest BEFORE script executes
+13=;Allworx - A delays 0sec, then DTMF destination
+17=End of script
+1=;This script dials auto attendant, pauses, and then hangs up
+5=;Allworx - A delays 0sec, then DTMF destination
+9=;Only then is 431 dialed!!
+10=;Configure destinations for final SIP endpoints
+14=;Allworx - Do Path Confirmation Once
+2=;
+6=;
+11=A:@:Allworx - A delays 5sec, then DTMF x431
+15=;Allworx - A calls B (SIP), wait 5sec, hang up()
+3=;This works:
+16=;Channel goes On-Hook at completion of each script
+
+[Allworx - VM Test Part A:  A leaves Msg on Trm endpoint]
+3=;Call is established with Trm endpoint:
+7=;
+12=>A:@:Allworx - Send "msg"
+4=;Wait for "leave msg" prompt to complete
+8=;Wait for 645hz tone for 0.1sec, it signals start of recording
+13=;
+1=;Script elapsed time = 14sec
+5=>A:@:Allworx - Wait [4]
+9=>A:@:Allworx - Wait for VM Record tone [.1]
+10=;
+14=>;---Script Done---;<
+2=;
+6=;A:@:Allworx - Wait Silence [1]
+11=;Leave msg w/PESQ pilot
+15=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__Allworx - A calls B, no dial tone, no dial, confirm for CL]
+1=0
+2=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[A calls B (DTMF), confirm Call Progress for Call Length(CL) secs]
+7=;
+12=; is determined by the parameter you specify
+8=;JHM - Modified action
+13=; in the Partition and Timing window, in the
+1=JHM test - A calls B, DTMF, monitor Call Progress for CL
+5=; in the Partition and Timing window, in the
+9=;A calls B, DTMF, confirms for Call Length
+10=; This script makes a call from circuit A
+14=; column headed "CL."
+18=;
+2=; This script makes a call from circuit A
+6=; column headed "CL."
+11=; to circuit B. The length of the conversation
+20=; the Partition and Timing window) to be OT.
+15=;
+19=; You normally set the channel configuration (in
+3=; to circuit B. The length of the Call Progress
+21=;
+16=; Configure the phone numbers for the channels in
+4=; is determined by the parameter you specify
+22=End of script
+17=; the Configure | Phones window.
+
+[Allworx - A calls AA(SIP) and PESQ confirm VM - Ver2]
+12=;A:@:Allworx - Wait time [20]
+69=End of script
+31=; Hangup AA, wait, then dial VM mailbox
+26=;
+9=;This sequence appears to do Hangup, after a significant delay.
+14=;
+50=;
+45=;Wait for VM prompt, then send password
+2=;Verify AA prompt, then
+33=;End msg recording: dial "*0"
+28=>A:@:Allworx - On Hook Wait time [10]
+64=;
+59=>;A:@:Allworx - Wait time [15]
+21=;
+16=>A:@:Allworx - Wait time [14]
+52=>A:@:Allworx - Wait time [10]
+47=>A:@:Allworx - Wait silence [2]
+4=;Wait for prompt completion, then leave message
+40=>A:@:Allworx - On Hook Wait time [4]
+35=;
+66=>A:@:Allworx - Dial digits [3]
+23=>A:@:Allworx - Send DTMF destination
+18=>A:@:Allworx - On Hook Wait time [10]
+54=;A:@:Allworx - Wait time [10]
+49=>A:@:Allworx - Send DTMF password [1234#]
+6=;Audio "message" file is 123.wav
+11=;A:@:Allworx - Hangup, then Wait ??  [0]
+42=>A:@:Allworx - Dial VM mailbox prefix, no wait for dialtone
+37=;A:@:Allworx - Wait time [14]
+68=A:@:Allworx - Hangup, then Wait ??  [2]
+30=;
+25=>A:@:Allworx - Wait silence [1]
+61=>A:@:Allworx - Verify VM message
+56=;Play back first VM message
+8=;
+13=;Goto action
+44=;
+39=;
+1=;Call AA system
+32=;Can't get  call to hangup, so...
+27=>A:@:Allworx - Send "message" after silence [2]
+63=A:@:Allworx - Wait silence [2]
+58=A:@:Allworx - Dial digits [1]
+20=>Goto action
+15=;Wait for prompt to complete, then wait for silence
+51=;Allow time while system prompts user to do playback
+46=>A:@:Allworx - Wait time [10]
+3=;Dial destination extension (configured DND)
+34=;Then wait for AA prompts and dial VM mailbox
+29=>Goto action
+65=>;Delete the message, pause, then exit
+22=;Dial VM destination
+17=>A:@:Allworx - Wait silence [1]
+53=>A:@:Allworx - Wait silence [2]
+48=;A:@:Allworx - Verify AA prompt
+5=;This script DOES NOT verify audio for destination prompt
+10=;A:@:Allworx - Wait time [2]
+41=;
+36=;A:@:Allworx - End msg recording
+67=A:@:Allworx - Wait time [5]
+24=>A:@:Allworx - Wait time [10]
+19=>A:@:Allworx - Wait time [10]
+60=A:@:Allworx - Wait time [4]
+55=;
+7=;PESQ scores for audio verify of prompt  are:  0.5<PESQ<2.1
+43=>A:@:Allworx - Dial VM mailbox destination
+38=;A:@:Allworx - Wait silence [1]
+62=A:@:Allworx - Wait time [4]
+57=;Wait while message plays, then wait for silence.
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[Wait for Voice {Voice Matching}]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A:@:Wait for Voice {Voice Matching}
+14=End of script
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[AllworxTEST - Dial-Disconnect-Dial]
+1=;A:@:Allworx - Call AA
+3=>A:@:Allworx Hangup and Wait [6]
+5=>A:@:Allworx - Wait [6]
+2=>A:@:Allworx - Wait [6]
+4=>A:@:Allworx - Call AA
+6=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Allworx - A calls B (SIP), confirms path for CL secs]
+1=;Wait <tbd>
+3=;This script confirms path for CL secs
+5=A calls B (SIP) and confirms for Call Length()
+2=;Call Allworx extension(s)
+4=;
+6=End of script
+
+[Allworx - A calls AA, send digits, hangup]
+3=;Wait for silence again, then leave "message" tone
+7=>A:@:Allworx - Wait [8]
+2=;Wait for silence, then dial destination ext
+4=;A:@:Allworx - Action Send DTMF for AA
+6=>A:@:Allworx - Action Send Signalling destin after prompt silence
+8=>A:@:Allworx - Action Send DTMF "message"
+1=;Endoint EXT is configured to Dial '431' to reach Auto Attendant
+5=>A:@:Allworx - Wait [4]
+9=End of script
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Allworx - VM Test Part B:  A calls VM, Retrieve & Verify Msg]
+7=>A:@:Allworx - Wait [14]
+12=;
+30=>A:@:Allworx - Wait [10]
+25=;
+8=>A:@:Allworx - Wait Silence [1]
+13=;We're in the VM system mailbox
+31=>;---Script Done---;<
+26=;Message has been played and PESQ evaluated
+1=;Script elapsed time = 58sec
+9=;Enter password
+14=;Wait for VM prompts
+32=End of script
+27=;Delete the message
+2=;
+20=;Must play the message to completion before it can be deleted
+15=>A:@:Allworx - Wait [16]
+28=>A:@:Allworx - Dial string [3]
+3=;The VM mailbox for this endpoint has been dialed:
+21=;Wait for PESQ 
+16=>A:@:Allworx - Wait Silence [1]
+29=;Let VM system report delete confirmation before end of script
+4=;(e.g. for x1100, dial  61100 for VM mailbox)
+22=;Wait for VM time/date stamp to complete before wait on PESQ
+17=;
+5=;Wait for prompt to complete
+10=>A:@:Allworx - Dial string [1234]
+23=>A:@:Allworx - Wait [2]
+18=;Play the message
+6=;Wait for VM prompts
+11=>A:@:Allworx - Dial string [#]
+24=>A:@:Allworx - Wait on PESQ
+19=>A:@:Allworx - Dial string [1]
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AllworxTEST - Hangup]
+1=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Allworx - B answer, send PESQ]
+1=0
+2=0
+3=0
+
+[Allworx - Dial AA, Hangup TEST]
+3=;Try to hangup on her...
+7=>AllworxTEST - Hangup()
+12=>A:@:Allworx - Wait time [10]
+4=;BYE message IS NOT received until script finishes!!!
+8=;Allworx - Action Hangup
+13=End of script
+1=;Dial to external endpoint has been made
+5=;Allworx - Dial AA, SIP
+9=>A:@:Allworx - Wait time [10]
+10=;Allworx - Hangup, then Wait ??  [15]
+2=;So AA is running,
+6=>A:@:Allworx - Wait time [10]
+11=>A:@:Allworx Dial AA, SIP
+
+[GotoActions__Allworx - A calls B (SIP), No path confirm]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Allworx - A calls B (DTMF, no dial tone) and confirms for Call L]
+1=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, DTMF, no dial tone, confirm for CL
+
+[Allworx - A calls B (DTMF), do PESQ]
+1=Allworx - A calls B
+3=A:@:Allworx - Wait for PESQ
+5=End of script
+2=B:@:Allworx - Send PESQ
+4=;
+
+[Allworx - B answer, send PESQ]
+1=Allworx - Send PESQ
+2=;
+3=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__Allworx - A calls B (SIP), confirms path for CL secs]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+7=; The number (address) is dialled using MF R1.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R1, confirms for Call Length
+
+[GotoActions__Allworx - A calls B (DTMF, no dial tone) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+7=; The number (address) is dialled using MF R2.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R2, confirms for Call Length
+
+[Allworx - A calls AA, Leave Msg for Self, Retrieve Msg - GOOD]
+12=; After a trigger is sent
+74=;
+69=;Wait for PESQ 
+31=;
+26=>A:@:Allworx - Dial string [1301]
+9=>A:@:Allworx - Dial string [#]
+50=>A:@:Allworx - Dial string [1]
+45=;Wait for VM review/leave msg instructions to complete
+64=>A:@:Allworx - Wait [20]
+59=;
+21=;Create new msg to self
+16=;Wait for VM system prompts for msg recording
+78=;Let VM system report delete confirmation before end of script
+4=;Wait for prompt to complete
+40=;A:@:Allworx - Wait Silence [1]
+35=>A:@:Allworx - Wait [16]
+23=>A:@:Allworx - Wait [12]
+18=>A:@:Allworx - Wait Silence [1]
+54=;*** BYE causes Spirent to report "Unexpected Disconnect" ***
+49=;Leave the msg
+6=>A:@:Allworx - Wait Silence [1]
+11=;Not used: Attempt to return destination station ID
+42=>A:@:Allworx - Wait for VM Record tone [.1]
+37=>A:@:Allworx - Dial string [#]
+73=;A:@:Allworx - Wait [16]
+68=;Must play the message to completion before it can be deleted
+30=;???And then send the resulting number for destination???
+25=;Original(this works)
+61=;Direct VM system to play the message
+56=;Allow some time for VM system to update itself
+8=>A:@:Allworx - Dial string [1234]
+13=;A:@:Allworx - Set Trigger 1
+44=>A:@:Allworx - Dial string [#]
+39=;A:@:Allworx - Wait [6]
+80=>;---Script Done---;<
+75=;Message has been played and PESQ evaluated
+1=;
+32=;
+27=;
+63=;Wait for VM prompts
+58=>A:@:Allworx - Wait [10]
+20=;We're in the VM system mailbox
+15=;
+51=;
+46=>A:@:Allworx - Wait [16]
+77=>A:@:Allworx - Dial string [3]
+3=;(e.g. for x1100, dial  61100 for VM mailbox)
+34=;Wait for initial recording prompt to complete
+29=;Embedded script will strip '6' from destination phone #
+70=;Wait for VM time/date stamp to complete before wait on PESQ
+65=>A:@:Allworx - Wait Silence [1]
+22=>A:@:Allworx - Dial string [3]
+17=>A:@:Allworx - Wait [16]
+53=;Trigger 1 causes embedded script to execute, which sends BYE
+48=>A:@:Allworx - Wait Silence [2]
+79=>A:@:Allworx - Wait [10]
+5=>A:@:Allworx - Wait [14]
+10=;
+41=;Wait for 645hz tone for 0.1sec, it signals start of recording
+36=>A:@:Allworx - Wait Silence [2]
+72=>A:@:Allworx - Wait on PESQ
+67=>A:@:Allworx - Dial string [1]
+24=>A:@:Allworx - Wait Silence [1]
+19=;
+60=;The message is now stored in the system
+55=;
+7=;Enter password
+43=>A:@:Allworx - Send "msg"
+38=;Wait for VM recording instructions to complete
+62=>A:@:Allworx - Dial string [1]
+57=;before retrieving the voice msg
+14=;Goto action
+81=End of script
+76=;Delete the message
+2=;The VM mailbox for this endpoint has been dialed:
+33=;Leave msg w/PESQ pilot
+28=;Set flag for embedded script
+52=;A:@:Allworx - Send "msg", then set Trigger 1
+47=;A:@:Allworx - Wait Silence [1]
+71=>A:@:Allworx - Wait [3]
+66=;Play the message
+
+[GotoActions__Allworx - Wait 1sec, Answer Call, Hangup]
+1=0
+2=0
+3=0
+
+[GotoActions__AllworxTEST - Dial AA]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Allworx - A calls B (SIP), wait for 2sec silence, play audio]
+1=;Call Allworx extension(s) configured to connect to voice mail
+3=;Wait for 2sec silence, indicating voice mail msg completion
+5=;
+7=End of script
+2=;Play audio file to record voice message
+4=;This script DOES NOT explicitly check for errors
+6=A:@:Allworx - A calls B, SIP, wait for 2sec silence, play audio
+
+[Allworx - A calls VM (DTMF) and confirms VM prompt]
+3=;Dial destination extension (configured DND)
+7=;PESQ scores for audio verify are:  0.5<PESQ<2.1
+12=;Allow time while system prompts user
+16=End of script
+4=;Wait for prompt completion, then leave message
+8=;
+13=>A:@:Allworx - Wait time [10]
+1=;Call AA system
+5=;This script DOES NOT verify audio for destination prompt
+9=>A:@:Allworx - Dial AA
+10=>A:@:Allworx - Verify AA prompt
+14=>A:@:Allworx - Send "message" after silence [2]
+2=;Verify AA prompt, then
+6=;Audio "message" file is 123.wav
+11=>A:A:Allworx - Send DTMF destination
+15=;A:@:Allworx - Send "message" after wait [15]
+
+[A calls B (MF R1.5) and confirms for Call Length]
+7=; The number (address) is dialled using MF R1.5.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R1.5, confirms for Call Length
+
+[GotoActions__Allworx - A calls B, no dial tone, no dial, confirm for Call Length]
+1=0
+2=0
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[AllworxTEST - Dial AA]
+3=>A:@:Wait for time in seconds [14]
+7=;
+12=>A:@:Allworx - Wait for Disconnect
+16=End of script
+4=>A:@:Allworx - Send Destination
+8=;On Hook action in this script DOES NOT send BYE message
+13=;
+1=;
+5=>A:@:Wait for time in seconds [14]
+9=>A:@:Allworx Hangup and Wait [2]
+10=;
+14=>A:@:Allworx - Dial destination
+2=;Auto Attendant was dialed when script started...
+6=>A:@:Allworx - Send "msg"
+11=;But it sets a trigger to launch an embedded script
+15=>A:@:Wait for time in seconds [8]
+
+[GotoActions__Allworx - VM Test Part A:  A leaves Msg on Trm endpoint]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Allworx - A calls B (no dial tone, DTMF) for Call Length on PRI]
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=; You normally set the channel configuration (in
+17=;AllworxAct - A calls B, no dial tone, no dial, confirm CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+18=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=Allworx - A calls B, DTMF, no dial tone, confirm for CL
+
+[GotoActions__Allworx - VM Test Part B:  A calls VM, Retrieve & Verify Msg]
+7=0
+12=0
+30=0
+25=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[GotoActions__Allworx - A calls AA, send digits, hangup]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Allworx - A calls B, no dial tone, no dial, confirm for Call Length]
+1=AllworxAct - A calls B, no dial tone, no dial, confirm CL
+2=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__Allworx - A calls VM (DTMF), confirm VM prompt, confirm Message]
+7=0
+12=0
+43=0
+38=0
+31=0
+26=0
+9=0
+14=0
+45=0
+2=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+47=0
+4=0
+22=0
+17=0
+40=0
+35=0
+5=0
+10=0
+23=0
+18=0
+41=0
+36=0
+6=0
+11=0
+24=0
+19=0
+42=0
+37=0
+30=0
+25=0
+8=0
+13=0
+44=0
+39=0
+1=0
+32=0
+27=0
+20=0
+15=0
+46=0
+
+[GotoActions__Wait for Voice {Voice Matching}]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; to circuit B. The length of the conversation
+7=;
+12=; the Partition and Timing window) to be OT.
+4=; is determined by the parameter you specify
+8=; Configure the phone numbers for the channels in
+13=;
+1=A calls B, DTMF, confirms for Call Length
+5=; in the Partition and Timing window, in the
+9=; the Configure | Phones window.
+10=;
+14=End of script
+2=; This script makes a call from circuit A
+6=; column headed "CL."
+11=; You normally set the channel configuration (in
+
+[A calls B {Voice Matching}]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=A:@:Wait for time in seconds [8]
+15=A:@:A calls B {Voice Matching}
+16=End of script
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[Allworx - A calls B (DTMF, no dial tone) and confirms for Call Length]
+3=; to circuit B. The length of the conversation
+7=;
+12=; the Partition and Timing window) to be OT.
+4=; is determined by the parameter you specify
+8=; Configure the phone numbers for the channels in
+13=;
+1=Allworx  - A calls B, DTMF, confirm for CL
+5=; in the Partition and Timing window, in the
+9=; the Configure | Phones window.
+10=;
+14=End of script
+2=; This script makes a call from circuit A
+6=; column headed "CL."
+11=; You normally set the channel configuration (in
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Allworx - A calls B (DTMF, no dial tone) and confirms for CL]
+1=Allworx  - A calls B, DTMF, confirm for CL
+2=End of script
+
+[GotoActions__Allworx - A calls B (DTMF, no dial tone) and confirms for Call L]
+1=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Allworx - A calls B (DTMF, no dial tone) and confirms for CL]
+1=0
+2=0
+
+[Allworx - A calls AA, Leave Msg, Call VM --NG--]
+7=;
+12=>A:@:Allworx - Send "msg", then set Trigger 1
+8=;Wait for destination prompt to complete
+13=;Trigger 1 causes embedded script to execute, which sends BYE
+1=;A:@:Allworx - A calls B (SIP), set Trigger 1
+5=>A:@:Allworx - Wait [14]
+9=;Then leave msg and set trigger
+10=>A:@:Allworx - Wait [10]
+14=;*** BYE causes Spirent to report "Unexpected Disconnect" ***
+23=End of script
+18=;Now dial VM system for this extension to pick up messages
+2=;A:@:Allworx - Send "msg", then set Trigger 1
+6=>A:@:Allworx - Dial string [1100]
+11=>A:@:Allworx - Wait Silence [1]
+20=>A:@:Allworx - Wait [10]
+15=;
+19=>A:@:Allworx - Dial string [61100]
+3=;
+21=;Enter password
+16=>A:@:Allworx - Wait [10]
+4=;AA has been dialed; Wait for prompt to dial destination
+22=>A:@:Allworx - Dial string [1234]
+17=;
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[GotoActions__Allworx - A calls x431, Call Destination, Hangup]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (SIP) and RTP replay_Send]
+1=0
+2=0
+
+[GotoActions__Allworx - Dial AA, Hangup TEST]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Allworx - A calls B (SIP), wait 5sec, hang up]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__AllworxTEST - A calls Band Wait-Disconnect-Wait]
+1=0
+2=0
+
+[Allworx - A calls VM (DTMF), confirm VM prompt, confirm Message]
+7=;PESQ scores for audio verify of prompt  are:  0.5<PESQ<2.1
+12=;
+43=>;Delete the message, pause, then exit
+38=A:@:Allworx - Wait time [4]
+31=A:@:Allworx - Wait silence [2]
+26=A:@:Allworx - Wait silence [2]
+9=>A:@:Allworx - Dial AA
+14=A:@:Allworx - Wait time [14]
+45=A:@:Allworx - Wait time [5]
+2=;Verify AA prompt, then
+33=;
+28=A:@:Allworx - Send DTMF password [1234#]
+3=;Dial destination extension (configured DND)
+21=;
+16=A:A:Allworx - Send DTMF destination
+34=;Play back first VM message
+29=;Allow time while system prompts user
+47=End of script
+4=;Wait for prompt completion, then leave message
+22=A:@:AFT On Hook and wait 1 sec
+17=;Allow time while system prompts user
+40=A:@:Allworx - Wait time [4]
+35=;Wait while message plays, then wait for silence.
+5=;This script DOES NOT verify audio for destination prompt
+10=;NG: AA prompt can only be verified if it contains Pilot signal
+23=A:@:Allworx - Dial VM mailbox prefix
+18=A:@:Allworx - Wait time [10]
+41=A:@:Allworx - Wait silence [2]
+36=A:@:Allworx - Dial digits [1]
+6=;Audio "message" file is 123.wav
+11=;A:@:Allworx - Verify AA prompt
+24=>A:@:Allworx - Dial VM mailbox destination
+19=>A:@:Allworx - Send "message" after silence [2]
+42=;
+37=>;A:@:Allworx - Wait time [15]
+30=A:@:Allworx - Wait time [10]
+25=A:@:Allworx - Wait time [10]
+8=;
+13=;Wait for prompt to complete, then wait for silence
+44=>A:@:Allworx - Dial digits [3]
+39=>A:@:Allworx - Verify VM message
+1=;Call AA system
+32=;A:@:Allworx - Wait time [10]
+27=;A:@:Allworx - Verify AA prompt
+20=;
+15=A:@:Allworx - Wait silence [1]
+46=A:@:Allworx - Hangup, then Wait ??  [2]
+
+[GotoActions__Allworx - A calls B (no dial tone, DTMF) for Call Length on PRI]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+

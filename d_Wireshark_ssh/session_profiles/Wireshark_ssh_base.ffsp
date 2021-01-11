@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<SessionTemplate version="7.0.1.201802131446">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="priv">
+                    <Content>[root@fs-2 ~]#</Content>
+                </item>
+                <item name="prompt1">
+                    <Content>[dataeng@iTestWireshark ~]$</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Wireshark_ssh/</responseLibrary>
+    <sessionClassTestCase inherit="false">Wireshark_ssh_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

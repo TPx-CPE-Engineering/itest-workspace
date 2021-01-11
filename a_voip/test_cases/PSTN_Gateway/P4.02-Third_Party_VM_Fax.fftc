@@ -1,0 +1,1009 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <execution>
+        <parameters version="8.1.3.0">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <cas_env_file pt:description="Name of the Abacus Environment File">iTest_Analog_Base.env</cas_env_file>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_voip/topologies/Adtran/lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="4bc890f5-5695-4ac3-9c2e-8072bd9fddca" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initialize pass/fail category variables</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e8ff439a-2704-4106-902b-ff71dcac8aa7" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set broadsoft_milestone &quot;pass&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="911554ff-23e1-4211-bd95-ec2e36079f68" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set call_milestone &quot;pass&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e7adaf3c-9c21-4a9a-b51f-785e69361663" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set quality_milestone &quot;pass&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="589e0ddb-8798-45fc-861c-d382e497e7b9" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set cpe_milestone &quot;n/a&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e491ed37-9646-4c8b-8862-66bb99379bba" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Find parameters used for IMM</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d129f875-058e-4064-ba4b-6052beb80b91" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set imm_line [param IMM_enabled_line]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5f97ba38-ff27-4b6e-b3e7-f3f0d15eeeda" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ce215334-5026-4563-860a-9f6081782923" action="open" session="Abacus100" useFieldsInCommand="false">
+                            <command>
+                                <body>device:Abacus100#tclsh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <emulation emulate="ALWAYS" useExternalSource="false"/>
+                        </item>
+                        <item guid="2d7a4983-46a6-41d8-bb9f-ccfefdd64e14" action="open" session="sniffer">
+                            <command>
+                                <body>device:Sniffer#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="98e609e2-4a54-45fe-ae98-fcff7449bad6" action="open" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>device:BroadWorks#Selenium</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="02c4cd73-7014-41f6-bb20-44cccc863a8f" action="Login" session="BroadWorks" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fe60bc3d-8dd0-4b1a-86c3-3ef61e5d2568" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Check CPE config and reload if needed</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b360beec-c807-4162-a62d-a3070ad60350" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>project://a_voip/proc_libs/voip_test_proc_library.fftc#CheckCPE</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="240f8b49-04a2-453d-8479-5706e36537d3" action="comment" async="true" threadName="bs_setup" useFieldsInCommand="false">
+                    <command>
+                        <body>Make sure voicemail is on</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6afd84bb-e131-4394-a1bc-e2d45cad66e6" action="EnableVoiceMailIMM" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body> -number [param iad_lines/$imm_line] -num_rings 2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="eff96cdc-28b2-418a-a0b2-97a5aaba78b8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Test with codec set to VOICE</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fe5b9669-4169-4a8f-9dd8-aa86b3468373" action="comment" async="true" threadName="cpe_config" useFieldsInCommand="false">
+                            <command>
+                                <body>Make CPE changes</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c7338ed8-ec17-4eb4-b783-93a18f42dc64" action="open" session="cpe">
+                                    <command>
+                                        <body>device:CPE#ssh</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="73345170-fbd2-4536-adea-225c5a92920d" action="SetVoiceForceCodec" session="cpe" useFieldsInCommand="false">
+                                    <command>
+                                        <body> -voice_class [param voice_class] -codec1 [param codec1] -codec2 [param codec2]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                                <item guid="0a520f79-efc3-4958-9045-3e9346e5945e" action="close" session="cpe" useFieldsInCommand="false">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="de14f9a2-9724-4f73-9dbb-4d54aba67163" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Inbound Faxes</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="40c45773-4668-4349-8651-f1c419cf479e" action="comment" useFieldsInCommand="false">
+                                    <command>
+                                        <body>Fax one page</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="cd14f058-a685-4d15-a1c7-096c05d846d4" action="for" useFieldsInCommand="false">
+                                            <command>
+                                                <body>{set i 0} {$i &lt; 3} {incr i}</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="903a5465-6154-4a55-9c73-b28ad0aeaccd" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Close and Reopen Abacus</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="cccdb70e-e0d7-495a-a4ae-738fffaad0c7" action="Disconnect" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-chassis_ip [param abacus_chassis_ip]</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="c238fe0d-2f2e-49b6-a446-a4d33dd6c45a" action="close" session="Abacus100" useFieldsInCommand="false">
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="5af99705-0165-43f9-b5ec-3eb8098a369f" action="open" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>device:Abacus100#tclsh</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                                                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </applicationProperties>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="efdbe251-0616-43df-90cb-b353175df42a" action="comment" threadName="abacus_setup" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Setup Abacus Test</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="dcb09a59-72be-44ce-89bc-d6862e3d8a3b" action="TestSetup" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-chassis_ip [param abacus_chassis_ip] -automation_server [param abacus_automation_ip] -env_file [param fax_env_file]</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value == 1</expression>
+                                                                                <actionsWhenTrue>
+                                                                                    <item actionId="SkipRemainingRules">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenTrue>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Error in Abacus test setup. Test will abort. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/error_message</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup">
+                                                                                <message>Error messages from test setup: {value}</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value == 1</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;1.1 IAD to IAD Calls&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitExecution">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <emulation useExternalSource="false">
+                                                                <behavior>
+                                                                    <response>{&quot;success&quot;:&quot;1&quot;,&quot;error_message&quot;:&quot;value&quot;}</response>
+                                                                </behavior>
+                                                            </emulation>
+                                                        </item>
+                                                        <item guid="53147fc9-e8aa-435b-9791-7dd1ada0f942" action="ChangeScript" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-new_script &quot;Send Fax - One Page&quot;</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value eq &quot;1&quot;</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Error modifying Abacus config. Test will abort. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;1.1 IAD to IAD Calls&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExitProcedurePropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="7055327b-40b0-4acb-9e75-cd7c4f592169" action="ChangeCircuits" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-enable_list &quot;[param iad_channels/$imm_line] [param pstn_channels/pstn_1]&quot;</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value eq &quot;1&quot;</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Error modifying Abacus config. Test will abort. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;1.1 IAD to IAD Calls&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExitProcedurePropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="71145278-e5b6-4c16-a6e5-e789da79b33a" action="ChangeLines" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-start_line_no 1 -end_line_no 2 -otto_config TOTO -phonebook Own</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value eq &quot;1&quot;</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Error modifying Abacus config. Test will abort. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;1.1 IAD to IAD Calls&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExitProcedurePropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="e1840b14-afd2-458d-b188-17b2c0db970c" action="SetPhoneBook" session="Abacus100" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-num_list &quot;[param iad_lines/$imm_line] [param pstn_lines/pstn_1]&quot;</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value eq &quot;1&quot;</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Error modifying Abacus config. Test will abort. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;1.1 IAD to IAD Calls&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExitProcedurePropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="72a12e01-1624-4068-91ee-51452e5cd3d7" action="waitthread">
+                                                            <command>
+                                                                <body>cpe_config</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="b5c8e7db-3c5d-4d47-af02-ee7f636feaec" action="waitthread">
+                                                            <command>
+                                                                <body>bs_setup</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="765a8179-357a-4c8b-9887-1d98b36909bd" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Start Packet Capture</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="4a7da0e7-0c92-44af-af71-6714b4d13e52" action="StartCapture" session="sniffer" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body> -orig_phone &quot;[param iad_lines/iad_1] [param pstn_lines/pstn_1]&quot; -dest_phone &quot;[param iad_lines/iad_1] [param pstn_lines/pstn_1]&quot; -filename IMM_Fax</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/filename</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                                <message>Capturing packets at /iTestCaps/&quot;{value}&quot;</message>
+                                                                                <extractData>true</extractData>
+                                                                                <tag>Packet Capture - One Page Fax - Voice Codec - Inbound</tag>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/filename</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>pcap</storageLocation>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="cbdb2145-39b7-4817-a9aa-ee0b8a625559" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Run Test</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="c95f3efc-daea-4e0e-8e92-41bf6b7ffc3c" action="RunTest" session="Abacus100" useFieldsInCommand="false">
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value == 1</expression>
+                                                                                <actionsWhenTrue>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                            <message>Abacus One Page Fax script:</message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="SkipRemainingRules">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenTrue>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                            <message>Abacus Taking more time to send Fax page - retry. </message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="SkipRemainingRules">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/error_message</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                                <message>Sending Fax taking time more than expected, re-run manually once</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/success</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value == 1</expression>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>cleanup</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="CallProcedure">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                                                            <command>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;9.2 Send Fax VM&quot; -overall_status fail -broadsoft_status n/a -call_status n/a -quality_status n/a -report_id [info testReportID] -pcaps n/a -comments &quot;Abacus setup failure&quot;</command>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                    <item actionId="ExitExecution">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="42058e0f-0ed4-4281-b678-dda50e22fc70" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Stop Packet Capture</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="d925e7cc-a7b1-4457-a673-80e1a69e3019" action="StopCapture" session="sniffer" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-filename $pcap </body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                <query>mapped/Json/packets</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value &gt; 0</expression>
+                                                                                <actionsWhenTrue>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                            <message>$value packets captured</message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                </actionsWhenTrue>
+                                                                                <actionsWhenFalse>
+                                                                                    <item actionId="FailTest">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                            <message>Zero packets captured</message>
+                                                                                        </actionProperties>
+                                                                                    </item>
+                                                                                </actionsWhenFalse>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="5d59fc99-d1a7-45a5-b15c-009f335c9875" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Get Events from Abacus and look for failures</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="1a942654-40a0-4dac-9c29-3e0f921ac003" action="GetEvents" session="Abacus100" useFieldsInCommand="false">
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                                                <query>mapped/Tabular/table1/table/row/Channel</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>channels</storageLocation>
+                                                                                <storeInAList>true</storeInAList>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                                                <query>mapped/Tabular/table1/table/row/Event</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>events</storageLocation>
+                                                                                <storeInAList>true</storeInAList>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                                                <query>mapped/Tabular/table1/table/row/Comment</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>comments</storageLocation>
+                                                                                <storeInAList>true</storeInAList>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="query">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                                                <query>mapped/Tabular/table1/table/row/Action</query>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>actions</storageLocation>
+                                                                                <storeInAList>true</storeInAList>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="08c0f287-d889-4446-92e1-49b9b968b38b" action="comment" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>Loop through events and print messages</body>
+                                                            </command>
+                                                            <nestedSteps>
+                                                                <item guid="79052032-c221-4ce8-955e-69f01f3154cc" action="eval" useFieldsInCommand="false">
+                                                                    <command>
+                                                                        <body>set errors_found 0</body>
+                                                                    </command>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                                <item guid="c3f863ed-723e-47a4-b4d5-4aebaea60764" action="foreach" useFieldsInCommand="false">
+                                                                    <command>
+                                                                        <body>channel $channels event $events comment $comments action $actions</body>
+                                                                    </command>
+                                                                    <nestedSteps>
+                                                                        <item guid="9335abb0-4263-4d7b-8271-4ed6f9cc5a95" action="eval" useFieldsInCommand="false">
+                                                                            <command>
+                                                                                <body>puts $event</body>
+                                                                            </command>
+                                                                            <postProcessing>
+                                                                                <analysisRules>
+                                                                                    <item>
+                                                                                        <extractorInfo extractorType="contains">
+                                                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                                                <searchString>Debug message</searchString>
+                                                                                            </extractorProperties>
+                                                                                        </extractorInfo>
+                                                                                        <processorInfo ruleType="assert">
+                                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                                <expression>$value == 1</expression>
+                                                                                                <actionsWhenTrue>
+                                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                                            <message>Step $action: $comment</message>
+                                                                                                        </actionProperties>
+                                                                                                    </item>
+                                                                                                    <item actionId="SkipRemainingRules">
+                                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                                    </item>
+                                                                                                </actionsWhenTrue>
+                                                                                                <actionsWhenFalse>
+                                                                                                    <item actionId="DeclareExecutionIssue">
+                                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                                            <message>Step $action: Channel $channel, $event  - $i time Sending Fax</message>
+                                                                                                        </actionProperties>
+                                                                                                    </item>
+                                                                                                    <item actionId="Eval">
+                                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                                                            <statement>set errors_found 1</statement>
+                                                                                                        </actionProperties>
+                                                                                                    </item>
+                                                                                                    <item actionId="Eval">
+                                                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                                                            <statement>set call_milestone fail</statement>
+                                                                                                        </actionProperties>
+                                                                                                    </item>
+                                                                                                </actionsWhenFalse>
+                                                                                            </ruleProperties>
+                                                                                        </processorInfo>
+                                                                                    </item>
+                                                                                </analysisRules>
+                                                                            </postProcessing>
+                                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                        </item>
+                                                                    </nestedSteps>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                                <item guid="57280dcf-2642-4cf8-93ae-4c00f120db24" action="eval" useFieldsInCommand="false">
+                                                                    <command>
+                                                                        <body>puts $errors_found</body>
+                                                                    </command>
+                                                                    <postProcessing>
+                                                                        <analysisRules>
+                                                                            <item>
+                                                                                <extractorInfo extractorType="query">
+                                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                        <query>group1()</query>
+                                                                                    </extractorProperties>
+                                                                                </extractorInfo>
+                                                                                <processorInfo ruleType="assert">
+                                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                        <expression>$value == 0</expression>
+                                                                                        <actionsWhenTrue>
+                                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                                                    <message>One page fax script (voice codec, inbound) completed with no errors, check your mail for Fax page.</message>
+                                                                                                </actionProperties>
+                                                                                            </item>
+                                                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                            </item>
+                                                                                            <item actionId="Break">
+                                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                            </item>
+                                                                                        </actionsWhenTrue>
+                                                                                    </ruleProperties>
+                                                                                </processorInfo>
+                                                                            </item>
+                                                                        </analysisRules>
+                                                                    </postProcessing>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                                <item guid="a9cf2423-f966-4ded-8cfb-aede2a5f6d8b" action="StopTest" session="Abacus100" useFieldsInCommand="false">
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                            </nestedSteps>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="15909c11-53bf-4a5b-96b2-6e8493331396" action="comment" useFieldsInCommand="false">
+                                            <command>
+                                                <body>Close and Reopen Abacus</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="fa82427d-00d0-4a5f-b4e0-b8363b09c2c4" action="Disconnect" session="Abacus100" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>-chassis_ip [param abacus_chassis_ip]</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="4b63f588-068e-4bd6-96e2-9f03120a7d34" action="close" session="Abacus100" useFieldsInCommand="false">
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="b3824bb6-ed1a-456b-9d1c-5a0a28899959" action="open" session="Abacus100" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>device:Abacus100#tclsh</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </applicationProperties>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5da795a8-de99-4777-ac6b-3d836e6585db" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Check email - to be completed in 6.1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a7acb74d-656d-4c23-97ff-2d80b8fdc2e5" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Disable VM</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="218df8e5-1c4f-4fbd-8275-63a7771c1475" action="DisableVoiceMailIMM" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body> -number [param iad_lines/$imm_line]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d72af5fc-331e-4818-9a8e-5c57c3d496b7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Disconnect from Abacus and close sessions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="417447e9-fb9a-435d-bcf3-ebed5b125d74" action="Disconnect" session="Abacus100" useFieldsInCommand="false">
+                            <command>
+                                <body>-chassis_ip [param abacus_chassis_ip]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="34e81805-e614-433b-be42-39e2f4e1f191" action="close" session="Abacus100" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="befc28aa-4dff-489c-9961-0dfdbea55687" action="close" session="sniffer">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5656624d-fc14-4b2d-abe5-cd8feed6bf7a" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Generate summary test report</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fe842971-f805-44bb-b684-d30547b56620" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>project://a_voip/proc_libs/voip_test_proc_library.fftc#GenerateCsvReport -filename [param csv_report_filename] -test_case &quot;7.9 Voice Messaging to Email&quot; -overall_status [info status] -broadsoft_status $broadsoft_milestone -call_status $call_milestone -quality_status $quality_milestone -report_id [info testReportID] -pcaps $pcap</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="cleanup" isPublic="true">
+            <steps>
+                <item guid="adefae22-90db-4ea7-b782-62b42b77c16a" action="comment" async="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Disable Broadsoft options</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4e35bf24-2926-4d07-92f3-f635b4bdd275" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set imm_line [param IMM_enabled_line]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="69c8de64-b08f-4682-b80c-a5b30fa56221" action="DisableVoiceMailIMM" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body> -number [param iad_lines/$imm_line]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="19b28fef-baf8-49d9-b143-72c5da59380a" action="comment" threadName="abacus_disconnect" useFieldsInCommand="false">
+                    <command>
+                        <body>Gracefully disconnect from Abacus</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="563e4f46-e22f-4637-a619-6809459f12f9" action="StopTest" session="Abacus100" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="91721c4f-5445-498a-ac87-62912e840c32" action="Disconnect" session="Abacus100" useFieldsInCommand="false">
+                            <command>
+                                <body>-chassis_ip [param abacus_chassis_ip]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="79b084ce-a645-46b2-a9cc-2c65b28cd8a1" action="close" session="Abacus100" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e541ad9d-25db-4972-82f3-5526a74953c3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Stop Packet Capture</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b65dafed-2be1-45f4-bb60-dcfeffcac6b1" action="StopCapture" session="sniffer" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

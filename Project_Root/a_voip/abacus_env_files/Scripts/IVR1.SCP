@@ -1,0 +1,575 @@
+[Call-Main_IVR-Detection]
+3=>A:@:Wait for time in seconds [3]
+7=>A:@:Wait for time in seconds [3]
+12=>A:@:Send 2 tones for ?? seconds [404,1004,60]
+4=>A:@:Dial-1_Get-Ext-Menu
+8=>A:@:Dial-Admin-Ext_201
+13=End of script
+1=>A:@:Wait for time in seconds [5]
+5=>A:@:Wait for time in seconds [3]
+9=>A:@:Wait for time in seconds [3]
+10=>A:@:Detect-IVR_Call-Main-DID_connectingtoab2admin
+2=>A:@:Detect-IVR_Call-Main-DID_thankyouforcallingchoocheeincify
+6=>A:@:Detect-IVR_Call-Main-DID_pleaseentertheextensionyouaretry
+11=>A:@:Wait for time in seconds [5]
+
+[Call-Main_IVR_noDTMF]
+1=A:@:Wait for time in seconds [120]
+2=End of script
+
+[GotoActions__A calls B (SIP) and waits for Call Length]
+1=0
+2=0
+
+[GotoActions__A calls B {Voice Matching}]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Call-Main_IVR_3]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Staging_TMUS_Call-Main_IVR-Detection]
+3=>A:@:Wait for time in seconds [3]
+7=>A:@:Wait for time in seconds [3]
+12=>A:@:Send 2 tones for ?? seconds [404,1004,60]
+4=>A:@:Dial-1_Get-Ext-Menu
+8=>A:@:Dial-Admin-Ext_201
+13=End of script
+1=>A:@:Wait for time in seconds [5]
+5=>A:@:Wait for time in seconds [3]
+9=>A:@:Wait for time in seconds [3]
+10=>A:@:Detect-IVR_Call-Main-DID_connectingtoab2admin
+2=>A:@:Detect-IVR_Call-Main-DID_thankyouforcallingchoocheeincify
+6=>A:@:Detect-IVR_Call-Main-DID_pleaseentertheextensionyouaretry
+11=>A:@:Wait for time in seconds [5]
+
+[GotoActions__Call-Main_IVR_3-wait]
+1=0
+2=0
+3=0
+4=0
+
+[Actions]
+File=Detect-IVR_Call_Main-DID.ACT
+
+[GotoActions__Call-Main_IVR_noDTMF_orig_release]
+1=0
+2=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[Call-Main_IVR_4-wait]
+1=A:@:Wait for time in seconds [18]
+2=A:@:Dial-4
+3=A:@:Wait for time in seconds [30]
+4=End of script
+
+[A calls voice mail, enters PIN]
+1=A:@:A calls voice mail, enters PIN
+2=End of script
+
+[GotoActions__Call-Main_IVR_2-wait]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (SIP) and send RTP ]
+1=A:@:A calls B, wait, send RTP
+2=End of script
+
+[GotoActions__Wait for Voice {Voice Matching}]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Call-Main_IVR_9-wait]
+1=A:@:Wait for time in seconds [12]
+3=A:@:Wait for time in seconds [5]
+5=A:@:Wait for time in seconds [3]
+2=A:@:Dial-9_Get-directory
+4=A:@:Dial-star
+6=End of script
+
+[Call-Main_IVR_noDTMF_orig_release]
+1=A:@:Wait for time in seconds [35]
+2=End of script
+
+[GotoActions__Call-Main_Ext1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+16=End of script
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=A:@:Wait for time in seconds [8]
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+15=A:@:A calls B {Voice Matching}
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (SIP) and RTP replay_Send]
+1=A:@:A calls B, RTP,Send
+2=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:C:AFT Do Path Confirmation Once
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[AFT: 3-way Calling]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__Call-Main_IVR_9]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[Call-Main_IVR_3-wait]
+1=A:@:Wait for time in seconds [20]
+2=A:@:Dial-3
+3=A:@:Wait for time in seconds [30]
+4=End of script
+
+[GotoActions__Call-Main_Ext]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Call-Conf-exts]
+1=A:@:Wait for time in seconds [10]
+3=A:@:Wait for time in seconds [100]
+2=A:@:Dial-1623139
+4=End of script
+
+[Call-Main_IVR_9_PSQM+]
+1=A:@:Wait for time in seconds [5]
+3=A:@:Wait for time in seconds [3]
+5=A:@:Wait for time in seconds [5]
+2=A:@:Detect-IVR_Call-Main-DID_thankyouforcalling-PSQM+
+4=A:@:Dial-9_Get-directory
+6=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls voice mail, enters PIN]
+1=0
+2=0
+
+[GotoActions__Call-Main_0_VM]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Wait for Voice {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A:@:Wait for Voice {Voice Matching}
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Call-Main_IVR_3]
+1=A:@:Wait for time in seconds [5]
+3=A:@:Wait for time in seconds [3]
+5=A:@:Wait for time in seconds [5]
+2=A:@:Detect-IVR_Call-Main-DID_322402881957
+4=A:@:Dial-3
+6=End of script
+
+[A calls Main(SIP), enters 1, 241 and Wait for Call Length]
+1=A calls B, SIP, RFC2833-1, Wait for Call Length
+2=Wait for time in seconds, send 241
+3=End of script
+
+[A calls B (SIP) and waits for Call Length]
+1=A:@:A calls B, SIP, wait for Call Length
+2=End of script
+
+[Call-Main_IVR_2-wait]
+1=A:@:Wait for time in seconds [20]
+2=A:@:Dial-2
+3=A:@:Wait for time in seconds [15]
+4=End of script
+
+[Call-Conf-moderator]
+1=A:@:Wait for time in seconds [10]
+3=A:@:Wait for time in seconds [6]
+5=A:@:Wait for time in seconds [6]
+7=A:@:Wait for time in seconds [120]
+2=A:@:Dial-1623139
+4=A:@:Dial-1_Get-Ext-Menu
+6=A:@:Dial-269903
+8=End of script
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__Call-Main_IVR_noDTMF]
+1=0
+2=0
+
+[Call-Main_Ext]
+1=A calls B, DTMF, no confirmation
+3=>A:@:Dial-1_Get-Ext-Menu
+5=A:@:Dial-Admin-Ext_241
+7=End of script
+2=>A:@:Wait for time in seconds [5]
+4=>A:@:Wait for time in seconds [3]
+6=>A:@:Wait for time in seconds [3]
+
+[GotoActions__A calls B (SIP) and RTP replay_Send]
+1=0
+2=0
+
+[GotoActions__A calls B (SIP) and send RTP ]
+1=0
+2=0
+
+[AFT: Automatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=C:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[GotoActions__A calls B (SIP) no answer]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Call-Main_IVR-Detection]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: 3-way Calling]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__Call-Main_IVR_9_PSQM+]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls Main(SIP), enters 1, 241 and Wait for Call Length]
+1=0
+2=0
+3=0
+
+[GotoActions__AFT: Automatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Call-Main_Ext1]
+1=A:@:Wait for time in seconds [10]
+3=A:@:Wait for time in seconds [5]
+5=A:@:Wait for time in seconds [3]
+2=A:@:Dial-1_Get-Ext-Menu
+4=A:@:Dial-Admin-Ext_900
+6=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Call-Conf-exts]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[GotoActions__Staging_TMUS_Call-Main_IVR-Detection]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[GotoActions__Call-Main_IVR_4-wait]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (SIP) no answer]
+1=A:@:A calls B, no answer
+2=End of script
+
+[GotoActions__Call-Conf-moderator]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Call-Main_IVR_9-wait]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Call-Main_IVR_9]
+1=A:@:Wait for time in seconds [5]
+3=A:@:Wait for time in seconds [3]
+5=A:@:Wait for time in seconds [5]
+2=A:@:Detect-IVR_Call-Main-DID_thankyouforcalling
+4=A:@:Dial-9_Get-directory
+6=End of script
+
+[Call-Main_0_VM]
+1=A:@:Wait for time in seconds [12]
+3=A:@:Wait for time in seconds [13]
+5=End of script
+2=A:@:Dial-Admin-Ext_0
+4=A:@:Play 1-10
+

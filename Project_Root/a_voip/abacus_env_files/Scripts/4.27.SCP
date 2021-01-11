@@ -1,0 +1,971 @@
+[GotoActions__Ring back_0652_B : E_T]
+1=0
+2=0
+3=0
+
+[Ring back diverted _0653_A: B2]
+1=Do path confirmation
+2=;Wait for the Ringing tone
+3=;Do not answer the call untill no reply timer expires
+4=End of script
+
+[Prespective_0644_B2]
+1=;Wait for the Ringing one
+3=A:@:Wait On hook [13]
+5=Do path confirmation, for some secs [30]
+7=A:@:Wait for the dial tone
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone
+6=A:@:Wait On hook [2]
+8=End of script
+
+[Perspective_0649 : A]
+1=A:@:Dial a string [D]
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Ring back_0652_A : E_O]
+1=0
+2=0
+3=0
+
+[Ring back diverted _0653_A0: F]
+1=Make a call
+2=Do path confirmation
+3=End of script
+
+[Perspective_0648_B2]
+1=;Wait for the Ringing tone
+2=Do path confirmation, for some secs [2730]
+3=A:@:Wait for the dial tone
+4=End of script
+
+[GotoActions__Perspective_0646_B1:O]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[Ring back_0652_B : B2]
+7=A:@:Wait On hook [2]
+12=;B2 recieves a distinctive ring tone
+8=Make a call
+13=A:@:Wait off hook [2]
+1=;Deactivate call diversion immediate from B2 to B1
+5=A:@:wait for silence [0.5]
+9=Do path confirmation
+10=;B2 does not ring and not diverted to B1
+14=A:@:Wait On hook [2]
+23=;Using MML ,remove call diversion service on B2
+18=A:@:wait for silence [0.5]
+2=Make a call
+6=A:@:Announcement is heard [0307]
+11=A:@:Wait On hook [2]
+20=A:@:Wait On hook [2]
+15=Make a call
+24=End of script
+19=A:@:Announcement is heard [0307]
+3=A:@:wait for silence [0.5]
+21=;B2 recieves a distinctive ring tone
+16=A:@:wait for silence [0.5]
+4=A:@:Announcement is heard [1075]
+22=;No reply timer expires and ring back is not diverted to B1
+17=A:@:Announcement is heard [1075]
+
+[Actions]
+File=4.27.ACT
+
+[GotoActions__Perspective_0651_B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Perspective_0646_B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Ring back_0652_B : E_O]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Perspective_0650_B2]
+1=Do path confirmation for call length
+3=A:@:Dial a string [*261#]
+5=A:@:Announcement is heard [0073]
+2=A:@:Wait On hook [2]
+4=A:@:wait for silence [0.5]
+6=End of script
+
+[Perspective_0645_B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=End of script
+2=Do path confirmation for call length
+4=A:@:Wait for the dial tone
+
+[GotoActions__Perspective_0646_A]
+1=0
+2=0
+3=0
+
+[Perspective_0649_A : F]
+1=End of script
+
+[GotoActions__Perspective_0649 : B1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Ring back_0652_B : B2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[Ring back diverted _0653_A: B1]
+1=Do path confirmation
+2=;Wait for the Ringing tone
+3=Do path confirmation
+4=End of script
+
+[GotoActions__Perspective_0651_E]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__Perspective_0646_E]
+1=0
+2=0
+3=0
+
+[GotoActions__Perspective_0649_F : B1]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[Abacus Default Script]
+1=End of script
+
+[Prespective_0644_B1]
+7=A:@:Announcement is heard [0307]
+12=A:@:Dial a string [*#37#]
+8=A:@:Dial a string, no wait for the dial tone [5]
+13=A:@:wait for silence [0.5]
+1=A:@:Dial a string [*#37#]
+5=Make a call
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [1075]
+14=A:@:Announcement is heard [0312]
+23=End of script
+18=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+6=A:@:wait for silence [0.5]
+11=A:@:Wait On hook [2]
+20=A:@:Dial a string [*#37#]
+15=A:@:Wait On hook [4]
+19=A:@:Wait for the dial tone
+3=A:@:Announcement is heard [0313]
+21=A:@:wait for silence [0.5]
+16=;A:@:Distinctive ring tone
+4=A:@:Wait On hook [38]
+22=A:@:Announcement is heard [0313]
+17=Do path confirmation, for some secs [30]
+
+[GotoActions__Ring back diverted_0653 _A0: B2]
+1=0
+2=0
+3=0
+4=0
+
+[Ring back diverted_0653 _A0: E]
+3=A:@:Announcement is heard [1075]
+7=;E recieves a distinctive ring tone
+2=A:@:wait for silence [0.5]
+4=A:@:wait for silence [0.5]
+6=A:@:Wait On hook [2]
+8=A:@:Wait off hook [2]
+11=End of script
+1=Make a call
+5=A:@:Announcement is heard [0307]
+9=;Call is diverted to B1
+10=Do path confirmation
+
+[GotoActions__Ring back diverted _0653_A: B2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Ring back_0652_B : F]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Perspective_0649 : A]
+1=0
+2=0
+3=0
+
+[Ring back diverted _0653_B: B2]
+1=Do path confirmation
+2=End of script
+
+[Perspective_0648_B1]
+7=A:@:Wait On hook [1]
+12=;A:@:No distinctive ring
+4=A:@:Dial a string, no wait for the dial tone [5]
+8=A:@:Dial a string [*#37#]
+13=A:@:Dial a string [*#37#]
+17=A:@:Wait for the dial tone
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0312]
+14=A:@:wait for silence [0.5]
+18=End of script
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [0307]
+11=A:@:Wait On hook [1]
+15=A:@:Announcement is heard [0313]
+3=A:@:Announcement is heard [1075]
+16=A:@:Wait On hook [1]
+
+[GotoActions__Perspective_0648_E]
+1=0
+2=0
+3=0
+4=0
+
+[Perspective_0650_E]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[Perspective_0645_E]
+1=Make a call
+3=A:@:Wait On hook [2]
+5=End of script
+2=Do path confirmation for call length
+4=A:@:Wait for the dial tone
+
+[GotoActions__Perspective_0651_B1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__Ring back diverted _0653_A0: F]
+1=0
+2=0
+3=0
+
+[Perspective_0650_B1]
+3=A:@:Announcement is heard [1075]
+7=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string, no wait for the dial tone [5]
+6=A:@:Announcement is heard [0307]
+8=;A:@:Distinctive ring tone
+11=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0303]
+
+[GotoActions__Ring back diverted _0653_B: F]
+1=0
+2=0
+3=0
+
+[Perspective_0649_F : ALL]
+1=Do path confirmation
+2=A:@:Wait On hook [2]
+3=End of script
+
+[Perspective_0649_F : B1]
+7=A:@:Wait On hook [2]
+12=Do path confirmation
+8=A:@:Dial a string [*#37#]
+13=A:@:Wait On hook [2]
+31=A:@:wait for silence [0.5]
+26=;A:@:Distinctive ring tone
+1=Make a call
+9=A:@:Announcement is heard [0312]
+14=;A:@:Distinctive ring tone
+32=A:@:Announcement is heard [0313]
+27=Wait for the ringing tone [5]
+2=A:@:wait for silence [0.5]
+20=Do path confirmation
+15=Wait for the ringing tone [5]
+33=End of script
+28=Do path confirmation
+3=A:@:Announcement is heard [1075]
+21=A:@:Wait On hook [2]
+16=Do path confirmation
+29=A:@:Wait On hook [2]
+4=A:@:wait for silence [0.5]
+22=;A:@:Distinctive ring tone
+17=A:@:Wait On hook [2]
+5=A:@:Dial a string [5]
+10=A:@:Wait On hook [2]
+23=Wait for the ringing tone [5]
+18=;A:@:Distinctive ring tone
+6=A:@:Announcement is heard [0307]
+11=;A:@:Distinctive ring tone
+24=Do path confirmation
+19=Wait for the ringing tone [5]
+30=A:@:Dial a string [*#37#]
+25=A:@:Wait On hook [2]
+
+[Perspective_0647_E]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[Ring back_0652_A : E_T]
+1=;Wait for the Ringing tone
+2=Do path confirmation
+3=End of script
+
+[GotoActions__Perspective_0645_B1:E]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Perspective_0645_B1:B2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Ring back diverted_0653 _A0: B2]
+1=Do path confirmation
+2=A:@:Wait On hook [2]
+3=A:@:Dial a string [*21*<B1>#]
+4=End of script
+
+[GotoActions__Prespective_0644_B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Perspective_0648_E]
+1=Make a call
+2=Do path confirmation, for some secs [2730]
+3=A:@:Wait for the dial tone
+4=End of script
+
+[Ring back_0652_B : E_T]
+1=;Wait for the Ringing tone
+2=Do path confirmation
+3=End of script
+
+[GotoActions__Ring back diverted _0653_A0: B1]
+1=0
+2=0
+
+[GotoActions__Ring back diverted _0653_A: E]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Perspective_0649 : D]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Perspective_0648_B2]
+1=0
+2=0
+3=0
+4=0
+
+[Ring back diverted _0653_B: F]
+1=Make a call
+2=Do path confirmation
+3=End of script
+
+[Ring back_0652_B : F]
+1=Do path confirmation
+2=A:@:Wait On hook [2]
+3=Do path confirmation
+4=End of script
+
+[Perspective_0647_B2]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Ring back_0652_B : C]
+1=0
+2=0
+
+[GotoActions__Perspective_0650_B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Perspective_0645_B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Ring back diverted_0653 _A: F]
+1=Make a call
+2=Do path confirmation
+3=End of script
+
+[Ring back_0652_A : E_O]
+1=Make a call
+2=Do path confirmation
+3=End of script
+
+[GotoActions__Perspective_0647_B1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__Ring back_0652_A : E_T]
+1=0
+2=0
+3=0
+
+[Ring back diverted _0653_A: E]
+3=A:@:Announcement is heard [1075]
+7=;E receives a distinctive ring tone
+2=A:@:wait for silence [0.5]
+4=A:@:wait for silence [0.5]
+6=A:@:Wait On hook [2]
+8=A:@:Wait off hook [2]
+1=Make a call
+5=A:@:Announcement is heard [0307]
+9=Do path confirmation
+10=End of script
+
+[GotoActions__Ring back diverted _0653_A: B1]
+1=0
+2=0
+3=0
+4=0
+
+[Perspective_0651_B1]
+7=>A:@:Announcement is heard [7]
+12=>A:@:Announcement is heard [0307]
+4=;>A:@:Announcement is heard [0298]
+8=;>A:@:Announcement is heard [1]
+13=>A:@:Wait On hook [2]
+17=;A:@:Distinctive ring tone
+1=>Make a call
+5=;>A:@:Announcement is heard [3298]
+9=;>A:@:Announcement is heard [7]
+10=;>A:@:Announcement is heard [5]
+14=>A:@:Dial a string [*261#]
+18=Do path confirmation, for some secs [10]
+2=;>A:@:wait for silence [0.5]
+6=;>A:@:Announcement is heard [4075]
+11=>A:@:Dial a string, no wait for the dial tone [5]
+15=>A:@:Announcement is heard [0073]
+19=End of script
+3=;>A:@:Announcement is heard [1075]
+16=>A:@:Wait On hook [2]
+
+[Ring back_0652_B : E_O]
+1=Make a call
+3=A:@:Wait On hook [2]
+5=End of script
+2=Do path confirmation
+4=Make a call
+
+[GotoActions__Perspective_0646_B1:T]
+1=0
+2=0
+3=0
+
+[Ring back diverted _0653_A0: B1]
+1=Do path confirmation
+2=End of script
+
+[Perspective_0645_B1:E]
+7=A:@:Wait On hook [2]
+12=A:@:Dial a string [#37*E#]
+25=A:@:wait for silence [0.5]
+8=A:@:Dial a string [*#37#]
+13=A:@:wait for silence [0.5]
+26=A:@:Announcement is heard [0313]
+1=Make a call
+9=A:@:wait for silence [0.5]
+14=A:@:Announcement is heard [0308]
+27=End of script
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [0307]
+11=A:@:Wait On hook [2]
+20=A:@:Dial a string [#37#]
+15=A:@:Wait On hook [2]
+24=A:@:Dial a string [*#37#]
+19=A:@:Wait On hook [2]
+3=A:@:Announcement is heard [1075]
+21=A:@:wait for silence [0.5]
+16=A:@:Dial a string [*#37#]
+4=A:@:Dial a string, no wait for the dial tone [5]
+22=A:@:Announcement is heard [0309]
+17=A:@:wait for silence [0.5]
+5=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0312]
+23=A:@:Wait On hook [2]
+18=A:@:Announcement is heard [0312]
+
+[GotoActions__Ring back_0652_A : F]
+1=0
+2=0
+
+[GotoActions__Ring back diverted_0653 _A: F]
+1=0
+2=0
+3=0
+
+[GotoActions__Ring back diverted_0653 _A0: E]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Ring back diverted _0653_B: B1]
+1=;Wait for the Ringing tone
+2=Do path confirmation
+3=End of script
+
+[GotoActions__Perspective_0649_F : ALL]
+1=0
+2=0
+3=0
+
+[GotoActions__Ring back diverted _0653_B: B2]
+1=0
+2=0
+
+[GotoActions__Ring back diverted _0653_B: E]
+1=0
+2=0
+3=0
+4=0
+
+[Prespective_0644_E]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[Ring back_0652_B : C]
+1=Do path confirmation
+2=End of script
+
+[GotoActions__Prespective_0644_B1]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[Perspective_0646_B1:T]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Perspective_0648_B1]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Perspective_0645_B1:B2]
+3=A:@:Announcement is heard [1075]
+7=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string, no wait for the dial tone [5]
+6=A:@:Announcement is heard [0307]
+8=A:@:Dial a string [*#37#]
+11=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0312]
+
+[Ring back diverted _0653_B: E]
+1=Make a call
+2=;Not prompted for ring back
+3=;Call gets diverted to B1
+4=End of script
+
+[GotoActions__Perspective_0649 : D]
+1=0
+2=0
+3=0
+
+[Ring back_0652_A : F]
+1=Do path confirmation
+2=End of script
+
+[Perspective_0647_B1]
+7=A:@:Wait On hook [1]
+12=;A:@:Distinctive ring tone
+4=A:@:Dial a string, no wait for the dial tone [5]
+8=A:@:Dial a string [*#37#]
+13=A:@:Wait On hook [2]
+17=A:@:Wait On hook [1]
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0312]
+14=A:@:Dial a string [*#37#]
+18=A:@:Wait for the dial tone
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [0307]
+11=A:@:Wait On hook [1]
+15=A:@:wait for silence [0.5]
+19=End of script
+3=A:@:Announcement is heard [1075]
+16=A:@:Announcement is heard [0313]
+
+[GotoActions__Perspective_0650_B1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Ring back_0652_A : B2]
+3=A:@:wait for silence [0.5]
+7=A:@:Wait On hook [2]
+2=Make a call
+4=A:@:Announcement is heard [1075]
+6=A:@:Announcement is heard [0307]
+8=;B2 recieves a distinctive ring tone
+11=End of script
+1=;Activate call diversion immediate to B1
+5=A:@:wait for silence [0.5]
+9=A:@:Wait off hook [2]
+10=Do path confirmation
+
+[GotoActions__Perspective_0650_E]
+1=0
+2=0
+3=0
+
+[GotoActions__Perspective_0645_E]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Perspective_0646_A]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[Perspective_0646_B1:O]
+7=A:@:Wait On hook [2]
+12=;B1 is not getting any distinctive ring tone.
+4=A:@:Dial a string, no wait for the dial tone [5]
+8=A:@:Dial a string [*#37#]
+13=A:@:Wait On hook [5]
+17=A:@:Dial a string [*#37#]
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [0312]
+14=;B1 gets distinctive ring tone
+18=A:@:wait for silence [0.5]
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [0307]
+11=A:@:Wait On hook [2]
+20=End of script
+15=Do path confirmation
+19=A:@:Announcement is heard [0313]
+3=A:@:Announcement is heard [1075]
+16=A:@:Wait On hook [2]
+
+[GotoActions__Prespective_0644_E]
+1=0
+2=0
+3=0
+
+[GotoActions__Perspective_0647_B2]
+1=0
+2=0
+3=0
+
+[GotoActions__Ring back diverted _0653_B: B1]
+1=0
+2=0
+3=0
+
+[Perspective_0651_B2]
+1=>Do path confirmation, for some secs [40]
+3=>A:@:Wait On hook [2]
+5=>Do path confirmation, for some secs [10]
+2=;>Do path confirmation for call length
+4=;Wait for the Ringing one
+6=End of script
+
+[Perspective_0646_B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=A:@:Wait On hook [2]
+7=Do path confirmation for call length
+2=Do path confirmation for call length
+4=;B2 is not getting any ringing tone
+6=;Wait for the Ringing tone
+8=End of script
+
+[GotoActions__Perspective_0647_E]
+1=0
+2=0
+3=0
+
+[GotoActions__Ring back_0652_A : B2]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Perspective_0649 : B1]
+1=A:@:Dial a string [A]
+3=A:@:Announcement is heard [1075]
+5=A:@:wait for silence [0.5]
+7=End of script
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string, no wait for the dial tone [5]
+6=A:@:Announcement is heard [0307]
+
+[Perspective_0651_E]
+1=>Make a call
+3=;>Do path confirmation for call length
+2=>Do path confirmation, for some secs [40]
+4=End of script
+
+[Perspective_0646_E]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Abacus Default Script]
+1=0
+
+[GotoActions__Perspective_0649_A : F]
+1=0
+

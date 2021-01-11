@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ParameterTree version="8.1.3.0">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <group_name pt:description="Name of Broadsoft group">iTest_Group</group_name>
+            <group_cid_name pt:description="Expected group caller ID name">iTest_Group</group_cid_name>
+            <group_cid_number pt:description="Expected group caller ID number">9492083750</group_cid_number>
+            <hunt_group_name pt:description="Full name of hunt group">Hunt Group</hunt_group_name>
+            <hunt_group_user_id pt:description="User ID of hunt group (found in HG profile page)">7025634895@lab-sv.telepacific.com</hunt_group_user_id>
+            <iad_lines pt:description="1+10 digit phone numbers used by on-net IAD">
+                <iad_1>17025634890</iad_1>
+                <iad_2>17025634891</iad_2>
+                <iad_3>17025634892</iad_3>
+                <iad_4>17025634893</iad_4>
+                <iad_5>17025634898</iad_5>
+                <iad_6>17025634899</iad_6>
+            </iad_lines>
+            <hg_lines>
+                <hg_1>17025634895</hg_1>
+            </hg_lines>
+            <voice_portal_number pt:description="Number used to access voice portal">3750</voice_portal_number>
+            <iad1_cid_name pt:description="External CID name for 1st IAD - Max 15 chars">Line 1</iad1_cid_name>
+            <IMM_enabled_line pt:description="name of line used for IMM">iad_4</IMM_enabled_line>
+        </parameters>
+    </parameters>
+    <includeParameters>
+        <item>voip_parameters.ffpt</item>
+    </includeParameters>
+</ParameterTree>

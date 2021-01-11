@@ -1,0 +1,2561 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.1.0.77511">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="readFile">
+                <command>
+                    <body>file:/C:/Abacus%205000/6.22/SCRIPTS/iTest_Analog_Scripts.SCP</body>
+                </command>
+            </action>
+            <responseBody>[GotoActions__Directed Call Pickup]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Outbound Call Restrictions-DisableCasual]
+1=A:@:Go Off Hook, Wait for dial tone, send string [1010321]
+2=End of script
+
+[GotoActions__A calls B {Voice Matching}]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Call Waiting]
+1=A calls B, DTMF, confirms for Call Length
+2=C:@:Wait for time in seconds [15]
+3=C:A:A calls B just rings
+4=End of script
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Call Park]
+7=&gt;A:@:Send string in DTMF [#]
+12=&gt;C:@:Send string in DTMF [1961]
+8=&gt;A:@:Wait for Prompt - Call Park Success
+13=;C:B:A dials B (already active call)
+31=A:@:Wait for time in seconds [3]
+26=;A dials B (already active call)
+1=&gt;G:A:A calls B, DTMF, confirms once
+9=A:@:Hang Up One Line
+14=&gt;C:@:Send string in DTMF [#]
+32=&gt;A:G:AFT Do Path Confirmation Once
+27=&gt;A:@:Send string in DTMF [#]
+2=&gt;A:@:Do hook flash, and wait for dial tone
+20=G:@:Hang Up One Line
+15=A:@:Wait for time in seconds [10]
+33=End of script
+28=&gt;A:@:Wait for Prompt - Call Park Success
+3=&gt;A:@:Send string in DTMF [*31]
+21=&gt;G:A:A calls B, DTMF, confirms once
+16=&gt;C:G:AFT Do Path Confirmation Once
+29=&gt;A:@:Wait for time in seconds (On hook) [40]
+4=&gt;A:@:Wait for Prompt - Call Park Dial
+22=&gt;A:@:Do hook flash, and wait for dial tone
+17=A:@:Hang Up One Line
+5=&gt;A:@:Send string in DTMF [1961]
+10=&gt;C:@:Wait for Dial Tone, Send String in DTMF [*34]
+23=&gt;A:@:Send string in DTMF [*31]
+18=B:@:Hang Up One Line
+6=;A dials B (already active call)
+11=&gt;C:@:Wait for Prompt - Call Park Retrieve
+24=&gt;A:@:Wait for Prompt - Call Park Dial
+19=C:@:Hang Up One Line
+30=&gt;A:@:Wait for Ring
+25=&gt;A:@:Send string in DTMF [1961]
+
+[GotoActions__Per Call Account Codes]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Actions]
+File=iTest_Analog_Actions.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Disable Call Forward No Answer]
+1=0
+2=0
+3=0
+
+[Inbound Call Restrictions-Enable Calls Within Enterprise]
+1=G:B:A calls B just rings
+3=B:@:Hang Up One Line
+5=G:A:A calls B just rings
+7=End of script
+2=G:@:Hang Up One Line
+4=G:@:AFT On Hook and wait 1 sec
+6=AFT Do Path Confirmation Once
+
+[GotoActions__Call Forward G to H]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Call Forward Selective_2]
+1=0
+2=0
+3=0
+
+[Authorization Codes Allow Local and TF]
+7=&gt;A:@:Wait for Prompt - Telepacific TFN
+12=&gt;A:@:Send string in DTMF [8888]
+25=End of script
+8=&gt;A:@:Hang Up One Line
+13=&gt;A:@:Wait For Prompt - Code Accepted
+1=;local call - completes without prompt
+9=;Long distance call, gets prompt
+14=&gt;G:@:Wait for Ring
+2=&gt;A calls B, DTMF, confirms once
+6=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+11=&gt;A:@:Wait For Prompt - Auth Code
+20=&gt;A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+15=G:@:Wait for time in seconds [3]
+24=&gt;A:@:Wait for Prompt - International EE
+19=;international call, gets prompt
+3=A:@:Hang Up One Line
+21=&gt;A:@:Wait For Prompt - Auth Code
+16=&gt;G:A:AFT Do Path Confirmation Once
+4=B:@:Hang Up One Line
+22=&gt;A:@:Send string in DTMF [8888]
+17=A:@:Hang Up One Line
+5=&gt;;toll free call, completes without prompt
+10=&gt;A:G:A calls B just rings
+23=&gt;A:@:Wait For Prompt - Code Accepted
+18=G:@:Hang Up One Line
+
+[GotoActions__Speed Dial 8]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CFNA Change Times]
+7=&gt;A:@:6*Wait for Ring
+12=A:@:Hang Up One Line
+25=End of script
+8=B:@:Wait for time in seconds [5]
+13=B:@:Hang Up One Line
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*22]
+9=&gt;B:@:Wait for Ring
+14=C:@:Hang Up One Line
+2=&gt;A:@:Wait for Prompt - CFNA Change Times
+6=&gt;C:A:A calls B just rings
+11=&gt;B:C:AFT Do Path Confirmation Once
+20=&gt;C:A:A calls B just rings
+15=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*22]
+24=&gt;B:C:AFT Do Path Confirmation Once
+19=&gt;A:@:Hang Up One Line
+3=&gt;A:@:Send string in DTMF [4]
+21=&gt;A:@:2*Wait for Ring
+16=&gt;A:@:Wait for Prompt - CFNA Change Times
+4=&gt;A:@:Wait for Prompt - CFNA Change Times Success 6
+22=&gt;B:@:Wait for Ring
+17=&gt;A:@:Send string in DTMF [2]
+5=&gt;A:@:Hang Up One Line
+10=B:@:Wait for time in seconds [3]
+23=B:@:Wait for time in seconds [3]
+18=&gt;A:@:Wait for Prompt - CFNA Change Times Success 2
+
+[GotoActions__Call Forward B to C]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Outbound Call Restrictions-DisableTollfree]
+1=0
+2=0
+
+[Outbound Call Restrictions-DisableURLDialling]
+1=A:@:Go Off Hook, Wait for dial tone, send string [https://www.google.co.in]
+2=End of script
+
+[Call Forward Always]
+3=&gt;A:C:A dials B (already active call)
+7=&gt;C:B:AFT Do Path Confirmation Once
+12=&gt;A:@:Hang Up One Line
+4=&gt;A:@:Wait for Prompt - CFA Enable
+8=&gt;B:@:Hang Up One Line
+13=&gt;B:A:A calls B, DTMF, confirms once
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*72]
+5=&gt;A:@:Hang Up One Line
+9=&gt;C:@:Hang Up One Line
+10=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*73]
+14=End of script
+2=&gt;A:@:Wait for Prompt - CFA Destination
+6=&gt;B:A:AFT A calls B, DTMF
+11=&gt;A:@:Wait for Prompt - CFA Disable
+
+[GotoActions__Speed Dial 100]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[A calls B (SIP) and RTP replay_Send]
+1=A:@:A calls B, RTP,Send
+2=End of script
+
+[Extension Dialing]
+3=B:@:Wait for time in seconds [3]
+7=&gt;A:@:Go Off Hook, Wait for dial tone, send string [1973#]
+2=&gt;B:@:Wait for Ring
+4=&gt;B:A:AFT Do Path Confirmation Once
+6=B:@:Hang Up One Line
+8=A:@:Wait for time in seconds [20]
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [1961#]
+5=A:@:Hang Up One Line
+9=End of script
+
+[Enable Call Forward No Answer]
+1=A:@:Go Off Hook, Wait for dial tone, send string [*78]
+3=A:@:Wait for Prompt - CFNA Enable
+5=End of script
+2=A dials B (already active call)
+4=A:@:Hang Up One Line
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[Inbound Call Restrictions-Disable Calls Outside Enterprise For Group]
+1=J:B:A calls B just rings
+3=A calls B just rings
+5=End of script
+2=J:A:A calls B just rings
+4=B:@:A answers ring
+
+[AFT: 4-way Conference]
+7=A:C:AFT Do Path Confirmation Once
+12=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+14=A:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=A:D:A calls B, DTMF, confirms once
+20=B:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+24=End of script
+19=B:C:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=B:D:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=C:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__Calling Name Delivery]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__CFNA Change Times]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Cancel Music On Hold Per Call]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Cancel Call Waiting Persistent]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+35=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[Call Forward Selective_2]
+1=G:A:A calls B just rings
+2=G:J:A calls B, DTMF, confirms once
+3=End of script
+
+[Wait for Voice {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A:@:Wait for Voice {Voice Matching}
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__Outbound Call Restrictions-DisableOperatorassisted]
+1=0
+2=0
+
+[Last Number Redial]
+1=&gt;A:G:A calls B just rings
+3=&gt;A:@:Wait for Dial Tone, Send String in DTMF with CPD [*66]
+5=&gt;G:A:AFT Do Path Confirmation Once
+2=&gt;A:@:Hang Up One Line
+4=G:@:Wait for time in seconds [3]
+6=End of script
+
+[GotoActions__Account Codes Unverified Allow Local and TF]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[AFT: Call Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__Flash Call Hold]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Flash Call Hold]
+3=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*54]
+7=&gt;A:@:Wait for Ring
+2=&gt;A:@:Do hook flash
+4=&gt;A:@:Wait for dial tone
+6=&gt;A:@:Hang Up One Line
+8=&gt;A:@:Wait for time in seconds [3]
+1=&gt;A calls B, DTMF, confirms once
+5=&gt;A:G:A calls B, DTMF, confirms once
+9=&gt;AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__Authorization Codes]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=C:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[GotoActions__Call Return]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Series Completion Change Order]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Disable Call Forward No Answer]
+1=A:@:Go Off Hook, Wait for dial tone, send string [*79]
+2=A:@:Wait for Prompt - CFNA Disable
+3=End of script
+
+[Call Forward G to H]
+1=&gt;G:A:AFT A calls B, DTMF
+3=&gt;H:@:Wait for time in seconds [3]
+5=End of script
+2=;H:@:Wait for Ring
+4=&gt;H:G:AFT Do Path Confirmation Once
+
+[GotoActions__Outbound Call Restrictions-DisableURLDialling]
+1=0
+2=0
+
+[Outbound Call Restrictions-DisableTollfree]
+1=A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+2=End of script
+
+[H calls A]
+1=&gt;H:A:A calls B, DTMF, confirms once
+2=End of script
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Inbound Call Restrictions-Enable Calls Within Enterprise _backup]
+1=G:B:A calls B just rings
+3=B:@:Hang Up One Line
+5=G:A:A calls B just rings
+7=End of script
+2=G:@:Hang Up One Line
+4=G:@:AFT On Hook and wait 1 sec
+6=AFT Do Path Confirmation Once
+
+[GotoActions__Inbound Call Restrictions]
+1=0
+2=0
+
+[Per Call Account Codes]
+3=&gt;A:@:Send string in DTMF [8888]
+7=&gt;C:A:A calls B, DTMF, confirms once
+12=&gt;A:@:Do hook flash
+4=&gt;A calls B, DTMF, confirms once
+8=&gt;A:@:Do hook flash
+13=A:@:Wait for time in seconds [3]
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*71]
+5=&gt;A:@:Hang Up One Line
+9=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*71]
+10=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+14=&gt;A:C:AFT Do Path Confirmation Once
+2=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+6=&gt;B:@:Hang Up One Line
+11=&gt;A:@:Send string in DTMF [8888]
+15=End of script
+
+[GotoActions__Call Waiting]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Call Forwarding Enable From Broadsoft]
+1=0
+2=0
+3=0
+4=0
+
+[Access to Voice Portal]
+3=&gt;A:@:Send string in DTMF [1234#]
+7=&gt;A:@:Send string in DTMF [4321#]
+12=&gt;A:@:Send string in DTMF [4321#]
+4=A:@:Wait for time in seconds [5]
+8=A:@:Hang Up One Line
+13=&gt;A:@:Wait For Prompt - VM Menu
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [1960]
+5=&gt;A:@:Send string in DTMF [4321#]
+9=&gt;A:@:Wait for Dial Tone, Send String in DTMF [19498351960]
+10=;A:A:A calls B just rings
+14=&gt;A:@:Wait for time in seconds [40]
+2=&gt;A:@:Wait for Prompt - VM Welcome
+6=A:@:Wait for time in seconds [5]
+11=&gt;A:@:Wait for Prompt - VM Welcome
+15=End of script
+
+[GotoActions__alex_test]
+1=0
+2=0
+3=0
+
+[GotoActions__Calling Name Delivery Group]
+1=0
+2=0
+
+[GotoActions__Last Number Redial]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Inbound Call Restrictions]
+1=A calls B, DTMF, confirms for Call Length
+2=End of script
+
+[GotoActions__CFNA Change Times Broadsoft 6]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+7=; The number (address) is dialled using MF R1.5.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R1.5, confirms for Call Length
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[Caller Id On Call Waiting]
+1=&gt;A calls B, DTMF, confirms once
+2=&gt;C:A:A calls B just rings
+3=&gt;A:C:Wait for CID during Call Waiting
+4=End of script
+
+[Outbound Call Restrictions-DisableUnknown]
+1=A:N:A calls B just rings
+2=End of script
+
+[GotoActions__Intercept User Soft Disconnect]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Enable Call Forward No Answer]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Outbound Call Restrictions-DisablePremium Services II]
+1=0
+2=0
+
+[A calls B (ISDN) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[Voice Message Waiting Indicator_MWI_Enable]
+1=G:A:A calls B just rings
+2=A:@:A calls B {Voice Matching}
+3=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__Outbound Call Restrictions-DisableToll]
+1=0
+2=0
+
+[A calls B {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+16=End of script
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=A:@:Wait for time in seconds [8]
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+15=A:@:A calls B {Voice Matching}
+
+[GotoActions__Inbound Call Restrictions-Enable Calls Within Enterprise _backup]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[A calls B (ISDN) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__Extension Dialing]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Inbound Call Restrictions-Enable Calls Within Enterprise]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Account Codes Unverified Allow Local and TF]
+7=&gt;A:G:A calls B just rings
+12=&gt;G:A:AFT Do Path Confirmation Once
+4=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+8=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+13=A:@:Hang Up One Line
+17=&gt;A:@:Send string in DTMF [9999]
+1=&gt;A calls B, DTMF, confirms once
+5=&gt;A:@:Wait for Prompt - Telepacific TFN
+9=&gt;A:@:Send string in DTMF [8888]
+10=&gt;A:@:Wait For Prompt - Code Accepted
+14=G:@:Hang Up One Line
+18=&gt;A:@:Wait For Prompt - Code Accepted
+2=A:@:Hang Up One Line
+6=A:@:Hang Up One Line
+11=&gt;G:@:Wait for Ring
+20=End of script
+15=&gt;A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+19=&gt;A:@:Wait for Prompt - International EE
+3=B:@:Hang Up One Line
+16=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+
+[GotoActions__Music On Hold]
+1=0
+2=0
+3=0
+4=0
+
+[Call Forward Selective]
+1=B:A:A calls B just rings
+3=B:A:A calls B just rings
+5=End of script
+2=B:C:A calls B, DTMF, confirms once
+4=A calls B, DTMF, confirms once
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Speed Dial 100]
+3=&gt;A dials B (already active call)
+7=&gt;A:@:Wait for Dial Tone, Send String in DTMF with CPD [#01]
+2=&gt;A:@:Wait for Dial Tone, Send String in DTMF [01]
+4=&gt;A:@:Send string in DTMF [#]
+6=&gt;A:@:AFT On Hook and wait 1 sec
+8=&gt;B:@:Wait for Ring
+11=End of script
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*75]
+5=&gt;A:@:Wait For Prompt - Enable Speed Dial 100
+9=B:@:Wait for time in seconds [3]
+10=&gt;B:A:AFT Do Path Confirmation Once
+
+[Cancel Call Waiting Persistent - Reenable]
+3=&gt;A:@:AFT On Hook and wait 1 sec
+7=&gt;A:@:Do hook flash
+2=&gt;A:@:Wait for Prompt - Call Waiting Enable
+4=&gt;A calls B, DTMF, confirms once
+6=&gt;A:@:AFT Wait for Call Waiting Tone
+8=A:@:Wait for time in seconds [3]
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*43]
+5=&gt;C:A:A calls B just rings
+9=&gt;A:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__Call Pickup Groups]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Inbound Call Restrictions-Enable Calls Within Enterprise For Group]
+1=M:B:A calls B just rings
+3=M:A:A calls B just rings
+5=B:@:A answers ring
+2=A:@:Wait for time in seconds [5]
+4=A calls B just rings
+6=End of script
+
+[Cancel Music On Hold Per Call]
+3=&gt;A:@:Wait for dial tone
+7=&gt;B:@:Wait for Music
+12=&gt;A:@:Do hook flash
+4=&gt;A calls B, DTMF, confirms once
+8=A:@:Hang Up One Line
+13=&gt;A:C:A calls B just rings
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*30]
+5=&gt;A:@:Do hook flash
+9=B:@:Hang Up One Line
+10=C:@:Hang Up One Line
+14=&gt;B:@:Wait for Music
+2=;A:@:AFT On Hook and wait 1 sec
+6=&gt;A:C:A calls B just rings
+11=&gt;A calls B, DTMF, confirms once
+15=End of script
+
+[GotoActions__Call Waiting 2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[Call Return]
+1=&gt;B:A:A calls B, DTMF, confirms for Call Length
+3=&gt;B:@:Hang Up One Line
+5=&gt;A:@:Wait for Prompt - Call Return 1961
+7=&gt;AFT Do Path Confirmation Once
+2=&gt;A:@:AFT On Hook and wait 1 sec
+4=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*69]
+6=&gt;A:@:Send string in DTMF [1]
+8=End of script
+
+[Outbound Call Restrictions-DisablePremium Services II]
+1=A calls B just rings
+2=End of script
+
+[Disable Call Forward Busy]
+1=&gt;B:A:A calls B, DTMF, confirms once
+2=&gt;G:A:A calls B just rings
+3=&gt;G:@:Wait for busy
+4=End of script
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[Outbound Call Restrictions-DisableSpecial Services I]
+1=A calls B just rings
+2=End of script
+
+[GotoActions__Call Forward Always]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (SIP) and RTP replay_Send]
+1=0
+2=0
+
+[GotoActions__Calling Trace ]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__Call Forward No Answer]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Outbound Call Restrictions-DisableSpecial Services II]
+1=0
+2=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[Call Forward Selective_4]
+1=M:A:A calls B just rings
+3=G:A:A calls B just rings
+5=End of script
+2=M:A:A calls B, DTMF, confirms once
+4=G:H:A calls B, DTMF, confirms once
+
+[Outbound Call Restrictions-Disable]
+1=A calls B just rings
+2=End of script
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Do Not Disturb]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Speed Dial 8]
+3=&gt;A:@:Send string in DTMF [8]
+7=&gt;A:@:Wait for Dial Tone, Send String in DTMF with CPD [8]
+2=&gt;A:@:Wait for time in seconds [3]
+4=&gt;A dials B (already active call)
+6=&gt;A:@:AFT On Hook and wait 1 sec
+8=&gt;B:@:Wait for Ring
+11=End of script
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*74]
+5=&gt;A:@:Wait For Prompt - Enable Speed Dial 8
+9=B:@:Wait for time in seconds [3]
+10=&gt;B:A:AFT Do Path Confirmation Once
+
+[Cancel Call Waiting Persistent]
+7=&gt;A:@:Do hook flash
+12=B:@:Hang Up One Line
+8=A:@:Wait for time in seconds [3]
+13=C:@:Hang Up One Line
+31=&gt;;Step 31- 34: Hang up all lines
+26=A:@:Wait for time in seconds (On hook) [5]
+1=&gt;A calls B, DTMF, confirms once
+9=&gt;AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds (On hook) [5]
+32=A:@:Hang Up One Line
+27=&gt;A calls B, DTMF, confirms for Call Length
+2=&gt;C:A:A calls B just rings
+20=&gt;C:A:A calls B just rings
+15=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*42]
+33=B:@:Hang Up One Line
+28=&gt;C:@:Wait for time in seconds (On hook) [3]
+3=&gt;A:@:AFT Wait for Call Waiting Tone
+21=&gt;C:@:Wait for busy
+16=&gt;A:@:Wait for Prompt - Call Waiting Disable
+34=C:@:Hang Up One Line
+29=&gt;C:A:A calls B just rings
+4=&gt;A:@:Do hook flash
+22=&gt;;Step 23- 26: Hang up all lines
+17=&gt;A:@:Wait for time in seconds (On hook) [2]
+35=End of script
+5=A:@:Wait for time in seconds [3]
+10=&gt;;Step 11-14: Hang up all lines
+23=A:@:Hang Up One Line
+18=&gt;A calls B, DTMF, confirms once
+6=&gt;A:C:AFT Do Path Confirmation Once
+11=A:@:Hang Up One Line
+24=B:@:Hang Up One Line
+19=&gt;C:@:Wait for time in seconds (On hook) [3]
+30=&gt;C:@:Wait for busy
+25=C:@:Hang Up One Line
+
+[Speed Dial 100 Broadsoft]
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF with CPD [#02]
+3=B:@:Wait for time in seconds [3]
+5=End of script
+2=&gt;B:@:Wait for Ring
+4=&gt;B:A:AFT Do Path Confirmation Once
+
+[GotoActions__Call Forward Selective_3]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Outbound Call Restrictions-DisableLocal]
+1=A:G:A calls B just rings
+2=End of script
+
+[GotoActions__Direct Transfer to Voicemail]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Voice Message Waiting Indicator_MWI_Enable]
+1=0
+2=0
+3=0
+
+[Call Waiting Cancel Per Call]
+7=&gt;AFT Do Path Confirmation Once
+12=&gt;A calls B, DTMF, confirms once
+25=End of script
+8=&gt;A:@:Hang Up One Line
+13=&gt;C:@:Wait for time in seconds (On hook) [3]
+1=&gt;A calls B, DTMF, confirms once
+9=&gt;B:@:Hang Up One Line
+14=&gt;C:A:A calls B just rings
+2=&gt;C:A:A calls B just rings
+6=&gt;A:@:Do hook flash
+11=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*70]
+20=&gt;A calls B, DTMF, confirms for Call Length
+15=&gt;C:@:Wait for time in seconds [1]
+24=&gt;A:C:AFT Do Path Confirmation Once
+19=&gt;C:@:Hang Up One Line
+3=&gt;A:@:AFT Wait for Call Waiting Tone
+21=&gt;C:A:A calls B just rings
+16=&gt;C:@:Wait for busy
+4=&gt;A:@:Do hook flash
+22=&gt;A:@:AFT Wait for Call Waiting Tone
+17=&gt;A:@:Hang Up One Line
+5=&gt;A:C:AFT Do Path Confirmation Once
+10=&gt;C:@:Hang Up One Line
+23=&gt;A:@:Do hook flash
+18=&gt;B:@:Hang Up One Line
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Speed Dial 8 Broadsoft]
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF with CPD [2]
+3=B:@:Wait for time in seconds [3]
+5=End of script
+2=&gt;B:@:Wait for Ring
+4=&gt;B:A:AFT Do Path Confirmation Once
+
+[GotoActions__Inbound Call Restrictions-Enable Calls Within Enterprise For Group]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__Authorization Codes Intl]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Outbound Call Restrictions-DisableDirectoryassisted]
+1=A:@:Go Off Hook, Wait for dial tone, send string [5551212]
+2=End of script
+
+[Authorization Codes Operator Assisted]
+7=&gt;A:G:A calls B, DTMF, confirms once
+12=&gt;A:@:Send string in DTMF [8888#]
+4=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+8=A:@:Hang Up One Line
+13=&gt;A:@:Wait For Prompt - Code Accepted
+17=&gt;A:@:Wait for Prompt - International EE
+1=&gt;A calls B, DTMF, confirms once
+5=&gt;A:@:Wait for Prompt - Telepacific TFN
+9=G:@:Hang Up One Line
+10=&gt;A:@:Go Off Hook, Wait for dial tone, send string [02169311212]
+14=&gt;A:@:Wait for Prompt - Operator Assisted
+18=End of script
+2=A:@:Hang Up One Line
+6=A:@:Hang Up One Line
+11=&gt;A:@:Wait For Prompt - Auth Code
+15=A:@:Hang Up One Line
+3=B:@:Hang Up One Line
+16=&gt;A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+7=; The number (address) is dialled using MF R2.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R2, confirms for Call Length
+
+[CFNA Enable From Broadsoft]
+1=&gt;C:A:AFT A calls B, DTMF
+2=&gt;C:@:Wait for time in seconds [5]
+3=&gt;C:B:AFT Do Path Confirmation Once
+4=End of script
+
+[Series Completion]
+1=&gt;A calls B, DTMF, confirms once
+3=&gt;C:@:Wait for Ring
+5=&gt;C:D:AFT Do Path Confirmation Once
+7=&gt;E:@:Wait for busy
+2=&gt;D:B:A calls B just rings
+4=C:@:Wait for time in seconds [3]
+6=&gt;E:B:A calls B just rings
+8=End of script
+
+[GotoActions__Account Codes Unverified]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Outbound Call Restrictions-DisableInternational]
+1=0
+2=0
+
+[GotoActions__Outbound Call Restrictions-DisableDirectoryassisted]
+1=0
+2=0
+
+[Intercept User Soft Disconnect]
+1=&gt;G:A:A calls B just rings
+3=G:@:AFT On Hook and wait 1 sec
+5=&gt;A:@:Wait for Prompt - Out Of Service 2
+2=&gt;G:@:Wait for Prompt - Out Of Service
+4=&gt;A:G:A calls B just rings
+6=End of script
+
+[Outbound Call Restrictions-DisableSpecial Services II]
+1=A calls B just rings
+2=End of script
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__CFNA Change Times Broadsoft 4]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Call Forward G to J]
+1=&gt;G:A:AFT A calls B, DTMF
+3=&gt;J:@:Wait for time in seconds [3]
+5=End of script
+2=;J:@:Wait for Ring
+4=&gt;J:G:AFT Do Path Confirmation Once
+
+[GotoActions__Private Call Forward]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[Directed Call Pickup]
+1=B:@:Hang Up One Line
+3=A:@:Wait for time in seconds [5]
+5=&gt;A:@:Send string in DTMF [1962#]
+7=&gt;G:A:AFT Do Path Confirmation Once
+2=&gt;G:C:A calls B just rings
+4=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*45]
+6=G:@:Wait for time in seconds [5]
+8=End of script
+
+[GotoActions__Inbound Call Restrictions-Enable Calls from Outside]
+1=0
+2=0
+
+[GotoActions__Access to Voice Portal]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Call Forward Selective_3]
+1=H:@:AFT Off Hook
+3=H:@:Send string in DTMF [.67]
+5=H:A:A calls B just rings
+7=End of script
+2=H:A:A calls B just rings
+4=G:H:A calls B, DTMF, confirms once
+6=H:A:A calls B, DTMF, confirms once
+
+[GotoActions__Enable Call Forward Busy]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Do Not Disturb]
+3=&gt;A:@:AFT On Hook and wait 1 sec
+7=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*04]
+12=End of script
+2=&gt;A:@:Wait For Prompt - Enable DND
+4=&gt;B:A:A calls B just rings
+6=&gt;B:@:AFT On Hook and wait 1 sec
+8=&gt;A:@:Wait For Prompt - Disable DND
+11=&gt;B:A:A calls B, DTMF, confirms once
+1=&gt;A:@:Wait for Dial Tone, Send String in DTMF [*03]
+5=&gt;B:@:Wait for busy
+9=&gt;A:@:AFT On Hook and wait 1 sec
+10=B:@:Wait for time in seconds (On hook) [5]
+
+[GotoActions__Call Waiting Cancel Per Call]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Outbound Call Restrictions-DisableSpecial Services I]
+1=0
+2=0
+
+[Calling Name Delivery Group]
+1=A calls B just rings
+2=End of script
+
+[Account Codes Unverified]
+3=&gt;A:@:Send string in DTMF [8888]
+7=&gt;B:@:Hang Up One Line
+12=&gt;A:@:Wait for Prompt - Telepacific TFN
+4=&gt;A:@:Wait For Prompt - Code Accepted
+8=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+13=End of script
+1=&gt;A calls B just rings
+5=&gt;AFT Do Path Confirmation Once
+9=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+10=&gt;A:@:Send string in DTMF [8888]
+2=&gt;A:@:Wait For Prompt - Account Code 4 Digit
+6=&gt;A:@:Hang Up One Line
+11=&gt;A:@:Wait For Prompt - Code Accepted
+
+[IAD to IAD Calls]
+1=&gt;A calls B, DTMF, confirms for Call Length
+3=&gt;B:@:AFT On Hook and wait 1 sec
+5=End of script
+2=&gt;A:@:AFT On Hook and wait 1 sec
+4=&gt;B:A:A calls B, DTMF, confirms for Call Length
+
+[Voice Message Waiting Indicator]
+1=B:A:A calls B just rings
+3=A:@:A calls B {Voice Matching}
+5=A:@:Wait for dial tone
+2=A:@:AFT Off hook wait for stutter dial tone
+4=A:@:AFT Off Hook
+6=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:C:AFT Do Path Confirmation Once
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[GotoActions__Authorization Codes Allow Local and TF]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Call Waiting 2]
+1=&gt;A calls B, DTMF, confirms once
+3=&gt;A:@:AFT Wait for Call Waiting Tone
+5=&gt;A:C:AFT Do Path Confirmation Once
+7=&gt;AFT Do Path Confirmation Once
+2=&gt;C:A:A calls B just rings
+4=&gt;A:@:Do hook flash
+6=&gt;A:@:Do hook flash
+8=End of script
+
+[GotoActions__Cancel Call Waiting Persistent - Reenable]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Inbound Call Restrictions-Disable Calls Outside Enterprise For Group]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Caller Id On Call Waiting]
+1=0
+2=0
+3=0
+4=0
+
+[CFNA Change Times Broadsoft 6]
+1=&gt;C:A:A calls B just rings
+3=B:@:Wait for time in seconds [5]
+5=B:@:Wait for time in seconds [3]
+7=End of script
+2=&gt;A:@:6*Wait for Ring
+4=&gt;B:@:Wait for Ring
+6=&gt;B:C:AFT Do Path Confirmation Once
+
+[Record Personalized Name]
+1=A:@:Send string in DTMF [0000]
+2=End of script
+
+[GotoActions__Outbound Call Restrictions-DisableOutsidegroup]
+1=0
+2=0
+
+[Authorization Codes Intl]
+3=B:@:Hang Up One Line
+7=&gt;A:G:A calls B, DTMF, confirms once
+12=&gt;A:@:Send string in DTMF [8888#]
+4=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+8=A:@:Hang Up One Line
+13=&gt;A:@:Wait For Prompt - Code Accepted
+1=&gt;A calls B, DTMF, confirms once
+5=&gt;A:@:Wait for Prompt - Telepacific TFN
+9=G:@:Hang Up One Line
+10=&gt;A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+14=&gt;A:@:Wait for Prompt - International EE
+2=A:@:Hang Up One Line
+6=A:@:Hang Up One Line
+11=&gt;A:@:Wait For Prompt - Auth Code
+15=End of script
+
+[alex_test]
+1=A:@:Wait for Dial Tone, Send String in DTMF [*43]
+2=A:@:Wait for time in seconds [10]
+3=End of script
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[GotoActions__Call Park]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[Outbound Call Restrictions-DisableOutsidegroup]
+1=A calls B just rings
+2=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__Speed Dial 8 Broadsoft]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Inbound Call Restrictions-Enable Calls from Outside]
+1=G:A:A calls B, DTMF, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[Outbound Call Restrictions-DisablePremium Services I]
+1=A calls B just rings
+2=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[Series Completion Change Order]
+3=&gt;B:@:Wait for Ring
+7=&gt;F:@:Wait for Ring
+2=&gt;D:C:A calls B just rings
+4=B:@:Wait for time in seconds [3]
+6=&gt;E:C:A calls B just rings
+8=F:@:Wait for time in seconds [3]
+1=&gt;A:C:A calls B, DTMF, confirms once
+5=&gt;B:D:AFT Do Path Confirmation Once
+9=&gt;F:E:AFT Do Path Confirmation Once
+10=End of script
+
+[Outbound Call Restrictions-DisableToll]
+1=A:H:A calls B just rings
+2=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__Record Personalized Name]
+1=0
+2=0
+
+[GotoActions__Outbound Call Restrictions-DisableCasual]
+1=0
+2=0
+
+[GotoActions__Outbound Call Restrictions-DisableUnknown]
+1=0
+2=0
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__CFNA Enable From Broadsoft]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, DTMF, no dial tone, confirm for CL
+
+[A calls B (MF R1) and confirms for Call Length]
+7=; The number (address) is dialled using MF R1.
+12=;
+4=; in the Partition and Timing window, in the
+8=; There must be no dial tone involved in this test.
+13=; You normally set the channel configuration (in
+17=End of script
+1=; This script makes a call from circuit A
+5=; column headed &quot;CL.&quot;
+9=;
+10=; Configure the phone numbers for the channels in
+14=; the Partition and Timing window) to be OT.
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Configure | Phones window.
+15=;
+3=; is determined by the parameter you specify
+16=A calls B, MF R1, confirms for Call Length
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[Enable Call Forward Busy]
+1=&gt;G:A:A calls B, DTMF, confirms once
+3=&gt;H:@:Wait for time in seconds [3]
+5=End of script
+2=&gt;H:A:A calls B just rings
+4=&gt;H:B:AFT Do Path Confirmation Once
+
+[GotoActions__Series Completion]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Outbound Call Restrictions-Disable]
+1=0
+2=0
+
+[Call Forward Busy]
+7=&gt;G:A:A calls B, DTMF, confirms once
+12=&gt;H:B:AFT Do Path Confirmation Once
+38=&gt;H:A:A calls B just rings
+31=B:@:Hang Up One Line
+26=&gt;H:A:A calls B just rings
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*76]
+9=&gt;H:A:A calls B just rings
+14=B:@:Hang Up One Line
+32=G:@:Hang Up One Line
+27=&gt;G:@:Wait for Ring
+2=&gt;A:@:Wait for Prompt - CFB Dial
+20=&gt;A:G:A dials B (already active call)
+15=G:@:Hang Up One Line
+33=H:@:Hang Up One Line
+28=G:@:Wait for time in seconds [3]
+3=&gt;A dials B (already active call)
+21=&gt;A:@:Send string in DTMF [#]
+16=H:@:Hang Up One Line
+34=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*77]
+29=&gt;G:H:AFT Do Path Confirmation Once
+4=&gt;A:@:Send string in DTMF [#]
+22=&gt;A:@:Wait for Prompt - CFB Success
+17=A:@:Wait for time in seconds [5]
+40=End of script
+35=&gt;A:@:Wait for Prompt - CFB Deactivate
+5=&gt;A:@:Wait for Prompt - CFB Success
+10=&gt;B:@:Wait for Ring
+23=A:@:Hang Up One Line
+18=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*76]
+36=A:@:Hang Up One Line
+6=A:@:Hang Up One Line
+11=B:@:Wait for time in seconds [3]
+24=&gt;B:A:A calls B, DTMF, confirms once
+19=&gt;A:@:Wait for Prompt - CFB Dial
+37=&gt;B:A:A calls B, DTMF, confirms once
+30=A:@:Hang Up One Line
+25=;H:A:AFT A calls B, DTMF
+8=;H:A:AFT A calls B, DTMF
+13=A:@:Hang Up One Line
+39=&gt;H:@:Wait for busy
+
+[Direct Transfer to Voicemail]
+1=&gt;A:G:A calls B, DTMF, confirms once
+3=&gt;A:@:Send string in DTMF [*55]
+5=&gt;A:@:Send string in DTMF [#]
+7=&gt;G:@:Wait for time in seconds [10]
+2=&gt;A:@:Do hook flash, and wait for dial tone
+4=&gt;A:@:Wait for Prompt - VM Transfer
+6=&gt;A:@:Wait for Prompt - Call Transfer Success
+8=End of script
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Call Forward Selective]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Private Call Forward]
+1=&gt;H:@:Wait for Dial Tone, Send String in DTMF [*67]
+3=;G:@:Wait for Ring
+5=&gt;G:H:AFT Do Path Confirmation Once
+2=&gt;H:A:A calls B just rings
+4=&gt;G:@:Wait for time in seconds [3]
+6=End of script
+
+[Call Forward B to C]
+1=&gt;B:A:AFT A calls B, DTMF
+3=&gt;C:@:Wait for time in seconds [3]
+5=End of script
+2=;C:@:Wait for Ring
+4=&gt;C:B:AFT Do Path Confirmation Once
+
+[GotoActions__Disable Call Forward Busy]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Authorization Codes Toll Only]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Call Forward Busy]
+7=0
+12=0
+38=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+40=0
+35=0
+5=0
+10=0
+23=0
+18=0
+36=0
+6=0
+11=0
+24=0
+19=0
+37=0
+30=0
+25=0
+8=0
+13=0
+39=0
+
+[Outbound Call Restrictions-DisableOperatorassisted]
+1=A calls B just rings
+2=End of script
+
+[Calling Trace ]
+7=&gt;A:@:Wait for Voice {Voice Matching}
+12=&gt;A:@:AFT On Hook and wait 1 sec
+25=&gt;A:@:Wait for Voice {Voice Matching}
+8=&gt;A:@:Hang Up One Line
+13=&gt;G:A:A calls B just rings
+26=End of script
+1=&gt;G:A:A calls B just rings
+9=&gt;G:A:A calls B just rings
+14=&gt;A:@:A answers ring
+2=&gt;A:@:A answers ring
+6=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*57]
+11=&gt;A:@:Hang Up One Line
+20=&gt;A:@:Hang Up One Line
+15=&gt;H:A:A calls B just rings
+24=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*57]
+19=&gt;A:@:Wait for Voice {Voice Matching}
+3=&gt;A:@:Hang Up One Line
+21=&gt;G:@:Go Off Hook, Wait for dial tone, send string [*67]
+16=&gt;A:@:Hang Up One Line
+4=&gt;G:@:Hang Up One Line
+22=&gt;A:@:Send string in DTMF [*57]
+17=&gt;A:@:AFT On Hook and wait 1 sec
+5=&gt;A:@:AFT On Hook and wait 1 sec
+10=&gt;A:@:Wait for Ring
+23=&gt;B:@:Send string in DTMF [*89]
+18=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*57]
+
+[Call Forward No Answer]
+3=&gt;A:@:Wait for Prompt - CFNA Enable
+7=&gt;C:B:AFT Do Path Confirmation Once
+12=&gt;A:@:Hang Up One Line
+4=&gt;A:@:Hang Up One Line
+8=C:@:Hang Up One Line
+13=&gt;C:A:A calls B, DTMF, confirms once
+1=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*78]
+5=&gt;C:A:AFT A calls B, DTMF
+9=B:@:Hang Up One Line
+10=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*79]
+14=End of script
+2=&gt;A dials B (already active call)
+6=C:@:Wait for time in seconds [5]
+11=&gt;A:@:Wait for Prompt - CFNA Disable
+
+[Music On Hold]
+1=&gt;A calls B, DTMF, confirms once
+2=&gt;A:@:Do hook flash
+3=&gt;B:@:Wait for Music
+4=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Outbound Call Restrictions-DisableLocal]
+1=0
+2=0
+
+[Outbound Call Restrictions-DisableInternational]
+1=A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+2=End of script
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[Call Forwarding Enable From Broadsoft]
+1=&gt;C:A:AFT A calls B, DTMF
+2=&gt;B:@:Wait for time in seconds [3]
+3=&gt;B:C:AFT Do Path Confirmation Once
+4=End of script
+
+[GotoActions__Wait for Voice {Voice Matching}]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__H calls A]
+1=0
+2=0
+
+[GotoActions__Call Forward G to J]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Authorization Codes Operator Assisted]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Call Forward Selective_4]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Authorization Codes Toll Only]
+7=&gt;A:G:A calls B just rings
+12=G:@:Wait for time in seconds [3]
+4=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+8=&gt;A:@:Wait For Prompt - Auth Code
+13=&gt;G:A:AFT Do Path Confirmation Once
+17=&gt;A:@:Wait for Prompt - International EE
+1=&gt;A calls B, DTMF, confirms once
+5=&gt;A:@:Wait for Prompt - Telepacific TFN
+9=&gt;A:@:Send string in DTMF [8888#]
+10=&gt;A:@:Wait For Prompt - Code Accepted
+14=A:@:Hang Up One Line
+18=End of script
+2=A:@:Hang Up One Line
+6=A:@:Hang Up One Line
+11=&gt;G:@:Wait for Ring
+15=G:@:Hang Up One Line
+3=B:@:Hang Up One Line
+16=&gt;A:@:Go Off Hook, Wait for dial tone, send string [011447953966250]
+
+[CFNA Change Times Broadsoft 4]
+1=&gt;C:A:A calls B just rings
+3=&gt;B:@:Wait for Ring
+5=&gt;B:C:AFT Do Path Confirmation Once
+2=&gt;A:@:4*Wait for Ring
+4=B:@:Wait for time in seconds [3]
+6=End of script
+
+[GotoActions__Outbound Call Restrictions-DisablePremium Services I]
+1=0
+2=0
+
+[Authorization Codes]
+7=&gt;B:@:Wait for Ring
+12=&gt;A:@:Go Off Hook, Wait for dial tone, send string [18774878349]
+4=&gt;A:@:Wait For Prompt - Code Invalid
+8=B:@:Wait for time in seconds [3]
+13=&gt;A:@:Wait For Prompt - Auth Code
+17=End of script
+1=&gt;A calls B just rings
+5=&gt;A:@:Send string in DTMF [8888#]
+9=&gt;B:A:AFT Do Path Confirmation Once
+10=A:@:Hang Up One Line
+14=&gt;A:@:Send string in DTMF [8888#]
+2=&gt;A:@:Wait For Prompt - Auth Code
+6=&gt;A:@:Wait For Prompt - Code Accepted
+11=B:@:Hang Up One Line
+15=&gt;A:@:Wait For Prompt - Code Accepted
+3=&gt;A:@:Send string in DTMF [0000#]
+16=&gt;A:@:Wait for Prompt - Telepacific TFN
+
+[Call Pickup Groups]
+3=&gt;C:@:Go Off Hook, Wait for dial tone, send string [*41]
+7=&gt;G:B:A calls B just rings
+2=&gt;A:@:Wait for Ring
+4=C:@:Wait for time in seconds [10]
+6=A:@:Hang Up One Line
+8=&gt;A:@:Go Off Hook, Wait for dial tone, send string [*41]
+1=&gt;G:A:A calls B just rings
+5=&gt;G:C:AFT Do Path Confirmation Once
+9=&gt;G:A:AFT Do Path Confirmation Once
+10=;End of script
+
+[GotoActions__IAD to IAD Calls]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Voice Message Waiting Indicator]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Calling Name Delivery]
+1=&gt;B:A:A calls B, DTMF, confirms once
+3=B:@:Hang Up One Line
+5=A:@:Hang Up One Line
+7=&gt;G:A:A calls B, DTMF, confirms once
+2=A:@:Hang Up One Line
+4=&gt;A:G:A calls B, DTMF, confirms once
+6=G:@:Hang Up One Line
+8=End of script
+
+[GotoActions__Speed Dial 100 Broadsoft]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+            <duration>0.3</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="actions_list">
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="[" parser="Punctuation"/>
+                                            <item representativeValue="Actions" parser="Word"/>
+                                            <item representativeValue="]" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="filename">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="File" parser="Word"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue="iTest" parser="Word" isVariable="true"/>
+                                            <item representativeValue="_" parser="Punctuation" isVariable="true"/>
+                                            <item representativeValue="Analog" parser="Word" isVariable="true"/>
+                                            <item representativeValue="_" parser="Punctuation" isVariable="true"/>
+                                            <item representativeValue="Actions" parser="Word" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue="ACT" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="blank_line">
+                                <lines>
+                                    <item/>
+                                </lines>
+                            </item>
+                        </nodes>
+                    </item>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="script">
+                        <maxOccurences>0</maxOccurences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="script_title">
+                                <maxOccurences>0</maxOccurences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="[" parser="Punctuation"/>
+                                            <item name="script_name" representativeValue="Text" parser="Word" isVariable="true" isWildcard="true" isKey="true"/>
+                                            <item representativeValue="]" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="script_line">
+                                <maxOccurences>0</maxOccurences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item name="line_num" representativeValue="2" parser="Number" isVariable="true" isKey="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue="C" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue="@" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue="Wait" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="for" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="time" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="in" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="seconds" parser="Word" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="script_line_bracket">
+                                <minOccurrences>0</minOccurrences>
+                                <maxOccurences>0</maxOccurences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item name="line_num" representativeValue="2" parser="Number" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue="C" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue="@" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue="Wait" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isWildcard="true"/>
+                                            <item representativeValue="for" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isWildcard="true"/>
+                                            <item representativeValue="time" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isWildcard="true"/>
+                                            <item representativeValue="in" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isWildcard="true"/>
+                                            <item representativeValue="seconds" parser="Word" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isWildcard="true"/>
+                                            <item representativeValue="[" parser="Punctuation"/>
+                                            <item name="user_val" representativeValue="15" parser="Number" isVariable="true"/>
+                                            <item representativeValue="]" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="blank_line">
+                                <maxOccurences>0</maxOccurences>
+                                <lines>
+                                    <item/>
+                                    <item/>
+                                </lines>
+                            </item>
+                        </nodes>
+                    </item>
+                </nodes>
+                <isOrderedList>false</isOrderedList>
+            </BlockMaps>
+            <enforceBlankLineMapping>true</enforceBlankLineMapping>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="readFile" command="file:/C:/Abacus%205000/*/SCRIPTS/*.SCP"/>
+</ResponseMap>

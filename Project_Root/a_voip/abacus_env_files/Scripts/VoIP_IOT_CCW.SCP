@@ -1,0 +1,1231 @@
+[CCW_011]
+7=>B:@:Wait for time in seconds in onhook [9]
+12=>A:@:Wait for Ring back tone
+4=>A:@:Send string in DTMF [*70]
+8=;Before B answers the call A goes onhook
+13=>B:@:Go OffHook
+17=>A:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>A:@:Go OnHook
+10=>A:@:Wait for time in seconds in onhook [9]
+14=>AFT Do Path Confirmation Once
+18=>B:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+6=>A Calls B,DTMF,No Dial Tone
+11=>AFT A calls B, DTMF
+20=End of script
+15=>C:A:AFT A calls B, DTMF
+19=>C:@:Go OnHook
+3=;Activating CCW
+16=>A:@:AFT Wait for Call Waiting Tone
+
+[CCW_006]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for congestion tone
+5=>B:@:Wait for busy
+7=End of script
+2=>A:@:Send string in DTMF [2341192#]
+4=>B:A:AFT A calls B, DTMF
+6=>A:@:Go OnHook
+
+[GotoActions__CCW_013]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_008]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[CCW_030]
+7=;A calls B and conform once
+12=>C:A:AFT A calls B, DTMF
+4=;Activating CCW
+8=;>A Calls B,DTMF,No Dial Tone
+13=;C waits for busy response
+17=End of script
+1=;INTER ONT
+5=>A:@:Send string in DTMF [*70]
+9=;>B:@:Go OnHook
+10=;>AFT Do Path Confirmation Once
+14=>C:@:Wait for busy
+2=;Agoes offhook nd wait for dialtone
+6=>A:@:Wait for recall dial tone
+11=>AFT A calls B, no dial tone, DTMF, confirms once
+15=>A:@:Go OnHook
+3=>A:@:AFT Off hook wait for dial tone
+16=>C:@:Go OnHook
+
+[CCW_025]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Wait for time in seconds [2]
+4=>A:@:Send string in DTMF [*70]
+8=>A:@:Do hook flash, and wait for recall dial tone
+13=>AFT Do Path Confirmation Once
+17=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;Mid call CCW in the same call
+10=>A:@:Send string in DTMF [*70]
+14=>C:A:AFT A calls B, DTMF
+18=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>A:@:Wait for CCW confirmation tone
+15=>C:@:Wait for busy
+3=;Activating CCW
+16=>A:@:Go OnHook
+
+[GotoActions__CCW_032]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CCW_027]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[Actions]
+File=Abacus.ACT
+
+[CCW_013]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [16]
+5=>A:@:Go OnHook
+7=End of script
+2=>A:@:Send string in DTMF [*7]
+4=>A:@:Wait for congestion tone
+6=;A:@:Wait for time in seconds in onhook [8]
+
+[CCW_008]
+7=>C:A:AFT A calls B, DTMF
+12=>A:@:Wait for time in seconds in onhook [3]
+8=;c gets busy since A and B are in a call
+13=>B:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=;A and B go Onhook
+14=>B:@:Wait for time in seconds in onhook [3]
+18=>C:A:AFT A calls B, DTMF
+2=>A:@:AFT Off hook wait for dial tone
+6=>AFT A calls B, no dial tone, DTMF, confirms once
+11=>A:@:Go OnHook
+20=>A:@:Go OnHook
+15=>C:@:Go OnHook
+19=>A:@:AFT Wait for Call Waiting Tone
+3=;Activating CCW
+21=>C:@:Go OnHook
+16=;A calls B without service code *70
+4=>A:@:Send string in DTMF [*70]
+22=End of script
+17=>A calls B, DTMF, confirms once
+
+[GotoActions__CCW_020]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_015]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[CCW_001]
+3=;Activating CCW
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>C:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=End of script
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;C waits for busy response
+10=>C:@:Wait for busy
+2=>A:@:AFT Off hook wait for dial tone
+6=;A calls B and conform once
+11=>A:@:Go OnHook
+
+[CCW_032]
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=;c gets busy since A and B are in a call
+13=>C:@:Go OnHook
+17=>A:@:AFT Wait for Call Waiting Tone
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=;A and B go Onhook
+14=;A calls B without service code *70
+18=>A:@:Go OnHook
+2=>A:@:AFT Off hook wait for dial tone
+6=>AFT A calls B, no dial tone, DTMF, confirms once
+11=>A:@:Go OnHook
+20=End of script
+15=>A calls B, DTMF, confirms once
+19=>C:@:Go OnHook
+3=;Activating CCW
+16=>C:A:AFT A calls B, DTMF
+
+[CCW_027]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>B:@:Go OnHook
+13=>C:@:Go OnHook
+17=;A rings
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=;C calls A ,gets busy 
+10=>C:A:AFT A calls B, DTMF
+14=>C:@:Wait for time in seconds [2]
+18=;>A:@:AFT On hook wait for incoming call
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>C:@:Wait for busy
+20=End of script
+15=>C:A:A calls B, DTMF, confirms once
+19=>C:@:Go OnHook
+3=;Activating CCW
+16=;>C:A:AFT A calls B, DTMF
+
+[GotoActions__CCW_003]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_034]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_029]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+28=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[CCW_020]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Send string in DTMF [7]
+2=>A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*70]
+6=>A:@:Wait for CCW confirmation tone
+8=>A:@:Wait for time in seconds [2]
+11=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>B:A:AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[CCW_015]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for time in seconds [2]
+12=>C:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>B:A:AFT Do Path Confirmation Once
+13=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>A:@:Go OnHook
+
+[GotoActions__basic_test]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CCW_022]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_017]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[CCW_003]
+3=>A:@:Wait for dial tone
+7=>A:@:Wait for time in seconds [3]
+12=>B:@:Wait for time in seconds [3]
+4=;Activating CCW
+8=;Use the following wait if it is not continuing
+13=>A:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Send string in DTMF [*70]
+9=;>A:@:Wait for time in seconds [1]
+10=>B:A:AFT A calls B, DTMF
+14=End of script
+2=>A:@:Go OffHook
+6=>A:@:Wait for recall dial tone
+11=>B:@:Wait for busy
+
+[CCW_034]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Wait for time in seconds [2]
+12=>C:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>B:A:AFT Do Path Confirmation Once
+13=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>A:@:Go OnHook
+
+[CCW_029]
+7=>A:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Do Hook Flash
+25=>A:C:AFT Do Path Confirmation Once
+8=>A:@:Send string in DTMF [*70]
+13=>A:@:Wait for recall dial tone
+26=>A:@:Go OnHook
+1=;>B:@:Go OffHook
+9=>A:@:Wait for CCW confirmation tone
+14=>A:@:Send string in DTMF [*52]
+27=>C:@:Go OnHook
+2=;>B:@:Go OnHook
+6=;Activating CCW
+11=;A puts B on hold and dials C
+20=>B:@:Go OnHook
+15=;>A:@:Wait for time in seconds [1]
+24=>D:@:Wait for busy
+19=;B goes on hook
+28=End of script
+3=;Agoes offhook nd wait for dialtone
+21=>B:@:Wait for time in seconds [9]
+16=>A:@:Wait for recall dial tone
+4=>A calls B, DTMF, confirms once
+22=;D dials A and gets busy
+17=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+5=>B:@:Wait for time in seconds [5]
+10=>B:A:AFT Do Path Confirmation Once
+23=>D:A:AFT A calls B, DTMF
+18=>A:@:Wait for time in seconds [6]
+
+[GotoActions__CCW_010]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_005]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__CCW_036]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_022]
+3=>A:@:Do Hook Flash
+7=;A gets alerted for the held call
+12=>B:@:Go OnHook
+4=;After sending *70 A immediately goes onhook
+8=;>A:@:Wait for time in seconds in onhook [8]
+13=End of script
+1=;A abd B are in an Actice call
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OffHook
+10=>B:A:AFT Do Path Confirmation Once
+2=>A calls B, DTMF, confirms once
+6=>A:@:Go OnHook
+11=>A:@:Go OnHook
+
+[CCW_017]
+7=>B:@:Wait for time in seconds [2]
+12=>B:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+17=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+14=>A:@:Wait for time in seconds [5]
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>C:@:Go OnHook
+15=>A calls B, DTMF, confirms once
+3=>B:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[GotoActions__CCW_024]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CCW_019]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_010]
+3=>A:@:AFT Off hook wait for dial tone
+7=>B:A:A calls B, DTMF, confirms once
+12=>C:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=End of script
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>A:@:Go OnHook
+2=;Activating CCW
+6=>A:@:Go OnHook
+11=>B:@:Go OnHook
+
+[CCW_005]
+3=;A and B are in a call
+7=>C:A:AFT A calls B, DTMF
+12=>A:@:Wait for time in seconds [2]
+16=End of script
+4=>A:@:Do Hook Flash
+8=>C:@:Wait for busy
+13=>A:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Go OnHook
+10=>A:@:Send string in DTMF [*70]
+14=>B:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+6=;At the moment A hears recall C calls A
+11=>A:@:Wait for CCW confirmation tone
+15=>C:@:Go OnHook
+
+[CCW_036]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Send string in DTMF [*70]
+2=>B:@:Wait for time in seconds [3]
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Wait for CCW confirmation tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Send string in DTMF [*70]
+9=>AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[GotoActions__CCW_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_024]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>B:@:Send string in DTMF [*70]
+6=>B:@:Wait for CCW confirmation tone
+8=>B:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=End of script
+
+[CCW_019]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>B:@:Send string in DTMF [*70]
+2=>B:@:Wait for time in seconds [3]
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Wait for CCW confirmation tone
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Send string in DTMF [*70]
+9=>AFT Do Path Confirmation Once
+10=>A:@:Go OnHook
+
+[GotoActions__CCW_031]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_026]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[CCW_007]
+3=>A:@:Wait for congestion tone
+7=>B:@:Wait for busy
+2=>A:@:Send string in DTMF [2341192#]
+4=>A:@:Send string in DTMF [*70]
+6=>B:A:AFT A calls B, DTMF
+8=>A:@:Go OnHook
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:Wait for CCW confirmation tone
+9=>B:@:Go OnHook
+10=End of script
+
+[GotoActions__CCW_014]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__CCW_009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[CCW_031]
+3=>A:@:Send string in DTMF [*70]
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for CCW confirmation tone
+6=>AFT Do Path Confirmation Once
+8=>C:@:Wait for busy
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OnHook
+10=>C:@:Go OnHook
+
+[CCW_026]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>B:@:Wait for time in seconds [2]
+8=>B:@:Do hook flash, and wait for recall dial tone
+13=;C calls A gets busy and then calls B gets busy
+1=;Agoes offhook nd wait for dialtone
+5=;>A:@:Wait for recall dial tone
+9=;Mid call CCW in the same call
+10=>B:@:Send string in DTMF [*70]
+14=>B:A:AFT Do Path Confirmation Once
+23=End of script
+18=>A:@:Wait for time in seconds [2]
+2=>A:@:AFT Off hook wait for dial tone
+6=;A and B are in a Active Call
+11=>B:@:Wait for CCW confirmation tone
+20=>C:@:Wait for busy
+15=>C:A:AFT A calls B, DTMF
+19=>C:B:AFT A calls B, DTMF
+3=;Activating CCW
+21=>A:@:Go OnHook
+16=>C:@:Wait for busy
+4=>A:@:Send string in DTMF [*70]
+22=>C:@:Go OnHook
+17=>C:@:Go OnHook
+
+[GotoActions__CCW_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__CCW_033]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__CCW_028]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+28=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[CCW013]
+1=>A:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [16]
+5=End of script
+2=>A:@:Send string in DTMF [*7]
+4=>A:@:Wait for congestion tone
+
+[CCW_014]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Send string in DTMF [*7]
+5=>A:@:Wait for congestion tone
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for time in seconds [15]
+6=>A:@:Go OnHook
+
+[CCW_009]
+7=>C:A:AFT A calls B, DTMF
+12=;A calls B without service code *70
+4=;Activating CCW
+8=>C:@:Wait for busy
+13=>A calls B, DTMF, confirms once
+17=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OnHook
+10=>B:@:Go OnHook
+14=>C:A:AFT A calls B, DTMF
+18=End of script
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for recall dial tone
+11=>C:@:Go OnHook
+15=>A:@:AFT Wait for Call Waiting Tone
+3=>A:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[GotoActions__CCW_021]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_016]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[CCW_002]
+3=>A:@:Send string in DTMF [*70]
+7=>C:A:AFT A calls B, DTMF
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>A:@:Wait for CCW confirmation tone
+6=>AFT Do Path Confirmation Once
+8=>C:@:Wait for busy
+11=End of script
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OnHook
+10=>C:@:Go OnHook
+
+[CCW_033]
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:Wait for time in seconds in onhook [9]
+8=>C:@:Wait for busy
+13=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Send string in DTMF [*70]
+9=>A:@:Go OnHook
+10=>A:@:Wait for time in seconds in onhook [9]
+14=>C:@:Wait for time in seconds in onhook [9]
+18=>A:@:AFT Wait for Call Waiting Tone
+2=>A calls B, DTMF, confirms once
+6=>A:@:Wait for recall dial tone
+11=>B:@:Go OnHook
+20=>C:@:Go OnHook
+15=;A calls B without service code *70
+19=>A:@:Go OnHook
+3=>A:@:Do hook flash, and wait for recall dial tone
+21=End of script
+16=>A calls B, DTMF, confirms once
+4=;Activating CCW
+17=>C:A:AFT A calls B, DTMF
+
+[CCW_028]
+7=>A:@:Wait for recall dial tone
+12=>A:@:Do Hook Flash
+25=>A:C:AFT Do Path Confirmation Once
+8=;A and B are in a Active Call
+13=>A:@:Wait for recall dial tone
+26=>A:@:Go OnHook
+1=>B:@:Go OffHook
+9=>AFT A calls B, no dial tone, DTMF, confirms once
+14=>A:@:Send string in DTMF [*52]
+27=>C:@:Go OnHook
+2=>B:@:Go OnHook
+6=>A:@:Send string in DTMF [*70]
+11=>B:@:Wait for time in seconds [5]
+20=>B:@:Go OnHook
+15=;>A:@:Wait for time in seconds [1]
+24=>D:@:Wait for busy
+19=;B goes on hook
+28=End of script
+3=;Agoes offhook nd wait for dialtone
+21=>B:@:Wait for time in seconds [9]
+16=>A:@:Wait for recall dial tone
+4=>A:@:AFT Off hook wait for dial tone
+22=;D dials A and gets busy
+17=>A:C:AFT A calls B, no dial tone, DTMF, confirms once
+5=;Activating CCW
+10=;A puts B on hold and dials C
+23=>D:A:AFT A calls B, DTMF
+18=>A:@:Wait for time in seconds [6]
+
+[GotoActions__CCW_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW_035]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[CCW_021]
+3=;Activating CCW
+7=>A calls B, DTMF, no dial tone, confirms once
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>A:@:Wait for time in seconds [2]
+13=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=;>A:@:Wait for recall dial tone
+9=>C:A:AFT A calls B, DTMF
+10=;C waits for busy response
+14=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=;A calls B and conform once
+11=>C:@:Wait for busy
+
+[CCW_016]
+1=;Agoes offhook nd wait for dialtone
+3=>B:@:Do hook flash, and wait for recall dial tone
+5=>C:@:Wait for busy
+7=>C:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>C:B:AFT A calls B, DTMF
+6=>A:@:Go OnHook
+8=End of script
+
+[GotoActions__CCW_023]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__CCW_018]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[CCW_004]
+3=;Activating CCW
+7=>A:@:Wait for Ring back tone
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=>C:@:Go OnHook
+1=;Agoes offhook nd wait for dialtone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=>B:@:Go OffHook
+14=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=>A Calls B,DTMF,No Dial Tone
+11=>AFT Do Path Confirmation Once
+
+[CCW_035]
+7=>B:@:Wait for time in seconds [2]
+12=>B:@:Go OnHook
+4=>B:@:Send string in DTMF [*70]
+8=>AFT Do Path Confirmation Once
+13=>A:@:Go OnHook
+17=>C:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:B:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+14=>A:@:Wait for time in seconds [5]
+18=End of script
+2=>A calls B, DTMF, confirms once
+6=>B:@:Wait for CCW confirmation tone
+11=>C:@:Go OnHook
+15=>A calls B, DTMF, confirms once
+3=>B:@:Do hook flash, and wait for recall dial tone
+16=>A:@:Go OnHook
+
+[GotoActions__CCW_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__CCW_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[CCW_023]
+3=>A:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>A:@:Send string in DTMF [*70]
+6=>A:@:Wait for CCW confirmation tone
+8=>B:@:Go OnHook
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=End of script
+
+[CCW_018]
+3=>B:@:Do hook flash, and wait for recall dial tone
+7=>A:@:Go OnHook
+2=>A calls B, DTMF, confirms once
+4=>B:@:Send string in DTMF [*70]
+6=>B:@:Wait for CCW confirmation tone
+8=>C:B:AFT A calls B, DTMF
+11=End of script
+1=;A and B are in a Active Call
+5=;B receives conformation tone and starts speaking to A
+9=>C:@:Wait for busy
+10=>C:@:Go OnHook
+
+[GotoActions__CCW_030]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__CCW_025]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[basic_test]
+7=;>C:@:Go OffHook
+12=;>E:@:Go OnHook
+4=;>B:@:Go OnHook
+8=;>C:@:Go OnHook
+13=;>F:@:Go OffHook
+17=;>H:@:Go OffHook
+1=;>A:@:Go OffHook
+5=;>B:@:Wait for time in seconds [3]
+9=;>D:@:Go OffHook
+10=;>D:@:Go OnHook
+14=;>F:@:Go OnHook
+18=;>H:@:Go OnHook
+2=;>A:@:Go OnHook
+6=>A calls B, DTMF, confirms once
+11=;>E:@:Go OffHook
+15=;>G:@:Go OffHook
+19=End of script
+3=;>B:@:Go OffHook
+16=;>G:@:Go OnHook
+
+[GotoActions__CCW_001]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CCW013]
+1=0
+3=0
+5=0
+2=0
+4=0
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.1.0.201912080816">
+    <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+        <smtpUrl inherit="false">10.255.224.88</smtpUrl>
+        <from inherit="false">cpe-itest@tpx.com</from>
+        <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Mail_smtp/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Mail_smtp/</formMapLibrary>
+    <sessionClassTestCase inherit="false">mail_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

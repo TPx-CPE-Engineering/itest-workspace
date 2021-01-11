@@ -1,0 +1,669 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>DHCP - Verify DHCP Settings</documentation>
+        <tags>velocloud, sd-wan, edge, dhcp, silverpeak</tags>
+        <notes>Test Case places six Test Cases into one for simplicity. 
+Test Case only works with Adtran CPE since Cisco CPE does not have a command to verify if DHCP options were applied.
+
+Velocloud
+Test Case #1 &lt;- TODO
+Test Case: IP address/gateway assignment
+Expected Results: Configure DHCP pool for LAN devices under Configure &gt; Edge &gt; Device &gt; VLAN. Verify new devices get assigned addressed from pool.
+Usage: Edge provides IP and Gateway IP to new devices
+
+Test Case #2
+Test Case: Option 66 (tftp)
+Expected Results: Configure a value for tftp server and verify end device receives tftp address in DHCP offer. End device (CPE or IP Phone) must first be configured to request OPT 66, before it will get it from the VCE.
+Usage: Edge provides an Option 66 with DHCP offer
+
+Test Case #3
+Test Case: Option 6 (DNS)
+Expected Results: Configure a value for DNS and verify end device receives DNS server address in DHCP offer.
+Usage: Edge provides an Option 6 with DHCP offer
+
+Test Case #4
+Test Case: Option 15(domain name)
+Expected Results: Configure a value for domain name and verify end device receives a domain name in DHCP offer.
+Usage: Edge provides an Option 15 with DHCP offer
+
+Test Case #5
+Test Case: Custom Option (160)
+Expected Results: Configure a custom option with random text value and verify end device receives the custom option and value in DHCP offer (as before, CPE or IP phone must be configured to request OPT 160)
+Usage: Edge provides a custom option with DHCP offer
+
+Test Case #6 &lt;- TODO
+Test Case: Verify devices are assigned the same IP address when configured
+Expected Results: Configure device MAC address and IP to be assigned in the &quot;Fixed IP&apos;s&quot; section.
+Usage: Device will be assigned the same IP address every time
+</notes>
+        <owner>Juan Brena</owner>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC520/VC520_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="bfc292bd-bc3c-4566-bd5c-6094a12b033b" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7d91322e-d4b8-41e0-9c1a-6284a94fff4a" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>port()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>ssh_port</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                    <completionProperties expectedIdleTime="0.223" expectedIdleTime.inherit="false"/>
+                                </stepProperties>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="c21365e2-e30b-4339-adb9-0ac381957698" action="Login" session="CPE" estimatedStepExecutionTime="1.925" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="2416d316-a622-45dd-8bc3-86d0dcf15601" action="open" session="EDGE">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8c267099-5892-4d50-84d3-6592535a2abc" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="58cb0a1b-481b-453e-a15b-aefb71d51a3c" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>from dhcp.dhcp_6_01_verify_dhcp_settings import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="390b4841-774f-4657-87c2-c864bcf5ce87" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="385d01c3-87fd-46ac-883b-dbf7c398f306" action="command" session="EDGE">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5120a9bf-34ef-432e-8823-f4d7dd5c1692" action="command" session="EDGE">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3835f287-5765-49ce-bf19-5cc5e8ac7c03" action="command" session="EDGE">
+                            <command>
+                                <body>ssh_port = &quot;[ssh_port]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f4365511-ee94-49b9-8915-484a687cb0f9" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id, ssh_port=ssh_port)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e5414c1a-fd5d-4344-a307-476aa559edd8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Setup: Checking if only Adtran CPE is being used and Checking for no Voice VLAN &gt; DHCP options...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4af376b0-5902-44c7-bfec-94c134b16f7e" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>set_up()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ab1a391d-f5ca-4f19-92ca-2207c9378ec9" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f251b61c-9a77-46ce-9895-22623dcc071f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Verify DHCP settings. Expecting no DHCP options...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="63071df9-60c8-4201-8ac4-98b0c4920f05" action="CheckDHCPSettings" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>has_dhcp_settings()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) not found. Clean DHCP settings as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) found. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="04dbae54-767c-4f05-88ed-a7b8667a1fa9" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6ce45c8e-6d2b-4e75-8b5b-975219b882e1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Adding DHCP settings (options 6, 15, 66, 160)...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5683c7b7-b9ce-4439-b0ec-0f602907a3ec" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>add_dhcp_options()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE: DHCP settings added successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Error adding DHCP settings. [value]. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3d19fa3b-e50c-4aba-ae02-f55f8ed7ba6d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping for 30 seconds to let changes take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7e6492a2-6f66-4417-adf3-63cdf8edcec3" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="932d271b-58d1-4c3d-bd16-31a4c85dabbb" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="206a975d-e899-48f5-91f1-e4d3be4c99ff" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Verify DHCP settings. Expecting DHCP settings (options 6, 15, 66, 160)...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b9ac14ae-c141-4195-8358-43a6316d931b" action="CheckDHCPSettings" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>has_dhcp_settings()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) found as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) not found. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e1102a84-fa99-4d72-8181-50d3347af8bd" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7dfac38b-1561-4cbd-ae4c-b2adf3291c81" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Removing DHCP settings (options 6, 15, 66, 160)...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="92b3e48a-51ee-46cf-889f-b66f20bf19e1" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_dhcp_options()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;error&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;None&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>EDGE: DHCP settings removed successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>EDGE: Error removing DHCP settings. [value]. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="02dd7320-c52f-4889-a44c-3355532000ba" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping for 30 seconds to let changes take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2955e87a-0db9-403e-828e-c0db0ce5a53c" action="sleep">
+                            <command>
+                                <body>30</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="268794f9-643d-4ff3-8cdd-dda62e0e52c2" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="96cafe89-340b-4b09-a4c0-5e1137877291" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Verify DHCP settings. Expecting no DHCP settings...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f70c7d62-a84b-42f9-8bf5-bdf65b3fd367" action="CheckDHCPSettings" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>has_dhcp_settings()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) not found. Clean DHCP settings as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CPE: DHCP settings (options 6, 15, 66, 160) found. Exiting execution.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bc5f9792-1d86-49b6-9152-214b830a26f5" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0fed1528-7faf-4945-bc0d-5b26c8fc883d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup: Checking for no Voice VLAN &gt; DHCP options...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="79cd49c8-baf5-440d-bf71-a40a93495b2d" action="call" useFieldsInCommand="false">
+                            <command>
+                                <body>clean_up()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="99424975-7fd1-4fe6-817d-f21572585ea0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Closing devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="20d21a1e-9dd0-49cb-95ec-49b46348ecf8" action="close" session="CPE">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="1d49dfc2-4e50-4c0b-9d5b-c70917be73f7" action="close" session="EDGE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="set_up">
+            <steps>
+                <item guid="c01eb06d-a6d7-43c0-8796-386638abde8c" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Test Case can only be tested against an Adtran CPE.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a0eecf30-9d6e-4c99-9f85-4d2ae3da1dd7" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>print(ssh_port)</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>int(value) == 2201</expression>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                    <message>Test Case can only be executed againts Adtran CPE. Exiting execution. </message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="ExitExecution">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="33332010-b66f-4a7b-ae15-78995a68063e" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>are_dhcp_options_empty()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;are_dhcp_options_empty&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>are_dhcp_options_empty</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7a22daff-99a0-4528-aa07-3cff016c55ae" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>are_dhcp_options_empty == &apos;no&apos;:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f269c1c0-bfd3-4fcd-a157-f7463c37236b" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Setup: DHCP options are not empty. Deleting DHCP options and sleeping for 20 seconds to let change take effect.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="eb006cae-a600-4733-ac58-da63ca5e603a" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_dhcp_options()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f8726503-58f6-4631-96b7-c42e96941903" action="sleep">
+                            <command>
+                                <body>20</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3dab1cb8-1e28-423c-b276-b73f6c5957fd" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Setup... Done</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="clean_up">
+            <steps>
+                <item guid="516f4d80-0582-42c7-8192-7df6b6022753" action="command" session="EDGE" useFieldsInCommand="false">
+                    <command>
+                        <body>are_dhcp_options_empty()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;are_dhcp_options_empty&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>are_dhcp_options_empty</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6b6fd73d-c33d-4167-8bec-23195382a2c1" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>are_dhcp_options_empty == &apos;no&apos;:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="15a6bf14-5bee-4a37-b689-c4b43da1fb9e" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Cleanup: DHCP options are not empty. Deleting DHCP options and sleeping for 20 seconds to let change take effect.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="7c6feef3-4cac-4e17-a5f8-0d803af4db16" action="command" session="EDGE" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_dhcp_options()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ef60b570-0e19-4a4f-9088-a4804c515c7b" action="sleep">
+                            <command>
+                                <body>20</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1646977f-e3d9-4036-9beb-7de8fa27c347" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup... Done</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <eventHandlers>
+        <item name="OnFailTestAction">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>EDGE Cleanup...</message>
+                </actionProperties>
+            </item>
+            <item actionId="CallProcedure">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                    <command>clean_up()</command>
+                </actionProperties>
+            </item>
+        </item>
+    </eventHandlers>
+</testCase>

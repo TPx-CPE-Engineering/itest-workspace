@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.1.0.77511">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <stepDefaults>
+                <completionProperties>
+                    <promptExtraction inherit="false">ANYWHERE</promptExtraction>
+                </completionProperties>
+            </stepDefaults>
+            <captureProperties>
+                <learnPrompts inherit="false">false</learnPrompts>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-C]</item>
+                </commandBreakChars>
+                <commandCompletionchars inherit="false">
+                    <item>[char TAB]</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="linux_priv" MatchMethod="WILDCARD">
+                    <Content>[*]#</Content>
+                </item>
+                <item name="captured" MatchMethod="WILDCARD">
+                    <Content>[*packets captured</Content>
+                </item>
+                <item name="linux_unpriv" MatchMethod="WILDCARD">
+                    <Content>[*]$*</Content>
+                </item>
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Sniffer/</responseLibrary>
+    <sessionClassTestCase inherit="false">Sniffer_ssh_quickcall_library.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

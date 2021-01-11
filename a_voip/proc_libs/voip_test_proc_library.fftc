@@ -1,0 +1,1836 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <general>
+        <documentation>VOIP Test Procedure Library</documentation>
+        <notes>Shared procedures commonly used by VOIP tests</notes>
+        <owner>Alex Orr</owner>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <testbed>project://a_voip/topologies/Adtran/lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <description>The entry point to the test case</description>
+            <steps>
+                <item guid="47f8faef-cce0-4214-aa0c-d2013cef5fdb" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4ce42794-a728-494f-9627-10c30bfe3a3a" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>set epoch [clock seconds]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f96a53cf-e223-4056-a3b1-d018db9c9790" action="call" useFieldsInCommand="false">
+                    <command>
+                        <body>GetBroadsoftTimestamp -epoch $epoch</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <response>{}</response>
+        </item>
+        <item name="AbacusStatsMessages" isPublic="true">
+            <description>Print Minimum PESQ Messages</description>
+            <steps>
+                <item guid="04d1e405-e32e-4746-89d6-071aae5e5828" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>[lsearch $channel_pesq_error_list 0] != -1</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="914eb1d1-4f3d-4a7d-9941-839c673846ee" action="then" useFieldsInCommand="false">
+                            <nestedSteps>
+                                <item guid="666c0a77-0f18-44c4-ae3d-2c79788b4b16" action="comment" useFieldsInCommand="false">
+                                    <command>
+                                        <body>If there are PESQ stats, get them (Must have a channel without PESQ errors)</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="15911cd0-7340-4518-a77b-9e9332bc19d7" action="GetQualityStats" session="$abacus_session" useFieldsInCommand="false" skippReporting="false">
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>mapped/Tabular/table1/table/row/Channel</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>channel_list</storageLocation>
+                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>mapped/Tabular/table1/table/row/PESQ</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>pesq_list</storageLocation>
+                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Abacus_tclsh/session_profiles/Abacus_tclsh_base.ffsp"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="c7598e07-4dc3-4a49-971c-f2823d405917" action="comment" useFieldsInCommand="false">
+                                    <command>
+                                        <body>Print minimum PESQ for all channels that did not have PESQ errors</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="810792ca-76a9-4c96-86ab-84b573005bcf" action="foreach" useFieldsInCommand="false">
+                                            <command>
+                                                <body>channel $channel_list pesq $pesq_list</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="97b834a2-cb41-4f53-ba94-c537bff909e8" action="if" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>[lindex $channel_pesq_error_list $channel] == 0</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="650405e3-82b1-459d-b020-cfd4ce418a88" action="then" useFieldsInCommand="false">
+                                                            <nestedSteps>
+                                                                <item guid="7f90d940-1288-4a40-9620-b1c32b824f00" action="comment" useFieldsInCommand="false">
+                                                                    <command>
+                                                                        <body>Print minimum PESQ for each channel</body>
+                                                                    </command>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                                <item guid="4ba286d1-619e-4d71-9aae-25de2c735e1f" action="eval" useFieldsInCommand="false">
+                                                                    <command>
+                                                                        <body>puts $pesq</body>
+                                                                    </command>
+                                                                    <postProcessing>
+                                                                        <analysisRules>
+                                                                            <item>
+                                                                                <extractorInfo extractorType="query">
+                                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                        <query>group1()</query>
+                                                                                    </extractorProperties>
+                                                                                </extractorInfo>
+                                                                                <processorInfo ruleType="assert">
+                                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                        <expression>$value &gt; [param pesq_warn]</expression>
+                                                                                        <actionsWhenTrue>
+                                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                                                    <message>Minimum PESQ on channel $channel: $pesq</message>
+                                                                                                </actionProperties>
+                                                                                            </item>
+                                                                                        </actionsWhenTrue>
+                                                                                    </ruleProperties>
+                                                                                </processorInfo>
+                                                                            </item>
+                                                                            <item>
+                                                                                <extractorInfo extractorType="query">
+                                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                        <query>group1()</query>
+                                                                                    </extractorProperties>
+                                                                                </extractorInfo>
+                                                                                <processorInfo ruleType="assert">
+                                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                        <expression>$value &lt;= [param pesq_warn] &amp;&amp; $value &gt; [param pesq_fail]</expression>
+                                                                                        <actionsWhenTrue>
+                                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                                                    <message>Minimum PESQ on channel $channel: $pesq</message>
+                                                                                                </actionProperties>
+                                                                                            </item>
+                                                                                        </actionsWhenTrue>
+                                                                                    </ruleProperties>
+                                                                                </processorInfo>
+                                                                            </item>
+                                                                            <item>
+                                                                                <extractorInfo extractorType="query">
+                                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                                        <query>group1()</query>
+                                                                                    </extractorProperties>
+                                                                                </extractorInfo>
+                                                                                <processorInfo ruleType="assert">
+                                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                        <expression>$value &lt;= [param pesq_fail] </expression>
+                                                                                        <actionsWhenTrue>
+                                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                                    <message>Minimum PESQ below threshold [param pesq_fail] on channel $channel: $pesq</message>
+                                                                                                </actionProperties>
+                                                                                            </item>
+                                                                                            <item actionId="FailTest">
+                                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                            </item>
+                                                                                        </actionsWhenTrue>
+                                                                                    </ruleProperties>
+                                                                                </processorInfo>
+                                                                            </item>
+                                                                        </analysisRules>
+                                                                    </postProcessing>
+                                                                    <eventHandlers>
+                                                                        <item name="OnQueryExtractorInvalidQuery">
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                                    <message>PESQ score not found for channel $channel</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="FailTest">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                            <item actionId="SkipRemainingRules">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </item>
+                                                                    </eventHandlers>
+                                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                </item>
+                                                            </nestedSteps>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Objective:  Print messages showing minimum PESQ stats
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. channel_pesq_error_list\t\t|   M   |  List containing channel PESQ error statuses
+2. abacus_session\t\t\t\t|   M   |   Session name of open Abacus session
+
+</multilineDescription>
+            <arguments>
+                <item name="channel_pesq_error_list">
+                    <description>List containing channel PESQ error statuses</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="abacus_session">
+                    <description>Session name of open Abacus session
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="ChangeDial" isPublic="true">
+            <description>Change Numbers Dialed in Abacus Script</description>
+            <steps>
+                <item guid="fc93d62c-5d9a-4965-a763-d520f9c5fdcb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Read file and create list of lines</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="798141bf-bc83-4278-a6d4-4bc77f363c1b" action="readFile" responseMap="project://a_voip/response_maps/script_file_output.ffrm">
+                            <command>
+                                <body>file:/C:/Abacus%205000/[param abacus_version]/SCRIPTS/iTest_Analog_Scripts.SCP</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>script_file</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup"/>
+                        </item>
+                        <item guid="e9594c49-dcf4-4bee-a687-440d3d634945" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set script_lines [split $script_file \\n]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="c4f385bf-fa06-435d-98c6-68955237ba39" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set script_length [llength $script_lines]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fcd08c03-6a6b-41f4-8c63-fa99dba7003e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Find line that desired script starts on</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9da67d23-b9b8-4cf9-baa8-249a891130d1" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>lsearch $script_lines \\[$script_name\\]</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>script_start</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3a59d352-f804-4485-9e07-32f810539132" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Loop over script file starting at beginning of desired script</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c92d0829-4275-4728-8af7-718ccd32c9f6" action="for" useFieldsInCommand="false">
+                            <command>
+                                <body>{set i [expr $script_start + 1]} {$i &lt; [llength $script_lines]} {incr i}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="cf46d811-b859-4cdb-9267-fae2abf908d0" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>set line [lindex $script_lines $i]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="5a922fd6-7cce-4ba3-a9c7-1905de406cfd" action="eval" responseMap="project://a_voip/response_maps/script_config_line.ffrm" useResponseMapLibraryApplicability="false" useFieldsInCommand="false">
+                                    <command>
+                                        <body>puts $line</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                        <query>line_num()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>script_line_num</storageLocation>
+                                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                                </item>
+                                <item guid="4c77fb50-f60a-4b6b-b311-b12e16eb0e34" action="if" useFieldsInCommand="false">
+                                    <command>
+                                        <body>[lsearch $change_line_num $script_line_num] != -1</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="1909825e-8ad7-4fba-a715-0d855e523b0d" action="then" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="458e435a-0297-45b7-a7b3-494732343c1b" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Create new line with new dial value between the square brackets]</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="f773f925-3c86-4fbb-b755-f88941de273b" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>string first \\[ $line</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>\\d*</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="assert">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                                <expression>$value == -1</expression>
+                                                                                <actionsWhenTrue>
+                                                                                    <item actionId="Break">
+                                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                                    </item>
+                                                                                </actionsWhenTrue>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="236cebe3-dfbb-4562-aa16-f965a82e3b73" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>set line_beginning [lindex [split $line \\[]  0]</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="c5061cee-ed52-4a77-95f9-d2628a61a1af" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>set new_line &quot;$line_beginning\\[$new_value\\]&quot;</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="6aa2a994-c0b8-4499-a6ef-92ca80d8655f" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Replace old line with new line</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="ee920013-cec6-4fff-b608-721bc5430659" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>set script_lines [lreplace $script_lines $i $i $new_line]</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <storeResponseAt>script_lines</storeResponseAt>
+                                                                <storeResponseText>true</storeResponseText>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="8f6acd2e-ad52-433a-93c5-89aff69c8c52" action="elseif" useFieldsInCommand="false">
+                                            <command>
+                                                <body>$line == &quot;&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="1789cbb1-ed95-49e3-b830-0aff8ff3d18f" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Break if current line is blank (end of script)</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="a67db058-897a-4a4b-8a74-ec7c63d8783b" action="break" useFieldsInCommand="false">
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6373ec57-2375-40d1-8fb3-0648e62b007f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Create new script file by joining list back together</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dced001f-2ff9-40ec-bf3c-ee742a6ac1a6" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set new_script_file [join $script_lines &quot;\\n&quot;]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f0f23569-bf91-4bcf-8ce5-bc1f7e0be69f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Write file back out</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d904c991-c863-4ab3-8fd5-c2f81d20f054" action="writeFile" useFieldsInCommand="false">
+                            <command>
+                                <body>file:/C:/Abacus%205000/[param abacus_version]/SCRIPTS/iTest_Analog_Scripts.SCP $new_script_file</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup">
+                                <appendMode>Overwrite</appendMode>
+                                <newLine>false</newLine>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Objective:  Change the value of lines of an Abacus script to modify a number dialed. Will replace whatever is currently between square brackets of desired lines.
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. script_name\t\t\t\t|   M   |   Name of script to modify
+2. change_line_num\t\t|   M   |   List of lines to modify
+3. new_value\t\t\t\t|   M   |   New value (extension, *code, etc) to change to</multilineDescription>
+            <arguments>
+                <item name="script_name">
+                    <description>Name of Abacus script to edit</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="change_line_num">
+                    <description>List of line numbers of script to edit</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="new_value">
+                    <description>New value (extension, *code, etc) to change to</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="CheckCPE" isPublic="true" isVBlock="true">
+            <description>Check CPE devices against stored golden configs</description>
+            <steps>
+                <item guid="54693309-55c5-4776-8900-df3fd83a4d12" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9b28b4bd-9055-4e74-baeb-16b96e94e3ba" action="open" session="cpe">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="bc4c754b-ab4f-4656-a4ef-e344759b0bcf" action="open" session="converter">
+                            <command>
+                                <body>device:converter#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="29911aa4-4c4d-4f49-a645-a3ee30b8107c" action="comment" async="true" threadName="cpe_change" useFieldsInCommand="false">
+                    <command>
+                        <body>Change CPE under test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a2e36f6d-e563-4e16-a0a2-f504d1f7df9b" action="Login" session="cpe" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Checking CPE config</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                        </item>
+                        <item guid="7611a555-908f-4a04-a770-cf8954c2fce5" action="CheckRunningConfig" session="cpe" useFieldsInCommand="false">
+                            <command>
+                                <body>-filename [param cpe_config_file]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>ERROR</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>Config mismatch found in primary CPE. Changing startup-config and rebooting. </message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>CPE config OK</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>config_status</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                        </item>
+                        <item guid="8d4d27cc-7227-45d0-a464-1e704fd9928b" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>$config_status != &quot;MATCH&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="12f89927-c651-494a-b5ab-aae363bdd2fb" action="then" useFieldsInCommand="false">
+                                    <nestedSteps>
+                                        <item guid="2860f829-d3d6-4800-a2e1-e652e95387cb" action="ChangeConfig" session="cpe" useFieldsInCommand="false">
+                                            <command>
+                                                <body>-filename [param cpe_config_file]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="469f7447-2600-4d13-9114-54b81f6eada5" action="close" session="cpe">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="b0f0acff-8dab-4696-9258-29e940466e14" action="comment" useFieldsInCommand="false">
+                                            <command>
+                                                <body>Waiting for CPE to reboot</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="72019812-8421-44c5-b38a-d62d07a88208" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Adtran (TA924e G2) takes about 1min and 45s to come back online after reboot.</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="4e991482-47fe-4804-ae02-9a5bc1145505" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>For Ciscos, value 240 (4 mins) was selected based on boot times, which are 3.5 mins for 2900 and 3.8 mins for 2400.</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="b18edde4-cd79-4cb0-adf6-16697060ddd4" action="eval" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>info testbedFile</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>adtran</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 1</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="Eval">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                                    <statement>set sleep_timer 105</statement>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>Test will resume in $sleep_timer seconds.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                        <actionsWhenFalse>
+                                                                            <item actionId="Eval">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                                    <statement>set sleep_timer 240</statement>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                            <item actionId="DeclareExecutionIssue">
+                                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                                    <message>Test will resume in $sleep_timer seconds.</message>
+                                                                                </actionProperties>
+                                                                            </item>
+                                                                        </actionsWhenFalse>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="776c30f4-ee52-451b-a084-f634911b4026" action="sleep">
+                                                    <command>
+                                                        <body>$sleep_timer</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="acc9ea91-1b8a-43b1-8f11-53ce18ee9322" action="open" session="cpe">
+                                            <command>
+                                                <body>device:CPE#ssh</body>
+                                            </command>
+                                            <eventHandlers>
+                                                <item name="OnTerminalOpenConnectionFail">
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" delayBetweenRepeats="30.0"/>
+                                                    </item>
+                                                </item>
+                                            </eventHandlers>
+                                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </applicationProperties>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="7510980d-b82a-4ba4-baab-300efa8834c8" action="Login" session="cpe" useFieldsInCommand="false">
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="fca28733-fc17-42d9-906c-bf6b2f3212cc" action="eval" useFieldsInCommand="false">
+                                            <command>
+                                                <body>puts yes</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="regex">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                <regex>.*</regex>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>var1</storageLocation>
+                                                                <query>[return cpe_rebooted]</query>
+                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3bc7ac28-29e3-4afa-a8c3-8e54e18346c3" action="comment" async="true" threadName="conv_change" useFieldsInCommand="false">
+                    <command>
+                        <body>Change converter CPE</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="25fa7f57-1eb2-43bd-abd2-db93257a0034" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>[param prim_int] != &quot;N/A&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="61e6ef2a-9d30-49e4-8cb4-c2237dc0d06f" action="then" useFieldsInCommand="false">
+                                    <nestedSteps>
+                                        <item guid="cb0b1e85-e3cb-4730-bc0f-3312ac5ecc84" action="Login" session="converter" useFieldsInCommand="false">
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="none">
+                                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="message">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                <message>Checking converter config</message>
+                                                                <tag sub="false" defaultValue=""/>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="69136c6c-a609-4aec-a049-d799ef3f7e32" action="CheckRunningConfig" session="converter" useFieldsInCommand="false">
+                                            <command>
+                                                <body>-filename [param conv_config_file]</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="contains">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                <searchString>ERROR</searchString>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="assert">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                <expression>$value == 1</expression>
+                                                                <actionsWhenTrue>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                            <message>Config mismatch found in converter CPE. Changing startup-config and rebooting. </message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenTrue>
+                                                                <actionsWhenFalse>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                                            <message>Converter config OK</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenFalse>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                                <storeResponseAt>config_status</storeResponseAt>
+                                                <storeResponseText>true</storeResponseText>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                        </item>
+                                        <item guid="23d820a2-dd86-412a-a765-7e58462083a6" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>$config_status != &quot;MATCH&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="e216ca9a-2a9a-48f7-b94c-336e109d0926" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="2f5c5358-75e3-4fae-b6ba-fae59b951421" action="ChangeConfig" session="converter" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>-filename [param conv_config_file]</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                                        </item>
+                                                        <item guid="f709d044-1fbc-4e41-adc3-206032539226" action="close" session="converter">
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                                        </item>
+                                                        <item guid="77a92ed0-5973-4c47-9149-e86e802e35dd" action="comment" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>Adtran Converter CPE (TA924e G2) takes about 1min and 45s to come back online after reboot. Setting sleep values accordingly.</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="726824ee-6a23-43a9-a8a2-6882a2de795b" action="sleep">
+                                                            <command>
+                                                                <body>105</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="292477c5-9f9e-4365-a1b4-492585dd661f" action="open" session="converter">
+                                                            <command>
+                                                                <body>device:converter#ssh</body>
+                                                            </command>
+                                                            <eventHandlers>
+                                                                <item name="OnTerminalOpenConnectionFail">
+                                                                    <item actionId="RepeatStep">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" delayBetweenRepeats="30.0"/>
+                                                                    </item>
+                                                                </item>
+                                                            </eventHandlers>
+                                                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </applicationProperties>
+                                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                                        </item>
+                                                        <item guid="aa7a62a1-1978-492e-92a3-6c95bb5dc74d" action="Login" session="converter" useFieldsInCommand="false">
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                                        </item>
+                                                        <item guid="28163694-eb54-4fb4-b67c-b75274c51b8e" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>puts yes</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="store">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                                <storageLocation>var1</storageLocation>
+                                                                                <query>[return conv_rebooted]</query>
+                                                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <advancedProperties defaultSessionProfile="project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="71ed7acf-cc23-4e44-85a7-c2c8cf625349" action="waitthread">
+                    <command>
+                        <body>conv_change</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+                <item guid="a4add4a3-b5c9-40ba-9020-b2a269f09b00" action="waitthread">
+                    <command>
+                        <body>cpe_change</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+                <item guid="72a7b05a-7ce3-42d1-bda1-a281fe3180ca" action="GetIntStatus" session="cpe" useFieldsInCommand="false">
+                    <command>
+                        <body>-interface [param prim_int]</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>mapped/Json/int_status</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value eq &quot;UP&quot; || $value eq &quot;up&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>CPE &quot;[param prim_int]&quot; interface is up after CPE config check</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>CPE &quot;[param prim_int]&quot; interface is down. Test will abort</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="ExitExecution">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <eventHandlers>
+                        <item name="OnRepeatStepMaxCountExceeded">
+                            <item actionId="DeclareExecutionIssue">
+                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                    <message>Primary CPE not ready.</message>
+                                </actionProperties>
+                            </item>
+                            <item actionId="AbortExecution">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                            <item actionId="FailTest">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                        </item>
+                    </eventHandlers>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6414c27a-03ba-4bc2-814a-35113c9e4756" action="GetRegStatus" session="cpe" useFieldsInCommand="false">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>mapped/Json/reg_status</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value eq &quot;OK&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Primary CPE reports all lines are registered</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Primary CPE still reports an unregistered line. Test will abort</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="ExitExecution">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <eventHandlers>
+                        <item name="OnRepeatStepMaxCountExceeded">
+                            <item actionId="DeclareExecutionIssue">
+                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                    <message>Primary CPE not ready.</message>
+                                </actionProperties>
+                            </item>
+                            <item actionId="AbortExecution">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                            <item actionId="FailTest">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                        </item>
+                    </eventHandlers>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="87d4188d-81c8-4c77-83de-dfa38e7a5e78" action="close" session="cpe" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3a905b91-36da-4b49-92e6-8d92abbb02ea" action="close" session="converter">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <response>{&quot;cpe_rebooted&quot;:&quot;value&quot;,&quot;conv_rebooted&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="CheckCompletionsXML" isPublic="true">
+            <steps>
+                <item guid="ea9d09d2-999a-4682-8b9a-efec0d8d7809" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Loop through channel stats and report errors</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2044f751-5656-4ab8-b070-17dcd9b15164" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set i 1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="bcda5182-1a7a-45c4-9b0f-00bad7280f3b" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>set pass 1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="abe919ce-799c-471f-a9e6-8e81377e579a" action="foreach" useFieldsInCommand="false">
+                            <command>
+                                <body>cur_percent $script_completions</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="1f4b5f23-f817-4078-9bb3-989c82225486" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>puts $cur_percent</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value == 100</expression>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>$value percent of call waiting scripts succeeded on channel $i</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="Eval">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                    <statement>set pass 0</statement>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="03c7226c-5079-49de-a91f-ab708c5ac2a1" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>incr i</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4318c792-c9de-48d8-9acd-a93dba65fe6b" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>puts $pass</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>group1()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message> All attempted call waiting scripts successful</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="script_completions">
+                    <description>List of script completion percentages
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="EmailResults" isPublic="true">
+            <steps>
+                <item guid="9a0592a3-07b2-45a2-ac63-69d671245bbd" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Gather the statistics: my_summary, device, topology, params, total_tests, successful_tests, failed_tests</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f2c4870f-ad5e-4f3c-9783-2ee102097b7f" action="eval" responseMap="project://d_Mail_smtp/response_maps/test_results.ffrm" useResponseMapLibraryApplicability="false" useFieldsInCommand="false">
+                            <command>
+                                <body>puts ${Summary}</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Completion_Result()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>completion_result</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Test_Case()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>test_case</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Location()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>location</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Start_Time()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>start_time</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Duration()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>duration</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Report_Id()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>report_id</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                <query>Child_Test_Cases()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>child_test_cases</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                <query>execution_messages_Message_all()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>all_responses</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                                <query>runlist_messages_Message_all()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>all_responses</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_summary</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f7457a05-e8af-4cf9-849b-d55943c76e09" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Fill in and send email</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="53ff6c33-a489-4435-a9e1-942f231d75ff" action="open" session="local_pc">
+                            <command>
+                                <body>device:local_pc#mail</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+                                    <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </sessionProperties>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="42fc1fdc-fc4a-4c9a-88e2-9c406c7b5931" action="from" session="local_pc" normalOffset="38.26">
+                            <command>
+                                <body>cpe-itest@tpx.com</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="036714ee-ee61-46d4-a27e-07979e71932e" action="to" session="local_pc">
+                            <command>
+                                <body>[lindex [param email_recipients] 0]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1acc355f-5228-4dc0-a492-8bf1f080ae8d" action="for" useFieldsInCommand="false">
+                            <command>
+                                <body>{set i 1} {$i &lt; [llength [param email_recipients] ]} {incr i}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="62c9ee0d-e1d8-4a0c-bf18-adc247d5392e" action="cc" session="local_pc">
+                                    <command>
+                                        <body>[lindex [param email_recipients] $i]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="873207bc-3c72-410f-99ab-04c6ebe915b7" action="subject" session="local_pc" normalOffset="0.002">
+                            <command>
+                                <body>$test_case  $report_id</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="7fbe29c1-ed97-41c0-80ae-471cfa54a0c7" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Write header statistics</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f0268b37-8087-4116-8762-d8c96b125752" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Completion result: $completion_result</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="7ef79180-ba32-4c5f-91d7-cecb43d0211b" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Test case: $test_case</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="cb2a0131-add5-4ad7-89cd-487822c0e037" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Location: $location</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="13c92743-9ba1-4668-92df-3ef18af25c31" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Start time: $start_time</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="ef4fdef8-9b1d-4658-9f4d-992c381e0055" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Duration: $duration</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="fdb5d7f3-7b5f-40a8-b177-29a3e1d3e63a" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <command>
+                                        <body>Report id: $report_id</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="e7527dab-aac1-4f5f-a74a-2f750c012772" action="if" useFieldsInCommand="false">
+                                    <command>
+                                        <body>[info exists local child_test_cases]</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="e7740388-1fc2-4158-8600-a582c36ba1e6" action="then" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="7cd7e0e3-bf51-4c2b-a24d-e8fec592b04d" action="writeLine" session="local_pc" normalOffset="0.001">
+                                                    <command>
+                                                        <body>Child Test Cases: $child_test_cases</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                        <item guid="dbdb7231-f3e2-4ea4-97e3-22767d7d9cca" action="else" useFieldsInCommand="false">
+                                            <nestedSteps>
+                                                <item guid="54f9091e-eb51-4e36-8353-5d104dbb81b9" action="comment" useFieldsInCommand="false">
+                                                    <command>
+                                                        <body>Insert steps here for when the expression evaluates to false</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="79075216-8346-4363-bf5d-5e30adc9d4c8" action="writeLine" session="local_pc" normalOffset="0.001">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4f6bf7da-870c-4e88-a08a-ec21f69a8d3a" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Write failed test cases</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="601c8045-4bc9-4c2c-9145-dd19628914db" action="writeLine" session="local_pc">
+                                    <command>
+                                        <body>$all_responses</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="264dd2a1-edf4-47cd-9597-4f99e2c9cffa" action="send" session="local_pc" normalOffset="0.004">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="Summary">
+                    <defaultValue>thisisnotsummary</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{}</response>
+        </item>
+        <item name="GenerateCsvReport" isPublic="true">
+            <description>Generate a CSV report for one test run</description>
+            <steps>
+                <item guid="07bff74c-0864-4c3e-b223-7b74c4e1bc4a" action="if" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>[file exists $filepath/$filename] == 0</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4d3e924f-039c-4638-a90d-f1a7f236f416" action="then" useFieldsInCommand="false">
+                            <nestedSteps>
+                                <item guid="6dd967fa-9853-4230-99ce-70aeded58dd1" action="comment" useFieldsInCommand="false">
+                                    <command>
+                                        <body>If file doesn&apos;t exist, create it.</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="74233618-7f35-4ad3-8465-6569595e1376" action="writeFile" useFieldsInCommand="false">
+                                    <command>
+                                        <body>$filepath/$filename &quot;Test Case,Timestamp,Overall Status,Broadsoft Configuration,Call/Feature Completion,User Experience,Test Case ID,PCAPs,Comments&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="de6fb55d-7d0e-4737-a786-1e11a40be98f" action="eval" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>set timestamp [clock format [clock seconds] -format %d-%m-%Y_%H:%M:%S]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7457257b-059e-4b05-a383-b6a0538762db" action="writeFile" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>$filepath/$filename &quot;$test_case,$timestamp,$overall_status,$broadsoft_status,$call_status,$quality_status,$report_id,$pcaps,$comments&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                </item>
+            </steps>
+            <author>Alex Orr</author>
+            <version>1.0</version>
+            <multilineDescription>Objective:  Generate summary CSV report for one test run. If argument filename exists, appends the result to the file. If not, creates the file. 
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. filename\t\t\t\t|   M   |   Filename of CSV file. Will append results to this file or create it if it does not exist.
+2. filepath\t\t\t\t|   M   |   Path to directory to store files in.  Defaults to a_voip/summary_reports.
+3. test_case\t\t\t|   M   |   Name of test case 
+4. overall_status\t\t\t|   M   |\tOverall pass/fail status for the test case 
+5. broadsoft_status \t\t|   M   |   Broadsoft milestone status
+6. call_status\t\t\t|   M   |   Call/Feature script status
+7. quality_status\t\t|   M   |   Call quality/ user experiecne milestone status
+8. report_id\t\t\t\t|   M   |   Report ID number for the test run 
+9. pcaps\t\t\t\t|   M   |   List of PCAP file names produced by the test
+10. comments\t\t\t|   O    |   Optional comments
+
+
+_____________________________________________________
+</multilineDescription>
+            <arguments>
+                <item name="filename">
+                    <description>Filename of CSV file. Will append results to this file or create it if it does not exist.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="filepath">
+                    <description>Path to directory to store files in. </description>
+                    <defaultValue>project://a_voip/summary_reports</defaultValue>
+                </item>
+                <item name="test_case">
+                    <description>Name of test case </description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="overall_status">
+                    <description>Overall pass/fail status for the test case </description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="broadsoft_status">
+                    <description>Broadsoft milestone status</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="call_status">
+                    <description>Call/Feature script status</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="quality_status">
+                    <description>Call quality/ user experiecne milestone status</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="report_id">
+                    <description>Report ID number for the test run </description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="pcaps">
+                    <description>List of PCAP files generated by testcase
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="comments">
+                    <description>Optional comments to include in report</description>
+                    <defaultValue> </defaultValue>
+                </item>
+            </arguments>
+            <response>{}</response>
+        </item>
+        <item name="GetBroadsoftTimestamp" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="30a037ae-5c3a-435e-84b8-670a1d43f776" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>set new_time [expr $epoch + $offset_seconds]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2a9d9d55-520a-4502-aea2-852c4ec377da" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Get timestamp regardless of timezone test is executed in. External Tcl 8.5 must be installed.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="010d8991-5a60-4dd7-b86c-49e84585cd37" action="open" session="tcl">
+                            <command>
+                                <body>application:com.fnfr.svt.applications.tclsh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties">
+                                    <tclProperties>
+                                        <interpreterLocation inherit="false">C:/Tcl/bin/tclsh85.exe</interpreterLocation>
+                                    </tclProperties>
+                                </sessionProperties>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="183e003e-135d-4945-a483-ae0f14ee8667" action="command" session="tcl">
+                            <command>
+                                <body>set new_time $new_time</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b4060c00-b845-4b15-80a5-4963e47cf58e" action="command" session="tcl" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_time [clock format $new_time -format &quot;%I:%M&quot; -timezone :America/Los_Angeles]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return time]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="79bbba9e-2018-4996-a015-418df229fa8d" action="command" session="tcl" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_ampm [clock format $new_time -format &quot;%p&quot;  -timezone :America/Los_Angeles]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return ampm]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6d418854-7400-4475-b320-57454718d97d" action="command" session="tcl" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_date [clock format $new_time -format &quot;%m/%d/%Y&quot; -timezone :America/Los_Angeles]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return date]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b6d0d612-b13b-40c6-8f3f-904a3c23f829" action="close" session="tcl" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9fd6e1bf-b8a9-40be-b8ad-9c260260100e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Get timestamp if in same timezone as broadsoft. No need for external Tcl.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="107d8867-07bf-48d4-ae63-238f469b5e73" action="eval" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_time [clock format $new_time -format &quot;%I:%M&quot;]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return time]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="bb1cacb2-6ca2-4eb4-b545-33fbb15391ae" action="eval" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_ampm [clock format $new_time -format &quot;%p&quot;]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return ampm]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="9f6eafd0-d578-4d25-9a35-b144784608aa" action="eval" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>set end_date [clock format $new_time -format &quot;%m/%d/%Y&quot;]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                <regex>.*</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>[return date]</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Returns a timestamp used by broadsoft&apos;s scheduling tools in the Web GUI. </multilineDescription>
+            <arguments>
+                <item name="epoch">
+                    <description>Time to convert in seconds since epoch.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="offset_seconds">
+                    <description>Optional. Number of seconds to change the timestamp by.
+If non-zero, will return a timestamp that is the value of the epoch value plus this value.</description>
+                    <defaultValue>0</defaultValue>
+                </item>
+            </arguments>
+            <response>{&quot;date&quot;:&quot;value&quot;,&quot;time&quot;:&quot;value&quot;,&quot;ampm&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="GetXML" isPublic="true" defaultSessionProfile="project://d_Abacus_tclsh/session_profiles/Abacus_tclsh_base.ffsp">
+            <steps>
+                <item guid="e186fd89-ec48-427f-a34c-e28178710672" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>regsub -all {\\\\} $report_path / linux_path</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6fe33be3-539d-4c23-b188-32e48ecef56e" action="GetXmlReport" session="Abacus100" responseMap="project://d_Abacus_tclsh/response_maps/abacus_xml_report_xpath.ffrm" useFieldsInCommand="false">
+                    <command>
+                        <body>-download_path $linux_path -filename $report_filename</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>xml_report</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b60a3322-6803-4cab-b000-aa93b11bf6ed" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Delete XML report</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7c06465d-2a20-4161-9571-e5f06858becd" action="open" session="cmd">
+                            <command>
+                                <body>application:com.fnfr.svt.applications.cmd</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="7e85f712-fdcf-48a9-a397-16c9baac4765" action="command" session="cmd">
+                            <command>
+                                <body>cd $report_path</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="3f3dc71b-b000-4e01-aa95-09221e00bd0c" action="command" session="cmd">
+                            <command>
+                                <body>del $report_filename</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1df3a9c3-7450-48a9-927b-7f215ecc9293" action="return">
+                    <command>
+                        <body>$xml_report</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="report_path">
+                    <description>Temp folder to save reports in on local disk
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="report_filename">
+                    <description>Default report filename used by Abacus
+(found in File-&gt;Report Generation-&gt;Advanced)
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

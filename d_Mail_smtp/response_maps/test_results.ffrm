@@ -1,0 +1,879 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.1.3.0">
+    <sampleDictionary>
+        <item name="sample2">
+            <action actionType="eval">
+                <command>
+                    <body>print(results)</body>
+                </command>
+            </action>
+            <responseBody>Completion Result: Fail
+Test Case:         Edge_TestSuite
+Location:          project://a_voip/test_suites/Edge_TestSuite.fftc
+Owner:             
+Start Time:        Thu Mar 05 08:47:05 PST 2020
+Duration:          00:03:29
+Total Issues:      4
+Report Id:         23725
+Child Test Cases : 2 with 1 unexpected results
+
+* - indicates unexpected result
+
+
+Child Test Cases (Unexpected Results) : 1
+* Result Testcase                              Owner      Duration StartTime   ReportId Location                                                                                                 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Pass   firewall_verify_outbound_source_rules Juan Brena 00:02:18 08:48:16 AM 23743    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_source_rules.fftc
+
+
+Child Test Cases (All Results) : 2
+* Result Testcase                                   Owner      Duration StartTime   ReportId Location                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Pass   firewall_verify_outbound_destination_rules Juan Brena 00:01:11 08:47:05 AM 23734    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_destination_rules.fftc
+* Pass   firewall_verify_outbound_source_rules      Juan Brena 00:02:18 08:48:16 AM 23743    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_source_rules.fftc     
+
+
+
+Execution issues for this test case:
+Sev. Proc. Step    Message                                                                                                              
+------------------------------------------------------------------------------------------------------------------------------------------------------
+info main          Execution started                                                                                                    
+info main          Testbed used in execution: project://a_voip/topologies/VeloCloud/VC520_lab_basic_adtran.tbml                         
+pass main  1.1.1.1 Test case &quot;firewall_verify_outbound_destination_rules&quot; run result was &quot;Pass&quot; as expected.                            
+fail main  1.1.2.1 Unexpected result &quot;Pass&quot; when executing test case &quot;firewall_verify_outbound_source_rules&quot;.  Expected &quot;Indeterminate&quot;.
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Completion Result: Fail&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample3">
+            <action actionType="eval">
+                <command>
+                    <body>print(results)</body>
+                </command>
+            </action>
+            <responseBody>Completion Result: Fail
+Test Case:         Edge_TestSuite
+Location:          project://a_voip/test_suites/Edge_TestSuite.fftc
+Owner:             
+Start Time:        Thu Mar 05 09:22:54 PST 2020
+Duration:          00:05:44
+Total Issues:      5
+Report Id:         23752
+Child Test Cases : 3 with 3 unexpected results
+
+* - indicates unexpected result
+
+
+Child Test Cases (Unexpected Results) : 3
+* Result Testcase                                   Owner      Duration StartTime   ReportId Location                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Pass   firewall_verify_outbound_destination_rules Juan Brena 00:01:19 09:22:54 AM 23761    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_destination_rules.fftc
+* Pass   firewall_verify_outbound_source_rules      Juan Brena 00:02:01 09:24:14 AM 23770    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_source_rules.fftc     
+* Pass   firewall_verify_port_forwarding            Juan Brena 00:02:22 09:26:15 AM 23779    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_port_forwarding.fftc           
+
+
+Child Test Cases (All Results) : 3
+* Result Testcase                                   Owner      Duration StartTime   ReportId Location                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Pass   firewall_verify_outbound_destination_rules Juan Brena 00:01:19 09:22:54 AM 23761    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_destination_rules.fftc
+* Pass   firewall_verify_outbound_source_rules      Juan Brena 00:02:01 09:24:14 AM 23770    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_source_rules.fftc     
+* Pass   firewall_verify_port_forwarding            Juan Brena 00:02:22 09:26:15 AM 23779    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_port_forwarding.fftc           
+
+
+
+Execution issues for this test case:
+Sev. Proc. Step    Message                                                                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------------
+info main          Execution started                                                                                                         
+info main          Testbed used in execution: project://a_voip/topologies/VeloCloud/VC520_lab_basic_adtran.tbml                              
+fail main  1.1.1.1 Unexpected result &quot;Pass&quot; when executing test case &quot;firewall_verify_outbound_destination_rules&quot;.  Expected &quot;Indeterminate&quot;.
+fail main  1.1.2.1 Unexpected result &quot;Pass&quot; when executing test case &quot;firewall_verify_outbound_source_rules&quot;.  Expected &quot;Indeterminate&quot;.     
+fail main  1.1.3.1 Unexpected result &quot;Pass&quot; when executing test case &quot;firewall_verify_port_forwarding&quot;.  Expected &quot;Indeterminate&quot;.           
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Completion Result: Fail&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample1">
+            <action actionType="eval">
+                <command>
+                    <body>print(results)</body>
+                </command>
+            </action>
+            <responseBody>Completion Result: Pass
+Test Case:         Edge_TestSuite
+Location:          project://a_voip/test_suites/Edge_TestSuite.fftc
+Owner:             
+Start Time:        Thu Mar 05 13:31:06 PST 2020
+Duration:          00:00:57
+Total Issues:      3
+Report Id:         24391
+Child Test Cases : 1 with 0 unexpected results
+
+* - indicates unexpected result
+
+
+No child test cases with unexpected results
+
+
+Child Test Cases (All Results) : 1
+* Result Testcase                                   Owner      Duration StartTime   ReportId Location                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Pass   firewall_verify_outbound_destination_rules Juan Brena 00:00:57 01:31:06 PM 24400    project://a_voip/test_cases/SD-WAN/General%20Function/Firewall/firewall_verify_outbound_destination_rules.fftc
+
+
+
+Execution issues for this test case:
+Sev. Proc. Step    Message                                                                                     
+------------------------------------------------------------------------------------------------------------------------------------------------------
+info main          Execution started                                                                           
+info main          Testbed used in execution: project://a_voip/topologies/VeloCloud/VC520_lab_basic_adtran.tbml
+pass main  1.1.1.1 Test case &quot;firewall_verify_outbound_destination_rules&quot; run result was &quot;Pass&quot; as expected.   
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Completion Result: Pass&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample4">
+            <action actionType="eval">
+                <command>
+                    <body>print(results)</body>
+                </command>
+            </action>
+            <responseBody>Completion Result: Fail
+Test Case:         CPE_Eng_TestSuite_PRI-SIP
+Location:          project://a_voip/test_suites/CPE_Eng_TestSuite_PRI-SIP.fftc
+Owner:             
+Start Time:        Thu Mar 26 13:05:45 PDT 2020
+Duration:          08:24:07
+Total Issues:      84
+Report Id:         33166
+Child Test Cases : 69 with 16 unexpected results
+
+* - indicates unexpected result
+
+
+Child Test Cases (Unexpected Results) : 16
+* Result Testcase                                               Owner Duration StartTime   ReportId Location                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Fail   P1.08-Non-Super-G3_Fax                                       00:18:45 01:22:15 PM 33238    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+* Fail   P1.08-Non-Super-G3_Fax                                       00:07:58 01:42:00 PM 33256    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+* Fail   P1.08-Non-Super-G3_Fax                                       00:16:01 01:50:59 PM 33283    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+* Fail   2.09-Call_Forward_Selective                                  00:29:23 02:54:13 PM 33382    project://a_voip/test_cases/On_Net/2.09-Call_Forward_Selective.fftc                           
+* Fail   2.09-Call_Forward_Selective                                  00:28:58 03:24:37 PM 33391    project://a_voip/test_cases/On_Net/2.09-Call_Forward_Selective.fftc                           
+* Fail   2.09-Call_Forward_Selective                                  00:28:35 03:54:36 PM 33400    project://a_voip/test_cases/On_Net/2.09-Call_Forward_Selective.fftc                           
+* Fail   2.10-Selective_Call_Acceptance                               00:08:47 04:23:13 PM 33409    project://a_voip/test_cases/On_Net/2.10-Selective_Call_Acceptance.fftc                        
+* Fail   2.19-Call_Park                                               00:07:02 05:42:48 PM 33490    project://a_voip/test_cases/On_Net/2.19-Call_Park.fftc                                        
+* Fail   2.19-Call_Park                                               00:05:54 05:50:50 PM 33499    project://a_voip/test_cases/On_Net/2.19-Call_Park.fftc                                        
+* Fail   3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s       00:02:54 06:50:58 PM 33634    project://a_voip/test_cases/On_Net/3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s.fftc
+* Fail   3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s       00:03:00 06:54:53 PM 33643    project://a_voip/test_cases/On_Net/3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s.fftc
+* Fail   3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s       00:02:54 06:58:53 PM 33652    project://a_voip/test_cases/On_Net/3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s.fftc
+* Fail   3.09-Call_Pickup_Groups                                      00:03:29 07:01:48 PM 33661    project://a_voip/test_cases/On_Net/3.09-Call_Pickup_Groups.fftc                               
+* Fail   4.03-Authorization_Codes                                     00:19:16 07:21:45 PM 33706    project://a_voip/test_cases/On_Net/4.03-Authorization_Codes.fftc                              
+* Fail   4.03-Authorization_Codes                                     00:18:36 07:42:01 PM 33715    project://a_voip/test_cases/On_Net/4.03-Authorization_Codes.fftc                              
+* Fail   6.01-Calling_Trace                                           00:02:36 08:48:23 PM 33760    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc                                    
+
+
+
+Execution issues for this test case:
+Sev.    Proc. Step         Message                                                                                                                      
+------------------------------------------------------------------------------------------------------------------------------------------------------
+info    main               Execution started                                                                                                            
+info    main               Testbed used in execution: project://a_voip/topologies/VeloCloud/VC610_lab_basic_adtran.tbml                                 
+pass    main  2.1          Test case &quot;1.01-IAD_to_IAD_Calls&quot; run result was &quot;Pass&quot; as expected.                                                         
+pass    main  3.1          Test case &quot;P1.01-IAD_to_PSTN_Originator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                                         
+pass    main  4.1          Test case &quot;P1.02-IAD_to_PSTN_Call_Cancel&quot; run result was &quot;Pass&quot; as expected.                                                 
+pass    main  5.1          Test case &quot;P1.03-IAD_to_PSTN_Terminator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                                         
+pass    main  6.1          Test case &quot;P1.04-PSTN_to_IAD_Originator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                                         
+pass    main  7.1          Test case &quot;P1.05-PSTN_to_IAD_Call_Cancel&quot; run result was &quot;Pass&quot; as expected.                                                 
+pass    main  8.1          Test case &quot;P1.06-PSTN_to_IAD_Terminator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                                         
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.                                
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.                                
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.                                
+fail    main  9.1          Maximum number of attempts of 3 has reached the limit                                                                        
+warning main  9.2.1.1.1.1  &quot;Abacus error. Test will abort. &quot;                                                                                            
+warning main  9.2.1.1.1.1  &quot;Error messages from attempted run: {Abacus script timeout of 300 seconds exceeded.}#&quot;                                       
+pass    main  10.1         Test case &quot;2.01-Calling_Number_Delivery&quot; run result was &quot;Pass&quot; as expected.                                                  
+pass    main  11.1         Test case &quot;2.02-Calling_Name_Delivery&quot; run result was &quot;Pass&quot; as expected.                                                    
+pass    main  12.1         Test case &quot;2.03-Calling_Name_Delivery_Group&quot; run result was &quot;Pass&quot; as expected.                                              
+pass    main  13.1         Test case &quot;2.04-Caller_ID_On_Call_Waiting&quot; run result was &quot;Pass&quot; as expected.                                                
+pass    main  14.1         Test case &quot;2.05-Series_Completion&quot; run result was &quot;Pass&quot; as expected.                                                        
+pass    main  15.1         Test case &quot;2.06-Call_Forward_Always&quot; run result was &quot;Pass&quot; as expected.                                                      
+pass    main  16.1         Test case &quot;2.07-Call_Forward_No_Answer&quot; run result was &quot;Pass&quot; as expected.                                                   
+pass    main  17.1         Test case &quot;2.08-CFNA_Change_Times&quot; run result was &quot;Pass&quot; as expected.                                                        
+fail    main  18.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.09-Call_Forward_Selective&quot;.  Expected &quot;Pass&quot;.                           
+fail    main  18.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.09-Call_Forward_Selective&quot;.  Expected &quot;Pass&quot;.                           
+fail    main  18.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.09-Call_Forward_Selective&quot;.  Expected &quot;Pass&quot;.                           
+fail    main  18.1         Maximum number of attempts of 3 has reached the limit                                                                        
+warning main  18.2.1.1.1.1 &quot;Step 1: Channel 2, Unexpected congestion &quot;                                                                                  
+warning main  18.2.1.1.1.1 &quot;Step 3: Channel 3, No path confirm (first) &quot;                                                                                
+warning main  18.2.1.1.1.1 &quot;Step 3: Channel 2, No path confirm (first) &quot;                                                                                
+warning main  18.2.1.1.1.1 &quot;Call forward script failed. &quot;                                                                                               
+warning main  18.2.1.1.1.1 &quot;PESQ score not found for channel 2&quot;                                                                                         
+warning main  18.2.1.1.1.1 &quot;PESQ score not found for channel 3&quot;                                                                                         
+fail    main  19.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.10-Selective_Call_Acceptance&quot;.  Expected &quot;Pass&quot;.                        
+pass    main  19.1         Test case &quot;2.10-Selective_Call_Acceptance&quot; run result was &quot;Pass&quot; as expected.                                                
+pass    main  20.1         Test case &quot;2.11-Sequential_Ring&quot; run result was &quot;Pass&quot; as expected.                                                          
+pass    main  21.1         Test case &quot;2.12-Simultaneous_Ring&quot; run result was &quot;Pass&quot; as expected.                                                        
+pass    main  22.1         Test case &quot;2.13-Call_Forward_Busy&quot; run result was &quot;Pass&quot; as expected.                                                        
+pass    main  23.1         Test case &quot;2.14-Call_Waiting_Call_Waiting_Cancel_Per_Call&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  24.1         Test case &quot;2.15-Call_Waiting_Persistent&quot; run result was &quot;Pass&quot; as expected.                                                  
+pass    main  25.1         Test case &quot;2.17-Last_Number_Redial&quot; run result was &quot;Pass&quot; as expected.                                                       
+pass    main  26.1         Test case &quot;2.18-Call_Return&quot; run result was &quot;Pass&quot; as expected.                                                              
+fail    main  27.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.19-Call_Park&quot;.  Expected &quot;Pass&quot;.                                        
+fail    main  27.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.19-Call_Park&quot;.  Expected &quot;Pass&quot;.                                        
+pass    main  27.1         Test case &quot;2.19-Call_Park&quot; run result was &quot;Pass&quot; as expected.                                                                
+pass    main  28.1         Test case &quot;2.20-Do_Not_Disturb&quot; run result was &quot;Pass&quot; as expected.                                                           
+pass    main  29.1         Test case &quot;2.23-Extension_Dialing&quot; run result was &quot;Pass&quot; as expected.                                                        
+pass    main  30.1         Test case &quot;2.24-Speed_Dial_8&quot; run result was &quot;Pass&quot; as expected.                                                             
+pass    main  31.1         Test case &quot;2.25-Speed_Dial_100&quot; run result was &quot;Pass&quot; as expected.                                                           
+pass    main  32.1         Test case &quot;2.26-Voice_VPN_Station_to_Station&quot; run result was &quot;Pass&quot; as expected.                                             
+pass    main  33.1         Test case &quot;2.27-Abbreviated_Dialing&quot; run result was &quot;Pass&quot; as expected.                                                      
+pass    main  34.1         Test case &quot;2.28-Intercept_User_Soft_Disconnect&quot; run result was &quot;Pass&quot; as expected.                                           
+pass    main  35.1         Test case &quot;3.01-Hunt_Group_Regular_Policy&quot; run result was &quot;Pass&quot; as expected.                                                
+pass    main  36.1         Test case &quot;3.02-Hunt_Group_Simultaneous_Policy&quot; run result was &quot;Pass&quot; as expected.                                           
+pass    main  37.1         Test case &quot;3.03-Hunt_Group_Uniform_Policy&quot; run result was &quot;Pass&quot; as expected.                                                
+pass    main  38.1         Test case &quot;3.05-Hunt_Group_Call_Waiting_Agents&quot; run result was &quot;Pass&quot; as expected.                                           
+pass    main  39.1         Test case &quot;3.06-Hunt_Group_No_Answer_3_Rings&quot; run result was &quot;Pass&quot; as expected.                                             
+pass    main  40.1         Test case &quot;3.07-Hunt_Group_Call_Forward_after_20s&quot; run result was &quot;Pass&quot; as expected.                                        
+fail    main  41.1         Unexpected result &quot;Fail&quot; when executing test case &quot;3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s&quot;.  Expected &quot;Pass&quot;.
+fail    main  41.1         Unexpected result &quot;Fail&quot; when executing test case &quot;3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s&quot;.  Expected &quot;Pass&quot;.
+fail    main  41.1         Unexpected result &quot;Fail&quot; when executing test case &quot;3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s&quot;.  Expected &quot;Pass&quot;.
+fail    main  41.1         Maximum number of attempts of 3 has reached the limit                                                                        
+warning main  41.2.1.1.1.1 &quot;Step 7: Channel 3, VPM Factor is less than threshold. VPM Factor = 2.9 &quot;                                                    
+warning main  41.2.1.1.1.1 &quot;Call Forward to Voice Portal after 20 seconds script failed. &quot;                                                              
+fail    main  42.1         Unexpected result &quot;Fail&quot; when executing test case &quot;3.09-Call_Pickup_Groups&quot;.  Expected &quot;Pass&quot;.                               
+pass    main  42.1         Test case &quot;3.09-Call_Pickup_Groups&quot; run result was &quot;Pass&quot; as expected.                                                       
+pass    main  43.1         Test case &quot;3.10-Directed_Pickup&quot; run result was &quot;Pass&quot; as expected.                                                          
+pass    main  44.1         Test case &quot;4.01-Account_Codes_Unverified&quot; run result was &quot;Pass&quot; as expected.                                                 
+pass    main  45.1         Test case &quot;4.02-Per_Call_Account_Codes&quot; run result was &quot;Pass&quot; as expected.                                                   
+fail    main  46.1         Unexpected result &quot;Fail&quot; when executing test case &quot;4.03-Authorization_Codes&quot;.  Expected &quot;Pass&quot;.                              
+fail    main  46.1         Unexpected result &quot;Fail&quot; when executing test case &quot;4.03-Authorization_Codes&quot;.  Expected &quot;Pass&quot;.                              
+pass    main  46.1         Test case &quot;4.03-Authorization_Codes&quot; run result was &quot;Pass&quot; as expected.                                                      
+pass    main  47.1         Test case &quot;5.02.1-Outbound_Call_Restrictions&quot; run result was &quot;Pass&quot; as expected.                                             
+pass    main  47.3         Test case &quot;5.02.2-Outbound_Call_Restrictions_Forwarding&quot; run result was &quot;Pass&quot; as expected.                                  
+pass    main  47.5         Test case &quot;5.02.3-Outbound_Call_Restrictions_Forwarded&quot; run result was &quot;Pass&quot; as expected.                                   
+fail    main  48.1         Unexpected result &quot;Fail&quot; when executing test case &quot;6.01-Calling_Trace&quot;.  Expected &quot;Pass&quot;.                                    
+pass    main  48.1         Test case &quot;6.01-Calling_Trace&quot; run result was &quot;Pass&quot; as expected.                                                            
+pass    main  49.1         Test case &quot;7.01-VM_Access_To_Voice_Portal&quot; run result was &quot;Pass&quot; as expected.                                                
+pass    main  50.1         Test case &quot;7.02-VM_Record_Personalized_Name&quot; run result was &quot;Pass&quot; as expected.                                              
+pass    main  51.1         Test case &quot;7.03-VM_Direct_Transfer_to_Voicemail&quot; run result was &quot;Pass&quot; as expected.                                          
+pass    main  52.1         Test case &quot;7.04-VM_Ability_To_Change_Password&quot; run result was &quot;Pass&quot; as expected.                                            
+pass    main  53.1         Test case &quot;7.05-VM_Passcode_Rules&quot; run result was &quot;Pass&quot; as expected.                                                        
+pass    main  54.1         Test case &quot;7.08-VM_Email_Notification&quot; run result was &quot;Indeterminate&quot; as expected.                                           
+pass    main  55.1         Test case &quot;7.09-VM_Message_Copy_to_Email&quot; run result was &quot;Indeterminate&quot; as expected.                                        
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Completion Result: Fail&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample5">
+            <action actionType="eval">
+                <command>
+                    <body>print(results)</body>
+                </command>
+            </action>
+            <responseBody>Completion Result: Fail
+Test Case:         CPE_Eng_TestSuite_FXS
+Location:          project://a_voip/test_suites/CPE_Eng_TestSuite_FXS.fftc
+Owner:             
+Start Time:        Sat Mar 28 02:37:23 PDT 2020
+Duration:          07:19:53
+Total Issues:      79
+Report Id:         35362
+Child Test Cases : 68 with 10 unexpected results
+
+* - indicates unexpected result
+
+
+Child Test Cases (Unexpected Results) : 10
+* Result Testcase                       Owner Duration StartTime   ReportId Location                                                              
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Fail   P1.08-Non-Super-G3_Fax               00:19:27 02:54:08 AM 35434    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc  
+* Fail   P1.08-Non-Super-G3_Fax               00:09:44 03:14:36 AM 35443    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc  
+* Fail   P1.08-Non-Super-G3_Fax               00:30:44 03:25:21 AM 35452    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc  
+* Fail   2.04-Caller_ID_On_Call_Waiting       00:05:53 04:18:11 AM 35497    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc
+* Fail   2.04-Caller_ID_On_Call_Waiting       00:05:52 04:25:05 AM 35506    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc
+* Fail   2.04-Caller_ID_On_Call_Waiting       00:05:48 04:31:58 AM 35515    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc
+* Fail   3.01-Hunt_Group_Regular_Policy       00:04:39 07:21:46 AM 35731    project://a_voip/test_cases/On_Net/3.01-Hunt_Group_Regular_Policy.fftc
+* Fail   6.01-Calling_Trace                   00:06:10 09:00:19 AM 35884    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc            
+* Fail   6.01-Calling_Trace                   00:06:16 09:07:30 AM 35893    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc            
+* Fail   6.01-Calling_Trace                   00:06:14 09:14:47 AM 35902    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc            
+
+
+Child Test Cases (All Results) : 68
+* Result Testcase                                               Owner          Duration StartTime   ReportId Location                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Pass   1.01-IAD_to_IAD_Calls                                                 00:04:47 02:37:23 AM 35371    project://a_voip/test_cases/On_Net/1.01-IAD_to_IAD_Calls.fftc                                 
+  Pass   P1.01-IAD_to_PSTN_Originator_Hangs_Up                                 00:02:07 02:42:11 AM 35380    project://a_voip/test_cases/PSTN_Gateway/P1.01-IAD_to_PSTN_Originator_Hangs_Up.fftc           
+  Pass   P1.02-IAD_to_PSTN_Call_Cancel                                         00:01:34 02:44:19 AM 35389    project://a_voip/test_cases/PSTN_Gateway/P1.02-IAD_to_PSTN_Call_Cancel.fftc                   
+  Pass   P1.03-IAD_to_PSTN_Terminator_Hangs_Up                                 00:02:12 02:45:54 AM 35398    project://a_voip/test_cases/PSTN_Gateway/P1.03-IAD_to_PSTN_Terminator_Hangs_Up.fftc           
+  Pass   P1.04-PSTN_to_IAD_Originator_Hangs_Up                                 00:02:16 02:48:07 AM 35407    project://a_voip/test_cases/PSTN_Gateway/P1.04-PSTN_to_IAD_Originator_Hangs_Up.fftc           
+  Pass   P1.05-PSTN_to_IAD_Call_Cancel                                         00:01:33 02:50:23 AM 35416    project://a_voip/test_cases/PSTN_Gateway/P1.05-PSTN_to_IAD_Call_Cancel.fftc                   
+  Pass   P1.06-PSTN_to_IAD_Terminator_Hangs_Up                                 00:02:11 02:51:57 AM 35425    project://a_voip/test_cases/PSTN_Gateway/P1.06-PSTN_to_IAD_Terminator_Hangs_Up.fftc           
+* Fail   P1.08-Non-Super-G3_Fax                                                00:19:27 02:54:08 AM 35434    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+* Fail   P1.08-Non-Super-G3_Fax                                                00:09:44 03:14:36 AM 35443    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+* Fail   P1.08-Non-Super-G3_Fax                                                00:30:44 03:25:21 AM 35452    project://a_voip/test_cases/PSTN_Gateway/P1.08-Non-Super-G3_Fax.fftc                          
+  Pass   2.13-Call_Forward_Busy                                                00:10:05 03:56:06 AM 35461    project://a_voip/test_cases/On_Net/2.13-Call_Forward_Busy.fftc                                
+  Pass   2.01-Calling_Number_Delivery                                          00:02:10 04:06:12 AM 35470    project://a_voip/test_cases/On_Net/2.01-Calling_Number_Delivery.fftc                          
+  Pass   2.02-Calling_Name_Delivery                                            00:05:01 04:08:22 AM 35479    project://a_voip/test_cases/On_Net/2.02-Calling_Name_Delivery.fftc                            
+  Pass   2.03-Calling_Name_Delivery_Group                                      00:04:45 04:13:25 AM 35488    project://a_voip/test_cases/On_Net/2.03-Calling_Name_Delivery_Group.fftc                      
+* Fail   2.04-Caller_ID_On_Call_Waiting                                        00:05:53 04:18:11 AM 35497    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc                        
+* Fail   2.04-Caller_ID_On_Call_Waiting                                        00:05:52 04:25:05 AM 35506    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc                        
+* Fail   2.04-Caller_ID_On_Call_Waiting                                        00:05:48 04:31:58 AM 35515    project://a_voip/test_cases/On_Net/2.04-Caller_ID_On_Call_Waiting.fftc                        
+  Pass   2.05-Series_Completion                                                00:06:24 04:37:47 AM 35524    project://a_voip/test_cases/On_Net/2.05-Series_Completion.fftc                                
+  Pass   2.06-Call_Forward_Always                                              00:08:29 04:44:12 AM 35533    project://a_voip/test_cases/On_Net/2.06-Call_Forward_Always.fftc                              
+  Pass   2.07-Call_Forward_No_Answer                                           00:08:27 04:52:41 AM 35542    project://a_voip/test_cases/On_Net/2.07-Call_Forward_No_Answer.fftc                           
+  Pass   2.08-CFNA_Change_Times                                                00:09:45 05:01:09 AM 35551    project://a_voip/test_cases/On_Net/2.08-CFNA_Change_Times.fftc                                
+  Pass   2.09-Call_Forward_Selective                                           00:29:25 05:10:56 AM 35560    project://a_voip/test_cases/On_Net/2.09-Call_Forward_Selective.fftc                           
+  Pass   2.10-Selective_Call_Acceptance                                        00:12:14 05:40:22 AM 35569    project://a_voip/test_cases/On_Net/2.10-Selective_Call_Acceptance.fftc                        
+  Pass   2.11-Sequential_Ring                                                  00:20:45 05:52:38 AM 35578    project://a_voip/test_cases/On_Net/2.11-Sequential_Ring.fftc                                  
+  Pass   2.12-Simultaneous_Ring                                 Reddy Nagendra 00:04:38 06:13:24 AM 35587    project://a_voip/test_cases/On_Net/2.12-Simultaneous_Ring.fftc                                
+  Pass   2.14-Call_Waiting_Call_Waiting_Cancel_Per_Call                        00:06:23 06:18:03 AM 35596    project://a_voip/test_cases/On_Net/2.14-Call_Waiting_Call_Waiting_Cancel_Per_Call.fftc        
+  Pass   2.15-Call_Waiting_Persistent                                          00:08:52 06:24:27 AM 35605    project://a_voip/test_cases/On_Net/2.15-Call_Waiting_Persistent.fftc                          
+  Pass   2.16-Flash_Call_Hold                                                  00:03:59 06:33:20 AM 35614    project://a_voip/test_cases/On_Net/2.16-Flash_Call_Hold.fftc                                  
+  Pass   2.17-Last_Number_Redial                                               00:02:36 06:37:19 AM 35623    project://a_voip/test_cases/On_Net/2.17-Last_Number_Redial.fftc                               
+  Pass   2.18-Call_Return                                                      00:03:08 06:39:56 AM 35632    project://a_voip/test_cases/On_Net/2.18-Call_Return.fftc                                      
+  Pass   2.19-Call_Park                                                        00:06:05 06:43:05 AM 35641    project://a_voip/test_cases/On_Net/2.19-Call_Park.fftc                                        
+  Pass   2.20-Do_Not_Disturb                                                   00:02:39 06:49:11 AM 35650    project://a_voip/test_cases/On_Net/2.20-Do_Not_Disturb.fftc                                   
+  Pass   2.21-Music_On_Hold                                                    00:05:02 06:51:51 AM 35659    project://a_voip/test_cases/On_Net/2.21-Music_On_Hold.fftc                                    
+  Pass   2.22-Cancel_Music_On_Hold_Per_Call                                    00:04:52 06:56:54 AM 35668    project://a_voip/test_cases/On_Net/2.22-Cancel_Music_On_Hold_Per_Call.fftc                    
+  Pass   2.23-Extension_Dialing                                                00:03:17 07:01:46 AM 35677    project://a_voip/test_cases/On_Net/2.23-Extension_Dialing.fftc                                
+  Pass   2.24-Speed_Dial_8                                                     00:04:56 07:05:05 AM 35686    project://a_voip/test_cases/On_Net/2.24-Speed_Dial_8.fftc                                     
+  Pass   2.25-Speed_Dial_100                                                   00:04:57 07:10:02 AM 35695    project://a_voip/test_cases/On_Net/2.25-Speed_Dial_100.fftc                                   
+  Pass   2.26-Voice_VPN_Station_to_Station                                     00:02:41 07:15:00 AM 35704    project://a_voip/test_cases/On_Net/2.26-Voice_VPN_Station_to_Station.fftc                     
+  Pass   2.27-Abbreviated_Dialing                                              00:02:26 07:17:41 AM 35713    project://a_voip/test_cases/On_Net/2.27-Abbreviated_Dialing.fftc                              
+  Pass   2.28-Intercept_User_Soft_Disconnect                                   00:01:37 07:20:08 AM 35722    project://a_voip/test_cases/On_Net/2.28-Intercept_User_Soft_Disconnect.fftc                   
+* Fail   3.01-Hunt_Group_Regular_Policy                                        00:04:39 07:21:46 AM 35731    project://a_voip/test_cases/On_Net/3.01-Hunt_Group_Regular_Policy.fftc                        
+  Pass   3.01-Hunt_Group_Regular_Policy                                        00:04:24 07:27:25 AM 35740    project://a_voip/test_cases/On_Net/3.01-Hunt_Group_Regular_Policy.fftc                        
+  Pass   3.02-Hunt_Group_Simultaneous_Policy                                   00:04:50 07:31:51 AM 35749    project://a_voip/test_cases/On_Net/3.02-Hunt_Group_Simultaneous_Policy.fftc                   
+  Pass   3.03-Hunt_Group_Uniform_Policy                                        00:04:34 07:36:42 AM 35758    project://a_voip/test_cases/On_Net/3.03-Hunt_Group_Uniform_Policy.fftc                        
+  Pass   3.05-Hunt_Group_Call_Waiting_Agents                                   00:04:02 07:41:17 AM 35767    project://a_voip/test_cases/On_Net/3.05-Hunt_Group_Call_Waiting_Agents.fftc                   
+  Pass   3.06-Hunt_Group_No_Answer_3_Rings                                     00:02:47 07:45:20 AM 35776    project://a_voip/test_cases/On_Net/3.06-Hunt_Group_No_Answer_3_Rings.fftc                     
+  Pass   3.07-Hunt_Group_Call_Forward_after_20s                                00:03:40 07:48:08 AM 35785    project://a_voip/test_cases/On_Net/3.07-Hunt_Group_Call_Forward_after_20s.fftc                
+  Pass   3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s                00:02:21 07:51:49 AM 35794    project://a_voip/test_cases/On_Net/3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s.fftc
+  Pass   3.09-Call_Pickup_Groups                                               00:03:31 07:54:11 AM 35803    project://a_voip/test_cases/On_Net/3.09-Call_Pickup_Groups.fftc                               
+  Pass   3.10-Directed_Pickup                                                  00:02:03 07:57:43 AM 35812    project://a_voip/test_cases/On_Net/3.10-Directed_Pickup.fftc                                  
+  Pass   4.01-Account_Codes_Unverified                                         00:06:28 07:59:46 AM 35821    project://a_voip/test_cases/On_Net/4.01-Account_Codes_Unverified.fftc                         
+  Pass   4.02-Per_Call_Account_Codes                                           00:04:07 08:06:15 AM 35830    project://a_voip/test_cases/On_Net/4.02-Per_Call_Account_Codes.fftc                           
+  Pass   4.03-Authorization_Codes                                              00:18:24 08:10:23 AM 35839    project://a_voip/test_cases/On_Net/4.03-Authorization_Codes.fftc                              
+  Pass   5.01-Inbound_Call_Restrictions                                        00:10:44 08:28:49 AM 35848    project://a_voip/test_cases/On_Net/5.01-Inbound_Call_Restrictions.fftc                        
+  Pass   5.02.1-Outbound_Call_Restrictions                                     00:09:50 08:39:33 AM 35857    project://a_voip/test_cases/On_Net/5.02.1-Outbound_Call_Restrictions.fftc                     
+  Pass   5.02.2-Outbound_Call_Restrictions_Forwarding                          00:08:08 08:49:25 AM 35866    project://a_voip/test_cases/On_Net/5.02.2-Outbound_Call_Restrictions_Forwarding.fftc          
+  Pass   5.02.3-Outbound_Call_Restrictions_Forwarded                           00:02:43 08:57:34 AM 35875    project://a_voip/test_cases/On_Net/5.02.3-Outbound_Call_Restrictions_Forwarded.fftc           
+* Fail   6.01-Calling_Trace                                                    00:06:10 09:00:19 AM 35884    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc                                    
+* Fail   6.01-Calling_Trace                                                    00:06:16 09:07:30 AM 35893    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc                                    
+* Fail   6.01-Calling_Trace                                                    00:06:14 09:14:47 AM 35902    project://a_voip/test_cases/On_Net/6.01-Calling_Trace.fftc                                    
+  Pass   7.01-VM_Access_To_Voice_Portal                                        00:07:04 09:21:02 AM 35911    project://a_voip/test_cases/On_Net/7.01-VM_Access_To_Voice_Portal.fftc                        
+  Pass   7.02-VM_Record_Personalized_Name                                      00:02:10 09:28:07 AM 35920    project://a_voip/test_cases/On_Net/7.02-VM_Record_Personalized_Name.fftc                      
+  Pass   7.03-VM_Direct_Transfer_to_Voicemail                                  00:02:54 09:30:17 AM 35929    project://a_voip/test_cases/On_Net/7.03-VM_Direct_Transfer_to_Voicemail.fftc                  
+  Pass   7.04-VM_Ability_To_Change_Password                                    00:03:20 09:33:13 AM 35938    project://a_voip/test_cases/On_Net/7.04-VM_Ability_To_Change_Password.fftc                    
+  Pass   7.05-VM_Passcode_Rules                                                00:04:35 09:36:33 AM 35947    project://a_voip/test_cases/On_Net/7.05-VM_Passcode_Rules.fftc                                
+  Pass   7.07-VM__MWI                                                          00:04:29 09:41:09 AM 35956    project://a_voip/test_cases/On_Net/7.07-VM__MWI.fftc                                          
+  Undef. 7.08-VM_Email_Notification                                            00:01:48 09:45:39 AM 35965    project://a_voip/test_cases/On_Net/7.08-VM_Email_Notification.fftc                            
+  Undef. 7.09-VM_Message_Copy_to_Email                                         00:09:48 09:47:28 AM 35974    project://a_voip/test_cases/On_Net/7.09-VM_Message_Copy_to_Email.fftc                         
+
+
+
+Execution issues for this test case:
+Sev.    Proc. Step         Message                                                                                              
+------------------------------------------------------------------------------------------------------------------------------------------------------
+info    main               Execution started                                                                                    
+info    main               Testbed used in execution: project://a_voip/topologies/Adva/Adva_VC_cisco.tbml                       
+pass    main  2.1          Test case &quot;1.01-IAD_to_IAD_Calls&quot; run result was &quot;Pass&quot; as expected.                                 
+pass    main  3.1          Test case &quot;P1.01-IAD_to_PSTN_Originator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                 
+pass    main  4.1          Test case &quot;P1.02-IAD_to_PSTN_Call_Cancel&quot; run result was &quot;Pass&quot; as expected.                         
+pass    main  5.1          Test case &quot;P1.03-IAD_to_PSTN_Terminator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                 
+pass    main  6.1          Test case &quot;P1.04-PSTN_to_IAD_Originator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                 
+pass    main  7.1          Test case &quot;P1.05-PSTN_to_IAD_Call_Cancel&quot; run result was &quot;Pass&quot; as expected.                         
+pass    main  8.1          Test case &quot;P1.06-PSTN_to_IAD_Terminator_Hangs_Up&quot; run result was &quot;Pass&quot; as expected.                 
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.        
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.        
+fail    main  9.1          Unexpected result &quot;Fail&quot; when executing test case &quot;P1.08-Non-Super-G3_Fax&quot;.  Expected &quot;Pass&quot;.        
+fail    main  9.1          Maximum number of attempts of 3 has reached the limit                                                
+warning main  9.2.1.1.1.1  &quot;Abacus error. Test will abort. &quot;                                                                    
+warning main  9.2.1.1.1.1  &quot;Error messages from attempted run: {Abacus script timeout of 300 seconds exceeded.}#&quot;               
+pass    main  11.1         Test case &quot;2.13-Call_Forward_Busy&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  12.1         Test case &quot;2.01-Calling_Number_Delivery&quot; run result was &quot;Pass&quot; as expected.                          
+pass    main  13.1         Test case &quot;2.02-Calling_Name_Delivery&quot; run result was &quot;Pass&quot; as expected.                            
+pass    main  14.1         Test case &quot;2.03-Calling_Name_Delivery_Group&quot; run result was &quot;Pass&quot; as expected.                      
+fail    main  15.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.04-Caller_ID_On_Call_Waiting&quot;.  Expected &quot;Pass&quot;.
+fail    main  15.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.04-Caller_ID_On_Call_Waiting&quot;.  Expected &quot;Pass&quot;.
+fail    main  15.1         Unexpected result &quot;Fail&quot; when executing test case &quot;2.04-Caller_ID_On_Call_Waiting&quot;.  Expected &quot;Pass&quot;.
+fail    main  15.1         Maximum number of attempts of 3 has reached the limit                                                
+warning main  15.2.1.1.1.1 &quot;Step 6: Channel 1, No FSK alerting detected &quot;                                                       
+warning main  15.2.1.1.1.1 &quot;Caller Id On Call Waiting calls script failed. &quot;                                                    
+pass    main  16.1         Test case &quot;2.05-Series_Completion&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  17.1         Test case &quot;2.06-Call_Forward_Always&quot; run result was &quot;Pass&quot; as expected.                              
+pass    main  18.1         Test case &quot;2.07-Call_Forward_No_Answer&quot; run result was &quot;Pass&quot; as expected.                           
+pass    main  19.1         Test case &quot;2.08-CFNA_Change_Times&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  20.1         Test case &quot;2.09-Call_Forward_Selective&quot; run result was &quot;Pass&quot; as expected.                           
+pass    main  21.1         Test case &quot;2.10-Selective_Call_Acceptance&quot; run result was &quot;Pass&quot; as expected.                        
+pass    main  22.1         Test case &quot;2.11-Sequential_Ring&quot; run result was &quot;Pass&quot; as expected.                                  
+pass    main  23.1         Test case &quot;2.12-Simultaneous_Ring&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  24.1         Test case &quot;2.14-Call_Waiting_Call_Waiting_Cancel_Per_Call&quot; run result was &quot;Pass&quot; as expected.        
+pass    main  25.1         Test case &quot;2.15-Call_Waiting_Persistent&quot; run result was &quot;Pass&quot; as expected.                          
+pass    main  26.1         Test case &quot;2.16-Flash_Call_Hold&quot; run result was &quot;Pass&quot; as expected.                                  
+pass    main  27.1         Test case &quot;2.17-Last_Number_Redial&quot; run result was &quot;Pass&quot; as expected.                               
+pass    main  28.1         Test case &quot;2.18-Call_Return&quot; run result was &quot;Pass&quot; as expected.                                      
+pass    main  29.1         Test case &quot;2.19-Call_Park&quot; run result was &quot;Pass&quot; as expected.                                        
+pass    main  30.1         Test case &quot;2.20-Do_Not_Disturb&quot; run result was &quot;Pass&quot; as expected.                                   
+pass    main  31.1         Test case &quot;2.21-Music_On_Hold&quot; run result was &quot;Pass&quot; as expected.                                    
+pass    main  32.1         Test case &quot;2.22-Cancel_Music_On_Hold_Per_Call&quot; run result was &quot;Pass&quot; as expected.                    
+pass    main  33.1         Test case &quot;2.23-Extension_Dialing&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  34.1         Test case &quot;2.24-Speed_Dial_8&quot; run result was &quot;Pass&quot; as expected.                                     
+pass    main  35.1         Test case &quot;2.25-Speed_Dial_100&quot; run result was &quot;Pass&quot; as expected.                                   
+pass    main  36.1         Test case &quot;2.26-Voice_VPN_Station_to_Station&quot; run result was &quot;Pass&quot; as expected.                     
+pass    main  37.1         Test case &quot;2.27-Abbreviated_Dialing&quot; run result was &quot;Pass&quot; as expected.                              
+pass    main  38.1         Test case &quot;2.28-Intercept_User_Soft_Disconnect&quot; run result was &quot;Pass&quot; as expected.                   
+fail    main  39.1         Unexpected result &quot;Fail&quot; when executing test case &quot;3.01-Hunt_Group_Regular_Policy&quot;.  Expected &quot;Pass&quot;.
+pass    main  39.1         Test case &quot;3.01-Hunt_Group_Regular_Policy&quot; run result was &quot;Pass&quot; as expected.                        
+pass    main  40.1         Test case &quot;3.02-Hunt_Group_Simultaneous_Policy&quot; run result was &quot;Pass&quot; as expected.                   
+pass    main  41.1         Test case &quot;3.03-Hunt_Group_Uniform_Policy&quot; run result was &quot;Pass&quot; as expected.                        
+pass    main  42.1         Test case &quot;3.05-Hunt_Group_Call_Waiting_Agents&quot; run result was &quot;Pass&quot; as expected.                   
+pass    main  43.1         Test case &quot;3.06-Hunt_Group_No_Answer_3_Rings&quot; run result was &quot;Pass&quot; as expected.                     
+pass    main  44.1         Test case &quot;3.07-Hunt_Group_Call_Forward_after_20s&quot; run result was &quot;Pass&quot; as expected.                
+pass    main  45.1         Test case &quot;3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s&quot; run result was &quot;Pass&quot; as expected.
+pass    main  46.1         Test case &quot;3.09-Call_Pickup_Groups&quot; run result was &quot;Pass&quot; as expected.                               
+pass    main  47.1         Test case &quot;3.10-Directed_Pickup&quot; run result was &quot;Pass&quot; as expected.                                  
+pass    main  48.1         Test case &quot;4.01-Account_Codes_Unverified&quot; run result was &quot;Pass&quot; as expected.                         
+pass    main  49.1         Test case &quot;4.02-Per_Call_Account_Codes&quot; run result was &quot;Pass&quot; as expected.                           
+pass    main  50.1         Test case &quot;4.03-Authorization_Codes&quot; run result was &quot;Pass&quot; as expected.                              
+pass    main  51.1         Test case &quot;5.01-Inbound_Call_Restrictions&quot; run result was &quot;Pass&quot; as expected.                        
+pass    main  52.1         Test case &quot;5.02.1-Outbound_Call_Restrictions&quot; run result was &quot;Pass&quot; as expected.                     
+pass    main  52.3         Test case &quot;5.02.2-Outbound_Call_Restrictions_Forwarding&quot; run result was &quot;Pass&quot; as expected.          
+pass    main  52.5         Test case &quot;5.02.3-Outbound_Call_Restrictions_Forwarded&quot; run result was &quot;Pass&quot; as expected.           
+fail    main  53.1         Unexpected result &quot;Fail&quot; when executing test case &quot;6.01-Calling_Trace&quot;.  Expected &quot;Pass&quot;.            
+fail    main  53.1         Unexpected result &quot;Fail&quot; when executing test case &quot;6.01-Calling_Trace&quot;.  Expected &quot;Pass&quot;.            
+fail    main  53.1         Unexpected result &quot;Fail&quot; when executing test case &quot;6.01-Calling_Trace&quot;.  Expected &quot;Pass&quot;.            
+fail    main  53.1         Maximum number of attempts of 3 has reached the limit                                                
+warning main  53.2.1.1.1.1 &quot;Abacus error. Test will abort. &quot;                                                                    
+warning main  53.2.1.1.1.1 &quot;Error messages from attempted run: {Abacus script timeout of 300 seconds exceeded.}#&quot;               
+pass    main  54.1         Test case &quot;7.01-VM_Access_To_Voice_Portal&quot; run result was &quot;Pass&quot; as expected.                        
+pass    main  55.1         Test case &quot;7.02-VM_Record_Personalized_Name&quot; run result was &quot;Pass&quot; as expected.                      
+pass    main  56.1         Test case &quot;7.03-VM_Direct_Transfer_to_Voicemail&quot; run result was &quot;Pass&quot; as expected.                  
+pass    main  57.1         Test case &quot;7.04-VM_Ability_To_Change_Password&quot; run result was &quot;Pass&quot; as expected.                    
+pass    main  58.1         Test case &quot;7.05-VM_Passcode_Rules&quot; run result was &quot;Pass&quot; as expected.                                
+pass    main  59.1         Test case &quot;7.07-VM__MWI&quot; run result was &quot;Pass&quot; as expected.                                          
+pass    main  60.1         Test case &quot;7.08-VM_Email_Notification&quot; run result was &quot;Indeterminate&quot; as expected.                   
+pass    main  61.1         Test case &quot;7.09-VM_Message_Copy_to_Email&quot; run result was &quot;Indeterminate&quot; as expected.                
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;Completion Result: Fail&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="child_test_cases_unexpected">
+                    <additionalBannerLineCount>2</additionalBannerLineCount>
+                    <startingLineNumber>16</startingLineNumber>
+                    <banner>Child Test Cases (Unexpected Results) :</banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <minOccurences>0</minOccurences>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Asterisk">
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <addAllQuery>false</addAllQuery>
+                            <uid>6e22f21f-6d5c-43cc-ab14-2acd31b77863</uid>
+                        </item>
+                        <item name="Result">
+                            <width>6</width>
+                            <autoPopulate>true</autoPopulate>
+                            <lastFullCell></lastFullCell>
+                            <uid>d2b3fc33-4c17-4baf-8851-a49e50706812</uid>
+                        </item>
+                        <item name="Testcase">
+                            <width>45</width>
+                            <spillover>Extend</spillover>
+                            <autoPopulate>true</autoPopulate>
+                            <defaultValue>None</defaultValue>
+                            <lastFullCell></lastFullCell>
+                            <uid>5f0e87b9-2291-49c3-bd8f-cd778e91f960</uid>
+                        </item>
+                        <item name="Owner">
+                            <width>11</width>
+                            <spillover>Extend</spillover>
+                            <defaultValue>None</defaultValue>
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <uid>e025c7b6-a996-4215-897c-9dc3a0ab5c35</uid>
+                        </item>
+                        <item name="Duration">
+                            <width>9</width>
+                            <spillover>Extend</spillover>
+                            <autoPopulate>true</autoPopulate>
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <uid>edd57b63-5804-4dd0-97a7-873584219226</uid>
+                        </item>
+                        <item name="StartTime">
+                            <width>12</width>
+                            <spillover>Extend</spillover>
+                            <autoPopulate>true</autoPopulate>
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <uid>31114055-996d-4059-b3ad-53cb9cd2dcf7</uid>
+                        </item>
+                        <item name="ReportId">
+                            <width>6</width>
+                            <spillover>Extend</spillover>
+                            <autoPopulate>true</autoPopulate>
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <uid>a0f8e16b-714a-43c3-8811-dfaaadad4b6e</uid>
+                        </item>
+                        <item name="Location">
+                            <width>114</width>
+                            <spillover>Extend</spillover>
+                            <autoPopulate>true</autoPopulate>
+                            <lastFullCell></lastFullCell>
+                            <showInStructuredData>false</showInStructuredData>
+                            <uid>e4325d96-56ef-4742-8761-8c23f208644e</uid>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container"/>
+        </item>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Completion Result:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Completion_Result">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>23</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Completion Result: Fail</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Test Case:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Test_Case">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Test Case:         Edge_TestSuite</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern3">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Location:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Location">
+                            <regex>.+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>67</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Location:          project://a_voip/test_suites/Edge_TestSuite.fftc</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <maintainConsistency>false</maintainConsistency>
+                </item>
+                <item name="pattern4">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Owner:\\s+</regex>
+                            <start>0</start>
+                            <end>7</end>
+                        </item>
+                        <item name="Owner">
+                            <regex>.+</regex>
+                            <named>true</named>
+                            <start>7</start>
+                            <end>8</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Owner:  </sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="pattern5">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Start Time:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Start_Time">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>47</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Start Time:        Thu Mar 05 08:47:05 PST 2020</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern6">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Duration:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Duration">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>27</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Duration:          00:03:29</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern7">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Total Issues:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Total_Issues">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>20</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Total Issues:      4</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern8">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Report Id:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Report_Id">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Report Id:         23725</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern9">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Child Test Cases :\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Child_Test_Cases_Total">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>20</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+with\\s+</regex>
+                            <start>20</start>
+                            <end>26</end>
+                        </item>
+                        <item name="Child_Test_Cases_Unexpected">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>27</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+unexpected results</regex>
+                            <start>27</start>
+                            <end>46</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Child Test Cases : 2 with 1 unexpected results</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern10">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Child Test Cases \\(Unexpected Results\\) :\\s+</regex>
+                            <start>0</start>
+                            <end>40</end>
+                        </item>
+                        <item name="Child_Test_Cases_Unexpected_Results">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>40</start>
+                            <end>41</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Child Test Cases (Unexpected Results) : 3</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="eval" command="print(results)"/>
+</ResponseMap>

@@ -1,0 +1,53 @@
+[Prespective Int]
+1=A:@:Enable CPD
+3=A:@:Wait On hook [2]
+5=Do path confirmation
+7=;Call is released
+2=Do path confirmation
+4=A:@:Enable CPD
+6=A:@:Wait On hook [2]
+8=End of script
+
+[Prespective_B1]
+3=A:@:Wait for the ringing tone [10]
+7=Make a call
+12=A:@:Wait On hook [2]
+4=Do path confirmation
+8=A:@:Enable CPD
+13=End of script
+1=Make a call
+5=A:@:Wait On hook [2]
+9=A:@:Wait for the ringing tone [10]
+10=Do path confirmation
+2=A:@:Enable CPD
+6=A:@:Wait for the dial tone
+11=A:@:Wait for time [10]
+
+[Actions]
+File=ABACUS.ACT
+
+[GotoActions__Prespective Int]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Prespective_B1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+

@@ -1,0 +1,1512 @@
+[GotoActions__CallWaitingORIG_AonHookDruingCW]
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+
+[AbbreviatedAddress]
+1=End of script
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__NoDialWaitForHowlerTone]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[CallTransfer]
+3=A:@:CheckRingBack
+7=B:@:WaitForSeconds [1]
+12=A:C:PathConfirmationForCallLength
+16=End of script
+4=B:@:JustHookOff
+8=B:C:DialDTMF
+13=A:@:JustHookOn
+1=DialDTMF
+5=PathConfirmationForCallLength
+9=C:@:WaitForRing
+10=C:@:JustHookOff
+14=C:@:WaitForBusyTone
+2=B:@:WaitForRing
+6=B:@:JustHookFlash
+11=B:@:JustHookOn
+15=C:@:JustHookOn
+
+[FaxCallee]
+1=>A:@:SendFax
+2=>A:@:SendVoice
+3=End of script
+
+[HookOffNoDial]
+1=>A:@:WaitForDialTone
+3=>ACallsBWithDTMFAndConfirmsOnce
+5=>B:@:WaitForBusyTone
+2=>A:@:JustHookOn
+4=>A:@:JustHookOn
+6=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[CallWaitingORIG_ConHook]
+7=>A:@:JustHookFlash
+12=>A:@:JustHookFlash
+4=>C:A:JustACallsBWithDTMF
+8=>A:C:JustDoPathConfirmationOnce
+13=>JustDoPathConfirmationOnce
+17=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>A:@:WaitForCallWaitingTone
+9=>B:@:WaitForSilence
+10=>C:@:JustHookOn
+14=>A:@:JustHookOn
+2=>C:@:JustHookOff
+6=>C:@:WaitForRingBackVoice
+11=>A:@:WaitForCongestionVoice
+15=>B:@:WaitForBusyTone
+3=>C:@:WaitForDialtoneVoice
+16=>B:@:JustHookOn
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[CallWaitingORIG]
+7=>A:@:JustHookFlash
+12=>C:@:JustHookOn
+4=>C:A:JustACallsBWithDTMF
+8=>A:C:JustDoPathConfirmationOnce
+13=>JustDoPathConfirmationOnce
+17=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>A:@:WaitForCallWaitingTone
+9=>B:@:WaitForSilence
+10=>A:@:JustHookFlash
+14=>A:@:JustHookOn
+2=>C:@:JustHookOff
+6=>C:@:WaitForRingBackVoice
+11=>C:@:WaitForCongestionVoice
+15=>B:@:WaitForBusyTone
+3=>C:@:WaitForDialtoneVoice
+16=>B:@:JustHookOn
+
+[GotoActions__FaxCallee]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__NormalBasicCall]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__DialWrongNumber]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__LargeFaxCallee]
+1=0
+2=0
+
+[GotoActions__ThreePartyService]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__HookOffOnContinuously]
+1=0
+
+[CalleeBusy]
+3=>ACallsBWithDTMF
+7=>ACallsBWithDTMFAndConfirmsForCallLength
+2=>B:@:WaitSeconds [5]
+4=>A:@:WaitForBusyVoice
+6=>B:@:JustHookOn
+8=>A:@:JustHookOn
+1=>B:@:WaitForDialTone
+5=>A:@:JustHookOn
+9=>B:@:WaitForBusyTone
+10=End of script
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[CalleeNoResponse]
+3=>B:@:WaitForRing
+7=>A:@:WaitForHowlerTone
+12=End of script
+2=>A:@:WaitForRingBackTone
+4=>A:@:WaitRingTimer
+6=>A:@:WaitCongestionToneTimer
+8=>A:@:JustHookOn
+11=>B:@:WaitForBusyTone
+1=>ACallsBWithDTMF
+5=>A:@:WaitForCongestionTone
+9=>ACallsBWithDTMFAndConfirmsForCallLength
+10=>A:@:JustHookOn
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[AFT: 3-way Calling]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[FaxCaller]
+1=>ACallsBWithDTMF
+2=>A:@:WaitForFax
+3=>A:@:WaitForVoice
+4=End of script
+
+[GotoActions__BasicCall]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Modem]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__FaxCaller]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__CallReturn]
+1=0
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[GotoActions__CallWaitingORIG]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[VoiceQuality]
+1=>ACallsBWithDTMFAndConfirmsForCallLength
+2=>A:@:JustHookOn
+3=>B:@:WaitForBusyTone
+4=End of script
+
+[CallForwardingBusy]
+7=>B:C:PathConfirmationForOnce
+12=>B:A:ACallsBWithDTMFAndConfirmsOnce
+8=>A:@:JustHookOn
+13=>B:@:JustHookOn
+1=;S1: Call from B to A forward to C
+5=>C:@:WaitForRing
+9=>B:@:JustHookOn
+10=>C:@:JustHookOn
+14=>A:@:JustHookOn
+18=>B:A:ACallsBWithDTMF
+2=>A:@:WaitForDialTone
+6=>C:@:JustHookOff
+11=;S2: B calls A without forwarding
+20=>B:@:JustHookOn
+15=;S3: B calls A with CFB cancelled
+19=>B:@:WaitForBusyTone
+3=>A:@:RegisterCFB
+21=End of script
+16=>A:@:WaitForDialTone
+4=>B:A:ACallsBWithDTMF
+17=>A:@:CancelCFB
+
+[GotoActions__LargeFaxCaller]
+1=0
+2=0
+3=0
+
+[GotoActions__BasicCall_Arelease]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[HowlerToneCheck]
+3=>B:@:WaitForBusyTone
+7=>ACallsBWithDTMFAndConfirmsOnce
+12=>A:@:JustHookOn
+4=>B:@:WaitBusyToneTimer
+8=>B:@:JustHookOn
+13=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>B:@:WaitForHowlerTone
+9=>A:@:WaitForBusyTone
+10=>A:@:WaitBusyToneTimer
+2=>A:@:JustHookOn
+6=>B:@:JustHookOn
+11=>A:@:WaitForCongestionTone
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[CallForwardingNoReply]
+3=C:@:WaitForRing
+7=A:@:JustHookOn
+2=DialDTMF
+4=C:@:JustHookOff
+6=A:C:PathConfirmationForCallLength
+8=C:@:WaitForBusyTone
+1=B:@:WaitForDialTone
+5=B:@:JustHookOn
+9=C:@:JustHookOn
+10=End of script
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__CallForwardingBusy]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__AFT: 3-way Calling]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__SessionEndCalleeControl]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__CallWaitingORIG_AonHookDuringCall]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[BasicCall_Breanswer]
+3=>JustACallsBWithDTMF
+7=>JustDoPathConfirmationOnce
+12=>B:@:JustHookOn
+4=>B:@:WaitForRing
+8=>B:@:JustHookOn
+13=>A:@:WaitReanswerTimer
+1=>A:@:JustHookOff
+5=>A:@:WaitForRingBackVoice
+9=>A:@:WaitReanswerTimer-5
+10=>B:@:JustHookOff
+14=>A:@:WaitForCongestionVoice
+2=>A:@:WaitForDialtoneVoice
+6=>B:@:JustHookOff
+11=>JustDoPathConfirmationOnce
+15=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__CallPickUp]
+1=0
+
+[GotoActions__VoiceQuality]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[CallWaitingORIG_AonHookDruingCW]
+7=>A:@:JustHookOn
+12=>A:C:JustDoPathConfirmationOnce
+4=>C:A:JustACallsBWithDTMF
+8=>B:@:WaitForCongestionVoice
+13=>C:@:JustHookOn
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>A:@:WaitForCallWaitingTone
+9=>B:@:JustHookOn
+10=>A:@:WaitForRing
+14=>A:@:WaitForCongestionVoice
+2=>C:@:JustHookOff
+6=>C:@:WaitForRingBackVoice
+11=>A:@:JustHookOff
+15=End of script
+3=>C:@:WaitForDialtoneVoice
+
+[GotoActions__CallForwardingUnconditional]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[HookOffOnContinuously]
+1=End of script
+
+[GotoActions__CallTransfer]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DialWrongNumber]
+3=>A:@:WaitSeconds [2]
+7=>ACallsBWithDTMFAndConfirmsForCallLength
+2=>A:@:DialWrongNumber
+4=>A:@:WaitForCongestionTone
+6=>A:@:WaitSeconds [3]
+8=>A:@:JustHookOn
+1=>A:@:WaitForDialTone
+5=>A:@:JustHookOn
+9=>B:@:WaitForBusyTone
+10=End of script
+
+[LargeFaxCallee]
+1=>A:@:SendLargeFax
+2=End of script
+
+[CallIdPresentation]
+1=DialDTMF
+2=A:@:WaitForRing
+3=CheckCallNumber
+4=End of script
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[BasicCall]
+3=>JustACallsBWithDTMF
+7=>JustDoPathConfirmationOnce
+2=>A:@:WaitForDialtoneVoice
+4=>B:@:WaitForRing
+6=>B:@:JustHookOff
+8=>A:@:JustHookOn
+1=>A:@:JustHookOff
+5=>A:@:WaitForRingBackVoice
+9=>B:@:WaitForCongestionVoice
+10=End of script
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[CallWaiting]
+3=A:@:CheckRingBack
+7=B:@:WaitForSeconds [1]
+12=A:C:PathConfirmationForCallLength
+16=End of script
+4=B:@:JustHookOff
+8=B:C:DialDTMF
+13=A:@:JustHookOn
+1=DialDTMF
+5=PathConfirmationForCallLength
+9=C:@:WaitForRing
+10=C:@:JustHookOff
+14=C:@:WaitForBusyTone
+2=B:@:WaitForRing
+6=B:@:JustHookFlash
+11=B:@:JustHookOn
+15=C:@:JustHookOn
+
+[SessionEndCalleeControl]
+3=>A:@:WaitSeconds [5]
+7=>B:@:WaitForBusyTone
+12=>A:@:JustHookOn
+4=>A:@:JustHookOff
+8=>B:@:JustHookOn
+13=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>PathConfirmationForOnce
+9=>ACallsBWithDTMFAndConfirmsOnce
+10=>B:@:JustHookOn
+2=>A:@:JustHookOn
+6=>A:@:JustHookOn
+11=>A:@:WaitForBusyTone
+
+[GotoActions__BasicCall_Brelease]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__HowlerToneCheck]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[NoDialWaitForHowlerTone]
+3=>A:@:WaitForCongestionTone
+7=>ACallsBWithDTMFAndConfirmsOnce
+2=>A:@:WaitStartTimer
+4=>A:@:WaitCongestionToneTimer
+6=>A:@:JustHookOn
+8=>A:@:JustHookOn
+1=>A:@:WaitForDialTone
+5=>A:@:WaitForHowlerTone
+9=>B:@:WaitForBusyTone
+10=End of script
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__DialVacantNumber]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[ThreePartyService]
+3=A:@:CheckRingBack
+7=A:C:DialDTMF
+12=PathConfirmationForCallLength
+4=B:@:JustHookOff
+8=C:@:WaitForRing
+13=B:C:PathConfirmationForCallLength
+1=DialDTMF
+5=PathConfirmationForCallLength
+9=C:@:JustHookOff
+10=A:C:PathConfirmationForCallLength
+14=End of script
+2=B:@:WaitForRing
+6=A:@:JustHookFlash
+11=A:@:JustHookFlash
+
+[GotoActions__LongTimeCall]
+1=0
+
+[GotoActions__CalleeNoResponse]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[SecondaryDial]
+3=>A:@:JustHookFlash
+7=>CheckRingBack
+12=>WaitForSeconds [3]
+4=>A:@:WaitForSecondDialTone
+8=>WaitForSeconds [3]
+13=>B:@:WaitForBusyTone
+1=>A:@:WaitForDialTone
+5=>DialDTMF
+9=>B:@:JustHookOff
+10=>PathConfirmationForCallLength
+14=>B:@:JustHookOn
+2=;>DialZero
+6=>B:@:WaitForRing
+11=>A:@:JustHookOn
+15=End of script
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[CallerHookOnBeforeCalleeRing]
+1=>ACallsBWithDTMF
+3=>ACallsBWithDTMFAndConfirmsOnce
+5=>B:@:WaitForBusyTone
+2=>A:@:JustHookOn
+4=>A:@:JustHookOn
+6=End of script
+
+[GotoActions__CallerHookOnBeforeCalleeRing]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[LargeFaxCaller]
+1=>ACallsBWithDTMF
+2=>WaitForLargeFax
+3=End of script
+
+[GotoActions__SessionEndCallerControl]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[LongTimeCall]
+1=End of script
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=End of script
+
+[GotoActions__CallIdPresentation]
+1=0
+2=0
+3=0
+4=0
+
+[DialVacantNumber]
+3=>A:@:WaitForVacantNumberVoice
+7=>A:@:JustHookOn
+2=>A:@:DialVacantNumber
+4=>A:@:JustHookOn
+6=>ACallsBWithDTMFAndConfirmsForCallLength
+8=>B:@:WaitForBusyTone
+1=>A:@:WaitForDialTone
+5=>A:@:WaitSeconds [3]
+9=End of script
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__CalleeBusy]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[GotoActions__CallWaitingORIG_ConHookDruingCW]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[NormalBasicCall]
+1=>ACallsBWithDTMFAndConfirmsForCallLength
+2=>A:@:JustHookOn
+3=>B:@:WaitForBusyTone
+4=End of script
+
+[GotoActions__AbbreviatedAddress]
+1=0
+
+[BasicCall_Arelease]
+3=>JustACallsBWithDTMF
+7=>JustDoPathConfirmationOnce
+2=>A:@:WaitForDialtoneVoice
+4=>B:@:WaitForRing
+6=>B:@:JustHookOff
+8=>A:@:JustHookOn
+1=>A:@:JustHookOff
+5=>A:@:WaitForRingBackVoice
+9=>B:@:WaitForCongestionVoice
+10=End of script
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[CallReturn]
+1=End of script
+
+[GotoActions__DialIncompletedNumber]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__HookOffNoDial]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[DialIncompletedNumber]
+3=>A:@:WaitInterDigitTimer
+7=>ACallsBWithDTMFAndConfirmsForCallLength
+2=>A:@:DialIncompletedNumber
+4=>A:@:WaitForCongestionTone
+6=>A:@:WaitSeconds [3]
+8=>A:@:JustHookOn
+1=>A:@:WaitForDialTone
+5=>A:@:JustHookOn
+9=>B:@:WaitForBusyTone
+10=End of script
+
+[SessionEndCallerControl]
+3=>B:@:WaitSeconds [5]
+7=>A:@:WaitForBusyTone
+12=>B:@:JustHookOn
+4=>B:@:JustHookOff
+8=>A:@:JustHookOn
+13=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>PathConfirmationForOnce
+9=>ACallsBWithDTMFAndConfirmsOnce
+10=>A:@:JustHookOn
+2=>B:@:JustHookOn
+6=>B:@:JustHookOn
+11=>B:@:WaitForBusyTone
+
+[GotoActions__CallerHookOnAfterCalleeRing]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[Modem]
+3=>B:@:WaitForRing
+7=>WaitForSeconds [3]
+12=>B:@:JustHookOn
+4=>CheckRingBack
+8=>PathConfirmationForCallLength
+13=End of script
+1=>A:@:WaitForDialTone
+5=>WaitForSeconds [3]
+9=>A:@:JustHookOn
+10=>WaitForSeconds [3]
+2=>DialDTMF
+6=>B:@:JustHookOff
+11=>B:@:WaitForBusyTone
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+[CallForwardingUnconditional]
+3=>C:@:WaitForRing
+7=>C:@:WaitForBusyTone
+2=>DialDTMF
+4=>C:@:JustHookOff
+6=>A:@:JustHookOn
+8=>C:@:JustHookOn
+1=>B:@:DialCPUFuncNumber
+5=>A:C:PathConfirmationForCallLength
+9=>B:@:CancelCFU
+10=End of script
+
+[CallPickUp]
+1=End of script
+
+[GotoActions__SecondaryDial]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[CallWaitingORIG_AonHookDuringCall]
+3=>C:@:WaitForDialtoneVoice
+7=>A:@:JustHookFlash
+12=>B:@:WaitForCongestionVoice
+4=>C:A:JustACallsBWithDTMF
+8=>A:C:JustDoPathConfirmationOnce
+13=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>A:@:WaitForCallWaitingTone
+9=>B:@:WaitForSilence
+10=>A:@:JustHookOn
+2=>C:@:JustHookOff
+6=>C:@:WaitForRingBackVoice
+11=>C:@:WaitForCongestionVoice
+
+[CallWaitingORIG_ConHookDruingCW]
+3=>C:@:WaitForDialtoneVoice
+7=>C:@:JustHookOn
+2=>C:@:JustHookOff
+4=>C:A:JustACallsBWithDTMF
+6=>C:@:WaitForRingBackVoice
+8=>A:@:WaitForSilence
+11=End of script
+1=>ACallsBWithDTMFAndConfirmsOnce
+5=>A:@:WaitForCallWaitingTone
+9=>A:@:JustHookOn
+10=>B:@:WaitForCongestionVoice
+
+[GotoActions__CallWaitingORIG_ConHook]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[BasicCall_Brelease]
+3=>JustACallsBWithDTMF
+7=>JustDoPathConfirmationOnce
+2=>A:@:WaitForDialtoneVoice
+4=>B:@:WaitForRing
+6=>B:@:JustHookOff
+8=>B:@:JustHookOn
+11=End of script
+1=>A:@:JustHookOff
+5=>A:@:WaitForRingBackVoice
+9=>A:@:WaitReanswerTimer
+10=>A:@:WaitForCongestionVoice
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[GotoActions__BasicCall_Breanswer]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[CallerHookOnAfterCalleeRing]
+1=>ACallsBWithDTMF
+3=>B:@:WaitForRing
+5=>ACallsBWithDTMFAndConfirmsOnce
+7=>B:@:WaitForBusyTone
+2=>A:@:WaitForRingBackTone
+4=>A:@:JustHookOn
+6=>A:@:JustHookOn
+8=End of script
+
+[GotoActions__CallWaiting]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__CallForwardingNoReply]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+

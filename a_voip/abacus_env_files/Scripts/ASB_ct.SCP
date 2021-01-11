@@ -1,0 +1,1362 @@
+[GotoActions__AFT: case_1.4.4_caller_control]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__AFT: case_1.1.2_FAX]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[AFT: case_1.1.2_FAX]
+1=>AFT A calls B, DTMF
+3=>B:@:AFT On hook wait for incoming call
+5=>AFT Do Path Confirmation Once
+7=>B:@:Wait for busy
+2=>A:@:wait for ringback tone by check frequency
+4=>B:@:AFT Off Hook
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[AFT: case_1.2.6_hangoffandon]
+12=>A:@:AFT On Hook and wait 1 sec
+74=>A:@:Wait for time in seconds [1]
+69=>A:@:AFT On Hook and wait 1 sec
+31=>A:@:AFT Off hook wait for dial tone
+26=>A:@:Wait for time in seconds [1]
+93=>A:@:AFT On Hook and wait 1 sec
+88=>A:@:AFT Off hook wait for dial tone
+9=>A:@:AFT On Hook and wait 1 sec
+50=>A:@:Wait for time in seconds [1]
+45=>A:@:AFT On Hook and wait 1 sec
+64=>A:@:AFT Off hook wait for dial tone
+59=>A:@:Wait for time in seconds [1]
+21=>A:@:AFT On Hook and wait 1 sec
+16=>A:@:AFT Off hook wait for dial tone
+83=>A:@:Wait for time in seconds [1]
+78=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT Off hook wait for dial tone
+40=>A:@:AFT Off hook wait for dial tone
+35=>A:@:Wait for time in seconds [1]
+97=>B:@:AFT Off Hook
+54=>A:@:AFT On Hook and wait 1 sec
+49=>A:@:AFT Off hook wait for dial tone
+11=>A:@:Wait for time in seconds [1]
+73=>A:@:AFT Off hook wait for dial tone
+68=>A:@:Wait for time in seconds [1]
+30=>A:@:AFT On Hook and wait 1 sec
+25=>A:@:AFT Off hook wait for dial tone
+92=>A:@:Wait for time in seconds [60]
+87=>A:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for time in seconds [1]
+44=>A:@:Wait for time in seconds [1]
+39=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT Off hook wait for dial tone
+32=>A:@:Wait for time in seconds [1]
+27=>A:@:AFT On Hook and wait 1 sec
+63=>A:@:AFT On Hook and wait 1 sec
+58=>A:@:AFT Off hook wait for dial tone
+94=>AFT A calls B, DTMF
+89=>A:@:Wait for time in seconds [1]
+20=>A:@:Wait for time in seconds [1]
+15=>A:@:AFT On Hook and wait 1 sec
+51=>A:@:AFT On Hook and wait 1 sec
+46=>A:@:AFT Off hook wait for dial tone
+82=>A:@:AFT Off hook wait for dial tone
+77=>A:@:Wait for time in seconds [1]
+101=End of script
+3=>A:@:AFT On Hook and wait 1 sec
+34=>A:@:AFT Off hook wait for dial tone
+29=>A:@:Wait for time in seconds [1]
+70=>A:@:AFT Off hook wait for dial tone
+65=>A:@:Wait for time in seconds [1]
+96=>B:@:AFT On hook wait for incoming call
+22=>A:@:AFT Off hook wait for dial tone
+17=>A:@:Wait for time in seconds [1]
+53=>A:@:Wait for time in seconds [1]
+48=>A:@:AFT On Hook and wait 1 sec
+84=>A:@:AFT On Hook and wait 1 sec
+79=>A:@:AFT Off hook wait for dial tone
+5=>A:@:Wait for time in seconds [1]
+10=>A:@:AFT Off hook wait for dial tone
+41=>A:@:Wait for time in seconds [1]
+36=>A:@:AFT On Hook and wait 1 sec
+72=>A:@:AFT On Hook and wait 1 sec
+67=>A:@:AFT Off hook wait for dial tone
+98=>AFT Do Path Confirmation Once
+24=>A:@:AFT On Hook and wait 1 sec
+19=>A:@:AFT Off hook wait for dial tone
+60=>A:@:AFT On Hook and wait 1 sec
+55=>A:@:AFT Off hook wait for dial tone
+91=>A:@:AFT Off hook wait for dial tone
+86=>A:@:Wait for time in seconds [1]
+7=>A:@:AFT Off hook wait for dial tone
+43=>A:@:AFT Off hook wait for dial tone
+38=>A:@:Wait for time in seconds [1]
+62=>A:@:Wait for time in seconds [1]
+57=>A:@:AFT On Hook and wait 1 sec
+14=>A:@:Wait for time in seconds [1]
+81=>A:@:AFT On Hook and wait 1 sec
+76=>A:@:AFT Off hook wait for dial tone
+100=>B:@:Wait for busy
+2=>A:@:Wait for time in seconds [1]
+33=>A:@:AFT On Hook and wait 1 sec
+28=>A:@:AFT Off hook wait for dial tone
+95=>A:@:wait for ringback tone by check frequency
+52=>A:@:AFT Off hook wait for dial tone
+47=>A:@:Wait for time in seconds [1]
+71=>A:@:Wait for time in seconds [1]
+66=>A:@:AFT On Hook and wait 1 sec
+23=>A:@:Wait for time in seconds [1]
+18=>A:@:AFT On Hook and wait 1 sec
+90=>A:@:AFT On Hook and wait 1 sec
+85=>A:@:AFT Off hook wait for dial tone
+6=>A:@:AFT On Hook and wait 1 sec
+42=>A:@:AFT On Hook and wait 1 sec
+37=>A:@:AFT Off hook wait for dial tone
+99=>A:@:AFT On Hook and wait 1 sec
+61=>A:@:AFT Off hook wait for dial tone
+56=>A:@:Wait for time in seconds [1]
+13=>A:@:AFT Off hook wait for dial tone
+80=>A:@:Wait for time in seconds [1]
+75=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__AFT: case_1.2.1_no dial after offhook]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[AFT: case_1.4.9_check howler tone on caller and callee side]
+7=>B:@:Wait for busy
+12=>A:@:wait for ringback tone by check frequency
+8=>B:@:Wait for time in seconds [30]
+13=>B:@:AFT On hook wait for incoming call
+1=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+9=>B:@:Wait for 2 tones for ?? seconds [950,0,2]
+10=>B:@:AFT On Hook and wait 1 sec
+14=>B:@:AFT Off Hook
+18=>A:@:Wait for time in seconds [30]
+2=>A:@:wait for ringback tone by check frequency
+6=>A:@:AFT On Hook and wait 1 sec
+11=>AFT A calls B, DTMF
+20=>A:@:AFT On Hook and wait 1 sec
+15=>AFT Do Path Confirmation Once
+19=>A:@:Wait for 2 tones for ?? seconds [950,0,2]
+3=>B:@:AFT On hook wait for incoming call
+21=End of script
+16=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off Hook
+17=>A:@:Wait for busy
+
+[GotoActions__AFT: case_1.2.4_dial incomplete number]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[GotoActions__AFT: CFU]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT: 3-way Calling]
+7=A:@:Wait for time in seconds [2]
+12=B:@:onhook
+25=A:@:onhook
+8=A:C:AFT Do Path Confirmation Once
+13=C:@:onhook
+26=C:@:onhook
+1=A calls B, DTMF, confirms once
+9=B:@:Wait for time in seconds [2]
+14=A calls B, DTMF, confirms once
+27=End of script
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=AFT Do Path Confirmation Once
+11=A:@:onhook
+20=A:@:AFT Do Hook Flash wait time [2]
+15=A:@:AFT A does hookflash and waits for Stutter dial tone
+24=A:C:A calls B, DTMF, confirms once
+19=AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=A:@:Send string in DTMF [1]
+16=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time [2]
+22=B:@:Wait for busy
+17=A:@:AFT Do Hook Flash wait time [2]
+5=A:@:Send string in DTMF [3]
+10=B:C:AFT Do Path Confirmation Once
+23=B:@:onhook
+18=A:@:Send string in DTMF [2]
+
+[GotoActions__AFT: case_1.2.2_check howler tone]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[AFT: CFNR]
+7=C:@:AFT Off Hook
+12=;step2: B call A without forwarding
+8=B:C:AFT Do Path Confirmation Once
+13=B:A:A calls B, DTMF, confirms once
+1=;step1: call from B to A forwarded to C
+5=B:@:Wait for time in seconds [30]
+9=A:@:AFT On Hook and wait 1 sec
+10=B:@:AFT On Hook and wait 1 sec
+14=A:@:AFT On Hook and wait 1 sec
+18=A:@:Send string in DTMF [*68#]
+2=A:@:AFT Off hook wait for dial tone
+6=C:@:AFT On hook wait for incoming call
+11=C:@:AFT On Hook and wait 1 sec
+20=B:@:Wait for busy
+15=B:@:AFT On Hook and wait 1 sec
+19=B:A:AFT A calls B, DTMF
+3=A:@:Send string in DTMF [*67#]
+21=End of script
+16=;step3: B call A with CFB cancelled
+4=B:A:AFT A calls B, DTMF
+17=A:@:AFT Off hook wait for dial tone
+
+[GotoActions__check ringback]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[AFT: case_1.2.4_dial incomplete number]
+3=>A:@:Wait for time in seconds [20]
+7=>A:@:wait for ringback tone by check frequency
+12=>B:@:Wait for busy
+4=>A:@:wait for congestion tone  [450,0,0.6]
+8=>B:@:AFT On hook wait for incoming call
+13=End of script
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait 1 sec
+9=>B:@:AFT Off Hook
+10=>AFT Do Path Confirmation Once
+2=>A:@:Send string in DTMF [8898]
+6=>AFT A calls B, DTMF
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[AFT: case_1.4.7_calleronhook_before_ringback]
+3=>AFT A calls B, DTMF
+7=>AFT Do Path Confirmation Once
+2=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:wait for ringback tone by check frequency
+6=>B:@:AFT Off Hook
+8=>A:@:AFT On Hook and wait 1 sec
+1=>AFT A calls B, DTMF
+5=>B:@:AFT On hook wait for incoming call
+9=>B:@:Wait for busy
+10=End of script
+
+[AFT: case_1.4.1_callee busy]
+3=>AFT A calls B, DTMF
+7=>AFT A calls B, DTMF
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:Wait for busy
+8=>wait for ringback tone by check frequency
+13=>B:@:Wait for busy
+1=>B:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait 1 sec
+9=>B:@:AFT On hook wait for incoming call
+10=>B:@:AFT Off Hook
+14=End of script
+2=>B:@:Wait for time in seconds [5]
+6=>B:@:AFT On Hook and wait 1 sec
+11=>AFT Do Path Confirmation Once
+
+[GotoActions__AFT: case_1.4.7_calleronhook_before_ringback]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[AFT: case_1.2.2_check howler tone]
+3=>A:@:wait for congestion tone  [450,0,0.3]
+7=>AFT A calls B, DTMF
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:Wait for time in seconds [30]
+8=>A:@:wait for ringback tone by check frequency
+13=>B:@:Wait for busy
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:wait for howler tone  [950,0,2]
+9=>B:@:AFT On hook wait for incoming call
+10=>B:@:AFT Off Hook
+14=End of script
+2=>A:@:Wait for time in seconds [10]
+6=>A:@:AFT On Hook and wait 1 sec
+11=>AFT Do Path Confirmation Once
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[AFT: CFU]
+3=C:@:AFT On hook wait for incoming call
+7=B:@:AFT On Hook and wait 1 sec
+2=A:@:AFT On Hook and wait 1 sec
+4=B:A:AFT A calls B, DTMF
+6=B:C:AFT Do Path Confirmation Once
+8=C:@:AFT On Hook and wait 1 sec
+11=End of script
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=C:@:AFT Off Hook
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=B:A:A calls B, DTMF, confirms once
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: case_1.2.1_no dial after offhook]
+3=>A:@:Wait for time in seconds [2]
+7=>B:@:AFT On hook wait for incoming call
+12=End of script
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:wait for ringback tone by check frequency
+8=>B:@:AFT Off Hook
+11=>B:@:Wait for busy
+1=>B:@:AFT On Hook and wait 1 sec
+5=>AFT A calls B, DTMF
+9=>AFT Do Path Confirmation Once
+10=>A:@:AFT On Hook and wait 1 sec
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[AFT: call pick up]
+3=C:@:Send string in DTMF [*11*88880001*]
+2=C:@:AFT Off hook wait for dial tone
+4=A:C:AFT Do Path Confirmation Once
+1=AFT A calls B, DTMF
+5=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__AFT: CFB]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+[GotoActions__AFT: case_1.2.3_dial vacant number]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[AFT: abbreviated address]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:C:AFT Do Path Confirmation Once
+2=A:@:Send string in DTMF [*51*0*88880000#]
+4=C:@:AFT On hook wait for incoming call
+6=C:@:AFT Off Hook
+8=B:@:AFT On Hook and wait 1 sec
+1=A:@:AFT Off hook wait for dial tone
+5=B:A:AFT A calls B, DTMF
+9=C:@:AFT On Hook and wait 1 sec
+10=End of script
+
+[GotoActions__AFT: 3-way Calling]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__AFT: case_1.4.6_calleronhook_after_ringback]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: abbreviated address]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[GotoActions__AFT: case_1.4.9_check howler tone on caller and callee side]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__AFT: case_1.4.2_no response]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT: case_1.2.3_dial vacant number]
+3=>A:@:Wait for time in seconds [20]
+7=;>A:@:wait for howler tone  [950,0,2]
+12=>B:@:AFT Off Hook
+16=End of script
+4=>B:@:Wait for busy
+8=>A:@:AFT On Hook and wait 1 sec
+13=>AFT Do Path Confirmation Once
+1=>A:@:AFT Off hook wait for dial tone
+5=;>A:@:wait for congestion tone  [450,0,0.3]
+9=>AFT A calls B, DTMF
+10=>A:@:wait for ringback tone by check frequency
+14=>A:@:AFT On Hook and wait 1 sec
+2=>A:@:Send string in DTMF [8898]
+6=;>A:@:Wait for time in seconds [30]
+11=>B:@:AFT On hook wait for incoming call
+15=>B:@:Wait for busy
+
+[GotoActions__ASB: Call Transfer]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[AFT: CFB]
+7=B:C:AFT Do Path Confirmation Once
+12=B:A:A calls B, DTMF, confirms once
+4=B:A:AFT A calls B, DTMF
+8=A:@:AFT On Hook and wait 1 sec
+13=A:@:AFT On Hook and wait 1 sec
+17=A:@:Send string in DTMF [*68#]
+1=;step1: call from B to A forwarded to C
+5=C:@:AFT On hook wait for incoming call
+9=B:@:AFT On Hook and wait 1 sec
+10=C:@:AFT On Hook and wait 1 sec
+14=B:@:AFT On Hook and wait 1 sec
+18=B:A:AFT A calls B, DTMF
+2=A:@:AFT Off hook wait for dial tone
+6=C:@:AFT Off Hook
+11=;step2: B call A without forwarding
+20=End of script
+15=;step3: B call A with CFB cancelled
+19=B:@:Wait for busy
+3=A:@:Send string in DTMF [*67#]
+16=A:@:AFT Off hook wait for dial tone
+
+[AFT: case_1.4.6_calleronhook_after_ringback]
+3=>B:@:AFT On hook wait for incoming call
+7=>B:@:AFT On hook wait for incoming call
+12=End of script
+2=>A:@:wait for ringback tone by check frequency
+4=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:wait for ringback tone by check frequency
+8=>B:@:AFT Off Hook
+11=>B:@:Wait for busy
+1=>AFT A calls B, DTMF
+5=>AFT A calls B, DTMF
+9=>AFT Do Path Confirmation Once
+10=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__AFT: case_1.4.1_callee busy]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[check ringback]
+1=C:@:AFT Off hook wait for dial tone
+3=>A:@:Wait for time in seconds [60]
+5=;>A:@:check ringback tone
+7=End of script
+2=>AFT A calls B, DTMF
+4=>B:@:Wait for time in seconds [60]
+6=;>AFT Do Path Confirmation Once
+
+[ASB: Call Transfer]
+3=>B:@:AFT On hook wait for incoming call
+7=>B:@:AFT Off hook wait for dial tone
+12=>C:@:Wait for busy
+4=>B:@:AFT Off Hook
+8=>B:C:AFT A calls B, DTMF
+13=End of script
+1=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+9=>B:@:AFT On Hook and wait 1 sec
+10=>A:C:AFT Do Path Confirmation Once
+2=>A:@:Send 2 tones for ?? seconds [450,0,0.9]
+6=>B:@:AFT Do Hook Flash wait time [1]
+11=>A:@:AFT On Hook and wait 1 sec
+
+[AFT: case_1.4.4_caller_control]
+7=>A:@:Wait for time in seconds [5]
+12=>A:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT Off Hook
+13=>B:@:AFT On Hook and wait 1 sec
+1=>AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+9=>AFT Do Path Confirmation Once
+10=>A:@:AFT On Hook and wait 1 sec
+14=>AFT A calls B, DTMF
+18=>AFT Do Path Confirmation Once
+2=>A:@:wait for ringback tone by check frequency
+6=>B:@:AFT On Hook and wait 1 sec
+11=>B:@:Wait for busy
+20=>B:@:Wait for busy
+15=>A:@:wait for ringback tone by check frequency
+19=>A:@:AFT On Hook and wait 1 sec
+3=>B:@:AFT On hook wait for incoming call
+21=End of script
+16=>B:@:AFT On hook wait for incoming call
+4=>B:@:AFT Off Hook
+17=>B:@:AFT Off Hook
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__AFT: CFNR]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=>A calls B, DTMF, confirms once
+3=>B:@:AFT Off hook wait for dial tone
+5=>B:@:AFT On Hook and wait 1 sec
+7=End of script
+2=>B:@:AFT Do Hook Flash wait time [1]
+4=>B:C:A calls B, DTMF, confirms once
+6=>A:C:AFT Do Path Confirmation Once
+
+[GotoActions__AFT: call pick up]
+3=0
+2=0
+4=0
+1=0
+5=0
+
+[AFT: case_1.4.2_no response]
+7=>A:@:wait for howler tone  [950,0,2]
+12=>B:@:AFT On hook wait for incoming call
+4=>A:@:Wait for time in seconds [60]
+8=>A:@:AFT On Hook and wait 1 sec
+13=>B:@:AFT Off Hook
+17=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for busy
+9=>B:@:AFT On Hook and wait 1 sec
+10=>AFT A calls B, DTMF
+14=>AFT Do Path Confirmation Once
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:Wait for time in seconds [23]
+11=>A:@:wait for ringback tone by check frequency
+15=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:Wait for 2 tones for ?? seconds [450,0,0.9]
+16=>B:@:Wait for busy
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=End of script
+
+[GotoActions__AFT: case_1.2.6_hangoffandon]
+12=0
+74=0
+69=0
+31=0
+26=0
+93=0
+88=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+4=0
+40=0
+35=0
+97=0
+54=0
+49=0
+11=0
+73=0
+68=0
+30=0
+25=0
+92=0
+87=0
+8=0
+44=0
+39=0
+1=0
+32=0
+27=0
+63=0
+58=0
+94=0
+89=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+101=0
+3=0
+34=0
+29=0
+70=0
+65=0
+96=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+98=0
+24=0
+19=0
+60=0
+55=0
+91=0
+86=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+100=0
+2=0
+33=0
+28=0
+95=0
+52=0
+47=0
+71=0
+66=0
+23=0
+18=0
+90=0
+85=0
+6=0
+42=0
+37=0
+99=0
+61=0
+56=0
+13=0
+80=0
+75=0
+

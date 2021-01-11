@@ -1,0 +1,327 @@
+[Actions]
+File=FeatureTest.ACT
+
+[Call Forwarding: User A]
+1=;A goes off-hook activates call forwarding (*72)
+10=;A and B measures PESQ
+11=Wait QoM Wav File (Choose File) [p861]
+12=Send QoM Wav File (Choose File) [1,p861]
+13=;A goes on-hook and wait for time
+14=CF: A stays on-hook and wait for time (Enter time) [20]
+15=;A deactivates Call Forwarding
+16=CF: A dials Activates/Deactivates Unconditional CF [*73]
+17=;A waits for stutter DT (confirmation)
+18=Wait for Energy [0.5]
+19=;A waits call from C to confirm call forwarding
+2=CF: A dials Activates/Deactivates Unconditional CF [*72]
+20=;has been deactivated
+21=CF: A stays on-hook and wait for time (Enter time) [14]
+22=;C and A exchange wav files
+23=;C and A measures PESQ
+24=Send QoM Wav File (Choose File) [1,p861]
+25=Wait QoM Wav File (Choose File) [p861]
+26=End of script
+3=;A waits for stutter DT (confirmation)
+4=Wait for Energy [0.5]
+5=;A dials phone # to forward call
+6=;Enter phone # to forward calls to
+7=Wait for DialTone and Send Strings (DTMF) [5551002]
+8=;A and B confirms call forwarding by
+9=;exchanging wav files
+
+[Call Forwarding: User B]
+1=;B waits for call and exchange wav files
+2=;B measures PESQ
+3=Send QoM Wav File (Choose File) [1,p861]
+4=Wait QoM Wav File (Choose File) [p861]
+5=End of script
+
+[Call Forwarding: User C]
+1=;C initiates call to A
+10=CF: A stays on-hook and wait for time (Enter time) [10]
+11=CF: C calls A, DTMF
+12=;A and C exchange wav file
+13=;A and C measures PESQ
+14=Wait QoM Wav File (Choose File) [p861]
+15=Send QoM Wav File (Choose File) [1,p861]
+16=End of script
+2=;Call will be forwarded to B
+3=CF: C calls A, DTMF
+4=;B and C exchange wav files
+5=;B and C measures PESQ
+6=Wait QoM Wav File (Choose File) [p861]
+7=Send QoM Wav File (Choose File) [1,p861]
+8=;C goes on-hook and initiated another call to A
+9=;Wait time for A to deactivate call forwarding
+
+[Call Transfer: User A]
+1=;A initiates call to B
+10=Wait for Energy [0.5]
+11=;Enter phone number for C
+12=Call Transfer: A dials C, DTMF [103]
+13=;A waits for ringing
+14=;A and C exchange wav files
+15=;A and C measures PESQ
+16=Wait QoM Wav File (Choose File) [p861]
+17=Send QoM Wav File (Choose File) [1,p861]
+18=;A hangs up to complete call transfer
+19=End of script
+2=A calls B, DTMF
+3=;A and B exchange wav files
+4=;A and B measures PESQ
+5=Wait QoM Wav File (Choose File) [p861]
+6=Send QoM Wav File (Choose File) [1,p861]
+7=;A does hook-flash, initiate call transfer
+8=User Does Hook-Flash
+9=;A gets 2nd dial tone and dials C
+
+[Call Transfer: User B]
+1=;B waits for call from A
+10=Send QoM Wav File (Choose File) [1,p861]
+11=End of script
+2=;A and B exchange wav files
+3=;A and B measures PESQ
+4=Send QoM Wav File (Choose File) [1,p861]
+5=Wait QoM Wav File (Choose File) [p861]
+6=;B waits for A to transfer to C
+7=;B and C exchange wav files
+8=;B and C measurs PESQ
+9=Wait QoM Wav File (Choose File) [p861]
+
+[Call Transfer: User C]
+1=;C waits for call from A
+10=Wait QoM Wav File (Choose File) [p861]
+11=End of script
+2=;A and C exchange wav files
+3=;A and C measures PESQ
+4=Send QoM Wav File (Choose File) [1,p861]
+5=Wait QoM Wav File (Choose File) [p861]
+6=;A transfer to B
+7=;B and C exchange wav files
+8=;B and C measures PESQ
+9=Send QoM Wav File (Choose File) [5,p861]
+
+[GotoActions__Call Forwarding: User A]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+2=0
+20=0
+21=0
+22=0
+23=0
+24=0
+25=0
+26=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__Call Forwarding: User B]
+1=0
+2=0
+3=0
+4=0
+5=0
+
+[GotoActions__Call Forwarding: User C]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__Call Transfer: User A]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__Call Transfer: User B]
+1=0
+10=0
+11=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__Call Transfer: User C]
+1=0
+10=0
+11=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__User A: 3-way Calling]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+2=0
+20=0
+21=0
+22=0
+23=0
+24=0
+25=0
+26=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__User B: 3-way Calling]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[GotoActions__User C: 3-way Calling]
+1=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+
+[User A: 3-way Calling]
+1=;A initiates call to B
+10=;Enter phone number for C in script
+11=Three-Way Calling: A dials C, DTMF [103]
+12=;A and C exchange wav files
+13=;A and C measures PESQ
+14=Wait QoM Wav File (Choose File) [p861]
+15=Send QoM Wav File (Choose File) [1,p861]
+16=;A connects to both B and C, conference
+17=User Does Hook-Flash
+18=;A talks to B and C
+19=;Both B and C measures PESQ with
+2=A calls B, DTMF
+20=;wav files from A
+21=Send QoM Wav File (Choose File) [2,p861]
+22=;A and B then listens to C
+23=Wait QoM Wav File (Choose File) [p861]
+24=;A and C then listens to B
+25=Wait QoM Wav File (Choose File) [p861]
+26=End of script
+3=;A and B exchange wav files
+4=;A and B measures PESQ
+5=Wait QoM Wav File (Choose File) [p861]
+6=Send QoM Wav File (Choose File) [1,p861]
+7=;A initiates 3-way conference
+8=;A does hook-flash and dials C
+9=User Does Hook-Flash
+
+[User B: 3-way Calling]
+1=;B waits for call from A
+10=;B then listens to C
+11=Wait QoM Wav File (Choose File) [p861]
+12=;B then speaks to A and C
+13=Send QoM Wav File (Choose File) [2,p861]
+14=End of script
+2=;A and B exchange wav files
+3=;A and B measures PESQ
+4=Send QoM Wav File (Choose File) [1.5,p861]
+5=Wait QoM Wav File (Choose File) [p861]
+6=;A initiates 3-way calling at this point
+7=;B waits for call to be conferenced
+8=;When call is conferenced, B listens to A
+9=Wait QoM Wav File (Choose File) [p861]
+
+[User C: 3-way Calling]
+1=;C waits for call from A
+10=;C talks while A and B listens
+11=;A and B measures PESQ (scripts for A and B)
+12=Send QoM Wav File (Choose File) [2,p861]
+13=;B talks while A and C listens
+14=;A and C measures PESQ (see script for A)
+15=Wait QoM Wav File (Choose File) [p861]
+16=End of script
+2=;A and C exchange wav files
+3=;A and C measures PESQ
+4=Send QoM Wav File (Choose File) [1,p861]
+5=Wait QoM Wav File (Choose File) [p861]
+6=;C waits for call to be conferenced
+7=;A talks while B and C listens
+8=;C measures PESQ
+9=Wait QoM Wav File (Choose File) [p861]
+

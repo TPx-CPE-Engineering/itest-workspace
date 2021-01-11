@@ -1,0 +1,1079 @@
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_004]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_001]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SANITY_CH_01]
+3=>B:@:AFT Off Hook
+7=>A:@:Do HF wait ?? send DTMF ?? [1,*52]
+2=>AFT A calls B, DTMF
+4=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Wait for time in seconds [5]
+8=>A:@:Wait for time in seconds [1]
+1=>B:@:AFT On hook wait for incoming call
+5=>A:@:Do HF wait ?? send DTMF ?? [1,*52]
+9=>AFT Do Path Confirmation for Time  [10]
+10=End of script
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_007_A5k_bug]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SRV_VOIP-SIP_FEAT_CT_008]
+7=>A:@:AFT On Hook and wait time [1]
+12=>A:@:AFT Do Hook Flash wait time [1]
+4=>A:@:Do HF wait ?? send DTMF ?? [1,*52]
+8=>A:@:AFT On hook wait for incoming call for timeout
+13=>A:C:A Calls B,DTMF,No Dial Tone
+17=End of script
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:AFT Off Hook
+10=>A:@:Wait for time in seconds [1]
+14=>A:C:AFT Do Path Confirmation for Time  [10]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>C:@:AFT On Hook and wait time [1]
+11=>AFT Do Path Confirmation for Time  [10]
+15=>A:@:AFT On Hook and wait time [1]
+3=;A calls C, then transfers C to B
+16=>C:B:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CW_010]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=;C hangs up to transfer D to A
+8=;C hook flashes, calls D
+13=>C:@:Go OnHook
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:@:Do hook flash, and wait for recall dial tone
+10=>C:D:A Calls B,DTMF,No Dial Tone
+14=>C:@:Wait for time in seconds in onhook [3]
+18=>AFT Do Path Confirmation for Time  [10]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>D:@:AFT On hook wait for incoming call for timeout
+20=>A:D:AFT Do Path Confirmation for Time  [10]
+15=>D:@:Go OffHook
+19=>A:@:Do Hook Flash
+3=>C:@:AFT Off hook wait for dial tone
+21=End of script
+16=>A:D:AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+17=>A:@:Do Hook Flash
+
+[SRV_VOIP-SIP_FEAT_CW_005]
+3=>C:@:AFT Off hook wait for dial tone
+7=>A:@:AFT On hook wait for incoming call for timeout
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT Off Hook
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:A:AFT Do Path Confirmation for Time  [10]
+10=End of script
+
+[SRV_VOIP-SIP_FEAT_CW_007_A5k_bug]
+3=>C:@:AFT Off hook wait for dial tone
+7=>C:@:Go OnHook
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Do Hook Flash
+8=>A:@:Wait for silence
+11=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>A:@:Do Hook Flash
+10=>B:A:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CT_001]
+7=>A:@:AFT On Hook and wait time [1]
+12=;>B:@:Do hook flash, and wait for recall dial tone
+8=>C:B:AFT Do Path Confirmation for Time  [10]
+13=>B:D:A Calls B,DTMF,No Dial Tone
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=;B calls D, then onhooks to transfer D to C
+10=>B:@:AFT Do Hook Flash wait time [1]
+14=>B:D:AFT Do Path Confirmation for Time  [10]
+23=End of script
+18=>C:@:Do hook flash, and wait for recall dial tone
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>B:@:Wait for recall dial tone
+20=>C:E:AFT Do Path Confirmation for Time  [10]
+15=>B:@:AFT On Hook and wait time [1]
+19=>C:E:A Calls B,DTMF,No Dial Tone
+3=;A calls C, then transfers C to B
+21=>C:@:AFT On Hook and wait time [1]
+16=>D:C:AFT Do Path Confirmation for Time  [10]
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=>E:D:AFT Do Path Confirmation for Time  [10]
+17=;C calls E, then onhooks to transfer E to D
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_011]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+28=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_006]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_003]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+28=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Actions]
+File=ABACUS_SRV_VOIP.ACT
+
+[GotoActions__basic call]
+1=0
+2=0
+
+[GotoActions__SANITY_CTA_01]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[SRV_VOIP-SIP_FEAT_CW_007]
+3=>C:@:AFT Off hook wait for dial tone
+7=>C:@:Go OnHook
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Do Hook Flash
+8=>A:@:Wait for silence
+11=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>A:@:Do Hook Flash
+10=>AFT Do Path Confirmation for Time  [10]
+
+[SANITY_CTB_01]
+3=;A hook flashes to dial C
+7=>A:@:Wait for Ring back tone
+12=>C:@:Wait for time in seconds [1]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;A hangs up to transfer C to B
+13=>C:B:AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:Go OnHook
+10=>A:@:Wait for time in seconds in onhook [3]
+14=End of script
+2=>AFT Do Path Confirmation for Time  [10]
+6=>C:@:AFT On hook wait for incoming call for timeout
+11=>C:@:Go OffHook
+
+[SRV_VOIP-SIP_FEAT_CT_003]
+7=>C:@:AFT On Hook and wait time [.1]
+12=>B:@:Wait for time ? in onHook [20]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>A:@:AFT On Hook and wait time [.1]
+13=>B:A:AFT A calls B, DTMF
+17=>B:C:AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:Wait for time in seconds [1]
+10=>B:@:Wait for congestion tone
+14=>B:A:AFT Do Path Confirmation for Time  [10]
+18=>B:@:Go OnHook
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>B:@:Wait for time in seconds [5]
+20=End of script
+15=>B:@:Do hook flash, and wait for recall dial tone
+19=>C:A:AFT Do Path Confirmation for Time  [10]
+3=;A calls C, then transfers C to B
+16=>B:C:A Calls B,DTMF,No Dial Tone
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_010]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SRV_VOIP-SIP_FEAT_CW_009]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=;C hangs up to transfer D to A
+4=>C:A:A Calls B,DTMF,No Dial Tone
+8=;C hook flashes, calls D
+13=>C:@:Go OnHook
+17=>A:@:Do Hook Flash
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:@:Do hook flash, and wait for recall dial tone
+10=>C:D:A Calls B,DTMF,No Dial Tone
+14=>A:D:AFT Do Path Confirmation for Time  [10]
+18=>A:D:AFT Do Path Confirmation for Time  [10]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>C:D:AFT Do Path Confirmation for Time  [10]
+15=>A:@:Do Hook Flash
+19=End of script
+3=>C:@:AFT Off hook wait for dial tone
+16=>AFT Do Path Confirmation for Time  [10]
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_001]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[SRV_VOIP-SIP_FEAT_CT_010]
+7=>A:@:Wait for Ring back tone
+12=>C:B:AFT Do Path Confirmation for Time  [10]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;A hangs up to transfer C to B
+13=;B hook flashes to dial D
+17=>AFT A calls B, DTMF
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:Go OnHook
+10=;>A:@:Wait for time in seconds in onhook [3]
+14=>B:@:Do HF wait ?? send DTMF ?? [2,*70]
+18=>A:@:Wait for busy
+2=>AFT Do Path Confirmation for Time  [10]
+6=;>C:@:AFT On hook wait for incoming call for timeout
+11=>C:@:Go OffHook
+15=>B:@:Wait for time in seconds [2]
+19=End of script
+3=;A hook flashes to dial C
+16=>C:B:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CT_005]
+3=;A calls C, then transfers C to B
+7=>A:@:Wait for congestion tone
+2=>AFT Do Path Confirmation for Time  [10]
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:C:A Calls B,DTMF,No Dial Tone
+8=>A:@:AFT Do Hook Flash wait time [.5]
+11=End of script
+1=>AFT A calls B, DTMF
+5=>B:@:Do hook flash, and wait for recall dial tone
+9=>B:@:AFT Do Hook Flash wait time [.5]
+10=>AFT Do Path Confirmation for Time  [10]
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_003]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[Lines stay off hook]
+1=A calls B, DTMF, confirms for time [120]
+2=End of script
+
+[GotoActions__SANITY_CTB_01]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[SRV_VOIP-SIP_FEAT_CT_007]
+7=;D calls B, B hears CW tone and hookflashes to talk to D
+12=>B:@:AFT On Hook and wait time [1]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>D:B:AFT A calls B, DTMF
+13=>B:@:AFT On hook wait for incoming call for timeout
+17=End of script
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:AFT Wait for Call Waiting Tone
+10=>B:@:AFT Do Hook Flash wait time [.5]
+14=>B:@:AFT Off Hook
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>D:B:AFT Do Path Confirmation for Time  [10]
+15=>C:@:Wait for time in seconds [1]
+3=;A calls C, then transfers C to B
+16=>C:B:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CW_004]
+1=>AFT A calls B, DTMF
+3=>C:@:AFT Off hook wait for dial tone
+5=>A:@:AFT Wait for Call Waiting Tone
+7=>C:@:AFT on hook and wait for 5 seconds
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:AFT on hook and wait for 5 seconds
+8=End of script
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__SANITY_CW_01]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_010]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_006_A5K_bug]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[SRV_VOIP-SIP_FEAT_CW_006_A5K_bug]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=>D:@:AFT On Hook and wait 1 sec
+4=>C:A:A Calls B,DTMF,No Dial Tone
+8=;D calls A, gets busy tone
+13=;Next two actions are to check that B was on hold 
+17=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>D:@:AFT Off hook wait for dial tone
+10=>D:A:A Calls B,DTMF,No Dial Tone
+14=>C:@:Go OnHook
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>D:@:Wait for busy
+15=>A:@:Do Hook Flash
+3=>C:@:AFT Off hook wait for dial tone
+16=>B:A:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CT_009]
+7=>C:@:AFT On Hook and wait time [1]
+12=>A:@:Wait for time in seconds [1]
+4=>A:@:AFT Do Hook Flash wait time [1]
+8=>A:@:Wait for time in seconds [16]
+13=>AFT Do Path Confirmation for Time  [10]
+17=>A:@:Do HF wait ?? send DTMF ?? [1,*52]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>A:@:AFT On Hook and wait time [1]
+10=>A:@:AFT On hook wait for incoming call for timeout
+14=>A:@:Do HF wait ?? send DTMF ?? [1,*52]
+18=>AFT Do Path Confirmation for Time  [10]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>A:@:AFT Off Hook
+15=>A:D:A Calls B,DTMF,No Dial Tone
+19=End of script
+3=;A calls C, then transfers C to B
+16=>A:D:AFT Do Path Confirmation for Time  [10]
+
+[SRV_VOIP-SIP_FEAT_CW_011]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=;C hangs up to transfer D to A
+25=End of script
+8=;C hook flashes, calls D
+13=>C:@:Go OnHook
+1=>AFT A calls B, DTMF
+9=>C:@:Do hook flash, and wait for recall dial tone
+14=>C:@:Wait for time in seconds in onhook [3]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>D:@:AFT On hook wait for incoming call for timeout
+20=>C:@:AFT Off hook wait for dial tone
+15=>D:@:Go OffHook
+24=>C:A:AFT Do Path Confirmation for Time  [10]
+19=>AFT Do Path Confirmation for Time  [10]
+3=>C:@:AFT Off hook wait for dial tone
+21=>C:A:A Calls B,DTMF,No Dial Tone
+16=>A:D:AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+22=>A:@:AFT Wait for Call Waiting Tone
+17=>A:@:Do Hook Flash
+5=>A:@:AFT Wait for Call Waiting Tone
+10=>C:D:A Calls B,DTMF,No Dial Tone
+23=>A:@:Do Hook Flash
+18=>D:@:Go OnHook
+
+[SRV_VOIP-SIP_FEAT_CW_006]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=>D:@:AFT On Hook and wait 1 sec
+4=>C:A:A Calls B,DTMF,No Dial Tone
+8=;D calls A, gets busy tone
+13=;Next two actions are to check that B was on hold 
+17=End of script
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>D:@:AFT Off hook wait for dial tone
+10=>D:A:A Calls B,DTMF,No Dial Tone
+14=>C:@:Go OnHook
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>D:@:Wait for busy
+15=>A:@:Do Hook Flash
+3=>C:@:AFT Off hook wait for dial tone
+16=>AFT Do Path Confirmation for Time  [10]
+
+[SANITY_CW_01]
+3=>C:@:AFT Off hook wait for dial tone
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=End of script
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Do Hook Flash
+8=;Next two actions are to check that B was on hold 
+11=>AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:@:Go OnHook
+10=>A:@:Do Hook Flash
+
+[SRV_VOIP-SIP_FEAT_CT_002]
+7=>A:@:Wait for Ring back tone
+12=>C:B:AFT Do Path Confirmation for Time  [10]
+8=;A hangs up to transfer C to B
+13=;B hook flashes to dial D
+31=>E:@:Go OffHook
+26=>E:@:AFT On hook wait for incoming call for timeout
+1=>AFT A calls B, DTMF
+9=>A:@:Go OnHook
+14=>B:@:Do hook flash, and wait for recall dial tone
+32=>E:D:AFT Do Path Confirmation for Time  [10]
+27=>C:@:Wait for Ring back tone
+2=>AFT Do Path Confirmation for Time  [10]
+20=>B:@:Wait for time in seconds in onhook [3]
+15=>B:D:A Calls B,DTMF,No Dial Tone
+33=End of script
+28=;B hangs up to transfer D to C
+3=;A hook flashes to dial C
+21=>D:@:Go OffHook
+16=>D:@:AFT On hook wait for incoming call for timeout
+29=>C:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=>D:C:AFT Do Path Confirmation for Time  [10]
+17=>B:@:Wait for Ring back tone
+5=>A:C:A Calls B,DTMF,No Dial Tone
+10=>A:@:Wait for time in seconds in onhook [3]
+23=;C hook flashes to dial E
+18=;B hangs up to transfer D to C
+6=>C:@:AFT On hook wait for incoming call for timeout
+11=>C:@:Go OffHook
+24=>C:@:Do hook flash, and wait for recall dial tone
+19=>B:@:Go OnHook
+30=>C:@:Wait for time in seconds in onhook [3]
+25=>C:E:A Calls B,DTMF,No Dial Tone
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_007]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_004]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Lines stay off hook]
+1=0
+2=0
+
+[GotoActions__BasicCall_PathConfirm_CL]
+1=0
+2=0
+
+[SRV_VOIP-SIP_FEAT_CW_008]
+3=>C:@:AFT Off hook wait for dial tone
+7=>A:@:Wait for silence for time [5]
+12=>C:@:Go OnHook
+4=>C:A:A Calls B,DTMF,No Dial Tone
+8=>AFT Do Path Confirmation for Time  [10]
+13=>A:@:Wait for silence for time [5]
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:@:AFT Off hook wait for dial tone
+10=>C:A:A Calls B,DTMF,No Dial Tone
+14=>AFT Do Path Confirmation for Time  [10]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>C:@:Go OnHook
+11=>A:@:AFT Wait for Call Waiting Tone
+15=End of script
+
+[SRV_VOIP-SIP_FEAT_CT_004]
+7=>A:@:AFT On hook wait for incoming call
+12=;>A:@:AFT On hook wait for incoming call for timeout
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>C:@:AFT On hook wait for incoming call
+13=>B:A:AFT Do Path Confirmation for Time  [10]
+17=>B:C:AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:AFT On Hook and wait time [16]
+10=;B calls A
+14=;B calls C, then transfers C to A
+18=>B:@:AFT On Hook and wait time [1]
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>B:A:AFT A calls B, DTMF
+20=End of script
+15=>B:@:Do hook flash, and wait for recall dial tone
+19=>A:C:AFT Do Path Confirmation for Time  [10]
+3=;A calls C, then transfers C to B
+16=>B:C:A Calls B,DTMF,No Dial Tone
+
+[SRV_VOIP-SIP_FEAT_CW_001]
+3=>C:@:AFT Off hook wait for dial tone
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=End of script
+2=>AFT Do Path Confirmation for Time  [10]
+4=>C:A:A Calls B,DTMF,No Dial Tone
+6=>A:@:Do Hook Flash
+8=;Next two actions are to check that B was on hold 
+11=>AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+9=>C:@:Go OnHook
+10=>A:@:Do Hook Flash
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_011]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_006]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SANITY_CH_01]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SANITY_CTA_01]
+3=;A calls C, then transfers C to B
+7=>A:@:AFT On Hook and wait time [1]
+2=>AFT Do Path Confirmation for Time  [10]
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+8=>C:B:AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=End of script
+
+[GotoActions__Lines stay on hook]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CT_002]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[Lines stay on hook]
+1=A:@:Go OnHook
+3=A:@:AFT On Hook and wait time [300]
+5=B:@:Go OnHook
+2=B:@:Go OnHook
+4=A:@:Go OnHook
+6=End of script
+
+[basic call]
+1=A calls B, DTMF, confirms for Call Length
+2=End of script
+
+[SRV_VOIP-SIP_FEAT_CT_011]
+7=>A:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Go OnHook
+25=>B:C:AFT Do Path Confirmation for Time  [10]
+8=>A:C:A Calls B,DTMF,No Dial Tone
+13=;>A:@:Wait for time in seconds in onhook [3]
+26=>B:A:AFT Do Path Confirmation for Time  [10]
+1=>A calls B, DTMF, confirms once
+9=>A:@:Wait for Ring back tone
+14=>C:@:Go OffHook
+27=>A:C:AFT Do Path Confirmation for Time  [10]
+2=;>AFT A calls B, DTMF
+6=;A hook flashes to dial C
+11=;A hangs up to transfer C to B
+20=>B:@:Wait for Ring back tone
+15=>C:B:AFT Do Path Confirmation for Time  [10]
+24=>A:@:AFT Off Hook
+19=>A:@:AFT On hook wait for incoming call for timeout
+28=End of script
+3=;>B:@:AFT On hook wait for incoming call for timeout
+21=>B:@:AFT Do Hook Flash wait time [.5]
+16=;>B:C:AFT Do Path Confirmation for Time  [5]
+4=;>B:@:AFT Off Hook
+22=>B:@:Wait for Ring back tone
+17=>B:@:Do hook flash, and wait for recall dial tone
+5=>AFT Do Path Confirmation for Time  [10]
+10=>C:@:AFT On hook wait for incoming call for timeout
+23=>C:@:Wait for Ring back tone
+18=>B:A:A Calls B,DTMF,No Dial Tone
+
+[SRV_VOIP-SIP_FEAT_CT_006]
+7=;D calls B, B hears CW tone and hookflashes to talk to D
+12=>A:@:AFT On Hook and wait time [.5]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>D:B:AFT A calls B, DTMF
+13=>D:B:AFT Do Path Confirmation for Time  [5]
+17=>D:B:AFT Do Path Confirmation for Time  [10]
+1=>AFT A calls B, DTMF
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:AFT Wait for Call Waiting Tone
+10=>B:@:AFT Do Hook Flash wait time [.5]
+14=>B:@:AFT Do Hook Flash wait time [.5]
+18=End of script
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:C:AFT Do Path Confirmation for Time  [10]
+11=>D:B:AFT Do Path Confirmation for Time  [10]
+15=>C:B:AFT Do Path Confirmation for Time  [5]
+3=;A calls C, then transfers C to B
+16=>B:@:AFT Do Hook Flash wait time [.5]
+
+[SRV_VOIP-SIP_FEAT_CW_003]
+7=>C:A:AFT Do Path Confirmation for Time  [10]
+12=>D:C:AFT Do Path Confirmation for Time  [10]
+25=>C:@:Do Hook Flash
+8=;D calls C
+13=>A:@:Do Hook Flash
+26=>C:@:Wait for recall dial tone
+1=>AFT A calls B, DTMF
+9=>D:C:AFT A calls B, DTMF
+14=>A:@:Wait for time in seconds [1]
+27=>C:@:Do Hook Flash
+2=>AFT Do Path Confirmation for Time  [10]
+6=>A:@:Do Hook Flash
+11=>C:@:Do Hook Flash
+20=>E:B:AFT Do Path Confirmation for Time  [10]
+15=>AFT Do Path Confirmation for Time  [10]
+24=>B:@:Do Hook Flash
+19=>B:@:Do Hook Flash
+28=End of script
+3=>C:@:AFT Off hook wait for dial tone
+21=>A:@:AFT On Hook and wait 1 sec
+16=;E calls B
+4=>C:A:A Calls B,DTMF,No Dial Tone
+22=>B:@:Do Hook Flash
+17=>E:B:AFT A calls B, DTMF
+5=>A:@:AFT Wait for Call Waiting Tone
+10=>C:@:AFT Wait for Call Waiting Tone
+23=>B:@:Wait for recall dial tone
+18=>B:@:AFT Wait for Call Waiting Tone
+
+[GotoActions__SRV_VOIP-SIP_FEAT_CW_008]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[BasicCall_PathConfirm_CL]
+1=A calls B, DTMF, confirms for Call Length
+2=End of script
+

@@ -1,0 +1,1569 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <execution>
+        <parameters version="8.1.3.0">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <max_attempts_for_testcase pt:datatype="INTEGER" pt:description="Maximum number of attempts for Repeat Step">3</max_attempts_for_testcase>
+                    <seconds_delay_betweeen_attempts pt:datatype="INTEGER" pt:description="Delay (in seconds) between attempts for Repeat Step">60</seconds_delay_betweeen_attempts>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_voip/topologies/VeloCloud/VC520/VC520_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="1d4bec24-febf-4622-8d7a-f1621e99b02d" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>General Function</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5f61dcd8-7905-4e39-9f71-ca6180204c61" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>BGP</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fad2df2c-0fc2-4b33-85b0-8d4d619e47f8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.00 - Verify Neighbor Adjancency Forms with Neighbor</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="04513ef7-a7ec-4a87-a206-e6b5c5adeccb" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.00_bgp_verify_neighbor_adjacency_advertised_received_routes.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="fd882013-6576-4052-865c-4969f0b297c3" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f60db000-a2fd-449f-932a-cbdce7925867" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="1f5258ef-dc51-4713-aa74-6e7d38e7c433" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="11e5c96f-899f-40e5-95a2-10684cf32e07" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="eaa447bc-7fb1-4c8e-b949-fe2d4b86b9b2" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c6ee1636-a5e5-4ea0-a6b7-b0303f8bcf34" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.01 - Verify MD5 Authentication</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="25ea7cec-e502-4365-9b55-d458db3dbe9a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.01_bgp_verify_md5_authentication.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="bc547970-f7b9-4903-a8aa-d345d3b38110" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="21d2eed5-0751-4800-bc0d-10e64d30049a" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="918aa513-2d23-4dfd-8ff2-8e26d178e6b8" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="bd7a02af-6ce1-4487-8083-3c10de777512" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="9ee8982e-d855-4e9c-ae46-4e63469fc0c3" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fdd05dbb-9982-43ea-a3bc-c892a7669af9" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.02 - Verify AS Prepend Count</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dc5ea215-f925-4e23-afbb-4ec2093f2129" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.02_bgp_verify_as_prepend_count.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="1f68dd32-fa73-43f3-8d4e-d11dbeb359cd" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="1a0ebbe8-35bd-4929-96f8-880c0af98674" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="012d36dc-57e7-4b40-bcc7-89ab0b0e70a6" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="e09784ba-821e-41b7-926b-bb791fa4ac5a" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="78bd40e0-2d37-4bd7-b5e1-329fa6313023" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3eea20ab-c437-46d1-b3da-745e7f13577f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.03 - Verify MED</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2bd28b5b-2a05-4248-8be9-c01c6ac6e895" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.03_bgp_verify_med.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="f44288cc-4a34-4fd2-8333-8d6be659f594" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="591aae1d-dd0e-4068-9f0d-502f72400b46" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="950b79ef-0645-4e6f-a4aa-1aa33add263a" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="6003d24d-8d7a-40d4-aa4a-b0f93a7e4f4c" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="9796fdb0-9380-45e8-80c7-5988c8f26a25" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0ca2b4ef-8535-4a46-8b35-431a7f215dc2" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.04 - Verify Local Preference</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="698d2248-ef9f-4344-b41a-619738029309" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.04_bgp_verify_local_preference.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="f9b6278b-16cc-46d7-ad9a-3116746635fd" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="3b69306b-e89d-4b53-a0fa-a3ccc771fd85" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="a5c43c86-d922-4bd9-ac8a-833e618eaf24" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="cabf29d5-4af3-47af-a9af-6f2dcf1ad39e" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="aa3d7c0d-fde5-4372-b959-651433048c65" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="04003729-f79b-4785-afa6-8fbe190ed7ba" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>3.05 - Verify Keep Alive and Hold Timer</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f5b7dd4f-d0a1-4e8b-9754-20c11c991067" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/3%20BGP/3.05_bgp_verify_keepalive_holdtimer.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="b0fece22-2551-4b8b-9e0e-037896b25806" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="dbac887d-5b6c-4a17-8c3b-122f57033990" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="318d5474-b471-4ad7-84f8-8cdaf3dc4a12" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="e3fed8f1-23b6-4cd0-8e43-7124b7c0db9b" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="0a86953e-33dd-4b1b-8ba0-50ff6b0b4f26" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0cbaa60c-6970-431d-931a-62fcdc90df91" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Firewall</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9f89baa9-552c-4042-b9cc-9993a069946c" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>-- Application test case should be first to set SP FW Zone</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0a5d6ec8-dc87-49a4-bce5-eebe04793ebc" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.00 - Verify outbound application destination rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="eff47988-0645-4780-be9e-94f11eb29e9c" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.00_firewall_verify_outbound_app_rules.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="77cf9da4-24d3-42c4-8430-0266b09fdc5e" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="a4a4482f-3645-462d-803b-f96a2b08576f" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="0801d776-f98b-4137-ade5-415fe5e41853" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="ff101a8c-76ca-4267-9513-6e9905dbe2f5" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="6961e8f7-6f49-4ce6-8e2e-d2b1d7a1fcb3" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="067245a9-23ec-4258-b357-66db8840e354" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.01 - Verify outbound IPaddr source rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="518e4269-784e-46bb-a89c-f31ed73bac92" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.01_firewall_verify_outbound_source_rules.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="f1688091-d4bd-499f-9bb0-0475ac0256d0" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="d8f2f572-4045-49ef-b89b-281a4313ad92" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="511cc3e9-9286-45a3-851e-4043a77b69ee" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="b0ca5660-250a-4207-bf17-456737d92f8c" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="de6d6a16-8d9c-40a2-aa03-4706970810c6" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="944c9f60-c38b-4053-b24c-337b0311c048" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.02 - Verify outbound IPaddr destination rules (NAT)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6b08ae25-48c5-47f6-aab5-02dad852c68d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.02_firewall_verify_outbound_destination_rules.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="5e9a33a1-a79b-4173-8ecb-3c065952e818" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e8f9fe03-1df0-49f3-ac16-c83f53eeaa8a" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="27c8c2d0-ada2-4386-b427-745a10101e00" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="2597a64f-ff77-4007-b7ef-e183deeac1c7" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="916a1a1b-f48b-49f4-86da-01ecee4c1069" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7efcad98-4876-49e9-b0ed-8335eea358b0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.03 - Verify outbound IPaddr source rules (NAT) (ACL)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1c0908e5-377a-4cf9-a138-cf7c184a3fd8" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.03_firewall_verify_outbound_source_rules_acl.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="fea2dfa7-3db2-4771-83b0-9dd7298415fd" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="299a0643-c32f-4ff7-ae2d-f3f581d2c7bb" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="23c171f1-2218-493c-8bc6-c8b68200aa4f" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="6544df74-99f6-4f2a-8ab7-32ea3c29bb35" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="485b4dee-c149-4b1f-8b4f-2040990f7177" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="af08b73c-a1f9-40c1-b47e-c26e81044eb4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.04 - Verify outbound IPaddr destination rules (NAT) (ACL)</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0ecadde7-a3cd-4efe-aae6-1f4bbba2f05a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.04_firewall_verify_outbound_destination_rules_acl.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="f3707bf9-daa3-41c4-95f0-1808845a4e47" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="a4e3f19b-6718-4f71-b6f7-fa849265685a" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="a02a2015-00dc-4efa-98ff-997805749f6d" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="9f22c783-05f0-4b0e-ada0-73efff5b26ae" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="37976fd5-bf17-4444-9e2a-d390bbc13c36" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0f4c332c-d8cb-4e77-a394-245336e2cfce" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.05 - Verify port forwarding</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="180ff290-6bb9-4c70-9472-1764d5e96ca8" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.05_firewall_verify_port_forwarding.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="278ea9a1-1b7c-4a07-85ef-32f85c938d27" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="23bbd8a8-bb09-4609-84be-7e3424d34ec6" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="86f2bb2d-7def-4a39-b523-f7a53b0faf41" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="4dd016d8-971e-4b45-b495-22d7dff310aa" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="e28655ef-ac9a-4127-9a76-f93976215649" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4e14b301-8134-48db-9fa5-a322c861a42a" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.06 - Verify block based on TCP Source Port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d00b2195-2ddb-4cc5-abee-9c8d184c3e34" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.06_firewall_block_based_on_tcp_source_port.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="cd46f604-9527-49f3-89e7-b49efa527951" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="62c37b77-5384-4046-ae2d-036e8ca2dbac" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="240717a4-a285-4784-ac4b-3628be26bef6" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="b3749e39-74b4-477b-a4f9-ba4682b668f0" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="f813c1f5-2951-4210-ba9a-c1ef212d24af" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2822fedc-2cb4-4a44-a266-55f4e2fbe7df" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.07 - Verify block based on UDP Source Port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="12e6e937-3296-4aa7-a472-f005fb861b0d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.07_firewall_block_based_on_udp_source_port.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="92501b3c-3d64-43d8-a661-6aca35e4f09d" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="8f4927e7-0e13-4047-850e-995884657306" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="842834f0-e008-406b-b2c4-7d7e0aec3559" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="262b6acb-4414-4629-b18b-bd18b9260df2" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="4c95d2b1-a8de-4056-952c-e35b1a7c311f" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4789d921-0527-49ae-8a6b-2b020b9569f0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.08 - Verify block based on TCP Destination Port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="46b7b385-1336-4f76-b3d9-cfac27dd9544" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.08_firewall_block_based_on_tcp_destination_port.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="80bb1187-c581-49ec-83bd-451f5ec155b8" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="78701b7a-2619-4940-93ad-8d1ff54054d8" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="27371729-ec3c-431f-b771-a9be67d2ef7e" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="3abbce85-0e8a-48ba-a48e-9146dc4b4ac5" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="d37e0b8d-7a64-4c0e-a2c5-8b613a03c4ad" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6a77908a-de20-4a12-9e41-11e78a298587" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>4.09 - Verify block based on UDP Destination Port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8c590812-d923-4721-b04d-9a3cd9a1ae15" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/4%20Firewall/4.09_firewall_block_based_on_udp_destination_port.fftc</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TestResult()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value eq &quot;Pass&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="[param max_attempts_for_testcase]" maxRepeatCount.sub="true" delayBetweenRepeats="[param seconds_delay_betweeen_attempts]" delayBetweenRepeats.sub="true"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>my_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="def4b206-e51c-4bf3-8a74-109ad28fb600" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>Output any failed messages from &quot;run&quot; command</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="b499bff5-351b-48d5-8e7e-f37e9da59233" action="for" useFieldsInCommand="false">
+                                    <command>
+                                        <body>{set i 3} {$i &lt; [expr [query my_response TotalIssue()] - 1]} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="3e25f3a4-ba65-4275-9b67-793eaf553484" action="if" useFieldsInCommand="false">
+                                            <command>
+                                                <body>[query my_response Severity($i)] == &quot;fail&quot;</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="b28bf5a8-26ba-4444-b84f-154f48df42fc" action="then" useFieldsInCommand="false">
+                                                    <nestedSteps>
+                                                        <item guid="bc5f5641-3fd2-4c62-acc3-dac0c418f9c3" action="eval" useFieldsInCommand="false">
+                                                            <command>
+                                                                <body>query my_response Message($i)</body>
+                                                            </command>
+                                                            <postProcessing>
+                                                                <analysisRules>
+                                                                    <item>
+                                                                        <extractorInfo extractorType="regex">
+                                                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup">
+                                                                                <regex>.*.</regex>
+                                                                            </extractorProperties>
+                                                                        </extractorInfo>
+                                                                        <processorInfo ruleType="message">
+                                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Warning">
+                                                                                <message>&quot;{value}&quot;</message>
+                                                                                <tag sub="false" defaultValue=""/>
+                                                                            </ruleProperties>
+                                                                        </processorInfo>
+                                                                    </item>
+                                                                </analysisRules>
+                                                            </postProcessing>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="343f59ec-fd4a-4de1-9bcb-22d406956cc6" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Email Results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="06892126-7513-4083-a1ea-714339b8ff53" action="open" session="Mail">
+                            <command>
+                                <body>device:local_pc#mail</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+                                    <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </sessionProperties>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2c17d1fb-5a27-4e7d-9cdf-12e4e0d57045" action="summarize" useFieldsInCommand="false">
+                            <postProcessing>
+                                <storeResponseAt>results</storeResponseAt>
+                                <storeResponseText>true</storeResponseText>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecSummarizePropertyGroup"/>
+                        </item>
+                        <item guid="a6295a0f-f64b-4a0e-bcaa-3caff426b3c1" action="Emails_3_Attempt_Results" session="Mail" useFieldsInCommand="false">
+                            <command>
+                                <body>-results $results</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="de5f50a3-ad91-4c98-9a1b-762f1aeab678" action="close" session="Mail">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

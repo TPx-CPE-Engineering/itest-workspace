@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<FormMap version="5.1.0.77511">
+    <samplesList>
+        <item name="formsample1">
+            <structure escape="true">
+                <WebDocument>
+                    <Document doctype="BaseDocument" id="BaseWebDocument" parent="" target="" url="http://10.255.224.62/Common/folder_contents.jsp?folder=U4&amp;menuId=0">
+                        <HTML>
+                            <HEAD>
+                                <SCRIPT language="JavaScript" src="/Scripts/graphics.js"/>
+                                <LINK href="/Common/styles.css" rel="stylesheet" type="text/css"/>
+                                <LINK href="/Graphics/Tropical/styles.css" rel="stylesheet" type="text/css"/>
+                                <TITLE>Call Control</TITLE>
+                            </HEAD>
+                            <BODY bgproperties="fixed" leftmargin="30" marginheight="10" marginwidth="30" onload="initSelection()" topmargin="10">
+                                <SCRIPT src="/Scripts/deployJava.js"/>
+                                <SCRIPT language="JavaScript">
+var commpilot = null;
+var ac = null;
+var revisedCallManager = null;
+var onlineHelp = null;
+var helpFile = &quot;/Help/en_US/User/User_CallControl_Menu.htm&quot;;
+
+// Launch the combined Call Manager / Attendant Console client
+function launchCallManagerClient()
+{
+  var uniqueId = &apos;&apos;;
+  var spId = &apos;null&apos;;
+
+  if ((revisedCallManager) &amp;amp;&amp;amp; !(revisedCallManager.closed))
+  {
+    revisedCallManager.focus();
+  }
+  else
+  {
+    revisedCallManager=window.open(&quot;/CallManager/CallManagerDownload.jsp?serviceProvID=&quot; + spId, uniqueId,
+                                   &quot;width=505,height=360,resizable=1,status=0,scrollbars=no&quot;);
+    revisedCallManager.focus();
+  }
+}
+
+function launchHelp()
+{
+   help = window.open(helpFile,&quot;onLineHelp&quot;);
+   help.focus();
+}
+
+function launchClientApplication(url)
+{
+  window.open(url);
+}
+
+function launchClientApplicationJWS(url)
+{
+  if(!deployJava.isWebStartInstalled(&quot;1.6.0_19&quot;))
+  {
+  \tif(deployJava.installJRE(&quot;1.6.0_19&quot;))
+    {
+      deployJava.launch(url);
+    }
+  }
+  else
+  {
+    deployJava.launch(url);
+  }
+}
+
+function selectedLinkChanged(selectedLink, ccUsesJWS, recUsesJWS) 
+{
+  var choice = selectedLink.options[selectedLink.selectedIndex].value;
+
+  if (choice == &quot;callmanager&quot;)
+  {
+    launchCallManagerClient();
+  }
+  else if(choice == &quot;callcenter&quot;)
+  {
+    if (ccUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/callcenter/callcenter.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=callcenter&quot;);
+    }
+  }
+  else if(choice == &quot;receptionist&quot;)
+  {
+    if (recUsesJWS) 
+    { 
+      launchClientApplicationJWS(&quot;/servlet/jws/receptionist/receptionist.jnlp&quot;);
+    }
+    else
+    {
+      launchClientApplication(&quot;/servlet/ClientApplicationLaunch?application=receptionist&quot;);
+    }
+  }
+
+  selectedLink.selectedIndex = 0;
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD align="center" colspan="3" valign="middle" width="100%"/>
+                                        </TR>
+                                        <TR>
+                                            <TD colspan="3" width="100%">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="2">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD align="left" class="headerBar" valign="middle">
+                                                                <IMG src="/conf/clientLogo.gif"/>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar" valign="middle">
+                                                                <A class="headerLink" href="javascript:launchHelp()">Help</A>
+
+
+
+
+       -                                                                                                                                                                                 <A class="headerLink" href="/Common/folder_contents.jsp?menuId=4">Home</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="5" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=4">System</A>
+
+
+
+        &gt;                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=2">BuisnessLines</A>
+
+
+
+        &gt;                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Common/folder_contents.jsp?menuId=1">BrianLAB-SV</A>
+
+
+
+        &gt;                                                                                                                                                                                <A class="headerAuthLevelLink" href="/Group/Members/">Users</A>
+
+
+
+        :                                                                                                                                                                                <SPAN class="headerAuthLevel" dir="ltr">
+                9498351960@lab-sv.telepacific.com</SPAN>
+                                                            </TD>
+                                                            <TD align="right" class="headerBar">
+                                                                <SPAN class="headerBarWelcome">Welcome   </SPAN>
+                                                                <A class="headerLink" href="/servlet/Logout">[Logout]</A>
+                                                            </TD>
+                                                            <TD class="headerBar">
+                                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD class="headerBar" colspan="3">
+                                                                <IMG alt="" border="0" height="2" src="/Graphics/onepx.gif" width="2"/>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                                <SCRIPT language="JavaScript">
+// Try to close the window.  If we can&apos;t, logout.
+// Scripts aren&apos;t legally allowed to close a window that was not opened by a script,
+// but IE seems to allow it.  Firefox (Mozilla) doesn&apos;t.
+function userLogout ()
+{
+  window.close();   // IE will return here if user opts not to close window,
+  if (document.all) // and Mozilla browsers will return here because you can&apos;t close the window.
+    return;         // If we&apos;re running an IE browser.
+  top.location.replace(&quot;/servlet/Logout&quot;);
+}
+</SCRIPT>
+                                <TABLE border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD class="headandfoot" colspan="4" height="12"/>
+                                        </TR>
+
+
+
+
+\t                                                                                                        <TR>
+\t\t
+                            
+                                            
+                                            <TD class="headandfoot" valign="top" width="18%">
+                                                <FORM method="post" name="leftNavForm">
+                                                    <B>
+                                                        <SCRIPT language="JavaScript">function addAltText(img, altText) {  img.alt = altText;}</SCRIPT>
+                                                        <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <TBODY>
+                                                                <TR>
+                                                                    <TD class="navOptions">Options:</TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U0&amp;menuId=0">Profile</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U2&amp;menuId=0">Incoming Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U3&amp;menuId=0">Outgoing Calls</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolderopen" nowrap="nowrap">
+                                                                        <IMG alt="" border="0" src="/Graphics/Tropical/ar.gif"/>
+
+
+                                                                                                                                                                                                          <A class="leftnavfolderopen" href="/Common/folder_contents.jsp?folder=U4&amp;menuId=0">Call Control</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U35&amp;menuId=0">Calling Plans</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U5&amp;menuId=0">Messaging</A>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD class="leftnavfolder" nowrap="nowrap">
+                                                                        <A class="leftnavfolder" href="/Common/folder_contents.jsp?folder=U7&amp;menuId=0">Utilities</A>
+                                                                    </TD>
+                                                                </TR>
+                                                            </TBODY>
+                                                        </TABLE>
+                                                    </B>
+                                                </FORM>
+                                            </TD>
+                                            <TD class="headandfoot">
+                                                <IMG alt="" border="0" height="1" src="/Graphics/onepx.gif" width="10"/>
+                                            </TD>
+                                            <TD valign="top">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0">
+                                                    <TBODY>
+                                                        <TR>
+\t\t\t
+                                            
+                                                            
+                                                            <TD class="headandfoot">
+                                                                <IMG height="5" src="/Graphics/round-corner.gif" width="5"/>
+                                                            </TD>
+
+
+
+\t\t\t                                                                                                                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                            <TD valign="top" width="82%">
+                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD height="15"/>
+                                                        </TR>
+                                                        <SCRIPT language="JavaScript">
+         
+             helpFile = &quot;/Help/en_US/User/User_CallControl_Menu.htm&quot;;
+         </SCRIPT>
+
+
+
+   \t\t                                                                                                                                                         <TR>
+                                                            <TD class="screenName">Call Control</TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD height="5"/>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD>
+                                                                <SCRIPT language="JavaScript">function addAltText(img, altText) {  img.alt = altText;}</SCRIPT>
+                                                                <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <TBODY>
+                                                                        <TR>
+                                                                            <TD align="LEFT" valign="TOP" width="50%">
+                                                                                <TABLE width="100%">
+                                                                                    <TBODY>
+                                                                                        <TR>
+                                                                                            <TD class="menuCategory">Basic</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/CW/" name="/User/CW/">Call Waiting - On</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Answer a call while already on another call.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/CPU/" name="/User/CPU/">Call Pickup</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Display the call pickup group to which you belong.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/CustomerOriginatedTrace/" name="/User/CustomerOriginatedTrace/">Customer Originated Trace</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Issue a trace to your service provider for your last incoming call by using a feature access code.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/DirectedCallPickup/" name="/User/DirectedCallPickup/">Directed Call Pickup</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Pick up a call using a feature access code and an extension.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/FlashCH/" name="/User/FlashCH/">Flash Call Hold</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Hold a call with a feature access code when using a simple phone without call control capability.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/CallTransfer/" name="/User/CallTransfer/">Call Transfer</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Transfer a call to another phone.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/ThreeWayCall/" name="/User/ThreeWayCall/">Three-Way Call</A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Start a conference call</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+                                                                                                <A class="navMenuItem" href="/User/MOH/" name="/User/MOH/">Music/Video On Hold - 
+                                                                                    
+                                                                                                    
+                                                                                                    <SPAN class="serviceOff">Off</SPAN>
+                                                                                                </A>
+                                                                                            </TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD align="left">
+Play audio (music) or video when the remote party is held or parked.</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                    </TBODY>
+                                                                                </TABLE>
+                                                                            </TD>
+                                                                            <TD align="LEFT" valign="TOP" width="50%">
+                                                                                <TABLE width="100%">
+                                                                                    <TBODY>
+                                                                                        <TR>
+                                                                                            <TD class="menuCategory">Advanced</TD>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD height="5"/>
+                                                                                        </TR>
+                                                                                        <TR>
+                                                                                            <TD>None of the menu items in this category are enabled.</TD>
+                                                                                        </TR>
+                                                                                    </TBODY>
+                                                                                </TABLE>
+                                                                            </TD>
+                                                                        </TR>
+                                                                    </TBODY>
+                                                                </TABLE>
+                                                            </TD>
+                                                        </TR>
+
+
+
+         
+\t                                                                                                                                               </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+
+
+
+\t                                                                                            </TBODY>
+                                </TABLE>
+
+
+
+\t
+
+
+
+
+
+
+
+                                                                    </BODY>
+                        </HTML>
+                    </Document>
+                </WebDocument>
+            </structure>
+        </item>
+    </samplesList>
+    <targets>
+        <item name="link1">
+            <queryFormatString>//LINK[@type=&apos;text/css&apos;]</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link2">
+            <queryFormatString>//LINK[2]</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table1">
+            <queryFormatString>//TABLE[1]</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table2">
+            <queryFormatString>//TD/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Help">
+            <queryFormatString>link=Help</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Home">
+            <queryFormatString>link=Home</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_System">
+            <queryFormatString>link=System</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_BuisnessLines">
+            <queryFormatString>link=BuisnessLines</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_BrianLAB_SV">
+            <queryFormatString>link=BrianLAB-SV</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Users">
+            <queryFormatString>link=Users</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link__Logout_">
+            <queryFormatString>link=[Logout]</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table3">
+            <queryFormatString>//TABLE[2]</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="form_leftNavForm">
+            <queryFormatString>name=leftNavForm</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table4">
+            <queryFormatString>//B/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Profile">
+            <queryFormatString>link=Profile</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Incoming_Calls">
+            <queryFormatString>link=Incoming Calls</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Outgoing_Calls">
+            <queryFormatString>link=Outgoing Calls</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Call_Control">
+            <queryFormatString>link=Call Control</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Calling_Plans">
+            <queryFormatString>link=Calling Plans</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Messaging">
+            <queryFormatString>link=Messaging</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Utilities">
+            <queryFormatString>link=Utilities</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table5">
+            <queryFormatString>//TD[3]/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table6">
+            <queryFormatString>//TD[4]/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table7">
+            <queryFormatString>//TR[4]/TD/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table8">
+            <queryFormatString>//TR[4]/TD/TABLE/TBODY/TR/TD[1]/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Call_Waiting">
+            <queryFormatString>name=&quot;/User/CW/&quot;</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Call_Pickup">
+            <queryFormatString>link=Call Pickup</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Customer_Originated_Trace">
+            <queryFormatString>link=Customer Originated Trace</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Directed_Call_Pickup">
+            <queryFormatString>link=Directed Call Pickup</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Flash_Call_Hold">
+            <queryFormatString>link=Flash Call Hold</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Call_Transfer">
+            <queryFormatString>link=Call Transfer</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_Three_Way_Call">
+            <queryFormatString>link=Three-Way Call</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="link_/User/MOH/">
+            <queryFormatString>name=/User/MOH/</queryFormatString>
+            <source>Mapping</source>
+        </item>
+        <item name="table9">
+            <queryFormatString>//TD[2]/TABLE</queryFormatString>
+            <source>Mapping</source>
+        </item>
+    </targets>
+</FormMap>

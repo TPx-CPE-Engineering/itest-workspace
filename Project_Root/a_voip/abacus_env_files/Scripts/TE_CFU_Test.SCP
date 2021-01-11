@@ -1,0 +1,1561 @@
+[Steffen - Call Hold (Debug)]
+1=;
+3=;Created: 03.09.2012
+5=Steffen - A calls B, DTMF, confirms for CL 45sec
+7=;
+2=;Different Call Lengths for CDR Check
+4=;
+6=A:@:Steffen - Do Hook Flash and wait 15sec
+8=End of script
+
+[GotoActions__Steffen - Different Call Lengths for CDR Check]
+12=0
+74=0
+69=0
+31=0
+26=0
+88=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+4=0
+40=0
+35=0
+54=0
+49=0
+6=0
+11=0
+42=0
+37=0
+73=0
+68=0
+30=0
+25=0
+61=0
+56=0
+87=0
+8=0
+13=0
+44=0
+39=0
+80=0
+75=0
+1=0
+32=0
+27=0
+63=0
+58=0
+89=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+3=0
+34=0
+29=0
+70=0
+65=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+86=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+2=0
+33=0
+28=0
+52=0
+47=0
+71=0
+66=0
+23=0
+18=0
+85=0
+
+[GotoActions__A calls B {Voice Matching}]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[Actions]
+File=TE_CFU_Test.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Steffen - 17min Call Lengths for CDR Check]
+3=;Created: 03.09.2012
+7=A:@:Steffen - Go On Hook and wait 10 sec
+2=;Different Call Lengths for CDR Check
+4=;
+6=Steffen - A calls B, DTMF, confirms for CL 17min
+8=;
+1=;
+5=;
+9=;
+10=End of script
+
+[GotoActions__AA_AFT: 3-way Conference]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (DTMF) and no confirm]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A calls B (DTMF) and no confirm]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=;
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=A calls B, DTMF, no confirmation
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[A calls B (SIP) and RTP replay_Send]
+1=A:@:A calls B, RTP,Send
+2=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:C:AFT Do Path Confirmation Once
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[A calls B (DTMF) and confirms for random CL (Var 90%)]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL (Var 90%)
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[AA_AFT: 3-way Conference]
+7=A:@:Wait for time in seconds [2]
+12=AFT Do Path Confirmation Once
+4=A:@:AA_AFT Do Hook Flash wait time Send DTMF3 (Konferenz)
+8=A:C:AFT Do Path Confirmation Once
+13=A:@:Wait for time in seconds [2]
+17=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:Wait for time in seconds [5]
+9=A:@:Wait for time in seconds [2]
+10=B:C:AFT Do Path Confirmation Once
+14=A:C:AFT Do Path Confirmation Once
+2=A:@:AA_AFT A does hookflash and waits for dial tone
+6=AFT Do Path Confirmation Once
+11=B:@:Wait for time in seconds [2]
+15=A:@:Wait for time in seconds [2]
+3=A:C:A calls B, DTMF, confirms once
+16=B:C:AFT Do Path Confirmation Once
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[TE_CFU_Automatic]
+1=A:@:A_DummyDoNothing-1
+3=A:@:C_DummyDoNothing-1
+5=A:@:AC_DummyDoNothing-1
+7=End of script
+2=A:@:B_DummyDoNothing-1
+4=A:@:AB_DummyDoNothing-1
+6=A:@:BC_DummyDoNothing-1
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A:D:A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__TE_CFU_Test_3]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[Wait for Voice {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A:@:Wait for Voice {Voice Matching}
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__A calls B (SIP) and RTP replay_Send]
+1=0
+2=0
+
+[TE_Basic_Call]
+7=;C:@:AFT On hook wait for incoming call
+12=;A:C:TE_A calls B, DTMF (no wait for dialtone)
+4=;C:@:TE_Deactivate_CFU
+8=C:A:AFT A calls B, DTMF
+13=C:A:TE_Do Path Confirmation for CL (fixed)
+17=End of script
+1=;A:@:TE_On_Hook
+5=;C:@:TE-Off Hook (wait for 2 sec.)
+9=;C:A:A calls B, DTMF, confirms once
+10=;A:@:TE-Off Hook (wait for 2 sec.)
+14=;C:A:TE_Do Path Confirmation for 5 sec
+2=B:@:TE_On_Hook
+6=;C:@:TE_On_Hook
+11=;A:@:Wait for dial tone
+15=A:@:TE_On_Hook
+3=D:@:TE_On_Hook
+16=C:@:TE_On_Hook
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[TE_Aktivierung_CFU]
+1=A:@:TE Aktivierung CFU
+2=A:@:TE - Wait 10sec
+3=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[A calls B (DTMF) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Steffen - A calls B (DTMF) without path confirmation]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__TE_Aktivierung_CFU]
+1=0
+2=0
+3=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__Steffen - Call Hold (Debug)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Steffen - FB CLIR Tests]
+12=;
+74=A:@:Wait for time in seconds [10]
+69=A:@:Steffen - FB CLIR Test 18 - Normaler Anruf
+31=A:@:Steffen - Go On Hook and wait 5 sec
+26=A:@:Wait for time in seconds [10]
+93=A:@:Steffen - FB CLIR Test 24 - T-->KDG Deaktivierung CFU
+88=;
+112=;
+107=A:@:Steffen - Go On Hook and wait 5 sec
+9=A:@:Steffen - FB CLIR Test 02 - KDG CLIP fallweise bei perm CLIR
+50=A:@:Wait for time in seconds [10]
+45=A:@:Steffen - FB CLIR Test 11 - KDG Aktivierung CFB (#)
+64=;
+59=A:@:Steffen - Go On Hook and wait 5 sec
+21=A:@:Steffen - FB CLIR Test 05 - KDG Aktivierung CFNR
+16=;
+83=A:@:Steffen - Go On Hook and wait 5 sec
+78=A:@:Wait for time in seconds [10]
+102=A:@:Wait for time in seconds [10]
+4=;
+40=;
+35=A:@:Steffen - Go On Hook and wait 5 sec
+97=A:@:Steffen - FB CLIR Test 25 - T-->KDG CLIR fallweise
+121=End of script
+116=;
+54=A:@:Wait for time in seconds [10]
+49=A:@:Steffen - FB CLIR Test 12 - KDG Deaktivierung CFB (#)
+11=A:@:Steffen - Go On Hook and wait 5 sec
+73=A:@:Steffen - FB CLIR Test 19 - T-->KDG Aktivierung CFB
+68=;
+30=A:@:Wait for time in seconds [10]
+25=A:@:Steffen - FB CLIR Test 06 - KDG Deaktivierung CFNR
+92=;
+87=A:@:Steffen - Go On Hook and wait 5 sec
+111=A:@:Steffen - Go On Hook and wait 5 sec
+106=A:@:Wait for time in seconds [10]
+8=;
+44=;
+39=A:@:Steffen - Go On Hook and wait 5 sec
+63=A:@:Steffen - Go On Hook and wait 5 sec
+58=A:@:Wait for time in seconds [10]
+20=;
+15=A:@:Steffen - Go On Hook and wait 5 sec
+82=A:@:Wait for time in seconds [10]
+77=A:@:Steffen - FB CLIR Test 20 - T-->KDG Deaktivierung CFB
+101=A:@:Steffen - FB CLIR Test 26 - T-->KDG CLIR fallweise (#)
+3=;
+34=A:@:Wait for time in seconds [10]
+29=A:@:Steffen - FB CLIR Test 07 - KDG Aktivierung CFU
+96=;
+120=;
+115=A:@:Steffen - Go On Hook and wait 5 sec
+53=A:@:Steffen - FB CLIR Test 13 - KDG Aktivierung CFNR (#)
+48=;
+10=A:@:Wait for time in seconds [10]
+72=;
+67=A:@:Steffen - Go On Hook and wait 5 sec
+24=;
+19=A:@:Steffen - Go On Hook and wait 5 sec
+60=;
+55=A:@:Steffen - Go On Hook and wait 5 sec
+91=A:@:Steffen - Go On Hook and wait 5 sec
+86=A:@:Wait for time in seconds [10]
+110=A:@:Wait for time in seconds [10]
+105=A:@:Steffen - FB CLIR Test 27 - Beliebiger mask Star Code 1
+7=A:@:Steffen - Go On Hook and wait 5 sec
+43=A:@:Steffen - Go On Hook and wait 5 sec
+38=A:@:Wait for time in seconds [10]
+119=A:@:Steffen - Go On Hook and wait 5 sec
+62=A:@:Wait for time in seconds [10]
+57=A:@:Steffen - FB CLIR Test 14 - KDG Deaktivierung CFNR (#)
+14=A:@:Wait for time in seconds [10]
+81=A:@:Steffen - FB CLIR Test 21 - T-->KDG Aktivierung CFNR
+76=;
+100=;
+2=;CLIR Test Cases for FB Firmware Tests
+33=A:@:Steffen - FB CLIR Test 08 - KDG Deaktivierung CFU
+28=;
+95=A:@:Steffen - Go On Hook and wait 5 sec
+114=A:@:Wait for time in seconds [10]
+109=A:@:Steffen - FB CLIR Test 28 - Beliebiger mask Star Code 2 (#)
+52=;
+47=A:@:Steffen - Go On Hook and wait 5 sec
+71=A:@:Steffen - Go On Hook and wait 5 sec
+66=A:@:Wait for time in seconds [10]
+23=A:@:Steffen - Go On Hook and wait 5 sec
+18=A:@:Wait for time in seconds [10]
+90=A:@:Wait for time in seconds [10]
+85=A:@:Steffen - FB CLIR Test 22 - T-->KDG Deaktivierung CFNR
+104=;
+6=A:@:Wait for time in seconds [10]
+42=A:@:Wait for time in seconds [10]
+37=A:@:Steffen - FB CLIR Test 09 - KDG CLIR fallweise (#)
+99=A:@:Steffen - Go On Hook and wait 5 sec
+118=A:@:Wait for time in seconds [10]
+61=A:@:Steffen - FB CLIR Test 15 - KDG Aktivierung CFU (#)
+56=;
+13=A:@:Steffen - FB CLIR Test 03 - KDG Aktivierung CFB
+80=;
+75=A:@:Steffen - Go On Hook and wait 5 sec
+1=;
+32=;
+27=A:@:Steffen - Go On Hook and wait 5 sec
+94=A:@:Wait for time in seconds [10]
+89=A:@:Steffen - FB CLIR Test 23 - T-->KDG Aktivierung CFU
+113=A:@:Steffen - FB CLIR Test 29 - Beliebiger mask Star Code 3
+108=;
+51=A:@:Steffen - Go On Hook and wait 5 sec
+46=A:@:Wait for time in seconds [10]
+70=A:@:Wait for time in seconds [10]
+65=A:@:Steffen - FB CLIR Test 16 - KDG Deaktivierung CFU (#)
+22=A:@:Wait for time in seconds [10]
+17=A:@:Steffen - FB CLIR Test 04 - KDG Deaktivierung CFB
+84=;
+79=A:@:Steffen - Go On Hook and wait 5 sec
+103=A:@:Steffen - Go On Hook and wait 5 sec
+5=A:@:Steffen - FB CLIR Test 01 - KDG CLIR fallweise
+41=A:@:Steffen - FB CLIR Test 10 - KDG CLIP fallweise perm CLIR (#)
+36=;
+98=A:@:Wait for time in seconds [10]
+117=A:@:Steffen - FB CLIR Test 30 - Beliebiger mask Star Code 4 (#)
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Steffen - Call Hold]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Steffen - Different Call Lengths for CDR Check]
+12=A:@:Steffen - Go On Hook and wait 10 sec
+74=Steffen - A calls B, DTMF, confirms for CL 25min
+69=A:@:Steffen - Go On Hook and wait 10 sec
+31=;
+26=Steffen - A calls B, DTMF, confirms for CL 5min
+88=;
+9=A:@:Steffen - Go On Hook and wait 10 sec
+50=Steffen - A calls B, DTMF, confirms for CL 13min
+45=A:@:Steffen - Go On Hook and wait 10 sec
+64=;
+59=Steffen - A calls B, DTMF, confirms for CL 16min
+21=A:@:Steffen - Go On Hook and wait 10 sec
+16=;
+83=Steffen - A calls B, DTMF, confirms for CL 60min
+78=A:@:Steffen - Go On Hook and wait 10 sec
+4=;
+40=;
+35=Steffen - A calls B, DTMF, confirms for CL 8min
+54=A:@:Steffen - Go On Hook and wait 10 sec
+49=;
+6=A:@:Steffen - Go On Hook and wait 10 sec
+11=Steffen - A calls B, DTMF, confirms for CL 45sec
+42=A:@:Steffen - Go On Hook and wait 10 sec
+37=;
+73=;
+68=Steffen - A calls B, DTMF, confirms for CL 19min
+30=A:@:Steffen - Go On Hook and wait 10 sec
+25=;
+61=;
+56=Steffen - A calls B, DTMF, confirms for CL 15min
+87=A:@:Steffen - Go On Hook and wait 10 sec
+8=Steffen - A calls B, DTMF, confirms for CL 30sec
+13=;
+44=Steffen - A calls B, DTMF, confirms for CL 11min
+39=A:@:Steffen - Go On Hook and wait 10 sec
+80=Steffen - A calls B, DTMF, confirms for CL 45min
+75=A:@:Steffen - Go On Hook and wait 10 sec
+1=;
+32=Steffen - A calls B, DTMF, confirms for CL 7min
+27=A:@:Steffen - Go On Hook and wait 10 sec
+63=A:@:Steffen - Go On Hook and wait 10 sec
+58=;
+89=End of script
+20=Steffen - A calls B, DTMF, confirms for CL 3min
+15=A:@:Steffen - Go On Hook and wait 10 sec
+51=A:@:Steffen - Go On Hook and wait 10 sec
+46=;
+82=;
+77=Steffen - A calls B, DTMF, confirms for CL 30min
+3=;Created: 03.09.2012
+34=;
+29=Steffen - A calls B, DTMF, confirms for CL 6min
+70=;
+65=Steffen - A calls B, DTMF, confirms for CL 18min
+22=;
+17=Steffen - A calls B, DTMF, confirms for CL 2min
+53=Steffen - A calls B, DTMF, confirms for CL 14min
+48=A:@:Steffen - Go On Hook and wait 10 sec
+84=A:@:Steffen - Go On Hook and wait 10 sec
+79=;
+5=Steffen - A calls B, DTMF, confirms for CL 15sec
+10=;
+41=Steffen - A calls B, DTMF, confirms for CL 10min
+36=A:@:Steffen - Go On Hook and wait 10 sec
+72=A:@:Steffen - Go On Hook and wait 10 sec
+67=;
+24=A:@:Steffen - Go On Hook and wait 10 sec
+19=;
+60=A:@:Steffen - Go On Hook and wait 10 sec
+55=;
+86=Steffen - A calls B, DTMF, confirms for CL 90min
+7=;
+43=;
+38=Steffen - A calls B, DTMF, confirms for CL 9min
+62=Steffen - A calls B, DTMF, confirms for CL 17min
+57=A:@:Steffen - Go On Hook and wait 10 sec
+14=Steffen - A calls B, DTMF, confirms for CL 1min
+81=A:@:Steffen - Go On Hook and wait 10 sec
+76=;
+2=;Different Call Lengths for CDR Check
+33=A:@:Steffen - Go On Hook and wait 10 sec
+28=;
+52=;
+47=Steffen - A calls B, DTMF, confirms for CL 12min
+71=Steffen - A calls B, DTMF, confirms for CL 20min
+66=A:@:Steffen - Go On Hook and wait 10 sec
+23=Steffen - A calls B, DTMF, confirms for CL 4min
+18=A:@:Steffen - Go On Hook and wait 10 sec
+85=;
+
+[Steffen - Call Voicemail]
+3=;
+7=A:@:Steffen - Go On Hook and wait 5 sec
+2=;FRITZ!Box - Auslieferungszustand über ein Telefon herstellen
+4=;
+6=A:@:Wait for time in seconds [10]
+8=;
+1=;
+5=A:@:Steffen - Call Voicemail (1990303333664)
+9=End of script
+
+[GotoActions__TE_Deactivierung_CFU]
+1=0
+2=0
+3=0
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[GotoActions__Steffen - 14min Call Lengths for CDR Check]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Steffen - CFU Deactivation]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[GotoActions__Steffen - FB CLIR Tests]
+12=0
+74=0
+69=0
+31=0
+26=0
+93=0
+88=0
+112=0
+107=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+102=0
+4=0
+40=0
+35=0
+97=0
+121=0
+116=0
+54=0
+49=0
+11=0
+73=0
+68=0
+30=0
+25=0
+92=0
+87=0
+111=0
+106=0
+8=0
+44=0
+39=0
+63=0
+58=0
+20=0
+15=0
+82=0
+77=0
+101=0
+3=0
+34=0
+29=0
+96=0
+120=0
+115=0
+53=0
+48=0
+10=0
+72=0
+67=0
+24=0
+19=0
+60=0
+55=0
+91=0
+86=0
+110=0
+105=0
+7=0
+43=0
+38=0
+119=0
+62=0
+57=0
+14=0
+81=0
+76=0
+100=0
+2=0
+33=0
+28=0
+95=0
+114=0
+109=0
+52=0
+47=0
+71=0
+66=0
+23=0
+18=0
+90=0
+85=0
+104=0
+6=0
+42=0
+37=0
+99=0
+118=0
+61=0
+56=0
+13=0
+80=0
+75=0
+1=0
+32=0
+27=0
+94=0
+89=0
+113=0
+108=0
+51=0
+46=0
+70=0
+65=0
+22=0
+17=0
+84=0
+79=0
+103=0
+5=0
+41=0
+36=0
+98=0
+117=0
+
+[Steffen - Call Hold]
+3=;Created: 03.09.2012
+7=A:@:Steffen - Go Off Hook and wait 10sec (FB Hook Flash P2)
+12=A:@:Steffen - Go On Hook and wait 10 sec
+4=;
+8=A:@:Wait for time in seconds [5]
+13=;
+1=;
+5=Steffen - A calls B, DTMF, confirms for CL 45sec
+9=A:@:Steffen - Go On Hook and wait 200msec (FB Hook Flash P1)
+10=A:@:Steffen - Go Off Hook and wait 10sec (FB Hook Flash P2)
+14=End of script
+2=;Different Call Lengths for CDR Check
+6=A:@:Steffen - Go On Hook and wait 200msec (FB Hook Flash P1)
+11=AFT Do Path Confirmation Once
+
+[TE_CFU-Test_2]
+7=;TE Deaktivierung CFU
+12=;D:@:AFT On hook wait for incoming call
+8=;TE - Off Hook wait 10sec
+13=TE A calls B, DTMF (no wait for dialtone)
+1=;TE Deaktivierung CFU
+5=;TE Deaktivierung CFU
+9=AFT A calls B, DTMF
+10=;TE Aktivierung CFU
+14=;A:C:AFT A calls B, DTMF
+18=;TE - On hook
+2=;TE - Off Hook wait 10sec
+6=;TE - Off Hook wait 10sec
+11=TE - Off Hook wait 10sec
+20=End of script
+15=;D:@:AFT Off Hook
+19=;TE Deaktivierung CFU (no wait for dialtone)
+3=;TE Deaktivierung CFU
+16=;TE Do Path Confirmation for call Length (Fixed)
+4=;TE - Off Hook wait 10sec
+17=;TE - Off Hook wait 10sec
+
+[TE_CFU_Test_3]
+3=TE - Off Hook wait 10sec
+7=D:@:AFT On hook wait for incoming call
+12=TE - Off Hook wait 10sec
+4=B:D:A calls B, DTMF, confirms for Call Length
+8=C:B:AFT A calls B, DTMF
+13=End of script
+1=TE - Off Hook wait 10sec
+5=B:@:AFT On Hook and wait 1 sec
+9=D:@:AFT Off Hook
+10=C:D:AFT Do Path Confirmation Once
+2=TE Aktivierung CFU
+6=D:@:AFT On Hook and wait 1 sec
+11=TE Deaktivierung CFU
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__TE_CallForwarding_unconditional]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+
+[Steffen - A calls B (DTMF) without path confirmation]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=A:@:Steffen - Wait 10sec, send 2 WAV files
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=Steffen - A calls B, DTMF, no confirmation
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL (Var 90%)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[TE_CallForwarding_unconditional]
+1=B:@:TE Aktivierung CFU
+3=B:@:AFT On hook wait for incoming call
+5=B:@:TE Deaktivierung CFU
+7=;
+2=B:@:TE - Wait 10sec
+4=A calls B, DTMF, no confirmation
+6=B:@:TE - Wait 10sec
+8=End of script
+
+[GotoActions__Steffen - 17min Call Lengths for CDR Check]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__TE_Basic_Call]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[Steffen - FB Werksreset ]
+3=;
+7=A:@:Steffen - Go On Hook and wait 5 sec
+2=;FRITZ!Box - Auslieferungszustand über ein Telefon herstellen
+4=;
+6=A:@:Wait for time in seconds [10]
+8=;
+1=;
+5=A:@:Steffen - FB Werksreset via Telefon
+9=End of script
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[TE_Deactivierung_CFU]
+1=A:@:TE Deaktivierung CFU
+2=A:@:TE - Wait 10sec
+3=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__Steffen - Call Voicemail]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Wait for Voice {Voice Matching}]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[Steffen - 14min Call Lengths for CDR Check]
+3=;Created: 03.09.2012
+7=A:@:Steffen - Go On Hook and wait 10 sec
+2=;Different Call Lengths for CDR Check
+4=;
+6=Steffen - A calls B, DTMF, confirms for CL 14min
+8=;
+1=;
+5=;
+9=;
+10=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[A calls B {Voice Matching}]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+16=End of script
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=A:@:Wait for time in seconds [8]
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+15=A:@:A calls B {Voice Matching}
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISDN) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, ISDN, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__Steffen - FB Werksreset ]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__TE_CFU-Test_2]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+4=0
+17=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[Steffen - CFU Deactivation]
+3=;
+7=A:@:Steffen - Go On Hook and wait 5 sec
+2=;FRITZ!Box - Auslieferungszustand über ein Telefon herstellen
+4=;
+6=A:@:Wait for time in seconds [10]
+8=;
+1=;
+5=A:@:Steffen - FB CLIR Test 16 - KDG Deaktivierung CFU (#)
+9=End of script
+
+[GotoActions__TE_CFU_Automatic]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+

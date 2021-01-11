@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <documentation>Firewall - Verify Outbound application rules</documentation>
+        <tags>sd-wan, velocloud, silverpeak, firewall, outbound application rules</tags>
+        <notes>Test case: Verify Outbound application rules
+Expected Results: Configured traffic not allowed through firewall
+Usage: Configure outbound rule to deny ICMP traffic, but allow all other traffic. Ping 4.2.2.2
+
+Details:
+An outbound firewall rule will be applied in the SD-WAN (aka MSR) configured to block ICMP traffic. This means any ICMP outbound traffic should be blocked. A ping will be executed (from the CPE) to test whether or not traffic is being blocked.</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC510/VC510_lab_basic_cisco.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="461f1b06-1b8a-44ce-abe0-4abd34573443" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="37d806db-efb8-42d3-9fc2-666553983884" action="open" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2aa3109c-11b7-48ef-80ff-8f254370d3cd" action="open" session="CPE">
+                            <command>
+                                <body>device:CPE#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="de69f9ad-bc87-4cf6-843f-7a35d8527543" action="Login" session="CPE" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="485c5c7d-ddae-4823-b4b4-3fe56776bc72" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="787e9c59-6293-4e52-a5e9-8627ab3cd71e" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>from firewall.firewall_4_00_verify_outbound_application_rules import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="731ea442-b547-4c55-a446-f1b2653c2df0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initializing variables...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6837b65c-3b0f-46e4-90b0-b320bac26846" action="command" session="SD-WAN">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="2169fbb8-26b5-4dc5-8448-9618466e5d22" action="command" session="SD-WAN">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="683ff2fd-e609-411a-a0f9-c2ed774f32e1" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>create_edge(edge_id=edge_id, enterprise_id=enterprise_id)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="39720d3b-6cd6-434c-9f7d-42762868cc61" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4aae4796-363b-444c-bada-b24259a7d269" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Adding firewall rule to block outbound application traffic ICMP...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="98cc1ad2-0ce0-41a2-a435-c8b40229ee1c" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>add_icmp_block_outbound_app_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d5c39253-75a2-44db-b4b2-8e87a71bc131" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping 10 seconds to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a9b9cf31-d90d-45f3-bca0-0ac3769108ed" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e5fabc72-7a00-453b-af0f-6d161525e4e0" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing ICMP outbound traffic blocking by pinging 4.2.2.2. Expecting failure ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="606a24ad-472b-4543-8e17-3b4487a6e499" action="command" session="CPE">
+                            <command>
+                                <body>ping 4.2.2.2</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping failed -- [value]% success rate. ICMP outbound traffic is being block as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d0958bc5-f611-4769-9b08-1b0095a3e46e" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing non-ICMP outbound traffic allowance by checking CPE&apos;s SIP registration. Expecting OK SIP Registration Status...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d3683dd1-8d7d-4d30-9150-219ab4b15573" action="GetRegStatusNeutral" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>reg_status()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;OK&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: SIP Registration Status OK. Non-ICMP outbound traffic is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="01cbbc3b-34e6-4920-aa1b-7e245df3c6f6" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="694c7ffc-2448-49f4-9f22-d59d493f5984" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE: Removing firewall rule to allow outbound application traffic ICMP...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e3b73be1-eacd-41db-812a-188572f37e67" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_icmp_block_outbound_app_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="db1505c0-6597-4dd7-af0e-829cb275cfcb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Sleeping 10 seconds to let change take effect...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9e0fea0b-3ae9-4fa7-9cd8-40c7dfabb9b4" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e7d46c29-fa78-462c-bbd2-7515a0cf6a98" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing ICMP outbound traffic allowance by pinging 4.2.2.2. Expecting successful ping...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ed199689-87ff-4d45-99a0-e8584d0fce22" action="command" session="CPE">
+                            <command>
+                                <body>ping 4.2.2.2</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Success_rate()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>int(value) &gt;= 90</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: Ping successful - - [value]% success rate. ICMP outbound traffic is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="10.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0199cbfe-1334-453e-ac6a-fd8a9ad65ef8" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>CPE: Testing non-ICMP outbound traffic allowance by checking CPE&apos;s SIP registration. Expecting OK SIP Registration Status...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f903287b-e513-4dd4-ac08-434546288155" action="GetRegStatusNeutral" session="CPE" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>reg_status()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;OK&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CPE: SIP Registration Status is OK. Non-ICMP outbound traffic is being allowed as should.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="6" delayBetweenRepeats="30.0"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0ea2fd3b-c8fe-4e8c-b892-b4e1daee3a6d" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="77a4c50e-4561-44cc-ace1-2f46dd5c8793" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Closing devices...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="924ae4d6-899b-4800-9357-3443c8bcaebf" action="close" session="SD-WAN" useFieldsInCommand="false">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4e2362e6-79fd-4086-b44e-2c7f6b42c2b7" action="close" session="CPE">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="clean_up">
+            <steps>
+                <item guid="8872fab7-f700-43c8-998a-1cc07178ad6e" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>This clean up will make sure the &apos;Deny Source Address Rule&apos; does not stay in the Edge.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bc7b082b-58b5-4e2c-abc7-ee1cdabbd7bf" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup...</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8cb987c3-572b-4c40-aa77-4ad0cb25d464" action="command" session="SD-WAN" useFieldsInCommand="false">
+                    <command>
+                        <body>is_icmp_block_outbound_app_rule_present()</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>item_item_by_key(&quot;is_outbound_application_rule_present&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>is_icmp_block_outbound_app_rule_present</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1a9eb6e8-88db-4d60-a4d1-45be72901643" action="if" useFieldsInCommand="false">
+                    <command>
+                        <body>is_icmp_block_outbound_app_rule_present == &apos;yes&apos;:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b7ab8fe9-3fc7-4c53-99bb-d8503c317e01" action="comment" useFieldsInCommand="false">
+                            <command>
+                                <body>EDGE Setup: Removing ICMP block outbound application firewall rule...</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b10bf763-decf-49c7-ac98-34be2eecbc65" action="command" session="SD-WAN" useFieldsInCommand="false">
+                            <command>
+                                <body>remove_icmp_block_outbound_app_rule()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ff4ceb82-429f-43b0-83c9-85aa31c45d9a" action="sleep">
+                            <command>
+                                <body>20</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f1454371-3007-4ed2-8f66-c23fd8ccc036" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>EDGE Cleanup... Done</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="751084ee-64aa-492d-8e06-4bac010d71c3" action="exit" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

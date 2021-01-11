@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<FormMap version="7.0.1.201802131446">
+    <targets>
+        <item name="checkbox_active">
+            <description>Must supply the hunt group user ID (found in the HGs profile page)</description>
+            <queryFormatString>name=checkbox___DFLT_COL_ID____DELIMITER__{0}</queryFormatString>
+            <arguments>
+                <item name="hg_user_id"/>
+            </arguments>
+        </item>
+        <item name="checkbox_call_waiting">
+            <queryFormatString>name=allowCw</queryFormatString>
+        </item>
+        <item name="checkbox_cf_no_answer">
+            <queryFormatString>name=enableNoAnswerTimeout</queryFormatString>
+        </item>
+        <item name="checkbox_cf_after_time">
+            <queryFormatString>name=enableCFGNAExternal</queryFormatString>
+        </item>
+        <item name="dropdown_num_rings">
+            <queryFormatString>name=noAnswerNumberOfRings</queryFormatString>
+        </item>
+        <item name="link_hg_from_list">
+            <description>Link to the HGs profile page. Requires the HGs name as an argument.</description>
+            <queryFormatString>link={0}</queryFormatString>
+            <arguments>
+                <item name="hg_name"/>
+            </arguments>
+        </item>
+        <item name="link_profile">
+            <description>Profile link on HG Profile page (for a particular HG)</description>
+            <queryFormatString>//A[contains(@name,&apos;/Group/Hunt_Group/Modify/index.jsp&apos;)]</queryFormatString>
+        </item>
+        <item name="textbox_cfgna_seconds">
+            <queryFormatString>name=cfgnaExternalSeconds</queryFormatString>
+        </item>
+        <item name="textbox_fwd_to_number">
+            <queryFormatString>name=forwardToNumber</queryFormatString>
+        </item>
+    </targets>
+    <headline>Hunt Group</headline>
+    <notes>Hunt group pages under group config</notes>
+</FormMap>

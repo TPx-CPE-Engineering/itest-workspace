@@ -1,0 +1,173 @@
+[AFT:3WC_015]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+12=>B:C:AFT Do Path Confirmation Once
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;Party B can now hear the ringback of party C
+13=>A:C:AFT Do Path Confirmation Once
+1=;To Test the basic early 3WC into 3WC functionality
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ring back tone
+10=;After 2 rings C will automatically go off-hook due to settings in abacus
+14=>AFT Do Path Confirmation Once
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+6=>A:@:Wait for Ring back tone
+11=;The conference between A, B, and C should get established which is checked by the three actions below
+15=End of script
+
+[GotoActions__AFT:3WC_015]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Basic_Call_16]
+1=>AFT A calls B, DTMF
+3=>A:@:Go OnHook
+5=End of script
+2=>A:@:Wait for time in seconds [3]
+4=>A calls B, DTMF, confirms once
+
+[CT_3]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A Calls B,DTMF,No Dial Tone
+5=>B:@:Go OnHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=;B goes onhook while C is ringing
+6=>A:C:AFT Do Path Confirmation Once
+
+[AFT:3WC_016]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+12=;B will get a BYE and C a CANCEL and all call context are removed in A 
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=;Party B can now hear the ringback of party C
+13=;Hence A will get a dial-tone,next time it goes off-hook
+1=;To Test the basic early 3WC tearing down at Party A
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ring back tone
+10=;Before conference is established A goes on-hook
+14=>A:@:AFT Off hook wait for dial tone
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+6=>A:@:Wait for Ring back tone
+11=>A:@:Go OnHook
+15=End of script
+
+[GotoActions__AFT:3WC_016]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Basic_Call_6]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Basic_Call_6]
+1=>AFT A calls B, DTMF
+3=>A:@:Go OnHook
+5=End of script
+2=>A:@:Wait for time in seconds [3]
+4=>A calls B, DTMF, confirms once
+
+[CT_8]
+1=>A calls B, DTMF, confirms once
+3=>A:C:A Calls B,DTMF,No Dial Tone
+5=>A:@:Go OnHook
+7=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=;A goes onhook while C is ringing
+6=>B:C:AFT Do Path Confirmation Once
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__CT_3]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__E911_FC_NFH_005]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[E911_FC_NFH_005]
+1=>A:@:A Calls B(911),DTMF
+3=>A:@:Wait for time in seconds [2]
+5=End of script
+2=>A:@:Go OnHook
+4=>A Calls B(911),DTMF,Confirm Once
+
+[AFT:3WC_014]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Do Hook Flash
+2=;For this script to be successful, number of rings before terminating sub picks up the phone  should be increased to 2
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for Ring back tone
+8=;Party B can now hear the ringback of party C
+1=;To Test the basic early 3WC functionality
+5=>A:C:A Calls B,DTMF,No Dial Tone
+9=>B:@:Wait for Ring back tone
+10=End of script
+
+[GotoActions__CT_8]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT:3WC_014]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Basic_Call_16]
+1=0
+3=0
+5=0
+2=0
+4=0
+

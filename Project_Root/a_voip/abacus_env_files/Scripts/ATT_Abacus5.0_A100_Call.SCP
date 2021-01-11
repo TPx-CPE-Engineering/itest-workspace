@@ -1,0 +1,3026 @@
+[FUN.TEL.Normal.008]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=A:@:AFT On Hook and wait ? sec [1]
+7=AFT Do Path Confirmation Once
+2=AFT A calls B, DTMF
+4=B:@:AFT On hook wait for incoming call
+6=B:@:AFT Off Hook
+8=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.023]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.018]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[FUN.TEL.Abnormal.001]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [6]
+5=A:@:Wait for time in seconds [5]
+7=End of script
+2=A:@:Send string in DTMF [07]
+4=A:@:Wait for 2 tones for ?? seconds [450,0,0.3]
+6=A:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__FUN.TEL.Abnormal.009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.042]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.037]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[FUN.TEL.Normal.003]
+3=AFT Do Path Confirmation Once
+7=A:@:Wait for time in seconds [5]
+2=AFT A calls B, DTMF
+4=A:@:AFT On Hook and wait ? sec [1]
+6=B:@:Wait for busy
+8=B:@:AFT On Hook and wait ? sec [1]
+1=A:@:AFT Off hook wait for dial tone
+5=B:@:AFT Off Hook and wait ? sec [5]
+9=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.039]
+3=B:C:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+12=End of script
+2=B:@:AFT Do Hook Flash wait time
+4=C:@:AFT On hook wait for incoming call for timeout
+6=B:@:AFT On hook wait for incoming call
+8=B:A:AFT Do Path Confirmation Once
+11=A:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=B:@:AFT On Hook and wait ? sec [2]
+9=C:@:AFT On Hook and wait ? sec [2]
+10=B:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.013]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.008]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[GotoActions__FUN.TEL.Abnormal.004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.032]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.027]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.034]
+3=B:@:AFT Do Hook Flash wait time
+7=C:@:Wait for time in seconds [2]
+12=C:@:AFT On Hook and wait ? sec [2]
+4=B:C:AFT A calls B, DTMF
+8=B:@:AFT Do Hook Flash wait time
+13=End of script
+1=C:@:AFT Off Hook and wait ? sec [2]
+5=B:@:Wait for time in seconds [2]
+9=B:A:AFT Do Path Confirmation Once
+10=A:@:AFT On Hook and wait ? sec [2]
+2=A calls B, DTMF, no dial tone, confirms once
+6=C:@:Wait for busy
+11=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.029]
+3=B:C:AFT A calls B, DTMF
+7=B:@:AFT On Hook and wait ? sec [2]
+12=C:@:AFT On Hook and wait ? sec [2]
+4=B:@:Wait for time in seconds [2]
+8=C:@:AFT Off Hook
+13=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT On hook wait for incoming call
+9=A:C:AFT Do Path Confirmation Once
+10=B:@:AFT On Hook and wait ? sec [2]
+2=B:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.003]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__FUN.TEL.Normal.010]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__FUN.TEL.Normal.005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.010]
+1=A calls B, DTMF, no dial tone, confirms once
+3=A:@:Wait for time in seconds [8]
+5=AFT Do Path Confirmation Once
+7=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:AFT Do Hook Flash wait time
+4=A:@:AFT Do Hook Flash wait time
+6=B:@:AFT On Hook and wait ? sec [2]
+8=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.005]
+7=A:@:Send string in DTMF [*72]
+12=A:@:Wait for time in seconds [4]
+38=C:@:AFT On Hook and wait ? sec [2]
+31=B:C:AFT Do Path Confirmation Once
+26=B:@:AFT Off Hook and wait ? sec [2]
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT On Hook and wait ? sec [2]
+14=A:@:AFT Off Hook and wait ? sec [2]
+32=A:@:AFT On Hook and wait ? sec [2]
+27=B:A:AFT A calls B, DTMF no dial tone
+2=A:@:Send string in DTMF [*7407552004]
+20=A:@:AFT Off Hook and wait ? sec [2]
+15=B:@:AFT On Hook and wait ? sec [2]
+33=A:@:AFT Off Hook and wait ? sec [2]
+28=B:@:Wait for time in seconds [2]
+3=B:@:AFT Off Hook and wait ? sec [2]
+21=A:@:Send string in DTMF [*87]
+16=B:@:AFT Off Hook and wait ? sec [2]
+34=A:@:Send string in DTMF [*70]
+29=C:@:AFT On hook wait for incoming call
+4=A:@:Wait for time in seconds [5]
+22=A:@:Wait for time in seconds [5]
+17=B:A:AFT A calls B, DTMF no dial tone
+35=A:@:Wait for time in seconds [4]
+5=A:@:AFT On Hook and wait ? sec [2]
+10=A:@:AFT Off Hook and wait ? sec [2]
+23=A:@:AFT On Hook and wait ? sec [2]
+18=B:@:Wait for time in seconds [2]
+36=A:@:AFT On Hook and wait ? sec [4]
+6=A:@:AFT Off Hook and wait ? sec [2]
+11=A:@:Send string in DTMF [*86]
+24=A:@:AFT Off Hook and wait ? sec [2]
+19=A:@:AFT On Hook and wait ? sec [4]
+37=B:@:AFT On Hook and wait ? sec [2]
+30=C:@:AFT Off Hook
+25=B:@:AFT On Hook and wait ? sec [2]
+8=A:@:Wait for time in seconds [4]
+13=A:@:AFT On Hook and wait ? sec [2]
+39=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.024]
+7=>A calls B, DTMF, no dial tone, confirms once
+12=>A:C:AFT Do Path Confirmation Once
+25=>A:@:AFT Off Hook and wait ? sec [2]
+8=>C:@:AFT Off Hook and wait ? sec [2]
+13=>B:@:AFT On Hook and wait ? sec [2]
+26=>A:@:Send string in DTMF [*60]
+1=>A:@:AFT Off Hook and wait ? sec [2]
+9=>C:A:AFT A calls B, DTMF no dial tone
+14=>A:@:AFT On Hook and wait ? sec [2]
+27=>A:@:Wait for time in seconds [2]
+2=>A:@:Send string in DTMF [*61]
+20=>C:@:AFT Off Hook
+15=>C:@:AFT On Hook and wait ? sec [2]
+28=>A:@:AFT On Hook and wait ? sec [2]
+3=>B:@:Wait for time in seconds [2]
+21=>A:C:AFT Do Path Confirmation Once
+16=>A:@:AFT Off Hook and wait ? sec [2]
+29=End of script
+4=>A:@:AFT On Hook and wait ? sec [2]
+22=>B:@:AFT On Hook and wait ? sec [2]
+17=>A:@:Send string in DTMF [*69]
+5=>A:@:AFT Off Hook and wait ? sec [2]
+10=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.51]
+23=>A:@:AFT On Hook and wait ? sec [2]
+18=>A:@:Wait for time in seconds [2]
+6=>B:@:AFT On Hook and wait ? sec [2]
+11=>A:@:AFT Do Hook Flash wait time
+24=>C:@:AFT On Hook and wait ? sec [2]
+19=>C:@:AFT On hook wait for incoming call
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.019]
+7=A:@:Send string in DTMF [*76]
+12=B:@:AFT On hook wait for incoming call for timeout
+4=A:@:Wait for time in seconds [2]
+8=A:@:Wait for time in seconds [2]
+13=B:@:AFT On Hook and wait ? sec [2]
+17=C:@:AFT On Hook and wait ? sec [2]
+1=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:Wait for busy
+9=A:@:AFT On Hook and wait ? sec [2]
+10=C:@:Wait for time in seconds [2]
+14=B:@:Wait for time in seconds [2]
+18=End of script
+2=B:@:AFT Off Hook and wait ? sec [2]
+6=A:@:Wait for time in seconds [2]
+11=B:@:AFT On Hook and wait ? sec [2]
+15=A:@:AFT On Hook and wait ? sec [2]
+3=AFT A calls B, DTMF no dial tone
+16=B:@:AFT On Hook and wait ? sec [2]
+
+[FUN.TEL.Abnormal.009]
+7=A:@:Wait for time in seconds [5]
+12=A calls B, DTMF, confirms once
+4=B:A:AFT A calls B, DTMF
+8=B:@:Wait for time in seconds [5]
+13=B:@:AFT On Hook and wait ? sec [2]
+17=End of script
+1=A:@:AFT Off hook wait for stutter dial tone
+5=A:@:Wait for busy
+9=A:@:AFT On Hook and wait ? sec [1]
+10=A:@:AFT Off hook wait for dial tone
+14=B:@:AFT Off hook wait for dial tone
+2=B:@:AFT Off hook wait for stutter dial tone
+6=B:@:Wait for busy
+11=B:@:AFT On Hook and wait ? sec [2]
+15=A:@:AFT On Hook and wait ? sec [2]
+3=AFT A calls B, DTMF
+16=B:A:A calls B, DTMF, confirms once
+
+[AFT: Call Forwarding]
+3=AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=AFT On Hook and wait 1 sec
+8=AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[GotoActions__FUN.TEL.Normal.009]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__FUN.TEL.Abnormal.003]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.014]
+3=A:C:A calls B, DTMF, no dial tone, confirms once
+7=A:C:AFT Do Path Confirmation Once
+12=A:C:AFT Do Path Confirmation Once
+16=End of script
+4=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=B:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=B:@:AFT On Hook and wait ? sec [2]
+14=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [3]
+11=A:@:Wait for time in seconds [2]
+15=C:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.009]
+3=A:C:AFT A calls B, DTMF
+7=C:@:AFT On Hook and wait ? sec [2]
+12=C:@:AFT On Hook and wait ? sec [2]
+4=C:@:AFT On hook wait for incoming call
+8=A:@:AFT Do Hook Flash wait time
+13=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT Off Hook
+9=AFT Do Path Confirmation Once
+10=B:@:AFT On Hook and wait ? sec [2]
+2=A:@:AFT Do Hook Flash wait time
+6=A:C:AFT Do Path Confirmation Once
+11=A:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.031]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.026]
+7=0
+12=0
+30=0
+25=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[FUN.TEL.Abnormal.004]
+3=>B:@:AFT On hook wait for incoming call
+7=>A:@:AFT Off hook wait for dial tone
+2=>AFT A calls B, DTMF
+4=>A:@:AFT On Hook and wait ? sec [1]
+6=>B:@:AFT On Hook and wait ? sec [1]
+8=>A:@:AFT On Hook and wait ? sec [1]
+11=End of script
+1=>A:@:AFT Off hook wait for dial tone
+5=>B:@:AFT Off hook wait for dial tone
+9=>B:@:AFT Off hook wait for dial tone
+10=>B:A:A calls B, DTMF, confirms once
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.033]
+3=B:C:AFT A calls B, DTMF
+7=B:@:AFT Do Hook Flash wait time
+12=End of script
+2=B:@:AFT Do Hook Flash wait time
+4=B:@:Wait for time in seconds [2]
+6=A:@:Wait for time in seconds [2]
+8=B:A:AFT Do Path Confirmation Once
+11=C:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT On hook wait for incoming call
+9=B:@:AFT On Hook and wait ? sec [2]
+10=A:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.028]
+7=A:@:AFT On Hook and wait ? sec [2]
+12=A:@:AFT Off Hook and wait ? sec [2]
+25=A:@:AFT On Hook and wait ? sec [2]
+8=A:@:AFT Off Hook and wait ? sec [2]
+13=B:A:AFT A calls B, DTMF
+26=End of script
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:Send string in DTMF [*71]
+14=C:@:AFT On hook wait for incoming call
+2=A:@:Send string in DTMF [*74]
+6=B:@:AFT Off Hook and wait ? sec [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+20=B:@:AFT Off Hook
+15=B:@:AFT On Hook
+24=A:@:Wait for time in seconds [2]
+19=B:@:AFT On hook wait for incoming call
+3=A:@:Wait for time in seconds [2]
+21=AFT Do Path Confirmation Once
+16=A:@:AFT Off Hook and wait ? sec [2]
+4=A:@:Send string in DTMF [07552003]
+22=A:@:AFT Off Hook and wait ? sec [2]
+17=A:@:Send string in DTMF [*69]
+5=A:@:Wait for time in seconds [2]
+10=A:@:Wait for time in seconds [2]
+23=A:@:Send string in DTMF [*70]
+18=A:@:Wait for time in seconds [2]
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[FUN.TEL.Normal.006]
+3=B:A:AFT A calls B, DTMF
+7=A:@:AFT On Hook and wait ? sec [1]
+2=B:@:AFT Off hook wait for dial tone
+4=A:@:Wait for time in seconds [2]
+6=A:@:Wait for time in seconds [5]
+8=B:@:AFT On Hook and wait ? sec [1]
+11=End of script
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for busy
+9=A:@:AFT Off hook wait for dial tone
+10=AFT A calls B, DTMF
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.002]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[GotoActions__FUN.TEL.Normal.004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.004]
+7=A:@:Send string in DTMF [*73]
+12=A:@:Wait for time in seconds [4]
+8=A:@:Wait for time in seconds [4]
+13=B:@:AFT On Hook and wait ? sec [2]
+31=A:@:Send string in DTMF [*70]
+26=C:@:AFT On hook wait for incoming call
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT On Hook and wait ? sec [4]
+14=B:@:AFT Off Hook and wait ? sec [2]
+32=A:@:Wait for time in seconds [4]
+27=C:@:AFT Off Hook
+2=A:@:Send string in DTMF [*7407552004]
+20=A:@:Send string in DTMF [*87]
+15=A:@:AFT On Hook and wait ? sec [4]
+33=A:@:AFT On Hook and wait ? sec [4]
+28=B:C:AFT Do Path Confirmation Once
+3=A:@:Wait for time in seconds [4]
+21=A:@:Wait for time in seconds [2]
+16=B:A:AFT A calls B, DTMF no dial tone
+34=B:@:AFT On Hook and wait ? sec [2]
+29=A:@:AFT On Hook and wait ? sec [2]
+4=B:@:AFT Off Hook and wait ? sec [2]
+22=B:@:AFT On Hook and wait ? sec [2]
+17=A:@:Wait for time in seconds [2]
+35=C:@:AFT On Hook and wait ? sec [2]
+5=A:@:AFT On Hook and wait ? sec [5]
+10=A:@:AFT Off Hook and wait ? sec [2]
+23=B:@:AFT Off Hook and wait ? sec [2]
+18=A:@:AFT On Hook and wait ? sec [2]
+36=End of script
+6=A:@:AFT Off Hook and wait ? sec [2]
+11=A:@:Send string in DTMF [*86]
+24=A:@:AFT On Hook and wait ? sec [2]
+19=A:@:AFT Off Hook and wait ? sec [2]
+30=A:@:AFT Off Hook and wait ? sec [2]
+25=B:A:AFT A calls B, DTMF no dial tone
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.021]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.016]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__FUN.TEL.Abnormal.007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.023]
+7=A:@:Wait for time in seconds [2]
+12=B:@:Wait for time in seconds [2]
+4=A:@:Wait for busy
+8=B:@:AFT On Hook and wait ? sec [2]
+13=A:@:AFT On hook wait for incoming call
+17=A:@:AFT On Hook and wait ? sec [2]
+1=B:@:AFT Off Hook and wait ? sec [2]
+5=A:@:Wait for time in seconds [2]
+9=B:@:AFT Off Hook and wait ? sec [1]
+10=A:@:AFT On Hook and wait ? sec [2]
+14=A:@:AFT Off Hook
+18=End of script
+2=A:@:AFT Off Hook and wait ? sec [2]
+6=A:@:AFT On Hook and wait ? sec [2]
+11=B:@:Send string in DTMF [*69]
+15=B:A:AFT Do Path Confirmation Once
+3=AFT A calls B, DTMF no dial tone
+16=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.018]
+7=A:@:Send string in DTMF [*76]
+12=B:@:AFT On hook wait for incoming call
+4=A:@:Wait for time in seconds [2]
+8=A:@:Wait for time in seconds [2]
+13=B:@:AFT Off Hook
+17=C:@:AFT On Hook and wait ? sec [2]
+1=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:Wait for busy
+9=A:@:AFT On Hook and wait ? sec [2]
+10=C:@:Wait for time in seconds [2]
+14=AFT Do Path Confirmation Once
+18=End of script
+2=B:@:AFT Off Hook and wait ? sec [2]
+6=A:@:Wait for time in seconds [2]
+11=B:@:AFT On Hook and wait ? sec [2]
+15=A:@:AFT On Hook and wait ? sec [2]
+3=AFT A calls B, DTMF no dial tone
+16=B:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.040]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.035]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[FUN.TEL.Abnormal.008]
+3=B:@:AFT On hook wait for incoming call
+7=B:@:AFT On Hook and wait ? sec [1]
+2=AFT A calls B, DTMF
+4=B:@:AFT Off Hook
+6=A:@:AFT Off hook wait for dial tone
+8=A calls B, DTMF, confirms once
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:AFT On Hook and wait ? sec [1]
+9=End of script
+
+[FUN.TEL.Normal.001]
+12=A:@:AFT On Hook and wait ? sec [1]
+74=A:@:AFT On Hook and wait ? sec [1]
+69=A:@:AFT Off hook wait for dial tone
+31=A:@:AFT Off hook wait for dial tone
+26=A:@:AFT On Hook and wait ? sec [1]
+93=A:@:AFT Off hook wait for dial tone
+88=A:@:AFT On Hook and wait ? sec [1]
+9=A:@:AFT Off hook wait for dial tone
+50=A:@:AFT On Hook and wait ? sec [1]
+45=A:@:AFT Off hook wait for dial tone
+64=A:@:AFT On Hook and wait ? sec [1]
+59=A:@:AFT Off hook wait for dial tone
+21=A:@:AFT Off hook wait for dial tone
+16=A:@:AFT On Hook and wait ? sec [1]
+83=A:@:AFT Off hook wait for dial tone
+78=A:@:AFT On Hook and wait ? sec [1]
+102=A calls B, DTMF, confirms once
+4=A:@:AFT On Hook and wait ? sec [1]
+40=A:@:AFT On Hook and wait ? sec [1]
+35=A:@:AFT Off hook wait for dial tone
+97=A:@:AFT Off hook wait for dial tone
+54=A:@:AFT On Hook and wait ? sec [1]
+49=A:@:AFT Off hook wait for dial tone
+11=A:@:AFT Off hook wait for dial tone
+73=A:@:AFT Off hook wait for dial tone
+68=A:@:AFT On Hook and wait ? sec [1]
+30=A:@:AFT On Hook and wait ? sec [1]
+25=A:@:AFT Off hook wait for dial tone
+92=A:@:AFT On Hook and wait ? sec [1]
+87=A:@:AFT Off hook wait for dial tone
+8=A:@:AFT On Hook and wait ? sec [1]
+44=A:@:AFT On Hook and wait ? sec [1]
+39=A:@:AFT Off hook wait for dial tone
+1=A:@:AFT Off hook wait for dial tone
+32=A:@:AFT On Hook and wait ? sec [1]
+27=A:@:AFT Off hook wait for dial tone
+63=A:@:AFT Off hook wait for dial tone
+58=A:@:AFT On Hook and wait ? sec [1]
+94=A:@:AFT On Hook and wait ? sec [1]
+89=A:@:AFT Off hook wait for dial tone
+20=A:@:AFT On Hook and wait ? sec [1]
+15=A:@:AFT Off hook wait for dial tone
+51=A:@:AFT Off hook wait for dial tone
+46=A:@:AFT On Hook and wait ? sec [1]
+82=A:@:AFT On Hook and wait ? sec [1]
+77=A:@:AFT Off hook wait for dial tone
+101=A:@:AFT On Hook and wait ? sec [5]
+3=A:@:AFT Off hook wait for dial tone
+34=A:@:AFT On Hook and wait ? sec [1]
+29=A:@:AFT Off hook wait for dial tone
+70=A:@:AFT On Hook and wait ? sec [1]
+65=A:@:AFT Off hook wait for dial tone
+96=A:@:AFT On Hook and wait ? sec [1]
+22=A:@:AFT On Hook and wait ? sec [1]
+17=A:@:AFT Off hook wait for dial tone
+53=A:@:AFT Off hook wait for dial tone
+48=A:@:AFT On Hook and wait ? sec [1]
+84=A:@:AFT On Hook and wait ? sec [1]
+79=A:@:AFT Off hook wait for dial tone
+103=End of script
+5=A:@:AFT Off hook wait for dial tone
+10=A:@:AFT On Hook and wait ? sec [1]
+41=A:@:AFT Off hook wait for dial tone
+36=A:@:AFT On Hook and wait ? sec [1]
+72=A:@:AFT On Hook and wait ? sec [1]
+67=A:@:AFT Off hook wait for dial tone
+98=A:@:AFT On Hook and wait ? sec [1]
+24=A:@:AFT On Hook and wait ? sec [1]
+19=A:@:AFT Off hook wait for dial tone
+60=A:@:AFT On Hook and wait ? sec [1]
+55=A:@:AFT Off hook wait for dial tone
+91=A:@:AFT Off hook wait for dial tone
+86=A:@:AFT On Hook and wait ? sec [1]
+7=A:@:AFT Off hook wait for dial tone
+43=A:@:AFT Off hook wait for dial tone
+38=A:@:AFT On Hook and wait ? sec [1]
+62=A:@:AFT On Hook and wait ? sec [1]
+57=A:@:AFT Off hook wait for dial tone
+14=A:@:AFT On Hook and wait ? sec [1]
+81=A:@:AFT Off hook wait for dial tone
+76=A:@:AFT On Hook and wait ? sec [1]
+100=A:@:AFT On Hook and wait ? sec [1]
+2=A:@:AFT On Hook and wait ? sec [1]
+33=A:@:AFT Off hook wait for dial tone
+28=A:@:AFT On Hook and wait ? sec [1]
+95=A:@:AFT Off hook wait for dial tone
+52=A:@:AFT On Hook and wait ? sec [1]
+47=A:@:AFT Off hook wait for dial tone
+71=A:@:AFT Off hook wait for dial tone
+66=A:@:AFT On Hook and wait ? sec [1]
+23=A:@:AFT Off hook wait for dial tone
+18=A:@:AFT On Hook and wait ? sec [1]
+90=A:@:AFT On Hook and wait ? sec [1]
+85=A:@:AFT Off hook wait for dial tone
+6=A:@:AFT On Hook and wait ? sec [1]
+42=A:@:AFT On Hook and wait ? sec [1]
+37=A:@:AFT Off hook wait for dial tone
+99=A:@:AFT Off hook wait for dial tone
+61=A:@:AFT Off hook wait for dial tone
+56=A:@:AFT On Hook and wait ? sec [1]
+13=A:@:AFT Off hook wait for dial tone
+80=A:@:AFT On Hook and wait ? sec [1]
+75=A:@:AFT Off hook wait for dial tone
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.042]
+3=B:C:AFT A calls B, DTMF
+7=C:@:AFT On Hook and wait ? sec [2]
+12=A:@:AFT On Hook and wait ? sec [2]
+4=C:@:AFT On hook wait for incoming call
+8=B:@:AFT On Hook and wait ? sec [2]
+13=B:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT Off Hook
+9=B:@:AFT On hook wait for incoming call
+10=B:@:AFT Off Hook
+14=C:@:AFT On Hook and wait ? sec [2]
+2=B:@:AFT Do Hook Flash wait time
+6=B:C:AFT Do Path Confirmation Once
+11=B:A:AFT Do Path Confirmation Once
+15=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.037]
+3=B:@:Send string in DTMF [9999]
+7=B:@:AFT On Hook and wait ? sec [2]
+12=B:@:AFT On Hook and wait ? sec [2]
+4=B:@:Wait for time in seconds [2]
+8=B:@:AFT On hook wait for incoming call
+13=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=B:@:Wait for busy
+9=B:@:AFT Off Hook
+10=B:A:AFT Do Path Confirmation Once
+2=B:@:AFT Do Hook Flash wait time
+6=B:@:Wait for time in seconds [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.006]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__FUN.TEL.Normal.008]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__FUN.TEL.Abnormal.002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.013]
+3=A:@:AFT Do Hook Flash wait time
+7=A:@:Wait for time in seconds [3]
+12=A:@:AFT On Hook and wait ? sec [2]
+4=A:C:A calls B, DTMF, no dial tone, confirms once
+8=A:C:AFT Do Path Confirmation Once
+13=B:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time
+9=A:@:AFT On Hook and wait ? sec [2]
+10=B:@:Wait for time in seconds [2]
+14=C:@:AFT On Hook and wait ? sec [2]
+2=A:@:Wait for time in seconds [2]
+6=AFT Do Path Confirmation Once
+11=B:C:AFT Do Path Confirmation Once
+15=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.008]
+7=>C:@:AFT On Hook and wait ? sec [2]
+12=>A:@:Wait for 2 tones for ?? seconds [1400,0,0.5]
+8=>A calls B, DTMF, no dial tone, confirms once
+13=>A:@:AFT Do Hook Flash wait time
+31=>A:@:AFT On Hook and wait ? sec [2]
+26=>AFT A calls B, DTMF no dial tone
+1=>A:@:AFT Off Hook and wait ? sec [2]
+9=>A:@:Wait for time in seconds [2]
+14=>A:C:AFT Do Path Confirmation Once
+32=>B:@:AFT On Hook and wait ? sec [2]
+27=>C:@:Wait for time in seconds [2]
+2=>A:@:Send string in DTMF [*61]
+20=>B:@:AFT On Hook and wait ? sec [2]
+15=>A:@:AFT Do Hook Flash wait time
+33=>C:@:AFT On Hook and wait ? sec [2]
+28=>C:A:AFT A calls B, DTMF no dial tone
+3=>A:@:Wait for time in seconds [2]
+21=>A:@:Send string in DTMF [*60]
+16=>AFT Do Path Confirmation Once
+34=End of script
+29=>C:@:Wait for time in seconds [2]
+4=>C:@:AFT Off Hook and wait ? sec [2]
+22=>C:@:AFT Off Hook and wait ? sec [2]
+17=>C:@:AFT On Hook and wait ? sec [2]
+5=>A:@:AFT On Hook and wait ? sec [2]
+10=>C:A:AFT A calls B, DTMF
+23=>A:@:AFT On Hook and wait ? sec [2]
+18=>A:@:AFT On Hook and wait ? sec [2]
+6=>A:@:AFT Off Hook and wait ? sec [2]
+11=;>C:A:AFT A calls B, DTMF no dial tone
+24=>A:@:AFT Off Hook and wait ? sec [2]
+19=>A:@:AFT Off Hook and wait ? sec [2]
+30=>C:@:AFT On Hook and wait ? sec [2]
+25=>C:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.030]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.025]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[FUN.TEL.Abnormal.003]
+3=A:@:Wait for time in seconds [6]
+7=A:@:AFT Off hook wait for dial tone
+2=A:@:Send string in DTMF [07552]
+4=A:@:Wait for 2 tones for ?? seconds [450,0,0.3]
+6=A:@:AFT On Hook and wait ? sec [1]
+8=A calls B, DTMF, confirms once
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for time in seconds [5]
+9=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.032]
+1=A calls B, DTMF, no dial tone, confirms once
+3=B:@:Send string in DTMF [0755]
+5=B:A:AFT Do Path Confirmation Once
+7=B:@:AFT On Hook and wait ? sec [2]
+2=B:@:AFT Do Hook Flash wait time
+4=B:@:AFT Do Hook Flash wait time
+6=A:@:AFT On Hook and wait ? sec [2]
+8=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.027]
+7=A:@:AFT On Hook and wait ? sec [2]
+12=A:@:AFT Off Hook and wait ? sec [2]
+25=A:@:Send string in DTMF [*70]
+8=A:@:AFT Off Hook and wait ? sec [2]
+13=B:A:AFT A calls B, DTMF no dial tone
+26=A:@:Wait for time in seconds [4]
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:Send string in DTMF [*72]
+14=B:@:Wait for time in seconds [2]
+27=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:Send string in DTMF [*74]
+20=B:@:AFT On hook wait for incoming call
+15=C:@:AFT On hook wait for incoming call
+28=B:@:AFT On Hook and wait ? sec [2]
+3=A:@:Wait for time in seconds [2]
+21=B:@:AFT Off Hook
+16=B:@:AFT On Hook and wait ? sec [2]
+29=End of script
+4=A:@:Send string in DTMF [07552004]
+22=AFT Do Path Confirmation Once
+17=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:Wait for time in seconds [2]
+10=A:@:Wait for time in seconds [3]
+23=A:@:AFT On Hook and wait ? sec [2]
+18=A:@:Send string in DTMF [*69]
+6=B:@:AFT Off Hook and wait ? sec [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+24=A:@:AFT Off Hook and wait ? sec [2]
+19=A:@:Wait for time in seconds [3]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.039]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[FUN.TEL.Normal.010]
+3=A:@:Wait for time in seconds [2]
+7=A:@:AFT Off hook wait for dial tone
+2=A:@:Send string in DTMF [0755]
+4=A:@:Wait for 2 tones for ?? seconds [450,0,0.3]
+6=A:@:AFT On Hook and wait ? sec [1]
+8=A calls B, DTMF, confirms once
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for time in seconds [5]
+9=End of script
+
+[FUN.TEL.Normal.005]
+3=A:@:Wait for busy
+7=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:Wait for time in seconds [13]
+4=A:@:Wait for time in seconds [33]
+6=A:@:Wait for time in seconds [3]
+8=A calls B, DTMF, confirms once
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for 2 tones for ?? seconds [950,0,5]
+9=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.001]
+7=0
+12=0
+30=0
+25=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__FUN.TEL.Normal.003]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.003]
+7=B:@:AFT On Hook and wait ? sec [4]
+12=B:A:AFT A calls B, DTMF no dial tone
+8=A:@:Send string in DTMF [*73]
+13=B:@:Wait for time in seconds [2]
+31=C:@:AFT On Hook and wait ? sec [2]
+26=B:@:Wait for time in seconds [2]
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:Wait for time in seconds [4]
+14=C:@:AFT On hook wait for incoming call
+32=B:@:AFT On Hook and wait ? sec [2]
+27=A:@:AFT On hook wait for incoming call
+2=A:@:Send string in DTMF [*7407552004]
+20=A:@:Wait for time in seconds [4]
+15=C:@:AFT Off Hook
+33=End of script
+28=A:@:AFT Off Hook
+3=A:@:Wait for time in seconds [5]
+21=A:@:AFT On Hook and wait ? sec [4]
+16=B:C:AFT Do Path Confirmation Once
+29=B:A:AFT Do Path Confirmation Once
+4=B:@:AFT Off Hook and wait ? sec [2]
+22=C:@:Wait for time in seconds [2]
+17=A:@:AFT On Hook and wait ? sec [6]
+5=A:@:AFT On Hook and wait ? sec [4]
+10=B:@:AFT Off Hook and wait ? sec [2]
+23=B:@:AFT On Hook and wait ? sec [2]
+18=A:@:AFT Off Hook and wait ? sec [2]
+6=A:@:AFT Off Hook and wait ? sec [2]
+11=A:@:AFT On Hook and wait ? sec [4]
+24=B:@:AFT Off Hook and wait ? sec [2]
+19=A:@:Send string in DTMF [*70]
+30=A:@:AFT On Hook and wait ? sec [2]
+25=B:A:AFT A calls B, DTMF no dial tone
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.020]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.015]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[GotoActions__FUN.TEL.Abnormal.011]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__FUN.TEL.Abnormal.006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.022]
+3=B:@:AFT On hook wait for incoming call for timeout
+7=B:@:AFT Off Hook and wait ? sec [2]
+12=A:@:AFT Off Hook
+16=End of script
+4=A:@:AFT On Hook and wait ? sec [2]
+8=A:@:AFT On Hook and wait ? sec [2]
+13=B:A:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:Wait for time in seconds [2]
+9=B:@:Send string in DTMF [*69]
+10=B:@:Wait for time in seconds [2]
+14=A:@:AFT On Hook and wait ? sec [2]
+2=AFT A calls B, DTMF no dial tone
+6=B:@:AFT On Hook and wait ? sec [2]
+11=A:@:AFT On hook wait for incoming call
+15=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.017]
+7=A:C:AFT Do Path Confirmation Once
+12=D:@:AFT On hook wait for incoming call for timeout
+8=B:@:Wait for time in seconds [2]
+13=B:@:AFT Do Hook Flash wait time
+1=A calls B, DTMF, no dial tone, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=B:@:AFT A does hookflash and waits for Stutter dial tone
+14=B:C:AFT Do Path Confirmation Once
+18=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=B:D:AFT A calls B, DTMF no dial tone
+20=D:@:AFT On Hook and wait ? sec [2]
+15=A:@:Wait for time in seconds [2]
+19=C:@:AFT On Hook and wait ? sec [2]
+3=A:C:A calls B, DTMF, no dial tone, confirms once
+21=End of script
+16=A:C:AFT Do Path Confirmation Once
+4=A:@:AFT Do Hook Flash wait time
+17=B:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.034]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.029]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[FUN.TEL.Abnormal.007]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:AFT Off hook wait for dial tone
+2=>AFT A calls B, DTMF
+4=>A:@:Send string in DTMF [777]
+6=>B:@:AFT Off hook wait for dial tone
+8=>A:@:AFT On Hook and wait ? sec [1]
+1=>A:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait ? sec [2]
+9=>B:A:A calls B, DTMF, confirms once
+10=End of script
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.041]
+3=B:C:AFT A calls B, DTMF
+7=C:@:AFT On Hook and wait ? sec [2]
+12=C:@:AFT On Hook and wait ? sec [2]
+4=C:@:AFT On hook wait for incoming call
+8=B:@:AFT Do Hook Flash wait time
+13=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT Off Hook
+9=B:A:AFT Do Path Confirmation Once
+10=A:@:AFT On Hook and wait ? sec [2]
+2=B:@:AFT Do Hook Flash wait time
+6=B:C:AFT Do Path Confirmation Once
+11=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.036]
+3=B:@:AFT Do Hook Flash wait time
+7=C:@:Wait for time in seconds [2]
+12=B:A:AFT Do Path Confirmation Once
+16=End of script
+4=B:C:AFT A calls B, DTMF
+8=B:@:AFT On Hook and wait ? sec [2]
+13=A:@:AFT On Hook and wait ? sec [2]
+1=C:@:AFT Off Hook and wait ? sec [2]
+5=B:@:Wait for time in seconds [2]
+9=A:@:Wait for time in seconds [2]
+10=B:@:AFT On hook wait for incoming call
+14=B:@:AFT On Hook and wait ? sec [2]
+2=A calls B, DTMF, no dial tone, confirms once
+6=C:@:Wait for busy
+11=B:@:AFT Off Hook
+15=C:@:AFT On Hook and wait ? sec [2]
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[FUN.TEL.Normal.009]
+1=A:@:AFT Off hook wait for dial tone
+3=AFT Do Path Confirmation Once
+5=A:@:AFT Off Hook and wait ? sec [3]
+7=A:@:Wait for time in seconds [5]
+2=AFT A calls B, DTMF
+4=B:@:AFT On Hook
+6=A:@:Wait for busy
+8=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.010]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.005]
+7=0
+12=0
+38=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+35=0
+5=0
+10=0
+23=0
+18=0
+36=0
+6=0
+11=0
+24=0
+19=0
+37=0
+30=0
+25=0
+8=0
+13=0
+39=0
+
+[GotoActions__FUN.TEL.Normal.007]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__FUN.TEL.Abnormal.001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.012]
+3=A:C:A calls B, DTMF, no dial tone, confirms once
+7=A:C:AFT Do Path Confirmation Once
+12=C:@:AFT On Hook and wait ? sec [2]
+4=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=End of script
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.007]
+7=B:@:Send string in DTMF [*80]
+12=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [4]
+13=A:@:Wait for busy
+31=A:@:AFT On Hook and wait ? sec [2]
+26=AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT Off Hook and wait ? sec [2]
+14=A:@:Wait for time in seconds [2]
+32=B:@:AFT On Hook and wait ? sec [2]
+27=A:@:AFT On Hook and wait ? sec [2]
+2=A:@:Send string in DTMF [*80]
+20=A:@:AFT Off Hook and wait ? sec [2]
+15=B:@:AFT On Hook and wait ? sec [2]
+33=End of script
+28=A:@:AFT Off Hook and wait ? sec [2]
+3=A:@:Wait for time in seconds [4]
+21=B:@:AFT On Hook and wait ? sec [2]
+16=B:@:AFT Off Hook and wait ? sec [2]
+29=A:@:Send string in DTMF [*81]
+4=B:@:AFT Off Hook and wait ? sec [2]
+22=AFT A calls B, DTMF no dial tone
+17=A:@:AFT On Hook and wait ? sec [2]
+5=A:@:AFT On Hook and wait ? sec [2]
+10=B:@:AFT On Hook and wait ? sec [2]
+23=A:@:Wait for time in seconds [2]
+18=B:@:Send string in DTMF [*81]
+6=B:@:AFT Off Hook and wait ? sec [2]
+11=AFT A calls B, DTMF no dial tone
+24=B:@:AFT On hook wait for incoming call
+19=B:@:Wait for time in seconds [4]
+30=A:@:Wait for time in seconds [4]
+25=B:@:AFT Off Hook
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.024]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.019]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[FUN.TEL.Abnormal.002]
+3=A:@:Wait for time in seconds [6]
+7=A:@:AFT Off hook wait for dial tone
+2=A:@:Send string in DTMF [0755]
+4=A:@:Wait for 2 tones for ?? seconds [450,0,0.3]
+6=A:@:AFT On Hook and wait ? sec [1]
+8=AFT A calls B, DTMF
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for time in seconds [5]
+9=AFT Do Path Confirmation Once
+10=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.031]
+1=>A calls B, DTMF, confirms once
+3=>B:A:AFT A calls B, DTMF
+5=>AFT Do Path Confirmation Once
+7=>AFT Do Path Confirmation Once
+2=>B:@:AFT Do Hook Flash wait time
+4=>A:@:AFT Do Hook Flash wait time
+6=>A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.026]
+7=A:@:AFT On Hook and wait ? sec [2]
+12=B:@:AFT Off Hook and wait ? sec [2]
+30=C:@:AFT On Hook and wait ? sec [2]
+25=A:@:AFT Off Hook and wait ? sec [2]
+8=A:@:AFT Off Hook and wait ? sec [2]
+13=B:A:AFT A calls B, DTMF no dial tone
+31=End of script
+26=A:@:Send string in DTMF [*75]
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:Send string in DTMF [*73]
+14=B:@:Wait for time in seconds [2]
+27=A:@:Wait for time in seconds [4]
+2=A:@:Send string in DTMF [*74]
+20=A:@:Wait for time in seconds [2]
+15=C:@:AFT On hook wait for incoming call
+28=A:@:AFT On Hook and wait ? sec [2]
+3=A:@:Wait for time in seconds [2]
+21=B:@:AFT On hook wait for incoming call
+16=C:@:AFT Off Hook
+29=B:@:AFT On Hook and wait ? sec [2]
+4=A:@:Send string in DTMF [07552004]
+22=B:@:AFT Off Hook
+17=B:@:AFT On Hook and wait ? sec [2]
+5=A:@:Wait for time in seconds [2]
+10=A:@:Wait for time in seconds [4]
+23=AFT Do Path Confirmation Once
+18=A:@:AFT Off Hook and wait ? sec [2]
+6=B:@:AFT Off Hook and wait ? sec [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+24=B:@:AFT On Hook and wait ? sec [2]
+19=A:@:Send string in DTMF [*69]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.038]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+[FUN.TEL.Normal.004]
+3=AFT A calls B, DTMF
+7=A:@:AFT Off Hook and wait ? sec [5]
+2=A:@:Wait for time in seconds [2]
+4=AFT Do Path Confirmation Once
+6=B:@:AFT On Hook and wait ? sec [1]
+8=A:@:Wait for busy
+11=End of script
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Wait for time in seconds [2]
+9=A:@:Wait for time in seconds [5]
+10=A:@:AFT On Hook and wait ? sec [1]
+
+[GotoActions__FUN.TEL.Normal.002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.002]
+7=A:@:Send string in DTMF [*72]
+12=B:@:AFT Off Hook and wait ? sec [2]
+8=A:@:Wait for time in seconds [4]
+13=B:A:AFT A calls B, DTMF no dial tone
+31=A:@:AFT On Hook and wait ? sec [2]
+26=B:A:AFT A calls B, DTMF no dial tone
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT On Hook and wait ? sec [4]
+14=B:@:Wait for time in seconds [2]
+32=C:@:AFT On Hook and wait ? sec [2]
+27=B:@:Wait for time in seconds [2]
+2=A:@:Send string in DTMF [*7407552004]
+20=A:@:Send string in DTMF [*70]
+15=C:@:AFT On hook wait for incoming call
+33=B:@:AFT On Hook and wait ? sec [2]
+28=A:@:AFT On hook wait for incoming call
+3=A:@:Wait for time in seconds [5]
+21=A:@:Wait for time in seconds [4]
+16=C:@:AFT Off Hook
+34=End of script
+29=A:@:AFT Off Hook
+4=B:@:AFT Off Hook and wait ? sec [2]
+22=A:@:AFT On Hook and wait ? sec [4]
+17=B:C:AFT Do Path Confirmation Once
+5=A:@:AFT On Hook and wait ? sec [4]
+10=A:@:AFT Off Hook and wait ? sec [2]
+23=C:@:Wait for time in seconds [2]
+18=A:@:AFT On Hook and wait ? sec [6]
+6=A:@:AFT Off Hook and wait ? sec [2]
+11=B:@:AFT On Hook and wait ? sec [4]
+24=B:@:AFT On Hook and wait ? sec [2]
+19=A:@:AFT Off Hook and wait ? sec [2]
+30=B:A:AFT Do Path Confirmation Once
+25=B:@:AFT Off Hook and wait ? sec [2]
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.014]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.009]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[GotoActions__FUN.TEL.Abnormal.010]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__FUN.TEL.Abnormal.005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.021]
+3=A:@:Wait for time in seconds [2]
+7=B:@:Send string in DTMF [*69]
+12=B:@:AFT On Hook and wait ? sec [2]
+4=B:@:AFT On Hook and wait ? sec [2]
+8=B:@:Wait for time in seconds [2]
+13=A:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=B:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT On hook wait for incoming call
+10=A:@:AFT Off Hook
+14=End of script
+2=A:@:AFT On Hook and wait ? sec [2]
+6=A:@:AFT On Hook and wait ? sec [2]
+11=AFT Do Path Confirmation Once
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.016]
+7=A:C:AFT Do Path Confirmation Once
+12=B:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=B:C:AFT Do Path Confirmation Once
+1=A calls B, DTMF, no dial tone, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=B:@:AFT A does hookflash and waits for Stutter dial tone
+14=C:@:Wait for time in seconds [2]
+23=D:@:AFT On Hook and wait ? sec [2]
+18=C:@:Wait for time in seconds [2]
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=B:D:A calls B, DTMF, no dial tone, confirms once
+20=B:@:AFT On Hook and wait ? sec [2]
+15=C:B:AFT Do Path Confirmation Once
+24=End of script
+19=C:D:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, no dial tone, confirms once
+21=C:@:AFT On Hook and wait ? sec [2]
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=A:@:AFT On Hook and wait ? sec [2]
+17=AFT Do Path Confirmation Once
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.033]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.028]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[FUN.TEL.Abnormal.011]
+1=A:@:AFT Off hook wait for dial tone
+3=AFT Do Path Confirmation Once
+5=A:@:AFT Off hook wait for dial tone
+7=End of script
+2=AFT A calls B, DTMF
+4=A:@:AFT On Hook and wait ? sec [1]
+6=A calls B, DTMF, confirms once
+
+[FUN.TEL.Abnormal.006]
+3=B:@:AFT On hook wait for incoming call
+7=A:@:AFT Off hook wait for dial tone
+2=AFT A calls B, DTMF
+4=AFT Do Path Confirmation Once
+6=A:@:AFT On Hook and wait ? sec [2]
+8=B:@:AFT Off hook wait for dial tone
+11=End of script
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:Send string in DTMF [8888]
+9=B:@:AFT On Hook and wait ? sec [1]
+10=A calls B, DTMF, confirms once
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.040]
+3=B:C:AFT A calls B, DTMF
+7=A:@:Wait for busy
+12=End of script
+2=B:@:AFT Do Hook Flash wait time
+4=C:@:AFT On hook wait for incoming call for timeout
+6=A:@:Wait for time in seconds [50]
+8=A:@:Wait for time in seconds [2]
+11=B:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=B:@:AFT On Hook and wait ? sec [2]
+9=A:@:AFT On Hook and wait ? sec [2]
+10=C:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.035]
+3=B:@:Send string in DTMF [9999]
+7=B:@:AFT Do Hook Flash wait time
+2=B:@:AFT Do Hook Flash wait time
+4=B:@:Wait for time in seconds [2]
+6=B:@:Wait for time in seconds [2]
+8=B:A:AFT Do Path Confirmation Once
+11=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=B:@:Wait for busy
+9=A:@:AFT On Hook and wait ? sec [2]
+10=B:@:AFT On Hook and wait ? sec [2]
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.004]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+35=0
+5=0
+10=0
+23=0
+18=0
+36=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[GotoActions__FUN.TEL.Normal.006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.006]
+7=B:@:Wait for time in seconds [2]
+12=A:@:Wait for time in seconds [4]
+8=A:@:AFT On Hook and wait ? sec [2]
+13=B:@:AFT Off Hook and wait ? sec [2]
+1=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:AFT On Hook and wait ? sec [2]
+9=A:@:AFT Off Hook and wait ? sec [2]
+10=B:@:AFT On Hook and wait ? sec [2]
+14=A:@:AFT On Hook and wait ? sec [2]
+18=B:A:AFT Do Path Confirmation Once
+2=A:@:Send string in DTMF [*86]
+6=B:A:AFT A calls B, DTMF no dial tone
+11=A:@:Send string in DTMF [*87]
+20=B:@:AFT On Hook and wait ? sec [2]
+15=B:A:AFT A calls B, DTMF no dial tone
+19=A:@:AFT On Hook and wait ? sec [2]
+3=A:@:Wait for time in seconds [3]
+21=End of script
+16=A:@:AFT On hook wait for incoming call
+4=B:@:AFT Off Hook and wait ? sec [2]
+17=A:@:AFT Off Hook
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.030]
+3=B:C:AFT A calls B, DTMF
+7=B:@:AFT On Hook and wait ? sec [2]
+12=End of script
+2=B:@:AFT Do Hook Flash wait time
+4=B:@:Wait for time in seconds [2]
+6=C:@:AFT Off Hook
+8=A:C:AFT Do Path Confirmation Once
+11=C:@:AFT On Hook and wait ? sec [2]
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT On hook wait for incoming call
+9=B:@:AFT On Hook and wait ? sec [2]
+10=A:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.025]
+7=>AFT A calls B, no dial tone, DTMF, confirms once
+12=>A:@:AFT On Hook and wait ? sec [2]
+25=>C:@:AFT On Hook and wait ? sec [2]
+8=>C:@:AFT Off Hook and wait ? sec [2]
+13=>C:@:AFT On Hook and wait ? sec [2]
+26=End of script
+1=>A:@:AFT Off Hook and wait ? sec [2]
+9=>C:A:AFT A calls B, DTMF no dial tone
+14=>A:@:AFT Off Hook and wait ? sec [2]
+2=>A:@:Send string in DTMF [*61]
+6=>A:@:AFT Off Hook and wait ? sec [2]
+11=>A:@:Wait for time in seconds [2]
+20=>A:C:AFT Do Path Confirmation Once
+15=>B:@:AFT On Hook and wait ? sec [2]
+24=>A:@:AFT On Hook and wait ? sec [2]
+19=>C:@:AFT Off Hook
+3=>A:@:Wait for time in seconds [2]
+21=>A:@:AFT Off Hook and wait ? sec [2]
+16=>A:@:Send string in DTMF [*69]
+4=>C:@:AFT Off Hook and wait ? sec [2]
+22=>A:@:Send string in DTMF [*60]
+17=>A:@:Wait for time in seconds [2]
+5=>A:@:AFT On Hook and wait ? sec [2]
+10=>C:@:Wait for time in seconds [2]
+23=>A:@:Wait for time in seconds [4]
+18=>C:@:AFT On hook wait for incoming call
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__FUN.TEL.Normal.001]
+12=0
+74=0
+69=0
+31=0
+26=0
+93=0
+88=0
+9=0
+50=0
+45=0
+64=0
+59=0
+21=0
+16=0
+83=0
+78=0
+102=0
+4=0
+40=0
+35=0
+97=0
+54=0
+49=0
+11=0
+73=0
+68=0
+30=0
+25=0
+92=0
+87=0
+8=0
+44=0
+39=0
+1=0
+32=0
+27=0
+63=0
+58=0
+94=0
+89=0
+20=0
+15=0
+51=0
+46=0
+82=0
+77=0
+101=0
+3=0
+34=0
+29=0
+70=0
+65=0
+96=0
+22=0
+17=0
+53=0
+48=0
+84=0
+79=0
+103=0
+5=0
+10=0
+41=0
+36=0
+72=0
+67=0
+98=0
+24=0
+19=0
+60=0
+55=0
+91=0
+86=0
+7=0
+43=0
+38=0
+62=0
+57=0
+14=0
+81=0
+76=0
+100=0
+2=0
+33=0
+28=0
+95=0
+52=0
+47=0
+71=0
+66=0
+23=0
+18=0
+90=0
+85=0
+6=0
+42=0
+37=0
+99=0
+61=0
+56=0
+13=0
+80=0
+75=0
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.001]
+7=A:@:Send string in DTMF [*71]
+12=A:@:AFT On hook wait for incoming call for timeout
+30=C:@:AFT On Hook and wait ? sec [2]
+25=B:@:Wait for time in seconds [2]
+8=A:@:Wait for time in seconds [2]
+13=C:@:AFT On hook wait for incoming call
+31=B:@:AFT On Hook and wait ? sec [2]
+26=A:@:AFT On hook wait for incoming call
+1=A:@:AFT Off Hook and wait ? sec [2]
+9=A:@:AFT On Hook and wait ? sec [4]
+14=C:@:AFT Off Hook
+32=End of script
+27=A:@:AFT Off Hook
+2=A:@:Send string in DTMF [*7407552004]
+20=A:@:AFT On Hook and wait ? sec [4]
+15=B:C:AFT Do Path Confirmation Once
+28=B:A:AFT Do Path Confirmation Once
+3=A:@:Wait for time in seconds [5]
+21=C:@:Wait for time in seconds [2]
+16=A:@:AFT On Hook and wait ? sec [6]
+29=A:@:AFT On Hook and wait ? sec [2]
+4=B:@:AFT Off Hook and wait ? sec [2]
+22=B:@:AFT On Hook and wait ? sec [2]
+17=A:@:AFT Off Hook and wait ? sec [2]
+5=A:@:AFT On Hook and wait ? sec [4]
+10=B:A:AFT A calls B, DTMF no dial tone
+23=B:@:AFT Off Hook and wait ? sec [2]
+18=A:@:Send string in DTMF [*75]
+6=A:@:AFT Off Hook and wait ? sec [2]
+11=B:@:Wait for time in seconds [2]
+24=B:A:AFT A calls B, DTMF no dial tone
+19=A:@:Wait for time in seconds [4]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.020]
+7=B:@:Wait for time in seconds [2]
+12=B:@:AFT On hook wait for incoming call
+4=B:@:AFT Off Hook
+8=A:@:AFT Off Hook and wait ? sec [2]
+13=B:@:AFT Off Hook
+17=End of script
+1=A:@:AFT Off Hook and wait ? sec [2]
+5=AFT Do Path Confirmation Once
+9=B:@:AFT On Hook and wait ? sec [2]
+10=A:@:Send string in DTMF [*68]
+14=B:A:AFT Do Path Confirmation Once
+2=AFT A calls B, DTMF no dial tone
+6=A:@:AFT On Hook and wait ? sec [2]
+11=A:@:Wait for time in seconds [2]
+15=A:@:AFT On Hook and wait ? sec [2]
+3=B:@:AFT On hook wait for incoming call
+16=B:@:AFT On Hook and wait ? sec [2]
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.015]
+7=>A:C:AFT Do Path Confirmation Once
+12=>D:@:AFT On Hook and wait ? sec [2]
+4=>A:@:AFT Do Hook Flash wait time
+8=>B:@:Wait for time in seconds [2]
+13=>D:C:AFT A calls B, DTMF
+17=>A:@:Wait for 2 tones for ?? seconds [425,0,0.3]
+1=>A calls B, DTMF, confirms once
+5=>AFT Do Path Confirmation Once
+9=>B:C:AFT Do Path Confirmation Once
+10=>D:B:AFT A calls B, DTMF
+14=>C:@:Wait for 2 tones for ?? seconds [425,0,0.3]
+18=End of script
+2=>A:@:AFT A does hookflash and waits for Stutter dial tone
+6=>A:@:Wait for time in seconds [2]
+11=>B:@:Wait for 2 tones for ?? seconds [425,0,0.3]
+15=>D:@:AFT On Hook and wait ? sec [2]
+3=>A:C:A calls B, DTMF, confirms once
+16=>D:A:AFT A calls B, DTMF
+
+[FUN.TEL.Abnormal.010]
+3=B:@:AFT On hook wait for incoming call
+7=B:@:AFT Off hook wait for dial tone
+2=AFT A calls B, DTMF
+4=B:@:AFT Off Hook
+6=B:@:AFT On Hook and wait ? sec [1]
+8=A:@:AFT On Hook and wait ? sec [1]
+1=A:@:AFT Off hook wait for dial tone
+5=AFT Do Path Confirmation Once
+9=B:A:A calls B, DTMF, confirms once
+10=End of script
+
+[FUN.TEL.Abnormal.005]
+3=B:@:AFT On hook wait for incoming call
+7=B:@:AFT Off hook wait for dial tone
+2=AFT A calls B, DTMF
+4=AFT Do Path Confirmation Once
+6=A:@:AFT Off hook wait for dial tone
+8=B:@:AFT On Hook and wait ? sec [1]
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:AFT On Hook and wait ? sec [1]
+9=A calls B, DTMF, confirms once
+10=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:C:AFT Do Path Confirmation Once
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[FUN.TEL.Normal.007]
+1=A:@:AFT Off hook wait for dial tone
+3=B:@:AFT On hook wait for incoming call for timeout
+5=A:@:Wait for busy
+7=End of script
+2=AFT A calls B, DTMF
+4=A:@:Wait for time in seconds [33]
+6=A:@:Wait for time in seconds [5]
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.022]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.017]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[GotoActions__FUN.TEL.Abnormal.008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.041]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.036]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[FUN.TEL.Normal.002]
+3=AFT Do Path Confirmation Once
+7=A:@:Wait for time in seconds [3]
+2=AFT A calls B, DTMF
+4=B:@:AFT On Hook and wait ? sec [1]
+6=A:@:Wait for busy
+8=A:@:AFT On Hook and wait ? sec [3]
+1=A:@:AFT Off hook wait for dial tone
+5=A:@:AFT Off Hook and wait ? sec [5]
+9=End of script
+
+[SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.038]
+3=B:C:AFT A calls B, DTMF
+7=B:@:AFT On hook wait for incoming call
+12=B:@:AFT On Hook and wait ? sec [2]
+4=B:@:Wait for time in seconds [2]
+8=B:@:AFT Off Hook
+13=End of script
+1=A calls B, DTMF, no dial tone, confirms once
+5=C:@:AFT On hook wait for incoming call for timeout
+9=B:A:AFT Do Path Confirmation Once
+10=C:@:AFT On Hook and wait ? sec [2]
+2=B:@:AFT Do Hook Flash wait time
+6=B:@:AFT On Hook and wait ? sec [2]
+11=A:@:AFT On Hook and wait ? sec [2]
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.012]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SIP_BCM_4.x_Terminal_FUN.TEL.CCTL.007]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+

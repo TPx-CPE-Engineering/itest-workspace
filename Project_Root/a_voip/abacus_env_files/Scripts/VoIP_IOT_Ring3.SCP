@@ -1,0 +1,59 @@
+[DPU_014]
+3=>A:@:Do Hook Flash
+7=;>A:@:Wait for time in seconds [10]
+2=;A transfers the call to D
+4=>A:@:Wait for recall dial tone
+6=;>A:D:AFT A calls B, no dial tone, DTMF, confirms once
+8=>C:D:AFT A calls B, DTMF
+1=>A calls B, DTMF, confirms once
+5=>A:D:A Calls B,DTMF,No Dial Tone
+9=>C:@:Wait for busy
+10=End of script
+
+[DPU_027]
+3=>B:@:Go OffHook
+7=;A transfers the call to D
+12=>C:@:Wait for busy
+4=>AFT Do Path Confirmation Once
+8=>A:@:Do Hook Flash
+13=;>A:@:Wait for time in seconds [10]
+1=>AFT A calls B, DTMF
+5=>B:@:Wait for time in seconds [3]
+9=>A:@:Wait for recall dial tone
+10=>A:D:A Calls B,DTMF,No Dial Tone
+14=End of script
+2=>B:@:Wait for time in seconds [2]
+6=;>A calls B, DTMF, confirms once
+11=>C:A:AFT A calls B, DTMF
+
+[GotoActions__DPU_014]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DPU_027]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Actions]
+File=Abacus.ACT
+

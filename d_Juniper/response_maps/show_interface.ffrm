@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.1.3.0">
+    <sampleDictionary>
+        <item name="sample1_with_vlans">
+            <action actionType="command">
+                <command>
+                    <body>show interface vlan terse</body>
+                </command>
+            </action>
+            <responseBody>Interface               Admin Link Proto    Local                 Remote
+vlan                    up    up
+vlan.0                  up    up   inet     10.255.20.19/24 
+vlan.1525               up    up   inet     192.168.125.25/24
+vlan.1526               up    up   inet     192.168.126.25/24
+
+{master:0}</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+        &lt;prompt&gt;itestautomation@CPE-EX2200-VC&amp;gt; &lt;/prompt&gt;
+        &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+        &lt;echo&gt;show interfaces vlan terse&lt;/echo&gt;
+        &lt;idleTime&gt;1.264&lt;/idleTime&gt;
+        &lt;contentType&gt;text&lt;/contentType&gt;
+        &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+    &lt;/terminal&gt;
+    &lt;responseLine&gt;Interface               Admin Link Proto    Local                 Remote&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample2_with_interface">
+            <action actionType="command">
+                <command>
+                    <body>show interfaces ge-0/0/7 terse</body>
+                </command>
+            </action>
+            <responseBody>Interface               Admin Link Proto    Local                 Remote
+ge-0/0/7                up    up
+ge-0/0/7.0              up    up   inet     192.168.127.19/24
+
+{master:0}</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+        &lt;prompt&gt;itestautomation@CPE-EX2200-VC&amp;gt; &lt;/prompt&gt;
+        &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+        &lt;echo&gt;show interfaces ge-0/0/7 terse&lt;/echo&gt;
+        &lt;idleTime&gt;0.559&lt;/idleTime&gt;
+        &lt;contentType&gt;text&lt;/contentType&gt;
+        &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+    &lt;/terminal&gt;
+    &lt;responseLine&gt;Interface               Admin Link Proto    Local                 Remote&lt;/responseLine&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>Interface               Admin Link Proto    Local                 Remote</banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Interface">
+                            <isKey>true</isKey>
+                            <lastFullCell></lastFullCell>
+                            <uid>a65a0a51-b804-4495-ae58-4b2a537b9e82</uid>
+                        </item>
+                        <item name="Admin">
+                            <lastFullCell></lastFullCell>
+                            <uid>c917af75-baf3-4a7a-91a2-bfe0cb86b56b</uid>
+                        </item>
+                        <item name="Link">
+                            <lastFullCell></lastFullCell>
+                            <uid>6f35cf0b-4a88-4523-9139-faa03d62f5d6</uid>
+                        </item>
+                        <item name="Proto">
+                            <lastFullCell></lastFullCell>
+                            <uid>59d8ea0f-73e2-456f-9a35-eedf447944c1</uid>
+                        </item>
+                        <item name="Local">
+                            <lastFullCell></lastFullCell>
+                            <uid>1eb20f3c-7923-4956-ae90-c281d0073fd1</uid>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show interface">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

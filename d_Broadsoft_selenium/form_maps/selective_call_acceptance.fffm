@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<FormMap version="7.0.1.201802131446">
+    <targets>
+        <item name="button_add">
+            <queryFormatString>name=add</queryFormatString>
+        </item>
+        <item name="button_apply">
+            <queryFormatString>name=apply</queryFormatString>
+        </item>
+        <item name="button_ok">
+            <queryFormatString>name=ok</queryFormatString>
+        </item>
+        <item name="checkbox_enable">
+            <description>Checkbox to enable an individual SCA config</description>
+            <queryFormatString>:name=checkbox___DFLT_COL_ID____DELIMITER__{0};</queryFormatString>
+            <arguments>
+                <item name="config_name"/>
+            </arguments>
+        </item>
+        <item name="dropdown_schedule_select">
+            <queryFormatString>name=timeSchedule</queryFormatString>
+        </item>
+        <item name="radio_any_number">
+            <queryFormatString>//input[@name=&apos;isFromAnyNumber&apos;]</queryFormatString>
+        </item>
+        <item name="radio_do_not_accept">
+            <queryFormatString>xpath=(//input[@name=&apos;blacklistSelection&apos;])[2]</queryFormatString>
+        </item>
+        <item name="radio_specific_number">
+            <queryFormatString>xpath=(//input[@name=&apos;isFromAnyNumber&apos;])[2]</queryFormatString>
+        </item>
+        <item name="checkbox_private">
+            <queryFormatString>name=isFromAnyPrivate</queryFormatString>
+        </item>
+        <item name="textbox_sca_config_desc">
+            <queryFormatString>name=description</queryFormatString>
+        </item>
+        <item name="textbox_specific_number1">
+            <queryFormatString>name=number1</queryFormatString>
+        </item>
+        <item name="textbox_sp_number">
+            <queryFormatString>name=number{0}</queryFormatString>
+            <arguments>
+                <item name="num_add"/>
+            </arguments>
+        </item>
+    </targets>
+</FormMap>

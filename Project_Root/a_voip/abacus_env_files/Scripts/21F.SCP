@@ -1,0 +1,331 @@
+[Prespective_0966_B : B1]
+1=;Check that the display does not shows the tel. no. of E1
+2=End of script
+
+[GotoActions__Prespective_0963 : E1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Prespective_0965 : E1]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Prespective_0960 : B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Prespective_0963 : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Prespective_0960 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=;Check the display for symbol WITHHELD
+7=End of script
+2=;Check the display for tel. no. of B1
+4=;Wait for the Ringing tone
+6=Do path confirmation for some secs [10]
+
+[Actions]
+File=4.20.ACT
+
+[GotoActions__Prespective_0966_C : E1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Prespective_0965 : B1]
+1=0
+2=0
+3=0
+4=0
+
+[Prespective_0965 : B2]
+1=;Wait for the Ringing tone
+3=Do path confirmation for call length
+5=;Wait for the intrusion tones
+2=;Check the display for  tel. no. of E1
+4=;Check the display for  tel. no. of B1
+6=End of script
+
+[Prespective_0966_C : E1]
+1=A:@:Dial a string [*21*<B2>#]
+2=;Check that the display does not shows the  tel. no. of B1
+3=A:@:Dial a string [#21#]
+4=End of script
+
+[GotoActions__Prespective_0967 : E1]
+1=0
+2=0
+3=0
+
+[Prespective_0964 : E1]
+1=Make a call
+3=A:@:Dial a string [1470<B2>]
+5=End of script
+2=A:@:Wait On hook [2]
+4=Do path confirmation for some secs [10]
+
+[Prespective_0967 : B1]
+1=;Wait for the Ringing tone
+3=Do path confirmation for call length
+5=;Wait for the Ringing tone
+7=Do path confirmation for call length
+2=;Check the display for  tel. no. of E1
+4=A:@:Wait On hook [2]
+6=;Check the display for  tel. no. of B2
+8=End of script
+
+[Prespective_0962_B : E1]
+1=Make a call
+2=Do path confirmation for some secs [10]
+3=End of script
+
+[GotoActions__Prespective_0962_B : E1]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0966_C : B2]
+1=0
+2=0
+
+[GotoActions__Prespective_0964 : E1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Prespective_0967 : B1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Prespective_0967 : B2]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+12=End of script
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+8=;B2 waits for a distinctive ring tone
+11=Do path confirmation for call length
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=;Check the display for tel. no. of B1
+10=;Check the display for the symbol RINGBACK
+
+[Prespective_0966_C : B2]
+1=;Check the display for  tel. no. of B1
+2=End of script
+
+[GotoActions__Prespective_0966 : ALL]
+1=0
+2=0
+
+[GotoActions__Prespective_0967 : B2]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Prespective_0961 : B1]
+1=Make a call
+3=A:@:Dial a string [1470<B2>]
+5=End of script
+2=A:@:Wait On hook [2]
+4=Do path confirmation for some secs [10]
+
+[Prespective_0964 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=Do path confirmation for some secs [10]
+2=;Check the display for symbol WITHHELD
+4=;Check the display for presentation no. of E1
+6=End of script
+
+[Prespective_0962_B : B2]
+1=;Wait for the Ringing tone
+2=;Check the display for presentation no. of E1
+3=Do path confirmation for some secs [10]
+4=End of script
+
+[GotoActions__Prespective_0962_B : B2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Prespective_0966_B : B1]
+1=0
+2=0
+
+[Prespective_0966 : ALL]
+1=Make a call
+2=End of script
+
+[Abacus Default Script]
+1=End of script
+
+[GotoActions__Prespective_0961 : B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Prespective_0964 : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Prespective_0961 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=;Check the display for tel. no. of B1
+7=End of script
+2=;Check the display for not showing tel. no. of B1
+4=;Wait for the Ringing tone
+6=Do path confirmation for some secs [10]
+
+[Prespective_0963 : E1]
+1=Make a call
+3=A:@:Dial a string [141<E1>]
+5=End of script
+2=A:@:Wait On hook [2]
+4=Do path confirmation for some secs [10]
+
+[Prespective_0962_A : E1]
+1=Make a call
+2=End of script
+
+[GotoActions__Prespective_0962_A : E1]
+1=0
+2=0
+
+[GotoActions__Prespective_0966_B : B2]
+1=0
+2=0
+
+[GotoActions__Prespective_0961 : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Prespective_0966_B : B2]
+1=;Check the display for tel. no. of E1
+2=End of script
+
+[Prespective_0960 : B1]
+1=Make a call
+3=A:@:Dial a string [141<B2>]
+5=End of script
+2=A:@:Wait On hook [2]
+4=Do path confirmation for some secs [10]
+
+[Prespective_0963 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=;Check the display for  the symbol WITHHELD
+7=End of script
+2=;Check the display for  presentation no. of E1
+4=;Wait for the Ringing tone
+6=Do path confirmation for some secs [10]
+
+[Prespective_0962_A : B2]
+1=;Wait for the Ringing tone
+2=;Check the display for  tel. no. of E1
+3=End of script
+
+[GotoActions__Prespective_0962_A : B2]
+1=0
+2=0
+3=0
+
+[GotoActions__Abacus Default Script]
+1=0
+
+[GotoActions__Prespective_0965 : E1]
+1=0
+2=0
+3=0
+
+[Prespective_0965 : B1]
+1=Make a call
+2=A:@:wait for silence [0.5]
+3=A:@:Announcement is heard [????]
+4=End of script
+
+[GotoActions__Prespective_0966_A : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Prespective_0960 : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Prespective_0967 : E1]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[Prespective_0966_A : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=;Check the display for tel. no. of B1
+2=;Check the display for tel. no. of E1
+4=;Wait for the Ringing tone
+6=End of script
+
+[GotoActions__Prespective_0965 : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+

@@ -1,0 +1,1072 @@
+[GotoActions__ZTE InstantHotline (2)]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B {Voice Matching}]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+
+[ZTE AbbreviateDial (4) # ]
+7=A:@:ZTE  A calls  ? Sting  [*51*99*19832102#]
+12=A:@:ZTE On Hook no wait
+8=A:@:ZTE On Hook no wait
+13=A:@:ZTE  A calls  ? Sting  [*51*09*19832103#]
+1=A:@:ZTE  A calls  ? Sting  [*51*00*19832101#]
+5=B:A:ZTE Off Hook and confirm path
+9=A:@:ZTE  A calls  ? Sting  [**99]
+10=C:@:ZTE Wait for Incoming Call,timeout
+14=A:@:ZTE On Hook no wait
+18=A:@:ZTE On Hook no wait
+2=A:@:ZTE On Hook no wait
+6=A:@:ZTE On Hook no wait
+11=C:A:ZTE Off Hook and confirm path
+20=C:@:ZTE On Hook no wait
+15=A:@:ZTE  A calls  ? Sting  [**09]
+19=B:@:ZTE On Hook no wait
+3=A:@:ZTE  A calls  ? Sting  [**00]
+21=D:@:ZTE On Hook no wait
+16=D:@:ZTE Wait for Incoming Call,timeout
+4=B:@:ZTE Wait for Incoming Call,timeout
+22=End of script
+17=D:A:ZTE Off Hook and confirm path
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[ZTE CallWaiting (3)]
+7=C:@:ZTE Wait for Ringback tone,timeout
+12=C:@:ZTE Wait for Busy tone,timeout
+25=C:@:ZTE On Hook no wait
+8=A:@:ZTE Wait for Callwating tone,timeout
+13=ZTE Do path confirmation
+26=End of script
+1=A:@:ZTE  A calls  ? Sting  [*58#]
+9=A:@:ZTE Flash Hook  send ? String [2]
+14=A:@:ZTE On Hook no wait
+2=A:@:ZTE Off Hookwait for ? time [5]
+6=C:A:ZTE A calls B, DTMF
+11=A:@:ZTE Flash Hook  send ? String [1]
+20=ZTE Do path confirmation
+15=A:@:ZTE  A calls  ? Sting  [#58#]
+24=B:@:ZTE On Hook no wait
+19=ZTE A calls B, DTMF
+3=A:@:ZTE On Hook no wait
+21=C:A:ZTE A calls B, DTMF
+16=A:@:ZTE On Hook no wait
+4=ZTE A calls B, DTMF
+22=C:@:ZTE Wait for Busy tone,timeout
+17=B:@:ZTE On Hook no wait
+5=ZTE Do path confirmation
+10=A:C:ZTE Do path confirmation
+23=A:@:ZTE On Hook no wait
+18=C:@:ZTE On Hook no wait
+
+[Actions]
+File=ZTE.ACT
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__ZTE CallForwardingUncondition (3)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=End of script
+
+[A calls B {Voice Matching}]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for Call Length
+14=A:@:Wait for time in seconds [8]
+15=A:@:A calls B {Voice Matching}
+16=End of script
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[A calls B (SIP) and RTP replay_Send]
+1=A:@:A calls B, RTP,Send
+2=End of script
+
+[GotoActions__ZTE MIXED]
+1=0
+2=0
+3=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=A:@:AFT Wait for Call Waiting Tone
+4=A:@:AFT Do Hook Flash wait time
+5=A:C:AFT Do Path Confirmation Once
+6=A:@:AFT Do Hook Flash wait time
+7=AFT Do Path Confirmation Once
+8=End of script
+
+[AFT: 3-way Calling]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__ZTE CallWaiting (3)]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[ZTE CallForwardingwhenNoAnswer (3) #]
+3=B:@:ZTE  A calls  ? Sting  [19832100]
+7=A:@:ZTE On Hook no wait
+2=A:@:ZTE On Hook no wait
+4=B:@:ZTE Off Hookwait for ? time [10]
+6=C:B:ZTE Off Hook and confirm path
+8=B:@:ZTE On Hook no wait
+1=A:@:ZTE Off Hook wait for dial tone
+5=C:@:ZTE Wait for Incoming Call,timeout
+9=C:@:ZTE On Hook no wait
+10=End of script
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__ZTE AbbreviateDial (4) # ]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[Wait for Voice {Voice Matching}]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A:@:Wait for Voice {Voice Matching}
+14=End of script
+[ZTE CallbackwhenBusy (2)]
+3=A:@:ZTE Wait for Busy tone,timeout
+7=B:@:ZTE On Hook no wait
+12=A:@:ZTE On Hook no wait
+4=A:@:ZTE Flash Hook  send ? String [*59#]
+8=A:@:ZTE Wait for Incoming Call,timeout
+13=B:@:ZTE On Hook no wait
+1=B:@:ZTE Off Hook wait for dial tone
+5=A:@:ZTE Off Hookwait for ? time [5]
+9=A:@:ZTE Off Hookwait for ? time [1]
+10=B:@:ZTE Wait for Incoming Call,timeout
+14=End of script
+2=ZTE A calls B, DTMF
+6=A:@:ZTE On Hook no wait
+11=B:A:ZTE Off Hook and confirm path
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Send noise for 40s]
+1=0
+2=0
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[ZTE Three-Way Calling (3)]
+7=C:@:ZTE Wait for Busy tone,timeout
+12=ZTE A calls B, DTMF
+25=C:@:ZTE On Hook no wait
+8=ZTE Do path confirmation
+13=ZTE Do path confirmation
+26=End of script
+1=ZTE A calls B, DTMF
+9=A:@:ZTE On Hook no wait
+14=A:C:ZTE Flash Hook call B
+2=ZTE Do path confirmation
+6=A:@:ZTE Flash Hook  send ? String [1]
+11=C:@:ZTE On Hook no wait
+20=ZTE Do path confirmation
+15=C:@:ZTE Wait for Incoming Call,timeout
+24=B:@:ZTE On Hook no wait
+19=A:@:ZTE Flash Hook  send ? String [3]
+3=A:C:ZTE Flash Hook call B
+21=A:C:ZTE Do path confirmation
+16=C:A:ZTE Off Hook and confirm path
+4=C:@:ZTE Wait for Incoming Call,timeout
+22=C:B:ZTE Do path confirmation
+17=A:@:ZTE Flash Hook  send ? String [2]
+5=C:A:ZTE Off Hook and confirm path
+10=B:@:ZTE On Hook no wait
+23=A:@:ZTE On Hook no wait
+18=ZTE Do path confirmation
+
+[GotoActions__A calls B (SIP) and RTP replay_Send]
+1=0
+2=0
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[GotoActions__ZTE CallbackwhenBusy (2)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[GotoActions__ZTE Three-Way Calling (3)]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[ZTE CallForwardingwhenBusy (3)]
+1=A:@:ZTE Off Hook wait for dial tone
+3=C:@:ZTE Wait for Incoming Call,timeout
+5=A:@:ZTE On Hook no wait
+7=C:@:ZTE On Hook no wait
+2=B:A:ZTE A calls B, DTMF
+4=C:B:ZTE Off Hook and confirm path
+6=B:@:ZTE On Hook no wait
+8=End of script
+
+[GotoActions__AFT: 3-way Calling]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[ZTE Three-Way Calling #]
+3=A:C:ZTE Flash Hook call B
+7=A:C:ZTE Do path confirmation
+2=ZTE Do path confirmation
+4=C:@:ZTE Wait for Incoming Call,timeout
+6=A:@:ZTE Flash Hook  send ? String [3]
+8=ZTE Do path confirmation
+1=ZTE A calls B, DTMF
+5=C:A:ZTE Off Hook and confirm path
+9=B:C:ZTE Do path confirmation
+10=End of script
+
+[ZTE Conference Call (5)]
+7=D:@:ZTE Wait for Incoming Call,timeout
+12=A:D:ZTE Do path confirmation
+25=A:@:ZTE Flash Hook  send ? String [#04#]
+8=D:A:ZTE Off Hook and confirm path
+13=B:C:ZTE Do path confirmation
+26=E:@:ZTE Wait for Busy tone,timeout
+1=ZTE A calls B, DTMF
+9=A:@:ZTE Flash Hook  send ? String [##]
+14=B:D:ZTE Do path confirmation
+27=End of script
+2=ZTE Do path confirmation
+6=A:D:ZTE Flash Hook call B
+11=A:C:ZTE Do path confirmation
+20=E:B:ZTE Do path confirmation
+15=C:D:ZTE Do path confirmation
+24=B:@:ZTE Wait for Busy tone,timeout
+19=E:A:ZTE Do path confirmation
+3=A:C:ZTE Flash Hook call B
+21=E:C:ZTE Do path confirmation
+16=A:E:ZTE Flash Hook call B
+4=C:@:ZTE Wait for Incoming Call,timeout
+22=E:D:ZTE Do path confirmation
+17=E:@:ZTE Wait for Incoming Call,timeout
+5=C:A:ZTE Off Hook and confirm path
+10=ZTE Do path confirmation
+23=A:@:ZTE Flash Hook  send ? String [#01#]
+18=A:@:ZTE Off Hookwait for ? time [1]
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[ZTE DelayHotline (2)]
+1=A:@:ZTE Off Hookwait for ? time [5]
+3=B:A:ZTE Off Hook and confirm path
+5=B:@:ZTE On Hook no wait
+2=B:@:ZTE Wait for Incoming Call,timeout
+4=A:@:ZTE On Hook no wait
+6=End of script
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[Send noise for 40s]
+1=A:@:Send noise for ?? seconds [40]
+2=End of script
+
+[GotoActions__ZTE Conference Call (5)]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[GotoActions__ZTE CallForwardingwhenBusy (3)]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__ZTE Three-Way Calling #]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[ZTE CallTransfer (3)]
+3=A:C:ZTE Flash Hook call B
+7=B:@:ZTE Wait for Ringback tone,timeout
+12=End of script
+2=B:A:ZTE Do path confirmation
+4=A:@:ZTE Wait for Ringback tone,timeout
+6=C:@:ZTE Wait for Incoming Call,timeout
+8=C:B:ZTE Off Hook and confirm path
+11=C:@:ZTE On Hook no wait
+1=B:A:ZTE A calls B, DTMF
+5=A:@:ZTE On Hook no wait
+9=A:@:ZTE On Hook no wait
+10=B:@:ZTE On Hook no wait
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__ZTE DelayHotline (2)]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__ZTE CallForwardingwhenNoAnswer (3) #]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[ZTE CallForwardingUncondition (3)]
+1=B:A:ZTE A calls B, DTMF
+3=C:B:ZTE Off Hook and confirm path
+5=B:@:ZTE On Hook no wait
+7=End of script
+2=C:@:ZTE Wait for Incoming Call,timeout
+4=A:@:ZTE On Hook no wait
+6=C:@:ZTE On Hook no wait
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[ZTE InstantHotline (2)]
+1=A:@:ZTE Off Hookwait for ? time [1]
+3=B:A:ZTE Off Hook and confirm path
+5=B:@:ZTE On Hook no wait
+2=B:@:ZTE Wait for Incoming Call,timeout
+4=A:@:ZTE On Hook no wait
+6=End of script
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[ZTE MIXED]
+1=ZTE CallWaiting (3)()
+2=ZTE CallTransfer (3)()
+3=End of script
+
+[GotoActions__ZTE CallTransfer (3)]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__Wait for Voice {Voice Matching}]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+

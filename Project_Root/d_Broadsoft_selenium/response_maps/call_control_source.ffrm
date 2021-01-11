@@ -1,0 +1,1123 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.1.0.77511">
+    <responseStructure>text/xml</responseStructure>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="snapshot"/>
+            <responseBody>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;WebDocument&gt;
+    &lt;Document doctype=&quot;BaseDocument&quot; id=&quot;BaseWebDocument&quot; parent=&quot;&quot; target=&quot;&quot; url=&quot;http://10.255.224.62/Common/folder_contents.jsp?folder=U4&amp;amp;menuId=0&quot;&gt;
+        &lt;HTML&gt;
+            &lt;HEAD&gt;
+  
+                &lt;SCRIPT language=&quot;JavaScript&quot; src=&quot;/Scripts/graphics.js&quot;/&gt;
+
+                  &lt;LINK href=&quot;/Common/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+
+                  &lt;LINK href=&quot;/Graphics/Tropical/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+
+                  &lt;TITLE&gt;Call Control&lt;/TITLE&gt;
+
+             &lt;/HEAD&gt;
+
+             &lt;BODY bgproperties=&quot;fixed&quot; leftmargin=&quot;30&quot; marginheight=&quot;10&quot; marginwidth=&quot;30&quot; onload=&quot;initSelection()&quot; topmargin=&quot;10&quot;&gt;
+   
+
+
+
+
+                &lt;SCRIPT src=&quot;/Scripts/deployJava.js&quot;/&gt;
+
+                &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+var commpilot = null;
+var ac = null;
+var revisedCallManager = null;
+var onlineHelp = null;
+var helpFile = &amp;quot;/Help/en_US/User/User_CallControl_Menu.htm&amp;quot;;
+
+// Launch the combined Call Manager / Attendant Console client
+function launchCallManagerClient()
+{
+  var uniqueId = &amp;apos;&amp;apos;;
+  var spId = &amp;apos;null&amp;apos;;
+
+  if ((revisedCallManager) &amp;amp;amp;&amp;amp;amp; !(revisedCallManager.closed))
+  {
+    revisedCallManager.focus();
+  }
+  else
+  {
+    revisedCallManager=window.open(&amp;quot;/CallManager/CallManagerDownload.jsp?serviceProvID=&amp;quot; + spId, uniqueId,
+                                   &amp;quot;width=505,height=360,resizable=1,status=0,scrollbars=no&amp;quot;);
+    revisedCallManager.focus();
+  }
+}
+
+function launchHelp()
+{
+   help = window.open(helpFile,&amp;quot;onLineHelp&amp;quot;);
+   help.focus();
+}
+
+function launchClientApplication(url)
+{
+  window.open(url);
+}
+
+function launchClientApplicationJWS(url)
+{
+  if(!deployJava.isWebStartInstalled(&amp;quot;1.6.0_19&amp;quot;))
+  {
+  \tif(deployJava.installJRE(&amp;quot;1.6.0_19&amp;quot;))
+    {
+      deployJava.launch(url);
+    }
+  }
+  else
+  {
+    deployJava.launch(url);
+  }
+}
+
+function selectedLinkChanged(selectedLink, ccUsesJWS, recUsesJWS) 
+{
+  var choice = selectedLink.options[selectedLink.selectedIndex].value;
+
+  if (choice == &amp;quot;callmanager&amp;quot;)
+  {
+    launchCallManagerClient();
+  }
+  else if(choice == &amp;quot;callcenter&amp;quot;)
+  {
+    if (ccUsesJWS) 
+    { 
+      launchClientApplicationJWS(&amp;quot;/servlet/jws/callcenter/callcenter.jnlp&amp;quot;);
+    }
+    else
+    {
+      launchClientApplication(&amp;quot;/servlet/ClientApplicationLaunch?application=callcenter&amp;quot;);
+    }
+  }
+  else if(choice == &amp;quot;receptionist&amp;quot;)
+  {
+    if (recUsesJWS) 
+    { 
+      launchClientApplicationJWS(&amp;quot;/servlet/jws/receptionist/receptionist.jnlp&amp;quot;);
+    }
+    else
+    {
+      launchClientApplication(&amp;quot;/servlet/ClientApplicationLaunch?application=receptionist&amp;quot;);
+    }
+  }
+
+  selectedLink.selectedIndex = 0;
+}
+&lt;/SCRIPT&gt;
+
+
+                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+
+                    &lt;TBODY&gt;
+                        &lt;TR&gt;
+  
+                            &lt;TD align=&quot;center&quot; colspan=&quot;3&quot; valign=&quot;middle&quot; width=&quot;100%&quot;&gt;
+  
+  &lt;/TD&gt;
+
+                        &lt;/TR&gt;
+
+
+                        &lt;TR&gt;
+  
+  
+                            &lt;TD colspan=&quot;3&quot; width=&quot;100%&quot;&gt;
+  
+                                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+    
+                                    &lt;TBODY&gt;
+                                        &lt;TR&gt;
+      
+                                            &lt;TD class=&quot;headerBar&quot; colspan=&quot;2&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;2&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                            &lt;/TD&gt;
+
+                                            &lt;/TR&gt;
+
+
+                                            &lt;TR&gt;
+    
+                                            &lt;TD align=&quot;left&quot; class=&quot;headerBar&quot; valign=&quot;middle&quot;&gt;
+      
+      
+                                                &lt;IMG src=&quot;/conf/clientLogo.gif&quot;/&gt;
+
+                                                  &lt;/TD&gt;
+
+                                                &lt;TD align=&quot;right&quot; class=&quot;headerBar&quot; valign=&quot;middle&quot;&gt;
+
+       
+                                                &lt;A class=&quot;headerLink&quot; href=&quot;javascript:launchHelp()&quot;&gt;Help&lt;/A&gt;
+
+
+       -                                                 &lt;A class=&quot;headerLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=4&quot;&gt;Home&lt;/A&gt;
+
+                                                  &lt;/TD&gt;
+
+                                                &lt;TD class=&quot;headerBar&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                            &lt;/TD&gt;
+
+                                          &lt;/TR&gt;
+
+                                          &lt;TR&gt;
+    
+                                            &lt;TD class=&quot;headerBar&quot; colspan=&quot;3&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;5&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                            &lt;/TD&gt;
+
+                                          &lt;/TR&gt;
+
+                                          &lt;TR&gt;
+    
+                                            &lt;TD class=&quot;headerBar&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+
+
+                                                      &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=4&quot;&gt;System&lt;/A&gt;
+
+        &amp;gt;                                                &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=2&quot;&gt;BuisnessLines&lt;/A&gt;
+
+        &amp;gt;                                                &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=1&quot;&gt;BrianLAB-SV&lt;/A&gt;
+
+        &amp;gt;                                                &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Group/Members/&quot;&gt;Users&lt;/A&gt;
+
+        :                                                &lt;SPAN class=&quot;headerAuthLevel&quot; dir=&quot;ltr&quot;&gt;
+                9498351960@lab-sv.telepacific.com&lt;/SPAN&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;TD align=&quot;right&quot; class=&quot;headerBar&quot;&gt;
+        
+                                                &lt;SPAN class=&quot;headerBarWelcome&quot;&gt;Welcome   &lt;/SPAN&gt;
+
+          
+                                                           &lt;A class=&quot;headerLink&quot; href=&quot;/servlet/Logout&quot;&gt;[Logout]&lt;/A&gt;
+
+                                                &lt;/TD&gt;
+
+                                                &lt;TD class=&quot;headerBar&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                            &lt;/TD&gt;
+
+                                          &lt;/TR&gt;
+
+                                          &lt;TR&gt;
+    
+                                            &lt;TD class=&quot;headerBar&quot; colspan=&quot;3&quot;&gt;
+                                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;2&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                            &lt;/TD&gt;
+
+                                          &lt;/TR&gt;
+
+                                      &lt;/TBODY&gt;
+                                &lt;/TABLE&gt;
+
+                              &lt;/TD&gt;
+
+                         &lt;/TR&gt;
+
+                    &lt;/TBODY&gt;
+                &lt;/TABLE&gt;
+
+
+                  &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+// Try to close the window.  If we can&amp;apos;t, logout.
+// Scripts aren&amp;apos;t legally allowed to close a window that was not opened by a script,
+// but IE seems to allow it.  Firefox (Mozilla) doesn&amp;apos;t.
+function userLogout ()
+{
+  window.close();   // IE will return here if user opts not to close window,
+  if (document.all) // and Mozilla browsers will return here because you can&amp;apos;t close the window.
+    return;         // If we&amp;apos;re running an IE browser.
+  top.location.replace(&amp;quot;/servlet/Logout&amp;quot;);
+}
+&lt;/SCRIPT&gt;
+
+
+
+                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+     
+                    &lt;TBODY&gt;
+                        &lt;TR&gt;
+                            &lt;TD class=&quot;headandfoot&quot; colspan=&quot;4&quot; height=&quot;12&quot;&gt;
+          &lt;/TD&gt;
+
+                             &lt;/TR&gt;
+
+
+\t                        &lt;TR&gt;
+\t\t
+                            &lt;TD class=&quot;headandfoot&quot; valign=&quot;top&quot; width=&quot;18%&quot;&gt;
+
+
+
+
+                                &lt;FORM method=&quot;post&quot; name=&quot;leftNavForm&quot;&gt;
+
+                                    &lt;B&gt;
+
+
+                                        &lt;SCRIPT language=&quot;JavaScript&quot;&gt;function addAltText(img, altText) {  img.alt = altText;}&lt;/SCRIPT&gt;
+                                        &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                            &lt;TBODY&gt;
+                                                &lt;TR&gt;
+                                                    &lt;TD class=&quot;navOptions&quot;&gt;Options:&lt;/TD&gt;
+                                                &lt;/TR&gt;
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U0&amp;amp;menuId=0&quot;&gt;Profile&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U2&amp;amp;menuId=0&quot;&gt;Incoming Calls&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U3&amp;amp;menuId=0&quot;&gt;Outgoing Calls&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolderopen&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;IMG alt=&quot;&quot; border=&quot;0&quot; src=&quot;/Graphics/Tropical/ar.gif&quot;/&gt;
+                                                          &lt;A class=&quot;leftnavfolderopen&quot; href=&quot;/Common/folder_contents.jsp?folder=U4&amp;amp;menuId=0&quot;&gt;Call Control&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U35&amp;amp;menuId=0&quot;&gt;Calling Plans&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U5&amp;amp;menuId=0&quot;&gt;Messaging&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                                &lt;TR&gt;
+
+                                                    &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+
+                                                        &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U7&amp;amp;menuId=0&quot;&gt;Utilities&lt;/A&gt;
+
+                                                    &lt;/TD&gt;
+
+                                                &lt;/TR&gt;
+
+                                            &lt;/TBODY&gt;
+                                        &lt;/TABLE&gt;
+                                    &lt;/B&gt;
+
+                                &lt;/FORM&gt;
+
+
+
+                            &lt;/TD&gt;
+
+                                    &lt;TD class=&quot;headandfoot&quot;&gt;
+                                &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;10&quot;/&gt;
+                            &lt;/TD&gt;
+
+                                    &lt;TD valign=&quot;top&quot;&gt;
+          
+                                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+            
+                                    &lt;TBODY&gt;
+                                        &lt;TR&gt;
+\t\t\t
+                                            &lt;TD class=&quot;headandfoot&quot;&gt;
+                                                &lt;IMG height=&quot;5&quot; src=&quot;/Graphics/round-corner.gif&quot; width=&quot;5&quot;/&gt;
+                                            &lt;/TD&gt;
+
+\t\t\t                                        &lt;/TR&gt;
+
+                                              &lt;/TBODY&gt;
+                                &lt;/TABLE&gt;
+
+                                    &lt;/TD&gt;
+
+
+                                    &lt;TD valign=&quot;top&quot; width=&quot;82%&quot;&gt;
+         
+                                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+         
+                                    &lt;TBODY&gt;
+                                        &lt;TR&gt;
+                                            &lt;TD height=&quot;15&quot;/&gt;
+                                        &lt;/TR&gt;
+
+                                                 &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+         
+             helpFile = &amp;quot;/Help/en_US/User/User_CallControl_Menu.htm&amp;quot;;
+         &lt;/SCRIPT&gt;
+
+   \t\t                                         &lt;TR&gt;
+                                            &lt;TD class=&quot;screenName&quot;&gt;Call Control&lt;/TD&gt;
+                                        &lt;/TR&gt;
+
+                                                 &lt;TR&gt;
+                                            &lt;TD height=&quot;5&quot;/&gt;
+                                        &lt;/TR&gt;
+
+         
+                                                 &lt;TR&gt;
+                                            &lt;TD&gt;
+
+
+
+
+
+                                                &lt;SCRIPT language=&quot;JavaScript&quot;&gt;function addAltText(img, altText) {  img.alt = altText;}&lt;/SCRIPT&gt;
+                                                &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                                    &lt;TBODY&gt;
+                                                        &lt;TR&gt;
+                                                            &lt;TD align=&quot;LEFT&quot; valign=&quot;TOP&quot; width=&quot;50%&quot;&gt;
+                                                                &lt;TABLE width=&quot;100%&quot;&gt;
+                                                                    &lt;TBODY&gt;
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD class=&quot;menuCategory&quot;&gt;Basic&lt;/TD&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CW/&quot; name=&quot;/User/CW/&quot;&gt;Call Waiting - On&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Answer a call while already on another call.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CPU/&quot; name=&quot;/User/CPU/&quot;&gt;Call Pickup&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Display the call pickup group to which you belong.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CustomerOriginatedTrace/&quot; name=&quot;/User/CustomerOriginatedTrace/&quot;&gt;Customer Originated Trace&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Issue a trace to your service provider for your last incoming call by using a feature access code.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/DirectedCallPickup/&quot; name=&quot;/User/DirectedCallPickup/&quot;&gt;Directed Call Pickup&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Pick up a call using a feature access code and an extension.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/FlashCH/&quot; name=&quot;/User/FlashCH/&quot;&gt;Flash Call Hold&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Hold a call with a feature access code when using a simple phone without call control capability.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CallTransfer/&quot; name=&quot;/User/CallTransfer/&quot;&gt;Call Transfer&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Transfer a call to another phone.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/ThreeWayCall/&quot; name=&quot;/User/ThreeWayCall/&quot;&gt;Three-Way Call&lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Start a conference call&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+
+                                                                                &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/MOH/&quot; name=&quot;/User/MOH/&quot;&gt;Music/Video On Hold - 
+                                                                                    &lt;SPAN class=&quot;serviceOff&quot;&gt;Off&lt;/SPAN&gt;
+                                                                                &lt;/A&gt;
+                                                                            &lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+
+                                                                            &lt;TD align=&quot;left&quot;&gt;
+Play audio (music) or video when the remote party is held or parked.&lt;/TD&gt;
+
+                                                                        &lt;/TR&gt;
+
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                    &lt;/TBODY&gt;
+                                                                &lt;/TABLE&gt;
+                                                            &lt;/TD&gt;
+                                                            &lt;TD align=&quot;LEFT&quot; valign=&quot;TOP&quot; width=&quot;50%&quot;&gt;
+                                                                &lt;TABLE width=&quot;100%&quot;&gt;
+                                                                    &lt;TBODY&gt;
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD class=&quot;menuCategory&quot;&gt;Advanced&lt;/TD&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD height=&quot;5&quot;/&gt;
+                                                                        &lt;/TR&gt;
+                                                                        &lt;TR&gt;
+                                                                            &lt;TD&gt;None of the menu items in this category are enabled.&lt;/TD&gt;
+                                                                        &lt;/TR&gt;
+                                                                    &lt;/TBODY&gt;
+                                                                &lt;/TABLE&gt;
+                                                            &lt;/TD&gt;
+                                                        &lt;/TR&gt;
+                                                    &lt;/TBODY&gt;
+                                                &lt;/TABLE&gt;
+                                            &lt;/TD&gt;
+                                        &lt;/TR&gt;
+
+         
+\t                                       &lt;/TBODY&gt;
+                                &lt;/TABLE&gt;
+
+                                    &lt;/TD&gt;
+
+                             &lt;/TR&gt;
+
+\t                    &lt;/TBODY&gt;
+                &lt;/TABLE&gt;
+
+\t
+
+
+
+
+
+
+
+            &lt;/BODY&gt;
+        &lt;/HTML&gt;
+    &lt;/Document&gt;
+&lt;/WebDocument&gt;
+</responseBody>
+            <contentType>text/xml</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;web&gt;
+        &lt;map&gt;
+            &lt;WebDocument&gt;
+                &lt;Document doctype=&quot;BaseDocument&quot; id=&quot;BaseWebDocument&quot; parent=&quot;&quot; target=&quot;&quot; url=&quot;http://10.255.224.62/Common/folder_contents.jsp?folder=U4&amp;amp;menuId=0&quot;&gt;
+                    &lt;HTML&gt;
+                        &lt;HEAD&gt;
+                            &lt;SCRIPT language=&quot;JavaScript&quot; src=&quot;/Scripts/graphics.js&quot;/&gt;
+                            &lt;LINK href=&quot;/Common/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+                            &lt;LINK href=&quot;/Graphics/Tropical/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+                            &lt;TITLE&gt;Call Control&lt;/TITLE&gt;
+                        &lt;/HEAD&gt;
+                        &lt;BODY bgproperties=&quot;fixed&quot; leftmargin=&quot;30&quot; marginheight=&quot;10&quot; marginwidth=&quot;30&quot; onload=&quot;initSelection()&quot; topmargin=&quot;10&quot;&gt;
+                            &lt;SCRIPT src=&quot;/Scripts/deployJava.js&quot;/&gt;
+                            &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+var commpilot = null;
+var ac = null;
+var revisedCallManager = null;
+var onlineHelp = null;
+var helpFile = &amp;quot;/Help/en_US/User/User_CallControl_Menu.htm&amp;quot;;
+
+// Launch the combined Call Manager / Attendant Console client
+function launchCallManagerClient()
+{
+  var uniqueId = &amp;apos;&amp;apos;;
+  var spId = &amp;apos;null&amp;apos;;
+
+  if ((revisedCallManager) &amp;amp;amp;&amp;amp;amp; !(revisedCallManager.closed))
+  {
+    revisedCallManager.focus();
+  }
+  else
+  {
+    revisedCallManager=window.open(&amp;quot;/CallManager/CallManagerDownload.jsp?serviceProvID=&amp;quot; + spId, uniqueId,
+                                   &amp;quot;width=505,height=360,resizable=1,status=0,scrollbars=no&amp;quot;);
+    revisedCallManager.focus();
+  }
+}
+
+function launchHelp()
+{
+   help = window.open(helpFile,&amp;quot;onLineHelp&amp;quot;);
+   help.focus();
+}
+
+function launchClientApplication(url)
+{
+  window.open(url);
+}
+
+function launchClientApplicationJWS(url)
+{
+  if(!deployJava.isWebStartInstalled(&amp;quot;1.6.0_19&amp;quot;))
+  {
+  \\tif(deployJava.installJRE(&amp;quot;1.6.0_19&amp;quot;))
+    {
+      deployJava.launch(url);
+    }
+  }
+  else
+  {
+    deployJava.launch(url);
+  }
+}
+
+function selectedLinkChanged(selectedLink, ccUsesJWS, recUsesJWS) 
+{
+  var choice = selectedLink.options[selectedLink.selectedIndex].value;
+
+  if (choice == &amp;quot;callmanager&amp;quot;)
+  {
+    launchCallManagerClient();
+  }
+  else if(choice == &amp;quot;callcenter&amp;quot;)
+  {
+    if (ccUsesJWS) 
+    { 
+      launchClientApplicationJWS(&amp;quot;/servlet/jws/callcenter/callcenter.jnlp&amp;quot;);
+    }
+    else
+    {
+      launchClientApplication(&amp;quot;/servlet/ClientApplicationLaunch?application=callcenter&amp;quot;);
+    }
+  }
+  else if(choice == &amp;quot;receptionist&amp;quot;)
+  {
+    if (recUsesJWS) 
+    { 
+      launchClientApplicationJWS(&amp;quot;/servlet/jws/receptionist/receptionist.jnlp&amp;quot;);
+    }
+    else
+    {
+      launchClientApplication(&amp;quot;/servlet/ClientApplicationLaunch?application=receptionist&amp;quot;);
+    }
+  }
+
+  selectedLink.selectedIndex = 0;
+}
+&lt;/SCRIPT&gt;
+                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                &lt;TBODY&gt;
+                                    &lt;TR&gt;
+                                        &lt;TD align=&quot;center&quot; colspan=&quot;3&quot; valign=&quot;middle&quot; width=&quot;100%&quot;/&gt;
+                                    &lt;/TR&gt;
+                                    &lt;TR&gt;
+                                        &lt;TD colspan=&quot;3&quot; width=&quot;100%&quot;&gt;
+                                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                                &lt;TBODY&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD class=&quot;headerBar&quot; colspan=&quot;2&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;2&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD align=&quot;left&quot; class=&quot;headerBar&quot; valign=&quot;middle&quot;&gt;
+                                                            &lt;IMG src=&quot;/conf/clientLogo.gif&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                        &lt;TD align=&quot;right&quot; class=&quot;headerBar&quot; valign=&quot;middle&quot;&gt;
+                                                            &lt;A class=&quot;headerLink&quot; href=&quot;javascript:launchHelp()&quot;&gt;Help&lt;/A&gt;
+
+
+
+       -                                                                                                                                         &lt;A class=&quot;headerLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=4&quot;&gt;Home&lt;/A&gt;
+                                                        &lt;/TD&gt;
+                                                        &lt;TD class=&quot;headerBar&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD class=&quot;headerBar&quot; colspan=&quot;3&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;5&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD class=&quot;headerBar&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                            &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=4&quot;&gt;System&lt;/A&gt;
+
+
+        &amp;gt;                                                                                                                                        &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=2&quot;&gt;BuisnessLines&lt;/A&gt;
+
+
+        &amp;gt;                                                                                                                                        &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Common/folder_contents.jsp?menuId=1&quot;&gt;BrianLAB-SV&lt;/A&gt;
+
+
+        &amp;gt;                                                                                                                                        &lt;A class=&quot;headerAuthLevelLink&quot; href=&quot;/Group/Members/&quot;&gt;Users&lt;/A&gt;
+
+
+        :                                                                                                                                        &lt;SPAN class=&quot;headerAuthLevel&quot; dir=&quot;ltr&quot;&gt;
+                9498351960@lab-sv.telepacific.com&lt;/SPAN&gt;
+                                                        &lt;/TD&gt;
+                                                        &lt;TD align=&quot;right&quot; class=&quot;headerBar&quot;&gt;
+                                                            &lt;SPAN class=&quot;headerBarWelcome&quot;&gt;Welcome   &lt;/SPAN&gt;
+                                                            &lt;A class=&quot;headerLink&quot; href=&quot;/servlet/Logout&quot;&gt;[Logout]&lt;/A&gt;
+                                                        &lt;/TD&gt;
+                                                        &lt;TD class=&quot;headerBar&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD class=&quot;headerBar&quot; colspan=&quot;3&quot;&gt;
+                                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;2&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;2&quot;/&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                &lt;/TBODY&gt;
+                                            &lt;/TABLE&gt;
+                                        &lt;/TD&gt;
+                                    &lt;/TR&gt;
+                                &lt;/TBODY&gt;
+                            &lt;/TABLE&gt;
+                            &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+// Try to close the window.  If we can&amp;apos;t, logout.
+// Scripts aren&amp;apos;t legally allowed to close a window that was not opened by a script,
+// but IE seems to allow it.  Firefox (Mozilla) doesn&amp;apos;t.
+function userLogout ()
+{
+  window.close();   // IE will return here if user opts not to close window,
+  if (document.all) // and Mozilla browsers will return here because you can&amp;apos;t close the window.
+    return;         // If we&amp;apos;re running an IE browser.
+  top.location.replace(&amp;quot;/servlet/Logout&amp;quot;);
+}
+&lt;/SCRIPT&gt;
+                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+                                &lt;TBODY&gt;
+                                    &lt;TR&gt;
+                                        &lt;TD class=&quot;headandfoot&quot; colspan=&quot;4&quot; height=&quot;12&quot;/&gt;
+                                    &lt;/TR&gt;
+
+
+
+\\t                                                                                        &lt;TR&gt;
+\\t\\t
+                                                        
+                                        &lt;TD class=&quot;headandfoot&quot; valign=&quot;top&quot; width=&quot;18%&quot;&gt;
+                                            &lt;FORM method=&quot;post&quot; name=&quot;leftNavForm&quot;&gt;
+                                                &lt;B&gt;
+                                                    &lt;SCRIPT language=&quot;JavaScript&quot;&gt;function addAltText(img, altText) {  img.alt = altText;}&lt;/SCRIPT&gt;
+                                                    &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                                        &lt;TBODY&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;navOptions&quot;&gt;Options:&lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U0&amp;amp;menuId=0&quot;&gt;Profile&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U2&amp;amp;menuId=0&quot;&gt;Incoming Calls&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U3&amp;amp;menuId=0&quot;&gt;Outgoing Calls&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolderopen&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;IMG alt=&quot;&quot; border=&quot;0&quot; src=&quot;/Graphics/Tropical/ar.gif&quot;/&gt;
+
+                                                                                                                                                          &lt;A class=&quot;leftnavfolderopen&quot; href=&quot;/Common/folder_contents.jsp?folder=U4&amp;amp;menuId=0&quot;&gt;Call Control&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U35&amp;amp;menuId=0&quot;&gt;Calling Plans&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U5&amp;amp;menuId=0&quot;&gt;Messaging&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                            &lt;TR&gt;
+                                                                &lt;TD class=&quot;leftnavfolder&quot; nowrap=&quot;nowrap&quot;&gt;
+                                                                    &lt;A class=&quot;leftnavfolder&quot; href=&quot;/Common/folder_contents.jsp?folder=U7&amp;amp;menuId=0&quot;&gt;Utilities&lt;/A&gt;
+                                                                &lt;/TD&gt;
+                                                            &lt;/TR&gt;
+                                                        &lt;/TBODY&gt;
+                                                    &lt;/TABLE&gt;
+                                                &lt;/B&gt;
+                                            &lt;/FORM&gt;
+                                        &lt;/TD&gt;
+                                        &lt;TD class=&quot;headandfoot&quot;&gt;
+                                            &lt;IMG alt=&quot;&quot; border=&quot;0&quot; height=&quot;1&quot; src=&quot;/Graphics/onepx.gif&quot; width=&quot;10&quot;/&gt;
+                                        &lt;/TD&gt;
+                                        &lt;TD valign=&quot;top&quot;&gt;
+                                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+                                                &lt;TBODY&gt;
+                                                    &lt;TR&gt;
+\\t\\t\\t
+                                                                        
+                                                        &lt;TD class=&quot;headandfoot&quot;&gt;
+                                                            &lt;IMG height=&quot;5&quot; src=&quot;/Graphics/round-corner.gif&quot; width=&quot;5&quot;/&gt;
+                                                        &lt;/TD&gt;
+
+
+\\t\\t\\t                                                                                                                        &lt;/TR&gt;
+                                                &lt;/TBODY&gt;
+                                            &lt;/TABLE&gt;
+                                        &lt;/TD&gt;
+                                        &lt;TD valign=&quot;top&quot; width=&quot;82%&quot;&gt;
+                                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                                &lt;TBODY&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD height=&quot;15&quot;/&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;SCRIPT language=&quot;JavaScript&quot;&gt;
+         
+             helpFile = &amp;quot;/Help/en_US/User/User_CallControl_Menu.htm&amp;quot;;
+         &lt;/SCRIPT&gt;
+
+
+   \\t\\t                                                                                                                         &lt;TR&gt;
+                                                        &lt;TD class=&quot;screenName&quot;&gt;Call Control&lt;/TD&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                    &lt;/TR&gt;
+                                                    &lt;TR&gt;
+                                                        &lt;TD&gt;
+                                                            &lt;SCRIPT language=&quot;JavaScript&quot;&gt;function addAltText(img, altText) {  img.alt = altText;}&lt;/SCRIPT&gt;
+                                                            &lt;TABLE border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                                                &lt;TBODY&gt;
+                                                                    &lt;TR&gt;
+                                                                        &lt;TD align=&quot;LEFT&quot; valign=&quot;TOP&quot; width=&quot;50%&quot;&gt;
+                                                                            &lt;TABLE width=&quot;100%&quot;&gt;
+                                                                                &lt;TBODY&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD class=&quot;menuCategory&quot;&gt;Basic&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CW/&quot; name=&quot;/User/CW/&quot;&gt;Call Waiting - On&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Answer a call while already on another call.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CPU/&quot; name=&quot;/User/CPU/&quot;&gt;Call Pickup&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Display the call pickup group to which you belong.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CustomerOriginatedTrace/&quot; name=&quot;/User/CustomerOriginatedTrace/&quot;&gt;Customer Originated Trace&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Issue a trace to your service provider for your last incoming call by using a feature access code.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/DirectedCallPickup/&quot; name=&quot;/User/DirectedCallPickup/&quot;&gt;Directed Call Pickup&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Pick up a call using a feature access code and an extension.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/FlashCH/&quot; name=&quot;/User/FlashCH/&quot;&gt;Flash Call Hold&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Hold a call with a feature access code when using a simple phone without call control capability.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/CallTransfer/&quot; name=&quot;/User/CallTransfer/&quot;&gt;Call Transfer&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Transfer a call to another phone.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/ThreeWayCall/&quot; name=&quot;/User/ThreeWayCall/&quot;&gt;Three-Way Call&lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Start a conference call&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+                                                                                            &lt;A class=&quot;navMenuItem&quot; href=&quot;/User/MOH/&quot; name=&quot;/User/MOH/&quot;&gt;Music/Video On Hold - 
+                                                                                                                
+                                                                                                &lt;SPAN class=&quot;serviceOff&quot;&gt;Off&lt;/SPAN&gt;
+                                                                                            &lt;/A&gt;
+                                                                                        &lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD align=&quot;left&quot;&gt;
+Play audio (music) or video when the remote party is held or parked.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                &lt;/TBODY&gt;
+                                                                            &lt;/TABLE&gt;
+                                                                        &lt;/TD&gt;
+                                                                        &lt;TD align=&quot;LEFT&quot; valign=&quot;TOP&quot; width=&quot;50%&quot;&gt;
+                                                                            &lt;TABLE width=&quot;100%&quot;&gt;
+                                                                                &lt;TBODY&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD class=&quot;menuCategory&quot;&gt;Advanced&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD height=&quot;5&quot;/&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                    &lt;TR&gt;
+                                                                                        &lt;TD&gt;None of the menu items in this category are enabled.&lt;/TD&gt;
+                                                                                    &lt;/TR&gt;
+                                                                                &lt;/TBODY&gt;
+                                                                            &lt;/TABLE&gt;
+                                                                        &lt;/TD&gt;
+                                                                    &lt;/TR&gt;
+                                                                &lt;/TBODY&gt;
+                                                            &lt;/TABLE&gt;
+                                                        &lt;/TD&gt;
+                                                    &lt;/TR&gt;
+
+
+         
+\\t                                                                                                                   &lt;/TBODY&gt;
+                                            &lt;/TABLE&gt;
+                                        &lt;/TD&gt;
+                                    &lt;/TR&gt;
+
+
+\\t                                                                                &lt;/TBODY&gt;
+                            &lt;/TABLE&gt;
+
+
+\\t
+
+
+
+
+
+
+
+                                                                &lt;/BODY&gt;
+                    &lt;/HTML&gt;
+                &lt;/Document&gt;
+            &lt;/WebDocument&gt;
+        &lt;/map&gt;
+        &lt;pageInformation&gt;
+            &lt;title&gt;Call Control&lt;/title&gt;
+            &lt;url&gt;http://10.255.224.62/Common/folder_contents.jsp?folder=U4&amp;amp;menuId=0&lt;/url&gt;
+            &lt;referringURL&gt;http://10.255.224.62/Common/folder_contents.jsp?menuId=0&lt;/referringURL&gt;
+            &lt;contentType/&gt;
+            &lt;encoding&gt;windows-1252&lt;/encoding&gt;
+            &lt;modified&gt;10/01/2015 16:39:53&lt;/modified&gt;
+            &lt;pageLoadTime&gt;00:00:00.3&lt;/pageLoadTime&gt;
+            &lt;meta/&gt;
+        &lt;/pageInformation&gt;
+    &lt;/web&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="title">
+                    <queryFormatString>//web/pageInformation/title</queryFormatString>
+                </item>
+                <item name="URL">
+                    <queryFormatString>//web/pageInformation/url</queryFormatString>
+                </item>
+                <item name="referringURL">
+                    <queryFormatString>//web/pageInformation/referringURL</queryFormatString>
+                </item>
+                <item name="contentType">
+                    <queryFormatString>//web/pageInformation/contentType</queryFormatString>
+                </item>
+                <item name="encoding">
+                    <queryFormatString>//web/pageInformation/encoding</queryFormatString>
+                </item>
+                <item name="lastModified">
+                    <queryFormatString>//web/pageInformation/modified</queryFormatString>
+                </item>
+                <item name="pageLoadTime">
+                    <queryFormatString>//web/pageInformation/pageLoadTime</queryFormatString>
+                </item>
+                <item name="meta">
+                    <queryFormatString>//web/pageInformation/meta/{0}</queryFormatString>
+                    <arguments>
+                        <item name="metaTag">
+                            <valuesQuery>//web/pageInformation/meta/*</valuesQuery>
+                            <interpretAs>SampleNodeNames</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+            </aliases>
+            <duration>6.9</duration>
+        </item>
+    </sampleDictionary>
+    <applicabilityProperties actionType="snapshot">
+        <application>
+            <item>com.fnfr.itest.applications.selenium</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

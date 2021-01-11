@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.0.202012071239">
+    <testCaseCatalog>
+        <item name="proc_libs/voip_test_proc_library.fftc">
+            <tcDescriptor version="8.4.0.202012071239">
+                <general>
+                    <documentation>VOIP Test Procedure Library</documentation>
+                    <notes>Shared procedures commonly used by VOIP tests</notes>
+                    <owner>Alex Orr</owner>
+                    <isProcedureLibrary>true</isProcedureLibrary>
+                </general>
+                <procedures>
+                    <item name="AbacusStatsMessages" isPublic="true">
+                        <description>Print Minimum PESQ Messages</description>
+                        <multilineDescription>Objective:  Print messages showing minimum PESQ stats
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. channel_pesq_error_list\t\t|   M   |  List containing channel PESQ error statuses
+2. abacus_session\t\t\t\t|   M   |   Session name of open Abacus session
+
+</multilineDescription>
+                        <arguments>
+                            <item name="channel_pesq_error_list">
+                                <description>List containing channel PESQ error statuses</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="abacus_session">
+                                <description>Session name of open Abacus session
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="ChangeDial" isPublic="true">
+                        <description>Change Numbers Dialed in Abacus Script</description>
+                        <multilineDescription>Objective:  Change the value of lines of an Abacus script to modify a number dialed. Will replace whatever is currently between square brackets of desired lines.
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. script_name\t\t\t\t|   M   |   Name of script to modify
+2. change_line_num\t\t|   M   |   List of lines to modify
+3. new_value\t\t\t\t|   M   |   New value (extension, *code, etc) to change to</multilineDescription>
+                        <arguments>
+                            <item name="script_name">
+                                <description>Name of Abacus script to edit</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="change_line_num">
+                                <description>List of line numbers of script to edit</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="new_value">
+                                <description>New value (extension, *code, etc) to change to</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="CheckCPE" isPublic="true" isVBlock="true">
+                        <description>Check CPE devices against stored golden configs</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <response>{&quot;cpe_rebooted&quot;:&quot;value&quot;,&quot;conv_rebooted&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="CheckCompletionsXML" isPublic="true">
+                        <arguments>
+                            <item name="script_completions">
+                                <description>List of script completion percentages
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="EmailResults" isPublic="true">
+                        <arguments>
+                            <item name="Summary">
+                                <defaultValue>thisisnotsummary</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="GenerateCsvReport" isPublic="true">
+                        <description>Generate a CSV report for one test run</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Generate summary CSV report for one test run. If argument filename exists, appends the result to the file. If not, creates the file. 
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+1. filename\t\t\t\t|   M   |   Filename of CSV file. Will append results to this file or create it if it does not exist.
+2. filepath\t\t\t\t|   M   |   Path to directory to store files in.  Defaults to a_voip/summary_reports.
+3. test_case\t\t\t|   M   |   Name of test case 
+4. overall_status\t\t\t|   M   |\tOverall pass/fail status for the test case 
+5. broadsoft_status \t\t|   M   |   Broadsoft milestone status
+6. call_status\t\t\t|   M   |   Call/Feature script status
+7. quality_status\t\t|   M   |   Call quality/ user experiecne milestone status
+8. report_id\t\t\t\t|   M   |   Report ID number for the test run 
+9. pcaps\t\t\t\t|   M   |   List of PCAP file names produced by the test
+10. comments\t\t\t|   O    |   Optional comments
+
+
+_____________________________________________________
+</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>Filename of CSV file. Will append results to this file or create it if it does not exist.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="filepath">
+                                <description>Path to directory to store files in. </description>
+                                <defaultValue>project://a_voip/summary_reports</defaultValue>
+                            </item>
+                            <item name="test_case">
+                                <description>Name of test case </description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="overall_status">
+                                <description>Overall pass/fail status for the test case </description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="broadsoft_status">
+                                <description>Broadsoft milestone status</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="call_status">
+                                <description>Call/Feature script status</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="quality_status">
+                                <description>Call quality/ user experiecne milestone status</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="report_id">
+                                <description>Report ID number for the test run </description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="pcaps">
+                                <description>List of PCAP files generated by testcase
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="comments">
+                                <description>Optional comments to include in report</description>
+                                <defaultValue> </defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="GetBroadsoftTimestamp" isPublic="true" isVBlock="true">
+                        <multilineDescription>Returns a timestamp used by broadsoft&apos;s scheduling tools in the Web GUI. </multilineDescription>
+                        <arguments>
+                            <item name="epoch">
+                                <description>Time to convert in seconds since epoch.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="offset_seconds">
+                                <description>Optional. Number of seconds to change the timestamp by.
+If non-zero, will return a timestamp that is the value of the epoch value plus this value.</description>
+                                <defaultValue>0</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{&quot;date&quot;:&quot;value&quot;,&quot;time&quot;:&quot;value&quot;,&quot;ampm&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetXML" isPublic="true" defaultSessionProfile="project://d_Abacus_tclsh/session_profiles/Abacus_tclsh_base.ffsp">
+                        <arguments>
+                            <item name="report_path">
+                                <description>Temp folder to save reports in on local disk
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="report_filename">
+                                <description>Default report filename used by Abacus
+(found in File-&gt;Report Generation-&gt;Advanced)
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

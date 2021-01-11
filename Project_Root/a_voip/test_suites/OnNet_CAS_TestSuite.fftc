@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution estimatedExecutionTime="1383"/>
+    <testbed>project://a_voip/topologies/lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="8814978d-080a-41fc-a2c3-ee36f66755c2" action="comment">
+                    <command>
+                        <body>Run test case 1.1 - IAD to IAD Calls</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fe1f2ae4-77f2-447b-8d34-4b8b429b6e06" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/1.01-IAD_to_IAD_Calls.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a3a610c4-42ad-47b9-b40b-6920c01e5582" action="comment">
+                    <command>
+                        <body>Run test case 2.5 - Series Completion</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e2065460-378b-4e09-b5dc-c3db86c80fdd" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.05-Series_Completion.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2cd0d46e-5953-45d2-a344-dd050753fb87" action="comment">
+                    <command>
+                        <body>Run test case 2.6 - Call Forward Always</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7f4358d3-b27a-428b-a696-022f3f8e9dfe" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.06-Call_Forward_Always.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b122b14a-bdd1-4d6c-a749-46f722c991ec" action="comment">
+                    <command>
+                        <body>Run test case 2.7 - Call Forward No Answer</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d0c38a1e-4ba4-4e19-8170-3964d93d8de1" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.07-Call_Forward_No_Answer.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d1469f3d-5f0b-4120-ba74-c6dbd7a320e9" action="comment">
+                    <command>
+                        <body>Run test case 2.8 - CFNA Change Times</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2f320633-23f8-4d46-b583-cfc706429b80" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.08-CFNA_Change_Times.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ff69efb1-1eb8-456d-9307-01bbb9753afd" action="comment">
+                    <command>
+                        <body>Run test case 2.9 - Call Forward Selective</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8c194494-6e51-413b-aa36-c5a6a8fe6976" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.09-Call_Forward_Selective.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ee82b885-2582-4bbc-ac66-30b4da83a2eb" action="comment">
+                    <command>
+                        <body>Run test case 2.10 - Call Forward Busy</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="12e64e29-7129-42bd-9b7d-837ae8eb83c0" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.10-Call_Forward_Busy.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3bad2536-a65a-4c4d-92c4-848f64ad3947" action="comment">
+                    <command>
+                        <body>Run test case 2.11 - Call Waiting/Call Cancel Per Call</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d8752656-c694-4192-af66-2d9d7182b8e7" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.11-Call_Waiting_Call_Waiting_Cancel_Per_Call.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="37006889-3545-4ff5-980d-dfcf4a8f629e" action="comment">
+                    <command>
+                        <body>Run test case 2.12 - Cancel Call Waiting Persistent</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3010a0ca-4cd3-489f-b988-3a6c89f9e87e" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.12-Call_Waiting_Persistent.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b4080e8f-4112-494b-bbe8-2f672993846c" action="comment">
+                    <command>
+                        <body>Run test case 2.14 - Last Number Redial</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2e913d9a-c0fd-4aa0-9131-2ff4b771d8bc" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.14-Last_Number_Redial.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="29fd0359-537b-4f41-84c5-9f2570203300" action="comment">
+                    <command>
+                        <body>Run test case 2.16 - Call Park</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8c0260a5-70b1-4e47-86fa-126ae230e916" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.16-Call_Park.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e8f8f920-3093-41e7-a964-4700124c5c13" action="comment">
+                    <command>
+                        <body>Run test case 2.17 - Do Not Disturb</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="348ba461-71c4-4c2c-a64a-b5bd6ccf8371" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.17-Do_Not_Disturb.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c808ace3-db1d-47c6-9f75-40a8477b649d" action="comment">
+                    <command>
+                        <body>Run test case 2.20 - Extension Dialing</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b22e26c6-e557-408e-ae2f-1cfb5aaf4316" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.20-Extension_Dialing.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="793459dd-03d9-438f-8b30-fae2b68455dc" action="comment">
+                    <command>
+                        <body>Run test case 2.21 - Speed Dial 8</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a2f58d35-4004-4b10-9b1a-a3b9ccf96f08" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.21-Speed_Dial_8.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b44e4551-36d5-4a7d-a80f-b62fdacf8a05" action="comment">
+                    <command>
+                        <body>Run test case 2.23 - Voice VPN - Station to Station Dialing</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6930c69b-2e59-4efb-bffa-24fb84316865" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.23-Voice_VPN_Station_to_Station.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="efe5b046-2cfe-4c38-a2ad-30c1e14ed903" action="comment">
+                    <command>
+                        <body>Run test case 2.24 - Voice VPN - Abbreviated Dialing</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="634a6e67-d5dd-4a7e-8d8e-a9e2dade1896" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.24-Abbreviated_Dialing.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b20bc447-b070-4abd-b281-772e7bb21af5" action="comment">
+                    <command>
+                        <body>Run test case 2.25 - Intercept User</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ce101ae7-2d74-47ea-a7a0-049d60ac330e" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/2.25-Intercept_User_Soft_Disconnect.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="cb2f5c3b-a8f0-42d3-9ab3-c8e7f2d458ef" action="comment">
+                    <command>
+                        <body>Run test case 3.1 - Regular Policy </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e17fe37e-4bc9-41b6-a930-db7c6767488e" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.01-Hunt_Group_Regular_Policy.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="41f54cc1-0800-4424-8177-a4f49dc2713b" action="comment">
+                    <command>
+                        <body>Run test case 3.2 - Simultaneous Policy </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="27b2f3fa-a4b8-4b18-9685-4495d19820f8" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.02-Hunt_Group_Simultaneous_Policy.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="69c0e0d5-fbab-4108-8b45-43ebf2830ce8" action="comment">
+                    <command>
+                        <body>Run test case 3.3 - Uniform Policy</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cd7d436d-a455-46a5-8a02-c4d04932843c" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.03-Hunt_Group_Uniform_Policy.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4aba5b83-d94a-4cdc-b146-d46f002ef8b3" action="comment">
+                    <command>
+                        <body>Run test case 3.5 - Call Waiting Agents</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="686e9ee4-f0e2-4f05-a1e3-24418f6869a4" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.05-Hunt_Group_Call_Waiting_Agents.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="969d7177-de88-4c59-a31c-d7145d567f18" action="comment">
+                    <command>
+                        <body>Run test case 3.6 - No Answer 3 Rings</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cb914627-6cdc-48af-b1cc-8cadfb1473a5" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.06-Hunt_Group_No_Answer_3_Rings.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="796ff1e9-5a46-4a80-a759-6e47e81dba27" action="comment">
+                    <command>
+                        <body>Run test case 3.7 - Call Forward After 20 Seconds</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="25f9d77e-6c06-4ca1-bc4c-19df1c28656a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.07-Hunt_Group_Call_Forward_after_20s.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b6cc35f9-9f37-4ca3-be64-53db583861d2" action="comment">
+                    <command>
+                        <body>Run test case 3.8 - Call Forward to Voice Portal After 20 Seconds</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="17a06d74-06c1-4fa8-b92e-5313cedd3708" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.08-Hunt_Group_Call_Forward_to_Voice_Portal_after_20s.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="840e8e03-2f53-4994-b8e6-080cdee85836" action="comment">
+                    <command>
+                        <body>Run test case 3.9 - Call Pickup Groups</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3147c49c-dab1-4bc7-81b3-7e02356d5033" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.09-Call_Pickup_Groups.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e4e2a119-ee4c-4610-a220-b1b06a98dd73" action="comment">
+                    <command>
+                        <body>Run test case 3.10 - Directed Pickup</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="47eb78dd-6c43-4a77-8b6d-1f9e52c28518" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.10-Directed_Pickup.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="94f0b4f4-9ae6-4153-b5cf-8bda5a616076" action="comment">
+                    <command>
+                        <body>Run test case 3.11 - Selective Call Acceptance</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7415fb54-493b-4f0c-b456-2af279032407" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.11-Selective_Call_Acceptance.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b15024c4-b808-495a-a06f-5101a631fa8d" action="comment" skip="true">
+                    <command>
+                        <body>Run test case 3.12 - Sequential Ring</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="34d45829-f482-4f68-9a2c-1622912d48f3" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.12-Sequential_Ring.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="baed0e91-053d-4b21-9b90-d62f574eab5b" action="comment">
+                    <command>
+                        <body>Run test case 3.13 - Sim Ring</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="af89043f-9b00-4854-92de-3016a38e4b36" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/3.13-Simultaneous_Ring.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="46d62699-657c-4a35-a918-853a8b9b286c" action="comment">
+                    <command>
+                        <body>Run test case 4.1 - Account Codes Unverified</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f9f36539-bf9e-4103-9a5d-1f5edd6858d5" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/4.01-Account_Codes_Unverified.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4ab052b3-4b9b-45af-b068-3812c03e35d4" action="comment">
+                    <command>
+                        <body>Run test case 4.3 - Authorization Codes</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d2019d76-94c6-41e5-a55c-2b8e5916af82" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/4.03-Authorization_Codes.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ab6f12f9-4018-4417-8d56-b645271cdf06" action="comment">
+                    <command>
+                        <body>Run test case 5.2 - Outbound Call Restrictions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3b6dc1db-a1eb-4dbe-bc62-a8e277de8356" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/5.02.1-Outbound_Call_Restrictions.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="41052a7b-eaba-4920-b38d-18c67dc89aea" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/5.02.2-Outbound_Call_Restrictions_Forwarding.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                        <item guid="0e9c1188-8ffc-4e0b-a46b-8dcdfd5de319" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/5.02.3-Outbound_Call_Restrictions_Forwarded.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="26e16c2c-d5f2-4ddd-8cb0-6590ea3c5386" action="comment">
+                    <command>
+                        <body>Run test case 6.1 - Calling Trace</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4fd29102-84e2-417d-8305-608b99df8031" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/6.01-Calling_Trace.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d85572b5-6208-42bc-a3be-039bab617748" action="comment">
+                    <command>
+                        <body>Run test case 7.1 - Access to Voice Portal</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f7baeded-35af-4eb0-8925-1c2110565c23" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.01-VM_Access_To_Voice_Portal.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7cb12abe-063b-469a-b3b2-f9257006d203" action="comment">
+                    <command>
+                        <body>Run test case 7.2 - Record Personalized Name</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="89dda61b-8816-4f26-9eb1-f606069fd1cf" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.02-VM_Record_Personalized_Name.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ba30b766-8679-4a78-b20d-c368df8639d3" action="comment">
+                    <command>
+                        <body>Run test case 7.3 - Direct Transfer to Voicemail</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7a83d74e-d5f6-453e-ad95-48c369303574" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.03-VM_Direct_Transfer_to_Voicemail.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b381d45a-ab10-4869-88b3-7290ef03a785" action="comment">
+                    <command>
+                        <body>Run test case 7.4 - Ability to Change Password</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c2734df5-52cf-49d1-94f7-ad46e754efb5" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.04-VM_Ability_To_Change_Password.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1cb18aef-64e0-49c4-a401-31f2fd906823" action="comment">
+                    <command>
+                        <body>Run test case 7.5 - Passcode Rules</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bde6029f-0587-4961-8e1d-a78e123ead46" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.05-VM_Passcode_Rules.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="12154d92-fb9a-4b24-b831-1bc7d463a2cb" action="comment">
+                    <command>
+                        <body>Run test case 7.8 - Voice Message Notification</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4e63c46f-c7b5-4cd5-a6af-1d21aedd8b2e" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.08-VM_Email_Notification.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" expectedCompletionResult="Indeterminate" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2ba02809-e6ab-428b-ad21-0781ab40c739" action="comment">
+                    <command>
+                        <body>Run test case 7.9 - Voice Messaging to Email</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="80750ffe-89e5-4c35-b17b-e72c3ce6ba72" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/On_Net/CAS/7.09-VM_Message_Copy_to_Email.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup" expectedCompletionResult="Indeterminate" paramFileSelection="UseCurrent"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

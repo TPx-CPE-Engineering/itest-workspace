@@ -1,0 +1,569 @@
+[RHD_012]
+3=>A:@:Wait for time in seconds [2]
+7=>B:@:Go OnHook
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+8=>A:@:Go OffHook
+11=>B:A:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Wait for time in seconds [1]
+10=>B:@:Go OffHook
+
+[RHD_007]
+3=>A:@:Wait for time in seconds [2]
+7=>B:@:Do Hook Flash
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for time in seconds [2]
+8=>AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=End of script
+
+[RHD_008]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [2]
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>B:@:Do Hook Flash
+8=>A:@:Do Hook Flash
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>B:A:AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__RHD_010]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__RHD_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__RHD_018]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[RHD_001]
+7=;BYE should be sent from B to A and the call leg between A and B should be terminated
+12=;Wait for congestion tone at A to detect BYE is received from B
+4=;3. B goes OnHook
+8=>A calls B, DTMF, confirms once
+13=>A:@:Wait for congestion tone
+17=End of script
+1=;Test Case
+5=;
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=>B:@:Go OnHook
+14=>A:@:Go OnHook
+2=;1. A and B are in Active Call
+6=;Expected OutCome
+11=>A:@:Wait for time in seconds [20]
+15=>A:@:Wait for time ? in onHook [2]
+3=;2. A puts B on hold
+16=>A calls B, DTMF, confirms once
+
+[RHD_009]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [1]
+12=End of script
+2=>A:@:Do hook flash, and wait for recall dial tone
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+8=;re-ringing is tested by going offhook again and checking for the voice path
+11=>B:A:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OffHook
+10=>B:@:Do Hook Flash
+
+[GotoActions__RHD_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_006]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__RHD_019]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Actions]
+File=Abacus.ACT
+
+[RHD_002]
+3=;2. A puts B on Hold
+7=;A and B should be connected
+12=>AFT Do Path Confirmation Once
+4=;3. A tries to resume the call with B
+8=>A calls B, DTMF, confirms once
+13=;To ensure B is not going onHook while path confirmation check is on
+1=;Test case
+5=;
+9=>A:@:Do hook flash, and wait for recall dial tone
+10=;>A:@:Wait for time in seconds [2]
+14=>B:@:Wait for time in seconds [2]
+2=;1. A and B are in Active Call
+6=;Expected OutCome
+11=>A:@:Do Hook Flash
+15=End of script
+
+[RHD_020]
+7=>A:@:Wait for time in seconds [1]
+12=>B:@:Send string in DTMF [*52]
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:@:Go OffHook
+13=>B:@:Wait for recall dial tone
+17=>C:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [1]
+9=>A:@:Wait for time in seconds [1]
+10=>B:A:AFT Do Path Confirmation Once
+14=>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+18=End of script
+2=>B:@:Go OnHook
+6=>A:@:Do Hook Flash
+11=>B:@:Do hook flash, and wait for recall dial tone
+15=>A:@:Go OnHook
+3=>A:@:Wait for time in seconds [1]
+16=>B:@:Go OnHook
+
+[RHD_015]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Wait for time in seconds [60]
+8=>A:@:Send string in DTMF [*52]
+13=>A:@:Wait for howler tone
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=;>A:C:A Calls B,DTMF,No Dial Tone
+10=;Below steps are for permanent treatment
+14=>A:@:Wait for time in seconds [60]
+18=>B:@:Go OnHook
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=>A:@:Wait for congestion tone
+20=>A:@:Go OffHook
+15=>A:@:Wait for silence
+19=>A:@:Wait for time in seconds [1]
+3=>A:@:Wait for time in seconds [5]
+21=>B:@:Go OffHook
+16=;Following steps will ensure both the lines will come back to idle onhook state
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=End of script
+17=>A:@:Go OnHook
+
+[GotoActions__RHD_012]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[RHD_021]
+3=>A:@:Wait for time in seconds [1]
+7=>B:@:Go OffHook
+12=End of script
+2=>B:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Do Hook Flash
+8=>A:@:Wait for time in seconds [1]
+11=>B:C:AFT A calls B, no dial tone, DTMF, confirms once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [1]
+9=>B:A:AFT Do Path Confirmation Once
+10=>B:@:Do hook flash, and wait for recall dial tone
+
+[RHD_016]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>B:@:Wait for howler tone
+8=>B:C:A Calls B,DTMF,No Dial Tone
+13=>B:@:Wait for time in seconds [60]
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=;Below steps are for permanent treatment
+10=>B:@:Wait for congestion tone
+14=>B:@:Wait for silence
+23=End of script
+18=>A:@:Wait for time in seconds [1]
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=>B:@:Wait for time in seconds [60]
+20=>B:@:Go OffHook
+15=;Following steps will ensure both the lines will come back to idle onhook state
+19=>A:@:Go OffHook
+3=>A:@:Wait for time in seconds [5]
+21=>A:@:Go OnHook
+16=>A:@:Go OnHook
+4=>A:@:Do hook flash, and wait for recall dial tone
+22=>B:@:Go OnHook
+17=>B:@:Go OnHook
+
+[GotoActions__RHD_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_017]
+3=>A:@:Wait for time in seconds [5]
+7=>B:@:Do hook flash, and wait for recall dial tone
+12=>A:@:Do Hook Flash
+4=>A:@:Do hook flash, and wait for recall dial tone
+8=>B:@:Send string in DTMF [*70]
+13=>A:@:Wait for time in seconds [1]
+1=>A calls B, DTMF, confirms once
+5=>B:@:Go OffHook
+9=>B:@:Wait for CCW confirmation tone
+10=>B:@:Wait for time in seconds [2]
+14=>AFT Do Path Confirmation Once
+2=>B:@:Go OnHook
+6=>A:@:Wait for time in seconds [1]
+11=;Following steps are written to verify the path between A and B after A flashes
+15=End of script
+
+[GotoActions__RHD_001]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_009]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[RHD_010]
+3=>A:@:Wait for time in seconds [2]
+7=>A:@:Wait for time in seconds [1]
+12=>A:@:Wait for time in seconds [1]
+4=>B:@:Do hook flash, and wait for recall dial tone
+8=;re-ringing is tested by going offhook again and checking for the voice path
+13=>B:@:Go OffHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>A:@:Go OffHook
+10=>A:@:Wait for time in seconds [2]
+14=>B:A:AFT Do Path Confirmation Once
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Go OnHook
+11=>B:@:Go OnHook
+15=End of script
+
+[RHD_005]
+1=;To test long duration RHD state for a terminal
+3=>A:@:Do hook flash, and wait for recall dial tone
+5=>A:@:Do Hook Flash
+7=End of script
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for time in seconds [3600]
+6=>AFT Do Path Confirmation Once
+
+[RHD_018]
+7=;6. User B presses HF, dials *52 and C's number
+12=>A:@:Do hook flash, and wait for recall dial tone
+8=;
+13=>B:@:Go OnHook
+1=;Test Case
+5=;4. User A presses HF again
+9=;Expected OutCome
+10=;C rings
+14=>A:@:Do Hook Flash
+18=>B:@:Send string in DTMF [*52]
+2=;1. A and B are in Active Call
+6=;5. User B goes OffHook and Timed Release timer is stopped
+11=>A calls B, DTMF, confirms once
+20=>B:C:A calls B, DTMF, no dial tone, confirms once
+15=>B:@:Go OffHook
+19=>B:@:Wait for recall dial tone
+3=;2. User A presses HF and puts B on hold
+21=End of script
+16=>AFT Do Path Confirmation Once
+4=;3. B goes OnHook and 10 sec TIMED RELEASE TIMER is started at B
+17=>B:@:Do hook flash, and wait for recall dial tone
+
+[GotoActions__RHD_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__RHD_020]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__RHD_015]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[RHD_011]
+7=;Expected OutCome
+12=>A:@:Go OnHook
+4=;3. B presses HF
+8=;Both hear re-ringing
+13=>B:@:Go OnHook
+17=>AFT Do Path Confirmation Once
+1=;Test Case
+5=;4. A and B goes OnHook simultaneously
+9=>A calls B, DTMF, confirms once
+10=>A:@:Do hook flash, and wait for recall dial tone
+14=>A:@:Wait for time in seconds [1]
+18=End of script
+2=;1. A and B are in Active call
+6=;
+11=>B:@:Do hook flash, and wait for recall dial tone
+15=>A:@:Go OffHook
+3=;2. A puts B on Hold
+16=>B:@:Go OffHook
+
+[RHD_006]
+1=;Both way RHD
+3=>A:@:Do hook flash, and wait for recall dial tone
+5=>A:@:Wait for time in seconds [12]
+7=>B:@:Wait for silence
+2=>A calls B, DTMF, confirms once
+4=>B:@:Do hook flash, and wait for recall dial tone
+6=>A:@:Wait for silence
+8=End of script
+
+[RHD_019]
+3=>B:@:Go OnHook
+7=>A:@:Wait for time in seconds [1]
+12=;terminate B otherwise when A goes onHook (end of script), A start ringing for B
+4=>A:@:Wait for time in seconds [5]
+8=>AFT Do Path Confirmation Once
+13=>B:@:Go OnHook
+1=>A calls B, DTMF, confirms once
+5=>A:@:Do Hook Flash
+9=>B:@:Do hook flash, and wait for recall dial tone
+10=>B:C:A Calls B,DTMF,No Dial Tone
+14=>A:@:Wait for time in seconds [10]
+2=>A:@:Do hook flash, and wait for recall dial tone
+6=>B:@:Go OffHook
+11=>B:@:Wait for Ring back tone
+15=End of script
+
+[GotoActions__RHD_021]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__RHD_016]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__RHD_017]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+

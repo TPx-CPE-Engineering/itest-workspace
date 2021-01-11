@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.4.0.202012071239">
+    <baseApplication>com.fnfr.svt.applications.python</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties">
+        <pythonProperties>
+            <interpreterLocation inherit="false">C:/Users/dataeng/PycharmProjects/iTest_Automation/venv/Scripts/python.exe</interpreterLocation>
+            <additionalModulePath inherit="false">
+                <item inherit="false">C:/Users/dataeng/PycharmProjects/iTest_Automation/d_velocloud</item>
+                <item inherit="false">C:/Users/dataeng/PycharmProjects/iTest_Automation/networking_scripts</item>
+                <item inherit="false">C:/Users/dataeng/PycharmProjects/iTest_Automation/d_ixia</item>
+                <item inherit="false">C:/Users/dataeng/PycharmProjects/itest_automation</item>
+            </additionalModulePath>
+            <initializationScript inherit="false">import urllib3
+import json
+
+velocloud.configuration.verify_ssl = False
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+</initializationScript>
+        </pythonProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Velocloud/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Velocloud/</formMapLibrary>
+    <sessionClassTestCase inherit="false">velocloud_python_quickcall_library.fftc</sessionClassTestCase>
+    <analysisRules>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>Traceback (most recent call last):</searchString>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="DeclareExecutionIssue">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                <message>Python Error</message>
+                            </actionProperties>
+                        </item>
+                        <item actionId="FailTestIfPassing">
+                            <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item actionId="ExitExecution">
+                            <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+        </item>
+    </analysisRules>
+    <isReferenceProfile>true</isReferenceProfile>
+    <language>Python</language>
+</SessionTemplate>

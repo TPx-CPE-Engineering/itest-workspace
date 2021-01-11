@@ -1,0 +1,115 @@
+[Actions]
+File=Abacus.ACT
+
+[CCW_004]
+3=;Activating CCW
+7=>A:@:Wait for Ring back tone
+12=>A:@:Go OnHook
+4=>A:@:Send string in DTMF [*70]
+8=>C:A:AFT A calls B, DTMF
+13=>C:@:Go OnHook
+1=;A goes offhooh and wait for dial tone
+5=>A:@:Wait for recall dial tone
+9=>C:@:Wait for busy
+10=>B:@:Go OffHook
+14=End of script
+2=>A:@:AFT Off hook wait for dial tone
+6=>A Calls B,DTMF,No Dial Tone
+11=>AFT Do Path Confirmation Once
+
+[GotoActions__CCW_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Basic_Call_14]
+3=>A:@:Wait for busy
+7=>A:@:Wait for howler tone
+12=End of script
+2=>A:@:Wait for time in seconds [32]
+4=>A:@:Wait for time in seconds [10]
+6=>A:@:Wait for time in seconds [60]
+8=>A:@:Wait for time in seconds [60]
+11=>A:@:AFT Off hook wait for dial tone
+1=>AFT A calls B, DTMF
+5=>A:@:Wait for congestion tone
+9=>A:@:Wait for silence
+10=>A:@:Go OnHook
+
+[GotoActions__Basic_Call_7]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Basic_Call_7]
+1=>AFT A calls B, DTMF
+3=>A:@:Wait for busy
+5=>A:@:AFT Off hook wait for dial tone
+7=End of script
+2=>A:@:Wait for time in seconds [32]
+4=>A:@:Go OnHook
+6=>B:@:AFT Off hook wait for dial tone
+
+[GotoActions__Basic_Call_14]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Basic_Call_2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[Basic_Call_2]
+3=;For this script to work change the number of rings to before terminating side picks up the call to 8
+7=>A:@:Wait for time in seconds [10]
+12=>A:@:Wait for silence
+4=>AFT A calls B, DTMF
+8=>A:@:Wait for congestion tone
+13=>A:@:Go OnHook
+1=;To test callee No answer scenario within a board
+5=>A:@:Wait for time in seconds [32]
+9=>A:@:Wait for time in seconds [60]
+10=>A:@:Wait for howler tone
+14=>A:@:AFT Off hook wait for dial tone
+2=;Abnormal disconnect error message will come-ignore that...all tones can be detected
+6=>A:@:Wait for busy
+11=>A:@:Wait for time in seconds [60]
+15=End of script
+

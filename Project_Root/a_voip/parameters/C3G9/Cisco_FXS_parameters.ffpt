@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ParameterTree version="6.0.0.18638fa">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <prim_int pt:description="CPE Interface used by the current protocol. Set to N/A if check is not needed">N/A</prim_int>
+            <cpe_config_file>C2900_iTest_FXS.txt</cpe_config_file>
+            <conv_config_file>iTest_Conv_1PRI_Cisco.cfg</conv_config_file>
+            <conv_prim_int>N/A</conv_prim_int>
+            <voice_class pt:description="voice-class used for codec config">5</voice_class>
+        </parameters>
+    </parameters>
+    <includeParameters>
+        <item>project://a_voip/parameters/voip_parameters_FXS.ffpt</item>
+        <item>project://a_voip/parameters/Environment_File_FXS_SIP_PRI.ffpt</item>
+        <item>project://a_voip/parameters/Cisco_common_parameters.ffpt</item>
+    </includeParameters>
+</ParameterTree>

@@ -1,0 +1,391 @@
+[GotoActions__NTF_0106_B1 Originate]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[NTF_0103_B1 Originate (Before MML)]
+3=>A:@:Go on-hook & wait [1.6]
+7=>A:@:Activate Call Waiting service [#43#]
+2=>A:@:Wait for string in DTMF [0047]
+4=>A:@:Activate Call Waiting service [*#43#]
+6=>A:@:Go on-hook & wait [1.6]
+8=>A:@:Wait for string in DTMF [0047]
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for string in DTMF [0047]
+9=End of script
+
+[NTF_0106_E1 Originate]
+1=>E calls B1
+3=>A:@:Go on-hook & wait [30]
+5=End of script
+2=>A:@:Wait for Time [10]
+4=;>A:@:Wait for Time [25]
+
+[GotoActions__NTF_0105_B1 Originate]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[NTF_0103_B1 Originate (After MML)]
+3=>A:@:Go on-hook & wait [1.6]
+7=>A:@:Activate Call Waiting service [#43#]
+2=>A:@:Wait for string in DTMF [0102]
+4=>A:@:Activate Call Waiting service [*#43#]
+6=>A:@:Go on-hook & wait [1.6]
+8=>A:@:Wait for string in DTMF [0103]
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for string in DTMF [0102]
+9=End of script
+
+[Actions]
+File=Abacus.ACT
+
+[GotoActions__NTF_0106_B1 Terminate]
+1=0
+2=0
+3=0
+
+[NTF_0104_AFT]
+7=;>A:@:Wait for Background Beeps
+12=;>C:@:Wait for string in DTMF [0]
+8=;>A:@:Wait for Time [2]
+13=;>C:@:Wait for string in DTMF [0]
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for Time [2]
+9=;>A:@:Wait for Background Beeps
+10=;>C:@:Wait for string in DTMF [0]
+14=>C:@:Wait for string in DTMF [0104]
+23=>A:@:Wait for Time [31]
+18=>C:@:Go on-hook & wait [1]
+2=>A:@:Wait for string in DTMF [0102]
+6=>C:A:E calls B1
+11=;>C:@:Wait for string in DTMF [0]
+20=>B:@:Go on-hook & wait [1]
+15=>C:@:Wait for Time [30]
+24=End of script
+19=>A:@:Go on-hook & wait [1]
+3=>A:@:Go on-hook & wait [1]
+21=>A:@:Wait for dial tone
+16=>C:@:Wait for string in DTMF [0105]
+4=>Make a call, do path confirm
+22=>B:@:Wait for dial tone
+17=;>Do path confirm
+
+[NTF_0106_B1 Originate]
+3=>Make a call, do path confirm
+7=>A:@:Wait for Background Beeps
+12=End of script
+2=>A:@:Go on-hook & wait [1.6]
+4=>A:@:Wait for Time [2]
+6=>A:@:Wait for Time [2]
+8=>A:@:Wait for Time [15]
+11=>A:@:Wait for Time [1]
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for Background Beeps
+9=>A:@:Go on-hook & wait [1]
+10=>A:@:Dial 1471
+
+[NTF_0105_B2 Terminate]
+1=>Path conf for TS
+2=>A:@:Wait for Time [6]
+3=End of script
+
+[NTF_0104_E Originate]
+1=>E calls B1
+3=>A:@:Wait for Time [30]
+5=>A:@:Go on-hook & wait [60]
+2=>A:@:Wait for string in DTMF [0104]
+4=;>A:@:Wait for string in DTMF [0105]
+6=End of script
+
+[NTF_0105_E Originate]
+1=>E calls B1
+2=>A:@:Wait for Time [36]
+3=;>Do path confirm
+4=End of script
+
+[GotoActions__NTF_0104_AFT]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[NTF_0105_AFT]
+7=;>A:@:Wait for Background Beeps
+12=;>C:@:Wait for string in DTMF [0]
+8=;>A:@:Wait for Time [2]
+13=;>C:@:Wait for string in DTMF [0]
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for Time [2]
+9=;>A:@:Wait for Background Beeps
+10=;>C:@:Wait for string in DTMF [0]
+14=>C:@:Wait for string in DTMF [0104]
+23=>A:@:Wait for Time [30]
+18=>A:@:Go on-hook & wait [1]
+2=;>A:@:Wait for string in DTMF [0102]
+6=>C:A:E calls B1
+11=;>C:@:Wait for string in DTMF [0]
+20=>A:@:Wait for incoming call
+15=>C:@:Wait for Time [2]
+24=End of script
+19=>B:@:Go on-hook & wait [1]
+3=>A:@:Go on-hook & wait [1]
+21=;>A:@:Wait for dial tone
+16=;>C:@:Wait for string in DTMF [0105]
+4=>Make a call, do path confirm
+22=>A:C:Do path confirm
+17=;>Do path confirm
+
+[GotoActions__NTF_0105_E Originate]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__NTF_0105_B2 Terminate]
+1=0
+2=0
+3=0
+
+[GotoActions__NTF_0105_AFT]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__NTF_0106_E1 Originate]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[NTF_0106_AFT]
+7=;>A:@:Wait for Background Beeps
+12=;>C:@:Wait for string in DTMF [0]
+25=End of script
+8=;>A:@:Wait for Time [2]
+13=;>C:@:Wait for string in DTMF [0]
+1=>A:@:Activate Call Waiting service [*43#]
+9=;>A:@:Wait for Background Beeps
+14=>C:@:Wait for string in DTMF [0104]
+2=;>A:@:Wait for string in DTMF [0102]
+6=>C:A:E calls B1
+11=;>C:@:Wait for string in DTMF [0]
+20=>A:@:Wait for Time [20]
+15=>C:@:Wait for Time [2]
+24=>C:@:Wait for string in DTMF [4041]
+19=>Do path confirm
+3=>A:@:Go on-hook & wait [1]
+21=>C:@:Go on-hook & wait [1]
+16=;>C:@:Wait for string in DTMF [0105]
+4=>Make a call, do path confirm
+22=>A:@:Go on-hook & wait [1]
+17=;>Do path confirm
+5=>A:@:Wait for Time [2]
+10=;>C:@:Wait for string in DTMF [0]
+23=>A:@:Dial 1471
+18=>C:@:Go on-hook & wait [1]
+
+[NTF_0106_B1 Terminate]
+1=>Path conf for TS
+2=>A:@:Wait for Time [30]
+3=End of script
+
+[GotoActions__NTF_0104_E Originate]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__NTF_0103_B1 Originate (After MML)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__NTF_0106_AFT]
+7=0
+12=0
+25=0
+8=0
+13=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[NTF_0107_AFT]
+7=>A:@:Recall
+12=>C:@:Wait for string in DTMF [0040]
+8=>B:@:Wait for string in DTMF [0040]
+13=>Do path confirm
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for Time [2]
+9=>A:C:Do path confirm
+10=>A:@:Wait for Time [20]
+14=>A:@:Wait for Time [20]
+23=>C:@:Wait for dial tone
+18=>C:@:Go on-hook & wait [1]
+2=>A:@:Go on-hook & wait [1]
+6=>C:A:E calls B1
+11=>A:@:Recall
+20=>B:@:Go on-hook & wait [1]
+15=>A:@:Recall
+24=End of script
+19=>A:@:Go on-hook & wait [1]
+3=;>A:@:Wait for Time [30]
+21=>A:@:Wait for dial tone
+16=>B:@:Wait for string in DTMF [0040]
+4=>Make a call, do path confirm
+22=>B:@:Wait for dial tone
+17=>A:C:Do path confirm
+
+[NTF_0104_B2 Terminate]
+1=>Path conf for TS
+3=>A:@:Go on-hook & wait [1.4]
+5=;>A:@:Go on-hook & wait [1.6]
+2=>A:@:Wait for Time [36]
+4=>A:@:Wait for dial tone
+6=End of script
+
+[NTF_0105_B1 Originate]
+3=>Make a call, do path confirm
+7=>A:@:Wait for Background Beeps
+12=End of script
+2=>A:@:Go on-hook & wait [1.6]
+4=>A:@:Wait for Time [2]
+6=>A:@:Wait for Time [2]
+8=>A:@:Wait for Time [4]
+11=>Do path confirm
+1=>A:@:Activate Call Waiting service [*43#]
+5=>A:@:Wait for Background Beeps
+9=>A:@:Go on-hook & wait [3]
+10=>A:@:Wait for Time [5]
+
+[GotoActions__NTF_0103_B1 Originate (Before MML)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__NTF_0107_AFT]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__NTF_0104_B2 Terminate]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+

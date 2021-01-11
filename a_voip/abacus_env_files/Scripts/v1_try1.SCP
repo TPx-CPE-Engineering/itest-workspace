@@ -1,0 +1,617 @@
+[GotoActions__Call and Do path conf for CL]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0996_D : E1]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0999 : E1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Prespective_0989 : B1]
+3=Announcement is heard [????]
+7=Wait On hook [2]
+12=Do path confirmation for some secs [10]
+4=Dial a string , no wait or dial tone [5]
+8=Dial a string [*227#]
+13=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=Announcement is heard [????]
+2=A:@:wait for silence [0.5]
+6=Announcement is heard [????]
+11=;B1 receives a distinctive ring tone
+
+[Prespective_0996_D : E1]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=End of script
+
+[Prespective_0997_A : E1]
+3=A:@:Announcement is heard [????]
+7=;E1 receives a distinctive ring rone.
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+8=Do path confirmation for call length
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=End of script
+
+[GotoActions__Prespective_1000 : E]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0997_A : B2]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_1001 : B2]
+1=0
+2=0
+
+[GotoActions__try1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Prespective_0996_D : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Prespective_0991 : B1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Prespective_0989 : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Prespective_0999 : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Actions]
+File=Raleigh_3WC.ACT
+
+[Prespective_0994_B : B2]
+1=A:@:Wait On hook [2]
+2=End of script
+
+[Prespective_0996_D : B2]
+1=;Wait for the Ringing tone
+3=;B2 does not ring.
+5=A:@:Wait On hook [2]
+7=Do path confirmation for call length
+2=Do path confirmation for call length
+4=;RING BACK is not diverted to B1.
+6=;B2 receives a distinctive ring tone
+8=End of script
+
+[Prespective_0997_A : B2]
+1=A:@:Dial a string [*21*<B1>#]
+2=A:@:Wait On hook [2]
+3=End of script
+
+[try1]
+1=A:@:Go OffHook
+3=Do path confirmation for ? s
+5=A:@:Send string in DTMF [+17748881112]
+2=A:@:Send string in DTMF [+17748881111]
+4=A:@:Do Hook Flash
+6=End of script
+
+[GotoActions__Prespective_0990 : B1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Prespective_0993 : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Prespective_0998 : B2]
+1=0
+2=0
+3=0
+
+[Prespective_0990 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=A:@:wait for silence [0.5]
+7=End of script
+2=Do path confirmation for call length
+4=A:@:Dial a string [*227#]
+6=A:@:Announcement is heard [????]
+
+[GotoActions__Prespective_0995 : B1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Prespective_1001 : E1]
+3=A:@:wait for silence [0.5]
+7=A:@:Announcement is heard [????]
+2=;Check that the call gets diverted to B1
+4=A:@:Announcement is heard [????]
+6=A:@:wait for silence [0.5]
+8=A:@:Wait On hook [2]
+11=End of script
+1=Make a call
+5=A:@:Dial a string , no wait or dial tone [5]
+9=;E1 receives a distinctive ring tone.
+10=Do path confirmation for call length
+
+[Prespective_0995 : B2]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=End of script
+
+[try3]
+1=C:@:Wait for time in seconds [60]
+3=C:@:Send string in DTMF [+17748881111]
+5=End of script
+2=C:@:Go OffHook
+4=C:B:Do path confirmation for ? s
+
+[GotoActions__Prespective_0992_B : B2]
+1=0
+2=0
+3=0
+
+[Abacus Default Script]
+1=End of script
+
+[Prespective_0999 : E1]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+8=;E1 receives a distinctive ring tone
+11=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=;Check the display for tel. no. of B3 and the symbol RINGBACK
+10=A:@:Wait off hook [5]
+
+[Prespective_0992_B : B2]
+1=;Wait for the Ringing tone
+2=Do path confirmation for some secs [10]
+3=End of script
+
+[Wait for Ring and Do path for CL]
+1=A:@:Go OffHook
+2=A:@:Send string in DTMF [+17748881111]
+3=End of script
+
+[GotoActions__Prespective_0996_B : B2]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_1001 : B1]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Prespective_1001 : B2]
+1=A:@:Wait On hook [2]
+2=End of script
+
+[Prespective_0996_B : B2]
+1=;B2 receives a distinctive ring tone
+2=Do path confirmation for call length
+3=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=End of script
+
+[GotoActions__Prespective_0994_B : B1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Prespective_0997_C : E1]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0989 : B1]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Prespective_0991 : B1]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+12=;B1 receives a distinctive ring tone
+4=A:@:Dial a string , no wait or dial tone [5]
+8=A:@:Dial a string [*341#]
+13=Do path confirmation for some secs [10]
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [????]
+14=End of script
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [????]
+11=A:@:Wait On hook [2]
+
+[Prespective_0989 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=Do path confirmation for some secs [10]
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone
+6=End of script
+
+[Prespective_0999 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=;Check the display for tel. no. of E1
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone
+6=End of script
+
+[Prespective_0994_B : B1]
+1=;B1 receives a distinctive ring tone
+2=A:@:wait for silence [0.5]
+3=A:@:Announcement is heard [????]
+4=End of script
+
+[GotoActions__Abacus Default Script]
+1=0
+
+[Prespective_0998 : E1]
+1=Make a call
+2=A:@:wait for silence [0.5]
+3=A:@:Announcement is heard [????]
+4=End of script
+
+[Prespective_0997_C : E1]
+1=Make a call
+2=;Confirm it is not prompted for Ring back request.
+3=End of script
+
+[GotoActions__try2]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Prespective_1000 : B1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Prespective_0991 : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Prespective_1000 : B2]
+1=;Wait for the Ringing tone
+2=A:@:Wait On hook [2]
+3=End of script
+
+[Call and Do path conf for CL]
+1=Make a call
+2=Do path confirmation for call length
+3=End of script
+
+[GotoActions__Prespective_0996_F : B2]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Prespective_0993 : B1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Prespective_0990 : B1]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+8=;B1 receives a distinctive ring tone
+11=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [????]
+
+[Prespective_0993 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=A:@:wait for silence [0.5]
+7=End of script
+2=Do path confirmation for call length
+4=A:@:Dial a string [*261#]
+6=A:@:Announcement is heard [????]
+
+[Prespective_0998 : B2]
+1=Do path confirmation for call length
+2=;B2 hears the background beeps
+3=End of script
+
+[Prespective_0996_F : B2]
+1=;B2 receives a distinctive ring tone
+2=;Dont answer till no reply timer expires.
+3=Do path confirmation for call length
+4=End of script
+
+[Prespective_0995 : B1]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+12=;B1 receives a distinctive ring tone
+4=A:@:Dial a string , no wait or dial tone [5]
+8=A:@:Dial a string [*261#]
+13=Do path confirmation for call length
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [????]
+14=End of script
+2=A:@:wait for silence [0.5]
+6=A:@:Announcement is heard [????]
+11=A:@:Wait On hook [2]
+
+[Prespective_1000 : E]
+1=Make a call
+2=;No announcement is heard
+3=End of script
+
+[try2]
+1=A:@:Go OffHook
+3=Do path confirmation for ? s
+5=End of script
+2=A:@:Send string in DTMF [+17748881111]
+4=A:@:Wait for time in seconds [100]
+
+[GotoActions__Prespective_0992_B : B1]
+1=0
+2=0
+3=0
+
+[GotoActions__Prespective_0997_B : B2]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Prespective_0990 : B2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[Prespective_0992_B : B1]
+1=;B1 receives a distinctive ring tone
+2=Do path confirmation for some secs [10]
+3=End of script
+
+[GotoActions__Prespective_0997_A : E1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Prespective_1001 : E1]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Prespective_0995 : B2]
+1=0
+2=0
+3=0
+
+[Prespective_1001 : B1]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=Do path confirmation for call length
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone
+6=End of script
+
+[Prespective_0997_B : B2]
+1=;Wait for the Ringing tone.
+3=A:@:Wait On hook [2]
+5=;Do not answer till the No Reply timer expires.
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone.
+6=End of script
+
+[GotoActions__Wait for Ring and Do path for CL]
+1=0
+2=0
+3=0
+
+[Request for Ring back]
+1=Make a call
+3=A:@:Announcement is heard [????]
+5=A:@:wait for silence [0.5]
+7=End of script
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+
+[GotoActions__Prespective_0994_B : B2]
+1=0
+2=0
+
+[Prespective_1000 : B1]
+1=;Wait for the Ringing tone
+2=Do path confirmation for call length
+3=;No background beeps are heard
+4=End of script
+
+[Prespective_0991 : B2]
+1=;Wait for the Ringing tone
+3=A:@:Wait On hook [2]
+5=Do path confirmation for some secs [10]
+2=Do path confirmation for call length
+4=;Wait for the Ringing tone
+6=End of script
+
+[GotoActions__Request for Ring back]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+
+[GotoActions__Prespective_0998 : E1]
+1=0
+2=0
+3=0
+4=0
+
+[Prespective_0993 : B1]
+3=A:@:Announcement is heard [????]
+7=A:@:Wait On hook [2]
+2=A:@:wait for silence [0.5]
+4=A:@:Dial a string , no wait or dial tone [5]
+6=A:@:Announcement is heard [????]
+8=;B1 receives a distinctive ring tone
+11=End of script
+1=Make a call
+5=A:@:wait for silence [0.5]
+9=A:@:wait for silence [0.5]
+10=A:@:Announcement is heard [????]
+
+[GotoActions__try3]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Prespective_1000 : B2]
+1=0
+2=0
+3=0
+

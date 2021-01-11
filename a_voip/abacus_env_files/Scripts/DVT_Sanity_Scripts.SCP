@@ -1,0 +1,5969 @@
+[DVT_MSG_BLR_CALL_Incoming_001]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length,no path confirm
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait Incoming Call
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:A:AFT Off Hook Do Path confirm once
+10=End of script
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_CALL_OG_017]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__test]
+1=0
+2=0
+
+[SBV_CALL_END_003]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF, confirms once
+5=>A:@:Wait for disconnect tone
+7=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:Go On Hook
+6=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_012]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for ringback
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:A:AFT Off Hook Do Path confirm once
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_007]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[Actions]
+File=Abacus.ACT
+
+[All test]
+7=B:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+30=End of script
+25=A:@:Wait for time in seconds [2]
+8=A calls B, DTMF, confirms once
+13=A:@:AFT Do Falsh Hook 2
+26=A:C:AFT Do Path Confirmation Once
+1=;Test case # SBV_CALL_IC_004
+9=C:A:AFT A calls B, DTMF
+14=AFT Do Path Confirmation Once
+27=AFT Do Path Confirmation Once
+2=B:@:B Offhook
+20=C:@:AFT On Hook and wait 1 sec
+15=A:@:Wait for time in seconds
+28=B:C:AFT Do Path Confirmation Once
+3=A calls B, DTMF, confirms once
+21=A calls B, DTMF, confirms once
+16=;
+29=B:@:Wait for time in seconds [2]
+4=A:@:A,Busy Tone
+22=A:@:AFT Do Hook Flash wait time
+17=;3way call
+5=;Test case for callwaiting
+10=A:@:AFT Wait for Call Waiting Tone
+23=A:C:A calls B, DTMF, confirms once
+18=A:@:AFT On Hook and wait 1 sec
+6=A:@:AFT On Hook and wait 1 sec
+11=A:@:AFT Do Falsh Hook 2
+24=A:@:AFT Do Flash Hook 3
+19=B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_012]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_007]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Feature switch between calls]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[DVT_SANITY_031]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[DVT_SANITY_026]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+11=>B:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Go On Hook
+10=>C:@:Go On Hook
+
+[GotoActions__DVT_MSG_BLR_Midcall_P2P_007]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[SBV_CALL_OG_003]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>A calls B, DTMF, confirms once
+7=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[DVT_MSG_BLR_CALL_Disconnect_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[SBV_FEATURE_011(no euro flashhook)]
+7=>A:@:AFT Do Hook Flash wait time
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms once
+8=>A:@:Wait for time in seconds [2]
+13=>B:@:Wait for disconnect tone
+17=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=>C:@:Wait for disconnect tone
+18=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>B:C:AFT Do Path Confirmation Once
+20=End of script
+15=>B:@:AFT On Hook and wait 1 sec
+19=>C:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__noeurpflashcallwaiting]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[DVT_SANITY_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_User_Goes_OnHook_UserB_OnHold]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_OG_017-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT: 4-way Conference]
+7=A:C:AFT Do Path Confirmation Once
+12=A:@:AFT Do Hook Flash wait time
+8=B:@:Wait for time in seconds [2]
+13=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=AFT A does hookflash and waits for Stutter dial tone
+14=A:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+2=AFT A does hookflash and waits for Stutter dial tone
+6=A:@:Wait for time in seconds [2]
+11=A:D:A calls B, DTMF, confirms once
+20=B:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+24=End of script
+19=B:C:AFT Do Path Confirmation Once
+3=A:C:A calls B, DTMF, confirms once
+21=B:D:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+4=A:@:AFT Do Hook Flash wait time
+22=C:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+
+[GotoActions__SBV_FEATURE_024(euro flashhook)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_FEATURE_012(euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SBV_CALL_OG_002]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__B Offhook,A calls B]
+1=0
+2=0
+3=0
+4=0
+
+[SBV_FEATURE_011(check for path cnf no disconnect tone)]
+3=A:C:A calls B, DTMF, confirms once
+7=AFT Do Path Confirmation Once
+2=A:@:AFT Do Hook Flash wait time
+4=A:@:AFT Do Flash Hook 3
+6=A:C:AFT Do Path Confirmation Once
+8=B:C:AFT Do Path Confirmation Once
+11=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:Wait for time in seconds [2]
+9=A:@:AFT On Hook and wait 1 sec
+10=B:C:AFT Do Path Confirmation Once
+
+[GotoActions__SBV_CALL_P2P_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[called goes onhook]
+3=A:C:A calls B, DTMF, confirms once
+7=AFT Do Path Confirmation Once
+12=End of script
+2=A:@:AFT Do Hook Flash wait time
+4=A:@:AFT Do Flash Hook 3
+6=A:C:AFT Do Path Confirmation Once
+8=B:C:AFT Do Path Confirmation Once
+11=A:C:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:Wait for time in seconds [2]
+9=B:@:Wait for time in seconds [2]
+10=B:@:AFT On Hook and wait 1 sec
+
+[sunitha]
+1=>A calls B, DTMF
+2=>A:@:Wait for 4 sec
+3=>Do path confirmation once
+4=End of script
+
+[DVT_MSG_BLR_Call_P2P_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait for incoming call
+13=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 40 sec [27]
+10=>A:@:Wait for off hook warning tone
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_SANITY_035]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[DVT_SANITY_011]
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for 4 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:Wait for ringback
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [2]
+10=>A:@:Wait for silence
+14=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Send rest string [024970050]
+15=>B:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[DVT_SANITY_006]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for silence
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[GotoActions__SBV_FEATURE_024(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[mix]
+1=SBV_CALL_IC_003()
+2=A calls B (DTMF) and confirms once()
+3=End of script
+
+[GotoActions__SBV_CALL_END_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[AFT: Automatic Callback]
+3=C:@:Wait for time in seconds [5]
+7=C:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+13=End of script
+1=A calls B, DTMF, confirms once
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+2=C:A:AFT A calls B, DTMF
+6=C:@:AFT Off hook wait for stutter dial tone
+11=A:@:AFT On hook wait for incoming call for timeout
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_005]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SBV_CALL_P2P_004-atul]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Manish_Test]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[Scenario3-CGL]
+7=>A:@:AFT On Hook and wait 1 sec
+12=>A:@:AFT Do Falsh Hook 2
+4=>C:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF, confirms once
+13=>A:C:AFT Do Path Confirmation Once
+17=End of script
+1=;
+5=;
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>A:@:AFT Do Falsh Hook 2
+2=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:Aft send VSC for permanent call callwaiting enable
+11=>A:@:Wait for time in seconds
+15=>AFT Do Path Confirmation Once
+3=>B:@:AFT On Hook and wait 1 sec
+16=;
+
+[SBV_CALL_P2P_013-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF, confirms once
+5=>A:@:Wait for disconnect tone
+7=End of script
+2=>A:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_015]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+11=>B:A:AFT Off Hook Do Path confirm once
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [2]
+10=>A:@:Send rest string
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_001]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_SANITY_039]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_015]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_OG_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_Call_Waiting]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SBV_CALL_OG_013-atul]
+1=>B:@:AFT On Hook and wait 1 sec
+3=>A:@:send Digit outside of the Digit Map-atul
+5=>A:@:AFT On Hook and wait 1 sec
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Wait for off hook warning tone
+6=End of script
+
+[GotoActions__DVT_SANITY_001]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_SANITY_034]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT On Hook and wait 1 sec
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:AFT On Hook and wait 1 sec
+10=>A calls B, DTMF, confirms for Call Length
+
+[DVT_SANITY_029]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for 4 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for ringback
+10=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_User_Goes_OnHook_UserB_OnHold]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>Go Off Hook
+2=>C:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms for Call Length for 10 sec
+6=>A:@:Go On Hook
+8=>A:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:Do hook flash, and wait for dial tone and do nothing
+9=>B:@:Go On Hook
+10=End of script
+
+[GotoActions__A calls B (DTMF) and confirms once]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_FEATURE_004]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_020]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_015]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[DVT_MSG_BLR_Midcall_P2P_006]
+3=>D:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>AFT Off Hook Do Path confirm once
+4=>E:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>F:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>A:@:Go On Hook
+2=>C:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for incoming call
+
+[GotoActions__SBV_CALL_OG_009-atul-final]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[SBV_FEATURE_012(no euro flashhook)]
+7=>A:@:AFT Do Flash Hook 3
+12=>B:@:Wait for time in seconds [2]
+4=>A calls B, DTMF, confirms once
+8=>A:@:Wait for time in seconds [2]
+13=>B:@:AFT On Hook and wait 1 sec
+17=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=>A:C:AFT Do Path Confirmation Once
+18=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>B:C:AFT Do Path Confirmation Once
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_FEATURE_MWI]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__SBV_CALL_P2P_002-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[SBV_CALL_P2P_001-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF, confirms once
+5=End of script
+2=>A:@:Wait for dial tone
+4=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_FEATURE_027(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[SBV_CALL_P2P_011-atul]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>A:@:Wait for 20 sec
+2=>A calls B, DTMF, confirms once
+4=>A:@:Wait for disconnect tone
+6=>A:@:Wait for off hook warning tone
+8=>A:@:Wait for silence
+1=>B:@:AFT On Hook and wait 1 sec
+5=>A:@:Wait for 20 sec
+9=>A:@:AFT On Hook and wait 1 sec
+10=End of script
+
+[SBV_CALL_P2P_006-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF
+5=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Wait for ringback
+6=End of script
+
+[SBV_FEATURE_014(no euro flashhook)]
+7=>A:@:AFT Do Hook Flash wait time
+12=>B:@:Wait for time in seconds [2]
+4=>A calls B, DTMF, confirms once
+8=>A:@:Wait for time in seconds [2]
+13=>C:@:AFT On Hook and wait 1 sec
+17=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=>AFT Do Path Confirmation Once
+18=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>B:C:AFT Do Path Confirmation Once
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_3WAY CALL]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[SBV_FEATURE_026(no euro flashhook)]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:Wait for dial tone
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:Aft send VSC for permanent call callwaiting enable
+8=>A calls B, DTMF, confirms once
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>C:A:AFT A calls B, DTMF
+10=>C:@:Wait for busy
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:Aft send VSC for per call callwaiting
+11=>A:@:Wait for time in seconds
+
+[DVT_MSG_BLR_Call_P2P_005]
+7=>A:@:AFT Off hook wait for dial tone
+12=>B:@:Wait for busy tone (CGL)
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT Off hook wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:A:A calls B, DTMF
+10=>A:@:Wait for busy tone (CGL)
+14=>A:C:A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:B:A calls B, DTMF
+15=>B:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>D:B:A calls B, DTMF, confirms for Call Length
+
+[GotoActions__DVT_MSG_BLR_CALL_Disconnect_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_038]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[DVT_SANITY_014]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [5]
+10=>A:@:Wait for silence
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:No wait Send string in DTMF [*]
+15=End of script
+
+[DVT_SANITY_009]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Wait for 20 sec
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for off hook warning tone
+
+[GotoActions__SBV_CALL_END_004]
+1=0
+2=0
+3=0
+4=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[Feature disconnect tone]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>C:A:AFT A calls B, DTMF
+12=>A:C:AFT Do Path Confirmation Once
+16=End of script
+4=>C:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT Wait for Call Waiting Tone
+13=>A:@:AFT Do Falsh Hook 2
+1=;
+5=;
+9=>A:@:Wait for time in seconds
+10=>AFT Do Path Confirmation Once
+14=>AFT Do Path Confirmation Once
+2=>A:@:AFT On Hook and wait 1 sec
+6=>A calls B, DTMF, confirms once
+11=>A:@:AFT Do Falsh Hook 2
+15=;
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_013]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Atul-Sanity-all]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SBV_CALL_OG_012-atul-final]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_004]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_MEDIA_001]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__SBV_FEATURE_023(euro flashhook)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__Test-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[SBV_CALL_P2P_001]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>B:@:Wait for incoming call
+5=>A:@:Wait for off hook warning tone
+7=>B:@:AFT On Hook and wait 1 sec
+2=>AFT A calls B, DTMF
+4=>A:@:Wait for 50 sec
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[GotoActions__DVT_SANITY_004]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Scenario4-CGL]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__waiting]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__SBV_FEATURE_014(euro flashhook)]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__all]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DVT_SANITY_023]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[GotoActions__DVT_SANITY_018]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_MIDCALL_006]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[SBV_CALL_OG_014-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:Wait for off hook warning tone
+5=>A:@:send Digit outside of the Digit Map-atul
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Send string in DTMF
+6=>A:@:Wait for off hook warning tone
+8=End of script
+
+[DVT_MSG_BLR_CALL_Incoming_006]
+3=>D:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length,no path confirm
+2=>C:@:AFT On Hook and wait 1 sec
+4=>E:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait for 4 sec
+11=End of script
+1=>F:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>B:@:Wait for incoming call
+10=>AFT Off Hook Do Path confirm once
+
+[GotoActions__SBV_CALL_OG_008]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[SBV_CALL_P2P_005]
+3=>A:@:AFT Off hook wait for dial tone
+7=>A:@:Wait for busy
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off hook wait for dial tone
+6=>B:A:AFT A calls B, DTMF
+8=>B:@:Wait for busy
+11=;>A:@:End of scripts
+1=>A:@:AFT On Hook and wait 1 sec
+5=>AFT A calls B, DTMF
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_003]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Go On Hook
+10=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_FEATURE_010(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SBV_MIDCALL_007(error as no tone)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_CALL_P2P_013-atul]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[SBV_CALL_P2P_012-atul]
+3=>A calls B, DTMF, confirms once
+7=>A:@:Wait for off hook warning tone
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:Wait for 20 sec
+8=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:Wait for disconnect tone
+9=End of script
+
+[SBV_CALL_P2P_007-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Send string in DTMF
+6=End of script
+
+[DVT_SANITY_022]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:A calls B in detail [2024970050]
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait for incoming call
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:A:AFT Off Hook Do Path confirm once
+10=End of script
+
+[DVT_SANITY_017]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for 4 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for ringback
+10=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:AFT On Hook and wait 1 sec
+
+[SBV_CALL_IC_001]
+3=>AFT A calls B, DTMF
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:Wait for incoming call
+6=>AFT Do Path Confirmation Once
+8=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>AFT Off Hook Do Path confirm once
+9=End of script
+
+[DVT_SANITY_036]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms once
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>C:A:AFT A calls B, DTMF
+13=;
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:AFT Wait for Call Waiting Tone
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_IC_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Scenario1]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Test scripts that require only 2 lines(A & B)]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[Scenario3]
+3=>A:@:AFT Wait for Call Waiting Tone
+7=>A:C:AFT Do Path Confirmation Once
+2=>C:A:AFT A calls B, DTMF
+4=>A:@:Wait for time in seconds
+6=>A:@:AFT Do Falsh Hook 2
+8=>A:@:AFT Do Falsh Hook 2
+1=>A calls B, DTMF, confirms once
+5=>AFT Do Path Confirmation Once
+9=>AFT Do Path Confirmation Once
+10=End of script
+
+[GotoActions__DVT_SANITY_012]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_SANITY_007]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[SBV_CALL_OG_017]
+3=>A:A:AFT A calls B, DTMF
+7=>B:@:Wait for busy
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Wait for busy
+6=>B:B:AFT A calls B, DTMF
+8=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:Wait for time in seconds
+9=>B:@:AFT On Hook and wait 1 sec
+10=End of script
+
+[GotoActions__DVT_SANITY_031]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_SANITY_026]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Srini-3-way Calling]
+1=A calls B, DTMF, confirms for Call Length
+3=>A:@:AFT Do Flash Hook 3
+5=End of script
+2=Srini - Do hook flash, and wait for dial tone
+4=>A:@:Wait for time in seconds [2]
+
+[GotoActions__SBV_FEATURE_011(check for path cnf no disconnect tone)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DVT_MSG_BLR_Call_P2P_012]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[DVT_MSG_BLR_Call_P2P_007]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT On Hook and wait 1 sec
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:AFT On Hook and wait 1 sec
+10=>A calls B, DTMF, confirms for Call Length
+
+[AFT: Call Waiting1]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>C:A:AFT A calls B, DTMF
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Aft offhook send VSC for call waiting disable
+6=>A calls B, DTMF, confirms once
+8=>C:@:Wait for busy
+11=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_MIDCALL_009]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (DTMF) and confirms once]
+3=; confirm that the call was established correctly
+7=; in the Configure | Phones window.
+12=>A calls B, DTMF, confirms once
+4=; and then go on hook.
+8=;
+13=End of script
+1=; This script makes a call from circuit A to
+5=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+2=; circuit B with DTMF dialling. The two channels
+6=; Configure the phone numbers for the circuits first,
+11=;
+
+[SBV_CALL_END_002]
+1=>A calls B, DTMF, confirms once
+3=>A:@:Wait for disconnect tone
+5=>A:@:Wait for off hook warning tone
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:A Onhook
+4=>A:@:Wait for 20 sec
+6=>B:@:Go On Hook
+8=End of script
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_011]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for ringback
+10=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_006]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for silence
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[DVT_MSG_BLR_Midcall_P2P_007]
+7=>A calls B, DTMF, confirms for Call Length
+12=>B:@:Go On Hook
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>A:@:Wait for incoming call
+1=>A:@:AFT On Hook and wait 1 sec
+5=>F:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>B:@:Do hook flash, and wait for dial tone and do nothing
+14=>B:@:Wait for incoming call
+18=>Do path confirmation once
+2=>C:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+11=>A:@:Go On Hook
+20=>B:@:Go On Hook
+15=>A:@:AFT Off Hook
+19=>A:@:Go On Hook
+3=>D:@:AFT On Hook and wait 1 sec
+21=End of script
+16=>B:@:AFT Off Hook
+4=>E:@:AFT On Hook and wait 1 sec
+17=>A:@:Wait for 40 sec [4]
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_011]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_006]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[SBV_MIDCALL_007(error as no tone)]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>C:@:AFT On Hook and wait 1 sec
+12=>C:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms once
+8=;; there shud be no call waiting tone
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>C:A:AFT A calls B, DTMF
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT Wait for Call Waiting Tone
+11=>B:@:AFT On Hook and wait 1 sec
+
+[A calls B (DTMF) and confirms for random CL]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for random CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__SBV_FEATURE_026(euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[DVT_SANITY_030]
+7=>A calls B, DTMF, confirms for Call Length
+12=>B:@:Go On Hook
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>A:@:Wait for incoming call
+1=>A:@:AFT On Hook and wait 1 sec
+5=>F:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>B:@:Do hook flash, and wait for dial tone and do nothing
+14=>B:@:Wait for incoming call
+18=>Do path confirmation once
+2=>C:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+11=>A:@:Go On Hook
+20=>B:@:Go On Hook
+15=>A:@:AFT Off Hook
+19=>A:@:Go On Hook
+3=>D:@:AFT On Hook and wait 1 sec
+21=End of script
+16=>B:@:AFT Off Hook
+4=>E:@:AFT On Hook and wait 1 sec
+17=>A:@:Wait for 40 sec [4]
+
+[DVT_SANITY_025]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Call Progress Detection
+16=End of script
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>A:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms for Call Length
+10=>A:@:Do hook flash
+14=>C:@:Go On Hook
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:Call Progress Detection
+15=>B:@:Go On Hook
+
+[GotoActions__DVT_MSG_BLR_Midcall_P2P_006]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[DVT_MSG_BLR_CALL_Incoming_004]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>B:A:A calls B, DTMF
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait for ringback
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>C:A:A calls B, DTMF
+10=>A:@:Wait for busy tone (CGL)
+
+[SBV_CALL_OG_002]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms once
+6=>B:@:AFT On Hook and wait 1 sec
+
+[waiting]
+1=B:@:B Offhook
+2=A calls B, DTMF
+3=A:@:Wait for incoming call
+4=End of script
+
+[DVT_MSG_BLR_CALL_Disconnect_001]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>F:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>C:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A:@:Wait for silence
+2=>D:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>E:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[SBV_CALL_P2P_003]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>AFT A calls B, DTMF
+5=>B:@:AFT Off hook wait for dial tone
+7=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_001]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for silence
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for 15 sec
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+
+[DVT_SANITY_039]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Call Progress Detection
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms for Call Length
+10=>A:@:AFT On Hook and wait 1 sec
+14=>C:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:Call Progress Detection
+15=End of script
+
+[GotoActions__AFT: Automatic Callback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[DVT_MSG_BLR_Midcall_P2P_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+11=>A:@:Call Progress Detection
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>A:@:Do hook flash
+
+[DVT_SANITY_001]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for silence
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[SBV_FEATURE_012(euro flashhook)]
+7=A:@:AFT Do Flash Hook 3
+12=B:@:Wait for time in seconds [2]
+4=A calls B, DTMF, confirms once
+8=A:@:Wait for time in seconds [2]
+13=B:@:AFT On Hook and wait 1 sec
+17=C:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=A:C:AFT Do Path Confirmation Once
+10=AFT Do Path Confirmation Once
+14=A:C:AFT Do Path Confirmation Once
+18=End of script
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms once
+11=B:C:AFT Do Path Confirmation Once
+15=A:@:AFT On Hook and wait 1 sec
+3=C:@:AFT On Hook and wait 1 sec
+16=B:@:AFT On Hook and wait 1 sec
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[GotoActions__DVT_MSG_BLR_CALL_Disconnect_003]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[DVT_SANITY_020]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[DVT_SANITY_015]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[GotoActions__called goes onhook]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_Midcall_P2P_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SBV_CALL_OG_012-atul-final]
+1=>AFT A calls B, DTMF
+3=>A:@:Wait for ringback
+5=>A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=>B:@:Wait for incoming call
+4=>B:A:AFT Off Hook Do Path confirm once
+6=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_IC_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__SBV_FEATURE_011(euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__All test]
+7=0
+12=0
+30=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+20=0
+15=0
+28=0
+3=0
+21=0
+16=0
+29=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+6=0
+11=0
+24=0
+19=0
+
+[DVT_MSG_BLR_Call_P2P_001]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:Wait for incoming call
+10=>B:A:AFT Off Hook Do Path confirm once
+
+[SBV_MIDCALL_006]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT On Hook and wait 1 sec
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms once
+8=>C:@:AFT On Hook and wait 1 sec
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:@:Wait for incoming call
+10=>A:@:AFT Off Hook
+14=>C:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>AFT Do Path Confirmation Once
+15=End of script
+
+[Scenario1]
+1=A calls B, DTMF, confirms for Call Length
+2=B:@:AFT On Hook and wait 1 sec
+3=A:@:Wait for disconnect tone
+4=End of script
+
+[noeuroflash]
+3=A:C:A calls B, DTMF, confirms once
+7=AFT Do Path Confirmation Once
+2=A:@:AFT Do Hook Flash wait time
+4=A:@:AFT Do Hook Flash wait time
+6=A:C:AFT Do Path Confirmation Once
+8=B:C:AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:Wait for time in seconds [2]
+9=B:@:Wait for time in seconds [2]
+10=End of script
+
+[SBV_FEATURE_024(euro flashhook)]
+3=C:@:AFT On Hook and wait 1 sec
+7=A:@:AFT Do Falsh Hook 2
+12=B:@:AFT On Hook and wait 1 sec
+4=A calls B, DTMF, confirms for Call Length
+8=AFT Do Path Confirmation Once
+13=C:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=A:@:AFT Do Falsh Hook 2
+10=A:C:AFT Do Path Confirmation Once
+14=End of script
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms for Call Length,no path confirm
+11=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_SANITY_034]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_SANITY_029]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[DVT_SANITY_010]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for 4 sec
+16=End of script
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [2]
+10=>A:@:Wait for silence
+14=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Send rest string [024970050]
+15=>A calls B, DTMF, confirms for Call Length
+
+[DVT_SANITY_005]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Send second string in DTMF [0]
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__Scenario3-CGL]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT: Call Waiting1]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[test12]
+3=A:@:AFT Wait for Call Waiting Tone
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=AFT Do Path Confirmation Once
+6=A:@:AFT Do Falsh Hook 2
+8=C:@:AFT On Hook and wait 1 sec
+11=End of script
+1=A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+9=A:@:AFT Do Falsh Hook 2
+10=A:C:AFT Do Path Confirmation Once
+
+[GotoActions__SBV_FEATURE_026(no euro flashhook)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[noeurpflashcallwaiting]
+3=A:@:AFT Wait for Call Waiting Tone
+7=A:@:AFT Do Hook Flash wait time
+2=C:A:AFT A calls B, DTMF
+4=AFT Do Path Confirmation Once
+6=A:C:AFT Do Path Confirmation Once
+8=AFT Do Path Confirmation Once
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Hook Flash wait time
+9=End of script
+
+[DVT_MSG_BLR_CALL_Incoming_003]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:Wait for incoming call
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 40 sec [25]
+10=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_004]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_P2P_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[GotoActions__DVT_SANITY_010]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_005]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[SBV_FEATURE_013(no euro flashhook)]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Do Hook Flash wait time
+12=>B:@:Wait for time in seconds [2]
+16=End of script
+4=>A calls B, DTMF, confirms once
+8=>A:@:Wait for time in seconds [2]
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>B:C:AFT Do Path Confirmation Once
+15=>C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_OG_013-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+3=B:C:A calls B, DTMF, confirms once
+5=A:C:AFT Do Path Confirmation Once
+2=B:@:Do hook flash, and wait for dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[SBV_CALL_OG_015]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>B:@:Wait for incoming call
+7=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:A calls B, DTMF
+6=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_004]
+3=>B:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:AFT On Hook and wait 1 sec
+4=>C:@:AFT On Hook and wait 1 sec
+8=>C:A:AFT A calls B, DTMF
+13=>B:@:AFT On Hook and wait 1 sec
+1=;Call waiting disabled
+5=>A:@:Aft send VSC for permanent call callwaiting disable
+9=>C:@:Wait for busy
+10=>A:@:AFT On Hook and wait 1 sec
+14=>C:@:AFT On Hook and wait 1 sec
+2=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+11=>A:@:Aft send VSC for permanent call callwaiting enable
+15=End of script
+
+[SBV_MIDCALL_001]
+3=>A calls B, DTMF, confirms once
+7=>A:@:AFT Do Hook Flash wait time
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT A does hookflash and waits for dial tone
+6=>A:@:Wait for time in seconds
+8=>AFT Do Path Confirmation Once
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>B:@:Wait for silence
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_011(euro flashhook)]
+7=A:@:AFT Do Flash Hook 3
+12=A:@:AFT On Hook and wait 1 sec
+4=A calls B, DTMF, confirms once
+8=A:@:Wait for time in seconds [2]
+13=B:@:Wait for disconnect tone
+17=A:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=A:C:AFT Do Path Confirmation Once
+10=AFT Do Path Confirmation Once
+14=C:@:Wait for disconnect tone
+18=B:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms once
+11=B:C:AFT Do Path Confirmation Once
+20=End of script
+15=B:@:AFT On Hook and wait 1 sec
+19=C:@:AFT On Hook and wait 1 sec
+3=C:@:AFT On Hook and wait 1 sec
+16=C:@:AFT On Hook and wait 1 sec
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_014]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [5]
+10=>A:@:Wait for silence
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:No wait Send string in DTMF [*]
+15=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_009]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Wait for 20 sec
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for off hook warning tone
+
+[GotoActions__DVT_SANITY_024]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_019]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_014]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_009]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_CALL_IC_002-atul]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Scenario4-CGL]
+7=>B:@:AFT On Hook and wait 1 sec
+12=>A:@:AFT Wait for Call Waiting Tone
+8=>C:@:AFT On Hook and wait 1 sec
+13=>A:@:Wait for time in seconds
+1=;
+5=>Aft send VSC for permanent call callwaiting enable
+9=;
+10=>A calls B, DTMF, confirms once
+14=>A:@:AFT Do Hook Flash wait time
+18=>A:@:AFT On Hook and wait 1 sec
+2=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+11=>C:A:AFT A calls B, DTMF
+20=>C:@:AFT On Hook and wait 1 sec
+15=>A:C:AFT Do Path Confirmation Once
+19=>B:@:AFT On Hook and wait 1 sec
+3=>B:@:AFT On Hook and wait 1 sec
+21=;
+16=>A:@:AFT Do Hook Flash wait time
+4=>C:@:AFT On Hook and wait 1 sec
+22=End of script
+17=>AFT Do Path Confirmation Once
+
+[GotoActions__AFT: Call Forwarding]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DVT_SANITY_033]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_028]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Wait for 1 sec
+16=End of script
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>C:A:Do path confirmation for ? s
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>A:C:A calls B, DTMF
+14=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>C:@:AFT Off Hook
+15=>C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__test12]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Srini-3-way Calling]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[DVT_MSG_BLR_CALL_Disconnect_004]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[SBV_CALL_P2P_006]
+3=>AFT A calls B, DTMF
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:Wait for incoming call
+6=>B:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_004]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+11=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_SANITY_014]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_009]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DVT_MSG_BLR_3WAY CALL]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Call Progress Detection
+16=End of script
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>A:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms for Call Length
+10=>A:@:Do hook flash
+14=>C:@:Go On Hook
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:Call Progress Detection
+15=>B:@:Go On Hook
+
+[GotoActions__sunitha]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__ABC]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[DVT_MSG_BLR_Midcall_P2P_005]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Wait for 1 sec
+16=End of script
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>C:A:Do path confirmation for ? s
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=>A:C:A calls B, DTMF
+14=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>C:@:AFT Off Hook
+15=>C:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_026(euro flashhook)]
+7=A calls B, DTMF, confirms once
+12=A:@:AFT Do Falsh Hook 2
+4=A:@:Aft send VSC for per call callwaiting
+8=C:A:AFT A calls B, DTMF
+13=AFT Do Path Confirmation Once
+17=End of script
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT On Hook and wait 1 sec
+9=A:@:AFT Wait for Call Waiting Tone
+10=A:@:AFT Do Falsh Hook 2
+14=A:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=A:@:AFT On Hook and wait 1 sec
+11=A:C:AFT Do Path Confirmation Once
+15=B:@:AFT On Hook and wait 1 sec
+3=C:@:AFT On Hook and wait 1 sec
+16=C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_OG_010-atul-final]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[DVT_Sanity_Scripts]
+7=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_005()
+12=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_010()
+8=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_006()
+13=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_011()
+1=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_013()
+5=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_003()
+9=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_007()
+10=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_008()
+14=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_012()
+18=DVT_MSG_BLR_Call_P2P_007()
+2=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_014()
+6=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_004()
+11=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_009()
+20=DVT_MSG_BLR_Call_P2P_012()
+15=DVT_MSG_BLR_Call_P2P_001()
+19=DVT_MSG_BLR_Call_P2P_011()
+3=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_001()
+21=End of script
+16=DVT_MSG_BLR_Call_P2P_003()
+4=DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_002()
+17=DVT_MSG_BLR_Call_P2P_006()
+
+[SBV_FEATURE_023(no euro flashhook)]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:Wait for 50 sec
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms for Call Length
+8=>A:@:AFT Do Hook Flash wait time
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>AFT Do Path Confirmation Once
+10=>A:@:AFT Do Hook Flash wait time
+14=>C:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:AFT A calls B, DTMF
+11=>A:@:Wait for dial tone
+15=End of script
+
+[SBV_CALL_OG_010-atul-final]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A calls B, no path confirm
+6=End of script
+
+[GotoActions__Manish_Test]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[DVT_SANITY_023]
+7=>A:@:AFT Off Hook
+12=>C:@:Wait for incoming call
+8=>A:@:Wait for dial tone
+13=>A:@:Wait for 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [2]
+10=>A:@:Wait for silence
+14=>C:A:AFT Off Hook Do Path confirm once
+23=End of script
+18=>B:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Send rest string [024970054]
+20=>D:@:Wait for incoming call
+15=>B:@:AFT Off Hook
+19=>B:@:Send rest string [024970053]
+3=>C:@:AFT On Hook and wait 1 sec
+21=>B:@:Wait for 1 sec
+16=>B:@:Wait for dial tone
+4=>D:@:AFT On Hook and wait 1 sec
+22=>D:B:AFT Off Hook Do Path confirm once
+17=>B:@:Send string in DTMF [2]
+
+[DVT_SANITY_018]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT On Hook and wait 1 sec
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:AFT On Hook and wait 1 sec
+10=>A calls B, DTMF, confirms for Call Length
+
+[GotoActions__SBV_CALL_OG_016-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__SBV_CALL_P2P_005]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[DVT_SANITY_037]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>C:@:Call Progress Detection
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms for Call Length
+10=>A:@:AFT On Hook and wait 1 sec
+14=>C:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:Call Progress Detection
+15=End of script
+
+[SBV_FEATURE_010(euro flashhook)]
+7=A calls B, DTMF, confirms once
+12=A:C:AFT Do Path Confirmation Once
+4=A:@:AFT On Hook and wait 1 sec
+8=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+17=B:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On Hook and wait 1 sec
+9=A:C:A calls B, DTMF, confirms once
+10=A:@:AFT Do Flash Hook 3
+14=B:C:AFT Do Path Confirmation Once
+18=C:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=C:@:AFT On Hook and wait 1 sec
+11=A:@:Wait for time in seconds [2]
+15=B:@:Wait for time in seconds [2]
+19=End of script
+3=C:@:AFT On Hook and wait 1 sec
+16=A:@:AFT On Hook and wait 1 sec
+
+[Scenario1-CGL]
+3=>A:@:AFT On Hook and wait 1 sec
+7=>B:@:AFT On Hook and wait 1 sec
+12=End of script
+2=;
+4=>B:@:AFT On Hook and wait 1 sec
+6=>A calls B, DTMF, confirms for Call Length
+8=>A:@:Wait for disconnect tone
+11=;
+1=;
+5=;
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[Feature-3way call-initiator goes onhook]
+7=>A:@:AFT Do Hook Flash wait time
+12=>B:@:Wait for time in seconds [2]
+4=>A calls B, DTMF, confirms once
+8=>A:@:Wait for time in seconds [2]
+13=>A:@:AFT On Hook and wait 1 sec
+17=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>A:C:AFT Do Path Confirmation Once
+10=>AFT Do Path Confirmation Once
+14=>B:@:Wait for disconnect tone
+18=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:C:A calls B, DTMF, confirms once
+11=>B:C:AFT Do Path Confirmation Once
+15=>C:@:Wait for disconnect tone
+3=>C:@:AFT On Hook and wait 1 sec
+16=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__Scenario2]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[SBV_CALL_OG_004-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, no path confirm
+5=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[DVT_MSG_BLR_Call_P2P_004]
+7=>A:@:AFT Off hook wait for dial tone
+12=>B:@:Wait for busy tone (CGL)
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT Off hook wait for dial tone
+13=>A:@:AFT On Hook and wait 1 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A calls B, DTMF
+10=>A:@:Wait for busy tone (CGL)
+14=>A:C:A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:A:A calls B, DTMF
+15=>B:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>D:B:A calls B, DTMF, confirms for Call Length
+
+[SBV_MIDCALL_009]
+7=>C:A:AFT A calls B, DTMF
+12=>A:@:AFT Do Hook Flash wait time
+4=>A:@:after offhook send vsc for callwaiting enable
+8=>A:@:AFT Wait for Call Waiting Tone
+13=>AFT Do Path Confirmation Once
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>C:@:AFT On Hook and wait 1 sec
+10=>A:@:Do hook flash, and wait for dial tone
+14=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A calls B, DTMF, confirms once
+11=>A:@:Wait for time in seconds
+15=>B:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__mix]
+1=0
+2=0
+3=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Disconnect_001]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_SANITY_037]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_SANITY_013]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone dial string outside digit map
+11=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for off hook warning tone
+10=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_008]
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Send second string in DTMF [1]
+14=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[DVT_MSG_BLR_Call_Waiting]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:Go On Hook
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms for Call Length
+6=>C:@:Go On Hook
+8=>B:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>C:A:A calls B, DTMF
+9=>C:A:A calls B, DTMF, confirms for Call Length
+10=End of script
+
+[SBV_FEATURE_024(no euro flashhook)]
+7=>A:@:AFT Do Hook Flash wait time
+12=>A:@:AFT On Hook and wait 1 sec
+4=>A:@:Aft send VSC for permanent call callwaiting disable
+8=>AFT A calls B, DTMF
+13=>B:@:AFT On Hook and wait 1 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for busy tone (CGL)
+10=>A:@:AFT Do Hook Flash wait time
+14=>C:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A calls B, DTMF, confirms for Call Length
+11=>AFT Do Path Confirmation Once
+15=>A:@:Aft send VSC for permanent call callwaiting enable
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_EXTRA]
+3=A:C:A calls B, DTMF, confirms once
+7=AFT Do Path Confirmation Once
+12=B:@:Wait for disconnect tone
+4=A:@:AFT Do Hook Flash wait time
+8=B:C:AFT Do Path Confirmation Once
+13=C:@:Wait for disconnect tone
+1=A calls B, DTMF, confirms once
+5=A:@:Wait for time in seconds [2]
+9=B:@:Wait for time in seconds [2]
+10=A:@:AFT On Hook and wait 1 sec
+14=End of script
+2=A:@:AFT Do Hook Flash wait time
+6=A:C:AFT Do Path Confirmation Once
+11=A:@:Wait for time in seconds
+
+[Test-atul]
+1=>B:@:AFT On Hook and wait 1 sec
+3=>A:@:Wait for ringback
+5=End of script
+2=>A calls B, no path confirm
+4=>A:@:AFT On Hook and wait 1 sec
+
+[Atul-Sanity-all]
+7=;SBV_CALL_OG_010-atul-final()
+12=;SBV_CALL_OG_015-atul()
+25=;SBV_CALL_P2P_013-atul()
+8=;SBV_CALL_OG_011-atul-final()
+13=;SBV_CALL_OG_016-atul()
+26=End of script
+1=SBV_CALL_END_001()
+9=;SBV_CALL_OG_012-atul-final()
+14=;SBV_CALL_OG_017-atul()
+2=SBV_CALL_END_002()
+6=;SBV_CALL_OG_009-atul-final()
+11=;SBV_CALL_OG_014-atul()
+20=;SBV_CALL_P2P_006-atul()
+15=;SBV_CALL_P2P_001-atul()
+24=;SBV_CALL_P2P_012-atul()
+19=;SBV_CALL_P2P_005-atul()
+3=SBV_CALL_END_003()
+21=;SBV_CALL_P2P_007-atul()
+16=;SBV_CALL_P2P_002-atul()
+4=SBV_CALL_END_004()
+22=;SBV_CALL_P2P_010-atul()
+17=;SBV_CALL_P2P_003-atul()
+5=SBV_CALL_OG_008()
+10=;SBV_CALL_OG_013-atul()
+23=;SBV_CALL_P2P_011-atul()
+18=;SBV_CALL_P2P_004-atul()
+
+[GotoActions__SBV_CALL_END_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[SBV_CALL_OG_011-atul-final]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:Send string in DTMF
+5=>A:@:Wait for ringback
+7=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF
+6=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_014(euro flashhook)]
+3=C:@:AFT On Hook and wait 1 sec
+7=A:@:AFT Do Flash Hook 3
+12=B:@:Wait for time in seconds [2]
+16=End of script
+4=A calls B, DTMF, confirms once
+8=A:@:Wait for time in seconds [2]
+13=A:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=A:C:AFT Do Path Confirmation Once
+10=AFT Do Path Confirmation Once
+14=B:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms once
+11=B:C:AFT Do Path Confirmation Once
+15=C:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_012]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_007]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[GotoActions__SBV_MIDCALL_001]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_P2P_003-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[SBV_CALL_P2P_002-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:Wait for ringback
+5=>A:@:AFT On Hook and wait 1 sec
+2=>A calls B, DTMF
+4=>A:@:Wait for off hook warning tone
+6=End of script
+
+[GotoActions__DVT_SANITY]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__SBV_FEATURE_013(no euro flashhook)]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_017]
+3=>E:@:AFT On Hook and wait 1 sec
+7=>B:@:AFT Off Hook
+12=>A:@:Wait for 4 sec
+4=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT Off Hook
+13=>A:@:AFT On Hook and wait 1 sec
+1=>C:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for dial tone
+10=>A calls B, DTMF
+14=>A calls B, DTMF, confirms for Call Length
+2=>D:@:AFT On Hook and wait 1 sec
+6=>B:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for busy tone (CGL)
+15=End of script
+
+[GotoActions__DVT_SANITY_032]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__DVT_SANITY_027]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_003]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_OG_004-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__SBV_CALL_OG_014-atul]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__SBV_FEATURE_023(no euro flashhook)]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_MSG_BLR_Call_P2P_013]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_023(euro flashhook)]
+3=C:@:AFT On Hook and wait 1 sec
+7=A:@:AFT Do Falsh Hook 2
+12=A:@:AFT On Hook and wait 1 sec
+4=A calls B, DTMF, confirms for Call Length
+8=A:@:Wait for time in seconds
+13=B:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=AFT Do Path Confirmation Once
+10=A:@:AFT Do Falsh Hook 2
+14=C:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms for Call Length,no path confirm
+11=A:C:AFT Do Path Confirmation Once
+15=End of script
+
+[GotoActions__noeuroflash]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_017]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SBV_MIDCALL_009(no check for disconnect tone)]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_SANITY_003]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SBV_CALL_OG_008]
+3=>A:@:AFT Off hook wait for dial tone
+7=>A:@:Wait for 20 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Send string in DTMF
+6=>A:@:Wait for off hook warning tone
+8=>A:@:Wait for silence
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:Send string in DTMF
+9=End of script
+
+[GotoActions__DVT_SANITY_022]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_SANITY_017]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_MIDCALL_005]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__SBV_FEATURE_011(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__SBV_FEATURE_EXTRA]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DVT_MSG_BLR_CALL_Incoming_005]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>B:A:A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>C:A:A calls B, DTMF
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>C:@:Wait for busy tone (CGL)
+10=End of script
+
+[GotoActions__SBV_CALL_P2P_001-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[test]
+1=A:@:A calls softphone
+2=End of script
+
+[SBV_CALL_P2P_004]
+3=>A:@:AFT Off hook wait for dial tone
+7=>B:A:AFT A calls B, DTMF
+2=>B:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for busy
+8=>B:@:Wait for busy
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>AFT A calls B, DTMF
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[Feature call waiting]
+7=>A calls B, DTMF, confirms once
+12=>A:@:Wait for incoming call
+4=>B:@:AFT On Hook and wait 1 sec
+8=>C:A:AFT A calls B, DTMF
+13=>A:@:AFT Off Hook
+17=>C:@:AFT On Hook and wait 1 sec
+1=;
+5=>C:@:AFT On Hook and wait 1 sec
+9=>A:@:AFT Wait for Call Waiting Tone
+10=>B:@:AFT On Hook and wait 1 sec
+14=>A:C:AFT Off Hook Do Path confirm once
+18=;
+2=;
+6=;
+11=>A:@:AFT On Hook and wait 1 sec
+15=;delay here for good measure
+19=End of script
+3=>A:@:AFT On Hook and wait 1 sec
+16=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 15 sec
+10=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_P2P_011-atul]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_CALL_P2P_006-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[SBV_CALL_P2P_010-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>C:B:AFT A calls B, DTMF
+5=>A calls B, DTMF
+7=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>C:@:Wait for ringback
+6=>A:@:Wait for busy
+
+[SBV_CALL_P2P_005-atul]
+3=>A:@:AFT Off hook wait for dial tone
+7=>B:B:A calls B, DTMF
+2=>A:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for busy
+8=>B:@:Wait for busy
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:A:A calls B, DTMF
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[AFT: 3-way Calling]
+3=>A:C:A calls B, DTMF, confirms once
+7=>AFT Do Path Confirmation Once
+2=>A:@:AFT Do Hook Flash wait time
+4=>A:@:AFT Do Flash Hook 3
+6=>A:C:AFT Do Path Confirmation Once
+8=>B:C:AFT Do Path Confirmation Once
+1=>A calls B, DTMF, confirms once
+5=>A:@:Wait for time in seconds [2]
+9=>B:@:Wait for time in seconds [2]
+10=End of script
+
+[ABC]
+3=A calls B (DTMF) and confirms once()
+7=A calls B (MF R1) and confirms for Call Length()
+2=A calls B (DTMF) and confirms for random CL()
+4=A calls B (ISDN) and confirms for Call Length()
+6=A calls B (ISUP) and confirms for Call Length()
+8=A calls B (MF R2) and confirms for Call Length()
+1=A calls B (DTMF) and confirms for Call Length()
+5=A calls B (ISDN) and confirms for random CL()
+9=A calls B (no dial tone) for Call Length()
+10=End of script
+
+[GotoActions__DVT_MSG_BLR_CALL_Disconnect_004]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[DVT_SANITY_021]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_016]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for 4 sec
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for ringback
+10=>A:@:Wait for time in seconds [25]
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for off hook warning tone
+15=End of script
+
+[SBV_FEATURE_027(no euro flashhook)]
+7=>A:@:Wait for dial tone
+12=>A:C:AFT Do Path Confirmation Once
+4=>A:@:Aft send VSC for permanent call callwaiting disable
+8=>A calls B, DTMF, confirms once
+13=>A:@:AFT Do Falsh Hook 2
+17=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>C:A:AFT A calls B, DTMF
+10=>A:@:AFT Wait for Call Waiting Tone
+14=>AFT Do Path Confirmation Once
+18=>A:@:Aft send VSC for permanent call callwaiting enable
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A:@:Aft send VSC for per call callwaiting enable
+11=>A:@:AFT Do Falsh Hook 2
+20=End of script
+15=>A:@:AFT On Hook and wait 1 sec
+19=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_Midcall_P2P_002]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[SBV_FEATURE_013(euro flashhook)]
+3=C:@:AFT On Hook and wait 1 sec
+7=A:@:AFT Do Flash Hook 3
+12=B:@:Wait for time in seconds [2]
+16=End of script
+4=A calls B, DTMF, confirms once
+8=A:@:Wait for time in seconds [2]
+13=A:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT Do Hook Flash wait time
+9=A:C:AFT Do Path Confirmation Once
+10=AFT Do Path Confirmation Once
+14=B:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+6=A:C:A calls B, DTMF, confirms once
+11=B:C:AFT Do Path Confirmation Once
+15=C:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_035]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Do hook flash
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=>B:@:Call Progress Detection
+17=>C:@:Go On Hook
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms for Call Length
+10=>A:@:Do hook flash, and wait for dial tone and do nothing
+14=>C:@:Call Progress Detection
+18=>B:@:Go On Hook
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:D:A calls B, DTMF, confirms for Call Length
+15=>D:@:Call Progress Detection
+19=End of script
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A:@:Go On Hook
+
+[GotoActions__SBV_FEATURE_014(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__SBV_FEATURE_012(no euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[Test scripts that require only 3 lines(A , B and C)]
+7=;
+12=Scenario3-CGL()
+8=AFT: 3-way Calling()
+13=;
+31=;
+26=SBV_FEATURE_004()
+1=;
+9=;
+14=SBV_MIDCALL_005()
+32=AFT: Call Waiting1()
+27=;
+2=SBV_FEATURE_014(no euro flashhook)()
+20=SBV_FEATURE_012(no euro flashhook)()
+15=;
+33=;
+28=Scenario4-CGL()
+3=;
+21=;
+16=SBV_MIDCALL_006()
+34=SBV_FEATURE_027(no euro flashhook)()
+29=;
+4=SBV_FEATURE_024(no euro flashhook)()
+22=SBV_FEATURE_026(no euro flashhook)()
+17=;
+35=;
+5=;
+10=SBV_FEATURE_013(no euro flashhook)()
+23=;
+18=SBV_FEATURE_011(no euro flashhook)()
+36=End of script
+6=Feature-3way call-initiator goes onhook()
+11=;
+24=Feature call waiting()
+19=;
+30=SBV_MIDCALL_009()
+25=;
+
+[GotoActions__DVT_Sanity_Scripts]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[all]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone and do path conf
+5=A:@:Wait for time in seconds
+7=End of script
+2=C:A:AFT A calls B, DTMF
+4=C:@:AFT On Hook and wait 1 sec
+6=B:A:Aft do path confirm for 10 sec
+
+[Scenario2]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:@:AFT On Hook and wait 1 sec
+7=A:C:AFT Off Hook Do Path confirm once
+2=C:A:AFT A calls B, DTMF
+4=B:@:AFT On Hook and wait 1 sec
+6=A:@:Wait for incoming call
+8=End of script
+
+[SBV_CALL_OG_009-atul-final]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=>A:@:Send string in DTMF
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Send string in DTMF
+6=>A:@:Wait for off hook warning tone
+8=End of script
+
+[AFT: Call Forwarding]
+3=A:@:AFT On Hook and wait 1 sec
+7=B:@:AFT Off Hook
+2=A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=C:A:AFT A calls B, DTMF
+8=C:B:AFT Do Path Confirmation Once
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+5=B:@:AFT On hook wait for incoming call
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[SBV_CALL_P2P_003-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, no path confirm
+5=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:Wait for busy
+6=End of script
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[GotoActions__DVT_SANITY_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_SANITY_006]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__SBV_CALL_OG_015-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[SBV_FEATURE_005]
+1=;;configure callerid
+3=>B:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=>A:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms once
+6=>B:@:AFT On Hook and wait 1 sec
+
+[SBV_MIDCALL_002]
+1=A:@:AFT On Hook and wait 1 sec
+3=A calls B, DTMF, confirms once
+5=A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=B:@:AFT On Hook and wait 1 sec
+4=A:@:AFT A does hookflash and waits for dial tone
+6=B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_SANITY_030]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+19=0
+3=0
+21=0
+16=0
+4=0
+17=0
+
+[GotoActions__DVT_SANITY_025]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_MSG_BLR_Call_P2P_011]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[DVT_MSG_BLR_Call_P2P_006]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for ringback
+11=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY]
+7=DVT_SANITY_007()
+12=DVT_SANITY_012()
+25=DVT_SANITY_25()
+8=DVT_SANITY_008()
+13=DVT_SANITY_013()
+26=End of script
+1=DVT-SANITY-001()
+9=DVT_SANITY_009()
+14=DVT_SANITY_014()
+2=DVT-SANITY-002()
+6=DVT_SANITY_006()
+11=DVT_SANITY_011()
+20=DVT_SANITY_020()
+15=DVT_SANITY_015()
+24=DVT_SANITY_024()
+19=DVT_SANITY_019()
+3=DVT-SANITY-003()
+21=DVT_SANITY_021()
+16=DVT_SANITY_016()
+4=DVT_SANITY_004()
+22=DVT_SANITY_022()
+17=DVT_SANITY_017()
+5=DVT_SANITY_005()
+10=DVT_SANITY_010()
+23=DVT_SANITY_023()
+18=DVT_SANITY_018()
+
+[GotoActions__SBV_CALL_OG_015]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__SBV_FEATURE_027(euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__AFT: Call Waiting]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[Feature switch between calls]
+3=>A calls B, DTMF, confirms once
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT Do Hook Flash wait time
+6=>AFT Do Path Confirmation Once
+8=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=End of script
+
+[SBV_CALL_END_001]
+1=>A calls B, DTMF, no dial tone, confirms once
+3=>A:@:Wait for disconnect tone
+5=>A:@:Wait for silence
+7=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:Go On Hook
+4=>A:@:Wait for off hook warning tone
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_010]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Send rest string [024970051]
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_005]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Send second string in DTMF [1]
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_CALL_IC_002-atul]
+3=>A:@:AFT Off hook wait for dial tone
+7=>D:B:AFT Do Path Confirmation Once
+2=>B:@:AFT On Hook and wait 1 sec
+4=>C:A:AFT A calls B, DTMF
+6=>C:A:AFT Do Path Confirmation Once
+8=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>D:B:AFT A calls B, DTMF
+9=>B:@:AFT On Hook and wait 1 sec
+10=End of script
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_010]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_005]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[SBV_MIDCALL_009(no check for disconnect tone)]
+3=A:@:AFT Wait for Call Waiting Tone
+7=A:C:AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Falsh Hook 2
+6=A:@:AFT Do Falsh Hook 2
+8=B:@:AFT On Hook and wait 1 sec
+11=End of script
+1=A calls B, DTMF, confirms once
+5=A:@:AFT Do Path Confirmation Once
+9=A:@:AFT Do Falsh Hook 2
+10=A:C:AFT Do Path Confirmation Once
+
+[DVT_SANITY_024]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for 4 sec
+13=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for ringback
+10=>A:@:Wait for 40 sec [30]
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for off hook warning tone
+15=End of script
+
+[DVT_SANITY_019]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[GotoActions__DVT_MSG_BLR_Midcall_P2P_005]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[SBV_CALL_IC_003]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>AFT A calls B, DTMF
+5=>A calls B, DTMF, confirms once
+7=>B:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:AFT On Hook and wait 1 sec
+6=>A:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[SBV_CALL_OG_001]
+3=>A:@:AFT Off hook wait for dial tone
+7=>Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+4=>Wait for 20 sec
+6=>Wait for 20 sec
+8=>Wait for 20 sec
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>Wait for off hook warning tone
+9=>Go On Hook
+10=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_CALL_P2P_012-atul]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__SBV_CALL_P2P_007-atul]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[DVT_SANITY_038]
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone
+13=>B:@:Call Progress Detection
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A calls B, DTMF
+10=>A:@:Wait for 4 sec
+14=>C:@:Call Progress Detection
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for ringback
+15=>B:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>C:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_Midcall_P2P_001]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>B:@:Call Progress Detection
+10=End of script
+
+[GotoActions__SBV_FEATURE_013(euro flashhook)]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Scenario3]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[SBV_MEDIA_001]
+1=A:@:AFT On Hook and wait 1 sec
+3=A calls B, DTMF, confirms for Call Length
+5=B:@:AFT On Hook and wait 1 sec
+2=B:@:AFT On Hook and wait 1 sec
+4=A:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[SBV_CALL_OG_016-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF
+5=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A:@:A,Busy Tone
+6=End of script
+
+[GotoActions__SBV_CALL_P2P_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+3=A:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+2=AFT A calls B, no dial tone, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__SBV_CALL_OG_011-atul-final]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__SBV_MIDCALL_002]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[SBV_MIDCALL_005]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT On Hook and wait 1 sec
+2=>B:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms for Call Length
+6=>A:C:A calls B, DTMF, confirms for Call Length
+8=>B:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT Do Hook Flash wait time
+9=>C:@:AFT On Hook and wait 1 sec
+10=End of script
+
+[GotoActions__DVT_SANITY_033]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_SANITY_028]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_SANITY_004]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+11=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_FEATURE_MWI]
+1=A:@:AFT On Hook and wait 1 sec
+2=A:@:AFT Off hook wait for stutter dial tone
+3=A:@:AFT On Hook and wait 1 sec
+4=End of script
+
+[GotoActions__SBV_CALL_P2P_010-atul]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__SBV_CALL_P2P_005-atul]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[SBV_CALL_P2P_004-atul]
+3=>A:@:AFT Off hook wait for dial tone
+7=>B:A:A calls B, DTMF
+2=>A:@:AFT On Hook and wait 1 sec
+4=>B:@:AFT Off hook wait for dial tone
+6=>A:@:Wait for busy
+8=>B:@:Wait for busy
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A calls B, DTMF
+9=>A:@:AFT On Hook and wait 1 sec
+10=>B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__Feature disconnect tone]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[DVT_MSG_BLR_CALL_Incoming_002]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>C:A:A calls B, DTMF, confirms for Call Length,no path confirm
+12=>B:D:AFT Off Hook Do Path confirm once
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for incoming call
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:C:AFT Off Hook Do Path confirm once
+10=>D:B:A calls B, DTMF, confirms for Call Length,no path confirm
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>B:@:Wait for incoming call
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_003]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_003]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[SBV_CALL_END_004]
+1=>A:@:AFT On Hook and wait 1 sec
+2=>A calls B, DTMF, confirms once
+3=>B:@:AFT On Hook and wait 1 sec
+4=End of script
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_013]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone dial string outside digit map
+11=>A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for off hook warning tone
+10=>A:@:AFT On Hook and wait 1 sec
+
+[DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_008]
+7=>A:@:AFT Off Hook
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=>A:@:Wait for 20 sec
+17=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for silence
+10=>A:@:Send second string in DTMF [1]
+14=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>A calls B, DTMF, confirms for Call Length
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[B Offhook,A calls B]
+1=A:@:AFT Off hook wait for dial tone
+2=A:@:Wait for time in seconds
+3=A calls B, DTMF, confirms once
+4=End of script
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_013]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[SBV_FEATURE_027(euro flashhook)]
+7=A:@:AFT On Hook and wait 1 sec
+12=A:C:AFT Do Path Confirmation Once
+4=A:@:Aft send VSC for permanent call callwaiting disable
+8=A calls B, DTMF, confirms once
+13=A:@:AFT Do Falsh Hook 2
+17=C:@:AFT On Hook and wait 1 sec
+1=A:@:AFT On Hook and wait 1 sec
+5=A:@:AFT On Hook and wait 1 sec
+9=C:A:AFT A calls B, DTMF
+10=A:@:AFT Wait for Call Waiting Tone
+14=AFT Do Path Confirmation Once
+18=End of script
+2=B:@:AFT On Hook and wait 1 sec
+6=A:@:Aft send VSC for per call callwaiting enable
+11=A:@:AFT Do Falsh Hook 2
+15=A:@:AFT On Hook and wait 1 sec
+3=C:@:AFT On Hook and wait 1 sec
+16=B:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_032]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A:@:Wait for off hook warning tone
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=>A:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+14=>A calls B, DTMF, confirms for Call Length
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for 20 sec
+15=End of script
+
+[DVT_SANITY_027]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>B:@:Go On Hook
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Do hook flash, and wait for dial tone and do nothing
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Do hook flash
+10=>B:@:Call Progress Detection
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Go On Hook
+
+[GotoActions__AFT: Call Transfer]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+7=0
+12=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+23=0
+18=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+
+[DVT_MSG_BLR_CALL_Disconnect_003]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A calls B, DTMF, confirms for Call Length
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>B:@:AFT On Hook and wait 1 sec
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 4 sec
+10=>A:@:Wait for disconnect tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_SANITY_013]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__DVT_SANITY_008]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[SBV_FEATURE_010(no euro flashhook)]
+7=>A calls B, DTMF, confirms once
+12=>A:C:AFT Do Path Confirmation Once
+4=>A:@:AFT On Hook and wait 1 sec
+8=>A:@:AFT Do Hook Flash wait time
+13=>AFT Do Path Confirmation Once
+17=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>B:@:AFT On Hook and wait 1 sec
+9=>A:C:A calls B, DTMF, confirms once
+10=>A:@:AFT Do Hook Flash wait time
+14=>B:C:AFT Do Path Confirmation Once
+18=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>C:@:AFT On Hook and wait 1 sec
+11=>A:@:Wait for time in seconds [2]
+15=>A:@:AFT On Hook and wait 1 sec
+3=>C:@:AFT On Hook and wait 1 sec
+16=>B:@:AFT On Hook and wait 1 sec
+
+[DVT_SANITY_003]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+11=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:AFT On Hook and wait 1 sec
+10=>A calls B, DTMF, confirms for Call Length
+
+[GotoActions__Scenario1-CGL]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Test scripts that require only 3 lines(A , B and C)]
+7=0
+12=0
+8=0
+13=0
+31=0
+26=0
+1=0
+9=0
+14=0
+32=0
+27=0
+2=0
+20=0
+15=0
+33=0
+28=0
+3=0
+21=0
+16=0
+34=0
+29=0
+4=0
+22=0
+17=0
+35=0
+5=0
+10=0
+23=0
+18=0
+36=0
+6=0
+11=0
+24=0
+19=0
+30=0
+25=0
+
+[A calls B (no dial tone) for Call Length]
+3=; is determined by the parameter you specify
+7=; The channel waits for a time after going off
+12=;
+4=; in the Partition and Timing window, in the
+8=; hook instead of waiting for dial tone.
+13=A calls B, no dial tone, confirm for CL
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[GotoActions__SBV_CALL_OG_003]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__SBV_CALL_P2P_004]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[Test scripts that require only 2 lines(A & B)]
+7=SBV_CALL_OG_002()
+12=>SBV_CALL_END_002()
+25=>SBV_FEATURE_005()
+8=SBV_MIDCALL_001()
+13=>SBV_CALL_END_003()
+26=>SBV_CALL_P2P_003()
+1=SBV_CALL_P2P_010()
+9=SBV_MIDCALL_002()
+14=>SBV_CALL_END_004()
+27=End of script
+2=Feature switch between calls()
+6=SBV_CALL_OG_001()
+11=>SBV_CALL_END_001()
+20=>SBV_CALL_OG_017()
+15=>SBV_CALL_OG_002()
+24=>SBV_FEATURE_001()
+19=>SBV_CALL_OG_015()
+3=SBV_CALL_P2P_004()
+21=>SBV_CALL_P2P_001()
+16=>SBV_CALL_OG_003()
+4=SBV_CALL_IC_003()
+22=>SBV_CALL_P2P_005()
+17=>SBV_CALL_OG_011()
+5=SBV_CALL_IC_001()
+10=>Scenario1-CGL()
+23=>SBV_CALL_P2P_006()
+18=>SBV_CALL_OG_012()
+
+[DVT_MSG_BLR_Call_P2P_003]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>C:B:A calls B, DTMF, confirms for Call Length
+12=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>D:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+8=>A calls B, DTMF
+11=>D:A:A calls B, DTMF, confirms for Call Length
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for busy tone (CGL)
+10=>A:@:AFT On Hook and wait 1 sec
+
+[SBV_CALL_OG_017-atul]
+1=>B:@:AFT On Hook and wait 1 sec
+3=>A calls B, DTMF
+5=>A:@:AFT On Hook and wait 1 sec
+2=>A:@:AFT Off hook wait for dial tone
+4=>A:@:Wait for busy
+6=End of script
+
+[GotoActions__DVT_SANITY_036]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[DVT_SANITY_012]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>AFT Off Hook Do Path confirm once
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Wait for dial tone
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Send string in DTMF [2]
+10=>A:@:Wait for silence
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:Send rest string [024970050]
+
+[DVT_SANITY_007]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>A:@:AFT Off Hook
+12=>A calls B, DTMF, confirms for Call Length
+4=>D:@:AFT On Hook and wait 1 sec
+8=>A:@:Send string in DTMF [2]
+13=End of script
+1=>A:@:AFT On Hook and wait 1 sec
+5=>E:@:AFT On Hook and wait 1 sec
+9=>A:@:Wait for 20 sec
+10=>A:@:Wait for off hook warning tone
+2=>B:@:AFT On Hook and wait 1 sec
+6=>F:@:AFT On Hook and wait 1 sec
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__SBV_FEATURE_010(euro flashhook)]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_CALL_END_002]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__TONE]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_011]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__DVT_MSG_BLR_Call_P2P_006]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__SBV_FEATURE_001]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__DVT_MSG_BLR_CALL_Incoming_006]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Feature-3way call-initiator goes onhook]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[AFT: Call Waiting]
+3=>C:@:AFT On Hook and wait 1 sec
+7=>C:A:AFT A calls B, DTMF
+12=>B:@:AFT On Hook and wait 1 sec
+4=>Aft send VSC for permanent call callwaiting enable
+8=>A:@:AFT Wait for Call Waiting Tone
+13=>C:@:AFT On Hook and wait 1 sec
+1=>A:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+9=>C:@:AFT On Hook and wait 1 sec
+10=>A:@:AFT Do Falsh Hook 2
+14=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+6=>A calls B, DTMF, confirms once
+11=>A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__DVT_MSG_BLR_CALL_OG_OffHook_Warning_Tone_002]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Feature call waiting]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[TONE]
+1=A calls B, DTMF, confirms for Call Length
+2=AFT Do Path Confirmation Once
+3=AFT Do Path Confirmation Once
+4=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__DVT_SANITY_002]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__SBV_FEATURE_005]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[SBV_FEATURE_001]
+1=;;disable caller id in Configure->Protocol Selection  --set Protocol to "LoopOnce"
+3=>B:@:AFT On Hook and wait 1 sec
+5=>A:@:AFT On Hook and wait 1 sec
+7=End of script
+2=>A:@:AFT On Hook and wait 1 sec
+4=>A calls B, DTMF, confirms for Call Length
+6=>B:@:AFT On Hook and wait 1 sec
+
+[SBV_CALL_OG_015-atul]
+1=>A:@:AFT On Hook and wait 1 sec
+3=>A:@:AFT Off hook wait for dial tone
+5=End of script
+2=>B:@:AFT On Hook and wait 1 sec
+4=>AFT A calls B, no dial tone, DTMF, confirms once
+
+[GotoActions__DVT_SANITY_021]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__DVT_SANITY_016]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+

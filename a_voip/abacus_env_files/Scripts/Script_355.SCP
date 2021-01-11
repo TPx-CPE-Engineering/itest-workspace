@@ -1,0 +1,143 @@
+[B1 makes a call_1034]
+1=>BT test ref. 21.82 - Step 1 - Make a call from B1 to E
+3=>A:@:Step 5 - Release the call between B1 and E
+5=End of script
+2=;Confirm that B1 is not aware of the unsuccessful call attempt from B2
+4=;>A:@:Step 5 - Release the call between B1 and E [5]
+
+[GotoActions__Script_355_ver1]
+7=0
+12=0
+25=0
+8=0
+13=0
+26=0
+1=0
+9=0
+14=0
+27=0
+2=0
+6=0
+11=0
+20=0
+15=0
+24=0
+19=0
+3=0
+21=0
+16=0
+4=0
+22=0
+17=0
+5=0
+10=0
+23=0
+18=0
+
+[GotoActions__B2 makes a call_1033]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[B2 makes a call_1033]
+1=>Step 4 - Make a call attempt from B2 to B1
+3=;>A:@:Step 5 - Confirm B1 hears  "This number is not...try later"  [00072]
+5=;>A:@:Step 5 - Clear B2 [5]
+2=>A:@:Step 5 - Confirm B1 hears  "This number is not...try later" 
+4=>A:@:Step 5 - Clear B2
+6=End of script
+
+[E answers the call_1033]
+1=>Step 3 - Answer call at E & confirm speech path btwn E & B1
+2=End of script
+
+[Script_355_ver1]
+7=>A:@:Step 3 - 355 ExtA hear RBT 1
+12=>A:@:Step 6 - 355 ExtA wait for 10 sec - 1
+25=>A:@:Step 10 - 355 ExtA pick up the hand set - 1
+8=>A:@:Step 3 - 355 ExtA hear RBT 2 
+13=>A:@:Step 6 - 355 Recall at ExtA - 2 
+26=>Step 10 - 355 Check path between ExtA - ExtB - 2
+1=;>A:@:Step 00 - 355 ExtA lift hand set wait for dial tone - 1 
+9=>A:@:Step 3 - 355 ExtA hear RBT 3 
+14=>A:C:Step 6 - 355 ExtA dial ExtC - 3
+27=End of script
+2=;>A:@:Step 00 - 355 ExtA activate 3WC - 2
+6=>Step 2 - 355 ExtA dial ExtB
+11=>Step 5 - 355 ExtA does path confirmation with ExtB
+20=>C:@:Step 7 - 355 ExtC Check ringing time out - 6 
+15=>C:@:Step 7 - 355 ExtC check for ring tone - 1
+24=>A:@:Step 9 - 355 ExtA wait for ring - 2
+19=>B:@:Step 7 - ExtB anouncement "please hold the line " - 5 
+3=;>A:@:Step 00 - 355 ExtA wait for activation - 3 
+21=>A:@:Step 8 - 355 ExtA gets NU Tone - 1
+16=>B:@:Step 7 - 355 ExtB wait for 6 sec - 2
+4=;>A:@:Step 00 - 355 ExtA keep back the call - 4
+22=>B:@:Step 8 - ExtB anouncement "please hold the line " - 2 
+17=>B:@:Step 7 - ExtB anouncement "please hold the line " - 3 
+5=>A:@:Step 1 - 355 ExtA lift hand set wait for dial tone 
+10=>A:@:Step 3 - 355 ExtA hear RBT 4 
+23=>A:@:Step 9 - 355 ExtA keep back the call - 1
+18=>B:@:Step 7 - 355 ExtB wait for 6 sec - 4
+
+[GotoActions__B1 makes a call_1033]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__E answers the call_1033]
+1=0
+2=0
+
+[GotoActions__B2 makes a call_1034]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[B2 makes a call_1034]
+1=>Step 3 - Make a call attempt from B2 to B1
+3=>A:@:Step 4 - Clear B2
+5=End of script
+2=>A:@:Step 4 - Confirm B2 hears  "This number does not receive.."  [00012]
+4=;>A:@:Step 4 - Clear B2 [5]
+
+[E answers the call_1034]
+1=>Step 2 - Answer call at E & confirm speech path btwn E & B1
+2=End of script
+
+[GotoActions__B1 makes a call_1034]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__E answers the call_1034]
+1=0
+2=0
+
+[Actions]
+File=Abacus.ACT
+
+[B1 makes a call_1033]
+3=;>A:@:Step 1 - Confirm B1 hears "Incoming Calls are barred" [00073]
+7=>A:@:Step 6 - Release the call between B1 and E
+2=>A:@:Step 1 - Confirm B1 hears "Incoming Calls are barred"
+4=>A:@:Step 1 - Clear B1 [5]
+6=;Confirm that B1 is not aware of the unsuccessful call attempt from B2
+8=;>A:@:Step 6 - Release the call between B1 and E [5]
+1=>A:@:BT test ref. 21.81 - Step 1 - From B1 activate ICB [*261#]
+5=>Step 2 - Make a call from B1 to E
+9=End of script
+

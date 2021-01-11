@@ -1,0 +1,684 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <language>Python</language>
+    </general>
+    <execution>
+        <analysisRules>
+            <item>
+                <extractorInfo extractorType="contains">
+                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                        <searchString>Traceback (most recent call last):</searchString>
+                        <matchType>CaseInsensitive</matchType>
+                    </extractorProperties>
+                </extractorInfo>
+                <processorInfo ruleType="assert">
+                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                        <expression>value == 1</expression>
+                        <actionsWhenTrue>
+                            <item actionId="DeclareExecutionIssue">
+                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                    <message>Python Traceback Error</message>
+                                </actionProperties>
+                            </item>
+                            <item actionId="FailTestIfPassing">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                        </actionsWhenTrue>
+                        <actionsWhenFalse>
+                            <item actionId="PassTestIfNotAlreadyFailed">
+                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </item>
+                        </actionsWhenFalse>
+                    </ruleProperties>
+                </processorInfo>
+            </item>
+        </analysisRules>
+        <parameters version="8.4.0.202012071239">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <iad_lines pt:description="1+10 digit phone numbers used by on-net IAD">
+                        <iad_1>17025634890</iad_1>
+                        <iad_2>17025634891</iad_2>
+                        <iad_3>17025634892</iad_3>
+                        <iad_4>17025634893</iad_4>
+                        <iad_5>17025634898</iad_5>
+                        <iad_6>17025634899</iad_6>
+                    </iad_lines>
+                    <group_name pt:description="Name of Broadsoft group">iTest_Group</group_name>
+                    <enterprise_name pt:description="Name of enterprise">TPAC-LabG6-2</enterprise_name>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_voip/topologies/VeloCloud/VC620/VC620_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="cc9364f2-045a-4cd7-bf0a-74e73328776a" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Open Devices and import Libraries</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="30573d0b-31a0-401a-adfd-dc553bde77fc" action="open" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>device:BroadWorks#Python_API</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="cbc5885e-4758-4b6e-aba6-6245df039281" action="command" session="BroadWorks" normalOffset="13.766" estimatedStepExecutionTime="0.363" useFieldsInCommand="false">
+                            <command>
+                                <body>from clean_up_broadsoft import *</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b8bcb190-90f0-44f5-85c3-916fa70c31ba" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Set up variables</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8600372a-cd94-464b-84b4-a8fcd676c1e3" action="command" session="BroadWorks">
+                            <command>
+                                <body>iad_1 = &quot;[param(&apos;iad_lines/iad_1&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="738454eb-433d-48ea-baab-e5cba7e90729" action="command" session="BroadWorks">
+                            <command>
+                                <body>iad_2 = &quot;[param(&apos;iad_lines/iad_1&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="75fc18ad-cb68-4153-adc3-d6f16e17c632" action="command" session="BroadWorks">
+                            <command>
+                                <body>group_name = &quot;[param(&apos;group_name&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="355b4bd5-b143-4417-8f77-272db7eb7a8c" action="command" session="BroadWorks">
+                            <command>
+                                <body>enterprise_name = &quot;[param(&apos;enterprise_name&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ac49c593-763c-4b12-bc56-15d5debbcce8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Remove leading +1 in phone number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="22c860ca-df03-497f-b31b-de2c0ed0f622" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>iad_1 = iad_1[1:]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3c5ed40b-5b94-40bf-ad02-ddff124374c1" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>iad_2 = iad_2[1:]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3fcb2013-405e-4744-b705-0ffce57304e6" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Profile - Delete All Schedules</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e778a314-1f32-4d9b-bbb2-0f07440bacd0" action="command" session="BroadWorks" normalOffset="25.549" estimatedStepExecutionTime="0.151" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_user_schedules(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6b44d819-f388-4f7b-88a4-5ddde7d38054" action="command" session="BroadWorks" normalOffset="13.315" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_user_schedules(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5c345882-94af-4461-94f1-863596d64da1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Anonymous Rejection</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b104e706-7f33-4cd6-8f09-e136114f2661" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_anonymous_rejection(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f0cc1fb2-ed6c-4953-a256-dd5887da6dc9" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_anonymous_rejection(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="09eb9f11-cdeb-4ea8-93a7-917d2933a7ce" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Enable Calling Name Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1d6a86c0-8d53-4837-83d4-dacc5fd8c980" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_name_delivery(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="c57a5713-048f-4304-94f3-9e67bcf94c43" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_name_delivery(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c6499f7d-b499-4fee-8b25-3be3d5aa6464" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Enable Calling Name Retrieval</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dd9b014c-84cb-4e6a-882f-eb94899768fc" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_name_retrieval(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="69820c94-f44c-44e9-89ed-55a01bc0f4cb" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_name_retrieval(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8e0062dc-00f1-44b4-b85e-0eef9f81c493" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Enable Calling Number Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4b46ef1a-51f8-46a5-a184-f46b23064e4d" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_number_delivery(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="df8a3622-4a0b-4715-995b-ebe068692d7d" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>enable_calling_number_delivery(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c112dbb2-be7e-4ef9-8e6a-a8a9748f9daf" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Call Forwarding Always</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d13b8c05-b09c-4ba3-8fb5-4879d434240b" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_always(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f14e3476-8ef3-439b-b3a9-01f9ac90d24d" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_always(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1093405f-ffcc-4aca-897a-619bf7931d7f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Call Forwarding Busy</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dbce7281-5621-4591-ad74-c2770c9024d6" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_busy(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="789d7ebc-bbdb-4645-8c0b-555603a8ee42" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_busy(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ae4c4993-7222-4bd3-b24b-9e2135e933ad" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Call Forwarding No Answer</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6aa1e6fc-2dd9-4e1e-a3cf-4ec63ccfc843" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_no_answer(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="484d802d-f3ed-4964-8113-5b510a9fc8a3" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_no_answer(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4aa4bf03-85e8-4dc4-b5af-6c4a0a5b8d72" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Call Forwarding Not Reachable</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="545992ee-03f9-4751-b97d-0da45f003bac" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_not_reachable(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b7776a8a-ecb7-4209-8361-974b082db5b8" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_not_reachable(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="86181499-c72f-42bb-bd18-203c1e993547" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Do Not Disturb</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cf7300b0-c442-4c74-8dc3-e0bf8a896b53" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_do_not_disturb(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="72916c6b-a890-44c4-a65b-6836bd98dec1" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_do_not_disturb(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8cbcf3d9-ba1e-4a23-80c0-57d712c48bb7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Call Forwarding Selective</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="87af2647-6598-4438-87ce-46c2b5eb56d3" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_selective(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f3534263-88bc-406d-8b18-d11a58740c94" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_call_forwarding_selective(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d2524258-7126-4901-8419-14da7e914727" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Delete All Selective Acceptance</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e9596b61-94f8-4644-863a-9e3f0e6262e0" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_selective_acceptance(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="7a1139f7-5fb4-4d24-adbe-c8f39177024e" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_selective_acceptance(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0cb140ee-82ed-4a45-9263-ecfd8ae5829c" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Delete All Sequential Rings</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="22c86dc0-ac51-4a74-8f6a-9e591ba9a616" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_user_sequential_rings(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3448a167-9285-4835-b39f-c2e6d9dedd51" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_user_sequential_rings(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="37e8c50a-1cab-4b8b-8140-25dd50f9fef7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Incoming Calls - Disable Simultaenous Ring Personal</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a3865b84-dad8-4c38-a818-1d27862134ad" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_simultaneous_ring_personal(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b04f9784-d38b-49b3-8b99-e01d78f7db1b" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_simultaneous_ring_personal(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8dece628-4ea4-46dc-be4b-77a4e2a03419" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Outgoing Calls - Disable Line ID Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a8898675-4bd4-428b-a46f-f228d399100a" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_calling_line_id_delivery(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="41253184-0e5a-4be7-b4f1-74288b1e916e" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_calling_line_id_delivery(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e6e80a60-8a52-4231-b3a7-a02d0323a1f3" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Outgoing Calls - Delete All Speed Dial 8 - Missing</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3efc158f-4f1c-43f0-bcd5-dd075c109037" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Outgoing Calls - Delete All Speed Dial 100</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f77da402-6562-4162-a1e4-948904b45fed" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_user_all_speed_dial_100(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5cc9f649-0e59-404e-b90b-eac5ced2d835" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Call Control - Disable Call Waiting</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8f83e5cd-a181-4e44-9ed7-b00ae79a2893" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_call_waiting(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a1bc8f6e-588f-449a-b71e-c277d7241ae7" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_call_waiting(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="028bb4fd-ff9f-4708-8759-2dfe3c4d7101" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Call Control - Disable Music/Video on Hold</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9641571f-b8d9-4959-a7bb-04282657dabe" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_music_on_hold(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f296bf75-f984-4287-8bdc-71b8a1c1b586" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_music_on_hold(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="263eade4-7140-446e-afe6-f60c4d1a28d3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Calling Plans - Disable Custom Settings for Incoming Calling Plan</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6d151a54-2fd7-4e5c-92a3-50c34edb8e91" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_custom_settings_for_user_incoming_calling_plan(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e8256ff1-1545-4b16-afaf-318009e843ba" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_custom_settings_for_user_incoming_calling_plan(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="8b0663d0-a9e7-428a-8b32-b6c66bc57e6e" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Calling Plans - Disable Custom Settings for Outgoing Calling Plan</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5c573f8b-ea65-47dd-8804-a16239909c92" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_custom_settings_For_user_outgoing_calling_plan(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a940eb4c-b82f-4481-98c1-8e9edf825e94" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_custom_settings_For_user_outgoing_calling_plan(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="86066bdc-9d01-43c8-9b14-d2c9924313ac" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>User - Messaging - Disable Voice Messaging</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b072450b-c6a6-45e3-aa79-51285f58628e" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_voice_messaging(iad_1)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="80273f25-3778-44e9-8577-ebc267830b1b" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>disable_user_voice_messaging(iad_2)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c0617c55-a972-4d76-9a90-91daf665c65d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Profile - Delete All Schedules</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="70bfcb7d-ea9c-4861-98d2-15b074c0d7a1" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_group_schedules(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4a58840f-d7cd-442a-8c44-157c57dfdb39" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Profile - Call Processing Policies - Set to &apos;use Enterprise for calling line ID policy&apos;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0b922bf6-4584-4794-bc54-da3c04944f94" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_group_call_processing(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cda05949-e875-4d67-a34f-e795614b7888" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Acct/Auth Codes - Administration - Deactivate Type, Disable &apos;Allow Local&apos; blank, No users assigned</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9a2319f6-706d-463b-9955-ec16f32040d1" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_group_auth_codes_administration(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9c97c7f5-fdc0-4ef4-bc4e-bd2f775d20d9" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Acct/Auth Codes - Codes Management - Delete all entries</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="99a9da7a-8ea4-447b-aa85-0564088bda8b" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_group_auth_codes_codes_managements(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ac61d321-479f-4c37-abb4-9dae12e7ba37" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Calling Plan - Digits Strings- Delete all entries</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b4b081da-ed1b-4770-be7c-0288e6207e45" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>delete_all_group_digit_strings(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="adb926a1-8d19-499e-9327-c3670987c227" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Calling Plan - Incoming Calling Plan - Enable Calls within Enterprise, &apos;Y&apos; Calls from Outside Enterprise, Disable Collect Calls</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c53351e3-76c4-4615-9464-c2f9fb7f26f4" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_group_incoming_calling_plan(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="78fb1993-ecfd-472b-99bb-46144907f0a9" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Calling Plan - Outgoing Calling Plan</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cd289ea7-dbca-4c84-92b4-2a86d0269dff" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_group_outgoing_calling_plan(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="78565585-08a2-49b3-be57-a52fb38d72b1" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Group - Utilities - Intercept Group - Disable</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f2d3ab41-a9fc-42dc-b376-39e8dc73c999" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_group_intercept_group(enterprise_name, group_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b811cd9a-df10-48ed-b6ea-177f846102dc" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Enterprise - Profile - Voice VPN</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d05ab77e-0306-4576-b171-1febe9a61f6e" action="command" session="BroadWorks" useFieldsInCommand="false">
+                            <command>
+                                <body>set_enterprise_voice_vpn(enterprise_name)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

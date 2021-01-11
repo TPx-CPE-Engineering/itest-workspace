@@ -1,0 +1,2312 @@
+[GotoActions__Call Hold_Dial WN Recovery]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__Second Call R+0]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__R+3_1in 1out_A hookon_Toggle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Call Transfer Enable]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[R+3_2 out_A hookon_Toggle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+16=End of script
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=A:@:AFT On Hook and wait 1 sec
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=B:@:Wait for busy
+
+[GotoActions__Call Transfer Disable]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A#67#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Ax12x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Second Call R+1]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=D:@:Wait for busy
+7=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [1]
+6=B:A:Do path confirmation for ? s [10]
+
+[GotoActions__A calls B (no dial tone) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[GotoActions__Do Not Disturb Enable]
+1=0
+2=0
+3=0
+
+[A#21#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#21#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[A#16#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#16#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Actions]
+File=Abacus.ACT
+
+[R+2_2 out_B hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=B:@:AFT On Hook and wait 1 sec
+8=A:@:AFT Do Hook Flash wait time [3]
+1=A calls B, DTMF, confirms for Call Length
+5=Do path confirmation for ? s [10]
+9=A:D:Do path confirmation for ? s [10]
+10=End of script
+
+[GotoActions__A calls B (ISDN) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[CFB]
+1=A:@:AFT Off Hook
+2=B:C:AFT A calls B, string, confirms for Call Length [324200#]
+3=End of script
+
+[GotoActions__R+2_2 out_A hookon]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[R+2_1in 1out_A hookon]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:AFT Off Hook
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT On Hook and wait 1 sec
+6=D:@:Wait for busy
+8=End of script
+
+[GotoActions__R+3_2 out_D hookon]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[R+3_2 out_A hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+12=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=B:@:Wait for busy
+1=A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=A:@:AFT On Hook and wait 1 sec
+10=D:@:Wait for busy
+
+[GotoActions__Call Return Disable]
+1=0
+3=0
+2=0
+4=0
+
+[GotoActions__Call Transfer Attend]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B (ISUP) and confirms for Call Length]
+1=A calls B, ISUP, confirms for Call Length
+2=End of script
+
+[R+3_1in 1out_A hookon_Toggle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+16=End of script
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=A:@:AFT On Hook and wait 1 sec
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=D:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=B:@:Wait for busy
+
+[GotoActions__A call B No Path Confirm]
+1=0
+2=0
+
+[AFT: 3-way Calling]
+3=A:C:A calls B, DTMF, confirms once
+7=A:C:AFT Do Path Confirmation Once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:Wait for time in seconds [2]
+8=B:@:Wait for time in seconds [2]
+1=A calls B, DTMF, confirms once
+5=AFT Do Path Confirmation Once
+9=B:C:AFT Do Path Confirmation Once
+10=End of script
+
+[AFT: 4-way Conference]
+1=A calls B, DTMF, confirms once
+2=A:@:AFT A does hookflash and waits for Stutter dial tone
+3=A:C:A calls B, DTMF, confirms once
+4=A:@:AFT Do Hook Flash wait time
+5=AFT Do Path Confirmation Once
+6=A:@:Wait for time in seconds [2]
+7=A:C:AFT Do Path Confirmation Once
+8=B:@:Wait for time in seconds [2]
+9=B:C:AFT Do Path Confirmation Once
+10=A:@:AFT A does hookflash and waits for Stutter dial tone
+11=A:D:A calls B, DTMF, confirms once
+12=A:@:AFT Do Hook Flash wait time
+13=AFT Do Path Confirmation Once
+14=A:@:Wait for time in seconds [2]
+15=A:C:AFT Do Path Confirmation Once
+16=A:@:Wait for time in seconds [2]
+17=A:D:AFT Do Path Confirmation Once
+18=B:@:Wait for time in seconds [2]
+19=B:C:AFT Do Path Confirmation Once
+20=B:@:Wait for time in seconds [2]
+21=B:D:AFT Do Path Confirmation Once
+22=C:@:Wait for time in seconds [2]
+23=C:D:AFT Do Path Confirmation Once
+24=End of script
+
+[A#61#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*61*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[R+3_2 out_B hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=B:@:AFT On Hook and wait 1 sec
+10=D:A:Do path confirmation for ? s [10]
+
+[GotoActions__A#03#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A#95x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Ax67x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[R+2_1in 1out_B hookon]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:D:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__A calls B (MF R1.5) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[R+3_1in 1out_B hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=B:@:AFT On Hook and wait 1 sec
+
+[R+3_1in 1out_A hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+12=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=A:@:AFT On Hook and wait 1 sec
+10=D:@:Wait for busy
+
+[GotoActions__R+2_2 out_B hookon_Toggle]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__R+3_2 out_A hookon_Toggle2]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A#76#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*76*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Ax21x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*43#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Ax16x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#76#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Call Transfer Enable]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:C:A Dail B, DTMF, no dial tone, no confirms
+5=B:C:Do path confirmation for ? s [10]
+2=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [*98#]
+4=B:@:Wait for time in seconds [5]
+6=End of script
+
+[R+3_1in 1out_D hookon_Toogle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=D:@:AFT On Hook and wait 1 sec
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=End of script
+
+[GotoActions__R+3_1in 1out_D hookon_Toogle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__R+3_1in 1out_D hookon_Toogle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__R+3_2 out_B hookon_Toggle2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[AFT: Call Forwarding]
+1=A:@:AFT Off Hook and send VSC Activate Call Forward
+2=A calls B, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=B:@:AFT On hook wait for incoming call
+6=C:A:AFT A calls B, DTMF
+7=B:@:AFT Off Hook
+8=C:B:AFT Do Path Confirmation Once
+9=A:@:AFT Off Hook and send VSC Deactivate Call Forward
+10=End of script
+
+[GotoActions__Call Return busy]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Dial Interval]
+1=A:@:AFT Off hook wait for dial tone
+3=B:@:AFT On hook wait for incoming call for timeout
+5=End of script
+2=A:@:Send string in DTMF [324201]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+3_2 out_D hookon_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A calls B (VoIP) and confirms for random CL]
+1=A calls B, VoIP, confirms for random CL
+2=End of script
+
+[AFT: Automatic Callback]
+1=A calls B, DTMF, confirms once
+2=C:A:AFT A calls B, DTMF
+3=C:@:Wait for time in seconds [5]
+4=C:@:AFT On Hook and wait 1 sec
+5=C:@:AFT Off Hook and send VSC Activate Automatic Callback
+6=C:@:AFT Off hook wait for stutter dial tone
+7=C:@:AFT On Hook and wait 1 sec
+8=A:@:AFT On Hook and wait 1 sec
+9=C:@:AFT On hook wait for incoming call for timeout
+10=C:@:AFT Off Hook
+11=A:@:AFT On hook wait for incoming call for timeout
+12=A:C:AFT Do Path Confirmation Once
+13=End of script
+
+[GotoActions__A#43#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__R+2_2 out_D hookon_Toggle]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[R+2_1in 1out_B hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for busy
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=B:@:AFT On Hook and wait 1 sec
+8=A:@:AFT Do Hook Flash wait time [3]
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=Do path confirmation for ? s [10]
+9=A:D:Do path confirmation for ? s [10]
+10=End of script
+
+[R+3_2 out_B hookon_Toggle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=B:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=D:A:Do path confirmation for ? s [10]
+
+[GotoActions__A calls B (MF R2) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[Ax61x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#67#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+3_2 out_B hookon_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[Call Transfer Attend]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:C:A calls B, DTMF, confirms for Call Length
+5=B:C:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [*98#]
+6=End of script
+
+[GotoActions__Call Return x29#]
+1=0
+2=0
+3=0
+4=0
+
+[A#95#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#95#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+3_1in 1out_B hookon_Toggle2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[A call Busy B]
+1=B:@:AFT Off Hook
+2=AFT A calls B, DTMF
+3=A:@:Wait for busy
+4=End of script
+
+[Ax76x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*12*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B (DTMF) and confirms once]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__AFT: Call Waiting]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__R+3_2 out_A hookon_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[A calls B (MF R1.5) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.5.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1.5, confirms for Call Length
+17=End of script
+
+[A calls B(Pulse) and confirms for Call Length]
+1=A calls B, Pulse, confirms for Call Length
+2=End of script
+
+[R+2_1in 1out_D hookon]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for busy
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=D:@:AFT On Hook and wait 1 sec
+6=A:@:AFT Do Hook Flash wait time [3]
+8=End of script
+
+[GotoActions__A Call B Speed Dial]
+1=0
+2=0
+
+[GotoActions__A#61#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A#31#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#31#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[B call A Hook on]
+1=B:@:AFT Off hook wait for dial tone
+2=B:@:Send string in DTMF [324200#]
+3=B:@:AFT On Hook and wait 1 sec
+4=End of script
+
+[GotoActions__Call Hold Recovery]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (ISDN) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for random CL
+14=End of script
+
+[GotoActions__A#76#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Ax21x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Ax16x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (DTMF) and confirms for Call Length]
+3=; is determined by the parameter you specify
+7=; Configure the phone numbers for the channels in
+12=;
+4=; in the Partition and Timing window, in the
+8=; the Configure | Phones window.
+13=A calls B, DTMF, confirms for Call Length
+1=; This script makes a call from circuit A
+5=; column headed "CL."
+9=;
+10=; You normally set the channel configuration (in
+14=End of script
+2=; to circuit B. The length of the conversation
+6=;
+11=; the Partition and Timing window) to be OT.
+
+[R+3_2 out_B hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=D:A:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=B:@:AFT On Hook and wait 1 sec
+
+[GotoActions__Call Transfer #89x]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[A calls B (ISDN) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, ISDN, confirms for Call Length
+14=End of script
+
+[AFT: Caller ID Blocking]
+1=A:@:AFT Off Hook and send VSC Caller ID Blocking
+2=AFT A calls B, no dial tone, DTMF, confirms once
+3=A:@:AFT On Hook and wait 1 sec
+4=B:@:AFT On Hook and wait 1 sec
+5=A calls B, DTMF, confirms once
+6=End of script
+
+[A#30#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*30#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A calls B (no dial tone, DTMF) for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[Ax43#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*43#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__A#13#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (DTMF) and confirms for random CL]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[R+3_1in 1out_B hookon_Toggle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=B:@:AFT On Hook and wait 1 sec
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=A:D:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=End of script
+
+[GotoActions__Ax61x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__Second Call R+1]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+
+[GotoActions__Call Return x92#]
+1=0
+2=0
+3=0
+4=0
+
+[R+3_1in 1out_D hookon_Toogle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=D:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+2_1in 1out_D hookon_Toggle]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[R+3_2 out_A hookon_Toggle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=B:@:Wait for busy
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=A:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=D:@:Wait for busy
+
+[Ax31x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#31#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+3_2 out_B hookon]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (ISUP) and confirms for Call Length]
+1=0
+2=0
+
+[Second Call Recovery]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+2=A:@:Do hook flash, and wait for dial tone
+4=D:@:AFT On Hook and wait 1 sec
+6=A:@:AFT Off Hook
+8=B:A:Do path confirmation for ? s [10]
+1=A calls B, DTMF, confirms for Call Length
+5=A:@:AFT On Hook and wait 1 sec
+9=End of script
+
+[R+3_2 out_D hookon_Toggle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=D:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=B:A:Do path confirmation for ? s [10]
+
+[GotoActions__A#95#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__B call A Hook on]
+1=0
+2=0
+3=0
+4=0
+
+[A call Invaild Num]
+1=A:@:AFT Off hook wait for dial tone
+2=A:@:Send string in DTMF [4433#]
+3=A:@:Wait for busy
+4=End of script
+
+[GotoActions__R+3_1in 1out_B hookon_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[A#03#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#03*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[A#95x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#95*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Ax67x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*43#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[R+2_2 out_D hookon]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for busy
+7=Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=D:@:AFT On Hook and wait 1 sec
+6=A:@:AFT Do Hook Flash wait time [3]
+8=End of script
+
+[GotoActions__R+3_2 out_D hookon_Toggle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Ax76x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__DTMF 0-9]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__R+2_1in 1out_A hookon_Toggle]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__A calls B (VoIP) and confirms once]
+1=0
+2=0
+
+[GotoActions__R+2_1in 1out_B hookon]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Call Transfer #89x]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:C:A Dail B, DTMF, no dial tone, no confirms
+5=B:C:Do path confirmation for ? s [10]
+2=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [#89*]
+4=B:@:Wait for time in seconds [5]
+6=End of script
+
+[GotoActions__AFT: Caller ID Blocking]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+[GotoActions__Ax30#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Call Return busy]
+1=B:@:AFT Off Hook
+3=A:@:Wait for busy
+5=D:A:A calls B, DTMF, confirms for Call Length
+2=AFT A calls B, string, confirms for Call Length [*92#]
+4=A:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__Second Call Recovery]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__A call Invaild Num]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__R+3_1in 1out_D hookon]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[R+2_2 out_A hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:AFT Off Hook
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=A:@:AFT On Hook and wait 1 sec
+8=B:@:Wait for busy
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=D:A:Do path confirmation for ? s [10]
+10=End of script
+
+[GotoActions__AFT: Call Transfer]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+
+[GotoActions__AFT: 4-way Conference]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+18=0
+19=0
+20=0
+21=0
+22=0
+23=0
+24=0
+
+[A#59#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#59#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[DTMF 0-9]
+1=A calls B, DTMF, confirms for Call Length
+2=A:@:Send string in DTMF [1234567890*#]
+3=A:@:AFT On Hook and wait 1 sec
+4=End of script
+
+[R+2_2 out_A hookon]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:@:AFT Off Hook
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT On Hook and wait 1 sec
+6=D:@:Wait for busy
+8=End of script
+
+[Internal Call_xxxx]
+1=A:C:AFT A calls B, string, confirms for Call Length [****]
+2=End of script
+
+[GotoActions__Call Return x92#_phone2]
+1=0
+2=0
+3=0
+4=0
+
+[Call Hold_Dial WN Recovery]
+1=A calls B, DTMF, confirms for Call Length
+3=A:@:Send string in DTMF [4433#]
+5=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait time [3]
+6=End of script
+
+[GotoActions__Ax13x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B(no dial tone, DTMF) and confirms once]
+1=0
+2=0
+
+[GotoActions__R+2_1in 1out_B hookon_Toggle]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[A calls B (MF R2) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R2.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R2, confirms for Call Length
+17=End of script
+
+[CFU]
+1=B:C:AFT A calls B, string, confirms for Call Length [324200#]
+2=End of script
+
+[A#43#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#03#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[R+3_1in 1out_A hookon_Toggle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+18=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=A:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=D:@:Wait for busy
+
+[Call Return x29#]
+1=AFT A calls B, string, confirms for Call Length [*29#]
+2=A:@:AFT On Hook and wait 1 sec
+3=D:A:A calls B, DTMF, confirms for Call Length
+4=End of script
+
+[GotoActions__Dial Interval]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (no dial tone) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, no dial tone, confirm for CL
+14=End of script
+
+[GotoActions__A#31#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[R+3_2 out_D hookon_Toggle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=D:@:AFT On Hook and wait 1 sec
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=End of script
+
+[A calls B (VoIP) and confirms once]
+1=A calls B, VoIP, confirms once
+2=End of script
+
+[GotoActions__R+3_2 out_A hookon_Toggle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__Internal Call_####]
+1=0
+2=0
+
+[R+2_2 out_B hookon]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=A:D:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=B:@:AFT On Hook and wait 1 sec
+6=End of script
+
+[GotoActions__R+2_2 out_A hookon_Toggle]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__R+3_2 out_D hookon_Toggle2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[R+3_1in 1out_D hookon_Toogle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=D:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=Do path confirmation for ? s [10]
+
+[Do Not Disturb Enable]
+1=B:A:AFT A calls B, DTMF
+2=B:@:Wait for busy
+3=End of script
+
+[GotoActions__R+2_1in 1out_D hookon]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[Call Return Disable]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for busy
+2=A:@:Send string in DTMF [*98#]
+4=End of script
+
+[GotoActions__R+3_2 out_B hookon_Toggle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[GotoActions__A#30#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (DTMF) and confirms for Call Length]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__Ax43#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[R+3_2 out_D hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=B:A:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=D:@:AFT On Hook and wait 1 sec
+
+[GotoActions__Ax31x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[AFT: Call Waiting]
+1=A calls B, DTMF, confirms once
+3=A:@:AFT Wait for Call Waiting Tone
+5=A:C:AFT Do Path Confirmation Once
+7=AFT Do Path Confirmation Once
+2=C:A:AFT A calls B, DTMF
+4=A:@:AFT Do Hook Flash wait time
+6=A:@:AFT Do Hook Flash wait time
+8=End of script
+
+[GotoActions__B call C Hook on]
+1=0
+2=0
+3=0
+4=0
+
+[Ax95#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*95#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+2_2 out_B hookon]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[GotoActions__A calls B (ISDN) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+
+[R+3_1in 1out_A hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=D:@:Wait for busy
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__R+3_1in 1out_A hookon_Toggle2]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__R+3_1in 1out_B hookon_Toggle3]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+3=0
+16=0
+
+[A#03x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#30#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Second Call R+0]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=B:@:Wait for busy
+7=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [0]
+6=D:A:Do path confirmation for ? s [10]
+
+[A calls B (DTMF) and confirms once]
+1=; This script makes a call from circuit A to
+2=; circuit B with DTMF dialling. The two channels
+3=; confirm that the call was established correctly
+4=; and then go on hook.
+5=;
+6=; Configure the phone numbers for the circuits first,
+7=; in the Configure | Phones window.
+8=;
+9=; You normally set the channel configuration (in
+10=; the Partition and Timing window) to be OT.
+11=;
+12=A calls B, DTMF, confirms once
+13=End of script
+
+[Call Transfer Disable]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:C:A Dail B, DTMF, no dial tone, no confirms
+5=End of script
+2=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [*98#]
+4=A:@:Wait for busy
+
+[A calls B (SIP) and confirms for Call Length]
+1=A calls B, SIP, confirms for Call Length
+2=End of script
+
+[A calls B (VoIP) and confirms for Call Length]
+1=A calls B, VoIP, confirms for Call Length
+2=End of script
+
+[GotoActions__A calls B (VoIP) and confirms for random CL]
+1=0
+2=0
+
+[GotoActions__A#59#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[A calls B (DTMF) and confirms for random CL]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; Configure the phone numbers for the channels in
+8=; the Configure | Phones window.
+9=;
+10=; You normally set the channel configuration (in
+11=; the Partition and Timing window) to be OT.
+12=;
+13=A calls B, DTMF, confirms for random CL
+14=End of script
+
+[R+2_1in 1out_A hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:AFT Off Hook
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=A:@:AFT On Hook and wait 1 sec
+8=B:@:Wait for busy
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=D:A:Do path confirmation for ? s [10]
+10=End of script
+
+[Call Return x92#]
+1=AFT A calls B, string, confirms for Call Length [*92#]
+2=A:@:AFT On Hook and wait 1 sec
+3=D:A:A calls B, DTMF, confirms for Call Length
+4=End of script
+
+[A#13#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#30#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[A Call B Speed Dial]
+1=AFT A calls B, string, confirms for Call Length [#01]
+2=End of script
+
+[GotoActions__AFT: 3-way Calling]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__AFT: Automatic Callback]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+
+[GotoActions__A call Busy B]
+1=0
+2=0
+3=0
+4=0
+
+[R+2_2 out_D hookon_Toggle]
+1=A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=Do path confirmation for ? s [10]
+7=Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=D:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[R+3_1in 1out_B hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=B:@:AFT On Hook and wait 1 sec
+10=A:D:Do path confirmation for ? s [10]
+
+[GotoActions__A calls B (VoIP) and confirms for Call Length]
+1=0
+2=0
+
+[A call B No Path Confirm]
+1=AFT A calls B, DTMF
+2=End of script
+
+[A calls B (no dial tone, DTMF) for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The channel waits for a time after going off
+8=; hook instead of waiting for dial tone.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, DTMF, no dial tone, confirm for CL
+17=End of script
+
+[A calls B (MF R1) and confirms for Call Length]
+1=; This script makes a call from circuit A
+2=; to circuit B. The length of the conversation
+3=; is determined by the parameter you specify
+4=; in the Partition and Timing window, in the
+5=; column headed "CL."
+6=;
+7=; The number (address) is dialled using MF R1.
+8=; There must be no dial tone involved in this test.
+9=;
+10=; Configure the phone numbers for the channels in
+11=; the Configure | Phones window.
+12=;
+13=; You normally set the channel configuration (in
+14=; the Partition and Timing window) to be OT.
+15=;
+16=A calls B, MF R1, confirms for Call Length
+17=End of script
+
+[Call Hold Recovery]
+1=A calls B, DTMF, confirms for Call Length
+3=A:@:AFT Do Hook Flash wait time [3]
+5=End of script
+2=A:@:Do hook flash, and wait for dial tone
+4=B:A:Do path confirmation for ? s [10]
+
+[GotoActions__Internal Call_xxxx]
+1=0
+2=0
+
+[GotoActions__A#21#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A#16#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[Ax30#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*30#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__CFU]
+1=0
+2=0
+
+[GotoActions__A calls B (MF R1) and confirms for Call Length]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+11=0
+12=0
+13=0
+14=0
+15=0
+16=0
+17=0
+
+[B call C Hook on]
+1=B:@:AFT Off hook wait for dial tone
+2=B:@:Send string in DTMF [324202#]
+3=B:@:AFT On Hook and wait 1 sec
+4=End of script
+
+[GotoActions__R+3_1in 1out_D hookon_Toogle2]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__R+2_2 out_D hookon]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__R+3_1in 1out_A hookon_Toggle]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+
+[GotoActions__R+3_1in 1out_A hookon]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Ax13x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*13*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Internal Call_####]
+1=A:C:AFT A calls B, string, confirms for Call Length [####]
+2=End of script
+
+[R+3_2 out_A hookon_Toggle]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=A:@:Wait for time in seconds [3]
+12=D:@:Wait for busy
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:D:Do path confirmation for ? s [10]
+13=B:@:Wait for busy
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=D:B:Do path confirmation for ? s [10]
+14=End of script
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+11=A:@:AFT On Hook and wait 1 sec
+
+[R+3_2 out_D hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=End of script
+1=A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=D:@:AFT On Hook and wait 1 sec
+10=B:A:Do path confirmation for ? s [10]
+
+[R+3_1in 1out_B hookon_Toggle3]
+7=D:A:Do path confirmation for ? s [10]
+12=A:D:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+13=B:A:Do path confirmation for ? s [10]
+17=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=B:A:Do path confirmation for ? s [10]
+10=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+14=D:B:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=A:@:Wait for time in seconds [3]
+15=B:@:AFT On Hook and wait 1 sec
+3=A:D:A calls B, DTMF, confirms for Call Length
+16=A:D:Do path confirmation for ? s [10]
+
+[GotoActions__A calls B(Pulse) and confirms for Call Length]
+1=0
+2=0
+
+[R+3_2 out_B hookon_Toggle2]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=D:A:Do path confirmation for ? s [10]
+12=D:B:Do path confirmation for ? s [10]
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+8=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+13=B:@:AFT On Hook and wait 1 sec
+1=A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+9=A:@:Wait for time in seconds [3]
+10=A:D:Do path confirmation for ? s [10]
+14=D:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+6=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+11=B:A:Do path confirmation for ? s [10]
+15=End of script
+
+[GotoActions__Ax95#]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[GotoActions__A calls B (SIP) and confirms for Call Length]
+1=0
+2=0
+
+[AFT: Call Transfer]
+1=A calls B, DTMF, confirms once
+2=B:@:AFT A does hookflash and waits for Stutter dial tone
+3=B:C:A calls B, DTMF, confirms once
+4=B:@:AFT On Hook and wait 1 sec
+5=A:C:AFT Do Path Confirmation Once
+6=End of script
+
+[A calls B(no dial tone, DTMF) and confirms once]
+1=A calls B, DTMF, no dial tone, confirms once
+2=End of script
+
+[GotoActions__A#03x]
+1=0
+3=0
+5=0
+2=0
+4=0
+
+[R+2_1in 1out_D hookon_Toggle]
+1=B:A:A calls B, DTMF, confirms for Call Length
+3=A:D:A calls B, DTMF, confirms for Call Length
+5=B:A:Do path confirmation for ? s [10]
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [2]
+6=D:@:AFT On Hook and wait 1 sec
+8=End of script
+
+[GotoActions__R+2_1in 1out_A hookon]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[A#67#]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [*67*]
+4=A:@:AFT On Hook and wait 1 sec
+
+[Ax12x]
+1=A:@:AFT Off hook wait for dial tone
+3=A:@:Wait for time in seconds [5]
+5=End of script
+2=A:@:Send string in DTMF [#61#]
+4=A:@:AFT On Hook and wait 1 sec
+
+[GotoActions__CFB]
+1=0
+2=0
+3=0
+
+[GotoActions__AFT: Call Forwarding]
+1=0
+2=0
+3=0
+4=0
+5=0
+6=0
+7=0
+8=0
+9=0
+10=0
+
+[Call Return x92#_phone2]
+1=C:B:AFT A calls B, string, confirms for Call Length [*92#]
+2=C:@:AFT On Hook and wait 1 sec
+3=D:C:A calls B, DTMF, confirms for Call Length
+4=End of script
+
+[GotoActions__R+3_2 out_A hookon]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__R+3_1in 1out_B hookon]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[R+3_1in 1out_D hookon]
+3=A:D:A calls B, DTMF, confirms for Call Length
+7=B:A:Do path confirmation for ? s [10]
+2=A:@:Do hook flash, and wait for dial tone
+4=A:@:AFT Do Hook Flash wait 0.5 s send DTMF [3]
+6=A:D:Do path confirmation for ? s [10]
+8=D:B:Do path confirmation for ? s [10]
+11=End of script
+1=B:A:A calls B, DTMF, confirms for Call Length
+5=A:@:Wait for time in seconds [3]
+9=D:@:AFT On Hook and wait 1 sec
+10=Do path confirmation for ? s [10]
+

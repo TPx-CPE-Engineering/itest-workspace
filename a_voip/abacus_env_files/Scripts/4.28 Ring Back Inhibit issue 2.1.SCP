@@ -1,0 +1,363 @@
+[Ring Back Inhibit deactivate P_0140]
+3=A:@:Send a string [#03*37*Keyword#]
+7=;keyword is not given
+12=End of script
+2=;keyword is not given
+4=A:@:Wait for time [0.5]
+6=A:@:Wait for dial tone
+8=A:@:Send a string [*#03*37*Keyword#]
+11=A:@:Replace the receiver 
+1=A:@:Wait for dial tone
+5=A:@:Wait for an announcement [0311]
+9=A:@:Wait for time [0.5]
+10=A:@:Wait for an announcement [0306]
+
+[Ring Back Inhibit B2(B)_0138]
+3=A:@:Wait for time [0.5]
+7=A:@:Send a string [#02*37#]
+12=A:@:Send a string [*#02*37#]
+16=End of script
+4=A:@:Wait for an announcement [0310]
+8=A:@:Wait for time [0.5]
+13=A:@:Wait for time [0.5]
+1=A:@:Wait for dial tone
+5=A:@:Replace the receiver 
+9=A:@:Wait for an announcement [0311]
+10=A:@:Replace the receiver 
+14=A:@:Wait for an announcement [0306]
+2=A:@:Send a string [*02*37#]
+6=A:@:Wait for dial tone
+11=A:@:Wait for dial tone
+15=A:@:Replace the receiver 
+
+[GotoActions__Ring Back Inhibit P(B)_0138]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[E calls another party]
+1=Make a call
+2=Do path confirm
+3=A:@:Replace the receiver 
+4=End of script
+
+[GotoActions__Answer the call]
+1=0
+2=0
+3=0
+
+[Answer the call]
+1=Do path confirm
+2=A:@:Replace the receiver 
+3=End of script
+
+[Ring Back Inhibit B2(A)_0138]
+3=A:@:Wait for time [0.5]
+7=A:@:Send a string [#02*37#]
+12=A:@:Send a string [*#02*37#]
+16=End of Script
+4=A:@:Wait for an announcement [0047]
+8=A:@:Wait for time [0.5]
+13=A:@:Wait for time [0.5]
+1=A:@:Wait for dial tone
+5=A:@:Replace the receiver 
+9=A:@:Wait for an announcement [0047]
+10=A:@:Replace the receiver 
+14=A:@:Wait for an announcement [0047]
+2=A:@:Send a string [*02*37#]
+6=A:@:Wait for dial tone
+11=A:@:Wait for dial tone
+15=A:@:Replace the receiver 
+
+[GotoActions__E calls another party]
+1=0
+2=0
+3=0
+4=0
+
+[GotoActions__Ring Back Inhibit activate B2_0139]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+
+[GotoActions__Ring Back Inhibit deactivate B2_0139]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+1=0
+5=0
+9=0
+10=0
+
+[Interrogate Ring Back Inhibit P_0141]
+1=A:@:Wait for dial tone
+3=A:@:Wait for time [0.5]
+5=A:@:Replace the receiver 
+2=A:@:Send a string [*#03*37*Keyword#]
+4=A:@:Wait for an announcement [0047]
+6=End of script
+
+[Actions]
+File=ABACUS.ACT
+
+[Interrogate Ring Back Inhibit B2_0141]
+1=A:@:Wait for dial tone
+3=A:@:Wait for time [0.5]
+5=A:@:Replace the receiver 
+2=A:@:Send a string [*#02*37#]
+4=A:@:Wait for an announcement [0047]
+6=End of script
+
+[GotoActions__Ring Back Inhibit B2(A)_0138]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[GotoActions__Ring Back Inhibit B2(B)_0138]
+3=0
+7=0
+12=0
+16=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+14=0
+2=0
+6=0
+11=0
+15=0
+
+[B1 calls B2/P]
+1=Make a call
+3=A:@:Wait for an announcement [0299]
+5=A:@:Wait for time [0.5]
+7=A:@:Replace the receiver 
+2=A:@:Wait for time [0.5]
+4=A:@:Send a string [5]
+6=A:@:Wait for an announcement [0300]
+8=End of script
+
+[Ring Back Inhibit activate P_0140]
+3=A:@:Send a string [*03*37*Keyword#]
+7=;keyword is not given
+2=;keyword is not given
+4=A:@:Wait for time [0.5]
+6=A:@:Wait for dial tone
+8=A:@:Send a string [*#03*37*Keyword#]
+11=End of script
+1=A:@:Wait for dial tone
+5=A:@:Wait for an announcement [0310]
+9=A:@:Wait for time [0.5]
+10=A:@:Wait for an announcement [0320]
+
+[GotoActions__Ring Back Inhibit deactivate P_0140]
+3=0
+7=0
+12=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[GotoActions__Ring Back Inhibit activate P_0140]
+3=0
+7=0
+2=0
+4=0
+6=0
+8=0
+11=0
+1=0
+5=0
+9=0
+10=0
+
+[Ring Back Inhibit deactivate B2_0139]
+3=A:@:Wait for time [0.5]
+7=A:@:Wait for time [0.5]
+2=A:@:Send a string [#02*37#]
+4=A:@:Wait for an announcement [0311]
+6=A:@:Send a string [*#02*37#]
+8=A:@:Wait for an announcement [0306]
+1=A:@:Wait for dial tone
+5=A:@:Wait for dial tone
+9=A:@:Replace the receiver 
+10=End of script
+
+[GotoActions__B1 calls B2/P ringback]
+3=0
+7=0
+12=0
+4=0
+8=0
+13=0
+1=0
+5=0
+9=0
+10=0
+2=0
+6=0
+11=0
+
+[GotoActions__Interrogate Ring Back Inhibit B2_0141]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+
+[Ring Back Inhibit P(A)_0138]
+7=A:@:Wait for dial tone
+12=A:@:Replace the receiver 
+4=A:@:Wait for time [0.5]
+8=;keyword is not available
+13=A:@:Wait for dial tone
+17=A:@:Wait for an announcement [0047]
+1=A:@:Wait for dial tone
+5=A:@:Wait for an announcement [0047]
+9=A:@:Send a string [#03*37*keyword#]
+10=A:@:Wait for time [0.5]
+14=;keyword is not available
+18=A:@:Replace the receiver 
+2=;keyword is not available
+6=A:@:Replace the receiver 
+11=A:@:Wait for an announcement [0047]
+15=A:@:Send a string [*#03*37*keyword#]
+19=End of Script
+3=A:@:Send a string [*03*37*keyword#]
+16=A:@:Wait for time [0.5]
+
+[B1 calls B2/P ringback]
+3=A:@:Wait for an announcement [0299]
+7=A:@:Replace the receiver 
+12=A:@:Replace the receiver 
+4=A:@:Send a string [5]
+8=A:@:Wait for time [10]
+13=End of script
+1=Make a call
+5=A:@:Wait for time [0.5]
+9=Do path confirm
+10=A:@:Replace the receiver 
+2=A:@:Wait for time [0.5]
+6=A:@:Wait for an announcement [0307]
+11=A:@:Wait for dial tone
+
+[Ring Back Inhibit P(B)_0138]
+7=A:@:Wait for dial tone
+12=A:@:Replace the receiver 
+4=A:@:Wait for time [0.5]
+8=;keyword is not available
+13=A:@:Wait for dial tone
+17=A:@:Wait for an announcement [0306]
+1=A:@:Wait for dial tone
+5=A:@:Wait for an announcement [0310]
+9=A:@:Send a string [#03*37*keyword#]
+10=A:@:Wait for time [0.5]
+14=;keyword is not available
+18=A:@:Replace the receiver 
+2=;keyword is not available
+6=A:@:Replace the receiver 
+11=A:@:Wait for an announcement [0311]
+15=A:@:Send a string [*#03*37*keyword#]
+19=End of Script
+3=A:@:Send a string [*03*37*keyword#]
+16=A:@:Wait for time [0.5]
+
+[Ring Back Inhibit activate B2_0139]
+3=A:@:Wait for time [0.5]
+7=A:@:Wait for time [0.5]
+2=A:@:Send a string [*02*37#]
+4=A:@:Wait for an announcement [0310]
+6=A:@:Send a string [*#02*37#]
+8=A:@:Wait for an announcement [0320]
+1=A:@:Wait for dial tone
+5=A:@:Wait for dial tone
+9=End of script
+
+[GotoActions__Ring Back Inhibit P(A)_0138]
+7=0
+12=0
+4=0
+8=0
+13=0
+17=0
+1=0
+5=0
+9=0
+10=0
+14=0
+18=0
+2=0
+6=0
+11=0
+15=0
+19=0
+3=0
+16=0
+
+[GotoActions__B1 calls B2/P]
+1=0
+3=0
+5=0
+7=0
+2=0
+4=0
+6=0
+8=0
+
+[GotoActions__Interrogate Ring Back Inhibit P_0141]
+1=0
+3=0
+5=0
+2=0
+4=0
+6=0
+

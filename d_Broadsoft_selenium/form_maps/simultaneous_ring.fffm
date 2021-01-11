@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<FormMap version="7.0.1.201802131446">
+    <targets>
+        <item name="radio_on">
+            <queryFormatString>//input[@name=&apos;active&apos;]</queryFormatString>
+        </item>
+        <item name="radio_off">
+            <queryFormatString>xpath=(//input[@name=&apos;active&apos;])[2]</queryFormatString>
+        </item>
+        <item name="checkbox_not_ring_on_call">
+            <queryFormatString>name=notRingOnCall</queryFormatString>
+        </item>
+        <item name="textbox_simuser">
+            <queryFormatString>name=simNumber{0}</queryFormatString>
+            <arguments>
+                <item name="user_add"/>
+            </arguments>
+        </item>
+        <item name="button_ok">
+            <queryFormatString>name=ok</queryFormatString>
+        </item>
+        <item name="checkbox_confirmation_required">
+            <queryFormatString>name=confirmRequired{0}</queryFormatString>
+            <arguments>
+                <item name="active"/>
+            </arguments>
+        </item>
+    </targets>
+</FormMap>

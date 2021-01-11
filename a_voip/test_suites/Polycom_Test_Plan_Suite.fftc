@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<testCase version="8.1.3.0">
+    <general>
+        <language>Python</language>
+    </general>
+    <testbed>project://a_voip/topologies/Polycom/VVX_410.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="55345cd0-9a21-47be-9ceb-b9bebd762967" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.00 Originator Hangs Up IAD to PSTN</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c4a33029-e6ff-4fb0-beea-42b57a9d4fb5" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.00_originator_hangs_up_IAD_to_PSTN.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4b64c861-97b5-4e2d-ae69-67ce166da595" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.01 Call Cancel IAD to PSTN</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3583a91c-2872-430e-b2be-30b8d10d090a" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.01_call_cancel_IAD_to_PSTN.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c751135f-9d5c-47b9-95c8-33aaed5aaf2f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.02 Terminator Hangs Up IAD to PSTN</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d6fe2de3-5181-4b7e-97cc-31b2ce7bfe2e" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.02_terminator_hangs_up_IAD_to_PSTN.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a26729c2-4bbb-4da6-967c-0db93fd67008" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.03 Originator Hangs Up PSTN to IAD</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1565279b-1b63-4f74-b9d4-fa1c1c928800" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.03_originator_hangs_up_PSTN_to_IAD.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b6ba94af-403f-43da-a022-c6d1563e4dbe" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.04 Call Cancel PSTN to IAD</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0d767bb7-9e6a-4459-9afd-b58fa4ed3270" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.04_call_cancel_PSTN_to_IAD.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0120bf73-19dc-4a7d-8c53-b4bafc35ad11" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.05 Terminator Hangs Up PSTN to IAD</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="aa97253f-8250-47b9-8c7e-e5ed2152b05d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.05_terminator_hangs_up_PSTN_to_IAD.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1647bd62-eef0-4340-bdf4-f645f6b20e25" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 1.06 Call Routing Verification</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="21642575-06e2-46b4-ab5f-bae17fb05a75" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/1.06_call_routing_verification.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cca55721-89f7-42b0-8051-e0aa9c1096d2" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 2.00 Calling Number Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="422f3b1a-e542-4946-9b7d-6ea923705fa3" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/2.00_calling_number_delivery.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="c65d41b7-6614-4f78-b855-5cf7dad5a0d8" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Run test case 2.01 Calling Name Delivery</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7f491f75-35d2-4300-b6f7-e68cdb3ffa37" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/PolyPhones/2.01_calling_name_delivery.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
