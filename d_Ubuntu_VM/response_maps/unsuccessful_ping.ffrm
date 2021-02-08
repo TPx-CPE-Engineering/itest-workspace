@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<ResponseMap version="8.4.0.202012071239">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>ping 192.168.50.50 -c 5</body>
+                </command>
+            </action>
+            <responseBody>PING 192.168.50.50 (192.168.50.50) 56(84) bytes of data.
+
+--- 192.168.50.50 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4032ms
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;isEmpty&gt;false&lt;/isEmpty&gt;
+    &lt;responseLine&gt;PING 192.168.50.50 (192.168.50.50) 56(84) bytes of data.&lt;/responseLine&gt;
+    &lt;promptName&gt;prompt1&lt;/promptName&gt;
+    &lt;echo&gt;ping 192.168.50.50 -c 5&lt;/echo&gt;
+    &lt;prompt&gt;cpeeng@SmallUbuntu:~$ &lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="isEmpty">
+                    <queryFormatString>.//isEmpty</queryFormatString>
+                </item>
+                <item name="responseLine">
+                    <queryFormatString>.//responseLine</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+            <duration>14.3</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>PING\\s+</regex>
+                            <start>0</start>
+                            <end>5</end>
+                        </item>
+                        <item name="host">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>5</start>
+                            <end>18</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+\\(</regex>
+                            <start>18</start>
+                            <end>20</end>
+                        </item>
+                        <item name="host_ip">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\)\\s+</regex>
+                            <start>33</start>
+                            <end>35</end>
+                        </item>
+                        <item name="group3">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>37</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\(</regex>
+                            <start>37</start>
+                            <end>38</end>
+                        </item>
+                        <item name="bytes_of_data">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>38</start>
+                            <end>40</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\) bytes of data\\.</regex>
+                            <start>40</start>
+                            <end>56</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>PING 192.168.50.50 (192.168.50.50) 56(84) bytes of data.</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>---\\s+</regex>
+                            <start>0</start>
+                            <end>4</end>
+                        </item>
+                        <item name="ip">
+                            <regex>((\\d+\\.)+\\d+)</regex>
+                            <named>true</named>
+                            <start>4</start>
+                            <end>17</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+ping statistics ---\\s+</regex>
+                            <start>17</start>
+                            <end>38</end>
+                        </item>
+                        <item name="packets_transmitted">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>38</start>
+                            <end>39</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+packets transmitted,\\s+</regex>
+                            <start>39</start>
+                            <end>61</end>
+                        </item>
+                        <item name="received">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>61</start>
+                            <end>62</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+received,\\s+</regex>
+                            <start>62</start>
+                            <end>73</end>
+                        </item>
+                        <item name="packet_loss">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>73</start>
+                            <end>76</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>% packet loss, time\\s+</regex>
+                            <start>76</start>
+                            <end>96</end>
+                        </item>
+                        <item name="time">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>96</start>
+                            <end>102</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>--- 192.168.50.50 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4032ms</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="ping * -c 5">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>
