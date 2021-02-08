@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testCase version="8.1.3.0">
+<testCase version="8.4.0.202012071239">
     <testbed>project://a_voip/topologies/VeloCloud/VC620/VC620_lab_basic_adtran.tbml</testbed>
     <procedures>
         <item name="main">
@@ -26,6 +26,7 @@
                                                 <storageLocation>cpe_connected</storageLocation>
                                                 <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                                 <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                             </ruleProperties>
                                         </processorInfo>
                                     </item>
@@ -116,7 +117,7 @@
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="e09f6e5d-2d51-44dc-a971-23e1d33383a5" action="comment" useFieldsInCommand="false">
+                <item guid="e09f6e5d-2d51-44dc-a971-23e1d33383a5" action="comment" skip="true" useFieldsInCommand="false">
                     <command>
                         <body>2.00 - OSPF - Verify Neighbor Adjacency Advertised Received Routes</body>
                     </command>
@@ -136,7 +137,7 @@
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="4661b7b2-72d9-4f89-a5c0-b0940f0e4326" action="comment" useFieldsInCommand="false">
+                <item guid="4661b7b2-72d9-4f89-a5c0-b0940f0e4326" action="comment" skip="true" useFieldsInCommand="false">
                     <command>
                         <body>2.01 - OSPF - Verify MD5 Authentication</body>
                     </command>
@@ -156,7 +157,7 @@
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="be816db3-9efb-43c3-86e3-2423da9503d1" action="comment" useFieldsInCommand="false">
+                <item guid="be816db3-9efb-43c3-86e3-2423da9503d1" action="comment" skip="true" useFieldsInCommand="false">
                     <command>
                         <body>3.00 - BGP - Verify Neighbor Adjacency Advertised Received Routes</body>
                     </command>
@@ -176,7 +177,7 @@
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="75187c8c-48bc-4bda-af4b-b3ec77415025" action="comment" useFieldsInCommand="false">
+                <item guid="75187c8c-48bc-4bda-af4b-b3ec77415025" action="comment" skip="true" useFieldsInCommand="false">
                     <command>
                         <body>3.01 - BGP - Verify MD5 Authentication</body>
                     </command>
@@ -352,6 +353,48 @@
                         <item guid="a22f29b7-b044-4791-9642-c5d19ad3321f" action="run">
                             <command>
                                 <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.04_lsn_verify_outbound_dnat_inbound_snat_port_forwarding.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="93b27eba-ef85-45d4-9806-c0eacd95a1a3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.05 - LAN Side NAT - Verify Simultaneous Source Destination NAT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="75cddf93-53ad-4f26-9c98-b08fc3f3ef6d" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.05_lsn_verify_simul_source_dest_nat.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bd728e97-27e9-4e12-b46b-7707b4546776" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.06 - LAN Side NAT - Verify Source NAT Route Matching</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e960b738-dc96-4baf-bdc4-d8e2976f1bbd" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.06_lsn_verify_source_nat_route_matching.fftc</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1bd6885e-ae7b-4340-8b2c-ce12ee91a3b4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>5.07 - LAN Side NAT - Verify Destination NAT Route Matching</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d9e7ff18-b5b2-436e-aedf-c4745d95bc36" action="run">
+                            <command>
+                                <body>project://a_voip/test_cases/SD-WAN/General%20Function/5%20LAN_Side_NAT/5.07_lsn_verify_destination_nat_route_matching.fftc</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.execution.kernel.ExecRunPropertyGroup"/>
                         </item>

@@ -416,6 +416,40 @@
           </session>
         </extensions>
       </resource>
+      <resource guid="a09a7f09-9eb3-41a8-a4cb-22b1dac3f5f1" id="resource_18" type="server">
+        <boundary height="100" width="102" x="936" y="516"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">CPE Small Ubuntu</property>
+        <property name="inventoryName"/>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.4.0.202012071239">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <prompts merge="true">
+                    <item name="prompt1">
+                      <Content>cpeeng@SmallUbuntu:~$</Content>
+                    </item>
+                    <item TypeOfPrompt="PASSWORD" name="prompt2">
+                      <Content>Password:</Content>
+                    </item>
+                    <item name="prompt3">
+                      <Content>C2900_iTest_FXS#</Content>
+                    </item>
+                  </prompts>
+                </TerminalProperties>
+                <ipAddress inherit="false">10.255.20.159</ipAddress>
+                <user inherit="false">cpeeng</user>
+                <password inherit="false">hUeNANsrSYsbFrLU7R+C5w==</password>
+              </sessionProperties>
+              <language>Python</language>
+            </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
+          </session>
+        </extensions>
+      </resource>
     </resources>
     <connectivity>
       <link id="link_0">

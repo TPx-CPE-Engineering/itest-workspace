@@ -217,21 +217,18 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>CPE: Host was resolved as should.</message>
+                                                            <message>CPE: Host was resolved as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                            <message>CPE: Host was not found. Expected host to be translated successfully.</message>
                                                         </actionProperties>
                                                     </item>
-                                                    <item actionId="FailTest">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                                                    </item>
-                                                    <item actionId="ExitExecution">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="15.0"/>
                                                     </item>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
@@ -270,21 +267,18 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>CPE: Host was resolved as should.</message>
+                                                            <message>CPE: Host was resolved as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                            <message>CPE: Host was not found. Expected host to be translated successfully.</message>
                                                         </actionProperties>
                                                     </item>
-                                                    <item actionId="FailTest">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                                                    </item>
-                                                    <item actionId="ExitExecution">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="15.0"/>
                                                     </item>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
@@ -323,21 +317,18 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>CPE: Host was resolved as should.</message>
+                                                            <message>CPE: Host was resolved as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>CPE: Host was not resolved. Exiting execution.</message>
+                                                            <message>CPE: Host was not found. Expected host to be translated successfully.</message>
                                                         </actionProperties>
                                                     </item>
-                                                    <item actionId="FailTest">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                                                    </item>
-                                                    <item actionId="ExitExecution">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="15.0"/>
                                                     </item>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
@@ -460,21 +451,18 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>CPE: Host was not resolved as should.</message>
+                                                            <message>CPE: Host was not resolved as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>CPE: Host was resolved. Exiting execution.</message>
+                                                            <message>CPE: Host was resolved. Expected host to not be translated.</message>
                                                         </actionProperties>
                                                     </item>
-                                                    <item actionId="FailTest">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                                                    </item>
-                                                    <item actionId="ExitExecution">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="15.0"/>
                                                     </item>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
@@ -513,21 +501,18 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>CPE: Host was not resolved as should.</message>
+                                                            <message>CPE: Host was not resolved as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>CPE: Host was resolved. Exiting execution.</message>
+                                                            <message>CPE: Host was resolved. Expected host to not be translated.</message>
                                                         </actionProperties>
                                                     </item>
-                                                    <item actionId="FailTest">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                                                    </item>
-                                                    <item actionId="ExitExecution">
-                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="15.0"/>
                                                     </item>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
@@ -801,23 +786,4 @@ Usage: Login to Edge CLI and configure /etc/hosts file with a dummy FQDN (dummyd
             <response>{}</response>
         </item>
     </procedures>
-    <eventHandlers>
-        <item name="OnFailTestAction">
-            <item actionId="DeclareExecutionIssue">
-                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
-                    <message></message>
-                </actionProperties>
-            </item>
-            <item actionId="DeclareExecutionIssue">
-                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
-                    <message>EDGE Cleanup...</message>
-                </actionProperties>
-            </item>
-            <item actionId="CallProcedure">
-                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
-                    <command>clean_up()</command>
-                </actionProperties>
-            </item>
-        </item>
-    </eventHandlers>
 </testCase>
