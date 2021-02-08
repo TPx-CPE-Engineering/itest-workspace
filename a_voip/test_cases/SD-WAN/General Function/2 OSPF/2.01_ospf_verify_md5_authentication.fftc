@@ -345,7 +345,7 @@
                         <body>Getting OSPF Neighbors from Edge. Expecting 1 OSPF Neighbor to be present.</body>
                     </command>
                     <nestedSteps>
-                        <item guid="ade23c1b-6c86-4683-a580-1507e8892222" action="command" session="SD-WAN" useFieldsInCommand="false">
+                        <item guid="ade23c1b-6c86-4683-a580-1507e8892222" action="command" session="SD-WAN" timeout="40" useProcTimeout="false" useFieldsInCommand="false">
                             <command>
                                 <body>get_ospf_neighbors_count()</body>
                             </command>
@@ -388,6 +388,13 @@
                                     </item>
                                 </analysisRules>
                             </postProcessing>
+                            <eventHandlers>
+                                <item name="OnStepTimeout">
+                                    <item actionId="RepeatStep">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="30.0"/>
+                                    </item>
+                                </item>
+                            </eventHandlers>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
                     </nestedSteps>
@@ -513,7 +520,7 @@
                         <body>Getting OSPF Neighbors from Edge. Expecting 1 OSPF Neighbor to be present.</body>
                     </command>
                     <nestedSteps>
-                        <item guid="c7a0fd9c-6918-40ec-919b-6b687f40e2a1" action="command" session="SD-WAN" useFieldsInCommand="false">
+                        <item guid="c7a0fd9c-6918-40ec-919b-6b687f40e2a1" action="command" session="SD-WAN" timeout="40" useProcTimeout="false" useFieldsInCommand="false">
                             <command>
                                 <body>get_ospf_neighbors_count()</body>
                             </command>
@@ -556,6 +563,13 @@
                                     </item>
                                 </analysisRules>
                             </postProcessing>
+                            <eventHandlers>
+                                <item name="OnStepTimeout">
+                                    <item actionId="RepeatStep">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="30.0"/>
+                                    </item>
+                                </item>
+                            </eventHandlers>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
                     </nestedSteps>
@@ -678,7 +692,7 @@
                         <body>Getting OSPF Neighbors from Edge. Expecting no OSPF Neighbors to be present.</body>
                     </command>
                     <nestedSteps>
-                        <item guid="76a5fad2-cf73-41e5-b019-87d64016f125" action="command" session="SD-WAN" useFieldsInCommand="false">
+                        <item guid="76a5fad2-cf73-41e5-b019-87d64016f125" action="command" session="SD-WAN" timeout="40" useProcTimeout="false" useFieldsInCommand="false">
                             <command>
                                 <body>get_ospf_neighbors_count()</body>
                             </command>
@@ -721,6 +735,13 @@
                                     </item>
                                 </analysisRules>
                             </postProcessing>
+                            <eventHandlers>
+                                <item name="OnStepTimeout">
+                                    <item actionId="RepeatStep">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="3" delayBetweenRepeats="30.0"/>
+                                    </item>
+                                </item>
+                            </eventHandlers>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
                     </nestedSteps>
