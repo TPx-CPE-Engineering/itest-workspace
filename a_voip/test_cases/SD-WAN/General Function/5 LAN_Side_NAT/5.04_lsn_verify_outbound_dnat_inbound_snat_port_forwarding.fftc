@@ -181,33 +181,21 @@ Host 1 able to SSH to 172.16.238.155:2201</notes>
                         <body>Verifying if Host 1 can SSH to Inside Address:2201, expecting successful connection...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="ef92a49c-6dfc-4ab8-a931-37bbb72c5419" action="command" session="CPE" estimatedStepExecutionTime="10" timeout="10" useProcTimeout="false">
+                        <item guid="1799817b-4459-4e90-a2b6-0138e0d0fb10" action="IsSSHSuccessful" session="CPE" useFieldsInCommand="false">
                             <command>
-                                <body>ssh -l cpeeng -p 2201 172.16.223.21</body>
-                            </command>
-                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
-                        </item>
-                        <item guid="885a73ae-8295-4823-bc2f-32cd9336440a" action="sleep">
-                            <command>
-                                <body>5</body>
-                            </command>
-                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                        </item>
-                        <item guid="610c58ef-d964-45bc-a6f2-3ddebf34500e" action="command" session="CPE" estimatedStepExecutionTime="10" timeout="5" useProcTimeout="false">
-                            <command>
-                                <body masked="true">hUeNANsrSYsbFrLU7R+C5w==</body>
+                                <body>-username cpeeng -host 172.16.223.21 -port 2201 -password Fan-Brain-K</body>
                             </command>
                             <postProcessing>
                                 <analysisRules>
                                     <item>
-                                        <extractorInfo extractorType="contains">
-                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
-                                                <searchString>Welcome to Ubuntu</searchString>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>successful()</query>
                                             </extractorProperties>
                                         </extractorInfo>
                                         <processorInfo ruleType="assert">
                                             <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
-                                                <expression>value == 1</expression>
+                                                <expression>int(value) == 0</expression>
                                                 <actionsWhenTrue>
                                                     <item actionId="PassTestIfNotAlreadyFailed">
                                                         <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
