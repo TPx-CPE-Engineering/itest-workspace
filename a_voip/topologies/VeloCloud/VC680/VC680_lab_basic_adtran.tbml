@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ASCII"?>
 <tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
   <header>
     <name></name>
@@ -114,6 +114,12 @@
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <TerminalProperties>
                   <scrollBackLines inherit="false">3000</scrollBackLines>
+                  <captureProperties>
+                    <learnPrompts inherit="false">false</learnPrompts>
+                    <commandBreakChars inherit="false">
+                      <item>[char Ctrl-C]</item>
+                    </commandBreakChars>
+                  </captureProperties>
                 </TerminalProperties>
                 <ipAddress inherit="false">66.17.13.188</ipAddress>
                 <port inherit="false">2201</port>
@@ -438,7 +444,7 @@
         <boundary height="100" width="102" x="948" y="528"/>
         <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
         <property name="name">CPE Small Ubuntu</property>
-        <property name="inventoryName"></property>
+        <property name="inventoryName"/>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
             <sessionProfile version="8.4.0.202012071239">
