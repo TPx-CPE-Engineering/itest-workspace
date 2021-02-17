@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testCase version="8.1.3.0">
+<testCase version="8.4.0.202012071239">
     <general>
         <sessionClass includeTestCase="true" sessionType="Adtran_CPE_ssh_base.ffsp"/>
     </general>
@@ -56,6 +56,7 @@
                     <isMandatory>true</isMandatory>
                 </item>
             </arguments>
+            <response>{}</response>
         </item>
         <item name="CheckRunningConfig" isPublic="true">
             <description>Check Running Config</description>
@@ -427,6 +428,7 @@ ______________________________________________________
 2. second_codec\t       |   M   |   Codec to set as second priority
 3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
 4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <response>{}</response>
         </item>
         <item name="DisableDialTone" isPublic="true">
             <description>Set Codec Priority</description>
@@ -466,6 +468,7 @@ ______________________________________________________
 2. second_codec\t       |   M   |   Codec to set as second priority
 3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
 4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <response>{}</response>
         </item>
         <item name="EnableCASConfig" isPublic="true">
             <description>Set Codec Priority</description>
@@ -505,6 +508,7 @@ ______________________________________________________
 2. second_codec\t       |   M   |   Codec to set as second priority
 3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
 4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <response>{}</response>
         </item>
         <item name="EnableDialTone" isPublic="true">
             <description>Set Codec Priority</description>
@@ -544,6 +548,7 @@ ______________________________________________________
 2. second_codec\t       |   M   |   Codec to set as second priority
 3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
 4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+            <response>{}</response>
         </item>
         <item name="GetActiveCalls" isPublic="true" isVBlock="true">
             <description>Get Active Calls</description>
@@ -572,6 +577,7 @@ ______________________________________________________
                                         <query>[return active_calls]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                                 <skip>true</skip>
@@ -587,6 +593,7 @@ ______________________________________________________
                                         <storageLocation>var1</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -645,6 +652,7 @@ ______________________________________________________
                                                         <query>[return int_status]</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -703,6 +711,7 @@ ______________________________________________________
                                                         <query>[return int_status]</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -745,6 +754,7 @@ ______________________________________________________
                                         <query>[return int_status]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -858,6 +868,7 @@ ______________________________________________________
                                         <storageLocation>voip_codec_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -921,6 +932,7 @@ ______________________________________________________
                                         <storageLocation>regExp_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -935,6 +947,7 @@ ______________________________________________________
                                         <storageLocation>regStatus_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1052,6 +1065,7 @@ ______________________________________________________
                                                                 <storageLocation>regStatus_list</storageLocation>
                                                                 <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                                                 <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                             </ruleProperties>
                                                         </processorInfo>
                                                     </item>
@@ -1134,6 +1148,7 @@ ______________________________________________________
                                         <query>[return reg_status]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1165,6 +1180,7 @@ ______________________________________________________
                                         <storageLocation>regExp_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1179,6 +1195,7 @@ ______________________________________________________
                                         <storageLocation>regStatus_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1268,6 +1285,7 @@ ______________________________________________________
                                                 <storageLocation>regStatus_list</storageLocation>
                                                 <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                                 <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                             </ruleProperties>
                                         </processorInfo>
                                     </item>
@@ -1344,6 +1362,7 @@ ______________________________________________________
                                         <query>[return reg_status]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1410,6 +1429,7 @@ ______________________________________________________
                                         <storageLocation>expire_time</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1480,6 +1500,7 @@ ______________________________________________________
                                         <storageLocation>expire_time</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1515,6 +1536,7 @@ ______________________________________________________
                                         <query>[return voice_class]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1593,6 +1615,7 @@ Response:  None
                                         <storeInAList>true</storeInAList>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1608,6 +1631,7 @@ Response:  None
                                         <storeInAList>true</storeInAList>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1623,6 +1647,7 @@ Response:  None
                                         <storeInAList>true</storeInAList>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1638,6 +1663,7 @@ Response:  None
                                         <storeInAList>true</storeInAList>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1653,6 +1679,7 @@ Response:  None
                                         <storeInAList>true</storeInAList>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1667,6 +1694,7 @@ Response:  None
                                         <storageLocation>mos_lq</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1681,6 +1709,7 @@ Response:  None
                                         <storageLocation>mos_pq</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1713,6 +1742,7 @@ Response:  None
                                                         <query>[return source_phone]</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -1743,6 +1773,7 @@ Response:  None
                                                         <query>[return source_phone]</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -1774,6 +1805,7 @@ Response:  None
                                         <query>[return dest_phone]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1799,6 +1831,7 @@ Response:  None
                                         <query>[return packets_lost]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1824,6 +1857,7 @@ Response:  None
                                         <query>[return packets_out_of_order]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1849,6 +1883,7 @@ Response:  None
                                         <query>[return jitter]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1874,6 +1909,7 @@ Response:  None
                                         <query>[return mos_lq]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -1899,6 +1935,7 @@ Response:  None
                                         <query>[return mos_pq]</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2321,6 +2358,7 @@ ______________________________________________________
                                                         <query>[return success]</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -2378,6 +2416,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>ping_reply</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2443,6 +2482,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                                         <query>resolved_to</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -2458,6 +2498,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                                         <query>success_rate</query>
                                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                                     </ruleProperties>
                                                 </processorInfo>
                                             </item>
@@ -2489,6 +2530,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <query>resolved</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2534,6 +2576,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>interface</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2600,6 +2643,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>tftp_server_name</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2614,6 +2658,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>config_server_name</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2628,6 +2673,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>temp_primary_dns</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2655,6 +2701,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <storageLocation>domain_list</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2710,6 +2757,7 @@ Required Arguments: name (string) of the file which you want to delete.</multili
                                         <query>has_dhcp_settings</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2785,6 +2833,7 @@ After DHCP settings are added or removed on Edge, this procedure will very if th
                                         <storageLocation>name_server_ips</storageLocation>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2810,6 +2859,7 @@ After DHCP settings are added or removed on Edge, this procedure will very if th
                                         <query>name_server_ips_removed</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -2952,6 +3002,7 @@ After DHCP settings are added or removed on Edge, this procedure will very if th
                                         <query>status</query>
                                         <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
                                         <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                     </ruleProperties>
                                 </processorInfo>
                             </item>
@@ -3018,6 +3069,101 @@ After DHCP settings are added or removed on Edge, this procedure will very if th
                 </item>
             </steps>
             <response>{&quot;status&quot;:&quot;value&quot;}</response>
+        </item>
+        <item name="IsSSHSuccessful" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="c11f793f-d202-4c20-924e-6d1369a1bfb5" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>set success 0</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="842c7422-01e9-423a-a4a5-17e54dfb7542" action="command" session="$session">
+                    <command>
+                        <body>ssh $username:$password@$host port $port</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="contains">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                        <searchString>cpeeng@SmallUbuntu:~$ </searchString>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set success 1</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <promptProperties>
+                            <stepPrompts>
+                                <item name="SmallUbuntu">
+                                    <Content>cpeeng@SmallUbuntu:~$ </Content>
+                                </item>
+                            </stepPrompts>
+                        </promptProperties>
+                    </applicationProperties>
+                </item>
+                <item guid="8f1e5f78-d07d-4fd5-a85b-f665c95890d0" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>puts $success</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>successful</query>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Quickcall to check if SSH into a remote macine from CPE is successful
+</multilineDescription>
+            <arguments>
+                <item name="username">
+                    <description>User name of remote machine.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="host">
+                    <description>Host of machine you wish to remote into.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="port">
+                    <description>Port to connet to. Default is 22.</description>
+                    <defaultValue>22</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="password">
+                    <description>Password to loging as username.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;successful&quot;:&quot;value&quot;}</response>
         </item>
     </procedures>
 </testCase>
