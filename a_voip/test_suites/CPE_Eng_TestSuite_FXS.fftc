@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<testCase version="8.1.3.0">
+<testCase version="8.4.2.0">
     <execution estimatedExecutionTime="472">
-        <parameters version="8.1.3.0">
+        <parameters version="8.4.2.0">
             <parameters escape="true">
                 <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
                     <max_attempts_for_testcase pt:datatype="INTEGER" pt:description="Maximum number of attempts for Repeat Step">3</max_attempts_for_testcase>
@@ -36,6 +36,7 @@
                                                 <storageLocation>cpe_connected</storageLocation>
                                                 <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
                                                 <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
                                             </ruleProperties>
                                         </processorInfo>
                                     </item>
@@ -813,7 +814,7 @@
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="466eaa23-5d4c-4081-b2a0-48077cf7ed65" action="comment" useFieldsInCommand="false">
+                <item guid="466eaa23-5d4c-4081-b2a0-48077cf7ed65" action="comment" skip="true" useFieldsInCommand="false">
                     <command>
                         <body>Run test case P1.08 - Fax Testing inbound &amp; outbound using G729 &amp; G711 codec list</body>
                     </command>
