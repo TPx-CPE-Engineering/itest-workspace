@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/mail_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <documentation>Mail QuickCalls</documentation>
+                    <notes>QuickCall Library mainly created to be able to email the results of a test suite to CPE Engineering</notes>
+                    <owner>Juan Brena</owner>
+                    <sessionClass includeTestCase="true" sessionType="mail_smtp_ssh.ffsp"/>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="Email_Results" isPublic="true">
+                        <description>Email Test Suite Results</description>
+                        <author>Juan Brena</author>
+                        <multilineDescription>Email the results of a Test Case or Test Suite
+</multilineDescription>
+                        <arguments>
+                            <item name="results">
+                                <description>Results to be emailed</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="Emails_3_Attempt_Results" isPublic="true"/>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

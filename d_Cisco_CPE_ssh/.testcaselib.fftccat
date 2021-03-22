@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/Cisco_CPE_ssh_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="Cisco_CPE_ssh_base.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="Ping" isPublic="true" isVBlock="true">
+                        <multilineDescription>Ping a host or IP</multilineDescription>
+                        <arguments>
+                            <item name="host">
+                                <description>Host or IP address you wish to ping</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;resolved&quot;:&quot;value&quot;,&quot;resolved_to&quot;:&quot;value&quot;,&quot;success_rate&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="ClearName-Servers" isPublic="true" isVBlock="true">
+                        <response>{&quot;name_server_ips_removed&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="AddName-Servers" isPublic="true">
+                        <arguments>
+                            <item name="name_servers">
+                                <description>IPs of the name-servers you wish to add</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="ChangeConfig" isPublic="true">
+                        <description>Change Config</description>
+                        <author>Alex Orr</author>
+                        <version>0.1</version>
+                        <multilineDescription>Change the startup config file on the CPE and reload.</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>Name of file to load into startup-config</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="CheckRunningConfig" isPublic="true">
+                        <description>Check Running Config</description>
+                        <author>Alex Orr</author>
+                        <version>0.1</version>
+                        <multilineDescription>Compares the running config to a file stored on the device. Returns &quot;MATCH&quot; if the files match, returns the first different lines otherwise.</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>Name of the desired config file on the CPE device. </description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="DisableDebug" isPublic="true"/>
+                    <item name="EnableCCSIPMessages" isPublic="true">
+                        <response>{}</response>
+                    </item>
+                    <item name="ForceCodec" isPublic="true">
+                        <description>Use Fax Codec</description>
+                        <author>Alex Orr</author>
+                        <multilineDescription>Set the codec to FAXMODEM on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+2. codec_name\t\t\t|   M   |   Name of codec to apply</multilineDescription>
+                        <arguments>
+                            <item name="voice_class">
+                                <description>Voice class to change. Defaults to 5.</description>
+                                <defaultValue>5</defaultValue>
+                            </item>
+                            <item name="codec_name">
+                                <description>Name of fax codec to apply</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="GetActiveCalls" isPublic="true" isVBlock="true">
+                        <description>Get Active Calls</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Returns the number of active calls on a Cisco CPE device</multilineDescription>
+                        <response>{&quot;active_calls&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetIntStatus" isPublic="true" isVBlock="true">
+                        <description>Get Interface Status</description>
+                        <multilineDescription>Returns the status of the desired interface </multilineDescription>
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface to check</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;int_status&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetLastCodecUsed" isPublic="true">
+                        <response>{&quot;codec_list&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetRegStatus" isPublic="true" isVBlock="true">
+                        <description>Get Reg Status</description>
+                        <multilineDescription>Returns registration status of the CPE. Will return OK if all lines are registered or NR (not registered) if one or more lines aren&apos;t.</multilineDescription>
+                        <response>{&quot;reg_status&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetRegStatusNeutral" isPublic="true" isVBlock="true">
+                        <description>Get Reg Status</description>
+                        <multilineDescription>Returns registration status of the CPE. Will return OK if all lines are registered or NR (not registered) if one or more lines aren&apos;t.</multilineDescription>
+                        <response>{&quot;reg_status&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetVoiceClass" isPublic="true" isVBlock="true">
+                        <arguments>
+                            <item name="dial_plan">
+                                <description>number used in config to represent dial-plan</description>
+                                <defaultValue>100</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{&quot;voice_class&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="Login" isPublic="true">
+                        <description>Login to an Adtran SSH Session</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Login to an Adtran CPE session (priveleged mode)
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+None
+
+______________________________________________________
+Response:  None 
+</multilineDescription>
+                        <response>{&quot;source_phone&quot;:&quot;value&quot;,&quot;dest_phone&quot;:&quot;value&quot;,&quot;packets_lost&quot;:&quot;value&quot;,&quot;packets_out_of_order&quot;:&quot;value&quot;,&quot;jitter&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="SetCodecPriority" isPublic="true">
+                        <description>Set Codec Priority</description>
+                        <author>Alex Orr</author>
+                        <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+                        <arguments>
+                            <item name="first_codec">
+                                <description>Codec to set as first priority</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="second_codec">
+                                <description>codec to set as second priority</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="voice_class">
+                                <description>Voice class to change. Defaults to 5.</description>
+                                <defaultValue>5</defaultValue>
+                            </item>
+                            <item name="is_sip">
+                                <description> Set to &apos;true&apos; if using a SIP config</description>
+                                <defaultValue>false</defaultValue>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="SetDigitTerminator" isPublic="true">
+                        <description>Set Digit Terminator</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Change the digit terminator to  # on Cisco CPE</multilineDescription>
+                    </item>
+                    <item name="SetFaxModemForceCodec" isPublic="true">
+                        <description>Set Codec Priority</description>
+                        <author>Alex Orr</author>
+                        <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+                        <arguments>
+                            <item name="voice_class">
+                                <defaultValue>5</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="codec1">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="codec2">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="SetVoiceForceCodec" isPublic="true">
+                        <description>Set Codec Priority</description>
+                        <author>Alex Orr</author>
+                        <multilineDescription>Set the codec priority on a Cisco device
+
+Arguments                     | O/M |   Description                
+______________________________________________________
+
+1. first_codec      \t  \t|   M   |   Codec to set as first priority
+2. second_codec\t       |   M   |   Codec to set as second priority
+3. voice_class\t\t\t|   O    |   Voice class to change. Defaults to 5.
+4. is_sip \t\t\t\t|   M   |   Set to &apos;true&apos; if using a SIP config</multilineDescription>
+                        <arguments>
+                            <item name="voice_class">
+                                <defaultValue>5</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="codec1">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="codec2">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="ShutdownInterface" isPublic="true">
+                        <description>Shutdown Interface on CPE</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Shutdown an interface on a Cisco device
+
+</multilineDescription>
+                        <arguments>
+                            <item name="interface">
+                                <description>Name of interface to shutdown
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="UnsetDigitTerminator" isPublic="true">
+                        <description>Set Digit Terminator to Default</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <arguments>
+                            <item name="interface">
+                                <description>Name of interface to shutdown
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="EraseFile" isPublic="true" isVBlock="true">
+                        <description>Erase a file</description>
+                        <author>Juan Brena</author>
+                        <version>1.0</version>
+                        <multilineDescription>Simple procedure to erase a specifc file and returns with a 1 for success or 0 for failure/error.
+Required Arguments: name (string) of the file which you want to delete.</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>String of filename to be erased</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;success&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="ChangeRegProtocolToTCP" isPublic="true"/>
+                    <item name="ChangeRegProtocolToUDP" isPublic="true"/>
+                    <item name="IsSSHSuccessful" isPublic="true" isVBlock="true">
+                        <multilineDescription>Quickcall to check if SSH into a remote macine from CPE was successful</multilineDescription>
+                        <arguments>
+                            <item name="username">
+                                <description>User name of remote machine.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="host">
+                                <description>Host of machine you wish to remote into.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="port">
+                                <description>Port to connet to. Default is 22.</description>
+                                <defaultValue>22</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="password">
+                                <description>Password to loging as username.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;successful&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

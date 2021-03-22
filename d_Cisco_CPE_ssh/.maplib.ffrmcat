@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<ResponseMapCatalog version="8.4.2.0">
+    <mapCatalog>
+        <item name="response_maps/dir_command.ffrm">
+            <applicability actionType="command" command="dir">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_call_active_voice_summary.ffrm">
+            <applicability actionType="command" command="show call active voice summary"/>
+        </item>
+        <item name="response_maps/show_call_history_voice_compact.ffrm">
+            <applicability actionType="command" command="show call history voice compact"/>
+        </item>
+        <item name="response_maps/show_dsp-group_all.ffrm">
+            <applicability actionType="command" command="show dsp-group all">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_hosts.ffrm">
+            <applicability actionType="command" command="show hosts">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_interface.ffrm">
+            <applicability actionType="command" command="show (int.*|cont.*)*" matchType="Regex">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_policy-map_interface.ffrm">
+            <applicability actionType="command" command="show policy-map interface gi 0/0">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_run_section_dial-peer.ffrm">
+            <applicability actionType="command" command="show run | section dial-peer voice *"/>
+        </item>
+        <item name="response_maps/show_running-config.ffrm">
+            <applicability actionType="command" command="show running-config">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_sip-ua_reg_status.ffrm">
+            <applicability actionType="command" command="show sip-ua register status">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+    </mapCatalog>
+</ResponseMapCatalog>

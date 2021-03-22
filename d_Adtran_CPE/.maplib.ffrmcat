@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<ResponseMapCatalog version="8.4.2.0">
+    <mapCatalog>
+        <item name="response_maps/show_rtp_quality-monitoring_call-history_block.ffrm">
+            <applicability actionType="command" command="show rtp quality-monitoring call-history" priority="40"/>
+        </item>
+        <item name="response_maps/show_interface_pri.ffrm">
+            <applicability actionType="command" command="show interface pri *" priority="49">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/copy_command.ffrm">
+            <applicability actionType="command" command="$backup_file">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/debug_sip_stack_message_invite.ffrm">
+            <applicability actionType="command" command="do undebug all"/>
+        </item>
+        <item name="response_maps/show_auto-link.ffrm">
+            <applicability actionType="command" command="show auto-link">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_hosts.ffrm">
+            <applicability actionType="command" command="show hosts">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_interface.ffrm">
+            <applicability actionType="command" command="show interface *">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_ip_dhcp_lease.ffrm">
+            <applicability actionType="command" command="show ip dhcp lease">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_rtp_quality-monitoring_call-history.ffrm">
+            <applicability actionType="command" command="show rtp quality-monitoring call-history">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_run_voice_trunk.ffrm">
+            <applicability actionType="command" command="show run voice trunk *"/>
+        </item>
+        <item name="response_maps/show_run_voice_user.ffrm">
+            <applicability actionType="command" command="* show run voice user *"/>
+        </item>
+        <item name="response_maps/show_sip_trunk-reg.ffrm">
+            <applicability actionType="command" command="show sip trunk-reg">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/show_voice_call_summary_active.ffrm">
+            <applicability actionType="command" command="show voice call summary active"/>
+        </item>
+        <item name="response_maps/show_voice_quality.ffrm">
+            <applicability actionType="command" command="show voice quality">
+                <application>
+                    <item>com.fnfr.svt.applications.ssh</item>
+                    <item>com.fnfr.svt.applications.telnet</item>
+                </application>
+            </applicability>
+        </item>
+    </mapCatalog>
+</ResponseMapCatalog>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/broadsoft_ssh_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="broadsoft_ssh_base.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="GetTime" isPublic="true" isVBlock="true">
+                        <description>Get Current Time of Broadsoft System</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Get current time of broadsoft system.
+
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+none
+
+______________________________________________________
+Response            
+______________________________________________________
+1. date\t\t|\t\tCurrent date
+2. time\t\t|\t\tCurrent time
+3. epoch\t|\t\tCurrent date and time in seconds since epoch
+</multilineDescription>
+                        <response>{&quot;date&quot;:&quot;value&quot;,&quot;time&quot;:&quot;value&quot;,&quot;epoch&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="CheckAcctCode" isPublic="true"/>
+                    <item name="CheckTrace" isPublic="true" isVBlock="true">
+                        <description>Check Trace Log</description>
+                        <multilineDescription>Objective:  Check trace log file
+
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+
+none
+
+______________________________________________________
+Response            
+______________________________________________________
+
+1. trace_found \t\t\t|\t\t1 if trace found in log, 0 if not found 
+2. trace_originator\t\t|\t\tPhone number originating trace
+3. calling_number\t\t|\t\tNumber originating call being traced
+4. timestamp\t\t\t|\t\tTimestamp of trace
+5. epoch\t\t\t\t|\t\tTime of trace in seconds since epoch
+</multilineDescription>
+                        <response>{&quot;trace_found&quot;:&quot;value&quot;,&quot;trace_originator&quot;:&quot;value&quot;,&quot;calling_number&quot;:&quot;value&quot;,&quot;timestamp&quot;:&quot;value&quot;,&quot;epoch&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

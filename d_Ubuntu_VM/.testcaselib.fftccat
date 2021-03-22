@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/small_ubuntu_vm_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="small_ubuntu_vm_session_profile.ffsp"/>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="Ping" isPublic="true" isVBlock="true">
+                        <arguments>
+                            <item name="host">
+                                <description>Network Host you would like to send ECHO_REQUESTS</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="count">
+                                <description>Stop after sending count ECHO_REQUEST packets</description>
+                                <defaultValue>5</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{
+  &quot;packet_loss&quot;: &quot;value&quot;,
+  &quot;success_rate&quot;: &quot;value&quot;
+}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

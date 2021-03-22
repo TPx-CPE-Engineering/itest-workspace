@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/itest_nv1234_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="itest_nv1234_ssh.ffsp"/>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="config_interface_to_vlan_id" isPublic="true">
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface you want to modify
+</description>
+                                <defaultValue>0/16</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="vlan_id">
+                                <description>Vlan id you want to assign the interface to
+</description>
+                                <defaultValue>1623</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="bring_interface_up" isPublic="true">
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface to bring up</description>
+                                <defaultValue>0/16</defaultValue>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>
