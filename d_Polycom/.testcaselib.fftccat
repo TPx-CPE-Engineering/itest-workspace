@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/polycom_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="polycom_python_base.ffsp"/>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="get_call_state_expecting_ringback_or_connected" isPublic="true">
+                        <response>{}</response>
+                    </item>
+                    <item name="end_any_active_calls" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to end call
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="post_end_call" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to end call</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="call_handle">
+                                <description>Call handle of call you wish to end
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_call_state_expecting_offering" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to get call status from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_call_state_expecting_ringback" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to get call status from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_call_state_expecting_connected" isPublic="true" isJsonPretty="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to get call status from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_call_status_expecting_call_does_not_exist" isPublic="true" isJsonPretty="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name to get call status from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="post_dial" isPublic="true">
+                        <multilineDescription>Procedure to dial out
+\tArguments:
+\t\tdial_from: &lt;str&gt; Polycom phone object name. Assuming object was initialize
+\t\tdestination: &lt;str&gt; Destination phone number to dial to
+\tReturns
+\t\t1 if successful
+\t\t0 if unsuccessful
+</multilineDescription>
+                        <arguments>
+                            <item name="dial_from">
+                                <description>Polycom phone object name you wish to dial from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="destination">
+                                <description>Phone number to dial to</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="post_answer_call" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name you wish to answer call on</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_session_stats" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name you wish to get sessions stats from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="get_voice_mos_scores" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name you wish to get Voice MOS scores from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="call_handle">
+                                <description>Call handle to locate the call you get voice MOS scores</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="validate_voice_mos_scores" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name you wish to get Voice MOS scores from
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="call_handle">
+                                <description>Call handle to locate the call you get voice MOS scores</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="mos_score_threshold">
+                                <defaultValue>3.6</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="wait_for_call_state_to_be_connected" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <description>Polycom phone object name you wish to get call state</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="secs_to_wait">
+                                <description>Time to wait between each attempt in seconds for call state to be connected</description>
+                                <defaultValue>15</defaultValue>
+                            </item>
+                            <item name="attempts">
+                                <description>Attempts to wait for call state to be connected
+</description>
+                                <defaultValue>1</defaultValue>
+                            </item>
+                        </arguments>
+                        <response>{}</response>
+                    </item>
+                    <item name="verify_remote_party_number_match" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="number_to_match">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;match&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="verify_remote_party_name_match" isPublic="true">
+                        <arguments>
+                            <item name="phone">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="name_to_match">
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;match&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

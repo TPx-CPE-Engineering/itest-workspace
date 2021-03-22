@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/Sniffer_ssh_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="Sniffer_ssh_base.ffsp"/>
+                </general>
+                <procedures>
+                    <item name="SnmpwalkToCPE" isPublic="true" isVBlock="true">
+                        <author>Juan Brena</author>
+                        <multilineDescription>This quickcall will execute a snmpwalk and verify whether or not CPE responds. This is originally made to be used for SD-WAN testing.
+The quickcall will know whether to look for a Adtran or Cisco response based on the testbed. Be sure the testbed (aka topology file) has the name of the cpe you are testing.
+</multilineDescription>
+                        <arguments>
+                            <item name="version">
+                                <description>Version of SNMP to use
+</description>
+                                <defaultValue>2c</defaultValue>
+                            </item>
+                            <item name="community">
+                                <description>Community string
+</description>
+                                <defaultValue>tp@c1n0c</defaultValue>
+                            </item>
+                            <item name="ip">
+                                <description>Include port if you have a port</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;did_cpe_respond&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="StartCapture" isPublic="true" isVBlock="true">
+                        <description>Start Wireshark Capture</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Start Empirix Capture
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. dest_phone\t\t\t|   O   |  List of phone numbers recieving the calls to be captured.
+2. orig_phone\t\t\t|   M   |  List of phone numbers originating the calls to be captured.
+3. filename\t\t\t\t|   M   |  Descriptive filename. Actual filename used will be &lt;testcase ID&gt;_&lt;this argument&gt;_&lt;timestamp&gt;.pcap
+
+______________________________________________________
+Response Structure\t\t|\tDescription    
+______________________________________________________
+1. filename\t\t\t|\tFilename and path on Emipirix server.</multilineDescription>
+                        <arguments>
+                            <item name="orig_phone">
+                                <description>List of phone numbers originating calls to be captured</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="dest_phone">
+                                <description>List of phone number recieving the call to be captured.</description>
+                                <defaultValue> </defaultValue>
+                            </item>
+                            <item name="filename">
+                                <description>Descriptive filename. Actual filename used will be &lt;this argument&gt;_&lt;timestamp&gt;.pcap</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;filename&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="StopCapture" isPublic="true" isVBlock="true">
+                        <description>Stop tshark Capture</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Stop tshark capture and return number of SIP packets captured
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. filename\t\t|   M   |   Name of the pcap file being generated
+
+______________________________________________________
+Response Structure: 
+1. packets\t\t|   Number of SIP packets captured
+
+1. packets\t|   Number of packets captured.</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>Name of pcap file being generated. If argument is supplied, QC will return number of packets captured in this file. </description>
+                            </item>
+                        </arguments>
+                        <response>{&quot;packets&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="StopCaptureAndFilter" isPublic="true" isVBlock="true">
+                        <description>Stop tshark Capture</description>
+                        <author>Alex Orr</author>
+                        <version>1.0</version>
+                        <multilineDescription>Objective:  Stop tshark capture and return number of SIP packets captured
+______________________________________________________
+Arguments      | O/M |   Description                
+______________________________________________________
+1. filename\t\t\t\t|   M   |   Name of the pcap file being generated
+2. orig_phone\t\t\t|   M   |  List of phone numbers originating the calls to be captured.
+3. dest_phone\t\t\t|   M   |  List of phone numbers recieving the calls to be captured.
+
+______________________________________________________
+Response Structure: 
+1. packets\t\t|   Number of SIP packets captured
+
+1. packets\t|   Number of packets captured.</multilineDescription>
+                        <arguments>
+                            <item name="filename">
+                                <description>Name of pcap file being generated. If argument is supplied, QC will return number of packets captured in this file. </description>
+                            </item>
+                            <item name="orig_phone">
+                                <description>List of phone numbers originating calls to be captured</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="dest_phone">
+                                <description>List of phone number recieving the call to be captured.</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;packets&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="GetPublicIP" isPublic="true" isVBlock="true">
+                        <description>Gets Public IP where the Sniffer lives in</description>
+                        <author>Juan Brena</author>
+                        <multilineDescription>Gets Public IP of where the Sniffer lives in</multilineDescription>
+                        <response>{&quot;public_ip&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

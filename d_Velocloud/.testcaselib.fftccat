@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<TestCaseCatalog version="8.4.2.0">
+    <testCaseCatalog>
+        <item name="session_profiles/velocloud_python_quickcall_library.fftc">
+            <tcDescriptor version="8.4.2.0">
+                <general>
+                    <sessionClass includeTestCase="true" sessionType="velocloud_python_base.ffsp"/>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="is_ssh_rule_present" isPublic="true" isVBlock="true">
+                        <response>{&quot;is_ssh_rule_present&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="remove_ssh_rule" isPublic="true" isVBlock="true">
+                        <response>{&quot;is_ssh_rule_present&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="add_ssh_rule" isPublic="true">
+                        <response>{}</response>
+                    </item>
+                    <item name="get_bgp_summary_state" isPublic="true">
+                        <response>{&quot;key&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="get_bgp_neighbor_advertised_routes" isPublic="true">
+                        <response>{}</response>
+                    </item>
+                    <item name="get_bgp_neighbor_received_routes" isPublic="true">
+                        <response>{}</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>

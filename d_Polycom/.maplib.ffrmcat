@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ResponseMapCatalog version="8.4.2.0">
+    <mapCatalog>
+        <item name="response_maps/create_edge.ffrm">
+            <applicability actionType="command" command="* = BasePolycom(ipv4_address=*"/>
+        </item>
+        <item name="response_maps/get_call_status_.ffrm">
+            <applicability actionType="command" command="*.get_call_status()">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/get_voice_mos_scores.ffrm">
+            <applicability actionType="command" command="*.get_voice_mos_scores*">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/post_answer_call_.ffrm">
+            <applicability actionType="command" command="*.post_answer_call()">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/post_dial.ffrm">
+            <applicability actionType="command" command="*.post_dial(dest=*)">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/post_end_call.ffrm">
+            <applicability actionType="command" command="*.post_end_call(call_handle=*)">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/validate_voice_mos_scores_.ffrm">
+            <applicability actionType="command" command="*.validate_voice_mos_scores*">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
+                </application>
+            </applicability>
+        </item>
+    </mapCatalog>
+</ResponseMapCatalog>
