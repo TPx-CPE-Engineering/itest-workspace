@@ -5,9 +5,9 @@
     <description></description>
     <property name="author">alex</property>
     <property name="dateCreated">2015-03-17T13:01:16.705-04:00</property>
-    <property name="dateModified">2020-10-08T15:04:02.362-07:00</property>
+    <property name="dateModified">2021-03-26T15:36:50.990-07:00</property>
     <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
-    <property name="creationToolVersion" vendor="com.fnfr">8.1.0.201911080855</property>
+    <property name="creationToolVersion" vendor="com.fnfr">8.4.0.202011171236</property>
   </header>
   <body>
     <resources>
@@ -18,15 +18,17 @@
         <property name="inventoryName" vendor="zz">Lab</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="Selenium" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
               <sessionProperties transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
               <baseProfile>project://d_Broadsoft_selenium/session_profiles/Broadsoft_selenium_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <TerminalProperties>
@@ -39,14 +41,18 @@
               <baseProfile>project://d_Broadsoft_ssh/session_profiles/broadsoft_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
           <session baseSessionProfile="" name="Python_API" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.python</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
               <baseProfile>project://d_Broadsoft_api/session_profiles/itest_broadsoft_python_api.ffsp</baseProfile>
               <language>Python</language>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="ed09f115-bbe9-4e70-a7a9-1b1447162040" id="resource_0_0" type="port">
@@ -68,12 +74,14 @@
         <property name="name">Abacus100</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="tclsh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
               <baseProfile>project://d_Abacus_tclsh/session_profiles/Abacus_tclsh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="3c3d9071-fd34-413b-a686-4474fb5a97a6" id="resource_3_0" type="port">
@@ -101,7 +109,7 @@
         <property name="itest_switch_interface" vendor=" ">0/17</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <TerminalProperties>
@@ -116,6 +124,8 @@
               <baseProfile>project://d_Cisco_CPE_ssh/session_profiles/Cisco_CPE_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="ea8dfa7c-2717-45d6-b475-07403845e9f2" id="resource_4_0" type="port">
@@ -142,7 +152,7 @@
         <property name="inventoryName" vendor="Spirent">iTest</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="cmd" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
                 <terminalProperties>
@@ -154,15 +164,19 @@
                 </terminalProperties>
               </sessionProperties>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
           <session baseSessionProfile="" name="mail" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
                 <sessionbuilderInitializeAction type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
               </sessionProperties>
               <baseProfile>project://d_Mail_smtp/session_profiles/mail_smtp_ssh.ffsp</baseProfile>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="ff6aa90c-1dff-4add-9f70-433ea3a57ffe" id="resource_5_0" type="port">
@@ -185,7 +199,7 @@
         <property name="inventoryName" vendor="Wireshark">Lab</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh_Lab-Wireshark" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <TerminalProperties>
@@ -203,9 +217,11 @@
               <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <ipAddress inherit="false">10.255.20.112</ipAddress>
@@ -215,6 +231,8 @@
               <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="d63300f4-e135-4ff8-b640-e91c9dede711" id="resource_6_0" type="port">
@@ -233,7 +251,7 @@
         <property name="inventoryName">Lab</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <ipAddress inherit="false">10.255.20.106</ipAddress>
@@ -243,6 +261,8 @@
               <baseProfile>project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="f89e7bd2-8c95-490c-9e36-a123e4381243" id="resource_7_0" type="port">
@@ -357,12 +377,14 @@
         <property name="vlan_id_voice" vendor=" ">1613</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="python" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.python</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
               <baseProfile>project://d_Velocloud/session_profiles/velocloud_python_base.ffsp</baseProfile>
               <language>Python</language>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="2121a2fd-591d-4a49-ac67-5c414c1ef053" id="resource_13_0" type="port">
@@ -381,12 +403,14 @@
         <property name="inventoryName">CPE-2960G-24</property>
         <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
               <baseProfile>project://d_Cisco_Switch_ssh/session_profiles/cisco_ixia_ssh.ffsp</baseProfile>
               <language>Python</language>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
         <resource guid="0ddb1b98-7950-4a57-8a12-24563a176a69" id="resource_15_0" type="port">
@@ -407,12 +431,49 @@
         <property name="inventoryName">iTest_NV1234</property>
         <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.1.3.0">
+            <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
               <baseProfile>project://d_Adtran_Switch_ssh/session_profiles/itest_nv1234_ssh.ffsp</baseProfile>
               <language>Python</language>
             </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
+          </session>
+        </extensions>
+      </resource>
+      <resource guid="48c0b82b-506e-48a5-a9f1-6e37b8349b5e" id="resource_18" type="server">
+        <boundary height="100" width="102" x="966" y="546"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">CPE Small Ubuntu</property>
+        <property name="inventoryName"/>
+        <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.4.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <prompts merge="true">
+                    <item name="prompt1">
+                      <Content>cpeeng@SmallUbuntu:~$</Content>
+                    </item>
+                    <item TypeOfPrompt="PASSWORD" name="prompt2">
+                      <Content>Password:</Content>
+                    </item>
+                    <item name="prompt3">
+                      <Content>C2900_iTest_FXS#</Content>
+                    </item>
+                  </prompts>
+                </TerminalProperties>
+                <ipAddress inherit="false">10.255.20.159</ipAddress>
+                <user inherit="false">cpeeng</user>
+                <password inherit="false">hUeNANsrSYsbFrLU7R+C5w==</password>
+              </sessionProperties>
+              <baseProfile>project://d_Ubuntu_VM/session_profiles/small_ubuntu_vm_session_profile.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
           </session>
         </extensions>
       </resource>

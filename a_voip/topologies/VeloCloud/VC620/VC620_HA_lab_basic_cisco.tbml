@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ASCII"?>
 <tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
   <header>
     <name></name>
     <description></description>
     <property name="author">alex</property>
     <property name="dateCreated">2015-03-17T13:01:16.705-04:00</property>
-    <property name="dateModified">2021-03-25T13:30:20.962-07:00</property>
+    <property name="dateModified">2021-04-28T15:34:05.794-07:00</property>
     <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
     <property name="creationToolVersion" vendor="com.fnfr">8.4.0.202011171236</property>
   </header>
@@ -93,7 +93,7 @@
           <property name="inventoryName"/>
         </resource>
         <resource guid="db2aa741-11aa-4a27-892a-eb5b157ef8de" id="resource_3_2" type="port">
-          <property name="name">Ch 1-25</property>
+          <property name="name">Ch 26-50</property>
           <property name="inventoryName"/>
         </resource>
         <resource guid="2e4ccf88-beb9-4721-aa9f-b77e95b6b321" id="resource_3_3" type="port">
@@ -106,7 +106,7 @@
         <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
         <property name="name">CPE</property>
         <property name="inventoryName" vendor="Adtran">D.U.T.</property>
-        <property name="itest_switch_interface" vendor=" ">0/16</property>
+        <property name="itest_switch_interface" vendor=" ">0/17</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="ssh" provider="com.fnfr">
             <sessionProfile version="8.4.3.0">
@@ -114,14 +114,22 @@
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
                 <TerminalProperties>
                   <scrollBackLines inherit="false">3000</scrollBackLines>
+                  <prompts merge="true">
+                    <item name="prompt1">
+                      <Content>Password:</Content>
+                    </item>
+                    <item name="prompt2">
+                      <Content>cpeeng@SmallUbuntu:~$</Content>
+                    </item>
+                  </prompts>
                 </TerminalProperties>
-                <ipAddress inherit="false">66.17.13.162</ipAddress>
-                <port inherit="false">2201</port>
+                <ipAddress inherit="false">66.17.13.184</ipAddress>
+                <port inherit="false">2202</port>
                 <user inherit="false">itestautomation</user>
                 <version inherit="false">SSHv2</version>
                 <password inherit="false">n6mQyZSyEZgJor6ZZIWzzg==</password>
               </sessionProperties>
-              <baseProfile>project://d_Adtran_CPE/session_profiles/Adtran_CPE_ssh_base.ffsp</baseProfile>
+              <baseProfile>project://d_Cisco_CPE_ssh/session_profiles/Cisco_CPE_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
             <isInherited>false</isInherited>
@@ -154,7 +162,15 @@
           <session baseSessionProfile="" name="cmd" provider="com.fnfr">
             <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
-              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties">
+                <terminalProperties>
+                  <prompts merge="true">
+                    <item name="prompt1">
+                      <Content>C:\\Program Files\\Spirent\\iTest 7.0.1&gt;python C:\\Users\\dataeng\\Desktop\\VeloCloud_Scripts\\/&quot;Device Specific&quot;\\upgrade_edge.py 3.2.2 4 1</Content>
+                    </item>
+                  </prompts>
+                </terminalProperties>
+              </sessionProperties>
             </sessionProfile>
             <isInherited>false</isInherited>
             <isDisabled>false</isDisabled>
@@ -190,21 +206,7 @@
         <property name="name">Sniffer</property>
         <property name="inventoryName" vendor="Wireshark">Lab</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
-          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
-            <sessionProfile version="8.4.3.0">
-              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
-              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
-                <ipAddress inherit="false">10.255.20.112</ipAddress>
-                <user inherit="false">dataeng</user>
-                <password inherit="false">A8sqD9Ilamc7xvlfdGH3qF1uPKCGZW9D</password>
-              </sessionProperties>
-              <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
-              <standalone>false</standalone>
-            </sessionProfile>
-            <isInherited>false</isInherited>
-            <isDisabled>false</isDisabled>
-          </session>
-          <session baseSessionProfile="" name="ssh_to_lab_wireshark" provider="com.fnfr">
+          <session baseSessionProfile="" name="ssh_Lab-Wireshark" provider="com.fnfr">
             <sessionProfile version="8.4.3.0">
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
@@ -219,6 +221,20 @@
                 <user inherit="false">itest</user>
                 <password inherit="false">Y+bpS9cQBd/M1nCtOXvC3A==</password>
                 <connectTimeout inherit="false">120</connectTimeout>
+              </sessionProperties>
+              <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
+          </session>
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.4.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <ipAddress inherit="false">10.255.20.112</ipAddress>
+                <user inherit="false">dataeng</user>
+                <password inherit="false">A8sqD9Ilamc7xvlfdGH3qF1uPKCGZW9D</password>
               </sessionProperties>
               <baseProfile>project://d_Sniffer/session_profiles/Sniffer_ssh_base.ffsp</baseProfile>
               <standalone>false</standalone>
@@ -357,16 +373,16 @@
           <property name="inventoryName"/>
         </resource>
       </resource>
-      <resource guid="399efa5c-e59e-4b39-aecd-3047c6a13b1e" id="resource_13" type="">
+      <resource guid="3d3d27a0-d803-43a2-9b2c-214381edaa7b" id="resource_13" type="">
         <boundary height="100" width="193" x="468" y="504"/>
         <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Device_generic_32.gif</property>
         <property name="name">SD-WAN</property>
-        <property name="inventoryName">Single VCE610</property>
-        <property name="edgeId" vendor="com.fnfr">221</property>
+        <property name="inventoryName">VCE620 HA</property>
+        <property name="edgeId" vendor="com.fnfr">246</property>
         <property name="enterpriseId" vendor="com.fnfr">1</property>
-        <property name="sshPort" vendor="zz">2201</property>
-        <property name="vlan_id_global" vendor=" ">1614</property>
-        <property name="vlan_id_voice" vendor=" ">1613</property>
+        <property name="sshPort" vendor="com.fnfr">2202</property>
+        <property name="vlan_id_global" vendor=" "/>
+        <property name="vlan_id_voice" vendor=" "/>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
           <session baseSessionProfile="" name="python" provider="com.fnfr">
             <sessionProfile version="8.4.3.0">
@@ -379,16 +395,16 @@
             <isDisabled>false</isDisabled>
           </session>
         </extensions>
-        <resource guid="d8c7e1a9-266e-40c7-916b-6ffa0374579e" id="resource_13_0" type="port">
+        <resource guid="2121a2fd-591d-4a49-ac67-5c414c1ef053" id="resource_13_0" type="port">
           <property name="name">..</property>
           <property name="inventoryName"/>
         </resource>
-        <resource guid="7361f850-421d-496b-b6aa-480581b63c9d" id="resource_13_1" type="port">
+        <resource guid="7ff943ec-6a61-4950-9497-870db9d1e1ac" id="resource_13_1" type="port">
           <property name="name">...</property>
           <property name="inventoryName"/>
         </resource>
       </resource>
-      <resource guid="48fbd429-8aa1-47e2-8d75-435a18222be6" id="resource_15" type="switch">
+      <resource guid="f8b6529a-a44f-44ee-af1f-23d7c8283488" id="resource_15" type="switch">
         <boundary height="100" width="100" x="192" y="504"/>
         <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
         <property name="name">Switch</property>
@@ -405,19 +421,19 @@
             <isDisabled>false</isDisabled>
           </session>
         </extensions>
-        <resource guid="f8383076-ecc1-4256-baec-e42c1bd23e00" id="resource_15_0" type="port">
+        <resource guid="0ddb1b98-7950-4a57-8a12-24563a176a69" id="resource_15_0" type="port">
           <property name="name">Global VLAN</property>
           <property name="inventoryName">840_Single_Global</property>
           <property name="vlan" vendor="zz">1844</property>
         </resource>
-        <resource guid="5392202d-c13f-4265-95e0-ff17aba744a7" id="resource_15_1" type="port">
+        <resource guid="c2d66bf9-4bd1-45f8-84f3-7c9e9da7cf21" id="resource_15_1" type="port">
           <property name="name">Voice VLAN</property>
           <property name="inventoryName">840_Single_Voice</property>
           <property name="vlan" vendor="zz">1843</property>
         </resource>
       </resource>
-      <resource guid="edec34ff-e454-485e-8c48-e7c0ff800886" id="resource_16" type="switch">
-        <boundary height="100" width="100" x="788" y="524"/>
+      <resource guid="d4dac92e-400b-4e99-bb72-5f0c4b1ab9cd" id="resource_17" type="switch">
+        <boundary height="100" width="100" x="778" y="514"/>
         <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
         <property name="name">iTest Switch</property>
         <property name="inventoryName">iTest_NV1234</property>
@@ -427,6 +443,66 @@
               <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
               <baseProfile>project://d_Adtran_Switch_ssh/session_profiles/itest_nv1234_ssh.ffsp</baseProfile>
+              <language>Python</language>
+            </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
+          </session>
+        </extensions>
+      </resource>
+      <resource guid="a09a7f09-9eb3-41a8-a4cb-22b1dac3f5f1" id="resource_18" type="server">
+        <boundary height="100" width="102" x="936" y="516"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">CPE Small Ubuntu</property>
+        <property name="inventoryName"/>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.4.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <prompts merge="true">
+                    <item name="prompt1">
+                      <Content>cpeeng@SmallUbuntu:~$</Content>
+                    </item>
+                    <item TypeOfPrompt="PASSWORD" name="prompt2">
+                      <Content>Password:</Content>
+                    </item>
+                    <item name="prompt3">
+                      <Content>C2900_iTest_FXS#</Content>
+                    </item>
+                  </prompts>
+                </TerminalProperties>
+                <ipAddress inherit="false">10.255.20.159</ipAddress>
+                <user inherit="false">cpeeng</user>
+                <password inherit="false">hUeNANsrSYsbFrLU7R+C5w==</password>
+              </sessionProperties>
+              <language>Python</language>
+            </sessionProfile>
+            <isInherited>false</isInherited>
+            <isDisabled>false</isDisabled>
+          </session>
+        </extensions>
+      </resource>
+      <resource guid="b6f0deb6-955c-4d11-82fa-5d9bf5de92fc" id="resource_19" type="switch">
+        <boundary height="100" width="136" x="156" y="660"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
+        <property name="name">Switch 2</property>
+        <property name="inventoryName">Juniper EX2200</property>
+        <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="8.4.3.0">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <TerminalProperties>
+                  <captureProperties>
+                    <commandBreakChars inherit="false">
+                      <item>[char Ctrl-C]</item>
+                    </commandBreakChars>
+                  </captureProperties>
+                </TerminalProperties>
+              </sessionProperties>
+              <baseProfile>project://d_Juniper/session_profiles/Juniper_Switch.ffsp</baseProfile>
               <language>Python</language>
             </sessionProfile>
             <isInherited>false</isInherited>

@@ -1,11 +1,58 @@
 <?xml version="1.0"?>
-<TestCaseCatalog version="8.4.2.0">
+<TestCaseCatalog version="8.4.3.0">
     <testCaseCatalog>
         <item name="session_profiles/Juniper_Switch_quickcall_library.fftc">
-            <tcDescriptor version="8.4.2.0">
+            <tcDescriptor version="8.4.3.0">
                 <general>
                     <sessionClass includeTestCase="true" sessionType="Juniper_Switch.ffsp"/>
+                    <language>Python</language>
                 </general>
+                <procedures>
+                    <item name="DisableInterface" isPublic="true">
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface to disasble</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="EnableInterface" isPublic="true">
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface to enable</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
+                    <item name="FindHaWanInterfaceFromID" isPublic="true" isVBlock="true">
+                        <arguments>
+                            <item name="ID">
+                                <description>ID of HA</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="WAN">
+                                <description>WAN Interface you want
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;interface&quot;:&quot;value&quot;}</response>
+                    </item>
+                    <item name="FindHaLanInterfaceFromID" isPublic="true" isVBlock="true">
+                        <arguments>
+                            <item name="ID">
+                                <description>ID of HA</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="LAN">
+                                <description>LAN Interface you want
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                        <response>{&quot;interface&quot;:&quot;value&quot;}</response>
+                    </item>
+                </procedures>
             </tcDescriptor>
         </item>
     </testCaseCatalog>

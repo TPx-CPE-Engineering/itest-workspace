@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
-<ResponseMapCatalog version="8.4.2.0">
+<ResponseMapCatalog version="8.4.3.0">
     <mapCatalog>
+        <item name="response_maps/IxLoad_check_for_inbound_outbound_throughput_consistency_.ffrm">
+            <applicability actionType="command" command="IxLoad.check_for_inbound_outbound_throughput_consistency()"/>
+        </item>
         <item name="response_maps/get_bgp_neighbor_advertised_routes_.ffrm">
             <applicability actionType="command" command="get_bgp_neighbor_advertised_routes()">
                 <application>
@@ -40,6 +43,13 @@
             <applicability actionType="POST" command="network/getNetworkConfigurations">
                 <application>
                     <item>com.fnfr.itest.applications.webservices.restful</item>
+                </application>
+            </applicability>
+        </item>
+        <item name="response_maps/print_IxLoad_getTestResults__.ffrm">
+            <applicability actionType="command" command="print(IxLoad.getTestResults())">
+                <application>
+                    <item>com.fnfr.svt.applications.python</item>
                 </application>
             </applicability>
         </item>
