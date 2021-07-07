@@ -1,0 +1,861 @@
+<?xml version="1.0"?>
+<testCase version="8.4.3.0">
+    <general>
+        <documentation>Verify SIP/RTP has priority over all traffic</documentation>
+        <notes>Usage:
+Verify Business Policy (Configure &gt; Profiles &gt; CPE Engineering Base Profile) has Audio / Video and Business Collaboration traffic priority set to Multi-Path/High and SBC is listed in gateway (Superuser Operator &gt; Gateways &gt; Static Routes). Using the Ixia place 5 calls while filling the transport up with FTP traffic (Get/Put). If transport bandwidth exceeds edge capability re-configure WAN to lower bandwidth (Configure &gt; Edges &gt; Device &gt; WAN Settings &gt; Edit) 
+
+Expected Results:
+No loss of MoS score or packets for RTP traffic</notes>
+        <language>Python</language>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_voip/topologies/VeloCloud/VC620/VC620_HA_lab_basic_cisco.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="972c6be8-9733-4fe0-a1bd-c79c9ff7e725" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Opening devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dd3fac97-614a-4422-8ae2-7d6ffdf657b4" action="open" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="969f3bbb-76c0-439c-9aac-930ac935ce2e" action="open" session="DUT_Edge">
+                            <command>
+                                <body>device:SD-WAN#python</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="0032bf91-2be0-4633-8a8c-441eaaca2b3b" action="open" session="Juniper">
+                            <command>
+                                <body>device:Switch%202#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="df7b7865-e445-4565-bf02-945f83029600" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Importing modules</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ac351110-f549-43dd-8d9c-5a99a8490d31" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>from d_velocloud.ha import ha_1_00_wan_ha_failover as HA</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e9e7c2c2-747d-41f3-b790-91c6ecb6cae3" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>from d_ixia.ix_load.Modules.MyIxLoadAPI import IxLoadApi</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ccd76f79-f163-4e14-b064-e4f157abf148" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Initiating Edge</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f1f2d2d6-4c14-4241-ba6d-e0cb91d4e013" action="command" session="DUT_Edge">
+                            <command>
+                                <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="47eec53d-4618-4f2e-84c5-f8fb1ac91435" action="command" session="DUT_Edge">
+                            <command>
+                                <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="189f0688-5374-487f-ae0c-9e39c8a2dd8b" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE, EPOCH = HA.create_edge(edge_id, enterprise_id)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="53a33acf-9fdf-4b1a-acb2-d518671892b5" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>print(EPOCH)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4d2d67d3-76ca-4bb5-aaf6-8d8ca1db1bcb" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Checking if Edge has HA is ready</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dd7757ee-b10d-40f5-aa90-eba7a81fec41" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_enterprise_edge_info(specific_key=&quot;haState&quot;)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;haState&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;READY&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Edge HA State is Ready</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Edge HA State is not ready. Please make sure this edge is configured for HA testing.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="CancelTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d5e6ce15-a612-4f97-9827-032275ca43e3" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="17ec12a0-f35d-4d96-8ad7-31dad082381d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s active device serial number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5b1e536b-9d12-490b-a64b-d186361c799a" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_active_device_serial_number()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;switch serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>serial_number</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges active device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7f483dac-3ad8-4238-a1f2-207d548bd837" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="67a159c3-87ed-4e0a-a410-8c9eeb5eb4b5" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s stand-by device serial number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fa062036-0886-4690-84c7-fae4a2aa2075" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_ha_device_serial_number()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;ha serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges stand-by device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="46e605e7-afbc-4454-8038-96e973f9b6fa" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ba7de452-9413-42a0-b6a0-2dd4b0c0bb8f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s active device interface based on serial number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2067b2e2-b924-4cd9-b427-f08098be6fa9" action="FindHaWanInterfaceFromID" session="Juniper" useFieldsInCommand="false">
+                            <command>
+                                <body>-ID [serial_number] -WAN WAN1</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>interface()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>edge_active_interface</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>mapped/Json/interface</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges active device interface is: &quot;{value}&quot; in Jupiter Switch.</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ae01eafb-9ae7-42a9-8614-a28042983733" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e18f3b16-b281-41cb-bb82-25b737bf5c74" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Starting IxLoad test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5e5ac35c-b9ad-444e-9508-3fd4994dd1fd" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad = IxLoadApi()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="12f66c2d-4845-408d-89c7-fa7735c386b8" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.connect(ixLoadVersion=IxLoad.ixLoadVersion)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1b8317e9-a1cb-4f78-9da7-31b1ba9a96f0" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.loadConfigFile(rxfFile=&quot;C:\\\\Users\\\\dataeng\\\\Documents\\\\Ixia\\\\IxLoad\\\\Repository\\\\Dev_Velo620HA-g711+VoiceBsoftFXSStressTest_1-50+Acme+FTP2Ixia.rxf&quot;)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="c2372a9e-47cc-4638-9d7f-7ea50ae57b12" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.enableForceOwnership()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b97f1e77-b184-4cae-8840-0ad0c6f96ff0" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.enableAnalyzerOnAssignedPorts()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6a788736-0f31-4fe3-833c-56804257dbb4" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.runTraffic()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="16182df3-efb7-4167-8958-87222fd3d658" action="sleep">
+                            <command>
+                                <body>60</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="be1032a8-c974-4cef-9b09-92e878370177" action="comment" async="true" threadName="stats" useFieldsInCommand="false">
+                    <command>
+                        <body>Collecting Inbound &amp; Outbound Throughput as the test executes</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c1946b04-c968-48c9-9c0f-d5b3428b3342" action="command" session="Ixload" async="true" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.poll_inbound_outbound_throughput_stats()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="47e015d3-0570-431f-9b39-ba08af740326" action="comment">
+                    <command>
+                        <body>Waiting 3 minutes and shutting down Edge&apos;s active device interface: &quot;[edge_active_interface]&quot;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="64d5181e-ee3b-4dac-bcd7-ad65190034ef" action="sleep">
+                            <command>
+                                <body>180</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="974f48cf-7788-4a14-9d3f-f3f482d4d7cf" action="DisableInterface" session="Juniper" useFieldsInCommand="false">
+                            <command>
+                                <body>-interface [edge_active_interface]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0c51777e-9a03-4f00-ab00-11241277dec7" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="70c381ab-7708-485d-abe8-4575dccea0d1" action="waitthread">
+                    <command>
+                        <body>stats</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+                <item guid="8c511769-5474-4c86-95bc-7becabb426a7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Waiting until tests finishes and becomes unconfigured</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="31ce1b1d-0075-4dec-8649-1ee410504366" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.waitForActiveTestToUnconfigure()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5b69f3da-d6b0-4e8e-a202-40162ec69413" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3e27f2d6-b058-4691-b799-e5f2cca8917d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Verify condition of stats to pass test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="20d4eef3-39f0-41d7-baf6-4f8b5c845d4f" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.check_for_inbound_outbound_throughput_delay_consistency()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;test result&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>All statistics points met the passing thresholds.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>There were statistic points that did not meet passing thresholds.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                        <skip>true</skip>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;test result&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>There were less than 10 threshold warnings within stats </message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>There were more than 10 threshold warnings within stats</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6200572b-26dd-4769-a952-0f744773f5c0" action="command" session="Ixload" useFieldsInCommand="false" useAutoMap="false">
+                            <command>
+                                <body>IxLoad.print_inbound_outbound_throughput_delay_consistency()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <performResponseMapping>false</performResponseMapping>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="cdd178d9-eeb6-4b60-a4b6-d27c3ae4b7e6" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="748c1475-4ca5-4bf3-9908-5eb226f7ed66" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Checking Edge&apos;s events to confirm HA_GOING_ACTIVE is present</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="93ba62d2-daa1-4549-854b-db8f333a6236" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.check_for_ha_going_active_in_edge_events(EPOCH)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;HA_GOING_ACTIVE Present&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;True&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>HA Going Active event was present on the edge</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>HA Going Active event was not present on the edge.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="dc297f80-580a-4625-afee-0f94134a3a4d" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="da0d4bbd-3d8f-42e0-a86d-d3ed9c252912" action="comment">
+                    <command>
+                        <body>Re-enabling Edge&apos;s active device interface: &quot;[edge_active_interface]&quot;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a6635554-1349-4d9b-ad84-03244f93fdf5" action="sleep">
+                            <command>
+                                <body>120</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b4904603-40d9-4063-8f06-36990d37fc65" action="EnableInterface" session="Juniper" useFieldsInCommand="false">
+                            <command>
+                                <body>-interface [edge_active_interface]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="f6cbfca8-191c-4c11-b6dd-4247a619772e" action="sleep">
+                            <command>
+                                <body>120</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f522650c-0bb5-48bc-a033-620329f8d2da" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a07e2a01-5d53-40da-866d-9ff6f9224c8f" action="comment">
+                    <command>
+                        <body>Checking if Edge&apos;s active and stand-by device serial numbers swapped</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6efe6308-7c31-4e28-b305-7ba88071620d" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.check_if_active_ha_serial_numbers_swapped()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9144eab1-216b-42d0-ad17-90dfef16e5ea" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9a0aeae9-907f-45cb-8697-837846090995" action="comment">
+                    <command>
+                        <body>Starting IxLoad again to see if traffic flows again after interface has been brought back up</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="18153ac7-3fc0-46a7-ae19-5f76ae4aeb26" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.runTraffic()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3242db9d-5354-46d0-8733-322249bb6443" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.poll_inbound_outbound_throughput_stats()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="db3992f2-820d-4ef6-ae15-d3156719b281" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.waitForActiveTestToUnconfigure()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e33d0d70-472b-4c12-82d3-bb7b2277b164" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Deleting IxLoad Session</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ce67b780-f156-43cf-bc53-65156135da1a" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.deleteSessionId()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="restore_interfaces" isPublic="true">
+            <steps>
+                <item guid="3006ab5b-b10c-442f-8087-0f793bd04e2f" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s active device serial number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="673129da-ae4c-4207-82df-961afb2a29b3" action="command" session="DUT_Edge" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_enterprise_edge_info(specific_key=&quot;serialNumber&quot;)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;serialNumber&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>serial_number</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;serialNumber&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges active device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="00e9c667-0fd5-4c4f-bbf2-28f1623435bf" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_active_device_serial_number()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;switch serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>serial_number</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges active device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9261a185-9f1e-41d3-a3ef-57db2c6bab63" action="FindHaWanInterfaceFromID" session="Juniper" useFieldsInCommand="false">
+                    <command>
+                        <body>-ID [serial_number] -WAN WAN1</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>interface()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>edge_active_interface</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>mapped/Json/interface</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>Edges active device interface is: &quot;{value}&quot; in Jupiter Switch.</message>
+                                        <tag sub="false" defaultValue=""/>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a1847603-3411-4f69-894c-691668610c8a" action="EnableInterface" session="Juniper" useFieldsInCommand="false">
+                    <command>
+                        <body>-interface [edge_active_interface]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3c65b55c-60e3-4c23-9f62-d3907ac8b185" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="41dafaed-9656-4cdd-a74a-c7a9fbd98cce" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s stand-by device serial number</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2b09bdea-2b48-4c2b-b4d2-acbec073769a" action="command" session="DUT_Edge" skip="true" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_enterprise_edge_info(specific_key=&quot;haSerialNumber&quot;)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;haSerialNumber&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges stand-by device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fa168320-7ad4-4e12-a32c-ecd0e3a98084" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_ha_device_serial_number()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;ha serial number&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Edges stand-by device serial number: {value}</message>
+                                                <tag sub="false" defaultValue=""/>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <eventHandlers>
+        <item name="OnFailedTestResult">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup"/>
+            </item>
+            <item actionId="CallProcedure">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                    <command>restore_interfaces()</command>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnAbortExecution">
+            <item actionId="CallProcedure">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                    <command>restore_interfaces()</command>
+                </actionProperties>
+            </item>
+            <item actionId="AbortTest">
+                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+            </item>
+        </item>
+        <item name="OnCancelExecution">
+            <item actionId="CallProcedure">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                    <command>restore_interfaces()</command>
+                </actionProperties>
+            </item>
+            <item actionId="CancelTest">
+                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+            </item>
+        </item>
+    </eventHandlers>
+</testCase>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<testCase version="8.4.3.0">
+    <general>
+        <language>Python</language>
+    </general>
+    <testbed>project://a_voip/topologies/VeloCloud/VC3400/Single_VC3400_lab_basic_adtran.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e2500f67-a9fe-4fc4-b41e-ecd563a32e88" action="open" session="DUT_Edge" useFieldsInCommand="false">
+                    <command>
+                        <body>device:SD-WAN#python</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.python.PythonSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="ebd9bc40-1b5e-4053-9a11-983249d2ce25" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                    <command>
+                        <body>from d_velocloud.business_policy import business_policy_1_01_verify_data_sent_out_correct_wan as bp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="20038f2b-59ed-406a-93fb-8cb815c07a95" action="command" session="DUT_Edge">
+                    <command>
+                        <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d761fa3c-f23b-4901-ab8b-3fb9741e373e" action="command" session="DUT_Edge">
+                    <command>
+                        <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3ff8c53e-800d-4e70-ae55-2200f666c279" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                    <command>
+                        <body>DUT_EDGE = bp.create_edge(edge_id=edge_id, enterprise_id=enterprise_id)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e76d0708-8d0a-444e-8a51-099156f904f5" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                    <command>
+                        <body>my_edge_id = DUT_EDGE.id</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="55f03f33-674c-42f3-bf1c-49287a306766" action="command" session="DUT_Edge" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>bp.main()</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
