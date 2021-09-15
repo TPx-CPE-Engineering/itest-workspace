@@ -1,11 +1,71 @@
 <?xml version="1.0"?>
-<testCase version="8.1.3.0">
+<testCase version="8.4.3.0">
     <general>
         <sessionClass includeTestCase="true" sessionType="cisco_ixia_ssh.ffsp"/>
         <language>Python</language>
     </general>
     <procedures>
         <item name="main"/>
+        <item name="configure_interface_to_vlan" isPublic="true">
+            <steps>
+                <item guid="3f97f8b3-f637-46e6-972b-11774c11aeea" action="command" session="[session]" estimatedStepExecutionTime="0.017">
+                    <command>
+                        <body>config t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c91be4a7-2f51-47d4-8320-2343d43cf0d5" action="command" session="[session]" normalOffset="8.907" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>int [interface]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ef6e3e4a-7525-46f3-a9d3-1c9f41d84e5c" action="command" session="[session]" normalOffset="8.002" estimatedStepExecutionTime="0.014">
+                    <command>
+                        <body>switchport access vlan [vlan]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8d27a5ff-4f0c-4d99-92ee-69daf209192b" action="command" session="[session]" normalOffset="17.315" estimatedStepExecutionTime="0.013">
+                    <command>
+                        <body>switchport mode access</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="04e359ff-d7d1-4f0b-965b-27c993990483" action="command" session="[session]" normalOffset="2.328" estimatedStepExecutionTime="0.011">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1d79ee69-b729-46cb-a0e4-dd491e6276cd" action="command" session="[session]" normalOffset="1.333" estimatedStepExecutionTime="0.013">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="11edbc07-874d-4b55-bfc4-0021b4f3d247" action="sleep">
+                    <command>
+                        <body>5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>Configure an interface to a vlan
+</multilineDescription>
+            <arguments>
+                <item name="interface">
+                    <description>Interface you want to configure
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="vlan">
+                    <description>Vlan ID you want to assign to the interface
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
         <item name="change_vlans" isPublic="true">
             <steps>
                 <item guid="f4663803-e308-4c42-8008-1af2eadb10b0" action="command" session="[session]" estimatedStepExecutionTime="0.017">

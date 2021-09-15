@@ -8,6 +8,22 @@
                     <language>Python</language>
                 </general>
                 <procedures>
+                    <item name="configure_interface_to_vlan" isPublic="true">
+                        <multilineDescription>Configure an interface to a vlan
+</multilineDescription>
+                        <arguments>
+                            <item name="interface">
+                                <description>Interface you want to configure
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                            <item name="vlan">
+                                <description>Vlan ID you want to assign to the interface
+</description>
+                                <isMandatory>true</isMandatory>
+                            </item>
+                        </arguments>
+                    </item>
                     <item name="change_vlans" isPublic="true">
                         <arguments>
                             <item name="interface">

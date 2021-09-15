@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<testCase version="8.4.3.0">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="velocloud_APC_base.ffsp"/>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="main"/>
+        <item name="Login" isPublic="true">
+            <steps>
+                <item guid="fba7afc3-25e3-4f46-88f4-0ffdc3c79466" action="command" session="[session]" estimatedStepExecutionTime="0.005">
+                    <command>
+                        <body>[user]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="31b94e54-8863-4793-80e0-172137e45875" action="command" session="[session]" normalOffset="1.094" estimatedStepExecutionTime="0.101">
+                    <command>
+                        <body>[password]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b3ba40d8-6f5c-4f3c-858e-e0277eb79912" action="command" session="[session]">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="user">
+                    <description>User name to log in</description>
+                    <defaultValue>apc</defaultValue>
+                </item>
+                <item name="password">
+                    <description>Password for user</description>
+                    <defaultValue>apc</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="GoToMainMenu" isPublic="true">
+            <steps>
+                <item guid="b221589c-4d3b-4e18-a28c-5621bf20337d" action="command" session="[session]" estimatedStepExecutionTime="0.069">
+                    <command>
+                        <body>[char(&quot;ESC&quot;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="117346b2-8d0c-4b1a-8037-4fcf02baf228" action="command" session="[session]" normalOffset="0.897" estimatedStepExecutionTime="0.033">
+                    <command>
+                        <body>[char(&quot;ESC&quot;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d1727a62-c6cc-4bbe-8e4a-47a5c3838024" action="command" session="[session]" normalOffset="0.593" estimatedStepExecutionTime="0.058">
+                    <command>
+                        <body>[char(&quot;ESC&quot;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b357e732-72e8-4689-a812-ca9285b25cff" action="command" session="[session]" normalOffset="0.619" estimatedStepExecutionTime="0.056">
+                    <command>
+                        <body>[char(&quot;ESC&quot;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d92eb18d-7bb3-4f39-84d9-99d52826da6d" action="command" session="[session]" normalOffset="0.347" estimatedStepExecutionTime="0.056">
+                    <command>
+                        <body>[char(&quot;ESC&quot;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="LocateOutletNumberWithName" isPublic="true">
+            <steps>
+                <item guid="8293c7dc-80df-4895-8cda-bff2126b6abf" action="GoToMainMenu" session="[session]" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d9f60b85-f402-4c53-8664-4ffdc7873121" action="command" session="[session]" estimatedStepExecutionTime="0.068">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a6d1edeb-f507-48f9-bcd8-9f249892d401" action="command" session="[session]" normalOffset="5.056" estimatedStepExecutionTime="1.464">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>col2_all()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>outlets</storageLocation>
+                                        <storeInAList>true</storeInAList>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b18fe42e-1b94-49f7-af7c-645b444665c6" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>index, value in enumerate(outlets):</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b0c6dd95-e51f-463c-9e3b-aaf41c7dd884" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>outlet_name in value:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c018a128-11ce-4f1c-9e65-fe7aae32a70e" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>int(index) + 1</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>responseLine()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>outlet_number</storageLocation>
+                                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="f4980f07-f78e-434a-9545-77f4dbc4dcbb" action="return">
+                                    <command>
+                                        <body>[outlet_number]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="outlet_name">
+                    <description>Name of the outlet number you want to get back</description>
+                    <defaultValue>None</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="EnableOutlet" isPublic="true">
+            <steps>
+                <item guid="37378dd6-335a-47b2-9917-b0e7b6edca71" action="LocateOutletNumberWithName" session="[session]" useFieldsInCommand="false">
+                    <command>
+                        <body>-outlet_name [outlet_name]</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>outlet_number</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="66d62e38-2bbe-45b2-96fe-bd080c7e6b7e" action="GoToMainMenu" session="[session]" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="897ac299-cceb-4bed-b68e-6ef01a241701" action="command" session="[session]" estimatedStepExecutionTime="0.07">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="049faf40-0798-429a-a2c6-3302b678e81b" action="command" session="[session]" estimatedStepExecutionTime="1.008">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6b6ed464-686a-4f2f-ac8d-b07f68c43072" action="command" session="[session]" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>[outlet_number]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="abeec25a-bea3-4bfe-988f-670904ae9161" action="command" session="[session]" estimatedStepExecutionTime="0.045">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="eabf8afa-00c6-4643-87c9-f9594bcf8ee5" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>1 = Immediate ON</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b24ab65a-f951-40c1-be0a-a6409fde9fc2" action="command" session="[session]" estimatedStepExecutionTime="0.024">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9aefa628-10af-482e-a6a1-e97b3b3496bb" action="command" session="[session]" estimatedStepExecutionTime="1.822">
+                    <command>
+                        <body>YES</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="outlet_name">
+                    <description>Name of the outlet you wish to enable
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="DisableOutlet" isPublic="true">
+            <steps>
+                <item guid="1a174a06-9d06-4149-aed9-fd77e5d19056" action="LocateOutletNumberWithName" session="[session]" useFieldsInCommand="false">
+                    <command>
+                        <body>-outlet_name [outlet_name]</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>outlet_number</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="227cd133-8eea-4e19-8269-8d74e5267847" action="GoToMainMenu" session="[session]" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c4cb5127-39a3-484d-bbda-80778dbf24c2" action="command" session="[session]" estimatedStepExecutionTime="0.07">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c3935e39-cacd-4fa8-886f-1916375dc802" action="command" session="[session]" estimatedStepExecutionTime="1.008">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="13cc0163-7236-47d1-8b1f-10dce9e234de" action="command" session="[session]" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>[outlet_number]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ce151ff4-9ca2-4933-b94b-45c5be917955" action="command" session="[session]" estimatedStepExecutionTime="0.045">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1255f827-f123-4aa9-bf22-f703bf09da6d" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>2 = Immediate OFF</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="124ccb51-b0fe-4717-8f80-80d3943c6414" action="command" session="[session]" estimatedStepExecutionTime="0.024">
+                    <command>
+                        <body>2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="7cde6f53-8802-4f5a-ae6d-daa2cd4c9f3a" action="command" session="[session]" estimatedStepExecutionTime="1.822">
+                    <command>
+                        <body>YES</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="outlet_name">
+                    <description>Name of the outlet you wish to enable
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="RebootOutlet" isPublic="true">
+            <steps>
+                <item guid="dc7e7076-cb20-4426-88a2-1f753caff9d4" action="LocateOutletNumberWithName" session="[session]" useFieldsInCommand="false">
+                    <command>
+                        <body>-outlet_name [outlet_name]</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>outlet_number</storageLocation>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0a4743b6-840b-4068-823f-88a8c2c1e628" action="GoToMainMenu" session="[session]" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3ed18284-5af6-4081-9993-ab1123c40378" action="command" session="[session]" estimatedStepExecutionTime="0.07">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9b5b1da8-63a4-4aa1-b9e4-db6d94fa94d8" action="command" session="[session]" estimatedStepExecutionTime="1.008">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ad80791a-9bd0-48d2-b20b-96ed0ae0f02f" action="command" session="[session]" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>[outlet_number]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c43b5cad-73d6-4e61-aeff-25fe94760eff" action="command" session="[session]" estimatedStepExecutionTime="0.045">
+                    <command>
+                        <body>1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="15a8fd69-3673-4b87-939d-d7832f32018e" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>3 = Immediate REBOOT</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="41a6400c-d42a-4e21-aa67-d3d6ff1d8f9f" action="command" session="[session]" estimatedStepExecutionTime="0.024">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e2078215-b879-4d45-93b3-fc947d04b087" action="command" session="[session]" estimatedStepExecutionTime="1.822">
+                    <command>
+                        <body>YES</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="outlet_name">
+                    <description>Name of the outlet you wish to enable
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

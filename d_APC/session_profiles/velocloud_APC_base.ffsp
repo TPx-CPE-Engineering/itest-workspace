@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<SessionTemplate version="8.4.3.0">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">10.255.20.31</ipAddress>
+        <TerminalProperties>
+            <captureProperties>
+                <commandBreakChars inherit="false">
+                    <item>[char ESC]</item>
+                </commandBreakChars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="user">
+                    <Content>User Name :</Content>
+                </item>
+                <item name="password">
+                    <Content>Password  :</Content>
+                </item>
+                <item name="prompt1">
+                    <Content>&gt;</Content>
+                </item>
+                <item name="prompt2" TypeOfPrompt="MORE">
+                    <Content>Press &lt;ENTER&gt; to continue...</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>Enter &apos;YES&apos; to continue or &lt;ENTER&gt; to cancel :</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_APC/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_APC/</formMapLibrary>
+    <sessionClassTestCase inherit="false">velocloud_APC_quickcall_library.fftc</sessionClassTestCase>
+    <nickName>APC</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+    <language>Python</language>
+</SessionTemplate>

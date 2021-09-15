@@ -6,6 +6,154 @@
     </general>
     <procedures>
         <item name="main"/>
+        <item name="FindInterfaceThatContainsTextInDescription" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="92fe900a-46c2-4270-a301-62d920882797" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Collect the descriptions and interfaces of all available</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6fb1264f-79db-415b-8b55-a0e07c15d1ef" action="command" session="[session]" estimatedStepExecutionTime="11.358" responseMap="project://d_Juniper/response_maps/show_interfaces_descriptions.ffrm" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>show interface description</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Description_all()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>interfaces_descriptions</storageLocation>
+                                        <storeInAList>true</storeInAList>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Interface_all()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>interfaces_all</storageLocation>
+                                        <storeInAList>true</storeInAList>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                        <storeResponseAt>interfaces</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                </item>
+                <item guid="48223805-cdac-4d77-9a36-fccc9311ad6c" action="command" session="[session]">
+                    <command>
+                        <body>[char(&apos;Newline&apos;)]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="92b144e4-5895-4f08-8e4b-f957687d8ebc" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Find the description that contains the ID and LAN</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="5b2d2bc7-43dc-48d8-92a4-9e5d358ac297" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>des in interfaces_descriptions:</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8024883f-78a7-44c7-9ec9-4264edd89c70" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>text in des:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e4579652-e5c1-4f37-8b63-8889040be346" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>desired_description = des</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3f5dda51-9eda-478e-b414-55c062083be6" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Get the index of the found description</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d1e8a15b-cc51-4be1-85e3-ae3729209468" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>index = interfaces_descriptions.index(desired_description)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f5e7747d-3d06-426f-ae80-99223eb9d112" action="comment" skip="true" useFieldsInCommand="false">
+                    <command>
+                        <body>Use the index to get the interface name and return it</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0f6400b3-b5e8-47cd-9655-df2fb83b480f" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(interfaces_all[index])</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>interface_with_dot_zero</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7fe2bb54-6c78-47db-8103-3e0a81bc52d3" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(interface_with_dot_zero[:-3])</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>responseLine()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <query>interface</query>
+                                        <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                        <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="text">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+            <response>{&quot;interface&quot;:&quot;value&quot;}</response>
+        </item>
         <item name="DisableInterface" isPublic="true">
             <steps>
                 <item guid="0d02d040-1363-427d-9b91-de90c90c5974" action="command" session="[session]" estimatedStepExecutionTime="0.065">
