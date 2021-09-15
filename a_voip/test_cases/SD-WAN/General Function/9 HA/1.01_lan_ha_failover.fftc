@@ -14,12 +14,12 @@ No loss of MoS score or packets for RTP traffic</notes>
     <procedures>
         <item name="main">
             <steps>
-                <item guid="972c6be8-9733-4fe0-a1bd-c79c9ff7e725" action="comment" useFieldsInCommand="false">
+                <item guid="da67b915-65e4-46c8-b317-6bf4f770137f" action="comment" useFieldsInCommand="false">
                     <command>
                         <body>Opening devices</body>
                     </command>
                     <nestedSteps>
-                        <item guid="dd3fac97-614a-4422-8ae2-7d6ffdf657b4" action="open" session="Ixload" useFieldsInCommand="false">
+                        <item guid="4232647a-c8a5-4e92-82d8-3f9b22147ea0" action="open" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>device:SD-WAN#python</body>
                             </command>
@@ -30,7 +30,7 @@ No loss of MoS score or packets for RTP traffic</notes>
                                 <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                             </applicationProperties>
                         </item>
-                        <item guid="969f3bbb-76c0-439c-9aac-930ac935ce2e" action="open" session="DUT_Edge">
+                        <item guid="71dfa426-3d3b-4431-bf5e-718f1b80a1b1" action="open" session="DUT_Edge">
                             <command>
                                 <body>device:SD-WAN#python</body>
                             </command>
@@ -41,9 +41,20 @@ No loss of MoS score or packets for RTP traffic</notes>
                                 <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                             </applicationProperties>
                         </item>
-                        <item guid="0032bf91-2be0-4633-8a8c-441eaaca2b3b" action="open" session="Juniper">
+                        <item guid="4214bef4-c7c8-4cd4-b93e-912d1d3fce13" action="open" session="Juniper">
                             <command>
                                 <body>device:Switch%202#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="8958108f-b98b-4bfb-a491-6e5bcca76a69" action="open" session="Ixia_switch">
+                            <command>
+                                <body>device:Ixia%20Switch#ssh</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
                                 <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
@@ -55,58 +66,89 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="df7b7865-e445-4565-bf02-945f83029600" action="comment" useFieldsInCommand="false">
+                <item guid="0e06ff3b-0b42-40fc-92dc-b8e4f8133e83" action="comment" useFieldsInCommand="false">
                     <command>
                         <body>Importing modules</body>
                     </command>
                     <nestedSteps>
-                        <item guid="ac351110-f549-43dd-8d9c-5a99a8490d31" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="8ba40347-e7ea-4e64-a253-306e12071db4" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
-                                <body>from d_velocloud.ha import ha_1_01_lan_ha_failover as HA</body>
+                                <body>from d_velocloud.ha import ha_1_00_wan_ha_failover as HA</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="e9e7c2c2-747d-41f3-b790-91c6ecb6cae3" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="41db2e5f-d8f6-4370-8192-49859fd4393d" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
-                                <body>from d_ixia.ix_load.Modules.MyIxLoadAPI import IxLoadApi</body>
+                                <body>from d_velocloud.ha.ha_classes import HAIxLoadApi</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="ccd76f79-f163-4e14-b064-e4f157abf148" action="comment" useFieldsInCommand="false">
+                <item guid="15a5e17a-54fd-49d2-865d-b444bb2053f5" action="comment" useFieldsInCommand="false">
                     <command>
                         <body>Initiating Edge</body>
                     </command>
                     <nestedSteps>
-                        <item guid="f1f2d2d6-4c14-4241-ba6d-e0cb91d4e013" action="command" session="DUT_Edge">
+                        <item guid="92ac8606-5fae-4441-82b3-69ae99867a63" action="command" session="DUT_Edge">
                             <command>
                                 <body>edge_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;edgeId&apos;)]&quot;</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="47eec53d-4618-4f2e-84c5-f8fb1ac91435" action="command" session="DUT_Edge">
+                        <item guid="0e43987f-9608-49c4-b23a-a97474fe316e" action="command" session="DUT_Edge">
                             <command>
                                 <body>enterprise_id = &quot;[tbml(&apos;property&apos;, &apos;-name&apos;, &apos;SD-WAN&apos;, &apos;enterpriseId&apos;)]&quot;</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="189f0688-5374-487f-ae0c-9e39c8a2dd8b" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="14c31591-5dd0-48bd-9157-0f26855fe203" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
                                 <body>DUT_EDGE, EPOCH = HA.create_edge(edge_id, enterprise_id)</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
+                        <item guid="0aa37723-c7de-4a54-801a-83d3528f65b8" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>print(EPOCH)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="690c3c43-78d7-42dc-bbf8-05a7f6992e30" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.get_vlan_id_from_vlan_name(vlan_name=&apos;Voice&apos;)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;vlan id&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>edges_voice_vlan_id</storageLocation>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="4d2d67d3-76ca-4bb5-aaf6-8d8ca1db1bcb" action="comment" useFieldsInCommand="false">
+                <item guid="ad98c0a2-6a63-45b1-ad4c-da315d9b1360" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Checking if Edge has HA is ready</body>
+                        <body>Checking if Edge&apos;s HA State equals &apos;READY&apos;...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="dd7757ee-b10d-40f5-aa90-eba7a81fec41" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="846a6890-7f76-4cd6-9488-b72edd273ed4" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
                                 <body>DUT_EDGE.get_enterprise_edge_info(specific_key=&quot;haState&quot;)</body>
                             </command>
@@ -127,14 +169,14 @@ No loss of MoS score or packets for RTP traffic</notes>
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>Edge HA State is Ready</message>
+                                                            <message>Edge HA State is &apos;Ready&apos; as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
                                                 <actionsWhenFalse>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
-                                                            <message>Edge HA State is not ready. Please make sure this edge is configured for HA testing.</message>
+                                                            <message>Edge HA State is not &apos;Ready&apos;. Please make sure this edge is configured for HA testing.</message>
                                                         </actionProperties>
                                                     </item>
                                                     <item actionId="CancelTest">
@@ -151,15 +193,32 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="d5e6ce15-a612-4f97-9827-032275ca43e3" action="comment" useFieldsInCommand="false">
+                <item guid="d5cc2164-fdd2-44fc-8e93-ed048f49d62e" action="comment" useFieldsInCommand="false">
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="17ec12a0-f35d-4d96-8ad7-31dad082381d" action="comment" useFieldsInCommand="false">
+                <item guid="bcbb7a6e-6cd0-43c1-8c73-a30e2ff58748" action="comment">
                     <command>
-                        <body>Getting Edge&apos;s active device serial number</body>
+                        <body>Configuring Ixia Switch interface gi 0/5 to be assigned to the Edges&apos; VLAN [edges_voice_vlan_id]...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="5b1e536b-9d12-490b-a64b-d186361c799a" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="4b546962-8de0-40b1-8fab-f08923d36181" action="configure_interface_to_vlan" session="Ixia_switch" useFieldsInCommand="false">
+                            <command>
+                                <body>-interface &quot;Gi0/5&quot; -vlan [edges_voice_vlan_id]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="584f3372-9a50-41dc-bc21-88256f8fba61" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="18bb0222-6799-4ac6-9a61-15ea65f5d3ad" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Getting Edge&apos;s active and stand-by device serial numbers...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="454f2722-c3ea-4931-a31c-57dd8526cf95" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
                                 <body>DUT_EDGE.get_active_device_serial_number()</body>
                             </command>
@@ -197,18 +256,7 @@ No loss of MoS score or packets for RTP traffic</notes>
                             </postProcessing>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                    </nestedSteps>
-                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                </item>
-                <item guid="7f483dac-3ad8-4238-a1f2-207d548bd837" action="comment" useFieldsInCommand="false">
-                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                </item>
-                <item guid="67a159c3-87ed-4e0a-a410-8c9eeb5eb4b5" action="comment" useFieldsInCommand="false">
-                    <command>
-                        <body>Getting Edge&apos;s stand-by device serial number</body>
-                    </command>
-                    <nestedSteps>
-                        <item guid="fa062036-0886-4690-84c7-fae4a2aa2075" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="829c9672-86f8-47e9-b0a1-a422b5ed1a59" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
                                 <body>DUT_EDGE.get_ha_device_serial_number()</body>
                             </command>
@@ -234,15 +282,15 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="46e605e7-afbc-4454-8038-96e973f9b6fa" action="comment" useFieldsInCommand="false">
+                <item guid="3a958cda-b5aa-4930-8a58-5c067bb3083b" action="comment" useFieldsInCommand="false">
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="ba7de452-9413-42a0-b6a0-2dd4b0c0bb8f" action="comment" useFieldsInCommand="false">
+                <item guid="0ea7c1d7-f30c-4b38-8b1a-63f5e1afe1df" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Getting Edge&apos;s active device interface based on serial number</body>
+                        <body>Getting Edge&apos;s LAN active interface on Jupiter switch based on Edge&apos;s active serial number...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="2067b2e2-b924-4cd9-b427-f08098be6fa9" action="FindHaLanInterfaceFromID" session="Juniper" useFieldsInCommand="false">
+                        <item guid="4659caf4-8a17-4470-8157-96598dc25bc5" action="FindHaLanInterfaceFromID" session="Juniper" useFieldsInCommand="false">
                             <command>
                                 <body>-ID [serial_number] -LAN &quot;GE2 Voice&quot;</body>
                             </command>
@@ -283,51 +331,51 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="ae01eafb-9ae7-42a9-8614-a28042983733" action="comment" useFieldsInCommand="false">
+                <item guid="43737d29-dd19-4263-a40f-42814f7a2455" action="comment" useFieldsInCommand="false">
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="e18f3b16-b281-41cb-bb82-25b737bf5c74" action="comment" useFieldsInCommand="false">
+                <item guid="d9ca8387-588b-4a4e-90b3-dd221fdbc503" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Starting IxLoad test</body>
+                        <body>Starting IxLoad test...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="5e5ac35c-b9ad-444e-9508-3fd4994dd1fd" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="bc3dd536-e1b6-44de-96db-800be0a6044a" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
-                                <body>IxLoad = IxLoadApi()</body>
+                                <body>IxLoad = HAIxLoadApi()</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="12f66c2d-4845-408d-89c7-fa7735c386b8" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="a8c91539-49c4-4c06-a090-66863c15d38d" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.connect(ixLoadVersion=IxLoad.ixLoadVersion)</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="1b8317e9-a1cb-4f78-9da7-31b1ba9a96f0" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="6c1a74df-b308-492f-bbed-0a4fb8d45121" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.loadConfigFile(rxfFile=&quot;C:\\\\Users\\\\dataeng\\\\Documents\\\\Ixia\\\\IxLoad\\\\Repository\\\\Dev_Velo620HA-g711+VoiceBsoftFXSStressTest_1-50+Acme+FTP2Ixia.rxf&quot;)</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="c2372a9e-47cc-4638-9d7f-7ea50ae57b12" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="c22b6dfc-e4bc-4c8e-b1f6-8ab3c2b57fba" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.enableForceOwnership()</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="b97f1e77-b184-4cae-8840-0ad0c6f96ff0" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="4c47cef5-70b9-4b2f-9e7c-eb2d3393a27f" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.enableAnalyzerOnAssignedPorts()</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="6a788736-0f31-4fe3-833c-56804257dbb4" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="38a8148f-8925-464d-a94d-66158dd58082" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.runTraffic()</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="16182df3-efb7-4167-8958-87222fd3d658" action="sleep">
+                        <item guid="b42680b5-65ea-4d3d-8f6b-a5e758605a4f" action="sleep">
                             <command>
                                 <body>60</body>
                             </command>
@@ -336,12 +384,12 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="be1032a8-c974-4cef-9b09-92e878370177" action="comment" async="true" threadName="stats" useFieldsInCommand="false">
+                <item guid="0f6eaafc-4c2b-4409-ade5-866c0e7a79ee" action="comment" async="true" threadName="stats" useFieldsInCommand="false">
                     <command>
-                        <body>Collecting Inbound &amp; Outbound Throughput as the test executes</body>
+                        <body>Collecting One Way Delay, Inbound Throughput, and Outbound Throughput as the IxLoad test is running...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="c1946b04-c968-48c9-9c0f-d5b3428b3342" action="command" session="Ixload" async="true" useFieldsInCommand="false">
+                        <item guid="7356d077-65a2-490e-bdb9-3328becb7cfd" action="command" session="Ixload" async="true" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.poll_inbound_outbound_throughput_stats()</body>
                             </command>
@@ -350,18 +398,29 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="47e015d3-0570-431f-9b39-ba08af740326" action="comment">
+                <item guid="05de19d8-f67e-483c-a891-117d10336c61" action="comment">
                     <command>
-                        <body>Waiting 3 minutes and shutting down Edge&apos;s active device interface: &quot;[edge_active_interface]&quot;</body>
+                        <body>Waiting 3 minutes...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="64d5181e-ee3b-4dac-bcd7-ad65190034ef" action="sleep">
+                        <item guid="b27b1a52-0f6a-440e-9410-23c0609d8df1" action="sleep">
                             <command>
                                 <body>180</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="974f48cf-7788-4a14-9d3f-f3f482d4d7cf" action="DisableInterface" session="Juniper" useFieldsInCommand="false">
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a1b09e99-2c81-40b4-97ef-7ca5ebd58c68" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="47bff579-0deb-4514-b989-aac7e7055eb4" action="comment">
+                    <command>
+                        <body>Shutting down Edge&apos;s active interface: &quot;[edge_active_interface]&quot; as IxLoad test is running...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="76b66080-5243-460e-b496-2e1aed3b5fce" action="DisableInterface" session="Juniper" useFieldsInCommand="false">
                             <command>
                                 <body>-interface [edge_active_interface]</body>
                             </command>
@@ -370,21 +429,21 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="0c51777e-9a03-4f00-ab00-11241277dec7" action="comment">
+                <item guid="2165842f-0097-4c89-8f9b-de491a7e5b17" action="comment">
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="70c381ab-7708-485d-abe8-4575dccea0d1" action="waitthread">
+                <item guid="11d75833-7963-4ed7-a121-d9a407c6fb0f" action="waitthread">
                     <command>
                         <body>stats</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
                 </item>
-                <item guid="8c511769-5474-4c86-95bc-7becabb426a7" action="comment" useFieldsInCommand="false">
+                <item guid="af375ef0-c83e-4f10-a286-fa4df35f6046" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Waiting until tests finishes and becomes unconfigured</body>
+                        <body>Waiting until tests finishes and becomes unconfigured...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="31ce1b1d-0075-4dec-8649-1ee410504366" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="e4b8b858-066b-4787-a0e5-42e0f6eca0b7" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.waitForActiveTestToUnconfigure()</body>
                             </command>
@@ -393,12 +452,15 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="3e27f2d6-b058-4691-b799-e5f2cca8917d" action="comment" useFieldsInCommand="false">
+                <item guid="34435f1b-17d8-45cf-9000-c86cc63ed21e" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="de297189-5989-42d1-84dc-6a286108f453" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Verify condition of stats to pass test</body>
+                        <body>Analyzing IxLoad stats. There should be less than 10 warnings where the stats pasts their threshold...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="20d4eef3-39f0-41d7-baf6-4f8b5c845d4f" action="command" session="Ixload" useFieldsInCommand="false" useAutoMap="false">
+                        <item guid="f31e18d6-2f9c-4488-b268-d1952a4995f4" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.check_for_inbound_outbound_throughput_delay_consistency()</body>
                             </command>
@@ -435,13 +497,45 @@ No loss of MoS score or packets for RTP traffic</notes>
                                                 </actionsWhenFalse>
                                             </ruleProperties>
                                         </processorInfo>
+                                        <skip>true</skip>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;test result&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>There were less than 10 threshold warnings within IxLoad stats. </message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>There were more than 10 threshold warnings within IxLoad stats. Please look at the stats for a full view.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
                                     </item>
                                 </analysisRules>
                             </postProcessing>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                            <performResponseMapping>false</performResponseMapping>
                         </item>
-                        <item guid="6200572b-26dd-4769-a952-0f744773f5c0" action="command" session="Ixload" useFieldsInCommand="false" useAutoMap="false">
+                        <item guid="7eeb5e0c-08ae-4388-b2e1-6579bbe6e362" action="command" session="Ixload" useFieldsInCommand="false" useAutoMap="false">
                             <command>
                                 <body>IxLoad.print_inbound_outbound_throughput_delay_consistency()</body>
                             </command>
@@ -451,14 +545,14 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="748c1475-4ca5-4bf3-9908-5eb226f7ed66" action="comment" useFieldsInCommand="false">
+                <item guid="da964f65-bfe1-48be-8378-fe2c17b15219" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>Checking Edge&apos;s events to confirm HA_GOING_ACTIVE is present</body>
+                        <body>Checking Edge&apos;s events to confirm a &apos;HA_GOING_ACTIVE&apos; event took place...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="93ba62d2-daa1-4549-854b-db8f333a6236" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                        <item guid="ebcd583e-8a91-4c2a-9e6c-0f715c6fda68" action="command" session="DUT_Edge" useFieldsInCommand="false">
                             <command>
-                                <body>HA.check_for_ha_going_active_in_edge_events(EPOCH)</body>
+                                <body>DUT_EDGE.check_for_ha_going_active_in_edge_events(EPOCH)</body>
                             </command>
                             <postProcessing>
                                 <analysisRules>
@@ -477,7 +571,7 @@ No loss of MoS score or packets for RTP traffic</notes>
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
-                                                            <message>HA Going Active event was present on the edge</message>
+                                                            <message>&apos;HA_GOING_ACTIVE&apos; event is present on the edge&apos;s events list as expected.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenTrue>
@@ -487,7 +581,7 @@ No loss of MoS score or packets for RTP traffic</notes>
                                                     </item>
                                                     <item actionId="DeclareExecutionIssue">
                                                         <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
-                                                            <message>HA Going Active event was not present on the edge.</message>
+                                                            <message>&apos;HA_GOING_ACTIVE&apos; event is not present on the edge&apos;s events list.</message>
                                                         </actionProperties>
                                                     </item>
                                                 </actionsWhenFalse>
@@ -501,32 +595,172 @@ No loss of MoS score or packets for RTP traffic</notes>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="da0d4bbd-3d8f-42e0-a86d-d3ed9c252912" action="comment">
+                <item guid="dcdf92f6-bc80-4998-8911-4447f7f7e918" action="comment">
                     <command>
-                        <body>Re-enabling Edge&apos;s active device interface: &quot;[edge_active_interface]&quot;</body>
+                        <body>Checking if Edge&apos;s active and stand-by device serial numbers swapped...</body>
                     </command>
                     <nestedSteps>
-                        <item guid="a6635554-1349-4d9b-ad84-03244f93fdf5" action="sleep">
+                        <item guid="0de4d141-d234-4548-bd90-9afe12792bb6" action="command" session="DUT_Edge" useFieldsInCommand="false">
+                            <command>
+                                <body>DUT_EDGE.check_if_active_ha_serial_numbers_swapped()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;swap&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;successful&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Serial numbers swapped successfully as expected.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Serial numbers did not swapped successfully.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="da75f745-5c2f-4fef-819a-5c6bce8eeef1" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="48fae89f-1450-4251-b857-606a81395b39" action="comment">
+                    <command>
+                        <body>Re-enabling Edge&apos;s active device interface: &quot;[edge_active_interface]&quot;...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9f8c8cd4-8825-4620-82aa-f2d49a75c758" action="sleep">
                             <command>
                                 <body>120</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
-                        <item guid="b4904603-40d9-4063-8f06-36990d37fc65" action="EnableInterface" session="Juniper" useFieldsInCommand="false">
+                        <item guid="b902987b-9679-4e88-be68-2e7938d62a11" action="EnableInterface" session="Juniper" useFieldsInCommand="false">
                             <command>
                                 <body>-interface [edge_active_interface]</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                         </item>
+                        <item guid="2bb89e85-f358-442c-ac0f-aee6050d6f2d" action="sleep">
+                            <command>
+                                <body>120</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
                     </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="e33d0d70-472b-4c12-82d3-bb7b2277b164" action="comment" useFieldsInCommand="false">
+                <item guid="4e2958eb-b3d6-4cb9-b263-a484d581bfe9" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d0948c03-6088-4d82-be8b-38532d526600" action="comment">
+                    <command>
+                        <body>Starting IxLoad test again and checking if traffic flows start again after interface has been brought back up...</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="62c5dbbb-9594-4429-8213-0f798626df06" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.runTraffic()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="cba6c936-7484-444b-948c-944a7a5426e1" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.poll_inbound_outbound_throughput_stats()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4ad51ab5-b59b-4b1e-a50f-9120dd9a8c75" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.waitForActiveTestToUnconfigure()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d58243c9-b164-4db2-9f1c-01919cee7aac" action="command" session="Ixload" useFieldsInCommand="false">
+                            <command>
+                                <body>IxLoad.check_for_inbound_outbound_throughput_delay_consistency()</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>item_item_by_key(&quot;test result&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>value == &quot;Passed&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>There were less than 10 threshold warnings within IxLoad stats. </message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>There were more than 10 threshold warnings within IxLoad stats. Please look at the stats for a full view.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="2cdf02dc-682d-47d9-9b14-889659120fb1" action="command" session="Ixload" useFieldsInCommand="false" useAutoMap="false">
+                            <command>
+                                <body>IxLoad.print_inbound_outbound_throughput_delay_consistency()</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <performResponseMapping>false</performResponseMapping>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1a77bffa-2760-4d92-93ff-d8b0d843be0d" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3d752494-796d-487b-a207-cf749e291f2c" action="comment" useFieldsInCommand="false">
                     <command>
                         <body>Deleting IxLoad Session</body>
                     </command>
                     <nestedSteps>
-                        <item guid="ce67b780-f156-43cf-bc53-65156135da1a" action="command" session="Ixload" useFieldsInCommand="false">
+                        <item guid="087b12aa-0acd-4a06-92ba-2bf76dcf85ab" action="command" session="Ixload" useFieldsInCommand="false">
                             <command>
                                 <body>IxLoad.deleteSessionId()</body>
                             </command>
