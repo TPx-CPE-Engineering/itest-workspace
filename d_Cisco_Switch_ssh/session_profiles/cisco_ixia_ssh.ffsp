@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
-<SessionTemplate version="8.1.3.0">
+<SessionTemplate version="8.4.3.0">
     <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
     <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
         <TerminalProperties>
+            <captureProperties>
+                <commandCompletionchars inherit="false">
+                    <item>?</item>
+                </commandCompletionchars>
+            </captureProperties>
             <prompts merge="true">
                 <item name="prompt1">
                     <Content>CPE-2960G-24#</Content>
@@ -13,6 +18,9 @@
                 <item name="prompt3">
                     <Content>CPE-2960G-24(config-if)#</Content>
                 </item>
+                <item name="prompt1_1" TypeOfPrompt="MORE">
+                    <Content>--More--</Content>
+                </item>
             </prompts>
         </TerminalProperties>
         <ipAddress inherit="false">10.255.20.10</ipAddress>
@@ -22,7 +30,7 @@
     </sessionProperties>
     <responseLibrary inherit="false">project://d_Cisco_Switch_ssh/</responseLibrary>
     <formMapLibrary inherit="false">project://d_Cisco_Switch_ssh/</formMapLibrary>
-    <sessionClassTestCase inherit="false">cisco_ixia_ssh.fftc</sessionClassTestCase>
+    <sessionClassTestCase inherit="false">cisco_ixia_quickcalls.fftc</sessionClassTestCase>
     <nickName>Cisco_Switch</nickName>
     <isReferenceProfile>true</isReferenceProfile>
 </SessionTemplate>
