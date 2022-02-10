@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testCase version="8.4.0.202012071239">
+<testCase version="8.4.3.0">
     <general>
         <documentation>Firewall - Verify 1:1 NAT</documentation>
         <tags>sd-wan, firewall, velocloud, silverpeak, 1 to 1 nat,</tags>
@@ -259,6 +259,11 @@ Usage: Enable 1:1 NAT rule for CPE on SD-WAN, execute a snmpwalk request to the 
                                             <message>CPE did not replied to snmpwalk. Exiting execution.</message>
                                         </actionProperties>
                                     </item>
+                                    <item actionId="CallProcedure">
+                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                            <command>Remove_NAT_rule()</command>
+                                        </actionProperties>
+                                    </item>
                                     <item actionId="FailTest">
                                         <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                                     </item>
@@ -380,6 +385,16 @@ Usage: Enable 1:1 NAT rule for CPE on SD-WAN, execute a snmpwalk request to the 
                     <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
                 </item>
                 <item guid="d55b281b-acfc-47f4-89ba-96f49e5fbfa6" action="close" session="SD-WAN" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="Remove_NAT_rule" isPublic="true">
+            <steps>
+                <item guid="5841e3df-190e-4507-ab02-e21abaf6ac4f" action="command" session="SD-WAN" useFieldsInCommand="false">
+                    <command>
+                        <body>remove_one_to_one_nat_rule()</body>
+                    </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
